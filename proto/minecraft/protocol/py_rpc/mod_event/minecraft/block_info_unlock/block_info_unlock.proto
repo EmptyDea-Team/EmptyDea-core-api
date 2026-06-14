@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.block_info_unlock.block_info_unlock;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/block_info_unlock;block_info_unlock";
+
+import "py_rpc/mod_event/minecraft/block_info_unlock/basic.proto";
+
+// BlockInfoUnlock 同步单个方块或实体信息已解锁。
+//
+// BlockInfoUnlock synchronises that one block or entity information entry is unlocked.
+message BlockInfoUnlock {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.block_info_unlock.basic.Basic Basic = 1;
+  // GroupID 是解锁条目的分组 ID。
+  //
+  // GroupID is the group ID of the unlocked entry.
+  string GroupID = 2;
+  // BlockName 是方块或实体标识。
+  //
+  // BlockName is the block or entity identifier.
+  string BlockName = 3;
+  // Aux 是方块附加值。
+  //
+  // Aux is the block auxiliary value.
+  int64 Aux = 4;
+  // Reason 是解锁原因。
+  //
+  // Reason is the unlock reason.
+  string Reason = 5;
+  // IsUnlock 表示该条目是否已解锁。
+  //
+  // IsUnlock indicates whether this entry is unlocked.
+  bool IsUnlock = 6;
+  // Stage 是解锁阶段，例如 block 或 entity。
+  //
+  // Stage is the unlock stage, such as block or entity.
+  string Stage = 7;
+  // Time 是解锁日期字符串。
+  //
+  // Time is the unlock date string.
+  string Time = 8;
+  // UID 是玩家 UID。
+  //
+  // UID is the player UID.
+  string UID = 9;
+}
+

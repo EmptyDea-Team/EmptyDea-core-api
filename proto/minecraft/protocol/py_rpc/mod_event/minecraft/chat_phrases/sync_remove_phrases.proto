@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_phrases.sync_remove_phrases;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_phrases;chat_phrases";
+
+import "py_rpc/mod_event/minecraft/chat_phrases/basic.proto";
+
+// SyncRemovePhrases 同步被移除的快捷短语 ID。
+//
+// SyncRemovePhrases synchronises removed quick phrase IDs.
+message SyncRemovePhrases {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_phrases.basic.Basic Basic = 1;
+  // IDs 保存按来源索引的快捷短语 ID 列表。
+  //
+  // IDs stores quick phrase IDs indexed by source.
+  // Go type: map[string][]uint64
+  map<string, uint64> IDs = 2;
+}
+

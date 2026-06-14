@@ -1,0 +1,163 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.netease;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+import "block_pos.proto";
+import "mgl32.proto";
+
+enum NetEaseRecordUnknownFlagEnum {
+  NETEASERECORDUNKNOWNFLAGENUM_UNSPECIFIED = 0;
+  NetEaseRecordUnknownFlag1 = 1;
+  NetEaseRecordUnknownFlag2 = 2;
+}
+
+// NetEaseRecordUnknownEntry1 是网易回放输入数据的一部分。
+//
+// NetEaseRecordUnknownEntry1 is part of NetEase replay input data.
+//
+// Added: NetEase.
+message NetEaseRecordUnknownEntry1 {
+  uint32 Unknown1 = 1;
+  // Go type: float32
+  float Unknown2 = 2;
+  uint32 Unknown3 = 3;
+}
+
+// NetEaseRecordUnknownEntry2 是网易回放输入数据的一部分。
+//
+// NetEaseRecordUnknownEntry2 is part of NetEase replay input data.
+//
+// Added: NetEase.
+message NetEaseRecordUnknownEntry2 {
+  uint32 Unknown1 = 1;
+  uint32 Unknown2 = 2;
+  uint32 Unknown3 = 3;
+}
+
+// NetEaseClientInputRecordData 是网易回放输入数据。
+//
+// NetEaseClientInputRecordData is NetEase replay input data.
+//
+// Added: NetEase.
+message NetEaseClientInputRecordData {
+  uint32 Unknown1 = 1;
+  uint32 Unknown2 = 2;
+  // Go type: float32
+  float Unknown3 = 3;
+  // Go type: float32
+  float Unknown4 = 4;
+  uint32 Unknown5 = 5;
+  // Go type: []NetEaseRecordUnknownEntry1
+  repeated NetEaseRecordUnknownEntry1 Unknown6 = 6;
+  // Go type: []NetEaseRecordUnknownEntry2
+  repeated NetEaseRecordUnknownEntry2 Unknown7 = 7;
+}
+
+// ClientAdditionalReplayUnknownData 是网易回放保存数据的一部分。
+//
+// ClientAdditionalReplayUnknownData is part of NetEase replay save data.
+//
+// Added: NetEase.
+message ClientAdditionalReplayUnknownData {
+  bool Unknown1 = 1;
+  // Go type: byte
+  uint32 Unknown2 = 2;
+  string Unknown3 = 3;
+  string Unknown4 = 4;
+}
+
+// NetEasePlayerData 是网易皮肤数据包使用的玩家元数据。
+//
+// NetEasePlayerData is player metadata used by NetEase skin packets.
+//
+// Added: NetEase.
+message NetEasePlayerData {
+  bool Unknown1 = 1;
+  // Go type: uuid.UUID
+  string UUID = 2;
+  string Unknown2 = 3;
+}
+
+// NetEaseUnknownPlayerListEntry 是可选的网易玩家列表条目。
+//
+// NetEaseUnknownPlayerListEntry is an optional NetEase player list entry.
+//
+// Added: NetEase.
+message NetEaseUnknownPlayerListEntry {
+  bool HasValue = 1;
+  bool Unknown1 = 2;
+  string Unknown2 = 3;
+  string Unknown3 = 4;
+  string Unknown4 = 5;
+  string Unknown5 = 6;
+  string Unknown6 = 7;
+}
+
+// NetEaseBiomeData 是网易生物群系数据包使用的生物群系元数据。
+//
+// NetEaseBiomeData is biome metadata used by NetEase biome packets.
+//
+// Added: NetEase.
+message NetEaseBiomeData {
+  // Go type: uint8
+  uint32 Flag = 1;
+  int32 Unknown1 = 2;
+  string Unknown2 = 3;
+  .mousetunnel.minecraft.protocol.block_pos.BlockPos Pos1 = 4;
+  .mousetunnel.minecraft.protocol.block_pos.BlockPos Pos2 = 5;
+}
+
+// MobEffectV2UnknownEntry 是网易模组效果条目。
+//
+// MobEffectV2UnknownEntry is a NetEase mod effect entry.
+//
+// Added: NetEase.
+message MobEffectV2UnknownEntry {
+  int32 Unknown1 = 1;
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 Position = 2;
+  string Unknown2 = 3;
+  string Unknown3 = 4;
+}
+
+// EntityPhysxShapes 是网易实体物理形状数据。
+//
+// EntityPhysxShapes is NetEase entity physics shape data.
+//
+// Added: NetEase.
+message EntityPhysxShapes {
+  // Go type: float32
+  float Unknown1 = 1;
+  // Go type: float32
+  float Unknown2 = 2;
+  // Go type: float32
+  float Unknown3 = 3;
+  // Go type: float32
+  float Unknown4 = 4;
+  // Go type: float32
+  float Unknown5 = 5;
+  // Go type: float32
+  float Unknown6 = 6;
+  // Go type: float32
+  float Unknown7 = 7;
+  // Go type: float32
+  float Unknown8 = 8;
+  // Go type: float32
+  float Unknown9 = 9;
+  uint32 Unknown10 = 10;
+  // Go type: []byte
+  bytes UserData = 11;
+}
+
+// NetEaseStartGameData 是网易使用的额外 StartGame 数据。
+//
+// NetEaseStartGameData is extra StartGame data used by NetEase.
+//
+// Added: NetEase.
+message NetEaseStartGameData {
+  uint64 Unknown1 = 1;
+  // Go type: float32
+  float Unknown2 = 2;
+}
+

@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.biome_definition_list;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "biome.proto";
+import "packet_options.proto";
+
+// BiomeDefinitionList 由服务器发送，用于让客户端知道服务器侧可用并已实现的所有生物群系。
+// 启用时，它还会包含供客户端准确重现原版世界或服务器的服务器侧生成逻辑的信息，以提升性能。
+//
+// BiomeDefinitionList is sent by the server to let the client know all biomes that are available and
+// implemented on the server side. When enabled, it also includes information for the client to
+// accurately recreate the server-side generation in vanilla worlds/servers for increased performance.
+//
+// Added: v1.12
+message BiomeDefinitionList {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDBiomeDefinitionList;
+  // BiomeDefinitions 是服务器上可用的生物群系列表。
+  //
+  // BiomeDefinitions is a list of biomes that are available on the server.
+  //
+  // Added: v1.21.110.26
+  // Go type: []protocol.BiomeDefinition
+  repeated .mousetunnel.minecraft.protocol.biome.BiomeDefinition BiomeDefinitions = 1;
+  // StringList 是 Mojang 为尝试减小整体数据包体积而创建的临时字典实现。
+  // 它是生物群系定义中常用字符串的列表，例如生物群系名称、浮点值或查询表达式。
+  //
+  // StringList is a makeshift dictionary implementation Mojang created to try and reduce the size of the
+  // overall packet. It is a list of common strings that are used in the biome definitions, such as
+  // biome names, float values or query expressions.
+  //
+  // Added: v1.21.110.26
+  // Go type: []string
+  repeated string StringList = 2;
+}
+

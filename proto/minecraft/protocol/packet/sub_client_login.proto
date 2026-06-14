@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.sub_client_login;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// SubClientLogin 在已有另一个客户端连接到服务器时，由加入服务器的子客户端发送。
+// 该数据包由分屏游玩产生，允许最多四名玩家共用同一个网络连接进行游戏。
+// 在“主”客户端发送初始 Login 数据包后，每个连接的子客户端都会发送 SubClientLogin 来请求自己的登录。
+//
+// SubClientLogin is sent when a sub-client joins the server while another client is already connected to it.
+// The packet is sent as a result of split-screen game play, and allows up to four players to play using the
+// same network connection. After an initial Login packet from the 'main' client, each sub-client that
+// connects sends a SubClientLogin to request their own login.
+//
+// Added: v1.12
+message SubClientLogin {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDSubClientLogin;
+  // ConnectionRequest 是包含玩家信息和 JWT 的字符串，这些 JWT 可用于验证玩家是否已连接到 XBOX Live。
+  // 该连接请求还包含初始化加密所需的客户端公钥。
+  // 此数据包中的 ConnectionRequest 与 Login 数据包中的同名字段相同。
+  //
+  // ConnectionRequest is a string containing information about the player and JWTs that may be used to
+  // verify if the player is connected to XBOX Live. The connection request also contains the necessary
+  // client public key to initiate encryption.
+  // The ConnectionRequest in this packet is identical to the one found in the Login packet.
+  //
+  // Added: v1.12
+  // Go type: []byte
+  bytes ConnectionRequest = 1;
+}
+

@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.client_init_ui_finished_event_from_gac;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpc";
+
+import "py_rpc/empty_payload.proto";
+
+// ClientInitUIFinishedEventFromGac 在网易 GAC 客户端 UI 初始化完成后发送。
+// 反编译客户端调用点无参数。
+//
+// ClientInitUIFinishedEventFromGac is sent after the NetEase GAC client UI has
+// finished initialising. Decompiled client call sites pass no arguments.
+message ClientInitUIFinishedEventFromGac {
+  .mousetunnel.minecraft.protocol.py_rpc.empty_payload.EmptyPayload EmptyPayload = 1;
+}
+

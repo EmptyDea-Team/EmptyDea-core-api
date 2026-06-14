@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package emptydea.game_control.resources_control;
+
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/resources_control;resources_control_pb";
+
+import "google/protobuf/empty.proto";
+import "packet/packet.proto";
+
+// CreatePacketListenerRequest 是创建数据包监听器的请求。
+message CreatePacketListenerRequest {
+  // PacketIDs 是要监听的数据包 ID 列表。
+  repeated uint32 PacketIDs = 1;
+}
+
+// CreatePacketListenerResponse 是创建监听器后的响应。
+message CreatePacketListenerResponse {
+  // ListenerID 是新建监听器的唯一 ID。
+  string ListenerID = 1;
+}
+
+// DestroyPacketListenerRequest 是销毁数据包监听器的请求。
+message DestroyPacketListenerRequest {
+  // ListenerID 是要销毁的监听器 ID。
+  string ListenerID = 1;
+}
+
+// DestroyPacketListenerResponse 是销毁监听器后的空响应。
+message DestroyPacketListenerResponse {}
+
+// PacketEvent 是命中监听器的数据包事件。
+message PacketEvent {
+  // PacketID 是收到的数据包 ID。
+  uint32 PacketID = 1;
+  // Packet 是收到的结构化数据包。
+  mousetunnel.minecraft.protocol.packet.packet.Packet Packet = 2;
+  // ListenerIDs 是本次事件命中的监听器 ID 列表。
+  repeated string ListenerIDs = 3;
+}
+
+// PacketListenerService 管理数据包监听器并推送匹配的数据包事件。
+service PacketListenerService {
+  // CreatePacketListener 创建监听指定数据包 ID 的监听器。
+  rpc CreatePacketListener(CreatePacketListenerRequest) returns (CreatePacketListenerResponse);
+  // DestroyPacketListener 销毁指定监听器。
+  rpc DestroyPacketListener(DestroyPacketListenerRequest) returns (DestroyPacketListenerResponse);
+  // ListenPacketEvents 持续推送命中任意监听器的数据包事件。
+  rpc ListenPacketEvents(google.protobuf.Empty) returns (stream PacketEvent);
+}

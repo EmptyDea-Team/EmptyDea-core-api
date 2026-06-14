@@ -1,0 +1,102 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.scoreboard;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+enum ScoreboardIdentityEnum {
+  SCOREBOARDIDENTITYENUM_UNSPECIFIED = 0;
+  ScoreboardIdentityPlayer = 1;
+  ScoreboardIdentityEntity = 2;
+  ScoreboardIdentityFakePlayer = 3;
+}
+
+// ScoreboardEntry 表示记分板上的单个条目。每个条目代表记分板上的一行。
+//
+// ScoreboardEntry represents a single entry that may be found on a scoreboard. These entries represent a
+// line on the scoreboard each.
+//
+// Added: v1.16
+message ScoreboardEntry {
+  // EntryID 是该条目的唯一标识符。每个代表不同值的条目都应有自己的 EntryID。
+  // 修改记分板时，代表同一行的条目应使用相同 EntryID。
+  //
+  // EntryID is a unique identifier of this entry. Each entry that represents a different value should get
+  // its own entry ID. When modifying a scoreboard, entries that represent the same line should have the
+  // same entry ID.
+  //
+  // Added: v1.16
+  int64 EntryID = 1;
+  // ObjectiveName 是该记分板条目所属目标的名称。
+  // 它必须与此前发送的 SetDisplayObjective 数据包中设置的目标名称一致。
+  //
+  // ObjectiveName is the name of the objective that this scoreboard entry is for. It must be identical to
+  // the one set in the SetDisplayObjective packet previously sent.
+  //
+  // Added: v1.16
+  string ObjectiveName = 2;
+  // Score 是该条目表示的分数。记分板条目会按该分数排序，
+  // 因此若要在记分板上写入与分数无关的文本，并保持期望顺序，应为每个条目递增该分数。
+  //
+  // Score is the score that the entry represents. Scoreboard entries are ordered using this score, so in
+  // order to get the scoreboard to be ordered as expected when trying to write non-score related text on
+  // a scoreboard, this score should be incremented for each entry.
+  //
+  // Added: v1.16
+  int32 Score = 3;
+  // IdentityType 是记分板条目的身份类型。该条目可以表示实体、玩家或假玩家，
+  // 如上方常量所示。若要向记分板写入纯文本，应始终结合 DisplayName 字段使用
+  // ScoreboardIdentityFakePlayer；其他身份类型会使用实体名称。
+  //
+  // IdentityType is the identity type of the scoreboard entry. The entry may represent an entity, player or
+  // a fake player, as the constants above indicate.
+  // In order to write plain text to the scoreboard, ScoreboardIdentityFakePlayer should always be used, in
+  // combination with the DisplayName field. A different identity type will use the name of the entity.
+  //
+  // Added: v1.16
+  // Go type: byte
+  uint32 IdentityType = 4;
+  // EntityUniqueID 是记分板条目所表示玩家或实体的唯一 ID。
+  // 只有 IdentityType 为 ScoreboardIdentityEntity 或 ScoreboardIdentityPlayer 时才使用该字段。
+  //
+  // EntityUniqueID is the unique ID of either the player or the entity represented by the scoreboard entry.
+  // This field is only used if IdentityType is either ScoreboardIdentityEntity or ScoreboardIdentityPlayer.
+  //
+  // Added: v1.16
+  int64 EntityUniqueID = 5;
+  // DisplayName 是记分板条目的自定义名称。只有 IdentityType 为 ScoreboardIdentityFakePlayer
+  // 时才使用该字段；若未使用该身份类型，则会改为显示实体或玩家名称。
+  //
+  // DisplayName is the custom name of the scoreboard entry. This field is only used if IdentityType is
+  // ScoreboardIdentityFakePlayer. If this identity type is not used, the name of the entity/player will be
+  // shown instead.
+  //
+  // Added: v1.16
+  string DisplayName = 6;
+}
+
+// ScoreboardIdentityEntry 保存一个条目，用于将身份与记分板中的某个条目关联，
+// 或移除此类关联。
+//
+// ScoreboardIdentityEntry holds an entry to either associate an identity with one of the entries in a
+// scoreboard, or to remove associations.
+//
+// Added: v1.16
+message ScoreboardIdentityEntry {
+  // EntryID 是应与身份关联的条目的唯一标识符，
+  // 也可以是应清除身份关联的条目标识符。
+  //
+  // EntryID is the unique identifier of the entry that the identity should be associated with, or that
+  // associations should be cleared from.
+  //
+  // Added: v1.16
+  int64 EntryID = 1;
+  // EntityUniqueID 是该条目应关联的唯一 ID。
+  // 如果发送 SetScoreboardIdentity 数据包是为了移除身份关联，则该字段为空。
+  //
+  // EntityUniqueID is the unique ID that the entry should be associated with. It is empty if the
+  // SetScoreboardIdentity packet is sent to remove associations with identities.
+  //
+  // Added: v1.16
+  int64 EntityUniqueID = 2;
+}
+

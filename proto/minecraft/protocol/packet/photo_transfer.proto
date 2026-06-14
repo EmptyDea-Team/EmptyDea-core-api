@@ -1,0 +1,80 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.photo_transfer;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+enum PhotoTypeEnum {
+  PhotoTypePortfolio = 0;
+  PhotoTypePhotoItem = 1;
+  PhotoTypeBook = 2;
+}
+
+// PhotoTransfer 由服务器发送，用于向客户端传输照片（图像）文件。
+// 它通常用于传输照片，以便客户端能在教育版的作品集中显示。
+// 虽然过去可在默认基岩版中使用，但书中照片显示已被禁用，该数据包现在用途很少。
+//
+// PhotoTransfer is sent by the server to transfer a photo (image) file to the client. It is typically used
+// to transfer photos so that the client can display it in a portfolio in Education Edition.
+// While previously usable in the default Bedrock Edition, the displaying of photos in books was disabled and
+// the packet now has little use anymore.
+//
+// Added: v1.12
+message PhotoTransfer {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDPhotoTransfer;
+  // PhotoName 是要传输照片的名称。它是客户端下载照片时使用的精确文件名，
+  // 包括文件扩展名。
+  //
+  // PhotoName is the name of the photo to transfer. It is the exact file name that the client will download
+  // the photo as, including the extension of the file.
+  //
+  // Added: v1.12
+  string PhotoName = 1;
+  // PhotoData 是照片图像的原始数据。数据格式可以不同，只要 PhotoName 具有正确扩展名，
+  // JPEG 或 PNG 等格式都可以使用。
+  //
+  // PhotoData is the raw data of the photo image. The format of this data may vary: Formats such as JPEG or
+  // PNG work, as long as PhotoName has the correct extension.
+  //
+  // Added: v1.12
+  // Changed: v1.17.30, followed by photo metadata fields.
+  // Go type: []byte
+  bytes PhotoData = 2;
+  // BookID 是与照片关联的书本 ID。如果具有该 ID 的书中 PhotoName 设置为该 PhotoName，
+  // 则会显示该照片（前提是使用教育版）。照片图像会下载到以该书本 ID 命名的子文件夹中。
+  //
+  // BookID is the ID of the book that the photo is associated with. If the PhotoName in a book with this ID
+  // is set to PhotoName, it will display the photo (provided Education Edition is used).
+  // The photo image is downloaded to a sub-folder with this book ID.
+  //
+  // Added: v1.12
+  string BookID = 3;
+  // PhotoType 是上方三种照片类型之一。
+  //
+  // PhotoType is one of the three photo types above.
+  //
+  // Added: v1.17.30
+  // Go type: byte
+  uint32 PhotoType = 4;
+  // SourceType 是源照片类型，应为上方三种照片类型之一。
+  //
+  // SourceType is the source photo type. It is one of the three photo types above.
+  //
+  // Added: v1.17.30
+  // Go type: byte
+  uint32 SourceType = 5;
+  // OwnerEntityUniqueID 是照片所有者的实体唯一 ID。
+  //
+  // OwnerEntityUniqueID is the entity unique ID of the photo's owner.
+  //
+  // Added: v1.17.30
+  int64 OwnerEntityUniqueID = 6;
+  // NewPhotoName 是照片的新名称。
+  //
+  // NewPhotoName is the new name of the photo.
+  //
+  // Added: v1.17.30
+  string NewPhotoName = 7;
+}
+

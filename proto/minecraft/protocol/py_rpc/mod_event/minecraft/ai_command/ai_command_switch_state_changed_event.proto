@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.ai_command_switch_state_changed_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_command";
+
+import "py_rpc/mod_event/minecraft/ai_command/basic.proto";
+
+// AiCommandSwitchStateChangedEvent 同步服务端魔法指令开关状态。
+//
+// AiCommandSwitchStateChangedEvent synchronises the server AI-command switch state.
+message AiCommandSwitchStateChangedEvent {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.basic.Basic Basic = 1;
+  // Switch 表示魔法指令总开关是否开启。
+  //
+  // Switch indicates whether the AI-command master switch is enabled.
+  bool Switch = 2;
+}
+

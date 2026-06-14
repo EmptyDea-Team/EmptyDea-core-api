@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.script_custom_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// ScriptCustomEvent 可由客户端和服务器双方发送。它是一种让脚本与服务器通信的方式，
+// 使客户端可以告知服务器它触发了某个事件，反向通信也同样可行。
+// ScriptCustomEvent 自 1.20.10 起已弃用。
+//
+// ScriptCustomEvent is sent by both the client and the server. It is a way to let scripts communicate with
+// the server, so that the client can let the server know it triggered an event, or the other way around.
+// ScriptCustomEvent is deprecated as of 1.20.10.
+//
+// Added: v1.12
+message ScriptCustomEvent {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDScriptCustomEvent;
+  // EventName 是事件名称。脚本和服务器会使用该事件名称来识别发送的数据。
+  //
+  // EventName is the name of the event. The script and the server will use this event name to identify the
+  // data that is sent.
+  //
+  // Added: v1.12
+  string EventName = 1;
+  // EventData 是事件数据。该数据通常是 JSON 编码字符串，脚本也能够对其进行编码和解码。
+  //
+  // EventData is the data of the event. This data is typically a JSON encoded string, that the script is
+  // able to encode and decode too.
+  //
+  // Added: v1.12
+  // Go type: []byte
+  bytes EventData = 2;
+}
+

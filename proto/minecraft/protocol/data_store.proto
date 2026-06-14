@@ -1,0 +1,225 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.data_store;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+enum DataStoreChangeTypeEnum {
+  DataStoreChangeTypeUpdate = 0;
+  DataStoreChangeTypeChange = 1;
+  DataStoreChangeTypeRemoval = 2;
+}
+
+enum DataStoreControlEnum {
+  DataStoreControlDouble = 0;
+  DataStoreControlBoolean = 1;
+  DataStoreControlString = 2;
+}
+
+enum DataStorePropertyTypeEnum {
+  DataStorePropertyTypeNone = 0;
+  DataStorePropertyTypeBool = 1;
+  DataStorePropertyTypeInt64 = 2;
+  DataStorePropertyTypeString = 4;
+  DataStorePropertyTypeMap = 6;
+}
+
+// DataStoreChangeEntry 表示数据存储变更数组中的单个条目。
+//
+// DataStoreChangeEntry represents a single entry in the data store changes array.
+//
+// Added: v1.26.10
+message DataStoreChangeEntry {
+  // ChangeType 是变更类型，取值为 DataStoreChangeType 常量之一。
+  //
+  // ChangeType is the type of change. It is one of the DataStoreChangeType constants.
+  //
+  // Added: v1.26.10
+  uint32 ChangeType = 1;
+  // Update 在 ChangeType 为 DataStoreChangeTypeUpdate 时设置。
+  //
+  // Update is set if ChangeType is DataStoreChangeTypeUpdate.
+  //
+  // Added: v1.26.10
+  DataStoreUpdate Update = 2;
+  // Change 在 ChangeType 为 DataStoreChangeTypeChange 时设置。
+  //
+  // Change is set if ChangeType is DataStoreChangeTypeChange.
+  //
+  // Added: v1.26.10
+  DataStoreChange Change = 3;
+  // Removal 在 ChangeType 为 DataStoreChangeTypeRemoval 时设置。
+  //
+  // Removal is set if ChangeType is DataStoreChangeTypeRemoval.
+  //
+  // Added: v1.26.10
+  DataStoreRemoval Removal = 4;
+}
+
+// DataStoreUpdate 表示对数据存储属性的一次更新。
+//
+// DataStoreUpdate represents an update to a data store property.
+//
+// Added: v1.26.10
+message DataStoreUpdate {
+  // DataStoreName 是数据存储名称。
+  //
+  // DataStoreName is the name of the data store.
+  //
+  // Added: v1.26.10
+  string DataStoreName = 1;
+  // Property 是正在更新的属性。
+  //
+  // Property is the property being updated.
+  //
+  // Added: v1.26.10
+  string Property = 2;
+  // Path 是属性内的路径。
+  //
+  // Path is the path within the property.
+  //
+  // Added: v1.26.10
+  string Path = 3;
+  // ControlType 是数据值类型，取值为 DataStoreControl 常量之一。
+  //
+  // ControlType is the type of the data value. It is one of the DataStoreControl constants.
+  //
+  // Added: v1.26.10
+  uint32 ControlType = 4;
+  // DoubleValue 是 ControlType 为 DataStoreControlDouble 时的值。
+  //
+  // DoubleValue is the value if ControlType is DataStoreControlDouble.
+  //
+  // Added: v1.26.10
+  // Go type: float64
+  double DoubleValue = 5;
+  // BoolValue 是 ControlType 为 DataStoreControlBoolean 时的值。
+  //
+  // BoolValue is the value if ControlType is DataStoreControlBoolean.
+  //
+  // Added: v1.26.10
+  bool BoolValue = 6;
+  // StringValue 是 ControlType 为 DataStoreControlString 时的值。
+  //
+  // StringValue is the value if ControlType is DataStoreControlString.
+  //
+  // Added: v1.26.10
+  string StringValue = 7;
+  // PropertyUpdateCount 是属性的更新计数。
+  //
+  // PropertyUpdateCount is the update count for the property.
+  //
+  // Added: v1.26.10
+  uint32 PropertyUpdateCount = 8;
+  // PathUpdateCount 是路径的更新计数。
+  //
+  // PathUpdateCount is the update count for the path.
+  //
+  // Added: v1.26.0
+  uint32 PathUpdateCount = 9;
+}
+
+// DataStorePropertyValue 表示数据存储中的带类型属性值。
+//
+// DataStorePropertyValue represents a typed property value in a data store.
+//
+// Added: v1.26.10
+message DataStorePropertyValue {
+  // Type 是属性值类型，取值为 DataStorePropertyType 常量之一。
+  //
+  // Type is the property value type. It is one of the DataStorePropertyType constants.
+  //
+  // Added: v1.26.10
+  int32 Type = 1;
+  // BoolValue 是 Type 为 DataStorePropertyTypeBool 时的值。
+  //
+  // BoolValue is the value if Type is DataStorePropertyTypeBool.
+  //
+  // Added: v1.26.10
+  bool BoolValue = 2;
+  // Int64Value 是 Type 为 DataStorePropertyTypeInt64 时的值。
+  //
+  // Int64Value is the value if Type is DataStorePropertyTypeInt64.
+  //
+  // Added: v1.26.10
+  int64 Int64Value = 3;
+  // StringValue 是 Type 为 DataStorePropertyTypeString 时的值。
+  //
+  // StringValue is the value if Type is DataStorePropertyTypeString.
+  //
+  // Added: v1.26.10
+  string StringValue = 4;
+  // MapValue 是 Type 为 DataStorePropertyTypeMap 时的值。
+  //
+  // MapValue is the value if Type is DataStorePropertyTypeMap.
+  //
+  // Added: v1.26.10
+  // Go type: []DataStoreMapEntry
+  repeated DataStoreMapEntry MapValue = 5;
+}
+
+// DataStoreMapEntry 表示数据存储映射属性中的键值对。
+//
+// DataStoreMapEntry represents a key-value pair in a data store map property.
+//
+// Added: v1.26.10
+message DataStoreMapEntry {
+  // Key 是 映射 key。
+  //
+  // Key is the map key.
+  //
+  // Added: v1.26.10
+  string Key = 1;
+  // Value 是映射值。
+  //
+  // Value is the map value.
+  //
+  // Added: v1.26.10
+  DataStorePropertyValue Value = 2;
+}
+
+// DataStoreChange 表示对数据存储属性值的一次变更。
+//
+// DataStoreChange represents a change to a data store property value.
+//
+// Added: v1.26.10
+message DataStoreChange {
+  // DataStoreName 是数据存储名称。
+  //
+  // DataStoreName is the name of the data store.
+  //
+  // Added: v1.26.10
+  string DataStoreName = 1;
+  // Property 是发生变化的属性。
+  //
+  // Property is the property that changed.
+  //
+  // Added: v1.26.10
+  string Property = 2;
+  // UpdateCount 是更新计数。
+  //
+  // UpdateCount is the update count.
+  //
+  // Added: v1.26.10
+  uint32 UpdateCount = 3;
+  // NewValue 是新的属性值。
+  //
+  // NewValue is the new property value.
+  //
+  // Added: v1.26.10
+  DataStorePropertyValue NewValue = 4;
+}
+
+// DataStoreRemoval 表示从数据存储中移除内容。
+//
+// DataStoreRemoval represents a removal from a data store.
+//
+// Added: v1.26.10
+message DataStoreRemoval {
+  // DataStoreName 是正在移除的数据存储名称。
+  //
+  // DataStoreName is the name of the data store being removed.
+  //
+  // Added: v1.26.10
+  string DataStoreName = 1;
+}
+

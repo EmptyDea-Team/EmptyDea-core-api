@@ -1,0 +1,81 @@
+syntax = "proto3";
+
+package emptydea.game_control.game_interface;
+
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pb";
+
+import "packet/command_output.proto";
+
+// SendSettingsCommandRequest 是向租赁服发送 Sizukana 命令且无视返回值的请求。
+message SendSettingsCommandRequest {
+  // Command 是要发送的 Sizukana 命令。
+  string Command = 1;
+  // Dimensional 为真时，将使用 execute 更换命令执行环境为机器人所在的环境。
+  bool Dimensional = 2;
+}
+
+// SendCommandRequest 是向租赁服发送命令 command 并无视返回值的请求。
+message SendCommandRequest {
+  // Command 是要发送的命令文本。
+  string Command = 1;
+}
+
+// SendCommandResponse 是无需返回命令输出的空响应。
+message SendCommandResponse {}
+
+// SendCommandWithResponseRequest 是向租赁服发送命令 command 并获取响应体的请求。
+message SendCommandWithResponseRequest {
+  // Command 是要发送的命令文本。
+  string Command = 1;
+}
+
+// SendCommandWithResponseResponse 是命令执行输出。
+message SendCommandWithResponseResponse {
+  // Output 是服务端返回的命令输出数据包内容。
+  mousetunnel.minecraft.protocol.packet.command_output.CommandOutput Output = 1;
+}
+
+// SendChatRequest 是发送聊天消息的请求。
+message SendChatRequest {
+  // Content 是聊天文本内容。
+  string Content = 1;
+}
+
+// TitleRequest 是发送标题文本的请求。
+message TitleRequest {
+  // Message 是要显示的标题文本。
+  string Message = 1;
+}
+
+// AwaitChangesGeneralRequest 是通过发送空指令以等待租赁服更改的请求。
+message AwaitChangesGeneralRequest {}
+
+// CommandsService 是基于 ResourcesWrapper
+// 实现的 MC 指令操作器，例如发送命令
+// 并得到其响应体。
+//
+// 另外，出于对旧时代的尊重和可能的兼容性，
+// 一些遗留实现也被同时迁移到此处。
+service CommandsService {
+  // SendSettingsCommand 向租赁服发送 Sizukana 命令且无视返回值。
+  // 当 dimensional 为真时，
+  // 将使用 execute 更换命令执行环境为机器人所在的环境
+  rpc SendSettingsCommand(SendSettingsCommandRequest) returns (SendCommandResponse);
+  // SendPlayerCommand 以玩家的身份向租赁服发送命令 command 并无视返回值。
+  rpc SendPlayerCommand(SendCommandRequest) returns (SendCommandResponse);
+  // SendWSCommand 以 Websocket 的身份向租赁服发送命令 command 并无视返回值。
+  rpc SendWSCommand(SendCommandRequest) returns (SendCommandResponse);
+  // SendPlayerCommandWithResponse 以玩家的身份向租赁服发送命令 command 并获取响应体。
+  // 值得说明的是，此过程中不考虑超时因素
+  rpc SendPlayerCommandWithResponse(SendCommandWithResponseRequest) returns (SendCommandWithResponseResponse);
+  // SendWSCommandWithResponse 以 Websocket 的身份向租赁服发送命令 command 并获取响应体。
+  // 值得说明的是，此过程中不考虑超时因素
+  rpc SendWSCommandWithResponse(SendCommandWithResponseRequest) returns (SendCommandWithResponseResponse);
+  // AwaitChangesGeneral 通过发送空指令以等待租赁服更改。
+  // 它曾被广泛使用而难以替代，但此处出于语义兼容性而保留
+  rpc AwaitChangesGeneral(AwaitChangesGeneralRequest) returns (SendCommandResponse);
+  // SendChat 使机器人在聊天栏说出 content 的内容
+  rpc SendChat(SendChatRequest) returns (SendCommandResponse);
+  // Title 在机器人客户端显示大标题 message
+  rpc Title(TitleRequest) returns (SendCommandResponse);
+}

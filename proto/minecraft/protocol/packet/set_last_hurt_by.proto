@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.set_last_hurt_by;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// SetLastHurtBy 由服务器发送，用于让客户端知道它最后一次受到哪种实体类型的伤害。
+// 目前该数据包没有实际用途，不应使用；没有行为依赖它是否被发送。
+//
+// SetLastHurtBy is sent by the server to let the client know what entity type it was last hurt by. At this
+// moment, the packet is useless and should not be used. There is no behaviour that depends on if this
+// packet is sent or not.
+//
+// Added: v1.12
+message SetLastHurtBy {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDSetLastHurtBy;
+  // EntityType 是最后一次伤害玩家的实体的数字类型。
+  //
+  // EntityType is the numerical type of the entity that the player was last hurt by.
+  //
+  // Added: v1.12
+  // Changed: v1.26.20, encoded as an unsigned varlong.
+  uint64 EntityType = 1;
+}
+

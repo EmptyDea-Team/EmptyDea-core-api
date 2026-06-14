@@ -1,0 +1,560 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.command;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+enum CommandPermissionLevelEnum {
+  CommandPermissionLevelAny = 0;
+  CommandPermissionLevelGameDirectors = 1;
+  CommandPermissionLevelAdmin = 2;
+  CommandPermissionLevelHost = 3;
+  CommandPermissionLevelOwner = 4;
+  CommandPermissionLevelInternal = 5;
+}
+
+enum CommandArgEnumType {
+  COMMANDARGENUMTYPE_UNSPECIFIED = 0;
+  CommandArgValid = 1048576;
+  CommandArgEnum = 2097152;
+  CommandArgSuffixed = 16777216;
+  CommandArgSoftEnum = 67108864;
+  CommandArgTypeInt = 5;
+  CommandArgTypeFloat = 6;
+  CommandArgTypeValue = 7;
+  CommandArgTypeRValue = 8;
+  CommandArgTypeWildcardInt = 9;
+  CommandArgTypeOperator = 10;
+  CommandArgTypeCompareOperator = 11;
+  CommandArgTypeTarget = 12;
+  CommandArgTypeStandaloneTarget = 13;
+  CommandArgTypeWildcardTarget = 14;
+  CommandArgTypeNonIDTarget = 15;
+  CommandArgTypeScoreArg = 16;
+  CommandArgTypeScoreArgs = 17;
+  CommandArgTypeScoreSelectParam = 18;
+  CommandArgTypeScoreSelector = 19;
+  CommandArgTypeTagSelector = 20;
+  CommandArgTypeFilepath = 21;
+  CommandArgTypeFilePathVal = 22;
+  CommandArgTypeFilePathCont = 23;
+  CommandArgTypeIntRangeVal = 24;
+  CommandArgTypeIntRangePostVal = 25;
+  CommandArgTypeIntRange = 26;
+  CommandArgTypeIntegerRange = 27;
+  CommandArgTypeRationalRangeVal = 28;
+  CommandArgTypeRationalRangePostVal = 29;
+  CommandArgTypeRationalRange = 30;
+  CommandArgTypeRationalRangeFull = 31;
+  CommandArgTypeSelectionArgs = 32;
+  CommandArgTypeArgs = 33;
+  CommandArgTypeArg = 34;
+  CommandArgTypeMArg = 35;
+  CommandArgTypeMValue = 36;
+  CommandArgTypeName = 37;
+  CommandArgTypeType = 38;
+  CommandArgTypeFamily = 39;
+  CommandArgTypePermission = 40;
+  CommandArgTypePermissions = 41;
+  CommandArgTypePermissionSelector = 42;
+  CommandArgTypePermissionElement = 43;
+  CommandArgTypePermissionElements = 44;
+  CommandArgTypeTag = 45;
+  CommandArgTypeHasItemElement = 46;
+  CommandArgTypeHasItemElements = 47;
+  CommandArgTypeHasItem = 48;
+  CommandArgTypeHasItems = 49;
+  CommandArgTypeHasItemSelector = 50;
+  CommandArgTypeEquipmentSlots = 51;
+  CommandArgTypePropertyValue = 52;
+  CommandArgTypeHasPropertyParamValue = 53;
+  CommandArgTypeHasPropertyParamEnumValue = 54;
+  CommandArgTypeHasPropertyArg = 55;
+  CommandArgTypeHasPropertyArgs = 56;
+  CommandArgTypeHasPropertyElement = 57;
+  CommandArgTypeHasPropertyElements = 58;
+  CommandArgTypeHasPropertySelector = 59;
+  CommandArgTypeString = 60;
+  CommandArgTypeIDContinuation = 61;
+  CommandArgTypeCoordXInt = 62;
+  CommandArgTypeCoordYInt = 63;
+  CommandArgTypeCoordZInt = 64;
+  CommandArgTypeCoordXFloat = 65;
+  CommandArgTypeCoordYFloat = 66;
+  CommandArgTypeCoordZFloat = 67;
+  CommandArgTypeBlockPosition = 68;
+  CommandArgTypePosition = 69;
+  CommandArgTypeMessageXP = 70;
+  CommandArgTypeMessage = 71;
+  CommandArgTypeMessageRoot = 72;
+  CommandArgTypePostSelector = 73;
+  CommandArgTypeRawText = 74;
+  CommandArgTypeTextContinuation = 75;
+  CommandArgTypeJSONValue = 76;
+  CommandArgTypeJSONField = 77;
+  CommandArgTypeJSON = 78;
+  CommandArgTypeJSONObjectFields = 79;
+  CommandArgTypeJSONObjectCont = 80;
+  CommandArgTypeJSONArray = 81;
+  CommandArgTypeJSONArrayValues = 82;
+  CommandArgTypeJSONArrayCont = 83;
+  CommandArgTypeBlockState = 84;
+  CommandArgTypeBlockStateKey = 85;
+  CommandArgTypeBlockStateValue = 86;
+  CommandArgTypeBlockStateValues = 87;
+  CommandArgTypeBlockStates = 88;
+  CommandArgTypeBlockStatesCont = 89;
+  CommandArgTypeClockTimeMarker = 90;
+  CommandArgTypeCommand = 91;
+  CommandArgTypeSlashCommand = 92;
+  CommandArgTypeCodeBuilderArg = 93;
+  CommandArgTypeCodeBuilderArgs = 94;
+  CommandArgTypeCodeBuilderSelectParam = 95;
+  CommandArgTypeCodeBuilderSelector = 96;
+  CommandArgTypeChainedCommand = 134217728;
+}
+
+enum ParamOptionEnum {
+  PARAMOPTIONENUM_UNSPECIFIED = 0;
+  // ParamOptionCollapseEnum 指定是否折叠枚举。只有 Type 实际为枚举类型时该选项才有效；
+  // 若不是枚举类型，设置为 true 没有效果。折叠后枚举选项不会显示在命令实际用法中，
+  // 只会作为自动补全出现，类似拥有大量选项的枚举自动表现出的行为。例如可将
+  // <false|true|yes|no> 显示为 <$Name: bool>。
+  //
+  // ParamOptionCollapseEnum specifies if the enum (only if the Type is actually an enum type. If not,
+  // setting this to true has no effect) should be collapsed. This means that the options of the enum are
+  // never shown in the actual usage of the command, but only as auto-completion, like it automatically does
+  // with enums that have a big amount of options. To illustrate, it can make
+  // <false|true|yes|no> <$Name: bool>.
+  ParamOptionCollapseEnum = 1;
+  ParamOptionHasSemanticConstraint = 2;
+  ParamOptionAsChainedCommand = 4;
+}
+
+enum CommandEnumConstraintEnum {
+  CommandEnumConstraintCheatsEnabled = 0;
+  CommandEnumConstraintOperatorPermissions = 1;
+  CommandEnumConstraintHostPermissions = 2;
+}
+
+enum CommandOriginEnum {
+  CommandOriginPlayer = 0;
+  CommandOriginBlock = 1;
+  CommandOriginMinecartBlock = 2;
+  CommandOriginDevConsole = 3;
+  CommandOriginTest = 4;
+  CommandOriginAutomationPlayer = 5;
+  CommandOriginClientAutomation = 6;
+  CommandOriginDedicatedServer = 7;
+  CommandOriginEntity = 8;
+  CommandOriginVirtual = 9;
+  CommandOriginGameArgument = 10;
+  CommandOriginEntityServer = 11;
+  CommandOriginPrecompiled = 12;
+  CommandOriginGameDirectorEntityServer = 13;
+  CommandOriginScript = 14;
+  CommandOriginExecutor = 15;
+}
+
+// Command 保存客户端侧向玩家显示命令所需的数据。命令会使用这些数据出现在 /help 中，
+// 并用于自动补全。
+//
+// Command holds the data that a command requires to be shown to a player client-side. The command is shown in
+// the /help command and auto-completed using this data.
+//
+// Added: v1.12
+message Command {
+  // Name 是命令名称。命令可使用该名称执行，也会以该名称显示在 /help 列表中。
+  // 目前看起来如果 Name 包含大写字母，客户端会崩溃。
+  //
+  // Name is the name of the command. The command may be executed using this name, and will be shown in the
+  // /help list with it. It currently seems that the client crashes if the Name contains uppercase letters.
+  //
+  // Added: v1.12
+  string Name = 1;
+  // Description 是命令描述。它会显示在 /help 列表中，也会在开始输入命令时显示。
+  //
+  // Description is the description of the command. It is shown in the /help list and when starting to write
+  // a command.
+  //
+  // Added: v1.12
+  string Description = 2;
+  // Flags 是当前尚不明确的标志组合。将 Flags 字段留空似乎也能正常工作。
+  //
+  // Flags is a combination of flags not currently known. Leaving the Flags field empty appears to work.
+  //
+  // Added: v1.12
+  // Go type: uint16
+  uint32 Flags = 3;
+  // PermissionLevel 是玩家执行该命令所需的命令权限等级。
+  // 该字段似乎不再有实际用途，因为客户端不再处理命令执行；权限应由服务端检查。
+  //
+  // PermissionLevel is the command permission level that the player required to execute this command. The
+  // field no longer seems to serve a purpose, as the client does not handle the execution of commands
+  // anymore: The permissions should be checked server-side.
+  //
+  // Added: v1.12
+  // Go type: byte
+  uint32 PermissionLevel = 4;
+  // AliasesOffset 是指向某个 CommandEnum 的偏移量，该枚举保存该命令可用的别名。
+  //
+  // AliasesOffset is the offset to a CommandEnum that holds the values that
+  // should be used as aliases for this command.
+  //
+  // Added: v1.12
+  uint32 AliasesOffset = 5;
+  // ChainedSubcommandOffsets 是偏移量切片，每个偏移量都指向 AvailableCommands 数据包中
+  // ChainedSubcommands 切片里的一个不同 ChainedSubcommand。
+  //
+  // ChainedSubcommandOffsets is a slice of offsets that all point to a different ChainedSubcommand from the
+  // ChainedSubcommands slice in the AvailableCommands packet.
+  //
+  // Added: v1.20.10
+  // Go type: []uint32
+  repeated uint32 ChainedSubcommandOffsets = 6;
+  // Overloads 是命令重载列表，指定命令可被执行的方式。不同重载可以完全不同。
+  //
+  // Overloads is a list of command overloads that specify the ways in which a command may be executed. The
+  // overloads may be completely different.
+  //
+  // Added: v1.12
+  // Go type: []CommandOverload
+  repeated CommandOverload Overloads = 7;
+}
+
+// CommandContext 保存编码命令所需的上下文。
+//
+// CommandContext holds context required for encoding commands.
+//
+// Added: v1.20.10
+message CommandContext {
+  // ChainedSubcommands 指定是否编码链式子命令偏移量和重载链标志。
+  //
+  // ChainedSubcommands specifies if chained subcommand offsets and overload chaining are encoded.
+  //
+  // Added: v1.20.10
+  bool ChainedSubcommands = 1;
+  // ShortFlags 指定 Flags 是否编码为小端 uint16，而不是旧版单字节。
+  //
+  // ShortFlags specifies if Flags is encoded as a little-endian uint16 instead of the legacy single byte.
+  //
+  // Added: v1.17.10
+  bool ShortFlags = 2;
+}
+
+// CommandOverload 表示命令的一种重载。该重载可类比 Java 等语言中的函数重载；
+// 它表示命令的一种用法。一个命令可拥有多个不同重载，并以不同方式处理。
+//
+// CommandOverload represents an overload of a command. This overload can be compared to function overloading
+// in languages such as java. It represents a single usage of the command. A command may have multiple
+// different overloads, which are handled differently.
+//
+// Added: v1.12
+message CommandOverload {
+  // Chaining 表示参数是否使用链式子命令。
+  //
+  // Chaining determines if the parameters use chained subcommands or not.
+  //
+  // Added: v1.12
+  bool Chaining = 1;
+  // Parameters 是属于该重载的命令参数列表。这些参数指定应用该重载时命令的用法。
+  //
+  // Parameters is a list of command parameters that are part of the overload. These parameters specify the
+  // usage of the command when this overload is applied.
+  //
+  // Added: v1.12
+  // Go type: []CommandParameter
+  repeated CommandParameter Parameters = 2;
+}
+
+// CommandOverloadContext 保存编码命令重载所需的上下文。
+//
+// CommandOverloadContext holds context required for encoding command overloads.
+//
+// Added: v1.20.10
+message CommandOverloadContext {
+  // Chaining 指定是否编码重载链标志。
+  //
+  // Chaining specifies if the overload chaining flag is encoded.
+  //
+  // Added: v1.20.10
+  bool Chaining = 1;
+}
+
+// CommandParameter 表示命令重载的单个参数，接受特定类型的输入值。
+// 它有名称和类型，会在玩家输入命令时显示在客户端侧。
+//
+// CommandParameter represents a single parameter of a command overload, which accepts a certain type of input
+// values. It has a name and a type which show up client-side when a player is entering the command.
+//
+// Added: v1.12
+message CommandParameter {
+  // Name 是命令参数名称。它会以 <$Name: $Type> 形式显示在用法中；
+  // 枚举类型除外，如果枚举列表足够短且 Options 为 false，它会直接显示为选项列表。
+  //
+  // Name is the name of the command parameter. It shows up in the usage like <$Name: $Type>, with the
+  // exception of enum types, which show up simply as a list of options if the list is short enough and
+  // Options is set to false.
+  //
+  // Added: v1.12
+  string Name = 1;
+  // Type 是一组较特殊的类型标志组合，会使客户端侧显示出特定参数类型。
+  // 它由上面的标志组合而成。基础类型必须与 ArgumentTypeFlagBasic 标志组合
+  // 其中整数还要带 ArgumentTypeFlagSuffixed 后缀；枚举则与 ArgumentTypeFlagEnum 标志组合。
+  //
+  // Type is a rather odd combination of type(flag)s that result in a certain parameter type to show up
+  // client-side. It is a combination of the flags above. The basic types must be combined with the
+  // ArgumentTypeFlagBasic flag (and integers with a suffix ArgumentTypeFlagSuffixed), whereas enums are
+  // combined with the ArgumentTypeFlagEnum flag.
+  //
+  // Added: v1.12
+  uint32 Type = 2;
+  // Optional 指定该命令参数输入时是否可选。注意，命令重载中可选参数之后不应再出现非可选参数。
+  // 可选参数会显示为 [$Name: $Type]，必填参数会显示为 <$Name: $Type>。
+  //
+  // Optional specifies if the command parameter is optional to enter. Note that no non-optional parameter
+  // should ever be present in a command overload after an optional parameter. When optional, the parameter
+  // shows up like so: [$Name: $Type], whereas when mandatory, it shows up like so: <$Name: $Type>.
+  //
+  // Added: v1.12
+  bool Optional = 3;
+  // Options 保存额外应用到命令参数上的选项组合。可用选项列表见上面的常量。
+  //
+  // Options holds a combinations of options that additionally apply to the command parameter. The list of
+  // options can be found above.
+  //
+  // Added: v1.12
+  // Go type: byte
+  uint32 Options = 4;
+}
+
+// CommandEnum 表示命令用法中的枚举。枚举通常有一个类型和一组选项；
+// 传入不在选项中的值会导致执行失败。
+//
+// CommandEnum represents an enum in a command usage. The enum typically has a type and a set of options that
+// are valid. A value that is not one of the options results in a failure during execution.
+//
+// Added: v1.12
+message CommandEnum {
+  // Type 是命令枚举的类型。如果参数数量达到一定规模，或持有该枚举的命令将 Options 设置为 true，
+  // 该类型会作为参数类型显示在命令用法中。
+  //
+  // Type is the type of the command enum. The type will show up in the command usage as the type of the
+  // argument if it has a certain amount of arguments, or when Options is set to true in the
+  // command holding the enum.
+  //
+  // Added: v1.12
+  string Type = 1;
+  // ValueIndices 保存一组索引，指向 AvailableCommandsPacket 中的 EnumValues 切片。
+  // 这些索引表示枚举选项。
+  //
+  // ValueIndices holds a list of indices that point to the EnumValues slice in the
+  // AvailableCommandsPacket. These represent the options of the enum.
+  //
+  // Added: v1.12
+  // Go type: []uint32
+  repeated uint32 ValueIndices = 2;
+}
+
+// CommandEnumContext 保存编码命令枚举所需的上下文。
+//
+// CommandEnumContext holds context required for encoding command enums.
+//
+// Added: v1.19.80
+message CommandEnumContext {
+  // EnumValues 是编码时命令枚举值索引用到的共享字符串表。
+  //
+  // EnumValues is the shared string table that command enum value indices refer to during encoding.
+  //
+  // Added: v1.19.80
+  // Go type: []string
+  repeated string EnumValues = 1;
+}
+
+// ChainedSubcommand 表示可拥有链式命令的子命令，例如 /execute 可让命令以另一个实体身份
+// 或在不同位置执行另一个命令。
+//
+// ChainedSubcommand represents a subcommand that can have chained commands, such as /execute which allows you to run
+// another command as another entity or at a different position etc.
+//
+// Added: v1.20.10
+message ChainedSubcommand {
+  // Name 是链式子命令名称，会作为普通子命令枚举显示在列表中。
+  //
+  // Name is the name of the chained subcommand and shows up in the list as a regular subcommand enum.
+  //
+  // Added: v1.20.10
+  string Name = 1;
+  // Values 包含链式子命令的索引和参数类型。
+  //
+  // Values contains the index and parameter type of the chained subcommand.
+  //
+  // Added: v1.20.10
+  // Go type: []ChainedSubcommandValue
+  repeated ChainedSubcommandValue Values = 2;
+}
+
+// ChainedSubcommandValue 表示链式子命令参数的值。
+//
+// ChainedSubcommandValue represents the value for a chained subcommand argument.
+//
+// Added: v1.20.10
+message ChainedSubcommandValue {
+  // Index 是 AvailableCommands 数据包中 ChainedSubcommandValues 切片里的参数索引。
+  // 随后会用它设置下面 Value 字段指定的类型。
+  //
+  // Index is the index of the argument in the ChainedSubcommandValues slice from the AvailableCommands packet. This is
+  // then used to set the type specified by the Value field below.
+  //
+  // Added: v1.20.10
+  uint32 Index = 1;
+  // Value 是上面标志和指定参数类型的组合。不同于普通参数类型，
+  // 它不应包含任何特殊标志 valid、enum、suffixed 或 soft enum，只应包含基础类型。
+  //
+  // Value is a combination of the flags above and specified the type of argument. Unlike regular parameter types,
+  // this should NOT contain any of the special flags (valid, enum, suffixed or soft enum) but only the basic types.
+  //
+  // Added: v1.20.10
+  uint32 Value = 2;
+}
+
+// DynamicEnum 是可在运行时变更选项的枚举变体，无需发送新的 AvailableCommands 数据包。
+//
+// DynamicEnum is an enum variant that can have its options changed during runtime,
+// without sending a new AvailableCommands packet.
+//
+// Added: v1.19.80
+message DynamicEnum {
+  // Type 是命令枚举的类型。如果参数数量达到一定规模，或持有该枚举的命令将 Options 设置为 true，
+  // 该类型会作为参数类型显示在命令用法中。
+  //
+  // Type is the type of the command enum. The type will show up in the command usage as the type of the
+  // argument if it has a certain amount of arguments, or when Options is set to true in the
+  // command holding the enum.
+  //
+  // Added: v1.19.80
+  string Type = 1;
+  // Values 是该枚举可用选项的切片。
+  //
+  // Values is a slice of possible options for the enum.
+  //
+  // Added: v1.19.80
+  // Go type: []string
+  repeated string Values = 2;
+}
+
+// CommandEnumConstraint 会在 AvailableCommands 数据包中发送，用于限制枚举可使用的值，
+// 会考虑作弊是否启用等条件。
+//
+// CommandEnumConstraint is sent in the AvailableCommands packet to limit what values of an enum may be used
+// taking in account things such as whether cheats are enabled.
+//
+// Added: v1.16.220
+message CommandEnumConstraint {
+  // EnumValueIndex 指向 AvailableCommands 数据包中的一个枚举值，该约束应应用到该值上。
+  //
+  // EnumValueIndex points to an enum value in the AvailableCommands packet that this
+  // constraint should apply to.
+  //
+  // Added: v1.16.220
+  uint32 EnumValueIndex = 1;
+  // EnumIndex 指向 AvailableCommands 数据包中的一个枚举，该约束应应用到该枚举上。
+  //
+  // EnumIndex points to an enum in the AvailableCommands packet to which this
+  // constraint should apply to.
+  //
+  // Added: v1.16.220
+  uint32 EnumIndex = 2;
+  // Constraints 保存一组约束，取值为上面的常量。
+  //
+  // Constraints holds a slice of constraints as present in the constants above.
+  //
+  // Added: v1.16.220
+  // Go type: []byte
+  bytes Constraints = 3;
+}
+
+// CommandOrigin 保存用于标识命令请求来源的数据。它包含若干字段，
+// 可用于获取更具体的信息。
+// 在 CommandRequest 数据包中发送时，应在 CommandOutput 数据包中发送相同的 CommandOrigin。
+//
+// CommandOrigin holds data that identifies the origin of the requesting of a command. It holds several
+// fields that may be used to get specific information.
+// When sent in a CommandRequest packet, the same CommandOrigin should be sent in a CommandOutput packet.
+//
+// Added: v1.12
+message CommandOrigin {
+  // Origin 是上面的值之一，用于指定命令来源。来源可能会变化，
+  // 取决于客户端的哪个部分实际调用了命令。例如命令可由 websocket 服务器发出。
+  //
+  // Origin is one of the values above that specifies the origin of the command. The origin may change,
+  // depending on what part of the client actually called the command. The command may be issued by a
+  // websocket server, for example.
+  //
+  // Added: v1.12
+  uint32 Origin = 1;
+  // UUID 是每个命令实例化的唯一标识符。
+  //
+  // UUID is a unique identifier for every instantiation of a command.
+  //
+  // Added: v1.12
+  // Go type: uuid.UUID
+  string UUID = 2;
+  // RequestID 是标识客户端请求的 ID。服务端应发送带相同请求 ID 的 CommandOrigin，
+  // 以确保命令调用方能将其与请求匹配。这对 websocket 服务器尤其重要，
+  // 而且该字段似乎只会在这些 websocket 服务器中非空。
+  //
+  // RequestID is an ID that identifies the request of the client. The server should send a CommandOrigin
+  // with the same request ID to ensure it can be matched with the request by the caller of the command.
+  // This is especially important for websocket servers and it seems that this field is only non-empty for
+  // these websocket servers.
+  //
+  // Added: v1.12
+  string RequestID = 3;
+  // PlayerUniqueID 是标识玩家的 ID，与 AdventureSettings 数据包中的值相同。填 0 似乎也能工作。
+  // 只有 Origin 为 CommandOriginDevConsole 或 CommandOriginTest 时才会写入 PlayerUniqueID。
+  //
+  // PlayerUniqueID is an ID that identifies the player, the same as the one found in the AdventureSettings
+  // packet. Filling it out with 0 seems to work.
+  // PlayerUniqueID is only written if Origin is CommandOriginDevConsole or CommandOriginTest.
+  //
+  // Added: v1.12
+  int64 PlayerUniqueID = 4;
+}
+
+// CommandOutputMessage 表示命令发送的消息，保存某个已执行命令的输出。
+//
+// CommandOutputMessage represents a message sent by a command that holds the output of one of the commands
+// executed.
+//
+// Added: v1.12
+message CommandOutputMessage {
+  // Success 表示该输出消息是否来自成功的命令执行。为 true 时，输出消息默认显示为白色；
+  // 为 false 时，消息默认显示为红色。
+  //
+  // Success indicates if the output message was one of a successful command execution. If set to true, the
+  // output message is by default coloured white, whereas if set to false, the message is by default
+  // coloured red.
+  //
+  // Added: v1.12
+  bool Success = 1;
+  // Message 是发送到客户端聊天窗口的消息。它可以只是普通消息，也可以是
+  // 'commands.tp.success.coordinates' 这样的内置翻译字符串，并与下面的特定参数组合。
+  //
+  // Message is the message that is sent to the client in the chat window. It may either be simply a
+  // message or a translated built-in string like 'commands.tp.success.coordinates', combined with specific
+  // parameters below.
+  //
+  // Added: v1.12
+  string Message = 2;
+  // Parameters 是为已发送消息提供附加信息的参数列表，例如玩家被传送到的位置，
+  // 或应用到实体上的效果。这些参数只适用于 Minecraft 内置命令输出。
+  //
+  // Parameters is a list of parameters that serve to supply the message sent with additional information,
+  // such as the position that a player was teleported to or the effect that was applied to an entity.
+  // These parameters only apply for the Minecraft built-in command output.
+  //
+  // Added: v1.12
+  // Go type: []string
+  repeated string Parameters = 3;
+}
+

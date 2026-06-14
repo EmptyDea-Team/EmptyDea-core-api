@@ -1,0 +1,91 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.animate;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+enum AnimateActionEnum {
+  ANIMATEACTIONENUM_UNSPECIFIED = 0;
+  AnimateActionSwingArm = 1;
+  AnimateActionStopSleep = 3;
+  AnimateActionCriticalHit = 4;
+  AnimateActionMagicCriticalHit = 5;
+}
+
+enum AnimateActionRowEnum {
+  ANIMATEACTIONROWENUM_UNSPECIFIED = 0;
+  AnimateActionRowRight = 128;
+  AnimateActionRowLeft = 129;
+}
+
+enum AnimateSwingSourceEnum {
+  AnimateSwingSourceNone = 0;
+  AnimateSwingSourceBuild = 1;
+  AnimateSwingSourceMine = 2;
+  AnimateSwingSourceInteract = 3;
+  AnimateSwingSourceAttack = 4;
+  AnimateSwingSourceUseItem = 5;
+  AnimateSwingSourceThrowItem = 6;
+  AnimateSwingSourceDropItem = 7;
+  AnimateSwingSourceEvent = 8;
+}
+
+// Animate 由服务器发送，用于把一个玩家的动画发送给所有观看该玩家的人。
+// 它用于若干动作，例如挥臂和暴击。
+//
+// Animate is sent by the server to send a player animation from one player to all viewers of that player. It
+// is used for a couple of actions, such as arm swimming and critical hits.
+//
+// Added: v1.12
+message Animate {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDAnimate;
+  // ActionType 是要执行的动画动作 ID，它是上方动作类型常量之一。
+  //
+  // ActionType is the ID of the animation action to execute. It is one of the action type constants that
+  // may be found above.
+  //
+  // Added: v1.12
+  // Changed: v1.21.130.28, encoded as a byte instead of a varint32.
+  // Go type: uint8
+  uint32 ActionType = 1;
+  // EntityRuntimeID 是应播放该动画的玩家运行时 ID。运行时 ID 在每个世界会话中唯一，
+  // 数据包通常使用该运行时 ID 标识实体。
+  //
+  // EntityRuntimeID is the runtime ID of the player that the animation should be played upon. The runtime
+  // ID is unique for each world session, and entities are generally identified in packets using this
+  // runtime ID.
+  //
+  // Added: v1.12
+  uint64 EntityRuntimeID = 2;
+  // Data 是动画附加数据。
+  //
+  // Data is additional data for the animation.
+  //
+  // Added: v1.21.120
+  // Go type: float32
+  float Data = 3;
+  // RowingTime 是左划和右划动作的划船动画时间。
+  //
+  // RowingTime is the rowing animation time for the row left and row right actions.
+  //
+  // Added: v1.12
+  // Removed: v1.21.130.28
+  // Go type: float32
+  float RowingTime = 4;
+  // SwingSource 是挥动动作的来源，它是上方动作类型常量之一。
+  //
+  // SwingSource is the source for swing actions. It is one of the action type constants that
+  // may be found above.
+  //
+  // Added: v1.21.130.28
+  // Go type: uint8
+  uint32 SwingSource = 5;
+  // AttackerEntityUniqueID 是暴击动画中发送的网易额外字段。
+  //
+  // AttackerEntityUniqueID is an extra NetEase field sent for critical hit animations.
+  //
+  // Added: NetEase.
+  int64 AttackerEntityUniqueID = 6;
+}
+

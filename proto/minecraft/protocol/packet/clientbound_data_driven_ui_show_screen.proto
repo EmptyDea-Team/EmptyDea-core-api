@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.clientbound_data_driven_ui_show_screen;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+message ClientboundDataDrivenUiShowScreenOptionalUint32 {
+  bool Present = 1;
+  uint32 Value = 2;
+}
+
+// ClientBoundDataDrivenUIShowScreen 由服务器发送，用于在客户端显示数据驱动 UI 界面。
+//
+// ClientBoundDataDrivenUIShowScreen is sent by the server to show a data-driven UI screen on the client.
+//
+// Added: v1.26.0
+message ClientBoundDataDrivenUIShowScreen {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDClientBoundDataDrivenUIShowScreen;
+  // ScreenID 是要显示的界面标识符。
+  //
+  // ScreenID is the identifier of the screen to show.
+  //
+  // Added: v1.26.0
+  string ScreenID = 1;
+  // FormID 是表单的唯一实例 ID，脚本可用它识别特定界面实例。
+  //
+  // FormID is a unique instance ID for the form, used for scripting to identify specific screen instances.
+  //
+  // Added: v1.26.10
+  uint32 FormID = 2;
+  // DataInstanceID 是与该界面关联的可选数据 ID。
+  //
+  // DataInstanceID is an optional data ID associated with the screen.
+  //
+  // Added: v1.26.10
+  // Go type: protocol.Optional[uint32]
+  ClientboundDataDrivenUiShowScreenOptionalUint32 DataInstanceID = 3;
+}
+

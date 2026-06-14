@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.resource_pack_chunk_request;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// ResourcePackChunkRequest 由客户端发送，用于从特定资源包请求一个数据分块；
+// 客户端此前已通过 ResourcePackDataInfo 数据包获得该资源包的信息。
+//
+// ResourcePackChunkRequest is sent by the client to request a chunk of data from a particular resource pack,
+// that it has obtained information about in a ResourcePackDataInfo packet.
+//
+// Added: v1.11.1
+message ResourcePackChunkRequest {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDResourcePackChunkRequest;
+  // UUID 是被请求数据分块所属资源包的唯一 ID。
+  //
+  // UUID is the unique ID of the resource pack that the chunk of data is requested from.
+  //
+  // Added: v1.11.1
+  string UUID = 1;
+  // ChunkIndex 是所请求分块的索引。它从 0 开始，并随每次请求资源包数据分块而递增。
+  //
+  // ChunkIndex is the requested chunk index of the chunk. It is a number that starts at 0 and is
+  // incremented for each resource pack data chunk requested.
+  //
+  // Added: v1.11.1
+  uint32 ChunkIndex = 2;
+}
+

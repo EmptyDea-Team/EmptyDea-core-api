@@ -1,0 +1,5 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.anticheat.doc;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/anticheat;anticheat";
+

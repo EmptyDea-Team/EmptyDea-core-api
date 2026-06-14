@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.fields.banner_patterns;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/fields;fields";
+
+// BannerPatterns 描述旗帜中的一个图案组合。
+//
+// BannerPatterns describes one pattern entry in a banner.
+message BannerPatterns {
+  // TAG_Int(4) = 0
+  int32 Color = 1;
+  // TAG_String(8) = ""
+  string Pattern = 2;
+}
+

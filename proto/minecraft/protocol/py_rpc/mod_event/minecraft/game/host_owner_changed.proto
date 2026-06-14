@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.game.host_owner_changed;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/game;game";
+
+import "py_rpc/mod_event/minecraft/game/basic.proto";
+
+// HostOwnerChanged 同步当前房主玩家 ID。
+//
+// HostOwnerChanged synchronises the current host owner player ID.
+message HostOwnerChanged {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.game.basic.Basic Basic = 1;
+  // Host 是房主玩家 ID。
+  //
+  // Host is the host owner player ID.
+  string Host = 2;
+}
+

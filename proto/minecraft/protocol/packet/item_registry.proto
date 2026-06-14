@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.item_registry;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "item.proto";
+import "packet_options.proto";
+
+// ItemRegistry 由服务器发送，用于向客户端发送可用物品列表，并为自定义物品附加客户端侧组件。
+// 该数据包在 1.21.60 前名为 ItemComponent，当时不包含物品定义，只包含组件。
+//
+// ItemRegistry is sent by the server to send the client a list of available items and attach client-side
+// components to a custom item. This packet was formerly known as the ItemComponent packet before 1.21.60,
+// which did not include item definitions but only the components.
+//
+// Added: v1.16.100
+// Changed: v1.21.60, renamed from ItemComponent and expanded to include item definitions.
+message ItemRegistry {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDItemRegistry;
+  // Items 是游戏中所有可用物品及其旧版 ID 的列表。漏发游戏中存在的任何物品都会导致移动端客户端崩溃。
+  // 任何自定义组件也会附加到该列表中的物品上。
+  //
+  // Items is a list of all items with their legacy IDs which are available in the game. Failing to send any
+  // of the items that are in the game will crash mobile clients. Any custom components are also attached to
+  // the items in this list.
+  //
+  // Added: v1.16.100
+  // Changed: v1.21.60, expanded from component data to full item entries with runtime IDs and versions.
+  // Go type: []protocol.ItemEntry
+  repeated .mousetunnel.minecraft.protocol.item.ItemEntry Items = 1;
+}
+

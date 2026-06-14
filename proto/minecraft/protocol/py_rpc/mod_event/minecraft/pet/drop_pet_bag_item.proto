@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.drop_pet_bag_item;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// DropPetBagItem 同步宠物背包物品丢弃。
+//
+// DropPetBagItem syncs pet-bag item drops.
+message DropPetBagItem {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  DropPetBagItemData DropPetBagItemData = 2;
+}
+
+// DropPetBagItemData 保存宠物背包丢弃字段。
+//
+// DropPetBagItemData stores pet-bag item drop fields.
+message DropPetBagItemData {
+  string PlayerID = 1;
+  int64 Slot = 2;
+  // Go type: *DropPetBagItemItem
+  DropPetBagItemItem Item = 3;
+  bool IsNewRequest = 4;
+}
+
+// DropPetBagItemItem 保存背包丢弃事件中的物品数据。
+//
+// DropPetBagItemItem stores item data in a pet-bag drop event.
+message DropPetBagItemItem {
+  string ItemName = 1;
+  string NewItemName = 2;
+  int64 AuxValue = 3;
+  int64 Count = 4;
+  // Go type: map[string]DropPetBagItemUser
+  map<string, DropPetBagItemUser> UserData = 5;
+  int64 Durability = 6;
+  bool EnchantData = 7;
+  // Go type: []DropPetBagItemEnchant
+  repeated DropPetBagItemEnchant ModEnchantData = 8;
+  string CustomTips = 9;
+  string ExtraID = 10;
+  string ItemShowName = 11;
+}
+
+// DropPetBagItemUser 保存背包丢弃物品 userData 的已知项。
+//
+// DropPetBagItemUser stores known item userData entries in a pet-bag drop event.
+message DropPetBagItemUser {
+  string Mode = 1;
+}
+
+// DropPetBagItemEnchant 保存背包丢弃物品附魔项。
+//
+// DropPetBagItemEnchant stores item enchantment entries in a pet-bag drop event.
+message DropPetBagItemEnchant {
+  int64 ID = 1;
+  int64 Level = 2;
+}
+

@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.play_status;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+enum PlayStatusEnum {
+  PlayStatusLoginSuccess = 0;
+  PlayStatusLoginFailedClient = 1;
+  PlayStatusLoginFailedServer = 2;
+  PlayStatusPlayerSpawn = 3;
+  PlayStatusLoginFailedInvalidTenant = 4;
+  PlayStatusLoginFailedVanillaEdu = 5;
+  PlayStatusLoginFailedEduVanilla = 6;
+  PlayStatusLoginFailedServerFull = 7;
+  PlayStatusLoginFailedEditorVanilla = 8;
+  PlayStatusLoginFailedVanillaEditor = 9;
+}
+
+// PlayStatus 由服务器发送，用于更新玩家的游玩状态，包括版本不匹配导致的失败状态以及成功状态。
+//
+// PlayStatus is sent by the server to update a player on the play status. This includes failed statuses due
+// to a mismatched version, but also success statuses.
+//
+// Added: v1.11.1
+message PlayStatus {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDPlayStatus;
+  // Status 是该数据包携带的状态，为上方常量之一。
+  //
+  // Status is the status of the packet. It is one of the constants found above.
+  //
+  // Added: v1.11.1
+  int32 Status = 1;
+}
+

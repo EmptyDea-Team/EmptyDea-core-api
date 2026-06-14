@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.summon_pet_response;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// SummonPetResponse 返回宠物召唤结果。
+//
+// SummonPetResponse returns the summon-pet result.
+message SummonPetResponse {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  PetSummonResponseData PetSummonResponseData = 2;
+}
+
+// PetSummonResponseData 保存宠物召唤请求和响应的公共字段。
+//
+// PetSummonResponseData stores common fields for pet summon requests and responses.
+message PetSummonResponseData {
+  string PlayerID = 1;
+  int64 SkinID = 2;
+  string NameValue = 3;
+  int64 PetID = 4;
+  string ModelName = 5;
+  // Go type: *bool
+  bool AllowStepOnBlock = 6;
+  // Go type: *bool
+  bool AvoidOwner = 7;
+  bool Silent = 8;
+  bool Respawn = 9;
+  string EntityID = 10;
+  // Go type: *int64
+  int64 Code = 11;
+}
+

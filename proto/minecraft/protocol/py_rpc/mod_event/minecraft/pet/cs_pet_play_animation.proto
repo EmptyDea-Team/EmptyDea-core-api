@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.cs_pet_play_animation;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// CSPetPlayAnimation 上报宠物播放动画。
+//
+// CSPetPlayAnimation reports pet animation playback.
+message CSPetPlayAnimation {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  CSPetAnimationData CSPetAnimationData = 2;
+}
+
+// CSPetAnimationData 保存宠物动画同步字段。
+//
+// CSPetAnimationData stores pet animation sync fields.
+message CSPetAnimationData {
+  string PetID = 1;
+  string PlayerID = 2;
+  string Anim = 3;
+  bool Looped = 4;
+  int64 ActionID = 5;
+}
+

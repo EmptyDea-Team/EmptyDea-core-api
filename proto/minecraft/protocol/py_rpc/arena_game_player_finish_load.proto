@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.arena_game_player_finish_load;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpc";
+
+import "py_rpc/empty_payload.proto";
+
+// ArenaGamePlayerFinishLoad 在玩家完成竞技场游戏资源加载后发送，用于网易服务器初始化流程。
+// 反编译客户端调用点无参数。
+//
+// ArenaGamePlayerFinishLoad is sent during NetEase server initialisation after
+// the player finishes loading arena game resources. Decompiled client call
+// sites pass no arguments.
+message ArenaGamePlayerFinishLoad {
+  .mousetunnel.minecraft.protocol.py_rpc.empty_payload.EmptyPayload EmptyPayload = 1;
+}
+

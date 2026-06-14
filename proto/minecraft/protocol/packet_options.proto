@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet_options;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "google/protobuf/descriptor.proto";
+import "packet/id.proto";
+
+extend google.protobuf.MessageOptions {
+  .mousetunnel.minecraft.protocol.packet.id.IDEnum packet_id = 11400;
+}

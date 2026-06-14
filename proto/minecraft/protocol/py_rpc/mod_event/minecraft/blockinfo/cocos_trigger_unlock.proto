@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.blockinfo.cocos_trigger_unlock;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/blockinfo;blockinfo";
+
+import "py_rpc/mod_event/minecraft/blockinfo/basic.proto";
+
+// CocosTriggerUnlock 上报客户端 Cocos 触发的解锁。
+//
+// CocosTriggerUnlock reports a client Cocos-triggered unlock.
+message CocosTriggerUnlock {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.blockinfo.basic.Basic Basic = 1;
+  string PlayerID = 2;
+  string BlockName = 3;
+  int64 Aux = 4;
+  string GroupID = 5;
+}
+

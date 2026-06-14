@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.define.define;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/define;define";
+
+import "google/protobuf/struct.proto";
+
+enum TypeEnum {
+  // TypeClientToServer 表示客户端到服务器的 ModEvent。
+  //
+  // TypeClientToServer marks a client-to-server ModEvent.
+  TypeClientToServer = 0;
+  // TypeServerToClient 表示服务器到客户端的 ModEvent。
+  //
+  // TypeServerToClient marks a server-to-client ModEvent.
+  TypeServerToClient = 1;
+}
+
+// Package 描述 ModEvent 中的包。
+//
+// Package describes a package in a ModEvent payload.
+message Package {
+  // Go type: interface {
+  // 	Name() string
+  // 	Pool() map[string]func() Module
+  // 	NewModule(name string) Module
+  // }
+  google.protobuf.Value Value = 1;
+}
+
+// Module 描述 ModEvent 包中的模块。
+//
+// Module describes a module in a ModEvent package.
+message Module {
+  // Go type: interface {
+  // 	PackageName() string
+  // 	Name() string
+  // 	Pool() map[string]func(eventType uint8) Event
+  // 	NewEvent(name string, eventType uint8) Event
+  // }
+  google.protobuf.Value Value = 1;
+}
+
+// Event 描述 ModEvent 模块中的事件。
+//
+// Event describes an event in a ModEvent module.
+message Event {
+  // Go type: interface {
+  // 	PackageName() string
+  // 	ModuleName() string
+  // 	Name() string
+  // 	Type() uint8
+  // 	MakeGo() (res any)
+  // 	FromGo(obj any) error
+  // }
+  google.protobuf.Value Value = 1;
+}
+

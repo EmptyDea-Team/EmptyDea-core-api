@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.game.update_network_condition_from_server;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/game;game";
+
+import "py_rpc/mod_event/minecraft/game/update_network_condition.proto";
+
+// UpdateNetworkConditionFromServer 回显服务器补充时间戳后的网络状态。
+//
+// UpdateNetworkConditionFromServer echoes network-condition data after the server adds timestamps.
+message UpdateNetworkConditionFromServer {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.game.update_network_condition.UpdateNetworkCondition UpdateNetworkCondition = 1;
+}
+

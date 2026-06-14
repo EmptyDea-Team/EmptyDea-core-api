@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.close_pet_bag;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// ClosePetBag 关闭宠物背包，双向使用。
+//
+// ClosePetBag closes the pet bag and is used bidirectionally.
+message ClosePetBag {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  // Go type: uint8
+  uint32 EventType = 2;
+  ClosePetBagData ClosePetBagData = 3;
+}
+
+// ClosePetBagData 保存关闭宠物背包字段。
+//
+// ClosePetBagData stores close-pet-bag fields.
+message ClosePetBagData {
+  string PlayerID = 1;
+}
+

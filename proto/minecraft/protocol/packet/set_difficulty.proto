@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.set_difficulty;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// SetDifficulty 由服务器发送，用于更新客户端侧显示的难度。
+// 该数据包对客户端的实际影响并不大，因为难度由服务器侧处理。
+//
+// SetDifficulty is sent by the server to update the client-side difficulty of the client. The actual effect
+// of this packet on the client isn't very significant, as the difficulty is handled server-side.
+//
+// Added: v1.11.1
+message SetDifficulty {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDSetDifficulty;
+  // Difficulty 是世界的新难度。
+  //
+  // Difficulty is the new difficulty that the world has.
+  //
+  // Added: v1.11.1
+  uint32 Difficulty = 1;
+}
+

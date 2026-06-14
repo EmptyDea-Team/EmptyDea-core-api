@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.camera_aim_assist_presets;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "camera.proto";
+import "packet_options.proto";
+
+enum CameraAunAssistPresetOperationEnum {
+  CameraAunAssistPresetOperationSet = 0;
+  CameraAunAssistPresetOperationAddToExisting = 1;
+}
+
+// CameraAimAssistPresets 由服务器发送给客户端，用于提供分类和预设列表。
+// 这些分类和预设可在发送 CameraAimAssist 数据包，或包含瞄准辅助的 CameraInstruction 时使用。
+//
+// CameraAimAssistPresets is sent by the server to the client to provide a list of categories and presets
+// that can be used when sending a CameraAimAssist packet or a CameraInstruction including aim assist.
+//
+// Added: v1.21.40
+message CameraAimAssistPresets {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDCameraAimAssistPresets;
+  // Categories 是分类列表，可由某个 Preset 引用。
+  //
+  // Categories is a list of categories which can be referenced by one of the Presets.
+  //
+  // Added: v1.21.40
+  // Changed: v1.21.80, flattened from grouped categories to a direct category list.
+  // Go type: []protocol.CameraAimAssistCategory
+  repeated .mousetunnel.minecraft.protocol.camera.CameraAimAssistCategory Categories = 1;
+  // CategoryGroups 是旧版客户端使用的具名分类组列表。
+  //
+  // CategoryGroups is a list of named category groups used by legacy clients.
+  //
+  // Added: v1.21.50
+  // Removed: v1.21.80
+  // Go type: []protocol.CameraAimAssistCategoryGroup
+  repeated .mousetunnel.minecraft.protocol.camera.CameraAimAssistCategoryGroup CategoryGroups = 2;
+  // Presets 是预设列表，用于定义瞄准辅助应如何表现的基础行为。
+  //
+  // Presets is a list of presets which define a base for how aim assist should behave
+  //
+  // Added: v1.21.40
+  // Go type: []protocol.CameraAimAssistPreset
+  repeated .mousetunnel.minecraft.protocol.camera.CameraAimAssistPreset Presets = 3;
+  // Operation 是要对预设执行的操作，它是上方常量之一。
+  //
+  // Operation is the operation to perform with the presets. It is one of the constants above.
+  //
+  // Added: v1.21.60
+  // Go type: byte
+  uint32 Operation = 4;
+}
+

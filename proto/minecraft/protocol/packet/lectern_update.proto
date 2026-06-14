@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.lectern_update;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "block_pos.proto";
+import "packet_options.proto";
+
+// LecternUpdate 由客户端发送，用于告知服务器讲台上的书打开到了哪一页，
+// 或该书是否应从讲台中移除。
+//
+// LecternUpdate is sent by the client to update the server on which page was opened in a book on a lectern,
+// or if the book should be removed from it.
+//
+// Added: v1.11.1
+message LecternUpdate {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDLecternUpdate;
+  // Page 是玩家在讲台上的书中打开的页码。
+  //
+  // Page is the page number in the book that was opened by the player on the lectern.
+  //
+  // Added: v1.11.1
+  // Go type: byte
+  uint32 Page = 1;
+  // PageCount 是讲台上打开的书所拥有的页数。
+  //
+  // PageCount is the number of pages that the book opened in the lectern has.
+  //
+  // Added: v1.11.1
+  // Go type: byte
+  uint32 PageCount = 2;
+  // Position 是被更新讲台的位置。如果该方块位置没有讲台，应忽略该数据包。
+  //
+  // Position is the position of the lectern that was updated. If no lectern is at the block position,
+  // the packet should be ignored.
+  //
+  // Added: v1.11.1
+  .mousetunnel.minecraft.protocol.block_pos.BlockPos Position = 3;
+  // DropBook 指定是否应将书从讲台上掉落。
+  //
+  // DropBook specifies if the book should be dropped from the lectern.
+  //
+  // Removed: v1.20.70
+  bool DropBook = 4;
+}
+

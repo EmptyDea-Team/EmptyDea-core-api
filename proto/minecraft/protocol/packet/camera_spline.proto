@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.camera_spline;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "camera.proto";
+import "packet_options.proto";
+
+// CameraSpline 由服务器发送，用于定义摄像机样条路径。
+//
+// CameraSpline is sent by the server to define camera spline paths.
+//
+// Added: v1.26.0
+message CameraSpline {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDCameraSpline;
+  // Splines 是摄像机样条定义列表。
+  //
+  // Splines is a list of camera spline definitions.
+  //
+  // Added: v1.26.0
+  // Go type: []protocol.CameraSplineDefinition
+  repeated .mousetunnel.minecraft.protocol.camera.CameraSplineDefinition Splines = 1;
+}
+

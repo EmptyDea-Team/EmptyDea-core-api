@@ -1,0 +1,103 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.resource_packs_info;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+import "resource_pack.proto";
+
+// ResourcePacksInfo 由服务器发送，用于告知客户端服务器拥有哪些资源包。
+// 它会发送服务器拥有的资源包列表，以及版本和描述等基础信息。
+//
+// ResourcePacksInfo is sent by the server to inform the client on what resource packs the server has. It
+// sends a list of the resource packs it has and basic information on them like the version and description.
+//
+// Added: v1.11.1
+message ResourcePacksInfo {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDResourcePacksInfo;
+  // TexturePackRequired 指定客户端是否必须接受服务器提供的材质包才能加入服务器。
+  // 如果设为 true，客户端可以选择下载资源包并加入，或完全退出。行为包永远不需要下载。
+  //
+  // TexturePackRequired specifies if the client must accept the texture packs the server has in order to
+  // join the server. If set to true, the client gets the option to either download the resource packs and
+  // join, or quit entirely. Behaviour packs never have to be downloaded.
+  //
+  // Added: v1.11.1
+  bool TexturePackRequired = 1;
+  // HasAddons 指定是否有任何资源包包含附加包。如果设为 true，
+  // 只有支持附加包的客户端才能下载它们。
+  //
+  // HasAddons specifies if any of the resource packs contain addons in them. If set to true, only clients
+  // that support addons will be able to download them.
+  //
+  // Added: v1.20.70
+  bool HasAddons = 2;
+  // HasScripts 指定是否有任何资源包包含脚本。如果设为 true，
+  // 只有支持脚本的客户端才能下载它们。
+  //
+  // HasScripts specifies if any of the resource packs contain scripts in them. If set to true, only clients
+  // that support scripts will be able to download them.
+  //
+  // Added: v1.11.1
+  bool HasScripts = 3;
+  // ForcingServerPacks 指定是否应强制客户端使用服务器资源包。
+  //
+  // ForcingServerPacks specifies if the client should be forced to use the server resource packs.
+  //
+  // Added: v1.17.10
+  bool ForcingServerPacks = 4;
+  // ForceDisableVibrantVisuals 指定是否应在服务器上强制禁用鲜艳视觉功能。
+  // 如果设为 true，无论客户端设置如何，服务器都会确保不会启用鲜艳视觉。
+  //
+  // ForceDisableVibrantVisuals specifies if the vibrant visuals feature should be forcibly disabled on the server.
+  // If set to true, the server will ensure that vibrant visuals are not enabled, regardless of the client's settings.
+  //
+  // Added: v1.21.90
+  bool ForceDisableVibrantVisuals = 5;
+  // WorldTemplateUUID 是用于生成世界的模板 UUID。模板可以从市场下载，
+  // 也可以通过 `.mctemplate` 文件安装。如果世界不是从模板生成的，该字段为空。
+  //
+  // WorldTemplateUUID is the UUID of the template that has been used to generate the world. Templates can
+  // be downloaded from the marketplace or installed via '.mctemplate' files. If the world was not generated
+  // from a template, this field is empty.
+  //
+  // Added: v1.20.30
+  // Go type: uuid.UUID
+  string WorldTemplateUUID = 6;
+  // WorldTemplateVersion 是用于生成世界的世界模板版本。如果世界不是从模板生成的，该字段为空。
+  //
+  // WorldTemplateVersion is the version of the world template that has been used to generate the world. If
+  // the world was not generated from a template, this field is empty.
+  //
+  // Added: v1.20.30
+  string WorldTemplateVersion = 7;
+  // BehaviourPacks 是客户端加入服务器前需要下载的行为包列表。
+  // 这些包在该数据包中的顺序并不重要，但在 ResourcePackStack 数据包中很重要。
+  //
+  // BehaviourPacks is a list of behaviour packs that the client needs to download before joining the server.
+  // The order of these packs is not relevant in this packet. It is however important in the ResourcePackStack packet.
+  //
+  // Added: v1.1.0
+  // Go type: []protocol.TexturePackInfo
+  repeated .mousetunnel.minecraft.protocol.resource_pack.TexturePackInfo BehaviourPacks = 8;
+  // TexturePacks 是客户端加入服务器前需要下载的材质包列表。
+  // 这些材质包在该数据包中的顺序并不重要，但在 ResourcePackStack 数据包中很重要。
+  //
+  // TexturePacks is a list of texture packs that the client needs to download before joining the server.
+  // The order of these texture packs is not relevant in this packet. It is however important in the
+  // ResourcePackStack packet.
+  //
+  // Added: v1.11.1
+  // Go type: []protocol.TexturePackInfo
+  repeated .mousetunnel.minecraft.protocol.resource_pack.TexturePackInfo TexturePacks = 9;
+  // CDNEntries 是远程 URL 列表，客户端可使用它们下载资源包，
+  // 而不必由服务器按块发送资源包。
+  //
+  // CDNEntries is a list of remote URLs that the client can use to download resource packs instead of the
+  // server sending them in chunks.
+  //
+  // Added: v1.20.30.24, Removed: v1.21.40
+  // Go type: []protocol.PackURL
+  repeated .mousetunnel.minecraft.protocol.resource_pack.PackURL CDNEntries = 10;
+}
+

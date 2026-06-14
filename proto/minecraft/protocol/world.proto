@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.world;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+enum GeneratorEnum {
+  GeneratorLegacy = 0;
+  GeneratorOverworld = 1;
+  GeneratorFlat = 2;
+  GeneratorNether = 3;
+  GeneratorEnd = 4;
+  GeneratorVoid = 5;
+}
+
+// DimensionDefinition 包含指定维度专有属性的信息，用于数据驱动维度。
+// 这些属性包括范围（最小/最大高度）、生成器变体等。
+//
+// DimensionDefinition contains information specifying dimension-specific properties, used for data-driven dimensions.
+// These include the range (the height min/max), generator variant, and more.
+//
+// Added: v1.18.30
+message DimensionDefinition {
+  // Name 指定维度名称。
+  //
+  // Name specifies the name of the dimension.
+  //
+  // Added: v1.18.30
+  string Name = 1;
+  // Range 是维度的高度范围，第一个值为最小高度，第二个值为最大高度。
+  //
+  // Range is the height range of the dimension, where the first value is the minimum and the second is the maximum.
+  //
+  // Added: v1.18.30
+  // Go type: [2]int32
+  repeated int32 Range = 2;
+  // Generator 是所提供维度中的生成器变体，可以是上方定义的常量之一。
+  // 如果设置为 GeneratorLegacy，将强制使用旧版水平世界边界。
+  //
+  // Generator is the variant of generator that exists in the provided dimension. These can be one of the constants
+  // defined above. If this is set to GeneratorLegacy, the legacy horizontal world limits will be enforced.
+  //
+  // Added: v1.18.30
+  int32 Generator = 3;
+  // DimensionType 是维度的数字标识符。它不能覆盖原版维度（0-2），
+  // 但自定义维度应像原版一样从 1000 开始。
+  //
+  // DimensionType is the numeric identifier of the dimension. This cannot override a vanilla dimension (0-2), but
+  // custom dimensions should start from 1000 like vanilla.
+  //
+  // Added: v1.18.30
+  int32 DimensionType = 4;
+}
+
+// GenerationFeature 表示世界生成特征，在向客户端编码 FeatureRegistry 时使用。
+//
+// GenerationFeature represents a world generation feature, used when encoding the FeatureRegistry to the client.
+//
+// Added: v1.19.20
+message GenerationFeature {
+  // Name 是特征名称。
+  //
+  // Name is the name of the feature.
+  //
+  // Added: v1.19.20
+  string Name = 1;
+  // JSON 是编码后的 JSON 数据，用于指示客户端如何生成该特征。
+  //
+  // JSON is the encoded JSON data instructing the client on how to generate the feature.
+  //
+  // Added: v1.19.20
+  // Go type: []byte
+  bytes JSON = 2;
+}
+

@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.structure_template_data_request;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "block_pos.proto";
+import "packet_options.proto";
+import "structure.proto";
+
+enum StructureTemplateRequestEnum {
+  STRUCTURETEMPLATEREQUESTENUM_UNSPECIFIED = 0;
+  StructureTemplateRequestExportFromSave = 1;
+  StructureTemplateRequestExportFromLoad = 2;
+  StructureTemplateRequestQuerySavedStructure = 3;
+}
+
+// StructureTemplateDataRequest 由客户端发送，用于请求结构数据。
+//
+// StructureTemplateDataRequest is sent by the client to request data of a structure.
+//
+// Added: v1.19.50
+message StructureTemplateDataRequest {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDStructureTemplateDataRequest;
+  // StructureName 是结构方块 UI 中设置的结构名称。该名称用于将结构导出到文件。
+  //
+  // StructureName is the name of the structure that was set in the structure block's UI. This is the name
+  // used to export the structure to a file.
+  //
+  // Added: v1.19.50
+  string StructureName = 1;
+  // Position 是被请求模板数据的结构方块位置。
+  //
+  // Position is the position of the structure block that has its template data requested.
+  //
+  // Added: v1.19.50
+  .mousetunnel.minecraft.protocol.block_pos.BlockPos Position = 2;
+  // Settings 是导出结构时应使用的设置结构体。
+  // 这些设置与客户端最后在 StructureBlockUpdate 数据包中发送的设置相同。
+  //
+  // Settings is a struct of settings that should be used for exporting the structure. These settings are
+  // identical to the last sent in the StructureBlockUpdate packet by the client.
+  //
+  // Added: v1.19.50
+  .mousetunnel.minecraft.protocol.structure.StructureSettings Settings = 3;
+  // RequestType 指定玩家发送的模板数据请求类型，它是上方常量之一。
+  //
+  // RequestType specifies the type of template data request that the player sent. It is one of the
+  // constants found above.
+  //
+  // Added: v1.19.50
+  // Go type: byte
+  uint32 RequestType = 4;
+}
+

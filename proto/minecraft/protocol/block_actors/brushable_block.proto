@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.brushable_block;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actors";
+
+import "block_actors/general_actors/randomizable_block_actor.proto";
+
+// BrushableBlock 描述可疑方块实体。
+//
+// BrushableBlock describes the brushable block actor.
+message BrushableBlock {
+  .mousetunnel.minecraft.protocol.block_actors.general_actors.randomizable_block_actor.RandomizableBlockActor RandomizableBlockActor = 1;
+  // Not used; TAG_Int(4) = 0
+  int32 BrushCount = 2;
+  // Not used; TAG_Byte(1) = 6
+  // Go type: byte
+  uint32 BrushDirection = 3;
+}
+

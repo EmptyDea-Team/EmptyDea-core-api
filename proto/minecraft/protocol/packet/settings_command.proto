@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.settings_command;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// SettingsCommand 在客户端更改设置并导致向服务器发出命令时发送，
+// 例如启用“显示坐标”时。
+//
+// SettingsCommand is sent by the client when it changes a setting in the settings that results in the issuing
+// of a command to the server, such as when Show Coordinates is enabled.
+//
+// Added: v1.12
+message SettingsCommand {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDSettingsCommand;
+  // CommandLine 是因客户端更改设置而发送给服务器的完整命令行。
+  //
+  // CommandLine is the full command line that was sent to the server as a result of the setting that the
+  // client changed.
+  //
+  // Added: v1.12
+  string CommandLine = 1;
+  // SuppressOutput 指定客户端是否请求隐藏已执行命令的输出。
+  // 通常该值为 true，因为客户端不需要消息来确认更改结果。
+  //
+  // SuppressOutput specifies if the client requests the suppressing of the output of the command that was
+  // executed. Generally this is set to true, as the client won't need a message to confirm the output of
+  // the change.
+  //
+  // Added: v1.12
+  bool SuppressOutput = 2;
+}
+

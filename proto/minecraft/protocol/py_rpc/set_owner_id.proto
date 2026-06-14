@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.set_owner_id;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpc";
+
+// SetOwnerID 设置玩家的网易 User ID。
+//
+// SetOwnerID sets the NetEase user ID of the player.
+message SetOwnerID {
+  // OwnerID 是分配给该客户端的网易 User ID。
+  //
+  // OwnerID is the NetEase user ID assigned to this client.
+  uint64 OwnerID = 1;
+}
+

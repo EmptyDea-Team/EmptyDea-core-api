@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.spawn_particle_effect;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "mgl32.proto";
+import "packet_options.proto";
+
+message SpawnParticleEffectOptionalBytes {
+  bool Present = 1;
+  bytes Value = 2;
+}
+
+// SpawnParticleEffect 由服务器发送，用于在客户端侧生成粒子效果。
+// 与其他会产生粒子的包不同，该数据包可以显示客户端中未硬编码的粒子。
+// 这些粒子可通过行为包添加和修改，以实现自定义粒子。
+//
+// SpawnParticleEffect is sent by the server to spawn a particle effect client-side. Unlike other packets that
+// result in the appearing of particles, this packet can show particles that are not hardcoded in the client.
+// They can be added and changed through behaviour packs to implement custom particles.
+//
+// Added: v1.12
+message SpawnParticleEffect {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDSpawnParticleEffect;
+  // Dimension 是粒子生成所在的维度。其确切用途尚不明确，因为维度不会直接影响粒子。
+  //
+  // Dimension is the dimension that the particle is spawned in. Its exact usage is not clear, as the
+  // dimension has no direct effect on the particle.
+  //
+  // Added: v1.12
+  // Go type: byte
+  uint32 Dimension = 1;
+  // EntityUniqueID 是生成粒子可能附着到的实体唯一 ID。如果该 ID 不为 -1，
+  // 下方 Position 会被解释为相对于该唯一 ID 关联实体的位置。
+  //
+  // EntityUniqueID is the unique ID of the entity that the spawned particle may be attached to. If this ID
+  // is not -1, the Position below will be interpreted as relative to the position of the entity associated
+  // with this unique ID.
+  //
+  // Added: v1.9.0
+  int64 EntityUniqueID = 2;
+  // Position 是粒子应生成的位置。如果该位置离玩家太远，粒子不会显示。
+  // 如果 EntityUniqueID 不为 -1，该位置会相对于该实体的位置。
+  //
+  // Position is the position that the particle should be spawned at. If the position is too far away from
+  // the player, it will not show up.
+  // If EntityUniqueID is not -1, the position will be relative to the position of the entity.
+  //
+  // Added: v1.12
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 Position = 3;
+  // ParticleName 是应显示的粒子名称。该名称可以指向内置粒子效果，
+  // 也可以指向由行为包实现的粒子效果。
+  //
+  // ParticleName is the name of the particle that should be shown. This name may point to a particle effect
+  // that is built-in, or to one implemented by behaviour packs.
+  //
+  // Added: v1.12
+  string ParticleName = 4;
+  // MoLangVariables 是已编码的 JSON 映射，保存可能适用于粒子生成的 MoLang 变量。
+  // 大多数情况下可以留空。
+  //
+  // MoLangVariables is an encoded JSON map of MoLang variables that may be applicable to the particle spawn. This can
+  // just be left empty in most cases.
+  //
+  // Added: v1.18.30
+  // Go type: protocol.Optional[[]byte]
+  SpawnParticleEffectOptionalBytes MoLangVariables = 5;
+}
+

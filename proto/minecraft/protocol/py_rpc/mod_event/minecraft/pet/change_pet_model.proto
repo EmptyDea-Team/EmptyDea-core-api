@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.change_pet_model;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// ChangePetModel 同步宠物模型变化。
+//
+// ChangePetModel syncs pet model changes.
+message ChangePetModel {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  // Go type: uint8
+  uint32 EventType = 2;
+  ChangePetModelData ChangePetModelData = 3;
+}
+
+// ChangePetModelData 保存宠物模型变化字段。
+//
+// ChangePetModelData stores pet model-change fields.
+message ChangePetModelData {
+  string ModelName = 1;
+  string PetEntityID = 2;
+  string PlayerID = 3;
+  int64 State = 4;
+  int64 PetID = 5;
+  int64 SkinID = 6;
+}
+

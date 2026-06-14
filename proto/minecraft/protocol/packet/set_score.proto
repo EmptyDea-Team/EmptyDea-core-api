@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.set_score;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+import "scoreboard.proto";
+
+enum ScoreboardActionEnum {
+  ScoreboardActionModify = 0;
+  ScoreboardActionRemove = 1;
+}
+
+// SetScore 由服务器发送，用于向玩家发送计分板内容。它可以用于添加、移除或编辑计分板条目。
+//
+// SetScore is sent by the server to send the contents of a scoreboard to the player. It may be used to either
+// add, remove or edit entries on the scoreboard.
+//
+// Added: v1.12
+message SetScore {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDSetScore;
+  // ActionType 是要对数据包中条目执行的计分板操作类型。
+  // 如果 ActionType 为 ScoreboardActionModify，所有条目在不存在时会被添加到计分板，
+  // 已存在时会被修改。如果设置为 ScoreboardActionRemove，所有设置的计分板条目都会从计分板移除。
+  //
+  // ActionType is the type of the action to execute upon the scoreboard with the entries that the packet
+  // has. If ActionType is ScoreboardActionModify, all entries will be added to the scoreboard if not yet
+  // present, or modified if already present. If set to ScoreboardActionRemove, all scoreboard entries set
+  // will be removed from the scoreboard.
+  //
+  // Added: v1.12
+  // Go type: byte
+  uint32 ActionType = 1;
+  // Entries 是客户端应操作的所有条目列表。修改时会添加或修改所有条目；移除时会移除所有条目。
+  //
+  // Entries is a list of all entries that the client should operate on. When modifying, it will add or
+  // modify all entries, whereas when removing, it will remove all entries.
+  //
+  // Added: v1.12
+  // Go type: []protocol.ScoreboardEntry
+  repeated .mousetunnel.minecraft.protocol.scoreboard.ScoreboardEntry Entries = 2;
+}
+

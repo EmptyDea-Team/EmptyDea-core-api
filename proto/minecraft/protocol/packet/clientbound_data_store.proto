@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.clientbound_data_store;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "data_store.proto";
+import "packet_options.proto";
+
+// ClientBoundDataStore 由服务器发送，用于在客户端更新、变更或移除数据存储条目。
+//
+// ClientBoundDataStore is sent by the server to update, change or remove data store entries on the client.
+//
+// Added: v1.26.10
+message ClientBoundDataStore {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDClientBoundDataStore;
+  // Updates 是数据存储变更数组，每个条目都有自己的变更类型判别字段。
+  //
+  // Updates is an array of data store changes. Each entry has its own change type discriminator.
+  //
+  // Added: v1.26.10
+  // Go type: []protocol.DataStoreChangeEntry
+  repeated .mousetunnel.minecraft.protocol.data_store.DataStoreChangeEntry Updates = 1;
+}
+

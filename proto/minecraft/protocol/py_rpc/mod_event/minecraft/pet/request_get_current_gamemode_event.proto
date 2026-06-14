@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.request_get_current_gamemode_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// RequestGetCurrentGamemodeEvent 请求当前游戏模式。
+//
+// RequestGetCurrentGamemodeEvent requests the current game mode.
+message RequestGetCurrentGamemodeEvent {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  GameModeData GameModeData = 2;
+}
+
+// GameModeData 保存当前游戏模式字段。
+//
+// GameModeData stores current game-mode fields.
+message GameModeData {
+  string PlayerID = 1;
+  int64 CurrentGameMode = 2;
+}
+

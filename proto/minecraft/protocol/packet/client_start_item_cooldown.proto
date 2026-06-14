@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.client_start_item_cooldown;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// ClientStartItemCooldown 由服务器发送给客户端，用于开始某个物品的冷却。
+//
+// ClientStartItemCooldown is sent by the server to the client to initiate a cooldown on an item.
+//
+// Added: v1.18.10
+message ClientStartItemCooldown {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDClientStartItemCooldown;
+  // Category 是要开始冷却的物品类别。
+  //
+  // Category is the category of the item to start the cooldown on.
+  //
+  // Added: v1.18.10
+  string Category = 1;
+  // Duration 是冷却应持续的 tick 数。
+  //
+  // Duration is the duration of ticks the cooldown should last.
+  //
+  // Added: v1.18.10
+  int32 Duration = 2;
+}
+

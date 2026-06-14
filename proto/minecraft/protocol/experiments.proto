@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.experiments;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+// ExperimentData 保存实验功能的数据，该实验功能可以是启用或禁用状态。
+//
+// ExperimentData holds data on an experiment that is either enabled or disabled.
+//
+// Added: v1.16.100
+message ExperimentData {
+  // Name 是实验功能的名称。
+  //
+  // Name is the name of the experiment.
+  //
+  // Added: v1.16.100
+  string Name = 1;
+  // Enabled 指定实验功能是否启用。原版通常会把发送的任何实验功能都设置为 true。
+  //
+  // Enabled specifies if the experiment is enabled. Vanilla typically always sets this to true for any
+  // experiments sent.
+  //
+  // Added: v1.16.100
+  bool Enabled = 2;
+}
+

@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.client_cache_miss_response;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "blob_cache.proto";
+import "packet_options.proto";
+
+// ClientCacheMissResponse 是 blob cache 协议的一部分。服务器会响应 ClientCacheBlobStatus 发送它，
+// 其中包含客户端确认尚未拥有的所有 blob 数据。
+//
+// ClientCacheMissResponse is part of the blob cache protocol. It is sent by the server in response to a
+// ClientCacheBlobStatus packet and contains the blob data of all blobs that the client acknowledged not to
+// have yet.
+//
+// Added: v1.12
+message ClientCacheMissResponse {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDClientCacheMissResponse;
+  // Blobs 是客户端在 ClientCacheBlobStatus 中报告缺失的所有 blob 列表，包含与哈希对应的 blob 数据。
+  //
+  // Blobs is a list of all blobs that the client sent misses for in the ClientCacheBlobStatus. These blobs
+  // hold the data of the blobs with the hashes they are matched with.
+  //
+  // Added: v1.12
+  // Go type: []protocol.CacheBlob
+  repeated .mousetunnel.minecraft.protocol.blob_cache.CacheBlob Blobs = 1;
+}
+

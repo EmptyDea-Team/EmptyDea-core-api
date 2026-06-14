@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.update_attributes;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "attribute.proto";
+import "packet_options.proto";
+
+// UpdateAttributes 由服务器发送，用于更新世界中任意实体的一组属性。
+// 这些属性包括实体的生命值、移动速度等。
+//
+// UpdateAttributes is sent by the server to update an amount of attributes of any entity in the world. These
+// attributes include ones such as the health or the movement speed of the entity.
+//
+// Added: v1.11.1
+message UpdateAttributes {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDUpdateAttributes;
+  // EntityRuntimeID 是实体的运行时 ID。运行时 ID 在每个世界会话中唯一，
+  // 数据包通常使用该运行时 ID 标识实体。
+  //
+  // EntityRuntimeID is the runtime ID of the entity. The runtime ID is unique for each world session, and
+  // entities are generally identified in packets using this runtime ID.
+  //
+  // Added: v1.11.1
+  uint64 EntityRuntimeID = 1;
+  // Attributes 是实体获得的新属性切片。它包括生命值、移动速度等属性。
+  // 注意，该数据包只需要发送发生变化的属性，不需要发送值未变化的属性。
+  //
+  // Attributes is a slice of new attributes that the entity gets. It includes attributes such as its
+  // health, movement speed, etc. Note that only changed attributes have to be sent in this packet. It is
+  // not required to send attributes that did not have their values changed.
+  //
+  // Added: v1.11.1
+  // Go type: []protocol.Attribute
+  repeated .mousetunnel.minecraft.protocol.attribute.Attribute Attributes = 2;
+  // Tick 是发送该数据包时的服务器 tick。它与 CorrectPlayerMovePrediction 配合使用。
+  //
+  // Tick is the server tick at which the packet was sent. It is used in relation to CorrectPlayerMovePrediction.
+  //
+  // Added: v1.16.100
+  uint64 Tick = 3;
+}
+

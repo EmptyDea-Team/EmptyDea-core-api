@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.change_model;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// ChangeModel 是网易模型变更数据包。
+//
+// ChangeModel is a NetEase model change packet.
+//
+// Added: NetEase.
+message ChangeModel {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDChangeModel;
+  int64 Unknown1 = 1;
+  string Unknown2 = 2;
+}
+

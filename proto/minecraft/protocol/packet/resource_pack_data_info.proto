@@ -1,0 +1,86 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.resource_pack_data_info;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// noinspection SpellCheckingInspection 用于抑制 IDE 拼写检查。
+//
+// noinspection SpellCheckingInspection
+enum ResourcePackTypeEnum {
+  RESOURCEPACKTYPEENUM_UNSPECIFIED = 0;
+  ResourcePackTypeAddon = 1;
+  ResourcePackTypeCached = 2;
+  ResourcePackTypeCopyProtected = 3;
+  ResourcePackTypeBehaviour = 4;
+  ResourcePackTypePersonaPiece = 5;
+  ResourcePackTypeResources = 6;
+  ResourcePackTypeSkins = 7;
+  ResourcePackTypeWorldTemplate = 8;
+}
+
+// ResourcePackDataInfo 由服务器发送给客户端，用于告知客户端即将发送的某个资源包中包含的数据。
+//
+// ResourcePackDataInfo is sent by the server to the client to inform the client about the data contained in
+// one of the resource packs that are about to be sent.
+//
+// Added: v1.11.1
+message ResourcePackDataInfo {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDResourcePackDataInfo;
+  // UUID 是该信息所对应资源包的唯一 ID。
+  //
+  // UUID is the unique ID of the resource pack that the info concerns.
+  //
+  // Added: v1.11.1
+  string UUID = 1;
+  // DataChunkSize 是发送资源包时每个数据块的最大字节数。大小为 1MB（1024*1024）时，
+  // 一个 15.5MB 的资源包会被拆分为 16 个数据块。
+  //
+  // DataChunkSize is the maximum size in bytes of the chunks in which the total size of the resource pack
+  // to be sent will be divided. A size of 1MB (1024*1024) means that a resource pack of 15.5MB will be
+  // split into 16 data chunks.
+  //
+  // Added: v1.11.1
+  uint32 DataChunkSize = 2;
+  // ChunkCount 是发送的资源包拆分出的数据块总数，即资源包总大小除以 DataChunkSize 字段。
+  // 客户端似乎并不实际使用该字段，而是用总大小和块大小自行计算。
+  //
+  // ChunkCount is the total amount of data chunks that the sent resource pack will exist out of. It is the
+  // total size of the resource pack divided by the DataChunkSize field.
+  // The client doesn't actually seem to use this field. Rather, it divides the size by the chunk size to
+  // calculate it itself.
+  //
+  // Added: v1.11.1
+  uint32 ChunkCount = 3;
+  // Size 是资源包占用的总字节数，即资源包压缩归档（zip）的大小。
+  //
+  // Size is the total size in bytes that the resource pack occupies. This is the size of the compressed
+  // archive (zip) of the resource pack.
+  //
+  // Added: v1.11.1
+  uint64 Size = 4;
+  // Hash 是资源包内容的 SHA256 哈希。
+  //
+  // Hash is a SHA256 hash of the content of the resource pack.
+  //
+  // Added: v1.11.1
+  // Go type: []byte
+  bytes Hash = 5;
+  // Premium 指定该资源包是否为高级资源包，即是否从 Minecraft 商店购买。
+  //
+  // Premium specifies if the resource pack was a premium resource pack, meaning it was bought from the
+  // Minecraft store.
+  //
+  // Added: v1.11.1
+  bool Premium = 6;
+  // PackType 是资源包类型，应为上方常量中的资源包类型之一。
+  //
+  // PackType is the type of the resource pack. It is one of the resource pack types that may be found in
+  // the constants above.
+  //
+  // Added: v1.11.1
+  // Go type: byte
+  uint32 PackType = 7;
+}
+

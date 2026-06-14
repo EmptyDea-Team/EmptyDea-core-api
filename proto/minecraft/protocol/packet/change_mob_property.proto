@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.change_mob_property;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// ChangeMobProperty 是服务器发送给客户端的数据包，用于在客户端侧更改生物的某个属性。
+//
+// ChangeMobProperty is a packet sent from the server to the client to change one of the properties of a mob client-side.
+//
+// Added: v1.18.30
+message ChangeMobProperty {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDChangeMobProperty;
+  // EntityUniqueID 是属性正在被更改的实体唯一 ID。
+  //
+  // EntityUniqueID is the unique ID of the entity whose property is being changed.
+  //
+  // Added: v1.18.30
+  int64 EntityUniqueID = 1;
+  // Property 是正在更新的属性名称。
+  //
+  // Property is the name of the property being updated.
+  //
+  // Added: v1.18.30
+  string Property = 2;
+  // BoolValue 在属性值为 bool 类型时设置。如果类型不是 bool，该字段会被忽略。
+  //
+  // BoolValue is set if the property value is a bool type. If the type is not a bool, this field is ignored.
+  //
+  // Added: v1.18.30
+  bool BoolValue = 3;
+  // StringValue 在属性值为 string 类型时设置。如果类型不是 string，该字段会被忽略。
+  //
+  // StringValue is set if the property value is a string type. If the type is not a string, this field is ignored.
+  //
+  // Added: v1.18.30
+  string StringValue = 4;
+  // IntValue 在属性值为 int 类型时设置。如果类型不是 int，该字段会被忽略。
+  //
+  // IntValue is set if the property value is an int type. If the type is not an int, this field is ignored.
+  //
+  // Added: v1.18.30
+  int32 IntValue = 5;
+  // FloatValue 在属性值为 float 类型时设置。如果类型不是 float，该字段会被忽略。
+  //
+  // FloatValue is set if the property value is a float type. If the type is not a float, this field is ignored.
+  //
+  // Added: v1.18.30
+  // Go type: float32
+  float FloatValue = 6;
+}
+

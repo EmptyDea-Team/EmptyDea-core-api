@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.emote.two_person_agree_join;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/emote;emote";
+
+import "py_rpc/mod_event/minecraft/emote/basic.proto";
+
+// TwoPersonAgreeJoin 是客户端同意加入双人动作的请求。
+//
+// TwoPersonAgreeJoin is a client request to join a two-person emote.
+message TwoPersonAgreeJoin {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.emote.basic.Basic Basic = 1;
+  // Inviter 是邀请方玩家 ID。
+  //
+  // Inviter is the inviting player ID.
+  string Inviter = 2;
+  // EmoteID 是双人动作 ID。
+  //
+  // EmoteID is the two-person emote ID.
+  string EmoteID = 3;
+}
+

@@ -1,0 +1,102 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.education_settings;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "education.proto";
+import "packet_options.proto";
+
+message EducationSettingsOptionalBool {
+  bool Present = 1;
+  bool Value = 2;
+}
+
+message EducationSettingsOptionalEducationExternalLinkSettings {
+  bool Present = 1;
+  .mousetunnel.minecraft.protocol.education.EducationExternalLinkSettings Value = 2;
+}
+
+message EducationSettingsOptionalString {
+  bool Present = 1;
+  string Value = 2;
+}
+
+// EducationSettings 是服务器发送的数据包，用于更新 Minecraft: Education Edition 相关设置。
+// 普通基础游戏不会使用它。
+//
+// EducationSettings is a packet sent by the server to update Minecraft: Education Edition related settings.
+// It is unused by the normal base game.
+//
+// Added: v1.13
+message EducationSettings {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDEducationSettings;
+  // CodeBuilderDefaultURI 是代码构建器运行的默认 URI。借助它，Code Builder 程序可以让代码直接影响服务器。
+  //
+  // CodeBuilderDefaultURI is the default URI that the code builder is ran on. Using this, a Code Builder program can
+  // make code directly affect the server.
+  //
+  // Added: v1.13
+  string CodeBuilderDefaultURI = 1;
+  // CodeBuilderTitle 是连接到 CodeBuilderDefaultURI 时显示的代码构建器标题。
+  //
+  // CodeBuilderTitle is the title of the code builder shown when connected to the CodeBuilderDefaultURI.
+  //
+  // Added: v1.16
+  string CodeBuilderTitle = 2;
+  // CanResizeCodeBuilder 指定连接到世界的客户端在代码构建器打开时是否可以调整其大小。
+  //
+  // CanResizeCodeBuilder specifies if clients connected to the world should be able to resize the code
+  // builder when it is opened.
+  //
+  // Added: v1.16
+  bool CanResizeCodeBuilder = 3;
+  // DisableLegacyTitleBar 表示是否禁用旧版标题栏。
+  //
+  // DisableLegacyTitleBar indicates whether the legacy title bar is disabled.
+  //
+  // Added: v1.17.30
+  bool DisableLegacyTitleBar = 4;
+  // PostProcessFilter 是教育版界面使用的后处理滤镜标识。
+  //
+  // PostProcessFilter is the post-process filter identifier used by the Education Edition UI.
+  //
+  // Added: v1.17.30
+  string PostProcessFilter = 5;
+  // ScreenshotBorderPath 是截图边框资源路径。
+  //
+  // ScreenshotBorderPath is the resource path of the screenshot border.
+  //
+  // Added: v1.17.30
+  string ScreenshotBorderPath = 6;
+  // CanModifyBlocks 指定教育版代理或相关功能是否可以修改方块。
+  //
+  // CanModifyBlocks specifies whether Education Edition agents or related features may modify blocks.
+  //
+  // Added: v1.18.30
+  // Changed: v1.18.30, renamed from AgentCapabilities and encoded as an optional bool.
+  // Go type: protocol.Optional[bool]
+  EducationSettingsOptionalBool CanModifyBlocks = 7;
+  // OverrideURI 是可选的覆盖 URI。
+  //
+  // OverrideURI is the optional override URI.
+  //
+  // Added: v1.17.0
+  // Changed: v1.18.30, encoded as an optional string instead of a plain string.
+  // Go type: protocol.Optional[string]
+  EducationSettingsOptionalString OverrideURI = 8;
+  // HasQuiz 指定该世界是否连接了测验。
+  //
+  // HasQuiz specifies if the world has a quiz connected to it.
+  //
+  // Added: v1.13
+  bool HasQuiz = 9;
+  // ExternalLinkSettings 是可选的教育版外部链接设置。
+  //
+  // ExternalLinkSettings holds the optional Education Edition external link settings.
+  //
+  // Added: v1.17.30
+  // Changed: v1.18.30, encoded as an optional EducationExternalLinkSettings value instead of a pointer value.
+  // Go type: protocol.Optional[protocol.EducationExternalLinkSettings]
+  EducationSettingsOptionalEducationExternalLinkSettings ExternalLinkSettings = 10;
+}
+

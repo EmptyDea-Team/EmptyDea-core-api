@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.emote.set_trigger_pos_from_server;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/emote;emote";
+
+import "py_rpc/mod_event/minecraft/emote/basic.proto";
+
+// SetTriggerPosFromServer 同步双人动作触发区域数据。
+//
+// SetTriggerPosFromServer syncs two-person-emote trigger area data.
+message SetTriggerPosFromServer {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.emote.basic.Basic Basic = 1;
+  // PlayerID 是双人动作发起玩家 ID。
+  //
+  // PlayerID is the two-person-emote owner player ID.
+  string PlayerID = 2;
+  // Position 是触发区域方块坐标；nil 表示隐藏触发提示。
+  //
+  // Position is the trigger block position; nil hides the trigger hint.
+  // Go type: []float64
+  repeated double Position = 3;
+}
+

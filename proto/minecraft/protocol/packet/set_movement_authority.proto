@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.set_movement_authority;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// SetMovementAuthority 由服务器发送，用于变更移动权限模式。
+//
+// SetMovementAuthority is sent by the server to change the movement authority mode.
+message SetMovementAuthority {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDSetMovementAuthority;
+  // MovementMode 是 protocol.PlayerMovementMode* 常量之一。
+  //
+  // MovementMode is one of the protocol.PlayerMovementMode* constants.
+  // Go type: byte
+  uint32 MovementMode = 1;
+}
+

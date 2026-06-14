@@ -1,0 +1,282 @@
+syntax = "proto3";
+
+package emptydea.game_control.resources_control;
+
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/resources_control;resources_control_pb";
+
+import "game_control/common.proto";
+import "entity_metadata.proto";
+import "mgl32.proto";
+
+// PlayerRef 是可跨 getter 使用的玩家引用。
+message PlayerRef {
+  // UUID 返回玩家 UUID 字符串。
+  string UUID = 1;
+}
+
+// PlayerLookupResponse 是玩家索引查询结果。
+message PlayerLookupResponse {
+  // Found 表示是否找到玩家。
+  bool Found = 1;
+  // Player 是找到的玩家引用。
+  PlayerRef Player = 2;
+}
+
+// PlayerRefsResponse 是当前在线玩家列表。
+message PlayerRefsResponse {
+  // Players 是当前在线玩家列表。
+  repeated PlayerRef Players = 1;
+}
+
+// GetPlayerByUUIDRequest 是按 UUID 字符串查询玩家的请求。
+message GetPlayerByUUIDRequest {
+  // UUID 是玩家 UUID 字符串。
+  string UUID = 1;
+}
+
+// GetPlayerByNameRequest 是按玩家名查询玩家的请求。
+message GetPlayerByNameRequest {
+  // Name 是玩家名。
+  string Name = 1;
+}
+
+// GetPlayerByUniqueIDRequest 是按实体唯一 ID 查询玩家的请求。
+message GetPlayerByUniqueIDRequest {
+  // UniqueID 是玩家实体唯一 ID。
+  int64 UniqueID = 1;
+}
+
+// GetPlayerByRuntimeIDRequest 是按实体运行时 ID 查询玩家的请求。
+message GetPlayerByRuntimeIDRequest {
+  // RuntimeID 是玩家实体运行时 ID。
+  uint64 RuntimeID = 1;
+}
+
+// EntityRef 是可跨 getter 使用的实体引用。
+message EntityRef {
+  // RuntimeID 返回实体运行时 ID。
+  uint64 RuntimeID = 1;
+}
+
+// EntityLookupResponse 是实体索引查询结果。
+message EntityLookupResponse {
+  // Found 表示是否找到实体。
+  bool Found = 1;
+  // Entity 是找到的实体引用。
+  EntityRef Entity = 2;
+}
+
+// GameRuleKey 是单条游戏规则的名称。
+message GameRuleKey {
+  // Name 是游戏规则名称。
+  string Name = 1;
+}
+
+// GameRuleNamesResponse 是游戏规则状态视图中的名称列表。
+message GameRuleNamesResponse {
+  // Names 是游戏规则状态视图中的名称列表。
+  repeated string Names = 1;
+}
+
+// MobEffectRef 是实体身上的单个药水效果状态引用。
+message MobEffectRef {
+  // RuntimeID 返回实体运行时 ID。
+  uint64 RuntimeID = 1;
+  // EffectType 返回药水效果类型。
+  int32 EffectType = 2;
+}
+
+// MobEffectTypesResponse 是实体药水效果类型查询结果。
+message MobEffectTypesResponse {
+  // Found 表示是否找到实体或效果集合。
+  bool Found = 1;
+  // EffectTypes 是实体身上已维护的药水效果类型列表。
+  repeated int32 EffectTypes = 2;
+}
+
+// BoolResponse 是非可选 bool 返回值。
+message BoolResponse {
+  // Value 是实际 bool 结果。
+  bool Value = 1;
+}
+
+// Vec3Value 表示可能不存在的三维向量值。
+message Vec3Value {
+  // Ok 表示 Value 是否存在且有效。
+  bool Ok = 1;
+  // Value 是当前位置。
+  mousetunnel.minecraft.protocol.mgl32.Vec3 Value = 2;
+}
+
+// EntityMetadataValue 表示可能不存在的实体元数据。
+message EntityMetadataValue {
+  // Ok 表示 Value 是否存在且有效。
+  bool Ok = 1;
+  // Value 是实体元数据。
+  mousetunnel.minecraft.protocol.entity_metadata.EntityMetadata Value = 2;
+}
+
+// UQHolder 聚合由数据包维护的机器人、玩家、世界和实体状态。
+service UQHolder {
+  // GetBotName 返回机器人名称。
+  rpc GetBotName(emptydea.game_control.Empty) returns (emptydea.game_control.StringValue);
+  // GetBotXUID 返回机器人 XUID。
+  rpc GetBotXUID(emptydea.game_control.Empty) returns (emptydea.game_control.StringValue);
+  // GetBotUUID 返回机器人身份 UUID 字符串。
+  rpc GetBotUUID(emptydea.game_control.Empty) returns (emptydea.game_control.StringValue);
+  // GetBotEntityUniqueID 返回机器人实体唯一 ID。
+  rpc GetBotEntityUniqueID(emptydea.game_control.Empty) returns (emptydea.game_control.Int64Value);
+  // GetBotEntityRuntimeID 返回机器人实体运行时 ID。
+  rpc GetBotEntityRuntimeID(emptydea.game_control.Empty) returns (emptydea.game_control.Uint64Value);
+  // GetBotPosition 返回机器人当前位置。
+  rpc GetBotPosition(emptydea.game_control.Empty) returns (Vec3Value);
+  // GetBotDimension 返回机器人当前维度。
+  rpc GetBotDimension(emptydea.game_control.Empty) returns (emptydea.game_control.Int32Value);
+  // GetBotGameMode 返回机器人当前游戏模式。
+  rpc GetBotGameMode(emptydea.game_control.Empty) returns (emptydea.game_control.Int32Value);
+  // GetBotHealth 返回机器人当前生命值。
+  rpc GetBotHealth(emptydea.game_control.Empty) returns (emptydea.game_control.Float32Value);
+  // GetBotHunger 返回机器人当前饥饿值。
+  rpc GetBotHunger(emptydea.game_control.Empty) returns (emptydea.game_control.Float32Value);
+  // GetBotSaturation 返回机器人当前饱和度。
+  rpc GetBotSaturation(emptydea.game_control.Empty) returns (emptydea.game_control.Float32Value);
+  // GetBotHotBarSlot 返回机器人当前快捷栏槽位。
+  rpc GetBotHotBarSlot(emptydea.game_control.Empty) returns (emptydea.game_control.Uint32Value);
+
+  // GetOnlinePlayers 返回当前在线玩家列表。
+  rpc GetOnlinePlayers(emptydea.game_control.Empty) returns (PlayerRefsResponse);
+  // GetPlayerByUUID 按玩家 UUID 字符串查询玩家。
+  rpc GetPlayerByUUID(GetPlayerByUUIDRequest) returns (PlayerLookupResponse);
+  // GetPlayerByName 按玩家名称查询玩家。
+  rpc GetPlayerByName(GetPlayerByNameRequest) returns (PlayerLookupResponse);
+  // GetPlayerByUniqueID 按实体唯一 ID 查询玩家。
+  rpc GetPlayerByUniqueID(GetPlayerByUniqueIDRequest) returns (PlayerLookupResponse);
+  // GetPlayerByRuntimeID 按实体运行时 ID 查询玩家。
+  rpc GetPlayerByRuntimeID(GetPlayerByRuntimeIDRequest) returns (PlayerLookupResponse);
+
+  // GetPlayerUUID 返回玩家 UUID 字符串。
+  rpc GetPlayerUUID(PlayerRef) returns (emptydea.game_control.StringValue);
+  // GetPlayerName 返回玩家名称。
+  rpc GetPlayerName(PlayerRef) returns (emptydea.game_control.StringValue);
+  // GetPlayerXUID 返回玩家 XUID。
+  rpc GetPlayerXUID(PlayerRef) returns (emptydea.game_control.StringValue);
+  // GetPlayerEntityUniqueID 返回玩家实体唯一 ID。
+  rpc GetPlayerEntityUniqueID(PlayerRef) returns (emptydea.game_control.Int64Value);
+  // GetPlayerEntityRuntimeID 返回玩家实体运行时 ID。
+  rpc GetPlayerEntityRuntimeID(PlayerRef) returns (emptydea.game_control.Uint64Value);
+  // GetPlayerNeteaseUID 返回玩家网易 UID。
+  rpc GetPlayerNeteaseUID(PlayerRef) returns (emptydea.game_control.Int64Value);
+  // GetPlayerLoginTime 返回玩家登录时间。
+  rpc GetPlayerLoginTime(PlayerRef) returns (emptydea.game_control.TimeValue);
+  // GetPlayerPlatformChatID 返回玩家平台聊天 ID。
+  rpc GetPlayerPlatformChatID(PlayerRef) returns (emptydea.game_control.StringValue);
+  // GetPlayerBuildPlatform 返回玩家客户端平台。
+  rpc GetPlayerBuildPlatform(PlayerRef) returns (emptydea.game_control.Int32Value);
+  // GetPlayerSkinID 返回玩家皮肤 ID。
+  rpc GetPlayerSkinID(PlayerRef) returns (emptydea.game_control.StringValue);
+  // GetPlayerDeviceID 返回玩家设备 ID。
+  rpc GetPlayerDeviceID(PlayerRef) returns (emptydea.game_control.StringValue);
+  // GetPlayerEntityMetadata 返回玩家实体元数据。
+  rpc GetPlayerEntityMetadata(PlayerRef) returns (EntityMetadataValue);
+  // GetPlayerPosition 返回玩家当前位置。
+  rpc GetPlayerPosition(PlayerRef) returns (Vec3Value);
+  // GetPlayerPitch 返回玩家俯仰角。
+  rpc GetPlayerPitch(PlayerRef) returns (emptydea.game_control.Float32Value);
+  // GetPlayerYaw 返回玩家偏航角。
+  rpc GetPlayerYaw(PlayerRef) returns (emptydea.game_control.Float32Value);
+  // GetPlayerHeadYaw 返回玩家头部偏航角。
+  rpc GetPlayerHeadYaw(PlayerRef) returns (emptydea.game_control.Float32Value);
+  // GetPlayerMoveMode 返回最近一次 MovePlayer 的移动模式。
+  rpc GetPlayerMoveMode(PlayerRef) returns (emptydea.game_control.Uint32Value);
+  // GetPlayerOnGround 返回玩家是否在地面上。
+  rpc GetPlayerOnGround(PlayerRef) returns (emptydea.game_control.BoolValue);
+  // GetPlayerRiddenEntityRuntimeID 返回玩家骑乘实体的运行时 ID。
+  rpc GetPlayerRiddenEntityRuntimeID(PlayerRef) returns (emptydea.game_control.Uint64Value);
+  // GetPlayerTick 返回最近一次移动状态对应的 tick。
+  rpc GetPlayerTick(PlayerRef) returns (emptydea.game_control.Uint64Value);
+  // GetPlayerOnline 返回玩家是否在线。
+  rpc GetPlayerOnline(PlayerRef) returns (emptydea.game_control.BoolValue);
+
+  // GetPlayerCommandPermissions 返回玩家命令权限。
+  rpc GetPlayerCommandPermissions(PlayerRef) returns (emptydea.game_control.Uint32Value);
+  // GetPlayerPermissions 返回玩家权限级别。
+  rpc GetPlayerPermissions(PlayerRef) returns (emptydea.game_control.Uint32Value);
+  // GetPlayerFlySpeed 返回玩家飞行速度。
+  rpc GetPlayerFlySpeed(PlayerRef) returns (emptydea.game_control.Float32Value);
+  // GetPlayerWalkSpeed 返回玩家行走速度。
+  rpc GetPlayerWalkSpeed(PlayerRef) returns (emptydea.game_control.Float32Value);
+  // GetPlayerCanBuild 返回玩家是否可以放置方块。
+  rpc GetPlayerCanBuild(PlayerRef) returns (emptydea.game_control.BoolValue);
+  // GetPlayerCanMine 返回玩家是否可以挖掘方块。
+  rpc GetPlayerCanMine(PlayerRef) returns (emptydea.game_control.BoolValue);
+  // GetPlayerCanUseDoorsAndSwitches 返回玩家是否可以使用门和开关。
+  rpc GetPlayerCanUseDoorsAndSwitches(PlayerRef) returns (emptydea.game_control.BoolValue);
+  // GetPlayerCanOpenContainers 返回玩家是否可以打开容器。
+  rpc GetPlayerCanOpenContainers(PlayerRef) returns (emptydea.game_control.BoolValue);
+  // GetPlayerCanAttackPlayers 返回玩家是否可以攻击玩家。
+  rpc GetPlayerCanAttackPlayers(PlayerRef) returns (emptydea.game_control.BoolValue);
+  // GetPlayerCanAttackMobs 返回玩家是否可以攻击生物。
+  rpc GetPlayerCanAttackMobs(PlayerRef) returns (emptydea.game_control.BoolValue);
+  // GetPlayerCanUseOperatorCommands 返回玩家是否可以使用管理员命令能力。
+  rpc GetPlayerCanUseOperatorCommands(PlayerRef) returns (emptydea.game_control.BoolValue);
+  // GetPlayerCanTeleport 返回玩家是否可以使用传送能力。
+  rpc GetPlayerCanTeleport(PlayerRef) returns (emptydea.game_control.BoolValue);
+  // GetPlayerIsInvulnerable 返回玩家是否处于无敌能力状态。
+  rpc GetPlayerIsInvulnerable(PlayerRef) returns (emptydea.game_control.BoolValue);
+  // GetPlayerIsFlying 返回玩家是否处于飞行状态。
+  rpc GetPlayerIsFlying(PlayerRef) returns (emptydea.game_control.BoolValue);
+  // GetPlayerCanFly 返回玩家是否可以飞行。
+  rpc GetPlayerCanFly(PlayerRef) returns (emptydea.game_control.BoolValue);
+  // GetPlayerCanInstantBuild 返回玩家是否可以瞬间建造。
+  rpc GetPlayerCanInstantBuild(PlayerRef) returns (emptydea.game_control.BoolValue);
+  // GetPlayerCanUseLightning 返回玩家是否可以使用闪电能力。
+  rpc GetPlayerCanUseLightning(PlayerRef) returns (emptydea.game_control.BoolValue);
+  // GetPlayerIsMuted 返回玩家是否处于静音能力状态。
+  rpc GetPlayerIsMuted(PlayerRef) returns (emptydea.game_control.BoolValue);
+  // GetPlayerIsWorldBuilder 返回玩家是否具备世界构建者能力。
+  rpc GetPlayerIsWorldBuilder(PlayerRef) returns (emptydea.game_control.BoolValue);
+  // GetPlayerHasNoClip 返回玩家是否具备无碰撞能力。
+  rpc GetPlayerHasNoClip(PlayerRef) returns (emptydea.game_control.BoolValue);
+  // GetPlayerIsPrivilegedBuilder 返回玩家是否具备特权构建者能力。
+  rpc GetPlayerIsPrivilegedBuilder(PlayerRef) returns (emptydea.game_control.BoolValue);
+
+  // GetWorldCurrentTick 返回当前服务端 tick。
+  rpc GetWorldCurrentTick(emptydea.game_control.Empty) returns (emptydea.game_control.Int64Value);
+  // GetWorldSyncRatio 返回最近一次 tick 同步比例。
+  rpc GetWorldSyncRatio(emptydea.game_control.Empty) returns (emptydea.game_control.Float32Value);
+  // GetWorldTime 返回世界时间。
+  rpc GetWorldTime(emptydea.game_control.Empty) returns (emptydea.game_control.Int32Value);
+  // GetWorldDayTime 返回一天内时间。
+  rpc GetWorldDayTime(emptydea.game_control.Empty) returns (emptydea.game_control.Int32Value);
+  // GetWorldDayTimePercent 返回一天内时间进度。
+  rpc GetWorldDayTimePercent(emptydea.game_control.Empty) returns (emptydea.game_control.Float32Value);
+  // GetWorldDifficulty 返回世界难度。
+  rpc GetWorldDifficulty(emptydea.game_control.Empty) returns (emptydea.game_control.Uint32Value);
+  // GetWorldGameMode 返回世界默认游戏模式。
+  rpc GetWorldGameMode(emptydea.game_control.Empty) returns (emptydea.game_control.Int32Value);
+  // GetGameRuleNames 返回游戏规则状态视图。
+  rpc GetGameRuleNames(emptydea.game_control.Empty) returns (GameRuleNamesResponse);
+  // GetGameRuleCanBeModifiedByPlayer 返回游戏规则是否可由玩家修改。
+  rpc GetGameRuleCanBeModifiedByPlayer(GameRuleKey) returns (emptydea.game_control.BoolValue);
+  // GetGameRuleValue 返回游戏规则当前值。
+  rpc GetGameRuleValue(GameRuleKey) returns (emptydea.game_control.StringValue);
+
+  // GetEntityByRuntimeID 按运行时 ID 查询实体。
+  rpc GetEntityByRuntimeID(EntityRef) returns (EntityLookupResponse);
+  // GetEntityRuntimeID 返回实体运行时 ID。
+  rpc GetEntityRuntimeID(EntityRef) returns (emptydea.game_control.Uint64Value);
+  // GetEntityUniqueID 返回实体唯一 ID。
+  rpc GetEntityUniqueID(EntityRef) returns (emptydea.game_control.Int64Value);
+  // GetEntityHealth 返回实体生命值。
+  rpc GetEntityHealth(EntityRef) returns (emptydea.game_control.Float32Value);
+  // GetEntityEffectTypes 返回实体身上已维护的药水效果类型。
+  rpc GetEntityEffectTypes(EntityRef) returns (MobEffectTypesResponse);
+  // GetEntityEffectAmplifier 返回指定药水效果等级。
+  rpc GetEntityEffectAmplifier(MobEffectRef) returns (emptydea.game_control.Int32Value);
+  // GetEntityEffectDuration 返回指定药水效果持续时间。
+  rpc GetEntityEffectDuration(MobEffectRef) returns (emptydea.game_control.Int32Value);
+  // GetEntityEffectParticles 返回指定药水效果是否显示粒子。
+  rpc GetEntityEffectParticles(MobEffectRef) returns (emptydea.game_control.BoolValue);
+  // GetEntityEffectUpdatedTick 返回指定药水效果最后更新时间。
+  rpc GetEntityEffectUpdatedTick(MobEffectRef) returns (emptydea.game_control.Uint64Value);
+}

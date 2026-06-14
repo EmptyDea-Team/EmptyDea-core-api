@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.clientbound_data_driven_ui_close_all_screens;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+message ClientboundDataDrivenUiCloseAllScreensOptionalUint32 {
+  bool Present = 1;
+  uint32 Value = 2;
+}
+
+// ClientBoundDataDrivenUICloseScreen 由服务器发送，用于关闭客户端上的数据驱动 UI 界面。
+// 该数据包替代了 ClientBoundDataDrivenUICloseAllScreens。
+//
+// ClientBoundDataDrivenUICloseScreen is sent by the server to close a data-driven UI screen on the client.
+// This packet replaced ClientBoundDataDrivenUICloseAllScreens.
+//
+// Added: v1.26.10
+// If FormID is not set, all data-driven UI screens are closed.
+message ClientBoundDataDrivenUICloseScreen {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDClientBoundDataDrivenUICloseScreen;
+  // FormID 是要关闭的表单的可选唯一实例 ID。若未设置，则关闭所有表单。
+  //
+  // FormID is the optional unique instance ID of the form to close. If not set, all forms are closed.
+  //
+  // Added: v1.26.10
+  // Go type: protocol.Optional[uint32]
+  ClientboundDataDrivenUiCloseAllScreensOptionalUint32 FormID = 1;
+}
+

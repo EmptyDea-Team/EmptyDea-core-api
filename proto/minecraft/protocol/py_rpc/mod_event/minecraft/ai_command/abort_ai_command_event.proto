@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.abort_ai_command_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_command";
+
+import "py_rpc/mod_event/minecraft/ai_command/basic.proto";
+
+// AbortAICommandEvent 请求服务器取消正在生成的魔法指令。
+//
+// AbortAICommandEvent asks the server to abort the running AI-command generation.
+message AbortAICommandEvent {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.basic.Basic Basic = 1;
+}
+

@@ -1,0 +1,75 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.entity_link;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+enum EntityLinkEnum {
+  // EntityLinkRemove 被设置时表示移除两个实体之间的链接。
+  //
+  // EntityLinkRemove is set to remove the link between two entities.
+  EntityLinkRemove = 0;
+  // EntityLinkRider 被设置于能控制所骑乘实体的实体，例如矿车中的乘客。
+  //
+  // EntityLinkRider is set for entities that have control over the entity they're riding, such as in a
+  // minecart.
+  EntityLinkRider = 1;
+  // EntityLinkPassenger 被设置于作为进入载具乘客的实体，例如船的后座乘客。
+  //
+  // EntityLinkPassenger is set for entities being a passenger of a vehicle they enter, such as the back
+  // sit of a boat.
+  EntityLinkPassenger = 2;
+}
+
+// EntityLink 是两个实体之间的链接，通常表示一个实体骑乘另一个实体。
+//
+// EntityLink is a link between two entities, typically being one entity riding another.
+//
+// Added: v1.16
+message EntityLink {
+  // RiddenEntityUniqueID 是被骑乘实体的实体唯一 ID。
+  // 对于坐在船里的玩家，该值是船的唯一 ID。
+  //
+  // RiddenEntityUniqueID is the entity unique ID of the entity that is being ridden. For a player sitting
+  // in a boat, this is the unique ID of the boat.
+  //
+  // Added: v1.16
+  int64 RiddenEntityUniqueID = 1;
+  // RiderEntityUniqueID 是骑乘实体的实体唯一 ID。
+  // 对于坐在船里的玩家，该值是玩家的唯一 ID。
+  //
+  // RiderEntityUniqueID is the entity unique ID of the entity that is riding. For a player sitting in a
+  // boat, this is the unique ID of the player.
+  //
+  // Added: v1.16
+  int64 RiderEntityUniqueID = 2;
+  // Type 是上方类型之一，用于指定实体链接到另一个实体的方式。
+  //
+  // Type is one of the types above. It specifies the way the entity is linked to another entity.
+  //
+  // Added: v1.16
+  // Go type: byte
+  uint32 Type = 3;
+  // Immediate 被设置时表示立即让实体从另一个实体上下来。当实体的坐骑被杀死时应设置该字段。
+  //
+  // Immediate is set to immediately dismount an entity from another. This should be set when the mount of
+  // an entity is killed.
+  //
+  // Added: v1.16
+  bool Immediate = 4;
+  // RiderInitiated 指定该链接是否由骑乘者创建，例如玩家主动开始骑马。
+  // 在原版环境中，对玩家而言该值通常为 true。
+  //
+  // RiderInitiated specifies if the link was created by the rider, for example the player starting to ride
+  // a horse by itself. This is generally true in vanilla environment for players.
+  //
+  // Added: v1.16.0
+  bool RiderInitiated = 5;
+  // VehicleAngularVelocity 是骑乘者所乘载具的角速度。
+  //
+  // VehicleAngularVelocity is the angular velocity of the vehicle that the rider is riding.
+  //
+  // Added: v1.21.20
+  // Go type: float32
+  float VehicleAngularVelocity = 6;
+}
+

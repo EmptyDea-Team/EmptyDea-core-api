@@ -1,0 +1,5 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.doc;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+

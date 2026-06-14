@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.client_additional_replay_save_data;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "netease.proto";
+import "packet_options.proto";
+
+// ClientAdditionalReplaySaveData 是网易回放保存附加数据包。
+//
+// ClientAdditionalReplaySaveData is a NetEase replay save data packet.
+//
+// Added: NetEase.
+message ClientAdditionalReplaySaveData {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDClientAdditionalReplaySaveData;
+  // Go type: []protocol.ClientAdditionalReplayUnknownData
+  repeated .mousetunnel.minecraft.protocol.netease.ClientAdditionalReplayUnknownData Unknown1 = 1;
+  bool Unknown2 = 2;
+}
+

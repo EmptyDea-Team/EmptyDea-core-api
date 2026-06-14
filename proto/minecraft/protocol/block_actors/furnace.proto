@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.furnace;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actors";
+
+import "block_actors/general_actors/furnace_block_actor.proto";
+
+// Furnace 描述熔炉方块实体。
+//
+// Furnace describes the furnace block actor.
+message Furnace {
+  .mousetunnel.minecraft.protocol.block_actors.general_actors.furnace_block_actor.FurnaceBlockActor FurnaceBlockActor = 1;
+}
+

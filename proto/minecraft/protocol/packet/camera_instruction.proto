@@ -1,0 +1,115 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.camera_instruction;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "camera.proto";
+import "packet_options.proto";
+
+message CameraInstructionOptionalBool {
+  bool Present = 1;
+  bool Value = 2;
+}
+
+message CameraInstructionOptionalCameraInstructionFade {
+  bool Present = 1;
+  .mousetunnel.minecraft.protocol.camera.CameraInstructionFade Value = 2;
+}
+
+message CameraInstructionOptionalCameraInstructionFieldOfView {
+  bool Present = 1;
+  .mousetunnel.minecraft.protocol.camera.CameraInstructionFieldOfView Value = 2;
+}
+
+message CameraInstructionOptionalCameraInstructionSet {
+  bool Present = 1;
+  .mousetunnel.minecraft.protocol.camera.CameraInstructionSet Value = 2;
+}
+
+message CameraInstructionOptionalCameraInstructionTarget {
+  bool Present = 1;
+  .mousetunnel.minecraft.protocol.camera.CameraInstructionTarget Value = 2;
+}
+
+message CameraInstructionOptionalCameraSplineInstruction {
+  bool Present = 1;
+  .mousetunnel.minecraft.protocol.camera.CameraSplineInstruction Value = 2;
+}
+
+message CameraInstructionOptionalInt64 {
+  bool Present = 1;
+  int64 Value = 2;
+}
+
+// CameraInstruction 为自定义相机提供特定的操作指令。
+//
+// CameraInstruction gives a custom camera specific instructions to operate.
+//
+// Added: v1.20.30
+message CameraInstruction {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDCameraInstruction;
+  // Set 是相机指令，用于将相机设置为指定预设。
+  //
+  // Set is a camera instruction that sets the camera to a specified preset.
+  //
+  // Added: v1.20.30
+  // Go type: protocol.Optional[protocol.CameraInstructionSet]
+  CameraInstructionOptionalCameraInstructionSet Set = 1;
+  // Clear 可设为 true，用于清除所有当前相机指令。
+  //
+  // Clear can be set to true to clear all the current camera instructions.
+  //
+  // Added: v1.20.30
+  // Go type: protocol.Optional[bool]
+  CameraInstructionOptionalBool Clear = 2;
+  // Fade 是相机指令，用于将屏幕淡入或淡出到指定颜色。
+  //
+  // Fade is a camera instruction that fades the screen to a specified colour.
+  //
+  // Added: v1.20.30
+  // Go type: protocol.Optional[protocol.CameraInstructionFade]
+  CameraInstructionOptionalCameraInstructionFade Fade = 3;
+  // Target 是相机指令，用于瞄准特定实体。
+  //
+  // Target is a camera instruction that targets a specific entity.
+  //
+  // Added: v1.21.20
+  // Go type: protocol.Optional[protocol.CameraInstructionTarget]
+  CameraInstructionOptionalCameraInstructionTarget Target = 4;
+  // RemoveTarget 可设为 true，用于移除当前辅助瞄准目标。
+  //
+  // RemoveTarget can be set to true to remove the current aim assist target.
+  //
+  // Added: v1.21.20
+  // Go type: protocol.Optional[bool]
+  CameraInstructionOptionalBool RemoveTarget = 5;
+  // FieldOfView 是相机指令，用于更新相机视野。
+  //
+  // FieldOfView is a camera instruction that updates the field of view for the camera.
+  //
+  // Added: v1.21.100
+  // Go type: protocol.Optional[protocol.CameraInstructionFieldOfView]
+  CameraInstructionOptionalCameraInstructionFieldOfView FieldOfView = 6;
+  // Spline 是相机指令，用于创建相机跟随的样条路径。
+  //
+  // Spline is a camera instruction that creates a spline path for the camera to follow.
+  //
+  // Added: v1.21.111
+  // Go type: protocol.Optional[protocol.CameraSplineInstruction]
+  CameraInstructionOptionalCameraSplineInstruction Spline = 7;
+  // AttachToEntity 是相机要附着到的实体 ID。
+  //
+  // AttachToEntity is the entity ID to attach the camera to.
+  //
+  // Added: v1.21.111
+  // Go type: protocol.Optional[int64]
+  CameraInstructionOptionalInt64 AttachToEntity = 8;
+  // DetachFromEntity 可设为 true，用于将相机从当前实体上分离。
+  //
+  // DetachFromEntity can be set to true to detach the camera from the current entity.
+  //
+  // Added: v1.21.111
+  // Go type: protocol.Optional[bool]
+  CameraInstructionOptionalBool DetachFromEntity = 9;
+}
+

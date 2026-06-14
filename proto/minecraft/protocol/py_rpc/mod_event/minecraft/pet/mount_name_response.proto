@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.mount_name_response;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// MountNameResponse 返回坐骑名称。
+//
+// MountNameResponse returns the mount name.
+message MountNameResponse {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  MountNameData MountNameData = 2;
+}
+
+// MountNameData 保存坐骑名称字段。
+//
+// MountNameData stores mount-name fields.
+message MountNameData {
+  string Name = 1;
+}
+

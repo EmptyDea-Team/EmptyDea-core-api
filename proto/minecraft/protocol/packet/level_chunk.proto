@@ -1,0 +1,96 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.level_chunk;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "chunk_pos.proto";
+import "packet_options.proto";
+
+// LevelChunk 由服务器发送，用于向客户端提供一个世界区块的数据（16xYx16 个方块）。
+// 通常会在发送生成 PlayStatus 数据包前先向客户端发送一定数量的区块，
+// 让客户端在已加载的世界中生成。
+//
+// LevelChunk is sent by the server to provide the client with a chunk of a world data (16xYx16 blocks).
+// Typically, a certain amount of chunks is sent to the client before sending it the spawn PlayStatus packet,
+// so that the client spawns in a loaded world.
+//
+// Added: v1.12
+message LevelChunk {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDLevelChunk;
+  // Position 包含所发送区块的 X 和 Z 坐标。将方块坐标右移四位即可转换为区块坐标。
+  //
+  // Position contains the X and Z coordinates of the chunk sent. You can convert a block coordinate to a chunk
+  // coordinate by right-shifting it four bits.
+  //
+  // Added: v1.18.10, replaced the separate ChunkX and ChunkZ fields.
+  .mousetunnel.minecraft.protocol.chunk_pos.ChunkPos Position = 1;
+  // Dimension 是该区块所属维度的 ID。必须始终设置该字段，
+  // 否则客户端会始终认为该区块属于主世界维度。
+  //
+  // Dimension is the ID of the dimension that the chunk belongs to. This must always be set otherwise the
+  // client will always assume the chunk is part of the overworld dimension.
+  //
+  // Added: v1.20.60
+  int32 Dimension = 2;
+  // HighestSubChunk 是该位置最高的非全空气子区块。
+  // 只有 SubChunkCount 设置为 protocol.SubChunkRequestModeLimited 时才会设置该字段。
+  //
+  // HighestSubChunk is the highest sub-chunk at the position that is not all air. It is only set if the
+  // SubChunkCount is set to protocol.SubChunkRequestModeLimited.
+  //
+  // Added: v1.18.10
+  // Go type: uint16
+  uint32 HighestSubChunk = 3;
+  // SubChunkCount 是该区块包含的子区块数量。根据缓存是否启用，
+  // 会发送 blob 哈希列表，或在缓存禁用时发送子区块数据。该字段可设置为
+  // protocol.SubChunkRequestModeLimited 或 protocol.SubChunkRequestModeLimitless，
+  // 用于提示客户端响应 SubChunkRequest；当设置为 Limited 时会使用 HighestSubChunk。
+  //
+  // SubChunkCount is the amount of sub-chunks that are part of the chunk
+  // sent. Depending on if the cache is enabled, a list of blob hashes will be
+  // sent, or, if disabled, the sub-chunk data. SubChunkCount may be set to
+  // protocol.SubChunkRequestModeLimited or
+  // protocol.SubChunkRequestModeLimitless to prompt the client to send a
+  // SubChunkRequest in response. If this field is set to
+  // protocol.SubChunkRequestModeLimited, HighestSubChunk is used.
+  //
+  // Added: v1.12
+  // Changed: v1.18.10, also carries sub-chunk request mode sentinel values for client-driven sub-chunk requests.
+  uint32 SubChunkCount = 4;
+  // CacheEnabled 指定是否启用客户端 blob 缓存。该系统基于稳定的 blob 哈希，
+  // 客户端会将哈希和对应 blob 一起保存，使服务器无需多次发送相同区块数据。
+  // 如果客户端还没有服务器发送哈希对应的 blob，它会发送 ClientCacheBlobStatus 数据包列出缺失数据的哈希。
+  //
+  // CacheEnabled specifies if the client blob cache should be enabled. This system is based on hashes of
+  // blobs which are consistent and saved by the client in combination with that blob, so that the server
+  // does not have the same chunk multiple times. If the client does not yet have a blob with the hash sent,
+  // it will send a ClientCacheBlobStatus packet containing the hashes is does not have the data of.
+  //
+  // Added: v1.12
+  bool CacheEnabled = 5;
+  // BlobHashes 是该区块使用的所有 blob 哈希列表。它由 SubChunkCount + 1 个哈希组成，
+  // 前 SubChunkCount 个是子区块哈希，最后一个是该区块的生物群系哈希。
+  // 如果 CacheEnabled 为 false，BlobHashes 可以留空。
+  //
+  // BlobHashes is a list of all blob hashes used in the chunk. It is composed of SubChunkCount + 1 hashes,
+  // with the first SubChunkCount hashes being those of the sub-chunks and the last one that of the biome
+  // of the chunk.
+  // If CacheEnabled is set to false, BlobHashes can be left empty.
+  //
+  // Added: v1.12
+  // Go type: []uint64
+  repeated uint64 BlobHashes = 6;
+  // RawPayload 是序列化后的区块数据。其内容取决于 CacheEnabled 是否为 true。
+  // 为 false 时，负载由多个子区块组成，每个子区块带有表示序列化方式的版本，
+  // 后面跟随生物群系、边界方块和方块实体；为 true 时，负载只包含边界方块和方块实体。
+  //
+  // RawPayload is a serialised string of chunk data. The data held depends on if CacheEnabled is set to
+  // true. If set to false, the payload is composed of multiple sub-chunks, each of which carry a version
+  // which indicates the way they are serialised, followed by biomes, border blocks and tile entities. If
+  // CacheEnabled is true, the payload consists out of the border blocks and tile entities only.
+  //
+  // Added: v1.12
+  // Go type: []byte
+  bytes RawPayload = 7;
+}
+

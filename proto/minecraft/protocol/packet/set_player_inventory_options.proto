@@ -1,0 +1,80 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.set_player_inventory_options;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+enum InventoryLayoutEnum {
+  InventoryLayoutNone = 0;
+  InventoryLayoutInventoryOnly = 1;
+  InventoryLayoutDefault = 2;
+  InventoryLayoutRecipeBookOnly = 3;
+}
+
+enum InventoryLeftTabEnum {
+  InventoryLeftTabNone = 0;
+  InventoryLeftTabConstruction = 1;
+  InventoryLeftTabEquipment = 2;
+  InventoryLeftTabItems = 3;
+  InventoryLeftTabNature = 4;
+  InventoryLeftTabSearch = 5;
+  InventoryLeftTabSurvival = 6;
+}
+
+enum InventoryRightTabEnum {
+  InventoryRightTabNone = 0;
+  InventoryRightTabFullScreen = 1;
+  InventoryRightTabCrafting = 2;
+  InventoryRightTabArmour = 3;
+}
+
+// SetPlayerInventoryOptions 是双向数据包，可用于更新玩家的物品栏选项。
+//
+// SetPlayerInventoryOptions is a bidirectional packet that can be used to update the inventory options of a player.
+//
+// Added: v1.20.50
+message SetPlayerInventoryOptions {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDSetPlayerInventoryOptions;
+  // LeftInventoryTab 是物品栏左侧被选中的标签页。它通常用于创造物品栏，
+  // 应为上方 InventoryLeftTab 常量之一。
+  //
+  // LeftInventoryTab is the tab that is selected on the left side of the inventory. This is usually for the creative
+  // inventory. It is one of the InventoryLeftTab constants above.
+  //
+  // Added: v1.20.50
+  int32 LeftInventoryTab = 1;
+  // RightInventoryTab 是物品栏右侧被选中的标签页。它通常用于玩家自己的物品栏，
+  // 应为上方 InventoryRightTab 常量之一。
+  //
+  // RightInventoryTab is the tab that is selected on the right side of the inventory. This is usually for the player's
+  // own inventory. It is one of the InventoryRightTab constants above.
+  //
+  // Added: v1.20.50
+  int32 RightInventoryTab = 2;
+  // Filtering 表示玩家是否启用了配方过滤，用于在已解锁与未解锁配方之间筛选。
+  //
+  // Filtering is whether the player has enabled the filtering between recipes they have unlocked or not.
+  //
+  // Added: v1.20.50
+  bool Filtering = 3;
+  // InventoryLayout 是物品栏布局，应为上方 InventoryLayout 常量之一。
+  //
+  // InventoryLayout is the layout of the inventory. It is one of the InventoryLayout constants above.
+  //
+  // Added: v1.20.50
+  int32 InventoryLayout = 4;
+  // CraftingLayout 是合成物品栏布局，应为上方 InventoryLayout 常量之一。
+  //
+  // CraftingLayout is the layout of the crafting inventory. It is one of the InventoryLayout constants above.
+  //
+  // Added: v1.20.50
+  int32 CraftingLayout = 5;
+  // NetEaseUnknown 是网易额外添加的物品栏选项字段。
+  //
+  // NetEaseUnknown is an extra NetEase inventory options field.
+  //
+  // Added: NetEase.
+  int32 NetEaseUnknown = 6;
+}
+

@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.video_stream_connect;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+enum VideoStreamActionEnum {
+  VideoStreamActionOpen = 0;
+  VideoStreamActionClose = 1;
+}
+
+// VideoStreamConnect 由服务器发送，用于打开或关闭视频流连接。
+//
+// VideoStreamConnect is sent by the server to open or close a video stream connection.
+message VideoStreamConnect {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDVideoStreamConnect;
+  // Address 是客户端应连接的视频流地址。
+  //
+  // Address is the stream address the client should connect to.
+  string Address = 1;
+  // ScreenshotFrequency 是发送截图的间隔。
+  //
+  // ScreenshotFrequency is the interval at which screenshots are sent.
+  // Go type: float32
+  float ScreenshotFrequency = 2;
+  // Action 是 VideoStreamActionOpen 或 VideoStreamActionClose。
+  //
+  // Action is either VideoStreamActionOpen or VideoStreamActionClose.
+  // Go type: byte
+  uint32 Action = 3;
+  // Width 和 Height 指定视频流尺寸。
+  //
+  // Width and Height specify the stream dimensions.
+  int32 Width = 4;
+  // Width 和 Height 指定视频流尺寸。
+  //
+  // Width and Height specify the stream dimensions.
+  int32 Height = 5;
+}
+

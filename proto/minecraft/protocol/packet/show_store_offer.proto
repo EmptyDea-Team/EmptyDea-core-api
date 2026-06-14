@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.show_store_offer;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+enum StoreOfferTypeEnum {
+  StoreOfferTypeMarketplace = 0;
+  StoreOfferTypeDressingRoom = 1;
+  StoreOfferTypeServerPage = 2;
+}
+
+// ShowStoreOffer 由服务器发送，用于向玩家展示 Marketplace 商店商品。它会在客户端侧打开一个显示该物品的窗口。
+// ShowStoreOffer 数据包仅在合作伙伴服务器上生效：非合作伙伴服务器不会在游戏内暂停菜单中显示商店按钮，
+// 因此也无法在客户端侧打开商店商品。因此，当代理未通过某个合作伙伴服务器域名连接时，发送该数据包不会生效。
+//
+// ShowStoreOffer is sent by the server to show a Marketplace store offer to a player. It opens a window
+// client-side that displays the item.
+// The ShowStoreOffer packet only works on the partnered servers: Servers that are not partnered will not have
+// a store buttons show up in the in-game pause menu and will, as a result, not be able to open store offers
+// on the client side. Sending the packet does therefore not work when using a proxy that is not connected to
+// with the domain of one of the partnered servers.
+//
+// Added: v1.12
+message ShowStoreOffer {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDShowStoreOffer;
+  // OfferID 是标识应打开窗口的商品的 UUID。
+  //
+  // OfferID is a UUID that identifies the offer for which a window should be opened.
+  //
+  // Added: v1.12
+  // Go type: uuid.UUID
+  string OfferID = 1;
+  // Type 是正在向玩家显示的商店商品类型，它是上方常量之一。
+  //
+  // Type is the type of the store offer that is being shown to the player. It is one of the constants that may be
+  // found above.
+  //
+  // Added: v1.20.50
+  // Go type: byte
+  uint32 Type = 2;
+}
+

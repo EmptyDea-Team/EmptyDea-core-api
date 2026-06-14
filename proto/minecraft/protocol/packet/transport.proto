@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.transport;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// Transport 是网易传输载荷数据包。
+//
+// Transport is a NetEase transport payload packet.
+//
+// Added: NetEase.
+message Transport {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDTransport;
+  int32 Unknown1 = 1;
+  // Go type: []byte
+  bytes Unknown2 = 2;
+}
+

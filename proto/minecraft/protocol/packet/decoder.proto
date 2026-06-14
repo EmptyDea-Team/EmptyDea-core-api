@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.decoder;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet/compression.proto";
+
+// Decoder 处理通过 io.Reader 发送的 Minecraft 数据包解码。
+// 这些数据包内部又包含多个压缩数据包。
+//
+// Decoder handles the decoding of Minecraft packets sent through an io.Reader. These packets in turn contain
+// multiple compressed packets.
+//
+// Added: v1.11.1
+message Decoder {
+}
+

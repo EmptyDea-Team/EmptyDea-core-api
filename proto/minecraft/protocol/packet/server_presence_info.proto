@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.server_presence_info;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+import "server_join_information.proto";
+
+message ServerPresenceInfoOptionalPresenceInfo {
+  bool Present = 1;
+  .mousetunnel.minecraft.protocol.server_join_information.PresenceInfo Value = 2;
+}
+
+// ServerPresenceInfo 由服务器发送，用于向客户端提供在线状态信息。
+//
+// ServerPresenceInfo is sent by the server to provide the client with presence info.
+//
+// Added: v1.26.20
+message ServerPresenceInfo {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDServerPresenceInfo;
+  // PresenceInfo 是要设置的在线状态信息；为空时会回退到默认值。
+  //
+  // PresenceInfo is the presence info to set, or nothing to fall back to the default.
+  //
+  // Added: v1.26.20
+  // Go type: protocol.Optional[protocol.PresenceInfo]
+  ServerPresenceInfoOptionalPresenceInfo PresenceInfo = 1;
+}
+

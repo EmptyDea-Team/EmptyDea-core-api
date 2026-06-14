@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.change_pet_skin_request;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// ChangePetSkinRequest 请求服务器更换宠物皮肤。
+//
+// ChangePetSkinRequest asks the server to change a pet skin.
+message ChangePetSkinRequest {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  ChangePetSkinData ChangePetSkinData = 2;
+}
+
+// ChangePetSkinData 保存更换宠物皮肤请求字段。
+//
+// ChangePetSkinData stores change-pet-skin request fields.
+message ChangePetSkinData {
+  string PlayerID = 1;
+  string Currentint64 = 2;
+  int64 SkinID = 3;
+  string ModelName = 4;
+  string PetName = 5;
+}
+

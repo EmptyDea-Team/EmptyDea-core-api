@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.refresh_entitlements;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// RefreshEntitlements 由客户端发送给服务器，用于刷新玩家的权益信息。
+//
+// RefreshEntitlements is sent by the client to the server to refresh the entitlements of the player.
+//
+// Added: v1.20.30
+message RefreshEntitlements {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDRefreshEntitlements;
+}
+

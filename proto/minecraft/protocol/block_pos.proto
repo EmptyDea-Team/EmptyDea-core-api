@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_pos;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+// BlockPos 是方块的位置。它由三个整数组成，通常写作三个 varint32，
+// 或一个 varint32、一个 varuint32 和一个 varint32。
+//
+// BlockPos is the position of a block. It is composed of three integers, and is typically written as either
+// 3 varint32s or a varint32, varuint32 and varint32.
+message BlockPos {
+  // Go type: [3]int32
+  repeated int32 Value = 1;
+}
+

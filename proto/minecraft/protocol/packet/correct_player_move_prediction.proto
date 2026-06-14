@@ -1,0 +1,84 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.correct_player_move_prediction;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "mgl32.proto";
+import "packet_options.proto";
+
+message CorrectPlayerMovePredictionOptionalFloat {
+  bool Present = 1;
+  float Value = 2;
+}
+
+enum PredictionTypeEnum {
+  PredictionTypePlayer = 0;
+  PredictionTypeVehicle = 1;
+}
+
+// CorrectPlayerMovePrediction 仅在 StartGame.ServerAuthoritativeMovementMode
+// 设置为 AuthoritativeMovementModeServerWithRewind 时由服务器发送。
+// 该数据包用于校正特定时间点的移动。
+//
+// CorrectPlayerMovePrediction is sent by the server if and only if StartGame.ServerAuthoritativeMovementMode
+// is set to AuthoritativeMovementModeServerWithRewind. The packet is used to correct movement at a specific
+// point in time.
+//
+// Added: v1.16.100
+message CorrectPlayerMovePrediction {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDCorrectPlayerMovePrediction;
+  // PredictionType 是被校正的预测类型，应为上方常量之一。
+  //
+  // PredictionType is the type of prediction that was corrected. It is one of the constants above.
+  //
+  // Added: v1.20.60
+  // Changed: v1.20.80, moved before the position fields.
+  // Go type: byte
+  uint32 PredictionType = 1;
+  // Position 是玩家在下方 Tick 字段所表示的刻应处于的位置。
+  // 客户端会以该位置为起点，根据该刻之后的移动调整当前位置。
+  //
+  // Position is the position that the player is supposed to be at the tick written in the field below.
+  // The client will change its current position based on movement after that tick starting from the
+  // Position.
+  //
+  // Added: v1.16.100
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 Position = 2;
+  // Delta 是相对于客户端在该特定刻发送的位置的变化量。
+  //
+  // Delta is the change in position compared to what the client sent as its position at that specific tick.
+  //
+  // Added: v1.16.100
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 Delta = 3;
+  // Rotation 是玩家在下方 Tick 字段所表示的刻的旋转。
+  //
+  // Rotation is the rotation of the player at the tick written in the field below.
+  //
+  // Added: v1.20.80
+  // Changed: v1.21.100, encoded for all prediction types instead of only PredictionTypeVehicle.
+  // Go type: mgl32.Vec2
+  .mousetunnel.minecraft.protocol.mgl32.Vec2 Rotation = 4;
+  // VehicleAngularVelocity 是骑乘者所乘载具的角速度。
+  //
+  // VehicleAngularVelocity is the angular velocity of the vehicle that the rider is riding.
+  //
+  // Added: v1.21.20
+  // Changed: v1.21.100, encoded for all prediction types as an optional field instead of only PredictionTypeVehicle.
+  // Go type: protocol.Optional[float32]
+  CorrectPlayerMovePredictionOptionalFloat VehicleAngularVelocity = 5;
+  // OnGround 指定玩家在下方刻对应时间是否位于地面上。
+  //
+  // OnGround specifies if the player was on the ground at the time of the tick below.
+  //
+  // Added: v1.16.100
+  bool OnGround = 6;
+  // Tick 是被该数据包校正的移动所在的刻。
+  //
+  // Tick is the tick of the movement which was corrected by this packet.
+  //
+  // Added: v1.16.100
+  uint64 Tick = 7;
+}
+

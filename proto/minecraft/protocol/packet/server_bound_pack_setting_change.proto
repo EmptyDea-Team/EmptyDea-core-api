@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.server_bound_pack_setting_change;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+import "resource_pack.proto";
+
+// ServerBoundPackSettingChange 在客户端于资源包设置界面中更改某个特定资源包的设置时，
+// 由客户端发送给服务器。
+//
+// ServerBoundPackSettingChange is sent by the client to the server when it changes a setting
+// for a specific pack in the pack settings UI.
+//
+// Added: v1.21.111
+message ServerBoundPackSettingChange {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDServerBoundPackSettingChange;
+  // PackID 是资源包的 UUID。
+  //
+  // PackID is the UUID of the pack.
+  //
+  // Added: v1.21.111
+  // Go type: uuid.UUID
+  string PackID = 1;
+  // PackSetting 是应用到该资源包的新设置值。
+  //
+  // PackSetting is the new setting value applied to the pack.
+  //
+  // Added: v1.21.111
+  .mousetunnel.minecraft.protocol.resource_pack.PackSetting PackSetting = 2;
+}
+

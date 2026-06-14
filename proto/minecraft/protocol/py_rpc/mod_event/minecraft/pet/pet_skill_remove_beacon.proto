@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.pet_skill_remove_beacon;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// PetSkillRemoveBeacon 表示宠物临时技能信标消失。
+//
+// PetSkillRemoveBeacon indicates that a temporary pet skill beacon disappeared.
+message PetSkillRemoveBeacon {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  // int64 是宠物运行时 ID。
+  //
+  // int64 is the pet runtime ID.
+  string PetID = 2;
+}
+

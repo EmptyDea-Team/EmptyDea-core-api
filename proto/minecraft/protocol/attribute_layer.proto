@@ -1,0 +1,369 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.attribute_layer;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+import "io.proto";
+
+enum AttributeLayerPayloadTypeEnum {
+  // AttributeLayerPayloadTypeUpdateLayers 表示更新属性图层列表的载荷。
+  //
+  // AttributeLayerPayloadTypeUpdateLayers indicates a payload that updates attribute layers.
+  AttributeLayerPayloadTypeUpdateLayers = 0;
+  // AttributeLayerPayloadTypeUpdateSettings 表示更新属性图层设置的载荷。
+  //
+  // AttributeLayerPayloadTypeUpdateSettings indicates a payload that updates attribute layer settings.
+  AttributeLayerPayloadTypeUpdateSettings = 1;
+  // AttributeLayerPayloadTypeUpdateEnvironment 表示更新环境属性的载荷。
+  //
+  // AttributeLayerPayloadTypeUpdateEnvironment indicates a payload that updates environment attributes.
+  AttributeLayerPayloadTypeUpdateEnvironment = 2;
+  // AttributeLayerPayloadTypeRemoveEnvironment 表示移除环境属性的载荷。
+  //
+  // AttributeLayerPayloadTypeRemoveEnvironment indicates a payload that removes environment attributes.
+  AttributeLayerPayloadTypeRemoveEnvironment = 3;
+}
+
+enum AttributeDataTypeEnum {
+  // AttributeDataTypeBool 表示布尔属性值。
+  //
+  // AttributeDataTypeBool indicates a boolean attribute value.
+  AttributeDataTypeBool = 0;
+  // AttributeDataTypeFloat 表示浮点属性值。
+  //
+  // AttributeDataTypeFloat indicates a floating-point attribute value.
+  AttributeDataTypeFloat = 1;
+  // AttributeDataTypeColour 表示颜色属性值。
+  //
+  // AttributeDataTypeColour indicates a colour attribute value.
+  AttributeDataTypeColour = 2;
+}
+
+enum AttributeBoolOperationEnum {
+  // AttributeBoolOperationOverride 表示布尔属性覆盖操作。
+  //
+  // AttributeBoolOperationOverride indicates a boolean attribute override operation.
+  AttributeBoolOperationOverride = 0;
+  // AttributeBoolOperationAlphaBlend 表示布尔属性 alpha 混合操作。
+  //
+  // AttributeBoolOperationAlphaBlend indicates a boolean attribute alpha blend operation.
+  AttributeBoolOperationAlphaBlend = 1;
+  // AttributeBoolOperationAnd 表示布尔属性 AND 操作。
+  //
+  // AttributeBoolOperationAnd indicates a boolean attribute AND operation.
+  AttributeBoolOperationAnd = 2;
+  // AttributeBoolOperationNand 表示布尔属性 NAND 操作。
+  //
+  // AttributeBoolOperationNand indicates a boolean attribute NAND operation.
+  AttributeBoolOperationNand = 3;
+  // AttributeBoolOperationOr 表示布尔属性 OR 操作。
+  //
+  // AttributeBoolOperationOr indicates a boolean attribute OR operation.
+  AttributeBoolOperationOr = 4;
+  // AttributeBoolOperationNor 表示布尔属性 NOR 操作。
+  //
+  // AttributeBoolOperationNor indicates a boolean attribute NOR operation.
+  AttributeBoolOperationNor = 5;
+  // AttributeBoolOperationXor 表示布尔属性 XOR 操作。
+  //
+  // AttributeBoolOperationXor indicates a boolean attribute XOR operation.
+  AttributeBoolOperationXor = 6;
+  // AttributeBoolOperationXnor 表示布尔属性 XNOR 操作。
+  //
+  // AttributeBoolOperationXnor indicates a boolean attribute XNOR operation.
+  AttributeBoolOperationXnor = 7;
+}
+
+enum AttributeFloatOperationEnum {
+  // AttributeFloatOperationOverride 表示浮点属性覆盖操作。
+  //
+  // AttributeFloatOperationOverride indicates a float attribute override operation.
+  AttributeFloatOperationOverride = 0;
+  // AttributeFloatOperationAlphaBlend 表示浮点属性 alpha 混合操作。
+  //
+  // AttributeFloatOperationAlphaBlend indicates a float attribute alpha blend operation.
+  AttributeFloatOperationAlphaBlend = 1;
+  // AttributeFloatOperationAdd 表示浮点属性加法操作。
+  //
+  // AttributeFloatOperationAdd indicates a float attribute add operation.
+  AttributeFloatOperationAdd = 2;
+  // AttributeFloatOperationSubtract 表示浮点属性减法操作。
+  //
+  // AttributeFloatOperationSubtract indicates a float attribute subtract operation.
+  AttributeFloatOperationSubtract = 3;
+  // AttributeFloatOperationMultiply 表示浮点属性乘法操作。
+  //
+  // AttributeFloatOperationMultiply indicates a float attribute multiply operation.
+  AttributeFloatOperationMultiply = 4;
+  // AttributeFloatOperationMinimum 表示取浮点属性最小值的操作。
+  //
+  // AttributeFloatOperationMinimum indicates a float attribute minimum operation.
+  AttributeFloatOperationMinimum = 5;
+  // AttributeFloatOperationMaximum 表示取浮点属性最大值的操作。
+  //
+  // AttributeFloatOperationMaximum indicates a float attribute maximum operation.
+  AttributeFloatOperationMaximum = 6;
+}
+
+enum AttributeColourOperationEnum {
+  // AttributeColourOperationOverride 表示颜色属性覆盖操作。
+  //
+  // AttributeColourOperationOverride indicates a colour attribute override operation.
+  AttributeColourOperationOverride = 0;
+  // AttributeColourOperationAlphaBlend 表示颜色属性 alpha 混合操作。
+  //
+  // AttributeColourOperationAlphaBlend indicates a colour attribute alpha blend operation.
+  AttributeColourOperationAlphaBlend = 1;
+  // AttributeColourOperationAdd 表示颜色属性加法操作。
+  //
+  // AttributeColourOperationAdd indicates a colour attribute add operation.
+  AttributeColourOperationAdd = 2;
+  // AttributeColourOperationSubtract 表示颜色属性减法操作。
+  //
+  // AttributeColourOperationSubtract indicates a colour attribute subtract operation.
+  AttributeColourOperationSubtract = 3;
+  // AttributeColourOperationMultiply 表示颜色属性乘法操作。
+  //
+  // AttributeColourOperationMultiply indicates a colour attribute multiply operation.
+  AttributeColourOperationMultiply = 4;
+}
+
+enum AttributeColourValueTypeEnum {
+  // AttributeColourValueTypeString 表示颜色属性使用字符串值。
+  //
+  // AttributeColourValueTypeString indicates that the colour attribute uses a string value.
+  AttributeColourValueTypeString = 0;
+  // AttributeColourValueTypeArray 表示颜色属性使用 RGBA 数组值。
+  //
+  // AttributeColourValueTypeArray indicates that the colour attribute uses an RGBA array value.
+  AttributeColourValueTypeArray = 1;
+}
+
+enum AttributeLayerWeightTypeEnum {
+  // AttributeLayerWeightTypeFloat 表示属性图层使用浮点权重。
+  //
+  // AttributeLayerWeightTypeFloat indicates that the attribute layer uses a float weight.
+  AttributeLayerWeightTypeFloat = 0;
+  // AttributeLayerWeightTypeString 表示属性图层使用字符串权重。
+  //
+  // AttributeLayerWeightTypeString indicates that the attribute layer uses a string weight.
+  AttributeLayerWeightTypeString = 1;
+}
+
+// AttributeData 表示可携带布尔、浮点或颜色值的多态属性值。
+//
+// AttributeData represents a polymorphic attribute value.
+//
+// Added: v1.26.10
+message AttributeData {
+  // Type 是属性数据类型，取值为 AttributeDataType 常量之一。
+  //
+  // Type is the attribute data type. It is one of the AttributeDataType constants.
+  //
+  // Added: v1.26.10
+  uint32 Type = 1;
+  // BoolValue 是 Type 为 AttributeDataTypeBool 时使用的布尔值。
+  //
+  // BoolValue is the boolean value if Type is AttributeDataTypeBool.
+  //
+  // Added: v1.26.10
+  bool BoolValue = 2;
+  // BoolOperation 是布尔属性使用的可选操作。
+  //
+  // BoolOperation is the optional operation for boolean attributes.
+  //
+  // Added: v1.26.10
+  // Go type: Optional[int32]
+  .mousetunnel.minecraft.protocol.Optional BoolOperation = 3;
+  // FloatValue 是 Type 为 AttributeDataTypeFloat 时使用的浮点值。
+  //
+  // FloatValue is the float value if Type is AttributeDataTypeFloat.
+  //
+  // Added: v1.26.10
+  // Go type: float32
+  float FloatValue = 4;
+  // FloatOperation 是浮点属性使用的可选操作。
+  //
+  // FloatOperation is the optional operation for float attributes.
+  //
+  // Added: v1.26.10
+  // Go type: Optional[int32]
+  .mousetunnel.minecraft.protocol.Optional FloatOperation = 5;
+  // FloatConstraintMin 是浮点属性的可选最小约束。
+  //
+  // FloatConstraintMin is the optional minimum constraint for float attributes.
+  //
+  // Added: v1.26.10
+  // Go type: Optional[float32]
+  .mousetunnel.minecraft.protocol.Optional FloatConstraintMin = 6;
+  // FloatConstraintMax 是浮点属性的可选最大约束。
+  //
+  // FloatConstraintMax is the optional maximum constraint for float attributes.
+  //
+  // Added: v1.26.10
+  // Go type: Optional[float32]
+  .mousetunnel.minecraft.protocol.Optional FloatConstraintMax = 7;
+  // ColourValue 是 Type 为 AttributeDataTypeColour 时使用的旧版颜色值。
+  //
+  // ColourValue is the colour value if Type is AttributeDataTypeColour.
+  //
+  // Deprecated: 请使用 ColourType、ColourString 和 ColourValues 表示协议 union。
+  //
+  // Deprecated: Use ColourType, ColourString and ColourValues for the protocol union representation.
+  int32 ColourValue = 8;
+  // ColourType 是 Type 为 AttributeDataTypeColour 时使用的颜色值类型，
+  // 取值为 AttributeColourValueType 常量之一。
+  //
+  // ColourType is the colour value type if Type is AttributeDataTypeColour. It is one of the
+  // AttributeColourValueType constants.
+  //
+  // Added: v1.26.10
+  uint32 ColourType = 9;
+  // ColourString 是 ColourType 为 AttributeColourValueTypeString 时使用的颜色值。
+  //
+  // ColourString is the colour value if ColourType is AttributeColourValueTypeString.
+  //
+  // Added: v1.26.10
+  string ColourString = 10;
+  // ColourValues 是 ColourType 为 AttributeColourValueTypeArray 时使用的 RGBA 颜色值。
+  //
+  // ColourValues is the RGBA colour value if ColourType is AttributeColourValueTypeArray.
+  //
+  // Added: v1.26.10
+  // Go type: [4]int32
+  repeated int32 ColourValues = 11;
+  // ColourOperation 是颜色属性使用的可选操作。
+  //
+  // ColourOperation is the optional operation for colour attributes.
+  //
+  // Added: v1.26.10
+  // Go type: Optional[int32]
+  .mousetunnel.minecraft.protocol.Optional ColourOperation = 12;
+}
+
+// EnvironmentAttributeData 表示带可选过渡数据的环境属性。
+//
+// EnvironmentAttributeData represents an environment attribute with optional transition data.
+//
+// Added: v1.26.10
+message EnvironmentAttributeData {
+  // AttributeName 是属性名称。
+  //
+  // AttributeName is the name of the attribute.
+  //
+  // Added: v1.26.10
+  string AttributeName = 1;
+  // FromAttribute 是过渡使用的可选起始属性值。
+  //
+  // FromAttribute is the optional starting attribute for transitions.
+  //
+  // Added: v1.26.10
+  // Go type: Optional[AttributeData]
+  .mousetunnel.minecraft.protocol.Optional FromAttribute = 2;
+  // Attribute 是当前属性值。
+  //
+  // Attribute is the current attribute value.
+  //
+  // Added: v1.26.10
+  AttributeData Attribute = 3;
+  // ToAttribute 是过渡使用的可选目标属性值。
+  //
+  // ToAttribute is the optional target attribute for transitions.
+  //
+  // Added: v1.26.10
+  // Go type: Optional[AttributeData]
+  .mousetunnel.minecraft.protocol.Optional ToAttribute = 4;
+  // CurrentTransitionTicks 是当前过渡已经经过的 tick 数。
+  //
+  // CurrentTransitionTicks is the number of ticks elapsed in the current transition.
+  //
+  // Added: v1.26.10
+  uint32 CurrentTransitionTicks = 5;
+  // TotalTransitionTicks 是该过渡总共需要的 tick 数。
+  //
+  // TotalTransitionTicks is the total number of ticks for the transition.
+  //
+  // Added: v1.26.10
+  uint32 TotalTransitionTicks = 6;
+  // EaseType 是该过渡使用的缓动函数，取值为 EasingType 常量之一。
+  //
+  // EaseType is the easing function used for the transition. It is one of the EasingType constants.
+  //
+  // Added: v1.26.10
+  int32 EaseType = 7;
+}
+
+// AttributeLayerSettings 表示属性图层的设置。
+//
+// AttributeLayerSettings represents settings for an attribute layer.
+//
+// Added: v1.26.10
+message AttributeLayerSettings {
+  // Priority 是图层优先级。
+  //
+  // Priority is the priority of the layer.
+  //
+  // Added: v1.26.10
+  int32 Priority = 1;
+  // WeightType 决定权重以浮点数还是字符串表示，取值为 AttributeLayerWeightType 常量之一。
+  //
+  // WeightType determines whether the weight is a float or string. It is one of the
+  // AttributeLayerWeightType constants.
+  uint32 WeightType = 2;
+  // FloatWeight 是图层使用的数字权重。
+  //
+  // FloatWeight is the numeric weight value for the layer.
+  // It is used when WeightType is AttributeLayerWeightTypeFloat.
+  // Go type: float32
+  float FloatWeight = 3;
+  // StringWeight 是 WeightType 为 AttributeLayerWeightTypeString 时使用的权重。
+  //
+  // StringWeight is the weight if WeightType is AttributeLayerWeightTypeString.
+  string StringWeight = 4;
+  // Enabled 表示该图层是否启用。
+  //
+  // Enabled indicates if the layer is enabled.
+  //
+  // Added: v1.26.10
+  bool Enabled = 5;
+  // TransitionsPaused 表示该图层的过渡是否暂停。
+  //
+  // TransitionsPaused indicates if transitions are paused for this layer.
+  //
+  // Added: v1.26.10
+  bool TransitionsPaused = 6;
+}
+
+// AttributeLayerData 表示完整的属性图层。
+//
+// AttributeLayerData represents a complete attribute layer.
+//
+// Added: v1.26.10
+message AttributeLayerData {
+  // Name 是属性图层名称。
+  //
+  // Name is the name of the attribute layer.
+  //
+  // Added: v1.26.10
+  string Name = 1;
+  // DimensionID 是该图层适用的维度 ID。
+  //
+  // DimensionID is the dimension the layer applies to.
+  //
+  // Added: v1.26.10
+  int32 DimensionID = 2;
+  // Settings 是该图层的设置。
+  //
+  // Settings is the layer's settings.
+  //
+  // Added: v1.26.10
+  AttributeLayerSettings Settings = 3;
+  // EnvironmentAttributes 是该图层包含的环境属性列表。
+  //
+  // EnvironmentAttributes is the list of environment attributes in this layer.
+  //
+  // Added: v1.26.10
+  // Go type: []EnvironmentAttributeData
+  repeated EnvironmentAttributeData EnvironmentAttributes = 4;
+}
+

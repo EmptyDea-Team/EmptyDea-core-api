@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.compressed_biome_definition_list;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// CompressedBiomeDefinitionList 由服务器发送，用于向客户端发送压缩后的生物群系定义。
+//
+// CompressedBiomeDefinitionList is sent by the server to send compressed biome definitions to the client.
+//
+// Added: v1.21.0
+message CompressedBiomeDefinitionList {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDCompressedBiomeDefinitionList;
+  // Payload 是压缩后的生物群系定义载荷，包含压缩指示符和字典数据。
+  // 它保持为原始数据，使连接可以直接转发，而无需重建 Mojang 的字典格式。
+  //
+  // Payload is the compressed biome definition payload, including the compression indicator and dictionary
+  // data. It is kept raw so connections can forward it without having to rebuild Mojang's dictionary format.
+  //
+  // Added: v1.21.0
+  // Go type: []byte
+  bytes Payload = 1;
+}
+

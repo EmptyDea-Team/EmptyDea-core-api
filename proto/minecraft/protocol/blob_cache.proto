@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.blob_cache;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+// CacheBlob 表示客户端侧 blob 缓存协议中使用的 blob。它保存数据的哈希和完整数据。
+//
+// CacheBlob represents a blob as used in the client side blob cache protocol. It holds a hash of its data and
+// the full data of it.
+//
+// Added: v1.12
+message CacheBlob {
+  // Hash 是 blob 的哈希。该哈希使用 xxHash 计算，并且对相同区块数据必须保持确定性。
+  //
+  // Hash is the hash of the blob. The hash is computed using xxHash, and must be deterministic for the same
+  // chunk data.
+  //
+  // Added: v1.12
+  uint64 Hash = 1;
+  // Payload 是 blob 的数据。发送后，客户端会把该 blob 的 Hash 与其中的 Payload 关联起来。
+  //
+  // Payload is the data of the blob. When sent, the client will associate the Hash of the blob with the
+  // Payload in it.
+  //
+  // Added: v1.12
+  // Go type: []byte
+  bytes Payload = 2;
+}
+

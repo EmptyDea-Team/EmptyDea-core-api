@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.sync_world_clocks;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "clock.proto";
+import "packet_options.proto";
+
+// SyncWorldClocks 由服务器发送，用于初始化世界时钟并与客户端同步。
+//
+// SyncWorldClocks is sent by the server to initialise and synchronise world clocks with the client.
+//
+// Added: v1.26.10
+message SyncWorldClocks {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDSyncWorldClocks;
+  // PayloadType 是时钟负载类型，应为 protocol.ClockPayloadType 常量之一。
+  //
+  // PayloadType is the type of clock payload. It is one of the protocol.ClockPayloadType constants.
+  //
+  // Added: v1.26.10
+  uint32 PayloadType = 1;
+  // SyncStates 在 PayloadType 为 ClockPayloadTypeSyncState 时设置。
+  //
+  // SyncStates is set if PayloadType is ClockPayloadTypeSyncState.
+  //
+  // Added: v1.26.10
+  // Go type: []protocol.SyncWorldClockStateData
+  repeated .mousetunnel.minecraft.protocol.clock.SyncWorldClockStateData SyncStates = 2;
+  // Clocks 在 PayloadType 为 ClockPayloadTypeInitializeRegistry 时设置。
+  //
+  // Clocks is set if PayloadType is ClockPayloadTypeInitializeRegistry.
+  //
+  // Added: v1.26.10
+  // Go type: []protocol.WorldClockData
+  repeated .mousetunnel.minecraft.protocol.clock.WorldClockData Clocks = 3;
+  // AddClockID 是添加时间标记时使用的时钟 ID，在 PayloadType 为 ClockPayloadTypeAddTimeMarker 时设置。
+  //
+  // AddClockID is the clock ID for adding time markers, set if PayloadType is ClockPayloadTypeAddTimeMarker.
+  //
+  // Added: v1.26.10
+  uint64 AddClockID = 4;
+  // AddTimeMarkers 是要添加的时间标记列表，在 PayloadType 为 ClockPayloadTypeAddTimeMarker 时设置。
+  //
+  // AddTimeMarkers is the list of time markers to add, set if PayloadType is ClockPayloadTypeAddTimeMarker.
+  //
+  // Added: v1.26.10
+  // Go type: []protocol.TimeMarkerData
+  repeated .mousetunnel.minecraft.protocol.clock.TimeMarkerData AddTimeMarkers = 5;
+  // RemoveClockID 是移除时间标记时使用的时钟 ID，在 PayloadType 为 ClockPayloadTypeRemoveTimeMarker 时设置。
+  //
+  // RemoveClockID is the clock ID for removing time markers, set if PayloadType is ClockPayloadTypeRemoveTimeMarker.
+  //
+  // Added: v1.26.10
+  int64 RemoveClockID = 6;
+  // RemoveTimeMarkerIDs 是要移除的时间标记 ID 列表。
+  //
+  // RemoveTimeMarkerIDs is the list of time marker IDs to remove.
+  //
+  // Added: v1.26.10
+  // Go type: []uint64
+  repeated uint64 RemoveTimeMarkerIDs = 7;
+}
+

@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.ender_chest;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actors";
+
+import "block_actors/general_actors/chest_block_actor.proto";
+
+// EnderChest 描述末影箱方块实体。
+//
+// EnderChest describes the ender chest block actor.
+message EnderChest {
+  .mousetunnel.minecraft.protocol.block_actors.general_actors.chest_block_actor.ChestBlockActor ChestBlockActor = 1;
+}
+

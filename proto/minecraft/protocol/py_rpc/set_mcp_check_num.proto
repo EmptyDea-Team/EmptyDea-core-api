@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.set_mcp_check_num;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpc";
+
+// SetMCPCheckNum 是 GetMCPCheckNum 的响应。
+//
+// SetMCPCheckNum is the response to GetMCPCheckNum.
+message SetMCPCheckNum {
+  // ValueHash 是 MCP 动态校验值 valm。
+  //
+  // ValueHash is the MCP dynamic check value named valm.
+  string ValueHash = 1;
+  // Signature 是基于响应原始内容计算出的签名。
+  //
+  // Signature is the signature calculated from the raw response content.
+  string Signature = 2;
+  // Flag 是响应索引 2 的布尔标记，当前通常为 false。
+  //
+  // Flag is the boolean marker at response index 2, currently usually false.
+  bool Flag = 3;
+  // ExtraData 是响应索引 3 的保留扩展数据列表。
+  //
+  // ExtraData is the reserved extension data list at response index 3.
+  MCPCheckExtraData ExtraData = 4;
+  // FirstReserved 是响应索引 4 的保留字符串，当前通常为空。
+  //
+  // FirstReserved is the reserved string at response index 4, currently usually empty.
+  string FirstReserved = 5;
+  // SecondReserved 是响应索引 5 的保留字符串，当前通常为空。
+  //
+  // SecondReserved is the reserved string at response index 5, currently usually empty.
+  string SecondReserved = 6;
+  // Type 是响应索引 6 的校验类型，当前通常为 3。
+  //
+  // Type is the check type at response index 6, currently usually 3.
+  int64 Type = 7;
+  // TempHash 是 MCP 动态校验的临时哈希 tmpsNum。
+  //
+  // TempHash is the temporary MCP dynamic check hash named tmpsNum.
+  string TempHash = 8;
+}
+
+// MCPCheckExtraData 是 MCP 校验响应中的保留扩展列表。
+//
+// MCPCheckExtraData is the reserved extension list in an MCP check response.
+message MCPCheckExtraData {
+  // Go type: []string
+  repeated string Value = 1;
+}
+

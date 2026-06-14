@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.smoker;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actors";
+
+import "block_actors/general_actors/furnace_block_actor.proto";
+
+// Smoker 描述烟熏炉方块实体。
+//
+// Smoker describes the smoker block actor.
+message Smoker {
+  .mousetunnel.minecraft.protocol.block_actors.general_actors.furnace_block_actor.FurnaceBlockActor FurnaceBlockActor = 1;
+}
+

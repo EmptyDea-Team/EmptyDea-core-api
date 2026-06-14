@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.simulation_type;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+enum SimulationTypeEnum {
+  SimulationTypeGame = 0;
+  SimulationTypeEditor = 1;
+  SimulationTypeTest = 2;
+  SimulationTypeInvalid = 3;
+}
+
+// SimulationType 是仍在开发中的数据包。目前尚不清楚其用途。
+//
+// SimulationType is an in-progress packet. We currently do not know the use case.
+//
+// Added: v1.17.10
+message SimulationType {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDSimulationType;
+  // SimulationType 是选中的模拟类型。
+  //
+  // SimulationType is the simulation type selected.
+  //
+  // Added: v1.17.10
+  // Go type: byte
+  uint32 SimulationType = 1;
+}
+

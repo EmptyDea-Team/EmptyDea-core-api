@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.shulker_box;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actors";
+
+import "block_actors/general_actors/chest_block_actor.proto";
+
+// ShulkerBox 描述潜影盒方块实体。
+//
+// ShulkerBox describes the shulker box block actor.
+message ShulkerBox {
+  .mousetunnel.minecraft.protocol.block_actors.general_actors.chest_block_actor.ChestBlockActor ChestBlockActor = 1;
+  // TAG_Byte(1) = 0
+  // Go type: byte
+  uint32 Facing = 2;
+}
+

@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.code_builder;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// CodeBuilder 是教育版数据包，由服务器发送给客户端，用于打开指向 Code Builder（websocket）服务器的 URL。
+//
+// CodeBuilder is an Education Edition packet sent by the server to the client to open the URL to a Code
+// Builder (websocket) server.
+//
+// Added: v1.16.0
+message CodeBuilder {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDCodeBuilder;
+  // URL 是 Code Builder（websocket）服务器的 URL。
+  //
+  // URL is the url to the Code Builder (websocket) server.
+  //
+  // Added: v1.16.0
+  string URL = 1;
+  // ShouldOpenCodeBuilder 指定客户端是否应自动打开 Code Builder 应用。
+  // 如果设置为 true，客户端会尝试使用 Code Builder 应用连接并交互上方 URL 所运行的服务器。
+  //
+  // ShouldOpenCodeBuilder specifies if the client should automatically open the Code Builder app. If set to
+  // true, the client will attempt to use the Code Builder app to connect to and interface with the server
+  // running at the URL above.
+  //
+  // Added: v1.16.0
+  bool ShouldOpenCodeBuilder = 2;
+}
+

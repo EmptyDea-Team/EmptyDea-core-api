@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.skill_tips_get_hand_is_block;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// SkillTipsGetHandIsBlock 请求服务器判断手持物品是否方块。
+//
+// SkillTipsGetHandIsBlock asks the server whether the carried item is a block.
+message SkillTipsGetHandIsBlock {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  SkillTipsGetHandIsBlockData SkillTipsGetHandIsBlockData = 2;
+}
+
+// SkillTipsGetHandIsBlockData 保存 playerId 字段。
+//
+// SkillTipsGetHandIsBlockData stores a playerId field.
+message SkillTipsGetHandIsBlockData {
+  string PlayerID = 1;
+}
+

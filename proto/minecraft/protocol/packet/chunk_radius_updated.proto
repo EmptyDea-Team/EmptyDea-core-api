@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.chunk_radius_updated;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// ChunkRadiusUpdated 由服务器作为 RequestChunkRadius 数据包的响应发送。它定义服务器允许客户端使用的区块半径，
+// 该值可能低于客户端在 RequestChunkRadius 数据包中请求的区块半径。
+//
+// ChunkRadiusUpdated is sent by the server in response to a RequestChunkRadius packet. It defines the chunk
+// radius that the server allows the client to have. This may be lower than the chunk radius requested by the
+// client in the RequestChunkRadius packet.
+//
+// Added: v1.11.1
+message ChunkRadiusUpdated {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDChunkRadiusUpdated;
+  // ChunkRadius 是客户端收到该数据包后采用的最终区块半径，不一定与请求的区块半径相同。
+  //
+  // ChunkRadius is the final chunk radius that the client will adapt when it receives the packet. It does
+  // not have to be the same as the requested chunk radius.
+  //
+  // Added: v1.11.1
+  int32 ChunkRadius = 1;
+}
+

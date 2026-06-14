@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.clientbound_data_driven_ui_reload;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// ClientBoundDataDrivenUIReload 由服务器发送，用于让客户端重新加载数据驱动 UI。
+//
+// ClientBoundDataDrivenUIReload is sent by the server to reload the data-driven UI on the client.
+//
+// Added: v1.26.0
+message ClientBoundDataDrivenUIReload {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDClientBoundDataDrivenUIReload;
+}
+

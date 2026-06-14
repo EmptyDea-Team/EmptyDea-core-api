@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.notify_msg_changed;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_command";
+
+import "py_rpc/mod_event/minecraft/ai_command/basic.proto";
+
+// NotifyMsgChanged 同步客户端通知消息设置。
+//
+// NotifyMsgChanged synchronises the client's notify-message setting.
+message NotifyMsgChanged {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.basic.Basic Basic = 1;
+  // Notify 表示服务端是否应发送命令状态聊天通知。
+  //
+  // Notify indicates whether the server should send command status chat notifications.
+  bool Notify = 2;
+}
+

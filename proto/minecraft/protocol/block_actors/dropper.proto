@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.dropper;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actors";
+
+import "block_actors/general_actors/dispenser_block_actor.proto";
+
+// Dropper 描述投掷器方块实体。
+//
+// Dropper describes the dropper block actor.
+message Dropper {
+  .mousetunnel.minecraft.protocol.block_actors.general_actors.dispenser_block_actor.DispenserBlockActor DispenserBlockActor = 1;
+}
+

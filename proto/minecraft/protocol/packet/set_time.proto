@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.set_time;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// SetTime 由服务器发送，用于更新客户端侧的当前时间。客户端实际上会自行推进时间，
+// 因此不需要每 tick 都发送该数据包；它只是用于同步服务器与客户端之间的时间。
+//
+// SetTime is sent by the server to update the current time client-side. The client actually advances time
+// client-side by itself, so this packet does not need to be sent each tick. It is merely a means of
+// synchronising time between server and client.
+//
+// Added: v1.11.1
+message SetTime {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDSetTime;
+  // Time 是当前时间。该时间不限于 24000（一天的时间），而是会在其后继续递增。
+  //
+  // Time is the current time. The time is not limited to 24000 (time of day), but continues progressing
+  // after that.
+  //
+  // Added: v1.11.1
+  int32 Time = 1;
+}
+

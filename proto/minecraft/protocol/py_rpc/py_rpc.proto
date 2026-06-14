@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.py_rpc;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpc";
+
+import "google/protobuf/struct.proto";
+
+// PyRpc 是强类型的网易 Python RPC 载荷。
+//
+// PyRpc is a strongly typed NetEase Python RPC payload.
+message PyRpc {
+  // Go type: interface {
+  // 	Name() string
+  // 	MakeGo() any
+  // 	FromGo(any) error
+  // }// Name 返回 PyRpc MsgPack 载荷索引 0 中存储的 RPC 名称。
+  // //
+  // // Name returns the RPC name stored at index 0 of the PyRpc MsgPack payload.
+  // // FromGo 使用 MsgPack 解码后的 Go 值填充载荷。
+  // //
+  // // FromGo fills the payload from MsgPack-decoded Go values.
+  // 
+  google.protobuf.Value Value = 1;
+}
+

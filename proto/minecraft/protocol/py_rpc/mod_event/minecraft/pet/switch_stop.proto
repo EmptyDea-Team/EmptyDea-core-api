@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.switch_stop;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// SwitchStop 切换宠物停止或跟随状态。
+//
+// SwitchStop toggles whether the pet stops or follows.
+message SwitchStop {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  SwitchStopData SwitchStopData = 2;
+}
+
+// SwitchStopData 保存 playerId 字段。
+//
+// SwitchStopData stores a playerId field.
+message SwitchStopData {
+  string PlayerID = 1;
+}
+

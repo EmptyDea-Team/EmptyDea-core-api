@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ping.on_ping;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ping;ping";
+
+import "py_rpc/mod_event/minecraft/ping/basic.proto";
+
+// OnPing 是客户端发送到服务器的延迟探测。
+//
+// OnPing is a latency probe sent from the client to the server.
+message OnPing {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ping.basic.Basic Basic = 1;
+  // Time 是客户端发送 ping 时的时间戳。
+  //
+  // Time is the timestamp when the client sent the ping.
+  // Go type: float64
+  double Time = 2;
+}
+

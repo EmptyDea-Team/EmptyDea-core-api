@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.anticheat.collect_data_request_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/anticheat;anticheat";
+
+import "py_rpc/mod_event/minecraft/anticheat/basic.proto";
+
+// CollectDataRequestEvent 请求客户端采集反作弊数据。
+//
+// CollectDataRequestEvent asks the client to collect anticheat data.
+message CollectDataRequestEvent {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.anticheat.basic.Basic Basic = 1;
+  // UniqueID 是请求关联 ID。
+  //
+  // UniqueID is the request correlation ID.
+  int64 UniqueID = 2;
+  // Types 是需要采集的数据类型列表。
+  //
+  // Types is the list of data types to collect.
+  // Go type: []string
+  repeated string Types = 3;
+  // Position 是可选方块采样坐标。
+  //
+  // Position is an optional block sampling position.
+  // Go type: []int64
+  repeated int64 Position = 4;
+  // EntityID 是可选实体采样 ID。
+  //
+  // EntityID is an optional entity sampling ID.
+  string EntityID = 5;
+}
+

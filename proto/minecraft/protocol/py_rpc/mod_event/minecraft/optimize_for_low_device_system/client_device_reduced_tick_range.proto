@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.optimize_for_low_device_system.client_device_reduced_tick_range;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/optimize_for_low_device_system;optimize_for_low_device_system";
+
+import "py_rpc/mod_event/minecraft/optimize_for_low_device_system/basic.proto";
+
+// ClientDeviceReducedTickRange 表示客户端支持低设备缩小 tick 范围优化。
+//
+// ClientDeviceReducedTickRange indicates the client supports reduced tick range for low-end devices.
+message ClientDeviceReducedTickRange {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.optimize_for_low_device_system.basic.Basic Basic = 1;
+  // PlayerID 是客户端本地玩家 ID。
+  //
+  // PlayerID is the client local player ID.
+  string PlayerID = 2;
+}
+

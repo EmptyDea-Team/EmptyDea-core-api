@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.graphics_override_parameter;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "graphics.proto";
+import "mgl32.proto";
+import "packet_options.proto";
+
+message GraphicsOverrideParameterOptionalFloat {
+  bool Present = 1;
+  float Value = 2;
+}
+
+message GraphicsOverrideParameterOptionalVec3 {
+  bool Present = 1;
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 Value = 2;
+}
+
+// GraphicsOverrideParameter 由服务器发送，用于覆盖图形参数。
+//
+// GraphicsOverrideParameter is sent by the server to override graphics parameters.
+//
+// Added: v1.21.120
+message GraphicsOverrideParameter {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDGraphicsOverrideParameter;
+  // Values 是参数关键帧值列表。
+  //
+  // Values is a list of parameter keyframe values.
+  //
+  // Added: v1.21.120
+  // Go type: []protocol.ParameterKeyframeValue
+  repeated .mousetunnel.minecraft.protocol.graphics.ParameterKeyframeValue Values = 1;
+  // FloatValue 是要覆盖的可选单个浮点图形参数。
+  //
+  // FloatValue is an optional single float graphics parameter to be overridden.
+  //
+  // Added: v1.26.0
+  // Changed: v1.26.10, encoded as an optional single float value instead of an always-present float value.
+  // Go type: protocol.Optional[float32]
+  GraphicsOverrideParameterOptionalFloat FloatValue = 2;
+  // Vec3Value 是要覆盖的可选单个 Vec3 图形参数。
+  //
+  // Vec3Value is an optional single Vec3 graphics parameter to be overridden.
+  //
+  // Added: v1.26.0
+  // Changed: v1.26.10, encoded as an optional single Vec3 value instead of an always-present Vec3 value.
+  // Go type: protocol.Optional[mgl32.Vec3]
+  GraphicsOverrideParameterOptionalVec3 Vec3Value = 3;
+  // BiomeIdentifier 是这些参数所适用生物群系的标识符。
+  //
+  // BiomeIdentifier is the identifier of the biome for which the parameters apply.
+  //
+  // Added: v1.21.120
+  string BiomeIdentifier = 4;
+  // ParameterType 是正在被覆盖的参数类型。
+  //
+  // ParameterType is the type of parameter being overridden.
+  //
+  // Added: v1.21.120
+  // Go type: uint8
+  uint32 ParameterType = 5;
+  // Reset 表示是否重置这些参数。
+  //
+  // Reset indicates whether to reset the parameters.
+  //
+  // Added: v1.21.120
+  bool Reset = 6;
+}
+

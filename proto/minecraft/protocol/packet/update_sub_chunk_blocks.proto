@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.update_sub_chunk_blocks;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "block.proto";
+import "block_pos.proto";
+import "packet_options.proto";
+
+// UpdateSubChunkBlocks 本质上就是 UpdateBlock 数据包，但作用于一个子区块中的一组方块。
+//
+// UpdateSubChunkBlocks is essentially just UpdateBlock packet, however for a set of blocks in a sub-chunk.
+//
+// Added: v1.17.30
+message UpdateSubChunkBlocks {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDUpdateSubChunkBlocks;
+  // Position 是所引用子区块的方块位置。
+  //
+  // Position is the block position of the sub-chunk being referred to.
+  //
+  // Added: v1.17.30
+  .mousetunnel.minecraft.protocol.block_pos.BlockPos Position = 1;
+  // Blocks 包含每个更新后的方块变化条目。
+  //
+  // Blocks contains each updated block change entry.
+  //
+  // Added: v1.17.30
+  // Go type: []protocol.BlockChangeEntry
+  repeated .mousetunnel.minecraft.protocol.block.BlockChangeEntry Blocks = 2;
+  // Extra 包含第二层中每个更新后的方块变化条目，通常用于含水方块。
+  //
+  // Extra contains each updated block change entry for the second layer, usually for waterlogged blocks.
+  //
+  // Added: v1.17.30
+  // Go type: []protocol.BlockChangeEntry
+  repeated .mousetunnel.minecraft.protocol.block.BlockChangeEntry Extra = 3;
+}
+

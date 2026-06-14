@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.agent_action;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+enum AgentActionTypeEnum {
+  AGENTACTIONTYPEENUM_UNSPECIFIED = 0;
+  AgentActionTypeAttack = 1;
+  AgentActionTypeCollect = 2;
+  AgentActionTypeDestroy = 3;
+  AgentActionTypeDetectRedstone = 4;
+  AgentActionTypeDetectObstacle = 5;
+  AgentActionTypeDrop = 6;
+  AgentActionTypeDropAll = 7;
+  AgentActionTypeInspect = 8;
+  AgentActionTypeInspectData = 9;
+  AgentActionTypeInspectItemCount = 10;
+  AgentActionTypeInspectItemDetail = 11;
+  AgentActionTypeInspectItemSpace = 12;
+  AgentActionTypeInteract = 13;
+  AgentActionTypeMove = 14;
+  AgentActionTypePlaceBlock = 15;
+  AgentActionTypeTill = 16;
+  AgentActionTypeTransferItemTo = 17;
+  AgentActionTypeTurn = 18;
+}
+
+// AgentAction 是教育版数据包，由服务器发送给客户端，用于返回此前请求的操作响应。
+//
+// AgentAction is an Education Edition packet sent from the server to the client to return a response to a
+// previously requested action.
+//
+// Added: v1.18.30
+message AgentAction {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDAgentAction;
+  // Identifier 是初始操作中引用的 JSON 标识符。
+  //
+  // Identifier is a JSON identifier referenced in the initial action.
+  //
+  // Added: v1.18.30
+  string Identifier = 1;
+  // Action 表示被请求的操作类型，它是上方定义的常量之一。
+  //
+  // Action represents the action type that was requested. It is one of the constants defined above.
+  //
+  // Added: v1.18.30
+  int32 Action = 2;
+  // Response 是包含操作响应的 JSON 字符串。
+  //
+  // Response is a JSON string containing the response to the action.
+  //
+  // Added: v1.18.30
+  // Go type: []byte
+  bytes Response = 3;
+}
+

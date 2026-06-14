@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.request_update_convinient_state_from_client;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// RequestUpdateConvinientStateFromClient 同步客户端便利功能状态。
+//
+// RequestUpdateConvinientStateFromClient syncs client convenient-feature state.
+message RequestUpdateConvinientStateFromClient {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  ConvenientStateData ConvenientStateData = 2;
+}
+
+// ConvenientStateData 保存便利功能状态同步字段。
+//
+// ConvenientStateData stores convenient-feature state sync fields.
+message ConvenientStateData {
+  string PlayerID = 1;
+  int64 Key = 2;
+  bool Value = 3;
+}
+

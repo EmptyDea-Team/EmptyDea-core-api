@@ -1,0 +1,359 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.skin;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+enum SkinEnum {
+  option allow_alias = true;
+  SKINENUM_UNSPECIFIED = 0;
+  SkinAnimationHead = 1;
+  SkinAnimationBody32x32 = 2;
+  SkinAnimationBody128x128 = 3;
+  ExpressionTypeLinear = 3;
+  ExpressionTypeBlinking = 4;
+}
+
+// Skin 表示通过网络发送的玩家皮肤。皮肤包含贴图和模型，也可包含通过角色创建器创建或从市场购买皮肤时
+// 可能存在的可选动画。
+//
+// Skin represents the skin of a player as sent over network. The skin holds a texture and a model, and
+// optional animations which may be present when the skin is created using persona or bought from the
+// marketplace.
+//
+// Added: v1.13
+message Skin {
+  // SkinID 是为皮肤生成的唯一 ID，例如默认 Alex 皮肤使用的
+  // 'c18e65aa-7b21-4637-9b63-8ad63622ef01_Alex'。
+  //
+  // SkinID is a unique ID produced for the skin, for example 'c18e65aa-7b21-4637-9b63-8ad63622ef01_Alex'
+  // for the default Alex skin.
+  //
+  // Added: v1.13
+  string SkinID = 1;
+  // PlayFabID 是为皮肤生成的 PlayFab ID。PlayFab 是承载市场、皮肤和游戏其他相关功能的公司；
+  // 该 ID 用于在 PlayFab 内存储皮肤。
+  //
+  // PlayFabID is the PlayFab ID produced for the skin. PlayFab is the company that hosts the Marketplace,
+  // skins and other related features from the game. This ID is the ID of the skin used to store the skin
+  // inside of PlayFab.
+  //
+  // Added: v1.13
+  string PlayFabID = 2;
+  // SkinResourcePatch 是 JSON 编码对象，包含一些指向皮肤几何体的字段。
+  // 该 JSON 对象指定动画几何体与玩家默认皮肤几何体的组合方式。
+  //
+  // SkinResourcePatch is a JSON encoded object holding some fields that point to the geometry that the
+  // skin has.
+  // The JSON object that this holds specifies the way that the geometry of animations and the default skin
+  // of the player are combined.
+  //
+  // Added: v1.13
+  // Go type: []byte
+  bytes SkinResourcePatch = 3;
+  // SkinImageWidth 和 SkinImageHeight 保存皮肤图像尺寸。注意这些值不是字节尺寸，而是像素尺寸。
+  //
+  // SkinImageWidth and SkinImageHeight hold the dimensions of the skin image. Note that these are not the
+  // dimensions in bytes, but in pixels.
+  //
+  // Added: v1.13
+  uint32 SkinImageWidth = 4;
+  // SkinImageWidth 和 SkinImageHeight 保存皮肤图像尺寸。注意这些值不是字节尺寸，而是像素尺寸。
+  //
+  // SkinImageWidth and SkinImageHeight hold the dimensions of the skin image. Note that these are not the
+  // dimensions in bytes, but in pixels.
+  //
+  // Added: v1.13
+  uint32 SkinImageHeight = 5;
+  // SkinData 是 SkinImageWidth * SkinImageHeight * 4 字节的切片，表示按 RGBA 顺序排列的皮肤像素。
+  //
+  // SkinData is a byte slice of SkinImageWidth * SkinImageHeight bytes. It is an RGBA ordered byte
+  // representation of the skin pixels.
+  //
+  // Added: v1.13
+  // Go type: []byte
+  bytes SkinData = 6;
+  // Animations 是该皮肤拥有的所有动画列表。
+  //
+  // Animations is a list of all animations that the skin has.
+  //
+  // Added: v1.13
+  // Go type: []SkinAnimation
+  repeated SkinAnimation Animations = 7;
+  // CapeImageWidth 和 CapeImageHeight 保存披风图像尺寸。注意这些值不是字节尺寸，而是像素尺寸。
+  //
+  // CapeImageWidth and CapeImageHeight hold the dimensions of the cape image. Note that these are not the
+  // dimensions in bytes, but in pixels.
+  //
+  // Added: v1.13
+  uint32 CapeImageWidth = 8;
+  // CapeImageWidth 和 CapeImageHeight 保存披风图像尺寸。注意这些值不是字节尺寸，而是像素尺寸。
+  //
+  // CapeImageWidth and CapeImageHeight hold the dimensions of the cape image. Note that these are not the
+  // dimensions in bytes, but in pixels.
+  //
+  // Added: v1.13
+  uint32 CapeImageHeight = 9;
+  // CapeData 是 64*32*4 字节的切片，表示按 RGBA 顺序排列的披风颜色，类似 SkinData。
+  //
+  // CapeData is a byte slice of 64*32*4 bytes. It is a RGBA ordered byte representation of the cape
+  // colours, much like the SkinData.
+  //
+  // Added: v1.13
+  // Go type: []byte
+  bytes CapeData = 10;
+  // SkinGeometry 是皮肤几何体数据的 JSON 编码结构，包含 bones、uv、pivot 等属性。
+  //
+  // SkinGeometry is a JSON encoded structure of the geometry data of a skin, containing properties
+  // such as bones, uv, pivot etc.
+  //
+  // Added: v1.13
+  // Go type: []byte
+  bytes SkinGeometry = 11;
+  // TODO：确认 AnimationData 保存什么值，以及它在什么情况下会有内容。
+  //
+  // TODO: Find out what value AnimationData holds and when it does hold something.
+  //
+  // Added: v1.13
+  // Go type: []byte
+  bytes AnimationData = 12;
+  // GeometryDataEngineVersion 是与几何体载荷关联的引擎版本字符串。
+  //
+  // GeometryDataEngineVersion is the engine version string associated with the geometry payload.
+  //
+  // Added: v1.13
+  // Go type: []byte
+  bytes GeometryDataEngineVersion = 13;
+  // PremiumSkin 指定该皮肤是否从市场购买。
+  //
+  // PremiumSkin specifies if this is a skin that was purchased from the marketplace.
+  //
+  // Added: v1.13
+  bool PremiumSkin = 14;
+  // PersonaSkin 指定该皮肤是否通过游戏内皮肤创建器创建。
+  //
+  // PersonaSkin specifies if this is a skin that was created using the in-game skin creator.
+  //
+  // Added: v1.13
+  bool PersonaSkin = 15;
+  // PersonaCapeOnClassicSkin 指定经典皮肤是否装备了 Persona 披风，即游戏内皮肤创建器披风。
+  //
+  // PersonaCapeOnClassicSkin specifies if the skin had a Persona cape (in-game skin creator cape) equipped
+  // on a classic skin.
+  //
+  // Added: v1.13
+  bool PersonaCapeOnClassicSkin = 16;
+  // PrimaryUser 指定该皮肤是否属于客户端上的主要本地玩家。
+  //
+  // PrimaryUser specifies if this skin belongs to the primary local player on the client.
+  //
+  // Added: v1.13
+  bool PrimaryUser = 17;
+  // CapeID 是标识披风的唯一标识符，通常包含 UUID。
+  //
+  // CapeID is a unique identifier that identifies the cape. It usually holds a UUID in it.
+  //
+  // Added: v1.13
+  string CapeID = 18;
+  // FullID 是表示完整皮肤的 ID。其实际功能未知；客户端似乎不会为它发送值。
+  //
+  // FullID is an ID that represents the skin in full. The actual functionality is unknown: The client
+  // does not seem to send a value for this.
+  //
+  // Added: v1.13
+  string FullID = 19;
+  // SkinColour 是皮肤基础颜色的十六进制表示，包含 #。这里发送的颜色示例为 '#b37b62'。
+  //
+  // SkinColour is a hex representation (including #) of the base colour of the skin. An example of the
+  // colour sent here is '#b37b62'.
+  //
+  // Added: v1.13
+  string SkinColour = 20;
+  // ArmSize 是玩家模型手臂的尺寸，可为 'wide' 或 'slim'。
+  // 'wide' 通常用于男性皮肤，'slim' 通常用于女性皮肤。
+  //
+  // ArmSize is the size of the arms of the player's model. This is either 'wide' (generally for male skins)
+  // or 'slim' (generally for female skins).
+  //
+  // Added: v1.13
+  string ArmSize = 21;
+  // PersonaPieces 是组成该皮肤的所有 persona 部件列表。
+  //
+  // PersonaPieces is a list of all persona pieces that the skin is composed of.
+  //
+  // Added: v1.19.20
+  // Go type: []PersonaPiece
+  repeated PersonaPiece PersonaPieces = 22;
+  // PieceTintColours 是上面列表中部分 persona 部件的特定染色色彩列表。
+  //
+  // PieceTintColours is a list of specific tint colours for (some of) the persona pieces found in the list
+  // above.
+  //
+  // Added: v1.19.20
+  // Go type: []PersonaPieceTintColour
+  repeated PersonaPieceTintColour PieceTintColours = 23;
+  // Trusted 指定皮肤是否“可信”。任何代码都不应依赖该字段，因为任何代理或客户端都能轻易修改它。
+  //
+  // Trusted specifies if the skin is 'trusted'. No code should rely on this field, as any proxy or client
+  // can easily change it.
+  //
+  // Added: v1.19.20
+  bool Trusted = 24;
+  // OverrideAppearance 指定该皮肤是否应覆盖玩家在客户端侧装备的皮肤。
+  // 为 false 时，客户端会拒绝该皮肤并继续使用玩家已装备的皮肤。
+  //
+  // OverrideAppearance specifies if the skin should override the player's skin that is equipped client-side.
+  // When false, the client will reject the skin and continue to use the skin that the player has equipped.
+  //
+  // Added: v1.19.63
+  bool OverrideAppearance = 25;
+}
+
+// SkinAnimation 表示可添加到皮肤上的动画。客户端会自行播放该动画，服务端无需处理。
+// 这些动画的播放速率似乎由客户端决定。
+//
+// SkinAnimation represents an animation that may be added to a skin. The client plays the animation itself,
+// without the server having to do so.
+// The rate at which these animations play appears to be decided by the client.
+//
+// Added: v1.13
+message SkinAnimation {
+  // ImageWidth 和 ImageHeight 保存动画图像尺寸。注意这些值不是字节尺寸，而是像素尺寸。
+  //
+  // ImageWidth and ImageHeight hold the dimensions of the animation image. Note that these are not the
+  // dimensions in bytes, but in pixels.
+  //
+  // Added: v1.13
+  uint32 ImageWidth = 1;
+  // ImageWidth 和 ImageHeight 保存动画图像尺寸。注意这些值不是字节尺寸，而是像素尺寸。
+  //
+  // ImageWidth and ImageHeight hold the dimensions of the animation image. Note that these are not the
+  // dimensions in bytes, but in pixels.
+  //
+  // Added: v1.13
+  uint32 ImageHeight = 2;
+  // ImageData 是 ImageWidth * ImageHeight * 4 字节的切片，表示按 RGBA 顺序排列的动画图像像素。
+  // ImageData 包含 FrameCount 张图像，每张图像表示动画的一个阶段。
+  // 该字段保存的皮肤部分取决于 AnimationType：SkinAnimationHead 只保存头部和帽子，
+  // 其他动画保存完整身体。
+  //
+  // ImageData is a byte slice of ImageWidth * ImageHeight bytes. It is an RGBA ordered byte representation
+  // of the animation image pixels. The ImageData contains FrameCount images in it, which each represent one
+  // stage of the animation. The actual part of the skin that this field holds depends on the AnimationType,
+  // where SkinAnimationHead holds only the head and its hat, whereas the other animations hold the entire
+  // body of the skin.
+  //
+  // Added: v1.13
+  // Go type: []byte
+  bytes ImageData = 3;
+  // AnimationType 是动画类型，取值为上面的类型之一。ImageData 包含的数据取决于该类型。
+  //
+  // AnimationType is the type of the animation, which is one of the types found above. The data that
+  // ImageData contains depends on this type.
+  //
+  // Added: v1.13
+  uint32 AnimationType = 4;
+  // FrameCount 是该皮肤动画包含的帧数，也就是 ImageData 字段中可找到的图像数量。
+  //
+  // FrameCount is the amount of frames that the skin animation holds. The number of frames here is the
+  // amount of images that may be found in the ImageData field.
+  //
+  // Added: v1.13
+  // Go type: float32
+  float FrameCount = 5;
+  // ExpressionType 是皮肤表现出的表情类型，取值为上面的类型之一。
+  //
+  // ExpressionType is the type of expression made by the skin, which is one the types found above.
+  //
+  // Added: v1.13
+  uint32 ExpressionType = 6;
+}
+
+// PersonaPiece 表示 persona 皮肤的一个部件。所有部件都会单独发送。
+//
+// PersonaPiece represents a piece of a persona skin. All pieces are sent separately.
+//
+// Added: v1.19.20
+message PersonaPiece {
+  // PieceID 是标识该部件自身的 UUID，每个独立部件都有唯一值。
+  //
+  // PieceID is a UUID that identifies the piece itself, which is unique for each separate piece.
+  //
+  // Added: v1.19.20
+  string PieceID = 1;
+  // PieceType 保存部件类型。下面列出了一些能直接找到的类型。
+  //
+  // PieceType holds the type of the piece. Several types I was able to find immediately are listed below.
+  // - persona_skeleton
+  // - persona_body
+  // - persona_skin
+  // - persona_bottom
+  // - persona_feet
+  // - persona_top
+  // - persona_mouth
+  // - persona_hair
+  // - persona_eyes
+  // - persona_facial_hair
+  //
+  // Added: v1.19.20
+  string PieceType = 2;
+  // PackID 是标识该 persona 部件所属包的 UUID。
+  //
+  // PackID is a UUID that identifies the pack that the persona piece belongs to.
+  //
+  // Added: v1.19.20
+  string PackID = 3;
+  // Default 指定该部件是否为默认部件之一。当该部件属于 Steve 或 Alex 皮肤拥有的部件时为 true。
+  //
+  // Default specifies if the piece is one of the default pieces. This is true when the piece is one of
+  // those that a Steve or Alex skin have.
+  //
+  // Added: v1.19.20
+  bool Default = 4;
+  // ProductID 是购买场景下标识该部件的 UUID。Default 字段为 true 的部件会留空。
+  //
+  // ProductID is a UUID that identifies the piece when it comes to purchases. It is empty for pieces that
+  // have the 'Default' field set to true.
+  //
+  // Added: v1.19.20
+  string ProductID = 5;
+}
+
+// PersonaPieceTintColour 描述 persona 皮肤中特定部件的染色色彩。
+//
+// PersonaPieceTintColour describes the tint colours of a specific piece of a persona skin.
+//
+// Added: v1.19.20
+message PersonaPieceTintColour {
+  // PieceType 是该染色色彩对应的 persona 皮肤部件类型。部件类型必须存在于 persona 部件列表中，
+  // 但并非每种部件类型都会发送染色色彩。
+  // 下面列出了一些能直接找到且拥有染色色彩的部件。
+  //
+  // PieceType is the type of the persona skin piece that this tint colour concerns. The piece type must
+  // always be present in the persona pieces list, but not each piece type has a tint colour sent.
+  // Pieces that do have a tint colour that I was able to find immediately are listed below.
+  // - persona_mouth
+  // - persona_eyes
+  // - persona_hair
+  //
+  // Added: v1.19.20
+  string PieceType = 1;
+  // Colours 是四个以十六进制表示的颜色列表。注意，与 ClientData 结构中的 SkinColour 字段不同，
+  // 这里实际是 ARGB，而不只是 RGB。
+  // 这些颜色对应皮肤部件的不同部分。例如 'persona_eyes' 可能拥有以下颜色：
+  // ["#ffa12722","#ff2f1f0f","#ff3aafd9","#0"]。
+  // 第一个十六进制颜色表示虹膜染色，第二个表示眉毛，第三个表示巩膜。第四个是 #0，
+  // 因为 persona_eyes 皮肤部件只有 3 个部分。
+  //
+  // Colours is a list four colours written in hex notation (note, that unlike the SkinColour field in
+  // the ClientData struct, this is actually ARGB, not just RGB).
+  // The colours refer to different parts of the skin piece. The 'persona_eyes' may have the following
+  // colours: ["#ffa12722","#ff2f1f0f","#ff3aafd9","#0"]
+  // The first hex colour represents the tint colour of the iris, the second hex colour represents the
+  // eyebrows and the third represents the sclera. The fourth is #0 because there are only 3 parts of the
+  // persona_eyes skin piece.
+  //
+  // Added: v1.19.20
+  // Go type: []string
+  repeated string Colours = 2;
+}
+

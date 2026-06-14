@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.update_client_input_locks;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "mgl32.proto";
+import "packet_options.proto";
+
+enum ClientInputLockEnum {
+  CLIENTINPUTLOCKENUM_UNSPECIFIED = 0;
+  ClientInputLockCamera = 2;
+  ClientInputLockMovement = 4;
+  ClientInputLockLateralMovement = 16;
+  ClientInputLockSneak = 32;
+  ClientInputLockJump = 64;
+  ClientInputLockMount = 128;
+  ClientInputLockDismount = 256;
+  ClientInputLockMoveForward = 512;
+  ClientInputLockMoveBackward = 1024;
+  ClientInputLockMoveLeft = 2048;
+  ClientInputLockMoveRight = 4096;
+}
+
+// UpdateClientInputLocks 由服务器发送给客户端，用于锁定特定玩家输入，
+// 例如相机旋转、移动、跳跃、潜行、骑乘或单独的方向移动。
+//
+// UpdateClientInputLocks is sent by the server to the client to lock specific player inputs such as camera
+// rotation, movement, jumping, sneaking, mounting or individual directional movement.
+//
+// Added: v1.19.50
+message UpdateClientInputLocks {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDUpdateClientInputLocks;
+  // Locks 是一组标志，用于指定哪些客户端输入被禁用，例如玩家是否可以移动、
+  // 旋转相机、跳跃、潜行或骑乘/下马实体。它是上方 ClientInputLock 常量的组合。
+  //
+  // Locks is a set of flags that specify which client inputs are disabled, such as whether the player can
+  // move, rotate the camera, jump, sneak or mount/dismount entities. It is a combination of the
+  // ClientInputLock constants above.
+  //
+  // Added: v1.19.50
+  uint32 Locks = 1;
+  // Position 是发送该数据包时服务器记录的客户端位置。
+  //
+  // Position is the server's position of the client at the time the packet was sent.
+  //
+  // Removed: v1.26.10
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 Position = 2;
+}
+

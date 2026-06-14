@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.network_stack_latency;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// NetworkStackLatency 由服务器发送（开发构建中客户端也会发送），用于测量整个 Minecraft 栈上的延迟，
+// 而不是 RakNet 延迟。它还有其他用途，例如作为某种确认数据包，用于判断客户端何时收到特定的其他数据包。
+//
+// NetworkStackLatency is sent by the server (and the client, on development builds) to measure the latency
+// over the entire Minecraft stack, rather than the RakNet latency. It has other usages too, such as the
+// ability to be used as some kind of acknowledgement packet, to know when the client has received a certain
+// other packet.
+//
+// Added: v1.13
+message NetworkStackLatency {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDNetworkStackLatency;
+  // Timestamp 是网络栈延迟数据包的时间戳。如果 NeedsResponse 设置为 true，
+  // 客户端会回发一个带有相同时间戳的 NetworkStackLatency 数据包作为响应。
+  //
+  // Timestamp is the timestamp of the network stack latency packet. The client will, if NeedsResponse is
+  // set to true, send a NetworkStackLatency packet with this same timestamp packet in response.
+  //
+  // Added: v1.13
+  int64 Timestamp = 1;
+  // NeedsResponse 指定该数据包的发送方是否需要响应；如果需要，另一端应回发 NetworkStackLatency 数据包。
+  //
+  // NeedsResponse specifies if the sending side of this packet wants a response to the packet, meaning that
+  // the other side should send a NetworkStackLatency packet back.
+  //
+  // Added: v1.13
+  bool NeedsResponse = 2;
+}
+

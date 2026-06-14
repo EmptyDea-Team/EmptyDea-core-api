@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package emptydea.game_control.game_interface;
+
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pb";
+
+// DoQuerytargetRequest 是执行 querytarget 查询的请求。
+message DoQuerytargetRequest {
+  // Target 是 Minecraft 目标选择器字符串。
+  string Target = 1;
+}
+
+// TargetQueryingPos 是 querytarget 返回的坐标。
+message TargetQueryingPos {
+  // X 是 X 坐标。
+  float X = 1;
+  // Y 是 Y 坐标。
+  float Y = 2;
+  // Z 是 Z 坐标。
+  float Z = 3;
+}
+
+// TargetQueryingInfo 是 querytarget 返回的单个目标信息。
+message TargetQueryingInfo {
+  // UniqueID 是目标实体唯一 ID。
+  string UniqueID = 1;
+  // QueryingName 是目标名称。
+  string QueryingName = 2;
+  // Dimension 是目标所在维度。
+  string Dimension = 3;
+  // Position 是目标位置。
+  TargetQueryingPos Position = 4;
+}
+
+// DoQuerytargetResponse 是 querytarget 查询结果。
+message DoQuerytargetResponse {
+  // Results 是查询到的目标信息列表。
+  repeated TargetQueryingInfo Results = 1;
+}
+
+// QuerytargetService 封装 querytarget 命令解析。
+service QuerytargetService {
+  // DoQuerytarget 查询目标选择器并返回解析出的目标信息。
+  rpc DoQuerytarget(DoQuerytargetRequest) returns (DoQuerytargetResponse);
+}

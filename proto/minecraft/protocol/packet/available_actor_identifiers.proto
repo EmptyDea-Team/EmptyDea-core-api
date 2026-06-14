@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.available_actor_identifiers;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// AvailableActorIdentifiers 由服务器在游戏开始时发送，用于告知客户端服务器上所有可用实体。
+//
+// AvailableActorIdentifiers is sent by the server at the start of the game to let the client know all
+// entities that are available on the server.
+//
+// Added: v1.12
+message AvailableActorIdentifiers {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDAvailableActorIdentifiers;
+  // SerialisedEntityIdentifiers 是网络 NBT 序列化的复合标签，包含服务器中所有可用实体标识符。
+  //
+  // SerialisedEntityIdentifiers is a network NBT serialised compound of all entity identifiers that are
+  // available in the server.
+  //
+  // Added: v1.12
+  // Go type: []byte
+  bytes SerialisedEntityIdentifiers = 1;
+}
+

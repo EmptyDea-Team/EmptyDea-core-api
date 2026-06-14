@@ -1,0 +1,84 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.graphics;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+import "mgl32.proto";
+
+enum GraphicsOverrideParameterTypeEnum {
+  GraphicsOverrideParameterTypeSkyZenithColor = 0;
+  GraphicsOverrideParameterTypeSkyHorizonColor = 1;
+  GraphicsOverrideParameterTypeHorizonBlendMin = 2;
+  GraphicsOverrideParameterTypeHorizonBlendMax = 3;
+  GraphicsOverrideParameterTypeHorizonBlendStart = 4;
+  GraphicsOverrideParameterTypeHorizonBlendMieStart = 5;
+  GraphicsOverrideParameterTypeRayleighStrength = 6;
+  GraphicsOverrideParameterTypeSunMieStrength = 7;
+  GraphicsOverrideParameterTypeMoonMieStrength = 8;
+  GraphicsOverrideParameterTypeSunGlareShape = 9;
+  GraphicsOverrideParameterTypeChlorophyll = 10;
+  GraphicsOverrideParameterTypeCDOM = 11;
+  GraphicsOverrideParameterTypeSuspendedSediment = 12;
+  GraphicsOverrideParameterTypeWavesDepth = 13;
+  GraphicsOverrideParameterTypeWavesFrequency = 14;
+  GraphicsOverrideParameterTypeWavesFrequencyScaling = 15;
+  GraphicsOverrideParameterTypeWavesSpeed = 16;
+  GraphicsOverrideParameterTypeWavesSpeedScaling = 17;
+  GraphicsOverrideParameterTypeWavesShape = 18;
+  GraphicsOverrideParameterTypeWavesOctaves = 19;
+  GraphicsOverrideParameterTypeWavesMix = 20;
+  GraphicsOverrideParameterTypeWavesPull = 21;
+  GraphicsOverrideParameterTypeWavesDirectionIncrement = 22;
+  GraphicsOverrideParameterTypeMidtonesContrast = 23;
+  GraphicsOverrideParameterTypeHighlightsContrast = 24;
+  GraphicsOverrideParameterTypeShadowsContrast = 25;
+  GraphicsOverrideParameterTypeHighlightsGain = 26;
+  GraphicsOverrideParameterTypeHighlightsGamma = 27;
+  GraphicsOverrideParameterTypeHighlightsOffset = 28;
+  GraphicsOverrideParameterTypeHighlightsSaturation = 29;
+  GraphicsOverrideParameterTypeMidtonesGain = 30;
+  GraphicsOverrideParameterTypeMidtonesGamma = 31;
+  GraphicsOverrideParameterTypeMidtonesOffset = 32;
+  GraphicsOverrideParameterTypeMidtonesSaturation = 33;
+  GraphicsOverrideParameterTypeShadowsGain = 34;
+  GraphicsOverrideParameterTypeShadowsGamma = 35;
+  GraphicsOverrideParameterTypeShadowsOffset = 36;
+  GraphicsOverrideParameterTypeShadowsSaturation = 37;
+  GraphicsOverrideParameterTypeHighlightsMin = 38;
+  GraphicsOverrideParameterTypeShadowsMax = 39;
+  GraphicsOverrideParameterTypeTemperature = 40;
+  GraphicsOverrideParameterTypeSunColor = 41;
+  GraphicsOverrideParameterTypeSunIlluminance = 42;
+  GraphicsOverrideParameterTypeMoonColor = 43;
+  GraphicsOverrideParameterTypeMoonIlluminance = 44;
+  GraphicsOverrideParameterTypeFlashColor = 45;
+  GraphicsOverrideParameterTypeFlashIlluminance = 46;
+  GraphicsOverrideParameterTypeAmbientColor = 47;
+  GraphicsOverrideParameterTypeAmbientIlluminance = 48;
+  GraphicsOverrideParameterTypeEmissiveDesaturation = 49;
+  GraphicsOverrideParameterTypeSkyIntensity = 50;
+  GraphicsOverrideParameterTypeOrbitalOffsetDegrees = 51;
+}
+
+// ParameterKeyframeValue 表示图形参数的关键帧值。
+//
+// ParameterKeyframeValue represents a keyframe value for graphics parameters.
+//
+// Added: v1.21.120
+message ParameterKeyframeValue {
+  // Time 是该关键帧的时间。
+  //
+  // Time is the time for this keyframe.
+  //
+  // Added: v1.21.120
+  // Go type: float32
+  float Time = 1;
+  // Value 是该关键帧上的值。
+  //
+  // Value is the value at this keyframe.
+  //
+  // Added: v1.21.120
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 Value = 2;
+}
+

@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.basic;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_command";
+
+// Basic 提供 aiCommand 事件共用的包名和模块名。
+//
+// Basic provides the package and module names shared by pet events.
+message Basic {
+}
+

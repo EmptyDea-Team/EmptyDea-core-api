@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.request_ai_command_failed;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_command";
+
+import "py_rpc/mod_event/minecraft/ai_command/basic.proto";
+
+// RequestAICommandFailed 表示魔法指令请求失败。
+//
+// RequestAICommandFailed indicates the AI-command request failed.
+message RequestAICommandFailed {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.basic.Basic Basic = 1;
+  // Message 是失败提示文本。
+  //
+  // Message is the failure message.
+  string Message = 2;
+  // Code 是服务端错误码。
+  //
+  // Code is the server error code.
+  int64 Code = 3;
+}
+

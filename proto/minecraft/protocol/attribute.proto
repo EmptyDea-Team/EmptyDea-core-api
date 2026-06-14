@@ -1,0 +1,163 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.attribute;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+enum AttributeModifierOperationEnum {
+  AttributeModifierOperationAddition = 0;
+  AttributeModifierOperationMultiplyBase = 1;
+  AttributeModifierOperationMultiplyTotal = 2;
+  AttributeModifierOperationCap = 3;
+}
+
+enum AttributeModifierOperandEnum {
+  AttributeModifierOperandMin = 0;
+  AttributeModifierOperandMax = 1;
+  AttributeModifierOperandCurrent = 2;
+}
+
+// AttributeValue 保存属性值，包括最小值和最大值。
+//
+// AttributeValue holds the value of an attribute, including the min and max.
+//
+// Added: v1.16
+message AttributeValue {
+  // Name 是属性名称，例如 `minecraft:health`。这些名称必须与客户端侧定义的名称完全一致。
+  //
+  // Name is the name of the attribute, for example 'minecraft:health'. These names must be identical to
+  // the ones defined client-side.
+  //
+  // Added: v1.16
+  string Name = 1;
+  // Value 是属性的当前值。当通过数据包发送时，该值会应用到实体。
+  //
+  // Value is the current value of the attribute. This value will be applied to the entity when sent in a
+  // packet.
+  //
+  // Added: v1.16
+  // Go type: float32
+  float Value = 2;
+  // Max 和 Min 指定属性值必须处于的边界。这些字段的定义因属性而异；
+  // 实体的最大生命值可以改变，而最大移动速度等属性可能不能改变。
+  //
+  // Max and Min specify the boundaries within the value of the attribute must be. The definition of these
+  // fields differ per attribute. The maximum health of an entity may be changed, whereas the maximum
+  // movement speed for example may not be.
+  //
+  // Added: v1.16
+  // Go type: float32
+  float Max = 3;
+  // Max 和 Min 指定属性值必须处于的边界。这些字段的定义因属性而异；
+  // 实体的最大生命值可以改变，而最大移动速度等属性可能不能改变。
+  //
+  // Max and Min specify the boundaries within the value of the attribute must be. The definition of these
+  // fields differ per attribute. The maximum health of an entity may be changed, whereas the maximum
+  // movement speed for example may not be.
+  //
+  // Added: v1.16
+  // Go type: float32
+  float Min = 4;
+}
+
+// Attribute 是实体属性，保存实体生命值等特定数据。
+// 每个属性都包含默认值、最大值、最小值、名称和当前值。
+//
+// Attribute is an entity attribute, that holds specific data such as the health of the entity. Each attribute
+// holds a default value, maximum and minimum value, name and its current value.
+//
+// Added: v1.16
+message Attribute {
+  // AttributeValue 保存属性名称及其当前值范围。
+  //
+  // AttributeValue holds the attribute name and its current value range.
+  //
+  // Added: v1.16
+  AttributeValue AttributeValue = 1;
+  // DefaultMin 是该属性的默认最小值。目前不清楚为什么必须将该字段发送给客户端，
+  // 但无论如何它都是必需的。
+  //
+  // DefaultMin is the default minimum value of the attribute. It's not clear why this field must be sent to
+  // the client, but it is required regardless.
+  //
+  // Added: v1.16
+  // Go type: float32
+  float DefaultMin = 2;
+  // DefaultMax 是该属性的默认最大值。目前不清楚为什么必须将该字段发送给客户端，
+  // 但无论如何它都是必需的。
+  //
+  // DefaultMax is the default maximum value of the attribute. It's not clear why this field must be sent to
+  // the client, but it is required regardless.
+  //
+  // Added: v1.16
+  // Go type: float32
+  float DefaultMax = 3;
+  // Default 是该属性的默认值。目前不清楚为什么必须将该字段发送给客户端，
+  // 但无论如何它都是必需的。
+  //
+  // Default is the default value of the attribute. It's not clear why this field must be sent to the
+  // client, but it is required regardless.
+  //
+  // Added: v1.16
+  // Go type: float32
+  float Default = 4;
+  // Modifiers 是应用到该属性的 AttributeModifier 切片。
+  //
+  // Modifiers is a slice of AttributeModifiers that are applied to the attribute.
+  //
+  // Added: v1.19.20
+  // Go type: []AttributeModifier
+  repeated AttributeModifier Modifiers = 5;
+}
+
+// AttributeModifier 会临时增强或削弱给定属性，直到该修饰器被使用。
+// 在原版中，这些修饰器主要用于效果。
+//
+// AttributeModifier temporarily buffs/debuffs a given attribute until the modifier is used. In vanilla, these are
+// mainly used for effects.
+//
+// Added: v1.19.20
+message AttributeModifier {
+  // ID 是修饰器的唯一 ID，用于在数据包中标识该修饰器。
+  //
+  // ID is the unique ID of the modifier. It is used to identify the modifier in the packet.
+  //
+  // Added: v1.19.20
+  string ID = 1;
+  // Name 是被修改属性的名称。
+  //
+  // Name is the name of the attribute that is modified.
+  //
+  // Added: v1.19.20
+  string Name = 2;
+  // Amount 是属性当前值与新值之间的差值。
+  //
+  // Amount is the amount of difference between the current value of the attribute and the new value.
+  //
+  // Added: v1.19.20
+  // Go type: float32
+  float Amount = 3;
+  // Operation 是对属性执行的操作，可以是加法、基础乘法、总乘法或封顶。
+  //
+  // Operation is the operation that is performed on the attribute. It can be addition, multiply base, multiply total
+  // or cap.
+  //
+  // Added: v1.19.20
+  int32 Operation = 4;
+  // Operand 标识该修饰器目标属性操作数。
+  // TODO: 弄清该字段在原版中的确切用途。
+  //
+  // Operand identifies which attribute operand the modifier targets.
+  // TODO: Figure out what this field is used for exactly in vanilla.
+  //
+  // Added: v1.19.20
+  int32 Operand = 5;
+  // Serializable 指定该修饰器在存储或转发时是否应被保留。
+  // TODO: 弄清该字段在原版中的确切用途。
+  //
+  // Serializable specifies if the modifier should be preserved when it is stored or forwarded.
+  // TODO: Figure out what this field is used for exactly in vanilla.
+  //
+  // Added: v1.19.20
+  bool Serializable = 6;
+}
+

@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.update_abilities;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "ability.proto";
+import "packet_options.proto";
+
+// UpdateAbilities 是服务器发送给客户端的数据包，用于更新玩家的能力。
+// 自 v1.19.10 起，它与 UpdateAdventureSettings 数据包一起取代了 AdventureSettings 数据包。
+//
+// UpdateAbilities is a packet sent from the server to the client to update the abilities of the player. It, along with
+// the UpdateAdventureSettings packet, are replacements of the AdventureSettings packet since v1.19.10.
+//
+// Added: v1.19.10
+message UpdateAbilities {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDUpdateAbilities;
+  // AbilityData 表示玩家能力的各种数据，例如能力层或权限。
+  //
+  // AbilityData represents various data about the abilities of a player, such as ability layers or permissions.
+  //
+  // Added: v1.19.10
+  .mousetunnel.minecraft.protocol.ability.AbilityData AbilityData = 1;
+  // NetEaseUnknown1 是网易额外的能力字段。
+  //
+  // NetEaseUnknown1 is an extra NetEase ability field.
+  //
+  // Added: NetEase.
+  uint32 NetEaseUnknown1 = 2;
+  // NetEaseUnknown2 是网易额外的能力字段。
+  //
+  // NetEaseUnknown2 is an extra NetEase ability field.
+  //
+  // Added: NetEase.
+  int64 NetEaseUnknown2 = 3;
+}
+

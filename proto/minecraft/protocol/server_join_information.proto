@@ -1,0 +1,154 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.server_join_information;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+import "io.proto";
+
+// GatheringJoinInfo 包含玩家正在加入的聚会（体验）的信息。
+//
+// GatheringJoinInfo contains information about the gathering (experience) the player is joining.
+//
+// Added: v1.26.0
+message GatheringJoinInfo {
+  // ExperienceID 是体验的 UUID。
+  //
+  // ExperienceID is the UUID of the experience.
+  //
+  // Added: v1.26.10
+  // Go type: uuid.UUID
+  string ExperienceID = 1;
+  // ExperienceID1v26v0 是体验标识符的旧版字符串形式。
+  //
+  // ExperienceID1v26v0 is the legacy string form of the experience identifier.
+  //
+  // Removed: v1.26.10
+  string ExperienceID1v26v0 = 2;
+  // ExperienceName 是体验名称。
+  //
+  // ExperienceName is the name of the experience.
+  //
+  // Added: v1.26.0
+  string ExperienceName = 3;
+  // ExperienceWorldID 是体验世界的 UUID。
+  //
+  // ExperienceWorldID is the UUID of the experience world.
+  //
+  // Added: v1.26.10
+  // Go type: uuid.UUID
+  string ExperienceWorldID = 4;
+  // ExperienceWorldID1v26v0 是体验世界标识符的旧版字符串形式。
+  //
+  // ExperienceWorldID1v26v0 is the legacy string form of the experience world identifier.
+  //
+  // Removed: v1.26.10
+  string ExperienceWorldID1v26v0 = 5;
+  // ExperienceWorldName 是体验的世界名称。
+  //
+  // ExperienceWorldName is the world name of the experience.
+  //
+  // Added: v1.26.0
+  string ExperienceWorldName = 6;
+  // CreatorID 是创建者 ID。
+  //
+  // CreatorID is the ID of the creator.
+  //
+  // Added: v1.26.0
+  string CreatorID = 7;
+  // StoreID 是直接与聚会信息绑定的旧版商店标识符。
+  //
+  // StoreID is the legacy store identifier bundled directly with the gathering info.
+  //
+  // Removed: v1.26.10
+  string StoreID = 8;
+  // UnknownUUID1 是 v1.26.10 到 v1.26.20 负载布局中存在的未知 UUID 字段。
+  //
+  // UnknownUUID1 is an unknown UUID field present in the v1.26.10 through v1.26.20 payload layout.
+  //
+  // Added: v1.26.10
+  // Go type: uuid.UUID
+  string UnknownUUID1 = 9;
+  // UnknownUUID2 是 v1.26.10 到 v1.26.20 负载布局中存在的未知 UUID 字段。
+  //
+  // UnknownUUID2 is an unknown UUID field present in the v1.26.10 through v1.26.20 payload layout.
+  //
+  // Added: v1.26.10
+  // Go type: uuid.UUID
+  string UnknownUUID2 = 10;
+  // ServerID 是与目标体验关联的服务器标识符。
+  //
+  // ServerID is the server identifier associated with the target experience.
+  //
+  // Added: v1.26.10
+  string ServerID = 11;
+}
+
+// StoreEntryPointInfo 包含商店入口点的信息。
+//
+// StoreEntryPointInfo contains information about the store entry point.
+//
+// Added: v1.26.10
+message StoreEntryPointInfo {
+  // StoreID 是商店标识符。
+  //
+  // StoreID is the store identifier.
+  //
+  // Added: v1.26.10
+  string StoreID = 1;
+  // StoreName 是商店入口点的显示名称。
+  //
+  // StoreName is the display name of the store entry point.
+  //
+  // Added: v1.26.10
+  string StoreName = 2;
+}
+
+// PresenceInfo 包含体验的在线状态信息。
+//
+// PresenceInfo contains presence information about the experience.
+//
+// Added: v1.26.10
+message PresenceInfo {
+  // ExperienceName 是在线状态数据中显示的体验名称。
+  //
+  // ExperienceName is the experience name shown in presence data.
+  //
+  // Added: v1.26.10
+  string ExperienceName = 1;
+  // WorldName 是在线状态数据中显示的世界名称。
+  //
+  // WorldName is the world name shown in presence data.
+  //
+  // Added: v1.26.10
+  string WorldName = 2;
+}
+
+// ServerJoinInformation 包含玩家正在加入的服务器的可选信息。
+//
+// ServerJoinInformation contains optional information about the server the player is joining.
+//
+// Added: v1.26.0
+message ServerJoinInformation {
+  // GatheringJoinInfo 是正在加入的聚会的可选信息。
+  //
+  // GatheringJoinInfo is optional information about the gathering being joined.
+  //
+  // Added: v1.26.0
+  // Go type: Optional[GatheringJoinInfo]
+  .mousetunnel.minecraft.protocol.Optional GatheringJoinInfo = 1;
+  // StoreEntryPointInfo 是打开加入流程的商店入口点的可选信息。
+  //
+  // StoreEntryPointInfo is optional information about the store entry point that opened the join flow.
+  //
+  // Added: v1.26.10
+  // Go type: Optional[StoreEntryPointInfo]
+  .mousetunnel.minecraft.protocol.Optional StoreEntryPointInfo = 2;
+  // PresenceInfo 是正在加入的体验和世界的可选丰富在线状态信息。
+  //
+  // PresenceInfo is optional rich presence information for the experience and world being joined.
+  //
+  // Added: v1.26.10
+  // Go type: Optional[PresenceInfo]
+  .mousetunnel.minecraft.protocol.Optional PresenceInfo = 3;
+}
+

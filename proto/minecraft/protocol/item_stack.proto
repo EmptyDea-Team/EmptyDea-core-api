@@ -1,0 +1,766 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.item_stack;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+import "container.proto";
+import "item.proto";
+import "item_descriptor.proto";
+
+enum FilterCauseEnum {
+  FilterCauseServerChatPublic = 0;
+  FilterCauseServerChatWhisper = 1;
+  FilterCauseSignText = 2;
+  FilterCauseAnvilText = 3;
+  FilterCauseBookAndQuillText = 4;
+  FilterCauseCommandBlockText = 5;
+  FilterCauseBlockActorDataText = 6;
+  FilterCauseJoinEventText = 7;
+  FilterCauseLeaveEventText = 8;
+  FilterCauseSlashCommandChat = 9;
+  FilterCauseCartographyText = 10;
+  FilterCauseKickCommand = 11;
+  FilterCauseTitleCommand = 12;
+  FilterCauseSummonCommand = 13;
+}
+
+enum ItemStackResponseStatusEnum {
+  ItemStackResponseStatusOK = 0;
+  ItemStackResponseStatusError = 1;
+  ItemStackResponseStatusInvalidRequestActionType = 2;
+  ItemStackResponseStatusActionRequestNotAllowed = 3;
+  ItemStackResponseStatusScreenHandlerEndRequestFailed = 4;
+  ItemStackResponseStatusItemRequestActionHandlerCommitFailed = 5;
+  ItemStackResponseStatusInvalidRequestCraftActionType = 6;
+  ItemStackResponseStatusInvalidCraftRequest = 7;
+  ItemStackResponseStatusInvalidCraftRequestScreen = 8;
+  ItemStackResponseStatusInvalidCraftResult = 9;
+  ItemStackResponseStatusInvalidCraftResultIndex = 10;
+  ItemStackResponseStatusInvalidCraftResultItem = 11;
+  ItemStackResponseStatusInvalidItemNetId = 12;
+  ItemStackResponseStatusMissingCreatedOutputContainer = 13;
+  ItemStackResponseStatusFailedToSetCreatedItemOutputSlot = 14;
+  ItemStackResponseStatusRequestAlreadyInProgress = 15;
+  ItemStackResponseStatusFailedToInitSparseContainer = 16;
+  ItemStackResponseStatusResultTransferFailed = 17;
+  ItemStackResponseStatusExpectedItemSlotNotFullyConsumed = 18;
+  ItemStackResponseStatusExpectedAnywhereItemNotFullyConsumed = 19;
+  ItemStackResponseStatusItemAlreadyConsumedFromSlot = 20;
+  ItemStackResponseStatusConsumedTooMuchFromSlot = 21;
+  ItemStackResponseStatusMismatchSlotExpectedConsumedItem = 22;
+  ItemStackResponseStatusMismatchSlotExpectedConsumedItemNetIdVariant = 23;
+  ItemStackResponseStatusFailedToMatchExpectedSlotConsumedItem = 24;
+  ItemStackResponseStatusFailedToMatchExpectedAllowedAnywhereConsumedItem = 25;
+  ItemStackResponseStatusConsumedItemOutOfAllowedSlotRange = 26;
+  ItemStackResponseStatusConsumedItemNotAllowed = 27;
+  ItemStackResponseStatusPlayerNotInCreativeMode = 28;
+  ItemStackResponseStatusInvalidExperimentalRecipeRequest = 29;
+  ItemStackResponseStatusFailedToCraftCreative = 30;
+  ItemStackResponseStatusFailedToGetLevelRecipe = 31;
+  ItemStackResponseStatusFailedToFindRecipeByNetId = 32;
+  ItemStackResponseStatusMismatchedCraftingSize = 33;
+  ItemStackResponseStatusMissingInputSparseContainer = 34;
+  ItemStackResponseStatusMismatchedRecipeForInputGridItems = 35;
+  ItemStackResponseStatusEmptyCraftResults = 36;
+  ItemStackResponseStatusFailedToEnchant = 37;
+  ItemStackResponseStatusMissingInputItem = 38;
+  ItemStackResponseStatusInsufficientPlayerLevelToEnchant = 39;
+  ItemStackResponseStatusMissingMaterialItem = 40;
+  ItemStackResponseStatusMissingActor = 41;
+  ItemStackResponseStatusUnknownPrimaryEffect = 42;
+  ItemStackResponseStatusPrimaryEffectOutOfRange = 43;
+  ItemStackResponseStatusPrimaryEffectUnavailable = 44;
+  ItemStackResponseStatusSecondaryEffectOutOfRange = 45;
+  ItemStackResponseStatusSecondaryEffectUnavailable = 46;
+  ItemStackResponseStatusDstContainerEqualToCreatedOutputContainer = 47;
+  ItemStackResponseStatusDstContainerAndSlotEqualToSrcContainerAndSlot = 48;
+  ItemStackResponseStatusFailedToValidateSrcSlot = 49;
+  ItemStackResponseStatusFailedToValidateDstSlot = 50;
+  ItemStackResponseStatusInvalidAdjustedAmount = 51;
+  ItemStackResponseStatusInvalidItemSetType = 52;
+  ItemStackResponseStatusInvalidTransferAmount = 53;
+  ItemStackResponseStatusCannotSwapItem = 54;
+  ItemStackResponseStatusCannotPlaceItem = 55;
+  ItemStackResponseStatusUnhandledItemSetType = 56;
+  ItemStackResponseStatusInvalidRemovedAmount = 57;
+  ItemStackResponseStatusInvalidRegion = 58;
+  ItemStackResponseStatusCannotDropItem = 59;
+  ItemStackResponseStatusCannotDestroyItem = 60;
+  ItemStackResponseStatusInvalidSourceContainer = 61;
+  ItemStackResponseStatusItemNotConsumed = 62;
+  ItemStackResponseStatusInvalidNumCrafts = 63;
+  ItemStackResponseStatusInvalidCraftResultStackSize = 64;
+  ItemStackResponseStatusCannotRemoveItem = 65;
+  ItemStackResponseStatusCannotConsumeItem = 66;
+  ItemStackResponseStatusScreenStackError = 67;
+}
+
+enum StackRequestActionEnum {
+  StackRequestActionTake = 0;
+  StackRequestActionPlace = 1;
+  StackRequestActionSwap = 2;
+  StackRequestActionDrop = 3;
+  StackRequestActionDestroy = 4;
+  StackRequestActionConsume = 5;
+  StackRequestActionCreate = 6;
+  StackRequestActionPlaceInContainer = 7;
+  StackRequestActionTakeOutContainer = 8;
+  StackRequestActionLabTableCombine = 9;
+  StackRequestActionBeaconPayment = 10;
+  StackRequestActionMineBlock = 11;
+  StackRequestActionCraftRecipe = 12;
+  StackRequestActionCraftRecipeAuto = 13;
+  StackRequestActionCraftCreative = 14;
+  StackRequestActionCraftRecipeOptional = 15;
+  StackRequestActionCraftGrindstone = 16;
+  StackRequestActionCraftLoom = 17;
+  StackRequestActionCraftNonImplementedDeprecated = 18;
+  StackRequestActionCraftResultsDeprecated = 19;
+}
+
+// ItemStackRequest 表示 ItemStackRequest 数据包中的单个请求，客户端用它请求修改物品栏中的物品。
+// 服务端会通过 ItemStackResponse 数据包批准或拒绝这些请求。
+//
+// ItemStackRequest represents a single request present in an ItemStackRequest packet sent by the client to
+// change an item in an inventory.
+// Item stack requests are either approved or rejected by the server using the ItemStackResponse packet.
+//
+// Added: v1.16
+message ItemStackRequest {
+  // RequestID 是请求的唯一 ID。服务端会在 ItemStackResponse 数据包中使用该 ID 返回对应请求的响应。
+  //
+  // RequestID is a unique ID for the request. This ID is used by the server to send a response for this
+  // specific request in the ItemStackResponse packet.
+  //
+  // Added: v1.16
+  int32 RequestID = 1;
+  // Actions 是客户端执行的动作列表。动作的实际类型取决于读取到的 ID，并且会是下面的某个具体类型。
+  //
+  // Actions is a list of actions performed by the client. The actual type of the actions depends on which
+  // ID was present, and is one of the concrete types below.
+  //
+  // Added: v1.16
+  // Go type: []StackRequestAction
+  repeated StackRequestAction Actions = 2;
+  // FilterStrings 是请求涉及的过滤字符串列表。使用铁砧或制图台时通常会填入一个字符串。
+  //
+  // FilterStrings is a list of filter strings involved in the request. This is typically filled with one string
+  // when an anvil or cartography is used.
+  //
+  // Added: v1.18.10
+  // Go type: []string
+  repeated string FilterStrings = 3;
+  // FilterCause 表示潜在文本过滤的原因，取值为上面的常量之一。
+  //
+  // FilterCause represents the cause of any potential filtering. This is one of the constants above.
+  //
+  // Added: v1.18.10
+  int32 FilterCause = 4;
+}
+
+// ItemStackResponse 是对单个 ItemStackRequest 的响应。
+//
+// ItemStackResponse is a response to an individual ItemStackRequest.
+//
+// Added: v1.16
+message ItemStackResponse {
+  // Status 指定下面 RequestID 对应的请求是否成功。成功时，ContainerInfo 会包含最终发生变化的槽位信息；
+  // 否则容器信息为空。非 0 状态表示发生错误，并会导致客户端回滚该动作。
+  //
+  // Status specifies if the request with the RequestID below was successful. If this is the case, the
+  // ContainerInfo below will have information on what slots ended up changing. If not, the container info
+  // will be empty.
+  // A non-0 status means an error occurred and will result in the action being reverted.
+  //
+  // Added: v1.16
+  // Go type: uint8
+  uint32 Status = 1;
+  // RequestID 是该响应对应请求的唯一 ID。如果请求被拒绝，客户端会撤销该 ID 对应请求中的动作。
+  //
+  // RequestID is the unique ID of the request that this response is in reaction to. If rejected, the client
+  // will undo the actions from the request with this ID.
+  //
+  // Added: v1.16
+  int32 RequestID = 2;
+  // ContainerInfo 保存由于该请求而发生内容变化的容器信息。
+  //
+  // ContainerInfo holds information on the containers that had their contents changed as a result of the
+  // request.
+  //
+  // Added: v1.16
+  // Go type: []StackResponseContainerInfo
+  repeated StackResponseContainerInfo ContainerInfo = 3;
+}
+
+// StackResponseContainerInfo 保存容器中各个槽位应当持有哪些物品堆的信息。
+//
+// StackResponseContainerInfo holds information on what slots in a container have what item stack in them.
+//
+// Added: v1.16
+message StackResponseContainerInfo {
+  // Container 是 FullContainerName，用于描述后续槽位所属的容器。主物品栏的 ContainerID 似乎是 0x1b；
+  // 光标槽似乎是 0x3a；合成网格似乎是 0x0d。
+  //
+  // Container is the FullContainerName that describes the container that the slots that follow are in. For
+  // the main inventory, the ContainerID seems to be 0x1b. Fur the cursor, this value seems to be 0x3a. For
+  // the crafting grid, this value seems to be 0x0d.
+  //
+  // Changed: v1.21.20, expanded from a plain container ID to a FullContainerName with optional dynamic container data.
+  .mousetunnel.minecraft.protocol.container.FullContainerName Container = 1;
+  // SlotInfo 保存容器中特定槽位应当存在的物品堆信息。
+  //
+  // SlotInfo holds information on what item stack should be present in specific slots in the container.
+  //
+  // Added: v1.16
+  // Go type: []StackResponseSlotInfo
+  repeated StackResponseSlotInfo SlotInfo = 2;
+}
+
+// StackResponseSlotInfo 保存特定槽位应当存在的物品堆信息。
+//
+// StackResponseSlotInfo holds information on what item stack should be present in a specific slot.
+//
+// Added: v1.16
+message StackResponseSlotInfo {
+  // Slot 和 HotbarSlot 似乎每次都相同，表示实际发生变化的槽位。目前尚不确定它们是否会不同。
+  //
+  // Slot and HotbarSlot seem to be the same value every time: The slot that was actually changed. I'm not
+  // sure if these slots ever differ.
+  //
+  // Added: v1.16
+  // Go type: byte
+  uint32 Slot = 1;
+  // Slot 和 HotbarSlot 似乎每次都相同，表示实际发生变化的槽位。目前尚不确定它们是否会不同。
+  //
+  // Slot and HotbarSlot seem to be the same value every time: The slot that was actually changed. I'm not
+  // sure if these slots ever differ.
+  //
+  // Added: v1.16
+  // Go type: byte
+  uint32 HotbarSlot = 2;
+  // Count 是物品堆的总数量。响应发送到客户端后，客户端会显示该数量。
+  //
+  // Count is the total count of the item stack. This count will be shown client-side after the response is
+  // sent to the client.
+  //
+  // Added: v1.16
+  // Go type: byte
+  uint32 Count = 3;
+  // StackNetworkID 是特定槽位中新物品堆的网络 ID。
+  //
+  // StackNetworkID is the network ID of the new stack at a specific slot.
+  //
+  // Added: v1.16
+  int32 StackNetworkID = 4;
+  // CustomName 是物品堆的自定义名称，用于文本过滤相关逻辑。
+  //
+  // CustomName is the custom name of the item stack. It is used in relation to text filtering.
+  //
+  // Added: v1.16
+  string CustomName = 5;
+  // FilteredCustomName 是移除所有不当用语后的 CustomName 过滤版本。若该字段不为空且客户端启用了
+  // “过滤不当用语”设置，客户端会优先使用它而不是 CustomName。
+  //
+  // FilteredCustomName is a filtered version of CustomName with all the profanity removed. The client will
+  // use this over CustomName if this field is not empty and they have the "Filter Profanity" setting enabled.
+  //
+  // Added: v1.21.50
+  string FilteredCustomName = 6;
+  // DurabilityCorrection 是物品堆当前的耐久度。响应发送到客户端后，客户端会显示该耐久度。
+  //
+  // DurabilityCorrection is the current durability of the item stack. This durability will be shown
+  // client-side after the response is sent to the client.
+  //
+  // Added: v1.16.210
+  int32 DurabilityCorrection = 7;
+}
+
+// TakeStackRequestAction 由客户端发送给服务端，用于从容器中的一个槽位取出指定数量的物品到光标。
+//
+// TakeStackRequestAction is sent by the client to the server to take x amount of items from one slot in a
+// container to the cursor.
+//
+// Added: v1.16
+message TakeStackRequestAction {
+}
+
+// PlaceStackRequestAction 由客户端发送给服务端，用于把指定数量的物品从一个槽位放入另一个槽位。
+// 例如在物品栏中 Shift 点击移动物品，或将光标中的物品移动到槽位中。
+//
+// PlaceStackRequestAction is sent by the client to the server to place x amount of items from one slot into
+// another slot, such as when shift clicking an item in the inventory to move it around or when moving an item
+// in the cursor into a slot.
+//
+// Added: v1.16
+message PlaceStackRequestAction {
+}
+
+// SwapStackRequestAction 由客户端发送，用于将光标中的物品与另一个容器中的物品交换位置。
+//
+// SwapStackRequestAction is sent by the client to swap the item in its cursor with an item present in another
+// container. The two item stacks swap places.
+//
+// Added: v1.16
+message SwapStackRequestAction {
+  // Source 和 Destination 分别指向源槽位和目标槽位；两个物品堆会互换位置。
+  //
+  // Source and Destination point to the source slot from which Count of the item stack were taken and the
+  // destination slot to which this item was moved.
+  //
+  // Added: v1.16
+  StackRequestSlotInfo Source = 1;
+  // Source 和 Destination 分别指向源槽位和目标槽位；两个物品堆会互换位置。
+  //
+  // Source and Destination point to the source slot from which Count of the item stack were taken and the
+  // destination slot to which this item was moved.
+  //
+  // Added: v1.16
+  StackRequestSlotInfo Destination = 2;
+}
+
+// DropStackRequestAction 由客户端在打开物品栏并从中丢出物品时发送。
+// 玩家使用 Q 键或移动端等价操作从快捷栏丢弃物品时不会发送该动作；无论是否使用物品堆网络 ID，
+// 该行为仍然使用 InventoryTransaction 数据包。
+//
+// DropStackRequestAction is sent by the client when it drops an item out of the inventory when it has its
+// inventory opened. This action is not sent when a player drops an item out of the hotbar using the Q button
+// (or the equivalent on mobile). The InventoryTransaction packet is still used for that action, regardless of
+// whether the item stack network IDs are used or not.
+//
+// Added: v1.16
+message DropStackRequestAction {
+  // Count 是从源槽位取出并丢弃的物品数量。
+  //
+  // Count is the count of the item in the source slot that was taken towards the destination slot.
+  //
+  // Added: v1.16
+  // Go type: byte
+  uint32 Count = 1;
+  // Source 是物品被丢到地面前所在的源槽位。
+  //
+  // Source is the source slot from which items were dropped to the ground.
+  //
+  // Added: v1.16
+  StackRequestSlotInfo Source = 2;
+  // Randomly 在大多数情况下似乎会被设置为 false。目前尚不完全清楚其作用，但原版也这样命名。
+  //
+  // Randomly seems to be set to false in most cases. I'm not entirely sure what this does, but this is what
+  // vanilla calls this field.
+  //
+  // Added: v1.16
+  bool Randomly = 3;
+}
+
+// DestroyStackRequestAction 由客户端在创造模式下把物品移回创造物品栏并销毁该物品时发送。
+//
+// DestroyStackRequestAction is sent by the client when it destroys an item in creative mode by moving it
+// back into the creative inventory.
+//
+// Added: v1.16
+message DestroyStackRequestAction {
+  // Count 是源槽位中被销毁的物品数量。
+  //
+  // Count is the count of the item in the source slot that was destroyed.
+  //
+  // Added: v1.16
+  // Go type: byte
+  uint32 Count = 1;
+  // Source 是被移入创造物品栏并销毁的物品所在的源槽位。
+  //
+  // Source is the source slot from which items came that were destroyed by moving them into the creative
+  // inventory.
+  //
+  // Added: v1.16
+  StackRequestSlotInfo Source = 2;
+}
+
+// ConsumeStackRequestAction 由客户端在使用一个物品合成另一个物品时发送，原始物品会被“消耗”。
+//
+// ConsumeStackRequestAction is sent by the client when it uses an item to craft another item. The original
+// item is 'consumed'.
+//
+// Added: v1.16
+message ConsumeStackRequestAction {
+  // DestroyStackRequestAction 保存被消耗物品的源槽位和数量。
+  //
+  // DestroyStackRequestAction holds the source slot and count of the consumed items.
+  //
+  // Added: v1.16
+  DestroyStackRequestAction DestroyStackRequestAction = 1;
+}
+
+// CreateStackRequestAction 由客户端在物品作为配方的一部分被使用并产生新物品时发送。
+// 例如牛奶用于合成蛋糕后会留下桶，客户端会在这里发送桶要移动到的槽位。
+// 在此动作之前，客户端会先发送消耗合成台或合成网格中所有物品的动作。配方使用后没有完全消耗的物品
+// 不应在那一步被销毁，而应转换为对应的结果物品。
+//
+// CreateStackRequestAction is sent by the client when an item is created through being used as part of a
+// recipe. For example, when milk is used to craft a cake, the buckets are leftover. The buckets are moved to
+// the slot sent by the client here.
+// Note that before this is sent, an action for consuming all items in the crafting table/grid is sent. Items
+// that are not fully consumed when used for a recipe should not be destroyed there, but instead, should be
+// turned into their respective resulting items.
+//
+// Added: v1.16
+message CreateStackRequestAction {
+  // ResultsSlot 是合成材料结果应当放入的物品栏槽位。
+  //
+  // ResultsSlot is the slot in the inventory in which the results of the crafting ingredients are to be
+  // placed.
+  //
+  // Added: v1.16
+  // Go type: byte
+  uint32 ResultsSlot = 1;
+}
+
+// PlaceInContainerStackRequestAction 当前没有已知用途。
+//
+// PlaceInContainerStackRequestAction currently has no known purpose.
+//
+// Added: v1.17.40
+message PlaceInContainerStackRequestAction {
+}
+
+// TakeOutContainerStackRequestAction 当前没有已知用途。
+//
+// TakeOutContainerStackRequestAction currently has no known purpose.
+//
+// Added: v1.17.40
+message TakeOutContainerStackRequestAction {
+}
+
+// LabTableCombineStackRequestAction 由客户端在使用实验台合并物品堆时发送。
+//
+// LabTableCombineStackRequestAction is sent by the client when it uses a lab table to combine item stacks.
+//
+// Added: v1.16
+message LabTableCombineStackRequestAction {
+}
+
+// BeaconPaymentStackRequestAction 由客户端在提交物品以启用信标效果时发送。
+// 这些物品会事先移动到信标物品槽中。
+//
+// BeaconPaymentStackRequestAction is sent by the client when it submits an item to enable effects from a
+// beacon. These items will have been moved into the beacon item slot in advance.
+//
+// Added: v1.16
+message BeaconPaymentStackRequestAction {
+  // PrimaryEffect 和 SecondaryEffect 是从信标中选择的效果。
+  //
+  // PrimaryEffect and SecondaryEffect are the effects that were selected from the beacon.
+  //
+  // Added: v1.16
+  int32 PrimaryEffect = 1;
+  // PrimaryEffect 和 SecondaryEffect 是从信标中选择的效果。
+  //
+  // PrimaryEffect and SecondaryEffect are the effects that were selected from the beacon.
+  //
+  // Added: v1.16
+  int32 SecondaryEffect = 2;
+}
+
+// MineBlockStackRequestAction 由客户端在破坏方块时发送。
+//
+// MineBlockStackRequestAction is sent by the client when it breaks a block.
+//
+// Added: v1.16.210
+message MineBlockStackRequestAction {
+  // HotbarSlot 是玩家挖掘方块时手持物品所在的快捷栏槽位。
+  //
+  // HotbarSlot is the slot held by the player while mining a block.
+  //
+  // Added: v1.16.210
+  int32 HotbarSlot = 1;
+  // PredictedDurability 是客户端认为当时存在的物品耐久度。
+  //
+  // PredictedDurability is the durability of the item that the client assumes to be present at the time.
+  //
+  // Added: v1.16.210
+  int32 PredictedDurability = 2;
+  // StackNetworkID 是客户端认为当时存在的唯一物品堆 ID。服务端必须检查这些 ID 是否匹配；
+  // 如果不匹配，服务端应拒绝包含该信息的物品堆请求。
+  //
+  // StackNetworkID is the unique stack ID that the client assumes to be present at the time. The server
+  // must check if these IDs match. If they do not match, servers should reject the stack request that the
+  // action holding this info was in.
+  //
+  // Added: v1.16.210
+  int32 StackNetworkID = 3;
+}
+
+// CraftRecipeStackRequestAction 由客户端在开始合成物品的瞬间发送。
+// 这是第一个发送的动作，早于 Consume 和 Create 物品堆请求动作。
+// 物品被附魔时也会发送该动作。附魔大体上应像合成一样处理，即旧物品会被消耗。
+//
+// CraftRecipeStackRequestAction is sent by the client the moment it begins crafting an item. This is the
+// first action sent, before the Consume and Create item stack request actions.
+// This action is also sent when an item is enchanted. Enchanting should be treated mostly the same way as
+// crafting, where the old item is consumed.
+//
+// Added: v1.16
+message CraftRecipeStackRequestAction {
+  // RecipeNetworkID 是即将合成配方的网络 ID。该网络 ID 匹配 CraftingData 数据包中发送的某个配方；
+  // 从 1.16 开始，每个配方都有一个 RecipeNetworkID。
+  //
+  // RecipeNetworkID is the network ID of the recipe that is about to be crafted. This network ID matches
+  // one of the recipes sent in the CraftingData packet, where each of the recipes have a RecipeNetworkID as
+  // of 1.16.
+  //
+  // Added: v1.16
+  uint32 RecipeNetworkID = 1;
+  // NumberOfCrafts 是配方被合成的次数。该字段似乎只是样板字段，没有实际效果。
+  //
+  // NumberOfCrafts is how many times the recipe was crafted. This field appears to be boilerplate and
+  // has no effect.
+  //
+  // Added: v1.16
+  // Go type: byte
+  uint32 NumberOfCrafts = 2;
+}
+
+// AutoCraftRecipeStackRequestAction 由客户端以类似 CraftRecipeStackRequestAction 的方式发送。
+// 唯一区别是配方会通过 Shift 点击配方书自动创建并合成。
+//
+// AutoCraftRecipeStackRequestAction is sent by the client similarly to the CraftRecipeStackRequestAction. The
+// only difference is that the recipe is automatically created and crafted by shift clicking the recipe book.
+//
+// Added: v1.16
+message AutoCraftRecipeStackRequestAction {
+  // RecipeNetworkID 是即将合成配方的网络 ID。该网络 ID 匹配 CraftingData 数据包中发送的某个配方；
+  // 从 1.16 开始，每个配方都有一个 RecipeNetworkID。
+  //
+  // RecipeNetworkID is the network ID of the recipe that is about to be crafted. This network ID matches
+  // one of the recipes sent in the CraftingData packet, where each of the recipes have a RecipeNetworkID as
+  // of 1.16.
+  //
+  // Added: v1.16
+  uint32 RecipeNetworkID = 1;
+  // NumberOfCrafts 是配方被合成的次数。该字段只是 TimesCrafted 的重复值。
+  //
+  // NumberOfCrafts is how many times the recipe was crafted. This field is just a duplicate of TimesCrafted.
+  //
+  // Added: v1.16
+  // Go type: byte
+  uint32 NumberOfCrafts = 2;
+  // TimesCrafted 表示配方被合成的次数。
+  //
+  // TimesCrafted is how many times the recipe was crafted.
+  //
+  // Added: v1.16
+  // Go type: byte
+  uint32 TimesCrafted = 3;
+  // Ingredients 是 ItemDescriptorCount 切片，包含用于合成该配方的材料。
+  // 目前尚不完全清楚它的用途，但原版客户端会发送该字段。
+  //
+  // Ingredients is a slice of ItemDescriptorCount that contains the ingredients that were used to craft the recipe.
+  // It is not exactly clear what this is used for, but it is sent by the vanilla client.
+  //
+  // Added: v1.16
+  // Go type: []ItemDescriptorCount
+  repeated .mousetunnel.minecraft.protocol.item_descriptor.ItemDescriptorCount Ingredients = 4;
+}
+
+// CraftCreativeStackRequestAction 由客户端在从创造物品栏取出物品时发送。
+// 因此该物品并不是真的被合成，而是立即创建出来。
+//
+// CraftCreativeStackRequestAction is sent by the client when it takes an item out fo the creative inventory.
+// The item is thus not really crafted, but instantly created.
+//
+// Added: v1.16
+message CraftCreativeStackRequestAction {
+  // CreativeItemNetworkID 是正在创建的创造模式物品网络 ID。该值是 CreativeContent 数据包中发送的
+  // 创造模式物品网络 ID 之一。
+  //
+  // CreativeItemNetworkID is the network ID of the creative item that is being created. This is one of the
+  // creative item network IDs sent in the CreativeContent packet.
+  //
+  // Added: v1.16
+  uint32 CreativeItemNetworkID = 1;
+  // NumberOfCrafts 是配方被合成的次数。该字段似乎只是样板字段，没有实际效果。
+  //
+  // NumberOfCrafts is how many times the recipe was crafted. This field appears to be boilerplate and
+  // has no effect.
+  //
+  // Added: v1.16
+  // Go type: byte
+  uint32 NumberOfCrafts = 2;
+}
+
+// CraftRecipeOptionalStackRequestAction 会在使用铁砧时发送。发送该动作时，对应物品堆请求中的
+// FilterStrings 字段非空，并包含铁砧或制图台创建的物品名称。
+//
+// CraftRecipeOptionalStackRequestAction is sent when using an anvil. When this action is sent, the
+// FilterStrings field in the respective stack request is non-empty and contains the name of the item created
+// using the anvil or cartography table.
+//
+// Added: v1.19.6
+message CraftRecipeOptionalStackRequestAction {
+  // RecipeNetworkID 是即将合成的多配方网络 ID。该网络 ID 匹配 CraftingData 数据包中发送的某个多配方；
+  // 从 1.16 开始，每个配方都有一个 RecipeNetworkID。
+  //
+  // RecipeNetworkID is the network ID of the multi-recipe that is about to be crafted. This network ID matches
+  // one of the multi-recipes sent in the CraftingData packet, where each of the recipes have a RecipeNetworkID as
+  // of 1.16.
+  //
+  // Added: v1.19.6
+  uint32 RecipeNetworkID = 1;
+  // FilterStringIndex 是 ItemStackRequest 中发送的某个过滤字符串索引。
+  //
+  // FilterStringIndex is the index of a filter string sent in a ItemStackRequest.
+  //
+  // Added: v1.19.6
+  int32 FilterStringIndex = 2;
+}
+
+// CraftGrindstoneRecipeStackRequestAction 会在合成砂轮配方时发送。
+// 它包含用于识别已合成配方的 RecipeNetworkID，以及合成该配方的消耗。
+//
+// CraftGrindstoneRecipeStackRequestAction is sent when a grindstone recipe is crafted. It contains the RecipeNetworkID
+// to identify the recipe crafted, and the cost for crafting the recipe.
+//
+// Added: v1.16
+message CraftGrindstoneRecipeStackRequestAction {
+  // RecipeNetworkID 是即将合成配方的网络 ID。该网络 ID 匹配 CraftingData 数据包中发送的某个配方；
+  // 从 1.16 开始，每个配方都有一个 RecipeNetworkID。
+  //
+  // RecipeNetworkID is the network ID of the recipe that is about to be crafted. This network ID matches
+  // one of the recipes sent in the CraftingData packet, where each of the recipes have a RecipeNetworkID as
+  // of 1.16.
+  //
+  // Added: v1.16
+  uint32 RecipeNetworkID = 1;
+  // NumberOfCrafts 是配方被合成的次数。该字段似乎只是样板字段，没有实际效果。
+  //
+  // NumberOfCrafts is how many times the recipe was crafted. This field appears to be boilerplate and
+  // has no effect.
+  //
+  // Added: v1.16
+  // Go type: byte
+  uint32 NumberOfCrafts = 2;
+  // Cost 是合成该配方的消耗。
+  //
+  // Cost is the cost of the recipe that was crafted.
+  //
+  // Added: v1.16
+  int32 Cost = 3;
+}
+
+// CraftLoomRecipeStackRequestAction 会在合成织布机配方时发送。
+// 它只包含图案标识符，用于确定要应用到物品上的图案。
+//
+// CraftLoomRecipeStackRequestAction is sent when a loom recipe is crafted. It simply contains the
+// pattern identifier to figure out what pattern is meant to be applied to the item.
+//
+// Added: v1.16
+message CraftLoomRecipeStackRequestAction {
+  // Pattern 是织布机配方的图案标识符。
+  //
+  // Pattern is the pattern identifier for the loom recipe.
+  //
+  // Added: v1.16
+  string Pattern = 1;
+  // TimesCrafted 表示配方被合成的次数。
+  //
+  // TimesCrafted is how many times the recipe was crafted.
+  //
+  // Added: v1.16
+  // Go type: byte
+  uint32 TimesCrafted = 2;
+}
+
+// CraftNonImplementedStackRequestAction 是新系统中尚未实现的物品栏动作，例如铁砧。
+//
+// CraftNonImplementedStackRequestAction is an action sent for inventory actions that aren't yet implemented
+// in the new system. These include, for example, anvils.
+//
+// Added: v1.16
+message CraftNonImplementedStackRequestAction {
+}
+
+// CraftResultsDeprecatedStackRequestAction 是客户端在合成后发送的额外废弃动作。
+// 它保存最终结果和该配方被合成的次数，不应再被使用。
+// 物品被附魔时也会发送该动作。附魔大体上应像合成一样处理，即旧物品会被消耗。
+//
+// CraftResultsDeprecatedStackRequestAction is an additional, deprecated packet sent by the client after
+// crafting. It holds the final results and the amount of times the recipe was crafted. It shouldn't be used.
+// This action is also sent when an item is enchanted. Enchanting should be treated mostly the same way as
+// crafting, where the old item is consumed.
+//
+// Added: v1.16
+message CraftResultsDeprecatedStackRequestAction {
+  // ResultItems 是废弃合成动作产生的最终结果物品堆列表。
+  //
+  // ResultItems is the final list of result stacks produced by the deprecated craft action.
+  //
+  // Added: v1.16
+  // Go type: []ItemStack
+  repeated .mousetunnel.minecraft.protocol.item.ItemStack ResultItems = 1;
+  // TimesCrafted 是废弃合成结果产生的次数。
+  //
+  // TimesCrafted is the amount of times the deprecated craft result was produced.
+  //
+  // Added: v1.16
+  // Go type: byte
+  uint32 TimesCrafted = 2;
+}
+
+// StackRequestSlotInfo 保存客户端侧特定槽位的信息。
+//
+// StackRequestSlotInfo holds information on a specific slot client-side.
+//
+// Added: v1.16
+message StackRequestSlotInfo {
+  // Container 是 FullContainerName，用于描述该槽位所属的容器。
+  //
+  // Container is the FullContainerName that describes the container that the slot is in.
+  //
+  // Changed: v1.21.20, expanded from a plain container ID to a FullContainerName with optional dynamic container data.
+  .mousetunnel.minecraft.protocol.container.FullContainerName Container = 1;
+  // Slot 是上述 ContainerID 对应容器内的槽位索引。
+  //
+  // Slot is the index of the slot within the container with the ContainerID above.
+  //
+  // Added: v1.16
+  // Go type: byte
+  uint32 Slot = 2;
+  // StackNetworkID 是客户端认为该槽位中存在的唯一物品堆 ID。服务端必须检查这些 ID 是否匹配；
+  // 如果不匹配，服务端应拒绝包含该信息的物品堆请求。
+  //
+  // StackNetworkID is the unique stack ID that the client assumes to be present in this slot. The server
+  // must check if these IDs match. If they do not match, servers should reject the stack request that the
+  // action holding this info was in.
+  //
+  // Added: v1.16
+  int32 StackNetworkID = 3;
+}
+
+// StackRequestAction 表示 ItemStackRequest 中与物品栏相关的单个动作。
+// 该动作会是下面的某个具体类型，每个类型表示客户端执行的不同行为，例如在物品栏中移动物品或放置方块。
+//
+// StackRequestAction represents a single action related to the inventory present in an ItemStackRequest.
+// The action is one of the concrete types below, each of which are indicative of a different action by the
+// client, such as moving an item around the inventory or placing a block. It is an alias of Marshaler.
+message StackRequestAction {
+  int64 Type = 1;
+  TakeStackRequestAction Take = 2;
+  PlaceStackRequestAction Place = 3;
+  SwapStackRequestAction Swap = 4;
+  DropStackRequestAction Drop = 5;
+  DestroyStackRequestAction Destroy = 6;
+  ConsumeStackRequestAction Consume = 7;
+  CreateStackRequestAction Create = 8;
+  PlaceInContainerStackRequestAction PlaceInContainer = 9;
+  TakeOutContainerStackRequestAction TakeOutContainer = 10;
+  LabTableCombineStackRequestAction LabTableCombine = 11;
+  BeaconPaymentStackRequestAction BeaconPayment = 12;
+  MineBlockStackRequestAction MineBlock = 13;
+  CraftRecipeStackRequestAction CraftRecipe = 14;
+  AutoCraftRecipeStackRequestAction AutoCraftRecipe = 15;
+  CraftCreativeStackRequestAction CraftCreative = 16;
+  CraftRecipeOptionalStackRequestAction CraftRecipeOptional = 17;
+  CraftGrindstoneRecipeStackRequestAction CraftGrindstone = 18;
+  CraftLoomRecipeStackRequestAction CraftLoom = 19;
+  CraftNonImplementedStackRequestAction CraftNonImplemented = 20;
+  CraftResultsDeprecatedStackRequestAction CraftResultsDeprecated = 21;
+}
+

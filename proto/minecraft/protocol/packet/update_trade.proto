@@ -1,0 +1,95 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.update_trade;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// UpdateTrade 由服务器发送，用于更新村民提供给玩家的交易。
+// 它会在玩家与村民交互时发送。
+//
+// UpdateTrade is sent by the server to update the trades offered by a villager to a player. It is sent at the
+// moment that a player interacts with a villager.
+//
+// Added: v1.12
+message UpdateTrade {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDUpdateTrade;
+  // WindowID 是标识客户端当前打开交易窗口的 ID。
+  //
+  // WindowID is the ID that identifies the trading window that the client currently has opened.
+  //
+  // Added: v1.12
+  // Go type: byte
+  uint32 WindowID = 1;
+  // WindowType 是指定所打开窗口类型的标识符。在原版中，它似乎总是填为 15。
+  //
+  // WindowType is an identifier specifying the type of the window opened. In vanilla, it appears this is
+  // always filled out with 15.
+  //
+  // Added: v1.12
+  // Go type: byte
+  uint32 WindowType = 2;
+  // Size 是该村民拥有的交易选项数量。
+  //
+  // Size is the amount of trading options that the villager has.
+  //
+  // Added: v1.12
+  int32 Size = 3;
+  // TradeTier 是玩家正在交易的村民等级。等级从 0 开始，初始有两个可用报价；
+  // 此后等级每升一级，会额外解锁两个报价。
+  //
+  // TradeTier is the tier of the villager that the player is trading with. The tier starts at 0 with a
+  // first two offers being available, after which two additional offers are unlocked each time the tier
+  // becomes one higher.
+  //
+  // Added: v1.12
+  int32 TradeTier = 4;
+  // VillagerUniqueID 是玩家正在交易的村民实体唯一 ID。
+  // 上方发送的 TradeTier 适用于该村民。
+  //
+  // VillagerUniqueID is the unique ID of the villager entity that the player is trading with. The
+  // TradeTier sent above applies to this villager.
+  //
+  // Added: v1.12
+  int64 VillagerUniqueID = 5;
+  // EntityUniqueID 是要更新交易的实体（通常是玩家）的唯一 ID。
+  // 更新后的交易可能只适用于该实体。
+  //
+  // EntityUniqueID is the unique ID of the entity (usually a player) for which the trades are updated. The
+  // updated trades may apply only to this entity.
+  //
+  // Added: v1.12
+  int64 EntityUniqueID = 6;
+  // DisplayName 是显示在交易 UI 顶部的名称。它通常用于在 UI 中表示村民职业。
+  //
+  // DisplayName is the name displayed at the top of the trading UI. It is usually used to represent the
+  // profession of the villager in the UI.
+  //
+  // Added: v1.12
+  string DisplayName = 7;
+  // NewTradeUI 指定村民是否应使用新版交易 UI（1.11 加入的界面）而不是旧版界面。
+  // 通常应设为 true。
+  //
+  // NewTradeUI specifies if the villager should be using the new trade UI (The one added in 1.11.) rather
+  // than the old one. This should usually be set to true.
+  //
+  // Added: v1.12
+  bool NewTradeUI = 8;
+  // DemandBasedPrices 指定村民报价价格是否会因物品需求增加而改变。
+  // 这是 1.11 加入的机制；购买更多相同物品会提高该特定物品的价格。
+  //
+  // DemandBasedPrices specifies if the prices of the villager's offers are modified by an increase in
+  // demand for the item. (A mechanic added in 1.11.) Buying more of the same item will increase the price
+  // of that particular item.
+  //
+  // Added: v1.12
+  bool DemandBasedPrices = 9;
+  // SerialisedOffers 是村民拥有报价的网络 NBT 序列化复合标签。
+  //
+  // SerialisedOffers is a network NBT serialised compound of offers that the villager has.
+  //
+  // Added: v1.12
+  // Go type: []byte
+  bytes SerialisedOffers = 10;
+}
+

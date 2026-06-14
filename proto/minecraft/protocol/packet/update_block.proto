@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.update_block;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "block_pos.proto";
+import "packet_options.proto";
+
+enum BlockUpdateEnum {
+  BLOCKUPDATEENUM_UNSPECIFIED = 0;
+  BlockUpdateNeighbours = 1;
+  BlockUpdateNetwork = 2;
+  BlockUpdateNoGraphics = 4;
+  BlockUpdatePriority = 8;
+}
+
+// UpdateBlock 由服务器发送，用于在客户端侧更新单个方块，而不需要重新发送该方块所在的整个区块。
+// 它特别适合用于破坏或放置方块这类小范围修改。
+//
+// UpdateBlock is sent by the server to update a block client-side, without resending the entire chunk that
+// the block is located in. It is particularly useful for small modifications like block breaking/placing.
+//
+// Added: v1.12
+message UpdateBlock {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDUpdateBlock;
+  // Position 是要更新方块所在的方块坐标。
+  //
+  // Position is the block position at which a block is updated.
+  //
+  // Added: v1.12
+  .mousetunnel.minecraft.protocol.block_pos.BlockPos Position = 1;
+  // NewBlockRuntimeID 是发送该数据包后客户端应放置在 Position 处的方块运行时 ID。
+  //
+  // NewBlockRuntimeID is the runtime ID of the block that is placed at Position after sending the packet
+  // to the client.
+  //
+  // Added: v1.12
+  uint32 NewBlockRuntimeID = 2;
+  // LegacyBlockID 是引入方块运行时 ID 之前写入的数字方块 ID。
+  //
+  // LegacyBlockID is the numeric block ID written before block runtime IDs were introduced.
+  //
+  // Removed: v1.2.13
+  uint32 LegacyBlockID = 3;
+  // LegacyBlockData 是与 LegacyBlockID 一起写入的方块数据。
+  //
+  // LegacyBlockData is the block data written alongside LegacyBlockID.
+  //
+  // Removed: v1.2.13
+  uint32 LegacyBlockData = 4;
+  // Flags 是一组标志位组合，用于指定客户端侧更新方块的方式。它由上方标志组合而成，
+  // 但通常只发送 BlockUpdateNetwork 标志就足够了。
+  //
+  // Flags is a combination of flags that specify the way the block is updated client-side. It is a
+  // combination of the flags above, but typically sending only the BlockUpdateNetwork flag is sufficient.
+  //
+  // Added: v1.12
+  uint32 Flags = 5;
+  // Layer 是方块更新所在的世界层。大多数方块位于第一层，因为该层是默认放置方块的层；
+  // 对于互相嵌套的方块，该值可能不同。
+  //
+  // Layer is the world layer on which the block is updated. For most blocks, this is the first layer, as
+  // that layer is the default layer to place blocks on, but for blocks inside of each other, this differs.
+  //
+  // Added: v1.12
+  uint32 Layer = 6;
+}
+

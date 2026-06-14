@@ -1,0 +1,146 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.container;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+import "io.proto";
+
+enum ContainerEnum {
+  ContainerAnvilInput = 0;
+  ContainerAnvilMaterial = 1;
+  ContainerAnvilResultPreview = 2;
+  ContainerSmithingTableInput = 3;
+  ContainerSmithingTableMaterial = 4;
+  ContainerSmithingTableResultPreview = 5;
+  ContainerArmor = 6;
+  ContainerLevelEntity = 7;
+  ContainerBeaconPayment = 8;
+  ContainerBrewingStandInput = 9;
+  ContainerBrewingStandResult = 10;
+  ContainerBrewingStandFuel = 11;
+  ContainerCombinedHotBarAndInventory = 12;
+  ContainerCraftingInput = 13;
+  ContainerCraftingOutputPreview = 14;
+  ContainerRecipeConstruction = 15;
+  ContainerRecipeNature = 16;
+  // NetEase
+  ContainerRecipeCustom = 17;
+  ContainerRecipeItems = 18;
+  ContainerRecipeSearch = 19;
+  ContainerRecipeSearchBar = 20;
+  ContainerRecipeEquipment = 21;
+  ContainerRecipeBook = 22;
+  ContainerEnchantingInput = 23;
+  ContainerEnchantingMaterial = 24;
+  ContainerFurnaceFuel = 25;
+  ContainerFurnaceIngredient = 26;
+  ContainerFurnaceResult = 27;
+  ContainerHorseEquip = 28;
+  ContainerHotBar = 29;
+  ContainerInventory = 30;
+  ContainerShulkerBox = 31;
+  ContainerTradeIngredientOne = 32;
+  ContainerTradeIngredientTwo = 33;
+  ContainerTradeResultPreview = 34;
+  ContainerOffhand = 35;
+  ContainerCompoundCreatorInput = 36;
+  ContainerCompoundCreatorOutputPreview = 37;
+  ContainerElementConstructorOutputPreview = 38;
+  ContainerMaterialReducerInput = 39;
+  ContainerMaterialReducerOutput = 40;
+  ContainerLabTableInput = 41;
+  ContainerLoomInput = 42;
+  ContainerLoomDye = 43;
+  ContainerLoomMaterial = 44;
+  ContainerLoomResultPreview = 45;
+  ContainerBlastFurnaceIngredient = 46;
+  ContainerSmokerIngredient = 47;
+  ContainerTradeTwoIngredientOne = 48;
+  ContainerTradeTwoIngredientTwo = 49;
+  ContainerTradeTwoResultPreview = 50;
+  ContainerGrindstoneInput = 51;
+  ContainerGrindstoneAdditional = 52;
+  ContainerGrindstoneResultPreview = 53;
+  ContainerStonecutterInput = 54;
+  ContainerStonecutterResultPreview = 55;
+  ContainerCartographyInput = 56;
+  ContainerCartographyAdditional = 57;
+  ContainerCartographyResultPreview = 58;
+  ContainerBarrel = 59;
+  ContainerCursor = 60;
+  ContainerCreatedOutput = 61;
+  ContainerSmithingTableTemplate = 62;
+  ContainerCrafterLevelEntity = 63;
+  ContainerDynamic = 64;
+  ContainerRecipeFood = 65;
+  ContainerRecipeBlocks = 66;
+  ContainerRecipeFurnaceItems = 67;
+}
+
+enum ContainerTypeEnum {
+  option allow_alias = true;
+  CONTAINERTYPEENUM_UNSPECIFIED = 0;
+  ContainerTypeInventory = -1;
+  ContainerTypeContainer = 0;
+  ContainerTypeWorkbench = 1;
+  ContainerTypeFurnace = 2;
+  ContainerTypeEnchantment = 3;
+  ContainerTypeBrewingStand = 4;
+  ContainerTypeAnvil = 5;
+  ContainerTypeDispenser = 6;
+  ContainerTypeDropper = 7;
+  ContainerTypeHopper = 8;
+  ContainerTypeCauldron = 9;
+  ContainerTypeCartChest = 10;
+  ContainerTypeCartHopper = 11;
+  ContainerTypeHorse = 12;
+  ContainerTypeBeacon = 13;
+  ContainerTypeStructureEditor = 14;
+  ContainerTypeTrade = 15;
+  ContainerTypeCommandBlock = 16;
+  ContainerTypeJukebox = 17;
+  ContainerTypeArmour = 18;
+  ContainerTypeHand = 19;
+  ContainerTypeCompoundCreator = 20;
+  ContainerTypeElementConstructor = 21;
+  ContainerTypeMaterialReducer = 22;
+  ContainerTypeLabTable = 23;
+  ContainerTypeLoom = 24;
+  ContainerTypeLectern = 25;
+  ContainerTypeGrindstone = 26;
+  ContainerTypeBlastFurnace = 27;
+  ContainerTypeSmoker = 28;
+  ContainerTypeStonecutter = 29;
+  ContainerTypeCartography = 30;
+  ContainerTypeHUD = 31;
+  ContainerTypeJigsawEditor = 32;
+  ContainerTypeSmithingTable = 33;
+  ContainerTypeChestBoat = 34;
+  ContainerTypeDecoratedPot = 35;
+  ContainerTypeCrafter = 36;
+}
+
+// FullContainerName 包含在 StackRequestSlotInfo 中标识容器所需的信息。
+//
+// FullContainerName contains information required to identify a container in a StackRequestSlotInfo.
+//
+// Added: v1.21.20
+message FullContainerName {
+  // ContainerID 是槽位所在容器的 ID。
+  //
+  // ContainerID is the ID of the container that the slot was in.
+  //
+  // Added: v1.21.20
+  // Go type: byte
+  uint32 ContainerID = 1;
+  // DynamicContainerID 是动态容器的 ID。如果容器不是动态容器，应保持该字段为空。
+  // 非可选的 0 值会被视为非空。
+  //
+  // DynamicContainerID is the ID of the container if it is dynamic. If the container is not dynamic, this
+  // field should be left empty. A non-optional value of 0 is assumed to be non-empty.
+  //
+  // Added: v1.21.20
+  // Go type: Optional[uint32]
+  .mousetunnel.minecraft.protocol.Optional DynamicContainerID = 2;
+}
+

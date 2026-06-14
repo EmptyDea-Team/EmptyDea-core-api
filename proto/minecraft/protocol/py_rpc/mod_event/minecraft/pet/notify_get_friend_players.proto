@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.notify_get_friend_players;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// NotifyGetFriendPlayers 请求服务器返回好友玩家列表。
+//
+// NotifyGetFriendPlayers asks the server for friend player candidates.
+message NotifyGetFriendPlayers {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  NotifyGetFriendPlayersData NotifyGetFriendPlayersData = 2;
+}
+
+// NotifyGetFriendPlayersData 保存 playerId 字段。
+//
+// NotifyGetFriendPlayersData stores a playerId field.
+message NotifyGetFriendPlayersData {
+  string PlayerID = 1;
+}
+

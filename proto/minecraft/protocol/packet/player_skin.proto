@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.player_skin;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+import "skin.proto";
+
+// PlayerSkin 在客户端使用游戏内皮肤选择器更新自己的皮肤时由客户端发送给服务器。
+// 服务器会转发它，或者在服务器自行更改玩家皮肤时发送它。
+// 注意，该数据包只能针对发送时位于玩家列表中的玩家发送。
+//
+// PlayerSkin is sent by the client to the server when it updates its own skin using the in-game skin picker.
+// It is relayed by the server, or sent if the server changes the skin of a player on its own accord. Note
+// that the packet can only be sent for players that are in the player list at the time of sending.
+//
+// Added: v1.12
+message PlayerSkin {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDPlayerSkin;
+  // UUID 是客户端加入服务器时在 Login 数据包中发送的玩家 UUID。
+  // 它必须与该 UUID 完全匹配，皮肤才会显示在玩家身上。
+  //
+  // UUID is the UUID of the player as sent in the Login packet when the client joined the server. It must
+  // match this UUID exactly for the skin to show up on the player.
+  //
+  // Added: v1.12
+  // Go type: uuid.UUID
+  string UUID = 1;
+  // Skin 是要应用到上方 UUID 对应玩家的新皮肤。发送后，皮肤及其动画都会显示出来。
+  //
+  // Skin is the new skin to be applied on the player with the UUID in the field above. The skin, including
+  // its animations, will be shown after sending it.
+  //
+  // Added: v1.12
+  .mousetunnel.minecraft.protocol.skin.Skin Skin = 2;
+  // NewSkinName 已不再有功能：该字段始终可以留空。
+  //
+  // NewSkinName no longer has a function: The field can be left empty at all times.
+  //
+  // Added: v1.12
+  string NewSkinName = 3;
+  // OldSkinName 已不再有功能：该字段始终可以留空。
+  //
+  // OldSkinName no longer has a function: The field can be left empty at all times.
+  //
+  // Added: v1.12
+  string OldSkinName = 4;
+}
+

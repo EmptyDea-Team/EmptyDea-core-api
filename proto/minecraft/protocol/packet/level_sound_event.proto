@@ -1,0 +1,665 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.level_sound_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "mgl32.proto";
+import "packet_options.proto";
+
+message LevelSoundEventOptionalVec3 {
+  bool Present = 1;
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 Value = 2;
+}
+
+// noinspection SpellCheckingInspection 用于抑制 IDE 拼写检查。
+//
+// noinspection SpellCheckingInspection
+enum SoundEventEnum {
+  SoundEventItemUseOn = 0;
+  SoundEventHit = 1;
+  SoundEventStep = 2;
+  SoundEventFly = 3;
+  SoundEventJump = 4;
+  SoundEventBreak = 5;
+  SoundEventPlace = 6;
+  SoundEventHeavyStep = 7;
+  SoundEventGallop = 8;
+  SoundEventFall = 9;
+  SoundEventAmbient = 10;
+  SoundEventAmbientBaby = 11;
+  SoundEventAmbientInWater = 12;
+  SoundEventBreathe = 13;
+  SoundEventDeath = 14;
+  SoundEventDeathInWater = 15;
+  SoundEventDeathToZombie = 16;
+  SoundEventHurt = 17;
+  SoundEventHurtInWater = 18;
+  SoundEventMad = 19;
+  SoundEventBoost = 20;
+  SoundEventBow = 21;
+  SoundEventSquishBig = 22;
+  SoundEventSquishSmall = 23;
+  SoundEventFallBig = 24;
+  SoundEventFallSmall = 25;
+  SoundEventSplash = 26;
+  SoundEventFizz = 27;
+  SoundEventFlap = 28;
+  SoundEventSwim = 29;
+  SoundEventDrink = 30;
+  SoundEventEat = 31;
+  SoundEventTakeoff = 32;
+  SoundEventShake = 33;
+  SoundEventPlop = 34;
+  SoundEventLand = 35;
+  SoundEventSaddle = 36;
+  SoundEventArmor = 37;
+  SoundEventArmorPlace = 38;
+  SoundEventAddChest = 39;
+  SoundEventThrow = 40;
+  SoundEventAttack = 41;
+  SoundEventAttackNoDamage = 42;
+  SoundEventAttackStrong = 43;
+  SoundEventWarn = 44;
+  SoundEventShear = 45;
+  SoundEventMilk = 46;
+  SoundEventThunder = 47;
+  SoundEventExplode = 48;
+  SoundEventFire = 49;
+  SoundEventIgnite = 50;
+  SoundEventFuse = 51;
+  SoundEventStare = 52;
+  SoundEventSpawn = 53;
+  SoundEventShoot = 54;
+  SoundEventBreakBlock = 55;
+  SoundEventLaunch = 56;
+  SoundEventBlast = 57;
+  SoundEventLargeBlast = 58;
+  SoundEventTwinkle = 59;
+  SoundEventRemedy = 60;
+  SoundEventUnfect = 61;
+  SoundEventLevelUp = 62;
+  SoundEventBowHit = 63;
+  SoundEventBulletHit = 64;
+  SoundEventExtinguishFire = 65;
+  SoundEventItemFizz = 66;
+  SoundEventChestOpen = 67;
+  SoundEventChestClosed = 68;
+  SoundEventShulkerBoxOpen = 69;
+  SoundEventShulkerBoxClosed = 70;
+  SoundEventEnderChestOpen = 71;
+  SoundEventEnderChestClosed = 72;
+  SoundEventPowerOn = 73;
+  SoundEventPowerOff = 74;
+  SoundEventAttach = 75;
+  SoundEventDetach = 76;
+  SoundEventDeny = 77;
+  SoundEventTripod = 78;
+  SoundEventPop = 79;
+  SoundEventDropSlot = 80;
+  SoundEventNote = 81;
+  SoundEventThorns = 82;
+  SoundEventPistonIn = 83;
+  SoundEventPistonOut = 84;
+  SoundEventPortal = 85;
+  SoundEventWater = 86;
+  SoundEventLavaPop = 87;
+  SoundEventLava = 88;
+  SoundEventBurp = 89;
+  SoundEventBucketFillWater = 90;
+  SoundEventBucketFillLava = 91;
+  SoundEventBucketEmptyWater = 92;
+  SoundEventBucketEmptyLava = 93;
+  SoundEventEquipChain = 94;
+  SoundEventEquipDiamond = 95;
+  SoundEventEquipGeneric = 96;
+  SoundEventEquipGold = 97;
+  SoundEventEquipIron = 98;
+  SoundEventEquipLeather = 99;
+  SoundEventEquipElytra = 100;
+  SoundEventRecord13 = 101;
+  SoundEventRecordCat = 102;
+  SoundEventRecordBlocks = 103;
+  SoundEventRecordChirp = 104;
+  SoundEventRecordFar = 105;
+  SoundEventRecordMall = 106;
+  SoundEventRecordMellohi = 107;
+  SoundEventRecordStal = 108;
+  SoundEventRecordStrad = 109;
+  SoundEventRecordWard = 110;
+  SoundEventRecord11 = 111;
+  SoundEventRecordWait = 112;
+  SoundEventRecordNull = 113;
+  SoundEventFlop = 114;
+  SoundEventGuardianCurse = 115;
+  SoundEventMobWarning = 116;
+  SoundEventMobWarningBaby = 117;
+  SoundEventTeleport = 118;
+  SoundEventShulkerOpen = 119;
+  SoundEventShulkerClose = 120;
+  SoundEventHaggle = 121;
+  SoundEventHaggleYes = 122;
+  SoundEventHaggleNo = 123;
+  SoundEventHaggleIdle = 124;
+  SoundEventChorusGrow = 125;
+  SoundEventChorusDeath = 126;
+  SoundEventGlass = 127;
+  SoundEventPotionBrewed = 128;
+  SoundEventCastSpell = 129;
+  SoundEventPrepareAttackSpell = 130;
+  SoundEventPrepareSummon = 131;
+  SoundEventPrepareWololo = 132;
+  SoundEventFang = 133;
+  SoundEventCharge = 134;
+  SoundEventTakePicture = 135;
+  SoundEventPlaceLeashKnot = 136;
+  SoundEventBreakLeashKnot = 137;
+  SoundEventAmbientGrowl = 138;
+  SoundEventAmbientWhine = 139;
+  SoundEventAmbientPant = 140;
+  SoundEventAmbientPurr = 141;
+  SoundEventAmbientPurreow = 142;
+  SoundEventDeathMinVolume = 143;
+  SoundEventDeathMidVolume = 144;
+  SoundEventImitateBlaze = 145;
+  SoundEventImitateCaveSpider = 146;
+  SoundEventImitateCreeper = 147;
+  SoundEventImitateElderGuardian = 148;
+  SoundEventImitateEnderDragon = 149;
+  SoundEventImitateEnderman = 150;
+  SoundEventImitateEndermite = 151;
+  SoundEventImitateEvocationIllager = 152;
+  SoundEventImitateGhast = 153;
+  SoundEventImitateHusk = 154;
+  SoundEventImitateIllusionIllager = 155;
+  SoundEventImitateMagmaCube = 156;
+  SoundEventImitatePolarBear = 157;
+  SoundEventImitateShulker = 158;
+  SoundEventImitateSilverfish = 159;
+  SoundEventImitateSkeleton = 160;
+  SoundEventImitateSlime = 161;
+  SoundEventImitateSpider = 162;
+  SoundEventImitateStray = 163;
+  SoundEventImitateVex = 164;
+  SoundEventImitateVindicationIllager = 165;
+  SoundEventImitateWitch = 166;
+  SoundEventImitateWither = 167;
+  SoundEventImitateWitherSkeleton = 168;
+  SoundEventImitateWolf = 169;
+  SoundEventImitateZombie = 170;
+  SoundEventImitateZombiePigman = 171;
+  SoundEventImitateZombieVillager = 172;
+  SoundEventEnderEyePlaced = 173;
+  SoundEventEndPortalCreated = 174;
+  SoundEventAnvilUse = 175;
+  SoundEventBottleDragonBreath = 176;
+  SoundEventPortalTravel = 177;
+  SoundEventTridentHit = 178;
+  SoundEventTridentReturn = 179;
+  SoundEventTridentRiptide1 = 180;
+  SoundEventTridentRiptide2 = 181;
+  SoundEventTridentRiptide3 = 182;
+  SoundEventTridentThrow = 183;
+  SoundEventTridentThunder = 184;
+  SoundEventTridentHitGround = 185;
+  SoundEventDefault = 186;
+  SoundEventFletchingTableUse = 187;
+  SoundEventElemConstructOpen = 188;
+  SoundEventIceBombHit = 189;
+  SoundEventBalloonPop = 190;
+  SoundEventLtReactionIceBomb = 191;
+  SoundEventLtReactionBleach = 192;
+  SoundEventLtReactionElephantToothpaste = 193;
+  SoundEventLtReactionElephantToothpaste2 = 194;
+  SoundEventLtReactionGlowStick = 195;
+  SoundEventLtReactionGlowStick2 = 196;
+  SoundEventLtReactionLuminol = 197;
+  SoundEventLtReactionSalt = 198;
+  SoundEventLtReactionFertilizer = 199;
+  SoundEventLtReactionFireball = 200;
+  SoundEventLtReactionMagnesiumSalt = 201;
+  SoundEventLtReactionMiscFire = 202;
+  SoundEventLtReactionFire = 203;
+  SoundEventLtReactionMiscExplosion = 204;
+  SoundEventLtReactionMiscMystical = 205;
+  SoundEventLtReactionMiscMystical2 = 206;
+  SoundEventLtReactionProduct = 207;
+  SoundEventSparklerUse = 208;
+  SoundEventGlowStickUse = 209;
+  SoundEventSparklerActive = 210;
+  SoundEventConvertToDrowned = 211;
+  SoundEventBucketFillFish = 212;
+  SoundEventBucketEmptyFish = 213;
+  SoundEventBubbleColumnUpwards = 214;
+  SoundEventBubbleColumnDownwards = 215;
+  SoundEventBubblePop = 216;
+  SoundEventBubbleUpInside = 217;
+  SoundEventBubbleDownInside = 218;
+  SoundEventHurtBaby = 219;
+  SoundEventDeathBaby = 220;
+  SoundEventStepBaby = 221;
+  SoundEventSpawnBaby = 222;
+  SoundEventBorn = 223;
+  SoundEventTurtleEggBreak = 224;
+  SoundEventTurtleEggCrack = 225;
+  SoundEventTurtleEggHatched = 226;
+  SoundEventLayEgg = 227;
+  SoundEventTurtleEggAttacked = 228;
+  SoundEventBeaconActivate = 229;
+  SoundEventBeaconAmbient = 230;
+  SoundEventBeaconDeactivate = 231;
+  SoundEventBeaconPower = 232;
+  SoundEventConduitActivate = 233;
+  SoundEventConduitAmbient = 234;
+  SoundEventConduitAttack = 235;
+  SoundEventConduitDeactivate = 236;
+  SoundEventConduitShort = 237;
+  SoundEventSwoop = 238;
+  SoundEventBambooSaplingPlace = 239;
+  SoundEventPreSneeze = 240;
+  SoundEventSneeze = 241;
+  SoundEventAmbientTame = 242;
+  SoundEventScared = 243;
+  SoundEventScaffoldingClimb = 244;
+  SoundEventCrossbowLoadingStart = 245;
+  SoundEventCrossbowLoadingMiddle = 246;
+  SoundEventCrossbowLoadingEnd = 247;
+  SoundEventCrossbowShoot = 248;
+  SoundEventCrossbowQuickChargeStart = 249;
+  SoundEventCrossbowQuickChargeMiddle = 250;
+  SoundEventCrossbowQuickChargeEnd = 251;
+  SoundEventAmbientAggressive = 252;
+  SoundEventAmbientWorried = 253;
+  SoundEventCantBreed = 254;
+  SoundEventShieldBlock = 255;
+  SoundEventLecternBookPlace = 256;
+  SoundEventGrindstoneUse = 257;
+  SoundEventBell = 258;
+  SoundEventCampfireCrackle = 259;
+  SoundEventRoar = 260;
+  SoundEventStun = 261;
+  SoundEventSweetBerryBushHurt = 262;
+  SoundEventSweetBerryBushPick = 263;
+  SoundEventCartographyTableUse = 264;
+  SoundEventStonecutterUse = 265;
+  SoundEventComposterEmpty = 266;
+  SoundEventComposterFill = 267;
+  SoundEventComposterFillLayer = 268;
+  SoundEventComposterReady = 269;
+  SoundEventBarrelOpen = 270;
+  SoundEventBarrelClose = 271;
+  SoundEventRaidHorn = 272;
+  SoundEventLoomUse = 273;
+  SoundEventAmbientInRaid = 274;
+  SoundEventUicartographyTableUse = 275;
+  SoundEventUistonecutterUse = 276;
+  SoundEventUiloomUse = 277;
+  SoundEventSmokerUse = 278;
+  SoundEventBlastFurnaceUse = 279;
+  SoundEventSmithingTableUse = 280;
+  SoundEventScreech = 281;
+  SoundEventSleep = 282;
+  SoundEventFurnaceUse = 283;
+  SoundEventMooshroomConvert = 284;
+  SoundEventMilkSuspiciously = 285;
+  SoundEventCelebrate = 286;
+  SoundEventJumpPrevent = 287;
+  SoundEventAmbientPollinate = 288;
+  SoundEventBeehiveDrip = 289;
+  SoundEventBeehiveEnter = 290;
+  SoundEventBeehiveExit = 291;
+  SoundEventBeehiveWork = 292;
+  SoundEventBeehiveShear = 293;
+  SoundEventHoneybottleDrink = 294;
+  SoundEventAmbientCave = 295;
+  SoundEventRetreat = 296;
+  SoundEventConvertToZombified = 297;
+  SoundEventAdmire = 298;
+  SoundEventStepLava = 299;
+  SoundEventTempt = 300;
+  SoundEventPanic = 301;
+  SoundEventAngry = 302;
+  SoundEventAmbientMoodWarpedForest = 303;
+  SoundEventAmbientMoodSoulsandValley = 304;
+  SoundEventAmbientMoodNetherWastes = 305;
+  SoundEventAmbientMoodBasaltDeltas = 306;
+  SoundEventAmbientMoodCrimsonForest = 307;
+  SoundEventRespawnAnchorCharge = 308;
+  SoundEventRespawnAnchorDeplete = 309;
+  SoundEventRespawnAnchorSetSpawn = 310;
+  SoundEventRespawnAnchorAmbient = 311;
+  SoundEventSoulEscapeQuiet = 312;
+  SoundEventSoulEscapeLoud = 313;
+  SoundEventRecordPigstep = 314;
+  SoundEventLinkCompassToLodestone = 315;
+  SoundEventUseSmithingTable = 316;
+  SoundEventEquipNetherite = 317;
+  SoundEventAmbientLoopWarpedForest = 318;
+  SoundEventAmbientLoopSoulsandValley = 319;
+  SoundEventAmbientLoopNetherWastes = 320;
+  SoundEventAmbientLoopBasaltDeltas = 321;
+  SoundEventAmbientLoopCrimsonForest = 322;
+  SoundEventAmbientAdditionWarpedForest = 323;
+  SoundEventAmbientAdditionSoulsandValley = 324;
+  SoundEventAmbientAdditionNetherWastes = 325;
+  SoundEventAmbientAdditionBasaltDeltas = 326;
+  SoundEventAmbientAdditionCrimsonForest = 327;
+  SoundEventSculkSensorPowerOn = 328;
+  SoundEventSculkSensorPowerOff = 329;
+  SoundEventBucketFillPowderSnow = 330;
+  SoundEventBucketEmptyPowderSnow = 331;
+  SoundEventPointedDripstoneCauldronDripWater = 332;
+  SoundEventPointedDripstoneCauldronDripLava = 333;
+  SoundEventPointedDripstoneDripWater = 334;
+  SoundEventPointedDripstoneDripLava = 335;
+  SoundEventCaveVinesPickBerries = 336;
+  SoundEventBigDripleafTiltDown = 337;
+  SoundEventBigDripleafTiltUp = 338;
+  SoundEventCopperWaxOn = 339;
+  SoundEventCopperWaxOff = 340;
+  SoundEventScrape = 341;
+  SoundEventPlayerHurtDrown = 342;
+  SoundEventPlayerHurtOnFire = 343;
+  SoundEventPlayerHurtFreeze = 344;
+  SoundEventUseSpyglass = 345;
+  SoundEventStopUsingSpyglass = 346;
+  SoundEventAmethystBlockChime = 347;
+  SoundEventAmbientScreamer = 348;
+  SoundEventHurtScreamer = 349;
+  SoundEventDeathScreamer = 350;
+  SoundEventMilkScreamer = 351;
+  SoundEventJumpToBlock = 352;
+  SoundEventPreRam = 353;
+  SoundEventPreRamScreamer = 354;
+  SoundEventRamImpact = 355;
+  SoundEventRamImpactScreamer = 356;
+  SoundEventSquidInkSquirt = 357;
+  SoundEventGlowSquidInkSquirt = 358;
+  SoundEventConvertToStray = 359;
+  SoundEventCakeAddCandle = 360;
+  SoundEventExtinguishCandle = 361;
+  SoundEventAmbientCandle = 362;
+  SoundEventBlockClick = 363;
+  SoundEventBlockClickFail = 364;
+  SoundEventSculkCatalystBloom = 365;
+  SoundEventSculkShriekerShriek = 366;
+  SoundEventWardenNearbyClose = 367;
+  SoundEventWardenNearbyCloser = 368;
+  SoundEventWardenNearbyClosest = 369;
+  SoundEventWardenSlightlyAngry = 370;
+  SoundEventRecordOtherside = 371;
+  SoundEventTongue = 372;
+  SoundEventCrackIronGolem = 373;
+  SoundEventRepairIronGolem = 374;
+  SoundEventListening = 375;
+  SoundEventHeartbeat = 376;
+  SoundEventHornBreak = 377;
+  SoundEventSculkSpread = 379;
+  SoundEventSculkCharge = 380;
+  SoundEventSculkSensorPlace = 381;
+  SoundEventSculkShriekerPlace = 382;
+  SoundEventGoatCall0 = 383;
+  SoundEventGoatCall1 = 384;
+  SoundEventGoatCall2 = 385;
+  SoundEventGoatCall3 = 386;
+  SoundEventGoatCall4 = 387;
+  SoundEventGoatCall5 = 388;
+  SoundEventGoatCall6 = 389;
+  SoundEventGoatCall7 = 390;
+  SoundEventImitateWarden = 426;
+  SoundEventListeningAngry = 427;
+  SoundEventItemGiven = 428;
+  SoundEventItemTaken = 429;
+  SoundEventDisappeared = 430;
+  SoundEventReappeared = 431;
+  SoundEventDrinkMilk = 432;
+  SoundEventFrogspawnHatched = 433;
+  SoundEventLaySpawn = 434;
+  SoundEventFrogspawnBreak = 435;
+  SoundEventSonicBoom = 436;
+  SoundEventSonicCharge = 437;
+  SoundEventItemThrown = 438;
+  SoundEventRecord5 = 439;
+  SoundEventConvertToFrog = 440;
+  SoundEventRecordPlaying = 441;
+  SoundEventEnchantingTableUse = 442;
+  SoundEventStepSand = 443;
+  SoundEventDashReady = 444;
+  SoundEventBundleDropContents = 445;
+  SoundEventBundleInsert = 446;
+  SoundEventBundleRemoveOne = 447;
+  SoundEventPressurePlateClickOff = 448;
+  SoundEventPressurePlateClickOn = 449;
+  SoundEventButtonClickOff = 450;
+  SoundEventButtonClickOn = 451;
+  SoundEventDoorOpen = 452;
+  SoundEventDoorClose = 453;
+  SoundEventTrapdoorOpen = 454;
+  SoundEventTrapdoorClose = 455;
+  SoundEventFenceGateOpen = 456;
+  SoundEventFenceGateClose = 457;
+  SoundEventInsert = 458;
+  SoundEventPickup = 459;
+  SoundEventInsertEnchanted = 460;
+  SoundEventPickupEnchanted = 461;
+  SoundEventBrush = 462;
+  SoundEventBrushCompleted = 463;
+  SoundEventShatterDecoratedPot = 464;
+  SoundEventBreakDecoratedPot = 465;
+  SoundEventSnifferEggCrack = 466;
+  SoundEventSnifferEggHatched = 467;
+  SoundEventWaxedSignInteractFail = 468;
+  SoundEventRecordRelic = 469;
+  SoundEventBump = 470;
+  SoundEventPumpkinCarve = 471;
+  SoundEventConvertHuskToZombie = 472;
+  SoundEventPigDeath = 473;
+  SoundEventHoglinZombified = 474;
+  SoundEventAmbientUnderwaterEnter = 475;
+  SoundEventAmbientUnderwaterExit = 476;
+  SoundEventBottleFill = 477;
+  SoundEventBottleEmpty = 478;
+  SoundEventCrafterCraft = 479;
+  SoundEventCrafterFail = 480;
+  SoundEventDecoratedPotInsert = 481;
+  SoundEventDecoratedPotInsertFail = 482;
+  SoundEventCrafterDisableSlot = 483;
+  SoundEventTrialSpawnerOpenShutter = 484;
+  SoundEventTrialSpawnerEjectItem = 485;
+  SoundEventTrialSpawnerDetectPlayer = 486;
+  SoundEventTrialSpawnerSpawnMob = 487;
+  SoundEventTrialSpawnerCloseShutter = 488;
+  SoundEventTrialSpawnerAmbient = 489;
+  SoundEventCopperBulbTurnOn = 490;
+  SoundEventCopperBulbTurnOff = 491;
+  SoundEventAmbientInAir = 492;
+  SoundEventBreezeWindChargeBurst = 493;
+  SoundEventImitateBreeze = 494;
+  SoundEventArmadilloBrush = 495;
+  SoundEventArmadilloScuteDrop = 496;
+  SoundEventEquipWolf = 497;
+  SoundEventUnequipWolf = 498;
+  SoundEventReflect = 499;
+  SoundEventVaultOpenShutter = 500;
+  SoundEventVaultCloseShutter = 501;
+  SoundEventVaultEjectItem = 502;
+  SoundEventVaultInsertItem = 503;
+  SoundEventVaultInsertItemFail = 504;
+  SoundEventVaultAmbient = 505;
+  SoundEventVaultActivate = 506;
+  SoundEventVaultDeactive = 507;
+  SoundEventHurtReduced = 508;
+  SoundEventWindChargeBurst = 509;
+  SoundEventImitateBogged = 510;
+  SoundEventWolfArmourCrack = 511;
+  SoundEventWolfArmourBreak = 512;
+  SoundEventWolfArmourRepair = 513;
+  SoundEventMaceSmashAir = 514;
+  SoundEventMaceSmashGround = 515;
+  SoundEventTrialSpawnerChargeActivate = 516;
+  SoundEventTrialSpawnerAmbientOminous = 517;
+  SoundEventOminiousItemSpawnerSpawnItem = 518;
+  SoundEventOminousBottleEndUse = 519;
+  SoundEventMaceHeavySmashGround = 520;
+  SoundEventOminousItemSpawnerSpawnItemBegin = 521;
+  SoundEventApplyEffectBadOmen = 523;
+  SoundEventApplyEffectRaidOmen = 524;
+  SoundEventApplyEffectTrialOmen = 525;
+  SoundEventOminousItemSpawnerAboutToSpawnItem = 526;
+  SoundEventRecordCreator = 527;
+  SoundEventRecordCreatorMusicBox = 528;
+  SoundEventRecordPrecipice = 529;
+  SoundEventVaultRejectRewardedPlayer = 530;
+  SoundEventImitateDrowned = 531;
+  SoundEventImitateCreaking = 532;
+  SoundEventBundleInsertFailed = 533;
+  SoundEventSpongeAbsorb = 534;
+  SoundEventBlockCreakingHeartTrail = 536;
+  SoundEventCreakingHeartSpawn = 537;
+  SoundEventActivate = 538;
+  SoundEventDeactivate = 539;
+  SoundEventFreeze = 540;
+  SoundEventUnfreeze = 541;
+  SoundEventOpen = 542;
+  SoundEventOpenLong = 543;
+  SoundEventClose = 544;
+  SoundEventCloseLong = 545;
+  SoundEventImitatePhantom = 546;
+  SoundEventImitateZoglin = 547;
+  SoundEventImitateGuardian = 548;
+  SoundEventImitateRavager = 549;
+  SoundEventImitatePillager = 550;
+  SoundEventPlaceInWater = 551;
+  SoundEventStateChange = 552;
+  SoundEventImitateHappyGhast = 553;
+  SoundEventUniqueGeneric = 554;
+  SoundEventRecordTears = 555;
+  SoundEventTheEndLightFlash = 556;
+  SoundEventLeadLeash = 557;
+  SoundEventLeadUnleash = 558;
+  SoundEventLeadBreak = 559;
+  SoundEventUnsaddle = 560;
+  SoundEventEquipCopper = 561;
+  SoundEventRecordLavaChicken = 562;
+  SoundEventPlaceItem = 563;
+  SoundEventSingleItemSwap = 564;
+  SoundEventMultiItemSwap = 565;
+  SoundEventItemEnchantLunge1 = 566;
+  SoundEventItemEnchantLunge2 = 567;
+  SoundEventItemEnchantLunge3 = 568;
+  SoundEventAttackCritical = 569;
+  SoundEventItemSpearAttackHit = 570;
+  SoundEventItemSpearAttackMiss = 571;
+  SoundEventItemWoodenSpearAttackHit = 572;
+  SoundEventItemWoodenSpearAttackMiss = 573;
+  SoundEventImitateParched = 574;
+  SoundEventImitateCamelHusk = 575;
+  SoundEventItemSpearUse = 576;
+  SoundEventItemWoodenSpearUse = 577;
+  SoundEventSaddleInWater = 578;
+  SoundEventItemStoneSpearAttackHit = 579;
+  SoundEventItemIronSpearAttackHit = 580;
+  SoundEventItemCopperSpearAttackHit = 581;
+  SoundEventItemGoldenSpearAttackHit = 582;
+  SoundEventItemDiamondSpearAttackHit = 583;
+  SoundEventItemNetheriteSpearAttackHit = 584;
+  SoundEventItemStoneSpearAttackMiss = 585;
+  SoundEventItemIronSpearAttackMiss = 586;
+  SoundEventItemCopperSpearAttackMiss = 587;
+  SoundEventItemGoldenSpearAttackMiss = 588;
+  SoundEventItemDiamondSpearAttackMiss = 589;
+  SoundEventItemNetheriteSpearAttackMiss = 590;
+  SoundEventItemStoneSpearUse = 591;
+  SoundEventItemIronSpearUse = 592;
+  SoundEventItemCopperSpearUse = 593;
+  SoundEventItemGoldenSpearUse = 594;
+  SoundEventItemDiamondSpearUse = 595;
+  SoundEventItemNetheriteSpearUse = 596;
+  SoundEventPauseGrowth = 597;
+  SoundEventResetGrowth = 598;
+  SoundEventPushedByPlayer = 599;
+  SoundEventBounce = 600;
+  SoundEventUndefined = 601;
+}
+
+// LevelSoundEvent 由服务器发送，用于让玩家听到各种内置声音。
+// 例如，它可用于播放脚步声或剪刀声。客户端也会发送该数据包，
+// 此时服务器可以将其转发给其他在线玩家。不过如果可能，应忽略客户端发来的数据包，
+// 并由服务器自行播放对应声音。
+//
+// LevelSoundEvent is sent by the server to make any kind of built-in sound heard to a player. It is sent to,
+// for example, play a stepping sound or a shear sound. The packet is also sent by the client, in which case
+// it could be forwarded by the server to the other players online. If possible, the packets from the client
+// should be ignored however, and the server should play them on its own accord.
+//
+// Added: v1.11.1
+message LevelSoundEvent {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDLevelSoundEvent;
+  // SoundType 是要播放的声音类型，应为上方常量之一。
+  // 某些声音类型需要额外数据，这些数据设置在 EventData 字段中。
+  //
+  // SoundType is the type of the sound to play. It is one of the constants above. Some of the sound types
+  // require additional data, which is set in the EventData field.
+  //
+  // Added: v1.11.1
+  uint32 SoundType = 1;
+  // Position 是声音事件的位置。玩家会根据这里发送的位置听出声音方向。
+  //
+  // Position is the position of the sound event. The player will be able to hear the direction of the sound
+  // based on what position is sent here.
+  //
+  // Added: v1.11.1
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 Position = 2;
+  // ExtraData 是打包整数，某些声音类型会用它提供额外数据。
+  // 例如音符声音会由音高和乐器类型组成。
+  //
+  // ExtraData is a packed integer that some sound types use to provide extra data. An example of this is
+  // the note sound, which is composed of a pitch and an instrument type.
+  //
+  // Added: v1.11.1
+  int32 ExtraData = 3;
+  // EntityType 是发出声音实体的字符串实体类型，例如 `minecraft:skeleton`。
+  // 某些声音类型会使用该实体类型作为额外数据。
+  //
+  // EntityType is the string entity type of the entity that emitted the sound, for example
+  // 'minecraft:skeleton'. Some sound types use this entity type for additional data.
+  //
+  // Added: v1.11.1
+  string EntityType = 4;
+  // BabyMob 指定声音是否应为幼年生物的声音。它最明显地用于鹦鹉模仿，
+  // 模仿声音会根据该字段是否为 true 而变化。
+  //
+  // BabyMob specifies if the sound should be that of a baby mob. It is most notably used for parrot
+  // imitations, which will change based on if this field is set to true or not.
+  //
+  // Added: v1.11.1
+  bool BabyMob = 5;
+  // DisableRelativeVolume 指定声音是否应按相对距离播放。设为 true 时，
+  // 无论 Position 在哪里声音都会以完整音量播放；设为 false 时，音量会基于到 Position 的距离。
+  //
+  // DisableRelativeVolume specifies if the sound should be played relatively or not. If set to true, the
+  // sound will have full volume, regardless of where the Position is, whereas if set to false, the sound's
+  // volume will be based on the distance to Position.
+  //
+  // Added: v1.11.1
+  bool DisableRelativeVolume = 6;
+  // EntityUniqueID 是来源实体的唯一 ID。唯一 ID 在同一世界的不同会话之间保持一致，
+  // 但大多数服务器会直接把实体的运行时 ID 填入该字段。
+  //
+  // EntityUniqueID is the unique ID of a source entity. The unique ID is a value that remains consistent across
+  // different sessions of the same world, but most servers simply fill the runtime ID of the entity out for
+  // this field.
+  //
+  // Added: v1.21.70.24
+  int64 EntityUniqueID = 7;
+  // FireAtPosition 是同一世界中事件应触发的位置。如果不存在该字段，
+  // 则会改用位置实体。
+  //
+  // FireAtPosition is the position in the same world at which the event should fire. If this is not
+  // present, the position entity will be used instead.
+  //
+  // Added: v1.26.20
+  // Go type: protocol.Optional[mgl32.Vec3]
+  LevelSoundEventOptionalVec3 FireAtPosition = 8;
+}
+

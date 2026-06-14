@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.bitset;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+// Bitset 表示通过网络发送的 std::bitset<size>，允许在单个整数中存储超过 64 位。
+// Bitset 具有固定大小，该大小在创建时设置。
+//
+// Bitset is a representation of std::bitset<size> being sent over the network, allowing for more than 64 bits
+// to be stored in a single integer. A Bitset has a fixed size, which is set at creation time.
+//
+// Added: v1.21.50
+message Bitset {
+  uint32 Size = 1;
+  repeated uint64 Words = 2;
+}
+

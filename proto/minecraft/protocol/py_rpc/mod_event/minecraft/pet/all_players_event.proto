@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.all_players_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// AllPlayersEvent 返回同维度可选好友玩家列表。
+//
+// AllPlayersEvent returns candidate friend players in the same dimension.
+message AllPlayersEvent {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  AllPlayersData AllPlayersData = 2;
+}
+
+// AllPlayersData 保存好友玩家列表字段。
+//
+// AllPlayersData stores friend player list fields.
+message AllPlayersData {
+  // Go type: map[string]string
+  map<string, string> EntityIDToUID = 1;
+  // Go type: map[string]string
+  map<string, string> EntityIDToName = 2;
+}
+

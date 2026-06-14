@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.receive_ai_command_result_auto_execute;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_command";
+
+import "py_rpc/mod_event/minecraft/ai_command/basic.proto";
+import "py_rpc/mod_event/minecraft/ai_command/types.proto";
+
+// ReceiveAICommandResultAutoExecute 接收并自动执行一条生成的魔法指令。
+//
+// ReceiveAICommandResultAutoExecute receives and auto-executes one generated AI command.
+message ReceiveAICommandResultAutoExecute {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.basic.Basic Basic = 1;
+  // UID 是本次自动执行结果的关联 ID。
+  //
+  // UID is the correlation ID for this auto-execution result.
+  string UID = 2;
+  // Result 是要自动执行的命令文本。
+  //
+  // Result is the command text to auto-execute.
+  string Result = 3;
+  // GenerateType 是生成类型。
+  //
+  // GenerateType is the generation type.
+  int64 GenerateType = 4;
+  // AIModel 是服务端返回的 AI 模型标识。
+  //
+  // AIModel is the AI model identifier returned by the server.
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.types.AIModel AIModel = 5;
+  // IsLast 表示是否是最后一条命令。
+  //
+  // IsLast indicates whether this is the final command.
+  bool IsLast = 6;
+  // IsFirst 表示是否是第一条命令。
+  //
+  // IsFirst indicates whether this is the first command.
+  bool IsFirst = 7;
+}
+

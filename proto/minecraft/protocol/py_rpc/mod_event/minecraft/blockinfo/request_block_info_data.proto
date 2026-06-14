@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.blockinfo.request_block_info_data;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/blockinfo;blockinfo";
+
+import "py_rpc/mod_event/minecraft/blockinfo/basic.proto";
+
+// RequestBlockInfoData 请求服务器初始化方块信息解锁数据。
+//
+// RequestBlockInfoData asks the server to initialise block-info unlock data.
+message RequestBlockInfoData {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.blockinfo.basic.Basic Basic = 1;
+  // PlayerID 是客户端本地玩家 ID。
+  //
+  // PlayerID is the client local player ID.
+  string PlayerID = 2;
+}
+

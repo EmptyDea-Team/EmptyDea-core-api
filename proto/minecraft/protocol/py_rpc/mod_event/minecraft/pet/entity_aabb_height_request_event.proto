@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.entity_aabb_height_request_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// EntityAABBHeightRequestEvent 请求实体碰撞箱高度。
+//
+// EntityAABBHeightRequestEvent requests an entity collision-box height.
+message EntityAABBHeightRequestEvent {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  EntityAABBHeightData EntityAABBHeightData = 2;
+}
+
+// EntityAABBHeightData 保存实体碰撞箱高度请求和响应字段。
+//
+// EntityAABBHeightData stores entity AABB height request and response fields.
+message EntityAABBHeightData {
+  string EntityID = 1;
+  string EngineType = 2;
+  string PlayerID = 3;
+  // Go type: float64
+  double Height = 4;
+}
+

@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.decorated_pot;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actors";
+
+import "block_actors/general_actors/randomizable_block_actor.proto";
+import "google/protobuf/struct.proto";
+import "nbt_item.proto";
+
+// 饰纹陶罐
+message DecoratedPot {
+  // Should remove when NetEase support this block
+  .mousetunnel.minecraft.protocol.block_actors.general_actors.randomizable_block_actor.RandomizableBlockActor RandomizableBlockActor = 1;
+  // TAG_List[TAG_Compound] (9[10]) = []
+  // Go type: []any
+  repeated google.protobuf.Value Sherds = 2;
+  // Not used; TAG_Byte(1) = 0
+  // Go type: byte
+  uint32 Animation = 3;
+  // Not used; TAG_Compound(10) = {}
+  .mousetunnel.minecraft.protocol.nbt_item.Item Item = 4;
+}
+

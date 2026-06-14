@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.play_music_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// PlayMusicEvent 广播宠物播放音乐。
+//
+// PlayMusicEvent broadcasts pet music playback.
+message PlayMusicEvent {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  PetMusicData PetMusicData = 2;
+}
+
+// PetMusicData 保存宠物音乐事件字段。
+//
+// PetMusicData stores pet music event fields.
+message PetMusicData {
+  string PetID = 1;
+  int64 MusicID = 2;
+}
+

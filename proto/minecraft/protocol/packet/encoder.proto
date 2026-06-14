@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.encoder;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet/compression.proto";
+
+// Encoder 处理发送到 io.Writer 的 Minecraft 数据包编码。
+// 数据包在发送到 io.Writer 前会被压缩，并可选地加密。
+//
+// Encoder handles the encoding of Minecraft packets that are sent to an io.Writer. The packets are compressed
+// and optionally encoded before they are sent to the io.Writer.
+//
+// Added: v1.11.1
+message Encoder {
+}
+

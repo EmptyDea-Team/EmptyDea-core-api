@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.motion_prediction_hints;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "mgl32.proto";
+import "packet_options.proto";
+
+// MotionPredictionHints 由服务器发送给客户端。实体具有一个预测移动组件，
+// 该数据包会填充该组件的“历史记录”，实体移动会基于这些点计算。
+// 当启用“空间优化”时，原版会发送该数据包，而不是 SetActorMotion 数据包。
+//
+// MotionPredictionHints is sent by the server to the client. There is a predictive movement component for
+// entities. This packet fills the "history" of that component and entity movement is computed based on the
+// points. Vanilla sends this packet instead of the SetActorMotion packet when 'spatial optimisations' are
+// enabled.
+//
+// Added: v1.16.100
+message MotionPredictionHints {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDMotionPredictionHints;
+  // EntityRuntimeID 是其速度被发送给客户端的实体运行时 ID。
+  //
+  // EntityRuntimeID is the runtime ID of the entity whose velocity is sent to the client.
+  //
+  // Added: v1.16.100
+  uint64 EntityRuntimeID = 1;
+  // Velocity 是发送该数据包时服务器计算出的实体速度。
+  //
+  // Velocity is the server-calculated velocity of the entity at the point of sending the packet.
+  //
+  // Added: v1.16.100
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 Velocity = 2;
+  // OnGround 指定服务器当前是否认为该实体在地面上。
+  //
+  // OnGround specifies if the server currently thinks the entity is on the ground.
+  //
+  // Added: v1.16.100
+  bool OnGround = 3;
+}
+

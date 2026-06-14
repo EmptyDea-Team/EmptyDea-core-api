@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.command_request;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "command.proto";
+import "packet_options.proto";
+
+// CommandRequest 由客户端发送，用于请求执行服务器侧命令。
+// 虽然有些服务器支持使用 Text 数据包发送命令，但该数据包能保证得到正确结果。
+//
+// CommandRequest is sent by the client to request the execution of a server-side command. Although some
+// servers support sending commands using the Text packet, this packet is guaranteed to have the correct
+// result.
+//
+// Added: v1.11.1
+message CommandRequest {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDCommandRequest;
+  // CommandLine 是原始输入的命令行。客户端本身不解析命令行
+  // （不同于早期阶段），而是交给服务器解析。
+  //
+  // CommandLine is the raw entered command line. The client does no parsing of the command line by itself
+  // (unlike it did in the early stages), but lets the server do that.
+  //
+  // Added: v1.11.1
+  string CommandLine = 1;
+  // CommandOrigin 是指定命令来源的数据。换句话说，它表示命令来自哪里，
+  // 例如玩家自身或 websocket 服务器。
+  //
+  // CommandOrigin is the data specifying the origin of the command. In other words, the source that the
+  // command was from, such as the player itself or a websocket server.
+  //
+  // Added: v1.11.1
+  .mousetunnel.minecraft.protocol.command.CommandOrigin CommandOrigin = 2;
+  // Internal 指定该命令请求是否为内部请求。将其设置为 false 似乎可正常工作，
+  // 该字段用途尚不明确。
+  //
+  // Internal specifies if the command request internal. Setting it to false seems to work and the usage of
+  // this field is not known.
+  //
+  // Added: v1.11.1
+  bool Internal = 3;
+  // Version 是正在执行命令的版本。该字段目前没有用途或功能。
+  //
+  // Version is the version of the command that is being executed. This field currently has no purpose or functionality.
+  //
+  // Added: v1.19.60
+  // Changed: v1.21.130.28, encoded as a string instead of a varint32.
+  string Version = 4;
+  // UnLimited 是网易额外的命令请求标志。
+  //
+  // UnLimited is an extra NetEase command request flag.
+  //
+  // Added: NetEase.
+  bool UnLimited = 5;
+}
+

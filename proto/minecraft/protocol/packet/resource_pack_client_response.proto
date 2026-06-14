@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.resource_pack_client_response;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+enum PackResponseEnum {
+  PACKRESPONSEENUM_UNSPECIFIED = 0;
+  PackResponseRefused = 1;
+  PackResponseSendPacks = 2;
+  PackResponseAllPacksDownloaded = 3;
+  PackResponseCompleted = 4;
+}
+
+// ResourcePackClientResponse 由客户端发送，用于响应服务器发送的资源包数据包。
+// 它用于告知服务器为了让客户端准备好并设置所有资源包，需要采取什么操作。
+//
+// ResourcePackClientResponse is sent by the client in response to resource packets sent by the server. It is
+// used to let the server know what action needs to be taken for the client to have all resource packs ready
+// and set.
+//
+// Added: v1.11.1
+message ResourcePackClientResponse {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDResourcePackClientResponse;
+  // Response 是响应的响应类型，它是上方常量之一。
+  //
+  // Response is the response type of the response. It is one of the constants found above.
+  //
+  // Added: v1.11.1
+  // Go type: byte
+  uint32 Response = 1;
+  // PacksToDownload 是需要下载的资源包 UUID 与其版本组合成的列表
+  // （例如 SomePack_1.0.0），仅在 Response 字段为 PackResponseSendPacks 时使用。
+  //
+  // PacksToDownload is a list of resource pack UUIDs combined with their version that need to be downloaded
+  // (for example SomePack_1.0.0), if the Response field is PackResponseSendPacks.
+  //
+  // Added: v1.11.1
+  // Go type: []string
+  repeated string PacksToDownload = 2;
+}
+

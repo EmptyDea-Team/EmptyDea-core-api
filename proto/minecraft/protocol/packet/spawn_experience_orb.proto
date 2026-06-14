@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.spawn_experience_orb;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "mgl32.proto";
+import "packet_options.proto";
+
+// SpawnExperienceOrb 由服务器发送，用于在客户端侧生成经验球实体。
+// 与 AddPainting 数据包类似，它是少数不使用 AddActor 数据包生成实体的数据包之一。
+//
+// SpawnExperienceOrb is sent by the server to spawn an experience orb entity client-side. Much like the
+// AddPainting packet, it is one of the few packets that spawn an entity without using the AddActor packet.
+//
+// Added: v1.12
+message SpawnExperienceOrb {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDSpawnExperienceOrb;
+  // Position 是生成经验球的位置。如果实体距离玩家太远导致当前不可见，
+  // 玩家靠近后该实体仍会显示出来。
+  //
+  // Position is the position to spawn the experience orb on. If the entity is on a distance that the player
+  // cannot see it, the entity will still show up if the player moves closer.
+  //
+  // Added: v1.12
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 Position = 1;
+  // ExperienceAmount 是该经验球携带的经验点数。经验球在客户端侧的大小取决于其中的经验量：
+  // 共有 11 种可能大小，分别对应 1-2、3-6、7-16、17-36、37-72、73-148、
+  // 149-306、307-616、617-1236、1237-2476，以及 2477 及以上。
+  //
+  // ExperienceAmount is the amount of experience in experience points that the orb carries. The client-side
+  // size of the orb depends on the amount of experience in the orb: There are 11 possible sizes for the
+  // orb, for 1–2, 3–6, 7–16, 17–36, 37–72, 73–148, 149–306, 307–616, 617–1236, 1237–2476, and 2477 and up.
+  //
+  // Added: v1.12
+  int32 ExperienceAmount = 2;
+}
+

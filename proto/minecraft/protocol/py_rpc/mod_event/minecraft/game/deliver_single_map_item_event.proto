@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.game.deliver_single_map_item_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/game;game";
+
+import "py_rpc/mod_event/minecraft/game/basic.proto";
+
+// DeliverSingleMapItemEvent 下发单张地图物品检查数据。
+//
+// DeliverSingleMapItemEvent delivers one map-item check payload.
+message DeliverSingleMapItemEvent {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.game.basic.Basic Basic = 1;
+  // HanmingString 是地图图片特征键。
+  //
+  // HanmingString is the map image fingerprint key.
+  string HanmingString = 2;
+  // ImageString 是地图图片数据。
+  //
+  // ImageString is the map image data.
+  string ImageString = 3;
+  // PlayerIDList 是关联玩家 ID 列表。
+  //
+  // PlayerIDList is the related player ID list.
+  // Go type: []string
+  repeated string PlayerIDList = 4;
+}
+

@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.update_block_synced;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "block_pos.proto";
+import "packet_options.proto";
+
+enum TransitionEnum {
+  TRANSITIONENUM_UNSPECIFIED = 0;
+  BlockToEntityTransition = 1;
+  EntityToBlockTransition = 2;
+}
+
+// UpdateBlockSynced 由服务器发送，用于同步下落方块实体与实体和实体还原为固体方块之间的转换。
+// 它用于防止实体闪烁，也用于活塞推动方块等场景。
+//
+// UpdateBlockSynced is sent by the server to synchronise the falling of a falling block entity with the
+// transitioning back and forth from and to a solid block. It is used to prevent the entity from flickering,
+// and is used in places such as the pushing of blocks with pistons.
+//
+// Added: v1.20.80
+message UpdateBlockSynced {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDUpdateBlockSynced;
+  // Position 是要更新方块所在的方块坐标。
+  //
+  // Position is the block position at which a block is updated.
+  //
+  // Added: v1.20.80
+  .mousetunnel.minecraft.protocol.block_pos.BlockPos Position = 1;
+  // NewBlockRuntimeID 是发送该数据包后客户端应放置在 Position 处的方块运行时 ID。
+  //
+  // NewBlockRuntimeID is the runtime ID of the block that is placed at Position after sending the packet
+  // to the client.
+  //
+  // Added: v1.20.80
+  uint32 NewBlockRuntimeID = 2;
+  // Flags 是一组标志位组合，用于指定客户端侧更新方块的方式。它由上方标志组合而成，
+  // 但通常只发送 BlockUpdateNetwork 标志就足够了。
+  //
+  // Flags is a combination of flags that specify the way the block is updated client-side. It is a
+  // combination of the flags above, but typically sending only the BlockUpdateNetwork flag is sufficient.
+  //
+  // Added: v1.20.80
+  uint32 Flags = 3;
+  // Layer 是方块更新所在的世界层。大多数方块位于第一层，因为该层是默认放置方块的层；
+  // 对于互相嵌套的方块，该值可能不同。
+  //
+  // Layer is the world layer on which the block is updated. For most blocks, this is the first layer, as
+  // that layer is the default layer to place blocks on, but for blocks inside of each other, this differs.
+  //
+  // Added: v1.20.80
+  uint32 Layer = 4;
+  // EntityUniqueID 是参与转换的下落方块实体唯一 ID。无论 TransitionType 取哪个可能值，
+  // EntityUniqueID 都应指向对应的下落方块实体。
+  //
+  // EntityUniqueID is the unique ID of the falling block entity that the block transitions to or that the
+  // entity transitions from.
+  // Note that for both possible values for TransitionType, the EntityUniqueID should point to the falling
+  // block entity involved.
+  //
+  // Added: v1.20.80
+  uint64 EntityUniqueID = 5;
+  // TransitionType 是发生的转换类型。方块变为下落实体时为 BlockToEntityTransition，
+  // 下落实体落地并重新变为固体方块时为 EntityToBlockTransition。
+  //
+  // TransitionType is the type of the transition that happened. It is either BlockToEntityTransition, when
+  // a block placed becomes a falling entity, or EntityToBlockTransition, when a falling entity hits the
+  // ground and becomes a solid block again.
+  //
+  // Added: v1.20.80
+  uint64 TransitionType = 6;
+}
+

@@ -1,0 +1,128 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.ability;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+enum AbilityEnum {
+  ABILITYENUM_UNSPECIFIED = 0;
+  AbilityBuild = 1;
+  AbilityMine = 2;
+  AbilityDoorsAndSwitches = 4;
+  AbilityOpenContainers = 8;
+  AbilityAttackPlayers = 16;
+  AbilityAttackMobs = 32;
+  AbilityOperatorCommands = 64;
+  AbilityTeleport = 128;
+  AbilityInvulnerable = 256;
+  AbilityFlying = 512;
+  AbilityMayFly = 1024;
+  AbilityInstantBuild = 2048;
+  AbilityLightning = 4096;
+  AbilityFlySpeed = 8192;
+  AbilityWalkSpeed = 16384;
+  AbilityMuted = 32768;
+  AbilityWorldBuilder = 65536;
+  AbilityNoClip = 131072;
+  AbilityPrivilegedBuilder = 262144;
+  AbilityVerticalFlySpeed = 524288;
+  AbilityCount = 1048576;
+}
+
+enum AbilityLayerTypeEnum {
+  AbilityLayerTypeCustomCache = 0;
+  AbilityLayerTypeBase = 1;
+  AbilityLayerTypeSpectator = 2;
+  AbilityLayerTypeCommands = 3;
+  AbilityLayerTypeEditor = 4;
+  AbilityLayerTypeLoadingScreen = 5;
+}
+
+// AbilityData 表示玩家能力的各种数据，例如能力层或权限。
+//
+// AbilityData represents various data about the abilities of a player, such as ability layers or permissions.
+//
+// Added: v1.19.10
+message AbilityData {
+  // EntityUniqueID 是玩家的唯一标识符。该字段似乎不必填入正确值，
+  // 直接写入 0 也能工作。
+  //
+  // EntityUniqueID is a unique identifier of the player. It appears it is not required to fill this field
+  // out with a correct value. Simply writing 0 seems to work.
+  //
+  // Added: v1.19.10
+  int64 EntityUniqueID = 1;
+  // PlayerPermissions 是玩家在通过 PlayerList 数据包构建的玩家列表中显示的权限等级。
+  //
+  // PlayerPermissions is the permission level of the player as it shows up in the player list built up using
+  // the PlayerList packet.
+  //
+  // Added: v1.19.10
+  // Go type: byte
+  uint32 PlayerPermissions = 2;
+  // CommandPermissions 是一组权限，用于指定玩家允许执行哪些命令。
+  //
+  // CommandPermissions is a set of permissions that specify what commands a player is allowed to execute.
+  //
+  // Added: v1.19.10
+  // Go type: byte
+  uint32 CommandPermissions = 3;
+  // Layers 包含所有能力层及其潜在值。这里至少应有一个条目，即基础层。
+  //
+  // Layers contains all ability layers and their potential values. This should at least have one entry, being the
+  // base layer.
+  //
+  // Added: v1.19.10
+  // Go type: []AbilityLayer
+  repeated AbilityLayer Layers = 4;
+}
+
+// AbilityLayer 表示特定层的能力，例如基础层或旁观者层。
+//
+// AbilityLayer represents the abilities of a specific layer, such as the base layer or the spectator layer.
+//
+// Added: v1.19.10
+message AbilityLayer {
+  // Type 表示层类型，应为上方定义的 AbilityLayerType 常量之一。
+  //
+  // Type represents the type of the layer. This is one of the AbilityLayerType constants defined above.
+  //
+  // Added: v1.19.10
+  // Go type: uint16
+  uint32 Type = 1;
+  // Abilities 是该层启用的能力集合，应为上方定义的 Ability 常量之一或其组合。
+  //
+  // Abilities is a set of abilities that are enabled for the layer. This is one of the Ability constants defined
+  // above.
+  //
+  // Added: v1.19.10
+  uint32 Abilities = 2;
+  // Values 是与已启用能力关联的值集合，表示这些能力的值。
+  //
+  // Values is a set of values that are associated with the enabled abilities, representing the values of the
+  // abilities.
+  //
+  // Added: v1.19.10
+  uint32 Values = 3;
+  // FlySpeed 是该层的默认水平飞行速度。
+  //
+  // FlySpeed is the default horizontal fly speed of the layer.
+  //
+  // Added: v1.19.10
+  // Go type: float32
+  float FlySpeed = 4;
+  // VerticalFlySpeed 是该层的默认垂直飞行速度。
+  //
+  // VerticalFlySpeed is the default vertical fly speed of the layer.
+  //
+  // Added: v1.21.60
+  // Go type: float32
+  float VerticalFlySpeed = 5;
+  // WalkSpeed 是该层的默认行走速度。
+  //
+  // WalkSpeed is the default walk speed of the layer.
+  //
+  // Added: v1.19.10
+  // Go type: float32
+  float WalkSpeed = 6;
+}
+

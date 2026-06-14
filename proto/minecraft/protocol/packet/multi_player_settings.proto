@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.multi_player_settings;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+enum MultiPlayerSettingsEnum {
+  EnableMultiPlayer = 0;
+  DisableMultiPlayer = 1;
+  RefreshJoinCode = 2;
+}
+
+// MultiPlayerSettings 由客户端发送，用于更新服务器侧多人游戏相关设置，并由服务器回发给在线玩家。
+// MultiPlayerSettings 是 Minecraft: Education Edition 数据包，对基础游戏没有功能。
+//
+// MultiPlayerSettings is sent by the client to update multi-player related settings server-side and sent back
+// to online players by the server.
+// The MultiPlayerSettings packet is a Minecraft: Education Edition packet. It has no functionality for the
+// base game.
+//
+// Added: v1.13
+message MultiPlayerSettings {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDMultiPlayerSettings;
+  // ActionType 是发送该数据包时应执行的操作，为上方常量之一。
+  //
+  // ActionType is the action that should be done when this packet is sent. It is one of the constants that
+  // may be found above.
+  //
+  // Added: v1.13
+  int32 ActionType = 1;
+}
+

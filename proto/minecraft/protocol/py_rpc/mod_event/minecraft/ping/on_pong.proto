@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ping.on_pong;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ping;ping";
+
+import "py_rpc/mod_event/minecraft/ping/on_ping.proto";
+
+// OnPong 是服务器返回给客户端的延迟探测响应。
+//
+// OnPong is a latency probe response sent from the server to the client.
+message OnPong {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ping.on_ping.OnPing OnPing = 1;
+}
+

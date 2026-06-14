@@ -1,0 +1,262 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.shape;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+import "io.proto";
+import "mgl32.proto";
+
+enum ShapeDataEnum {
+  ShapeDataLast = 0;
+  ShapeDataArrow = 1;
+  ShapeDataText = 2;
+  ShapeDataBox = 3;
+  ShapeDataLine = 4;
+  ShapeDataSphere = 5;
+}
+
+enum PrimitiveShapeEnum {
+  PrimitiveShapeLine = 0;
+  PrimitiveShapeBox = 1;
+  PrimitiveShapeSphere = 2;
+  PrimitiveShapeCircle = 3;
+  PrimitiveShapeText = 4;
+  PrimitiveShapeArrow = 5;
+}
+
+// LastShape 表示使用上一个形状设置。
+// 如果从未设置过形状，则使用默认形状设置。
+//
+// LastShape points to using the last shape settings.
+// If no shape has ever been set, then use the default one.
+//
+// Added: v1.26.0
+message LastShape {
+}
+
+// LineShape 表示线段调试形状。
+//
+// LineShape represents a line debug shape.
+//
+// Added: v1.26.0
+message LineShape {
+  // LineEndLocation 是该形状的线段结束位置。
+  //
+  // LineEndLocation is the line end location of the shape.
+  //
+  // Added: v1.26.0
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 LineEndLocation = 1;
+}
+
+// TextShape 表示文本调试形状。
+//
+// TextShape represents a text debug shape.
+//
+// Added: v1.26.0
+message TextShape {
+  // Text 是文本调试形状的文本内容。
+  //
+  // Text is the text of the debug text shape.
+  //
+  // Added: v1.26.0
+  string Text = 1;
+  // UseRotation 表示文本是否应使用提供的旋转值；启用后文本会保持静态且不会跟随相机。
+  //
+  // UseRotation is if the text should use the provided rotation, meaning it will be static and does not follow the
+  // camera.
+  //
+  // Added: v1.26.20
+  bool UseRotation = 2;
+  // BackgroundColour 是文本背景使用的可选 RGBA 颜色。
+  //
+  // BackgroundColour is the optional RGBA colour to use for the text background.
+  //
+  // Added: v1.26.20
+  // Go type: Optional[color.RGBA]
+  .mousetunnel.minecraft.protocol.Optional BackgroundColour = 3;
+  // DepthTest 表示文本是否要与世界几何体进行深度测试。
+  //
+  // DepthTest determines whether the text is depth-tested against world geometry.
+  //
+  // Added: v1.26.20
+  bool DepthTest = 4;
+  // ShowBackface 表示背景是否应渲染在形状背面。只有 UseRotation 为 true 时它才有可见效果，
+  // 因为否则无法看到文本背面。
+  //
+  // ShowBackface is if the background should render on the back side of the shape. This only has a visible effect when
+  // UseRotation is true since you cannot see the back side of the text otherwise.
+  //
+  // Added: v1.26.20
+  bool ShowBackface = 5;
+}
+
+// BoxShape 表示盒形调试形状。
+//
+// BoxShape represents a box debug shape.
+//
+// Added: v1.26.0
+message BoxShape {
+  // BoxBound 是该形状的盒形边界。
+  //
+  // BoxBound is the box bound of the shape.
+  //
+  // Added: v1.26.0
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 BoxBound = 1;
+}
+
+// SphereShape 表示圆形或球形调试形状。
+//
+// SphereShape represents a circle or sphere debug shape.
+//
+// Added: v1.26.0
+message SphereShape {
+  // Segments 是调试圆形或球形使用的分段数。
+  //
+  // Segments is the segments that used for the debug circle or sphere.
+  //
+  // Added: v1.26.0
+  // Go type: byte
+  uint32 Segments = 1;
+}
+
+// ArrowShape 表示箭头调试形状。
+//
+// ArrowShape represents an arrow debug shape.
+//
+// Added: v1.26.0
+message ArrowShape {
+  // ArrowEndLocation 是该形状的箭头结束位置。
+  //
+  // ArrowEndLocation is the arrow end location of the shape.
+  //
+  // Added: v1.26.0
+  // Go type: Optional[mgl32.Vec3]
+  .mousetunnel.minecraft.protocol.Optional ArrowEndLocation = 1;
+  // ArrowHeadLength 是该形状的箭头头部长度。
+  //
+  // ArrowHeadLength is the arrow head length of the shape.
+  //
+  // Added: v1.26.0
+  // Go type: Optional[float32]
+  .mousetunnel.minecraft.protocol.Optional ArrowHeadLength = 2;
+  // ArrowHeadRadius 是该形状的箭头头部半径。
+  //
+  // ArrowHeadRadius is the arrow head radius of the shape.
+  //
+  // Added: v1.26.0
+  // Go type: Optional[float32]
+  .mousetunnel.minecraft.protocol.Optional ArrowHeadRadius = 3;
+  // Segments 是调试箭头头部使用的分段数。
+  //
+  // Segments is the segments that used for the debug arrow's head.
+  //
+  // Added: v1.26.0
+  // Go type: Optional[byte]
+  .mousetunnel.minecraft.protocol.Optional Segments = 4;
+}
+
+// PrimitiveShape 定义客户端要渲染的单个形状。每个形状都有唯一的 NetworkID，
+// 并根据其类型拥有一组可选参数。
+//
+// PrimitiveShape defines a single shape to be rendered on the client. Each shape has a unique NetworkID and a set of
+// optional parameters depending on its type.
+//
+// Added: v1.26.20
+message PrimitiveShape {
+  // NetworkID 是该形状的网络 ID。
+  //
+  // NetworkID is the network ID of the shape.
+  //
+  // Added: v1.26.20
+  uint64 NetworkID = 1;
+  // DimensionID 是渲染该形状的可选维度 ID。
+  //
+  // DimensionID is the optional dimension ID where the shape is rendered.
+  //
+  // Added: v1.26.20
+  // Go type: Optional[int32]
+  .mousetunnel.minecraft.protocol.Optional DimensionID = 2;
+  // AttachedToEntityID 是该形状附着实体的可选唯一 ID。
+  //
+  // AttachedToEntityID is the optional unique ID of the entity the shape is attached to.
+  //
+  // Added: v1.26.20
+  // Go type: Optional[int64]
+  .mousetunnel.minecraft.protocol.Optional AttachedToEntityID = 3;
+  // Type 是形状类型。未设置时，会清除已设置的形状。
+  //
+  // Type is the type of the shape.
+  // If not set, the set shape will be cleared.
+  //
+  // Added: v1.26.20
+  // Go type: Optional[uint8]
+  .mousetunnel.minecraft.protocol.Optional Type = 4;
+  // Location 是该形状的位置。
+  //
+  // Location is the location of the shape.
+  //
+  // Added: v1.26.20
+  // Go type: Optional[mgl32.Vec3]
+  .mousetunnel.minecraft.protocol.Optional Location = 5;
+  // Scale 是该形状的缩放。
+  //
+  // Scale is the scale of the shape.
+  //
+  // Added: v1.26.20
+  // Go type: Optional[float32]
+  .mousetunnel.minecraft.protocol.Optional Scale = 6;
+  // Rotation 是该形状的旋转。
+  //
+  // Rotation is the rotation of the shape.
+  //
+  // Added: v1.26.20
+  // Go type: Optional[mgl32.Vec3]
+  .mousetunnel.minecraft.protocol.Optional Rotation = 7;
+  // TotalTimeLeft 是该形状剩余的生命周期，单位为秒。
+  //
+  // TotalTimeLeft is the remaining lifetime of the shape, in seconds.
+  //
+  // Added: v1.26.20
+  // Go type: Optional[float32]
+  .mousetunnel.minecraft.protocol.Optional TotalTimeLeft = 8;
+  // MaxRenderDistance 是该形状应被渲染的最大相机距离。
+  //
+  // MaxRenderDistance is the maximum distance from the camera at which the shape should render.
+  //
+  // Added: v1.26.20
+  // Go type: Optional[float32]
+  .mousetunnel.minecraft.protocol.Optional MaxRenderDistance = 9;
+  // Colour 是该形状的 ARGB 颜色。
+  //
+  // Colour is the ARGB colour of the shape.
+  //
+  // Added: v1.26.20
+  // Go type: Optional[color.RGBA]
+  .mousetunnel.minecraft.protocol.Optional Colour = 10;
+  // ExtraShapeData 保存形状类型专用数据，例如文本形状的文本载荷。
+  //
+  // ExtraShapeData holds data specific to the shape type, such as the text payload for text shapes.
+  //
+  // Added: v1.26.20
+  ShapeData ExtraShapeData = 11;
+}
+
+// ShapeData 表示保存某种调试形状专用数据的对象。
+// 其中保存的数据取决于形状类型。
+//
+// ShapeData represents an object that holds data specific to a debug shape.
+// The data it holds depends on the type.
+//
+// Added: v1.26.0
+message ShapeData {
+  int64 Type = 1;
+  LastShape Last = 2;
+  ArrowShape Arrow = 3;
+  TextShape Text = 4;
+  BoxShape Box = 5;
+  LineShape Line = 6;
+  SphereShape Sphere = 7;
+}
+

@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package emptydea.game_control.game_interface;
+
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pb";
+
+// StartFlyingRequest 是将机器人切换到悬停的飞行状态的空请求。
+message StartFlyingRequest {}
+
+// StopFlyingRequest 是终止机器人的悬停飞行状态的空请求。
+message StopFlyingRequest {}
+
+// MovementResponse 是移动状态操作后的空响应。
+message MovementResponse {}
+
+// MovementService 基于 ResourcesWrapper 和 Querytarget 实现了机器人的移动。
+service MovementService {
+  // StartFlying 将机器人切换到悬停的飞行状态。
+  // 该函数的调用者有责任确保机器人已处于创造模式
+  rpc StartFlying(StartFlyingRequest) returns (MovementResponse);
+  // StopFlying 终止机器人的悬停飞行状态
+  rpc StopFlying(StopFlyingRequest) returns (MovementResponse);
+}

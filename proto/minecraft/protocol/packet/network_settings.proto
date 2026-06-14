@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.network_settings;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+enum CompressionAlgorithmEnum {
+  CompressionAlgorithmFlate = 0;
+  CompressionAlgorithmSnappy = 1;
+  CompressionAlgorithmNetEase = 2;
+  CompressionAlgorithmNone = 65535;
+}
+
+// NetworkSettings 由服务器发送，用于更新各种网络设置。
+// 这些设置会修改数据包通过网络栈发送的方式。
+//
+// NetworkSettings is sent by the server to update a variety of network settings. These settings modify the
+// way packets are sent over the network stack.
+//
+// Added: v1.13
+message NetworkSettings {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDNetworkSettings;
+  // CompressionThreshold 是数据包发送时会被压缩的最小大小。
+  // 如果数据包大小低于该值，则不会压缩。设置为 0 时，所有数据包都不会压缩。
+  //
+  // CompressionThreshold is the minimum size of a packet that is compressed when sent. If the size of a
+  // packet is under this value, it is not compressed.
+  // When set to 0, all packets will be left uncompressed.
+  //
+  // Added: v1.13
+  // Go type: uint16
+  uint32 CompressionThreshold = 1;
+  // CompressionAlgorithm 是用于压缩数据包的算法。
+  //
+  // CompressionAlgorithm is the algorithm that is used to compress packets.
+  //
+  // Added: v1.19.30
+  // Changed: v1.20.50, may be set to CompressionAlgorithmNone to disable packet compression entirely.
+  // Go type: uint16
+  uint32 CompressionAlgorithm = 2;
+  // ClientThrottle 控制客户端是否应在超过阈值时对玩家进行节流。
+  // 阈值外的玩家不会被 tick，从而提升低端设备上的性能。
+  //
+  // ClientThrottle regulates whether the client should throttle players when exceeding of the threshold. Players
+  // outside threshold will not be ticked, improving performance on low-end devices.
+  //
+  // Added: v1.19.30
+  bool ClientThrottle = 3;
+  // ClientThrottleThreshold 是客户端节流的阈值。如果玩家数量超过该值，客户端会对玩家进行节流。
+  //
+  // ClientThrottleThreshold is the threshold for client throttling. If the number of players exceeds this value, the
+  // client will throttle players.
+  //
+  // Added: v1.19.30
+  // Go type: uint8
+  uint32 ClientThrottleThreshold = 4;
+  // ClientThrottleScalar 是客户端节流的系数。该系数表示启用节流时会被 tick 的玩家数量。
+  //
+  // ClientThrottleScalar is the scalar for client throttling. The scalar is the amount of players that are ticked
+  // when throttling is enabled.
+  //
+  // Added: v1.19.30
+  // Go type: float32
+  float ClientThrottleScalar = 5;
+}
+

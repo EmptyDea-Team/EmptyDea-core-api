@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.confirm_skin;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "netease.proto";
+import "packet_options.proto";
+
+// ConfirmSkin 是网易皮肤确认数据包。
+//
+// ConfirmSkin is a NetEase skin confirmation packet.
+//
+// Added: NetEase.
+message ConfirmSkin {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDConfirmSkin;
+  // Go type: []protocol.NetEasePlayerData
+  repeated .mousetunnel.minecraft.protocol.netease.NetEasePlayerData PlayerData = 1;
+  // Go type: []string
+  repeated string Uids = 2;
+  // Go type: []string
+  repeated string Unknown3 = 3;
+}
+

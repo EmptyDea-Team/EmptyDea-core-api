@@ -1,0 +1,87 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.command_output;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "command.proto";
+import "packet_options.proto";
+
+message CommandOutputOptionalString {
+  bool Present = 1;
+  string Value = 2;
+}
+
+enum CommandOutputTypeEnum {
+  CommandOutputTypeNone = 0;
+  CommandOutputTypeLastOutput = 1;
+  CommandOutputTypeSilent = 2;
+  CommandOutputTypeAllOutput = 3;
+  CommandOutputTypeDataSet = 4;
+}
+
+// CommandOutput 由服务器发送给客户端，用于将文本作为命令输出发送。
+// 大多数服务器不使用该数据包，而是直接发送 Text 数据包，但发送它是有理由的。
+// 如果 CommandRequest 数据包的来源不是玩家本身，而是例如 websocket 服务器，
+// 发送 Text 数据包不会得到预期效果：消息应发往 websocket 服务器，而不是客户端聊天栏。
+// CommandOutput 数据包会确保消息被转发到命令请求的正确来源。
+//
+// CommandOutput is sent by the server to the client to send text as output of a command. Most servers do not
+// use this packet and instead simply send Text packets, but there is reason to send it.
+// If the origin of a CommandRequest packet is not the player itself, but, for example, a websocket server,
+// sending a Text packet will not do what is expected: The message should go to the websocket server, not to
+// the client's chat. The CommandOutput packet will make sure the messages are relayed to the correct origin
+// of the command request.
+//
+// Added: v1.11.1
+message CommandOutput {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDCommandOutput;
+  // CommandOrigin 是指定命令来源的数据。换句话说，它表示命令请求来自哪里，
+  // 例如玩家自身或 websocket 服务器。客户端会根据这里发送的内容，
+  // 将该数据包中的消息转发到正确来源。
+  //
+  // CommandOrigin is the data specifying the origin of the command. In other words, the source that the
+  // command request was from, such as the player itself or a websocket server. The client forwards the
+  // messages in this packet to the right origin, depending on what is sent here.
+  //
+  // Added: v1.11.1
+  .mousetunnel.minecraft.protocol.command.CommandOrigin CommandOrigin = 1;
+  // OutputType 指定发送的输出类型。原版游戏发送的 OutputType 似乎是 CommandOutputTypeAllOutput，
+  // 并且该值可以正常工作。
+  //
+  // OutputType specifies the type of output that is sent. The OutputType sent by vanilla games appears to
+  // be CommandOutputTypeAllOutput, which seems to work.
+  //
+  // Added: v1.11.1
+  // Changed: v1.21.130.28, encoded as a string output type identifier instead of a uint8 enum value.
+  // Go type: byte
+  uint32 OutputType = 2;
+  // SuccessCount 是所请求命令成功执行的次数。对服务器而言，该字段通常意义不大，
+  // 但在原版中，它适用于由函数创建的命令。
+  //
+  // SuccessCount is the amount of times that a command was executed successfully as a result of the command
+  // that was requested. For servers, this is usually a rather meaningless fields, but for vanilla, this is
+  // applicable for commands created with Functions.
+  //
+  // Added: v1.11.1
+  // Changed: v1.21.130.28, encoded as a uint32 instead of a varuint32.
+  uint32 SuccessCount = 3;
+  // OutputMessages 是应发送给玩家的所有输出消息列表。是否显示取决于消息类型。
+  //
+  // OutputMessages is a list of all output messages that should be sent to the player. Whether they are
+  // shown or not, depends on the type of the messages.
+  //
+  // Added: v1.11.1
+  // Go type: []protocol.CommandOutputMessage
+  repeated .mousetunnel.minecraft.protocol.command.CommandOutputMessage OutputMessages = 4;
+  // DataSet 的用途尚不明确。
+  // TODO: 查明该字段的用途。
+  //
+  // DataSet has no clear purpose yet.
+  // TODO: Find out what this is for.
+  //
+  // Added: v1.11.1
+  // Changed: v1.21.130.28, encoded as an optional string instead of a conditional string for CommandOutputTypeDataSet.
+  // Go type: protocol.Optional[string]
+  CommandOutputOptionalString DataSet = 5;
+}
+

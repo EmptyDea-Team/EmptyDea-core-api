@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.safaia.safaia_run_result;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/safaia;safaia";
+
+import "py_rpc/mod_event/minecraft/safaia/basic.proto";
+
+// SafaiaRunResult 同步 safaia 脚本运行结果。
+//
+// SafaiaRunResult synchronises a safaia script run result.
+message SafaiaRunResult {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.safaia.basic.Basic Basic = 1;
+  // Result 是脚本运行结果文本。
+  //
+  // Result is the script run result text.
+  string Result = 2;
+}
+

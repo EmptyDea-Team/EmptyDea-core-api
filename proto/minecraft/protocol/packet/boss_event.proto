@@ -1,0 +1,128 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.boss_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+enum BossEventEnum {
+  BossEventShow = 0;
+  BossEventRegisterPlayer = 1;
+  BossEventHide = 2;
+  BossEventUnregisterPlayer = 3;
+  BossEventHealthPercentage = 4;
+  BossEventTitle = 5;
+  BossEventAppearanceProperties = 6;
+  BossEventTexture = 7;
+  BossEventRequest = 8;
+}
+
+enum BossEventColourEnum {
+  BossEventColourGrey = 0;
+  BossEventColourBlue = 1;
+  BossEventColourRed = 2;
+  BossEventColourGreen = 3;
+  BossEventColourYellow = 4;
+  BossEventColourPurple = 5;
+  BossEventColourWhite = 6;
+}
+
+// BossEvent 由服务器发送，用于在世界中触发特定的“Boss 事件”。
+// 它包含向玩家显示 Boss 血条、使天空变暗等功能。
+//
+// BossEvent is sent by the server to make a specific 'boss event' occur in the
+// world. It includes features such as showing a boss bar to the player and
+// turning the sky dark.
+//
+// Added: v1.11.1
+message BossEvent {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDBossEvent;
+  // BossEntityUniqueID 是该 Boss 事件涉及的 Boss 实体唯一 ID。
+  // 默认情况下，Boss 血条的生命百分比和标题取决于该实体的生命值和名称标签。
+  // 如果 BossEntityUniqueID 与客户端实体唯一 ID 相同，则可自由修改 HealthPercentage 和 BossBarTitle。
+  //
+  // BossEntityUniqueID is the unique ID of the boss entity that the boss
+  // event sent involves. By default, the health percentage and title of the
+  // boss bar depend on the health and name tag of this entity. If
+  // BossEntityUniqueID is the same as the client's entity unique ID, its
+  // HealthPercentage and BossBarTitle can be freely altered.
+  //
+  // Added: v1.11.1
+  int64 BossEntityUniqueID = 1;
+  // EventType 是事件类型。写入哪些字段取决于设置的事件类型；
+  // 部分事件类型由客户端发送，其他事件类型由服务器发送。事件类型应为上方常量之一。
+  //
+  // EventType is the type of the event. The fields written depend on the
+  // event type set, and some event types are sent by the client, whereas
+  // others are sent by the server. The event type is one of the constants
+  // above.
+  //
+  // Added: v1.11.1
+  uint32 EventType = 2;
+  // PlayerUniqueID 是注册到或从 Boss 战注销的玩家唯一 ID。
+  // 当 EventType 为 BossEventRegisterPlayer 或 BossEventUnregisterPlayer 时设置。
+  //
+  // PlayerUniqueID is the unique ID of the player that is registered to or
+  // unregistered from the boss fight. It is set if EventType is either
+  // BossEventRegisterPlayer or BossEventUnregisterPlayer.
+  //
+  // Added: v1.11.1
+  int64 PlayerUniqueID = 3;
+  // BossBarTitle 是显示在 Boss 血条上方的标题。如果 BossEntityUniqueID
+  // 与客户端实体唯一 ID 匹配，可设置它来使用不同标题。
+  //
+  // BossBarTitle is the title shown above the boss bar. It may be set to set
+  // a different title if the BossEntityUniqueID matches the client's entity
+  // unique ID.
+  //
+  // Added: v1.11.1
+  string BossBarTitle = 4;
+  // FilteredBossBarTitle 是移除了所有不当用语后的 BossBarTitle 过滤版本。
+  // 如果该字段非空，且客户端启用了“过滤不当用语”设置，客户端会优先使用它而不是 BossBarTitle。
+  //
+  // FilteredBossBarTitle is a filtered version of BossBarTitle with all the
+  // profanity removed. The client will use this over BossBarTitle if this
+  // field is not empty and they have the "Filter Profanity" setting enabled.
+  //
+  // Added: v1.21.60
+  string FilteredBossBarTitle = 5;
+  // HealthPercentage 是 Boss 血条中显示的生命百分比（0.0-1.0）。
+  // 如果 BossEntityUniqueID 与客户端实体唯一 ID 匹配，可以将 HealthPercentage 设置为特定值。
+  //
+  // HealthPercentage is the percentage of health that is shown in the boss
+  // bar (0.0-1.0). The HealthPercentage may be set to a specific value if the
+  // BossEntityUniqueID matches the client's entity unique ID.
+  //
+  // Added: v1.11.1
+  // Go type: float32
+  float HealthPercentage = 6;
+  // ScreenDarkening 目前看起来没有实际效果。
+  //
+  // ScreenDarkening currently seems not to do anything.
+  //
+  // Added: v1.11.1
+  // Go type: uint16
+  uint32 ScreenDarkening = 7;
+  // Colour 是玩家订阅时显示的 Boss 血条颜色。只有 EventType 为 BossEventShow、
+  // BossEventAppearanceProperties 或 BossEventTexture 时才会设置。
+  // 截至 1.18，该字段有效，可以是上方列出的任意 BossEventColour 常量。
+  //
+  // Colour is the colour of the boss bar that is shown when a player is
+  // subscribed. It is only set if the EventType is BossEventShow,
+  // BossEventAppearanceProperties or BossEventTexture. This is functional as
+  // of 1.18 and can be any of the BossEventColour constants listed above.
+  //
+  // Added: v1.11.1
+  uint32 Colour = 8;
+  // Overlay 是玩家订阅时显示在 Boss 血条上方的覆盖层。目前该字段不起作用。
+  // 只有 EventType 为 BossEventShow、BossEventAppearanceProperties 或 BossEventTexture 时才会设置。
+  //
+  // Overlay is the overlay of the boss bar that is shown on top of the boss
+  // bar when a player is subscribed. It currently does not function. It is
+  // only set if the EventType is BossEventShow, BossEventAppearanceProperties
+  // or BossEventTexture.
+  //
+  // Added: v1.11.1
+  uint32 Overlay = 9;
+}
+

@@ -1,0 +1,425 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.inventory;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+import "block_pos.proto";
+import "item.proto";
+import "mgl32.proto";
+
+enum InventoryActionSourceEnum {
+  InventoryActionSourceContainer = 0;
+  InventoryActionSourceWorld = 2;
+  InventoryActionSourceCreative = 3;
+  InventoryActionSourceTODO = 99999;
+}
+
+enum WindowIDEnum {
+  WindowIDInventory = 0;
+  WindowIDOffHand = 119;
+  WindowIDArmour = 120;
+  WindowIDUI = 124;
+}
+
+enum InventoryTransactionTypeEnum {
+  InventoryTransactionTypeNormal = 0;
+  InventoryTransactionTypeMismatch = 1;
+  InventoryTransactionTypeUseItem = 2;
+  InventoryTransactionTypeUseItemOnEntity = 3;
+  InventoryTransactionTypeReleaseItem = 4;
+}
+
+enum UseItemActionEnum {
+  UseItemActionClickBlock = 0;
+  UseItemActionClickAir = 1;
+  UseItemActionBreakBlock = 2;
+  UseItemActionUseAsAttack = 3;
+}
+
+enum TriggerTypeEnum {
+  TriggerTypeUnknown = 0;
+  TriggerTypePlayerInput = 1;
+  TriggerTypeSimulationTick = 2;
+}
+
+enum ClientPredictionEnum {
+  ClientPredictionFailure = 0;
+  ClientPredictionSuccess = 1;
+}
+
+enum ClientCooldownStateEnum {
+  ClientCooldownStateOff = 0;
+  ClientCooldownStateOn = 1;
+}
+
+enum UseItemOnEntityActionEnum {
+  UseItemOnEntityActionInteract = 0;
+  UseItemOnEntityActionAttack = 1;
+}
+
+enum ReleaseItemActionEnum {
+  ReleaseItemActionRelease = 0;
+  ReleaseItemActionConsume = 1;
+}
+
+// InventoryAction 表示一次物品栏事务中发生的单个动作。单独来看，该物品栏动作始终是不平衡的；
+// 它必须与同一物品栏事务中的其他动作组合，才能形成一个平衡事务。
+//
+// InventoryAction represents a single action that took place during an inventory transaction. On itself, this
+// inventory action is always unbalanced: It must be combined with other actions in an inventory transaction
+// to form a balanced transaction.
+//
+// Added: v1.16
+message InventoryAction {
+  // SourceType 是物品栏动作的来源类型，取值为上面的常量之一。
+  //
+  // SourceType is the source type of the inventory action. It is one of the constants above.
+  //
+  // Added: v1.16
+  uint32 SourceType = 1;
+  // WindowID 是客户端打开的窗口 ID。SourceType 为 InventoryActionSourceWorld 时不会设置该窗口 ID。
+  //
+  // WindowID is the ID of the window that the client has opened. The window ID is not set if the SourceType
+  // is InventoryActionSourceWorld.
+  //
+  // Added: v1.16
+  int32 WindowID = 2;
+  // SourceFlags 是标志组合，仅在 SourceType 为 InventoryActionSourceWorld 时设置。
+  //
+  // SourceFlags is a combination of flags that is only set if the SourceType is InventoryActionSourceWorld.
+  //
+  // Added: v1.16
+  uint32 SourceFlags = 3;
+  // InventorySlot 是动作发生的槽位。每个动作只描述单个槽位中的物品变化。
+  //
+  // InventorySlot is the slot in which the action took place. Each action only describes the change of item
+  // in a single slot.
+  //
+  // Added: v1.16
+  uint32 InventorySlot = 4;
+  // OldItem 是物品栏动作发生前槽位中的物品。服务端应检查它，以确保物品栏没有失去同步。
+  //
+  // OldItem is the item that was present in the slot before the inventory action. It should be checked by
+  // the server to ensure the inventories were not out of sync.
+  //
+  // Added: v1.16
+  .mousetunnel.minecraft.protocol.item.ItemInstance OldItem = 5;
+  // NewItem 是放入 OldItem 所在 InventorySlot 的新物品。必须结合其他物品栏动作检查它，
+  // 以确保该事务是平衡的。
+  //
+  // NewItem is the new item that was put in the InventorySlot that the OldItem was in. It must be checked
+  // in combination with other inventory actions to ensure that the transaction is balanced.
+  //
+  // Added: v1.16
+  .mousetunnel.minecraft.protocol.item.ItemInstance NewItem = 6;
+  // StackNetworkID 是写在物品实例外部的旧版物品堆网络 ID。
+  //
+  // StackNetworkID is the legacy stack network ID written outside of the item instance.
+  //
+  // Added: v1.16.100
+  // Removed: v1.16.220
+  int32 StackNetworkID = 7;
+}
+
+// InventoryActionContext 保存编码物品栏动作所需的上下文。
+//
+// InventoryActionContext holds context required for encoding inventory actions.
+message InventoryActionContext {
+  // StackNetworkIDs 指定是否在旧物品和新物品之后编码旧版物品堆网络 ID。
+  //
+  // StackNetworkIDs specifies if legacy stack network IDs are encoded after the old and new items.
+  //
+  // Added: v1.16.100
+  // Removed: v1.16.220
+  bool StackNetworkIDs = 1;
+}
+
+// NormalTransactionData 表示普通事务使用的物品栏事务数据对象，例如合成事务。它没有内容。
+//
+// NormalTransactionData represents an inventory transaction data object for normal transactions, such as
+// crafting. It has no content.
+//
+// Added: v1.16
+message NormalTransactionData {
+}
+
+// MismatchTransactionData 表示不匹配的物品栏事务数据对象。
+//
+// MismatchTransactionData represents a mismatched inventory transaction's data object.
+//
+// Added: v1.16
+message MismatchTransactionData {
+}
+
+// UseItemTransactionData 表示客户端对方块使用物品时发送的物品栏事务数据对象。
+//
+// UseItemTransactionData represents an inventory transaction data object sent when the client uses an item on
+// a block.
+//
+// Added: v1.16
+message UseItemTransactionData {
+  // LegacyRequestID 是客户端发送时有时才非零的 ID。服务端应始终发送 0。
+  // 当该字段非 0 时，下面的 LegacySetItemSlots 切片会包含值。
+  // LegacyRequestID 与 ItemStackResponse 数据包相关联。如果该字段非 0，服务端应使用
+  // ItemStackResponse 数据包响应。一些物品栏动作，例如从快捷栏丢弃物品，仍然使用该数据包完成，
+  // 因此 ItemStackResponse 需要与它关联。
+  //
+  // LegacyRequestID is an ID that is only non-zero at times when sent by the client. The server should
+  // always send 0 for this. When this field is not 0, the LegacySetItemSlots slice below will have values
+  // in it.
+  // LegacyRequestID ties in with the ItemStackResponse packet. If this field is non-0, the server should
+  // respond with an ItemStackResponse packet. Some inventory actions such as dropping an item out of the
+  // hotbar are still one using this packet, and the ItemStackResponse packet needs to tie in with it.
+  //
+  // Added: v1.16.210
+  int32 LegacyRequestID = 1;
+  // LegacySetItemSlots 仅在 LegacyRequestID 非零时存在。这些物品槽会告知服务端事务期间发生变化的槽位；
+  // 服务端应返回包含这些槽位的 ItemStackResponse 数据包，或在拒绝时返回 false 且不包含槽位。
+  //
+  // LegacySetItemSlots are only present if the LegacyRequestID is non-zero. These item slots inform the
+  // server of the slots that were changed during the inventory transaction, and the server should send
+  // back an ItemStackResponse packet with these slots present in it. (Or false with no slots, if rejected.)
+  //
+  // Added: v1.16.210
+  // Go type: []LegacySetItemSlot
+  repeated LegacySetItemSlot LegacySetItemSlots = 2;
+  // Actions 是发生的动作列表，这些动作共同组成物品栏事务。每个动作都包含一个槽位，
+  // 表示其中一个物品变化为另一个物品。通常这些动作组合后应形成平衡的物品栏事务，
+  // 服务端应检查这一点，避免物品被作弊加入物品栏。
+  //
+  // Actions is a list of actions that took place, that form the inventory transaction together. Each of
+  // these actions hold one slot in which one item was changed to another. In general, the combination of
+  // all of these actions results in a balanced inventory transaction. This should be checked to ensure that
+  // no items are cheated into the inventory.
+  //
+  // Added: v1.16.210
+  // Go type: []InventoryAction
+  repeated InventoryAction Actions = 3;
+  // ActionType 是 UseItem 物品栏事务的类型，取值为上面的动作类型之一，
+  // 并指定玩家与方块交互的方式。
+  //
+  // ActionType is the type of the UseItem inventory transaction. It is one of the action types found above,
+  // and specifies the way the player interacted with the block.
+  //
+  // Added: v1.16
+  uint32 ActionType = 4;
+  // TriggerType 是触发该物品栏事务的触发器类型，取值为上面的触发器类型之一。
+  // TriggerTypePlayerInput 表示事务来自玩家初始输入；TriggerTypeSimulationTick 表示事务来自玩家按住输入时的模拟刻。
+  //
+  // TriggerType is the type of the trigger that caused the inventory transaction. It is one of the trigger
+  // types found in the constants above. If TriggerType is TriggerTypePlayerInput, the transaction is from
+  // the initial input of the player. If it is TriggerTypeSimulationTick, the transaction is from a simulation
+  // tick when the player is holding down the input.
+  //
+  // Added: v1.21.20
+  uint32 TriggerType = 5;
+  // BlockPosition 是被交互方块的位置。只有 ActionType 不是 UseItemActionClickAir 时，
+  // 它才真正是一个正确的方块位置。
+  //
+  // BlockPosition is the position of the block that was interacted with. This is only really a correct
+  // block position if ActionType is not UseItemActionClickAir.
+  //
+  // Added: v1.16
+  .mousetunnel.minecraft.protocol.block_pos.BlockPos BlockPosition = 6;
+  // BlockFace 是被交互方块的面。点击方块时，它是被点击的面；破坏方块时，
+  // 它是方块被破坏前最后击中的面。
+  //
+  // BlockFace is the face of the block that was interacted with. When clicking the block, it is the face
+  // clicked. When breaking the block, it is the face that was last being hit until the block broke.
+  //
+  // Added: v1.16
+  int32 BlockFace = 7;
+  // HotBarSlot 是玩家点击方块时手持物品所在的快捷栏槽位。应使用它确保快捷栏槽位和手持物品
+  // 与服务端正确同步。
+  //
+  // HotBarSlot is the hot bar slot that the player was holding while clicking the block. It should be used
+  // to ensure that the hot bar slot and held item are correctly synchronised with the server.
+  //
+  // Added: v1.16
+  int32 HotBarSlot = 8;
+  // HeldItem 是用于与方块交互的手持物品。服务端应检查该物品是否真的存在于 HotBarSlot 中。
+  //
+  // HeldItem is the item that was held to interact with the block. The server should check if this item
+  // is actually present in the HotBarSlot.
+  //
+  // Added: v1.16
+  .mousetunnel.minecraft.protocol.item.ItemInstance HeldItem = 9;
+  // Position 是交互发生时玩家的位置。点击方块时，它是点击时的位置；破坏方块时，
+  // 它是方块被破坏时的位置。
+  //
+  // Position is the position of the player at the time of interaction. For clicking a block, this is the
+  // position at that time, whereas for breaking the block it is the position at the time of breaking.
+  //
+  // Added: v1.16
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 Position = 10;
+  // ClickedPosition 是相对于方块基准坐标的点击位置，可用于确定玩家点击方块的精确位置。
+  //
+  // ClickedPosition is the position that was clicked relative to the block's base coordinate. It can be
+  // used to find out exactly where a player clicked the block.
+  //
+  // Added: v1.16
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 ClickedPosition = 11;
+  // BlockRuntimeID 是被点击方块的运行时 ID。服务端可用它验证玩家客户端侧世界是否与服务端同步。
+  //
+  // BlockRuntimeID is the runtime ID of the block that was clicked. It may be used by the server to verify
+  // that the player's world client-side is synchronised with the server's.
+  //
+  // Added: v1.16
+  uint32 BlockRuntimeID = 12;
+  // ClientPrediction 是客户端对该事务输出结果的预测，取值为上面的客户端预测常量之一。
+  //
+  // ClientPrediction is the client's prediction on the output of the transaction. It is one of the client
+  // prediction found in the constants above.
+  //
+  // Added: v1.21.20
+  uint32 ClientPrediction = 13;
+  // ClientCooldownState 是客户端使用物品时的冷却状态，取值为上面的 ClientCooldownState 常量之一。
+  //
+  // ClientCooldownState is the client's cooldown state for the item used. It is one of the
+  // ClientCooldownState constants above.
+  //
+  // Added: v1.26.10
+  // Go type: byte
+  uint32 ClientCooldownState = 14;
+}
+
+// UseItemOnEntityTransactionData 表示客户端对实体使用物品时发送的物品栏事务数据对象。
+//
+// UseItemOnEntityTransactionData represents an inventory transaction data object sent when the client uses
+// an item on an entity.
+//
+// Added: v1.16
+message UseItemOnEntityTransactionData {
+  // TargetEntityRuntimeID 是被点击目标的实体运行时 ID，即 AddEntity 数据包为该实体分配的运行时 ID。
+  //
+  // TargetEntityRuntimeID is the entity runtime ID of the target that was clicked. It is the runtime ID
+  // that was assigned to it in the AddEntity packet.
+  //
+  // Added: v1.16
+  uint64 TargetEntityRuntimeID = 1;
+  // ActionType 是 UseItemOnEntity 物品栏事务的类型，取值为上面的动作类型之一，
+  // 并指定玩家与实体交互的方式。
+  //
+  // ActionType is the type of the UseItemOnEntity inventory transaction. It is one of the action types
+  // found in the constants above, and specifies the way the player interacted with the entity.
+  //
+  // Added: v1.16
+  uint32 ActionType = 2;
+  // HotBarSlot 是玩家点击实体时手持物品所在的快捷栏槽位。应使用它确保快捷栏槽位和手持物品
+  // 与服务端正确同步。
+  //
+  // HotBarSlot is the hot bar slot that the player was holding while clicking the entity. It should be used
+  // to ensure that the hot bar slot and held item are correctly synchronised with the server.
+  //
+  // Added: v1.16
+  int32 HotBarSlot = 3;
+  // HeldItem 是用于与实体交互的手持物品。服务端应检查该物品是否真的存在于 HotBarSlot 中。
+  //
+  // HeldItem is the item that was held to interact with the entity. The server should check if this item
+  // is actually present in the HotBarSlot.
+  //
+  // Added: v1.16
+  .mousetunnel.minecraft.protocol.item.ItemInstance HeldItem = 4;
+  // Position 是玩家点击实体时的位置。
+  //
+  // Position is the position of the player at the time of clicking the entity.
+  //
+  // Added: v1.16
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 Position = 5;
+  // ClickedPosition 是相对于实体基准坐标的点击位置，可用于确定玩家点击实体的精确位置。
+  //
+  // ClickedPosition is the position that was clicked relative to the entity's base coordinate. It can be
+  // used to find out exactly where a player clicked the entity.
+  //
+  // Added: v1.16
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 ClickedPosition = 6;
+}
+
+// ReleaseItemTransactionData 表示客户端释放正在使用的物品时发送的物品栏事务数据对象，
+// 例如停止进食或停止拉弓。
+//
+// ReleaseItemTransactionData represents an inventory transaction data object sent when the client releases
+// the item it was using, for example when stopping while eating or stopping the charging of a bow.
+//
+// Added: v1.16
+message ReleaseItemTransactionData {
+  // ActionType 是 ReleaseItem 物品栏事务的类型，取值为上面的动作类型之一，
+  // 并指定物品被释放的方式。
+  // 从 1.13 开始，ActionType 始终为 0。该字段可以忽略，因为释放食物和释放弓本质上相同。
+  //
+  // ActionType is the type of the ReleaseItem inventory transaction. It is one of the action types found
+  // in the constants above, and specifies the way the item was released.
+  // As of 1.13, the ActionType is always 0. This field can be ignored, because releasing food (by consuming
+  // it) or releasing a bow (to shoot an arrow) is essentially the same.
+  //
+  // Added: v1.16
+  uint32 ActionType = 1;
+  // HotBarSlot 是玩家释放物品时手持物品所在的快捷栏槽位。应使用它确保快捷栏槽位和手持物品
+  // 与服务端正确同步。
+  //
+  // HotBarSlot is the hot bar slot that the player was holding while releasing the item. It should be used
+  // to ensure that the hot bar slot and held item are correctly synchronised with the server.
+  //
+  // Added: v1.16
+  int32 HotBarSlot = 2;
+  // HeldItem 是被释放的物品。服务端应检查该物品是否真的存在于 HotBarSlot 中。
+  //
+  // HeldItem is the item that was released. The server should check if this item is actually present in the
+  // HotBarSlot.
+  //
+  // Added: v1.16
+  .mousetunnel.minecraft.protocol.item.ItemInstance HeldItem = 3;
+  // HeadPosition 是玩家释放物品时头部的位置，主要用于在该位置生成进食粒子等用途。
+  //
+  // HeadPosition is the position of the player's head at the time of releasing the item. This is used
+  // mainly for purposes such as spawning eating particles at that position.
+  //
+  // Added: v1.16
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 HeadPosition = 4;
+}
+
+// LegacySetItemSlot 表示 InventoryTransaction 中发生变化的槽位。
+// 对于从快捷栏丢弃物品等动作，物品栏容器和被丢弃物品所在的槽位会通过这里传递，
+// 因此这些槽位必须设置为对应值。
+//
+// LegacySetItemSlot represents a slot that was changed during an InventoryTransaction. These slots have to
+// have their values set accordingly for actions such as when dropping an item out of the hotbar, where the
+// inventory container and the slot that had its item dropped is passed.
+//
+// Added: v1.16
+message LegacySetItemSlot {
+  // ContainerID 是被更新容器的 ID。
+  //
+  // ContainerID is the ID of the container that was updated.
+  //
+  // Added: v1.16
+  // Go type: byte
+  uint32 ContainerID = 1;
+  // Slots 是容器中被更新的槽位列表。
+  //
+  // Slots is a list of slots in the container that were updated.
+  //
+  // Added: v1.16
+  // Go type: []byte
+  bytes Slots = 2;
+}
+
+// InventoryTransactionData 表示保存某种物品栏事务类型专用数据的对象。
+// 其中保存的数据取决于事务类型。
+//
+// InventoryTransactionData represents an object that holds data specific to an inventory transaction type.
+// The data it holds depends on the type.
+message InventoryTransactionData {
+  int64 Type = 1;
+  NormalTransactionData Normal = 2;
+  MismatchTransactionData Mismatch = 3;
+  UseItemTransactionData UseItem = 4;
+  UseItemOnEntityTransactionData UseItemOnEntity = 5;
+  ReleaseItemTransactionData ReleaseItem = 6;
+}
+

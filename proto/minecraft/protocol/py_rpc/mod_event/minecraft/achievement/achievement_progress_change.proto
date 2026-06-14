@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.achievement.achievement_progress_change;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/achievement;achievement";
+
+import "py_rpc/mod_event/minecraft/achievement/basic.proto";
+
+// AchievementProgressChange 同步玩家成就进度。
+//
+// AchievementProgressChange synchronises player achievement progress.
+message AchievementProgressChange {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.achievement.basic.Basic Basic = 1;
+  // Progress 保存节点 ID 到进度值的映射。
+  //
+  // Progress stores node ID to progress value mappings.
+  // Go type: map[string]int64
+  map<string, int64> Progress = 2;
+}
+

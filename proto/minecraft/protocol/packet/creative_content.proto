@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.creative_content;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "creative.proto";
+import "packet_options.proto";
+
+// CreativeContent 是服务器发送的数据包，用于设置玩家创造模式物品栏的内容。
+// 该数据包在 1.16 引入，替代了旧方式：发送带有创造模式物品栏窗口 ID 的 InventoryContent 数据包。
+// 从 v1.21.60 开始，登录流程不再必须发送该数据包，但如果客户端在接收此数据包前尝试打开创造模式物品栏，
+// 客户端会崩溃。每个物品都必须属于一个分组，不属于任何分组的物品需要引用一个“匿名分组”，
+// 该分组名称为空或没有图标。Groups 与 Items 的顺序决定客户端如何在创造模式物品栏中渲染物品，
+// 而不是使用过去硬编码的顺序。
+//
+// 下方示例定义了自然分类中的 2 个未分组物品、2 个分组物品，以及另外 2 个未分组物品。
+//
+// CreativeContent is a packet sent by the server to set the creative inventory's content for a player.
+// Introduced in 1.16, this packet replaces the previous method - sending an InventoryContent packet with
+// creative inventory window ID.
+// As of v1.21.60, this packet is no longer required to be sent as part of the login sequence however the
+// client will crash if they try to open their creative inventory before receiving this packet. Every item
+// must be part of a group, any items that are not part of a group will need to reference an "anonymous group"
+// which has an empty name OR no icon. The order of Groups and Items is how the client will render items
+// in the creative inventory compared to the previous, hard coded order.
+//
+// Below is an example of defining 2 ungrouped items, 2 grouped items and then another 2 ungrouped items, all
+// in the nature category.
+//
+// 	CreativeContent{
+// 		Groups: []protocol.CreativeGroup{
+// 			{Category: 1}, // No name or icon, this is the "anonymous group"
+// 			{Category: 1, Name: "itemGroup.name.planks", Icon: protocol.ItemStack{...}}, // A "planks" group
+// 			{Category: 1}, // Another "anonymous group"
+// 		},
+// 		Items: []protocol.CreativeItem{
+// 			{CreativeItemNetworkID: 0, Item: protocol.ItemStack{...}, GroupIndex: 0}, // Ungrouped before "planks"
+// 			{CreativeItemNetworkID: 1, Item: protocol.ItemStack{...}, GroupIndex: 0}, // Ungrouped before "planks"
+// 			{CreativeItemNetworkID: 2, Item: protocol.ItemStack{...}, GroupIndex: 1}, // Grouped under the "planks" group
+// 			{CreativeItemNetworkID: 3, Item: protocol.ItemStack{...}, GroupIndex: 1}, // Grouped under the "planks" group
+// 			{CreativeItemNetworkID: 4, Item: protocol.ItemStack{...}, GroupIndex: 2}, // Ungrouped after "planks"
+// 			{CreativeItemNetworkID: 5, Item: protocol.ItemStack{...}, GroupIndex: 2}, // Ungrouped after "planks"
+// 		}
+// 	}
+//
+// Added: v1.16
+message CreativeContent {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDCreativeContent;
+  // Groups 是应加入创造模式物品栏的分组列表。
+  //
+  // Groups is a list of the groups that should be added to the creative inventory.
+  //
+  // Added: v1.21.60
+  // Go type: []protocol.CreativeGroup
+  repeated .mousetunnel.minecraft.protocol.creative.CreativeGroup Groups = 1;
+  // Items 是应加入创造模式物品栏的物品列表。
+  //
+  // Items is a list of the items that should be added to the creative inventory.
+  //
+  // Added: v1.16
+  // Go type: []protocol.CreativeItem
+  repeated .mousetunnel.minecraft.protocol.creative.CreativeItem Items = 2;
+}
+

@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_phrases.handle_official_phrase_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_phrases;chat_phrases";
+
+import "py_rpc/mod_event/minecraft/chat_phrases/basic.proto";
+
+// HandleOfficialPhraseEvent 请求服务器处理需要动态内容的官方快捷短语。
+//
+// HandleOfficialPhraseEvent asks the server to handle an official quick phrase with dynamic content.
+message HandleOfficialPhraseEvent {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_phrases.basic.Basic Basic = 1;
+  // ID 是官方快捷短语 ID。
+  //
+  // ID is the official quick phrase ID.
+  uint64 ID = 2;
+  // Data 是处理快捷短语所需的上下文数据。
+  //
+  // Data is the context data used to handle the quick phrase.
+  OfficialPhraseContext Data = 3;
+}
+
+// OfficialPhraseContext 描述官方快捷短语处理上下文。
+//
+// OfficialPhraseContext describes context for handling official quick phrases.
+message OfficialPhraseContext {
+  // IsPrivateChat 表示当前是否为私聊频道。
+  //
+  // IsPrivateChat indicates whether the current channel is private chat.
+  bool IsPrivateChat = 1;
+}
+

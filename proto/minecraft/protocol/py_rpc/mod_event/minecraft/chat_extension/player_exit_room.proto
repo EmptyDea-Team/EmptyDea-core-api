@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_extension.player_exit_room;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_extension;chat_extension";
+
+import "py_rpc/mod_event/minecraft/chat_extension/basic.proto";
+import "py_rpc/mod_event/minecraft/chat_extension/player_add_room.proto";
+
+// PlayerExitRoom 在玩家离开房间时同步退出玩家信息。
+//
+// PlayerExitRoom synchronises leaving player information when a player exits the room.
+message PlayerExitRoom {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_extension.basic.Basic Basic = 1;
+  // UID 保存离开房间的网易 UID 列表。
+  //
+  // UID stores the list of NetEase UIDs that left the room.
+  // Go type: []NetEaseUserUID
+  repeated .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_extension.player_add_room.NetEaseUserUID UID = 2;
+  // ExitPlayerID 是退出房间的玩家运行时 ID。
+  //
+  // ExitPlayerID is the runtime ID of the player that left the room.
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_extension.player_add_room.RuntimeID ExitPlayerID = 3;
+}
+

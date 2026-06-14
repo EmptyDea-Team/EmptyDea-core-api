@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.completed_using_item;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+enum UseItemEnum {
+  UseItemEquipArmour = 0;
+  UseItemEat = 1;
+  UseItemAttack = 2;
+  UseItemConsume = 3;
+  UseItemThrow = 4;
+  UseItemShoot = 5;
+  UseItemPlace = 6;
+  UseItemFillBottle = 7;
+  UseItemFillBucket = 8;
+  UseItemPourBucket = 9;
+  UseItemUseTool = 10;
+  UseItemInteract = 11;
+  UseItemRetrieved = 12;
+  UseItemDyed = 13;
+  UseItemTraded = 14;
+  UseItemBrushingCompleted = 15;
+  UseItemOpenedVault = 16;
+}
+
+// CompletedUsingItem 由服务器发送，用于告知客户端应结束当前正在使用的物品。
+//
+// CompletedUsingItem is sent by the server to tell the client that it should be done using the item it is
+// currently using.
+//
+// Added: v1.13
+message CompletedUsingItem {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDCompletedUsingItem;
+  // UsedItemID 是客户端完成使用的物品 ID。通常应为手中持有物品的 ID。
+  //
+  // UsedItemID is the item ID of the item that the client completed using. This should typically be the
+  // ID of the item held in the hand.
+  //
+  // Added: v1.13
+  // Go type: int16
+  int32 UsedItemID = 1;
+  // UseMethod 是已完成的物品使用方式，它是上方常量之一。
+  //
+  // UseMethod is the method of the using of the item that was completed. It is one of the constants that
+  // may be found above.
+  //
+  // Added: v1.13
+  int32 UseMethod = 2;
+}
+

@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.respawn;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "mgl32.proto";
+import "packet_options.proto";
+
+enum RespawnStateEnum {
+  RespawnStateSearchingForSpawn = 0;
+  RespawnStateReadyToSpawn = 1;
+  RespawnStateClientReadyToSpawn = 2;
+}
+
+// Respawn 由服务器发送，用于让玩家在客户端侧重生。它会响应 ActionType 为 PlayerActionRespawn 的
+// PlayerAction 数据包发送。
+// 自 1.13 起，服务器会发送两个具有不同状态的该数据包，客户端再回发其中一个以完成重生。
+//
+// Respawn is sent by the server to make a player respawn client-side. It is sent in response to a
+// PlayerAction packet with ActionType PlayerActionRespawn.
+// As of 1.13, the server sends two of these packets with different states, and the client sends one of these
+// back in order to complete the respawn.
+//
+// Added: v1.13.0
+message Respawn {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDRespawn;
+  // Position 是玩家应重生的位置。该位置可能位于不同维度，此时应先向客户端发送 ChangeDimension 数据包。
+  //
+  // Position is the position on which the player should be respawned. The position might be in a different
+  // dimension, in which case the client should first be sent a ChangeDimension packet.
+  //
+  // Added: v1.11.1
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 Position = 1;
+  // State 是重生的“状态”。它是上方常量之一，数据包所含的值取决于发送方是服务器还是客户端。
+  //
+  // State is the 'state' of the respawn. It is one of the constants that may be found above, and the value
+  // the packet contains depends on whether the server or client sends it.
+  //
+  // Added: v1.13.0
+  // Go type: byte
+  uint32 State = 2;
+  // EntityRuntimeID 是该重生数据包所涉及玩家的实体运行时 ID。
+  // 这显然用于让服务器识别哪个玩家发送了该数据包。
+  //
+  // EntityRuntimeID is the entity runtime ID of the player that the respawn packet concerns. This is
+  // apparently for the server to recognise which player sends this packet.
+  //
+  // Added: v1.13.0
+  uint64 EntityRuntimeID = 3;
+}
+

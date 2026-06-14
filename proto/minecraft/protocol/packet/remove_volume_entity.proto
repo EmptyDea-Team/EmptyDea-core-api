@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.remove_volume_entity;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// RemoveVolumeEntity 表示服务器要通知客户端移除的 volume 实体。
+//
+// RemoveVolumeEntity indicates a volume entity to be removed from server to client.
+//
+// Added: v1.17.0
+message RemoveVolumeEntity {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDRemoveVolumeEntity;
+  // EntityRuntimeID 是应移除的 volume 实体运行时 ID。
+  //
+  // EntityRuntimeID is the runtime ID of the volume entity that should be removed.
+  //
+  // Added: v1.17.0
+  uint32 EntityRuntimeID = 1;
+  // Dimension 是该 volume 实体所属的维度。
+  //
+  // Dimension is the dimension that the volume entity belongs to.
+  //
+  // Added: v1.17.0
+  int32 Dimension = 2;
+}
+

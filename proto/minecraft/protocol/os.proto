@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.os;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+enum DeviceEnum {
+  DEVICEENUM_UNSPECIFIED = 0;
+  DeviceAndroid = 1;
+  DeviceIOS = 2;
+  DeviceOSX = 3;
+  DeviceFireOS = 4;
+  // Deprecated: DeviceGearVR 自 1.21.50 起已弃用。
+  //
+  // Deprecated: DeviceGearVR is deprecated as of 1.21.50.
+  DeviceGearVR = 5;
+  DeviceHololens = 6;
+  DeviceWin10 = 7;
+  DeviceWin32 = 8;
+  DeviceDedicated = 9;
+  // Deprecated: DeviceTVOS 自 1.20.10 起已弃用。
+  //
+  // Deprecated: DeviceTVOS is deprecated as of 1.20.10.
+  DeviceTVOS = 10;
+  // DeviceOrbis 表示 PlayStation 设备。
+  //
+  // DeviceOrbis represents a PlayStation device.
+  DeviceOrbis = 11;
+  DeviceNX = 12;
+  DeviceXBOX = 13;
+  // Deprecated: DeviceWP 自 1.20.10 起已弃用。
+  //
+  // Deprecated: DeviceWP is deprecated as of 1.20.10.
+  DeviceWP = 14;
+  DeviceLinux = 15;
+}
+
+// DeviceOS 是设备操作系统标识符。它保存下方常量之一的值，可见于 Login 等数据包。
+//
+// DeviceOS is a device DeviceOS identifier. It holds a value of one of the constants below and may be found
+// in packets such as the Login packet.
+message DeviceOS {
+  // Go type: int
+  int64 Value = 1;
+}
+

@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.update_block_properties;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// UpdateBlockProperties 为旧版更新方块属性数据包预留。
+//
+// UpdateBlockProperties is reserved for the legacy update block properties packet.
+message UpdateBlockProperties {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDUpdateBlockProperties;
+}
+

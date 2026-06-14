@@ -1,0 +1,75 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.position_tracking_db_server_broadcast;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "google/protobuf/struct.proto";
+import "packet_options.proto";
+
+enum PositionTrackingDBBroadcastActionEnum {
+  PositionTrackingDBBroadcastActionUpdate = 0;
+  PositionTrackingDBBroadcastActionDestroy = 1;
+  PositionTrackingDBBroadcastActionNotFound = 2;
+}
+
+// PositionTrackingDBServerBroadcast 由服务器发送，用于响应 PositionTrackingDBClientRequest 数据包。
+// 截至 1.16，该数据包目前仅用于磁石。服务器维护一个数据库，保存 tracking ID 及其位置和维度。
+// 客户端会请求这些 tracking ID（可能是磁石指南针上设置了 tracking ID 的 NBT 标签），
+// 服务器则响应这些 tracking ID 的状态。
+// 对发送数据的实际处理取决于客户端选择如何使用它。对磁石指南针而言，
+// 它用于让指南针指向磁石，并在某个位置的磁石不再存在时让指南针旋转。
+//
+// PositionTrackingDBServerBroadcast is sent by the server in response to the
+// PositionTrackingDBClientRequest packet. This packet is, as of 1.16, currently only used for lodestones. The
+// server maintains a database with tracking IDs and their position and dimension. The client will request
+// these tracking IDs, (NBT tag set on the lodestone compass with the tracking ID?) and the server will
+// respond with the status of those tracking IDs.
+// What is actually done with the data sent depends on what the client chooses to do with it. For the
+// lodestone compass, it is used to make the compass point towards lodestones and to make it spin if the
+// lodestone at a position is no longer there.
+//
+// Added: v1.16
+message PositionTrackingDBServerBroadcast {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDPositionTrackingDBServerBroadcast;
+  // BroadcastAction 指定位置跟踪数据库响应的状态。它是上方常量之一，
+  // 表示下方 ID 对应请求的结果。Update 操作用于设置磁石指南针的位置，
+  // Destroy 和 NotFound 用于表示该位置没有或不再有磁石。
+  //
+  // BroadcastAction specifies the status of the position tracking DB response. It is one of the constants
+  // above, specifying the result of the request with the ID below.
+  // The Update action is sent for setting the position of a lodestone compass, the Destroy and NotFound to
+  // indicate that there is not (no longer) a lodestone at that position.
+  //
+  // Added: v1.16
+  // Go type: byte
+  uint32 BroadcastAction = 1;
+  // TrackingID 是该数据包所响应的 PositionTrackingDBClientRequest 数据包 ID。
+  // 该 tracking ID 也会作为 SerialisedData 字段中的 'id' 字段出现。
+  //
+  // TrackingID is the ID of the PositionTrackingDBClientRequest packet that this packet was in response to.
+  // The tracking ID is also present as the 'id' field in the SerialisedData field.
+  //
+  // Added: v1.16
+  int32 TrackingID = 2;
+  // Payload 是网络小端复合标签，保存从位置跟踪数据库检索出的数据。
+  // 下方是在 BroadcastAction 为 Update 类型时发送的数据结构示例：
+  //
+  // Payload is a network little endian compound tag holding the data retrieved from the position tracking DB.
+  // An example data structure sent if BroadcastAction is of the type Update:
+  // TAG_Compound({
+  //        'version': TAG_Byte(0x01),
+  //        'dim': TAG_Int(0),
+  //        'id': TAG_String(0x00000001),
+  //        'pos': TAG_List<TAG_Int>({
+  //                -299,
+  //                86,
+  //                74,
+  //        }),
+  //        'status': TAG_Byte(0x00), // 0x00 for updating, 0x02 for not found/block destroyed.
+  // })
+  //
+  // Added: v1.16
+  // Go type: map[string]any
+  map<string, google.protobuf.Value> Payload = 3;
+}
+

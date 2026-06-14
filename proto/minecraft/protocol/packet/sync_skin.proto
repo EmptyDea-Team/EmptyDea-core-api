@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.sync_skin;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "netease.proto";
+import "packet_options.proto";
+import "skin.proto";
+
+// SyncSkin 是网易皮肤同步数据包。
+//
+// SyncSkin is a NetEase skin sync packet.
+//
+// Added: NetEase.
+message SyncSkin {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDSyncSkin;
+  // Go type: []protocol.NetEasePlayerData
+  repeated .mousetunnel.minecraft.protocol.netease.NetEasePlayerData PlayerData = 1;
+  // Go type: []string
+  repeated string PlayerUIDs = 2;
+  // Go type: []string
+  repeated string Unknown = 3;
+  // Go type: []string
+  repeated string SkinItemIDs = 4;
+  .mousetunnel.minecraft.protocol.skin.Skin Skin = 5;
+}
+

@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.structure_template_data_response;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "google/protobuf/struct.proto";
+import "packet_options.proto";
+
+enum StructureTemplateResponseEnum {
+  STRUCTURETEMPLATERESPONSEENUM_UNSPECIFIED = 0;
+  StructureTemplateResponseExport = 1;
+  StructureTemplateResponseQuery = 2;
+}
+
+// StructureTemplateDataResponse 由服务器发送，用于响应 StructureTemplateDataRequest 数据包，
+// 将结构数据发送给客户端。
+//
+// StructureTemplateDataResponse is sent by the server to send data of a structure to the client in response
+// to a StructureTemplateDataRequest packet.
+//
+// Added: v1.19.50
+message StructureTemplateDataResponse {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDStructureTemplateDataResponse;
+  // StructureName 是被请求的结构名称。该名称用于将结构导出到文件。
+  //
+  // StructureName is the name of the structure that was requested. This is the name used to export the
+  // structure to a file.
+  //
+  // Added: v1.19.50
+  string StructureName = 1;
+  // Success 指定是否通过 StructureTemplateDataRequest 数据包中发送的 StructureName 找到了结构模板。
+  //
+  // Success specifies if a structure template was found by the StructureName that was sent in a
+  // StructureTemplateDataRequest packet.
+  //
+  // Added: v1.19.50
+  bool Success = 2;
+  // ResponseType 指定该数据包的响应类型。它取决于 StructureTemplateDataRequest 数据包中发送的
+  // RequestType 字段，并且是上方常量之一。
+  //
+  // ResponseType specifies the response type of the packet. This depends on the RequestType field sent in
+  // the StructureTemplateDataRequest packet and is one of the constants above.
+  //
+  // Added: v1.19.50
+  // Go type: byte
+  uint32 ResponseType = 3;
+  // StructureTemplate 保存结构模板的数据。
+  //
+  // StructureTemplate holds the data of the structure template.
+  //
+  // Added: v1.19.50
+  // Go type: map[string]any
+  map<string, google.protobuf.Value> StructureTemplate = 4;
+}
+

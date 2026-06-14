@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.chiseled_bookshelf;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actors";
+
+import "block_actors/general_actors/block_actor.proto";
+
+// ChiseledBookshelf 描述雕纹书架方块实体。
+//
+// ChiseledBookshelf describes the chiseled bookshelf block actor.
+message ChiseledBookshelf {
+  .mousetunnel.minecraft.protocol.block_actors.general_actors.block_actor.BlockActor BlockActor = 1;
+}
+

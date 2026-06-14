@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.rider_jump;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// RiderJump 在客户端骑乘支持蓄力跳跃的坐骑并进行跳跃时发送。
+//
+// RiderJump is sent by the client when jumping with a mount that supports charged jumps.
+//
+// Added: v1.11.1
+message RiderJump {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDRiderJump;
+  // JumpStrength 是蓄力跳跃强度，通常在 0 到 100 的范围内。
+  //
+  // JumpStrength is the charged jump strength, generally in the 0-100 range.
+  //
+  // Added: v1.11.1
+  int32 JumpStrength = 1;
+}
+

@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.set_hud;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+enum HudElementEnum {
+  HudElementPaperDoll = 0;
+  HudElementArmour = 1;
+  HudElementToolTips = 2;
+  HudElementTouchControls = 3;
+  HudElementCrosshair = 4;
+  HudElementHotBar = 5;
+  HudElementHealth = 6;
+  HudElementProgressBar = 7;
+  HudElementHunger = 8;
+  HudElementAirBubbles = 9;
+  HudElementHorseHealth = 10;
+  HudElementStatusEffects = 11;
+  HudElementItemText = 12;
+}
+
+enum HudVisibilityEnum {
+  HudVisibilityHide = 0;
+  HudVisibilityReset = 1;
+}
+
+// SetHud 由服务器发送，用于设置客户端上各个 HUD 元素的可见性。
+//
+// SetHud is sent by the server to set the visibility of individual HUD elements on the client.
+//
+// Added: v1.20.60
+message SetHud {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDSetHud;
+  // Elements 是正在修改的 HUD 元素列表。值可以是上方任意 HudElement 常量。
+  //
+  // Elements is a list of HUD elements that are being modified. The values can be any of the HudElement
+  // constants above.
+  //
+  // Added: v1.20.60
+  // Go type: []int32
+  repeated int32 Elements = 1;
+  // Visibility 表示指定 Elements 的新可见性。它可以是上方任意 HudVisibility 常量。
+  //
+  // Visibility represents the new visibility of the specified Elements. It can be any of the HudVisibility
+  // constants above.
+  //
+  // Added: v1.20.60
+  int32 Visibility = 2;
+}
+

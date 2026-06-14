@@ -1,0 +1,905 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.camera;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+import "io.proto";
+import "mgl32.proto";
+
+enum AimAssistTargetModeEnum {
+  AimAssistTargetModeAngle = 0;
+  AimAssistTargetModeDistance = 1;
+}
+
+enum AudioListenerEnum {
+  AudioListenerCamera = 0;
+  AudioListenerPlayer = 1;
+}
+
+enum EasingTypeEnum {
+  EasingTypeLinear = 0;
+  EasingTypeSpring = 1;
+  EasingTypeInQuad = 2;
+  EasingTypeOutQuad = 3;
+  EasingTypeInOutQuad = 4;
+  EasingTypeInCubic = 5;
+  EasingTypeOutCubic = 6;
+  EasingTypeInOutCubic = 7;
+  EasingTypeInQuart = 8;
+  EasingTypeOutQuart = 9;
+  EasingTypeInOutQuart = 10;
+  EasingTypeInQuint = 11;
+  EasingTypeOutQuint = 12;
+  EasingTypeInOutQuint = 13;
+  EasingTypeInSine = 14;
+  EasingTypeOutSine = 15;
+  EasingTypeInOutSine = 16;
+  EasingTypeInExpo = 17;
+  EasingTypeOutExpo = 18;
+  EasingTypeInOutExpo = 19;
+  EasingTypeInCirc = 20;
+  EasingTypeOutCirc = 21;
+  EasingTypeInOutCirc = 22;
+  EasingTypeInBounce = 23;
+  EasingTypeOutBounce = 24;
+  EasingTypeInOutBounce = 25;
+  EasingTypeInBack = 26;
+  EasingTypeOutBack = 27;
+  EasingTypeInOutBack = 28;
+  EasingTypeInElastic = 29;
+  EasingTypeOutElastic = 30;
+  EasingTypeInOutElastic = 31;
+  EasingTypeInverseLerp = 32;
+}
+
+// CameraEase 表示可由 CameraInstructionSet 使用的缓动函数。
+//
+// CameraEase represents an easing function that can be used by a CameraInstructionSet.
+//
+// Added: v1.20.30
+message CameraEase {
+  // Type 是使用的缓动函数类型，取值为上面的常量之一。
+  //
+  // Type is the type of easing function used. This is one of the constants above.
+  //
+  // Added: v1.20.30
+  // Go type: uint8
+  uint32 Type = 1;
+  // Duration 是缓动函数持续的时间，单位为秒。
+  //
+  // Duration is the time in seconds that the easing function should take.
+  //
+  // Added: v1.20.30
+  // Go type: float32
+  float Duration = 2;
+}
+
+// CameraInstructionSet 表示将相机设置为指定预设的相机指令，
+// 并可通过缓动函数以及相机位置和旋转平移进行扩展。
+//
+// CameraInstructionSet represents a camera instruction that sets the camera to a specified preset and can be extended
+// with easing functions and translations to the camera's position and rotation.
+//
+// Added: v1.20.30
+message CameraInstructionSet {
+  // Preset 是发送给玩家的 CameraPresets 数据包中的预设索引。
+  //
+  // Preset is the index of the preset in the CameraPresets packet sent to the player.
+  //
+  // Added: v1.20.30
+  uint32 Preset = 1;
+  // Ease 表示该指令使用的缓动函数。
+  //
+  // Ease represents the easing function that is used by the instruction.
+  //
+  // Added: v1.20.30
+  // Go type: Optional[CameraEase]
+  .mousetunnel.minecraft.protocol.Optional Ease = 2;
+  // Position 表示相机位置。
+  //
+  // Position represents the position of the camera.
+  //
+  // Added: v1.20.30
+  // Go type: Optional[mgl32.Vec3]
+  .mousetunnel.minecraft.protocol.Optional Position = 3;
+  // Rotation 表示相机旋转。
+  //
+  // Rotation represents the rotation of the camera.
+  //
+  // Added: v1.20.30
+  // Go type: Optional[mgl32.Vec2]
+  .mousetunnel.minecraft.protocol.Optional Rotation = 4;
+  // Facing 是相机在指令持续期间始终朝向的向量。
+  //
+  // Facing is a vector that the camera will always face towards during the duration of the instruction.
+  //
+  // Added: v1.20.30
+  // Go type: Optional[mgl32.Vec3]
+  .mousetunnel.minecraft.protocol.Optional Facing = 5;
+  // ViewOffset 是基于玩家枢轴点的偏移量，会使相机向某个方向偏移。
+  //
+  // ViewOffset is an offset based on a pivot point to the player, causing the camera to be shifted in a
+  // certain direction.
+  //
+  // Added: v1.21.20
+  // Go type: Optional[mgl32.Vec2]
+  .mousetunnel.minecraft.protocol.Optional ViewOffset = 6;
+  // EntityOffset 是相机应渲染到的、相对于实体的偏移量。
+  //
+  // EntityOffset is an offset from the entity that the camera should be rendered at.
+  //
+  // Added: v1.21.40
+  // Go type: Optional[mgl32.Vec3]
+  .mousetunnel.minecraft.protocol.Optional EntityOffset = 7;
+  // Default 表示该相机是否为默认相机。
+  //
+  // Default determines whether the camera is a default camera or not.
+  //
+  // Added: v1.20.30
+  // Go type: Optional[bool]
+  .mousetunnel.minecraft.protocol.Optional Default = 8;
+  // IgnoreStartingValuesComponent 的行为目前未知。
+  //
+  // IgnoreStartingValuesComponent behavior is currently unknown.
+  //
+  // Added: v1.21.90
+  bool IgnoreStartingValuesComponent = 9;
+}
+
+// CameraFadeTimeData 表示 CameraInstructionFade 的时间数据。
+//
+// CameraFadeTimeData represents the time data for a CameraInstructionFade.
+//
+// Added: v1.21.20
+message CameraFadeTimeData {
+  // FadeInDuration 是屏幕完全淡入所需的时间，单位为秒。
+  //
+  // FadeInDuration is the time in seconds for the screen to fully fade in.
+  //
+  // Added: v1.21.20
+  // Go type: float32
+  float FadeInDuration = 1;
+  // WaitDuration 是淡出前等待的时间，单位为秒。
+  //
+  // WaitDuration is time in seconds to wait before fading out.
+  //
+  // Added: v1.21.20
+  // Go type: float32
+  float WaitDuration = 2;
+  // FadeOutDuration 是屏幕完全淡出所需的时间，单位为秒。
+  //
+  // FadeOutDuration is the time in seconds for the screen to fully fade out.
+  //
+  // Added: v1.21.20
+  // Go type: float32
+  float FadeOutDuration = 3;
+}
+
+// CameraInstructionFade 表示将屏幕淡入到指定颜色的相机指令。
+//
+// CameraInstructionFade represents a camera instruction that fades the screen to a specified colour.
+//
+// Added: v1.21.20
+message CameraInstructionFade {
+  // TimeData 是淡入淡出使用的时间数据，包含淡入持续时间、等待持续时间和淡出持续时间。
+  //
+  // TimeData is the time data for the fade, which includes the fade in duration, wait duration and fade out
+  // duration.
+  //
+  // Added: v1.21.20
+  // Go type: Optional[CameraFadeTimeData]
+  .mousetunnel.minecraft.protocol.Optional TimeData = 1;
+  // Colour 是屏幕要淡入到的颜色，只使用红、绿、蓝分量。
+  //
+  // Colour is the colour of the screen to fade to. This only uses the red, green and blue components.
+  //
+  // Added: v1.21.20
+  // Go type: Optional[color.RGBA]
+  .mousetunnel.minecraft.protocol.Optional Colour = 2;
+}
+
+// CameraInstructionTarget 表示以特定实体为目标的相机指令。
+//
+// CameraInstructionTarget represents a camera instruction that targets a specific entity.
+//
+// Added: v1.21.20
+message CameraInstructionTarget {
+  // CenterOffset 是相机应瞄准位置相对于实体中心的偏移量。
+  //
+  // CenterOffset is the offset from the center of the entity that the camera should target.
+  //
+  // Added: v1.21.20
+  // Go type: Optional[mgl32.Vec3]
+  .mousetunnel.minecraft.protocol.Optional CenterOffset = 1;
+  // EntityUniqueID 是相机应瞄准实体的唯一 ID。
+  //
+  // EntityUniqueID is the unique ID of the entity that the camera should target.
+  //
+  // Added: v1.21.20
+  int64 EntityUniqueID = 2;
+}
+
+// CameraInstructionFieldOfView 表示更新视野范围的相机指令。
+//
+// CameraInstructionFieldOfView represents a camera instruction that updates the field of view.
+//
+// Added: v1.21.100
+message CameraInstructionFieldOfView {
+  // FieldOfView 是相机视野范围。
+  //
+  // FieldOfView is the field of view of the camera.
+  //
+  // Added: v1.21.100
+  // Go type: float32
+  float FieldOfView = 1;
+  // EaseTime 是缓动函数应花费的时间，单位为秒。
+  //
+  // EaseTime is the time in seconds that the easing function should take.
+  //
+  // Added: v1.21.100
+  // Go type: float32
+  float EaseTime = 2;
+  // EaseType 是使用的缓动函数类型，取值为上面的常量之一。
+  //
+  // EaseType is the type of easing function used. This is one of the constants above.
+  //
+  // Changed: v1.26.10, encoded as a string easing identifier instead of a uint8 enum value.
+  int32 EaseType = 3;
+  // Clear 可设置为 true 以清除当前指令。
+  //
+  // Clear can be set to true to clear the current instruction.
+  //
+  // Added: v1.21.100
+  bool Clear = 4;
+}
+
+// CameraPreset 表示基础预设，可由更复杂的指令继续扩展。
+//
+// CameraPreset represents a basic preset that can be extended upon by more complex instructions.
+//
+// Added: v1.20.30
+message CameraPreset {
+  // Name 是预设名称。每个预设都必须有唯一名称。
+  //
+  // Name is the name of the preset. Each preset must have their own unique name.
+  //
+  // Added: v1.20.30
+  string Name = 1;
+  // Parent 是该预设继承的预设名称，可留空。
+  //
+  // Parent is the name of the preset that this preset extends upon. This can be left empty.
+  //
+  // Added: v1.20.30
+  string Parent = 2;
+  // PosX 是相机默认 X 位置。
+  //
+  // PosX is the default X position of the camera.
+  //
+  // Added: v1.20.30
+  // Go type: Optional[float32]
+  .mousetunnel.minecraft.protocol.Optional PosX = 3;
+  // PosY 是相机默认 Y 位置。
+  //
+  // PosY is the default Y position of the camera.
+  //
+  // Added: v1.20.30
+  // Go type: Optional[float32]
+  .mousetunnel.minecraft.protocol.Optional PosY = 4;
+  // PosZ 是相机默认 Z 位置。
+  //
+  // PosZ is the default Z position of the camera.
+  //
+  // Added: v1.20.30
+  // Go type: Optional[float32]
+  .mousetunnel.minecraft.protocol.Optional PosZ = 5;
+  // RotX 是相机默认俯仰角。
+  //
+  // RotX is the default pitch of the camera.
+  //
+  // Added: v1.20.30
+  // Go type: Optional[float32]
+  .mousetunnel.minecraft.protocol.Optional RotX = 6;
+  // RotY 是相机默认偏航角。
+  //
+  // RotY is the default yaw of the camera.
+  //
+  // Added: v1.20.30
+  // Go type: Optional[float32]
+  .mousetunnel.minecraft.protocol.Optional RotY = 7;
+  // RotationSpeed 是相机应旋转的速度。
+  //
+  // RotationSpeed is the speed at which the camera should rotate.
+  //
+  // Added: v1.21.30
+  // Go type: Optional[float32]
+  .mousetunnel.minecraft.protocol.Optional RotationSpeed = 8;
+  // SnapToTarget 表示相机是否应吸附到目标实体。
+  //
+  // SnapToTarget determines whether the camera should snap to the target entity or not.
+  //
+  // Added: v1.21.30
+  // Go type: Optional[bool]
+  .mousetunnel.minecraft.protocol.Optional SnapToTarget = 9;
+  // HorizontalRotationLimit 是相机的水平旋转限制。
+  //
+  // HorizontalRotationLimit is the horizontal rotation limit of the camera.
+  //
+  // Added: v1.21.40
+  // Go type: Optional[mgl32.Vec2]
+  .mousetunnel.minecraft.protocol.Optional HorizontalRotationLimit = 10;
+  // VerticalRotationLimit 是相机的垂直旋转限制。
+  //
+  // VerticalRotationLimit is the vertical rotation limit of the camera.
+  //
+  // Added: v1.21.40
+  // Go type: Optional[mgl32.Vec2]
+  .mousetunnel.minecraft.protocol.Optional VerticalRotationLimit = 11;
+  // ContinueTargeting 表示使用辅助瞄准时相机是否应继续瞄准。
+  //
+  // ContinueTargeting determines whether the camera should continue targeting when using aim assist.
+  //
+  // Added: v1.21.40
+  // Go type: Optional[bool]
+  .mousetunnel.minecraft.protocol.Optional ContinueTargeting = 12;
+  // TrackingRadius 是辅助瞄准应在相机周围追踪目标的半径。
+  //
+  // TrackingRadius is the radius around the camera that the aim assist should track targets.
+  //
+  // Added: v1.21.50
+  // Go type: Optional[float32]
+  .mousetunnel.minecraft.protocol.Optional TrackingRadius = 13;
+  // ViewOffset 只在 follow_orbit 相机中使用，控制基于玩家枢轴点的偏移量，
+  // 从而使相机向某个方向偏移。
+  //
+  // ViewOffset is only used in a follow_orbit camera and controls an offset based on a pivot point to the
+  // player, causing it to be shifted in a certain direction.
+  //
+  // Added: v1.21.20
+  // Go type: Optional[mgl32.Vec2]
+  .mousetunnel.minecraft.protocol.Optional ViewOffset = 14;
+  // EntityOffset 控制相机应渲染到的、相对于实体的偏移量。
+  //
+  // EntityOffset controls the offset from the entity that the camera should be rendered at.
+  //
+  // Added: v1.21.30
+  // Go type: Optional[mgl32.Vec3]
+  .mousetunnel.minecraft.protocol.Optional EntityOffset = 15;
+  // Radius 只在 follow_orbit 相机中使用，控制相机应渲染在距离玩家多远的位置。
+  //
+  // Radius is only used in a follow_orbit camera and controls how far away from the player the camera should
+  // be rendered.
+  //
+  // Added: v1.21.20
+  // Go type: Optional[float32]
+  .mousetunnel.minecraft.protocol.Optional Radius = 16;
+  // MinYawLimit 是相机最小偏航角限制。
+  //
+  // MinYawLimit is the minimum yaw limit of the camera.
+  //
+  // Added: v1.21.60
+  // Go type: Optional[float32]
+  .mousetunnel.minecraft.protocol.Optional MinYawLimit = 17;
+  // MaxYawLimit 是相机最大偏航角限制。
+  //
+  // MaxYawLimit is the maximum yaw limit of the camera.
+  //
+  // Added: v1.21.60
+  // Go type: Optional[float32]
+  .mousetunnel.minecraft.protocol.Optional MaxYawLimit = 18;
+  // AudioListener 定义使用该预设时音频应从哪里播放，取值为上面的常量之一。
+  //
+  // AudioListener defines where the audio should be played from when using this preset. This is one of the
+  // constants above.
+  //
+  // Added: v1.20.30
+  // Go type: Optional[byte]
+  .mousetunnel.minecraft.protocol.Optional AudioListener = 19;
+  // PlayerEffects 目前未知。
+  //
+  // PlayerEffects is currently unknown.
+  //
+  // Added: v1.20.30
+  // Go type: Optional[bool]
+  .mousetunnel.minecraft.protocol.Optional PlayerEffects = 20;
+  // AimAssist 定义使用该预设时要使用的辅助瞄准。
+  //
+  // AimAssist defines the aim assist to use when using this preset.
+  //
+  // Added: v1.21.50
+  // Go type: Optional[CameraPresetAimAssist]
+  .mousetunnel.minecraft.protocol.Optional AimAssist = 21;
+  // ControlScheme 是客户端在该相机中应使用的控制方案，取值如下。
+  //
+  // ControlScheme is the control scheme that the client should use in this camera. It is one of the following:
+  //  - ControlSchemeLockedPlayerRelativeStrafe is the default behaviour, this cannot be set when the client
+  //    is in a custom camera.
+  //  - ControlSchemeCameraRelative makes movement relative to the camera's transform, with the client's
+  //    rotation being relative to the client's movement.
+  //  - ControlSchemeCameraRelativeStrafe makes movement relative to the camera's transform, with the
+  //    client's rotation being locked.
+  //  - ControlSchemePlayerRelative makes movement relative to the player's transform, meaning holding
+  //    left/right will make the player turn in a circle.
+  //  - ControlSchemePlayerRelativeStrafe makes movement the same as the default behaviour, but can be
+  //    used in a custom camera.
+  //
+  // Added: v1.21.80
+  // Go type: Optional[byte]
+  .mousetunnel.minecraft.protocol.Optional ControlScheme = 22;
+}
+
+// CameraPresetAimAssist 表示辅助瞄准设置的预设。
+//
+// CameraPresetAimAssist represents a preset for aim assist settings.
+//
+// Added: v1.21.50
+message CameraPresetAimAssist {
+  // Preset 是此前在 CameraAimAssistPresets 数据包中定义的预设 ID。
+  //
+  // Preset is the ID of the preset that has previously been defined in the CameraAimAssistPresets packet.
+  //
+  // Added: v1.21.50
+  // Go type: Optional[string]
+  .mousetunnel.minecraft.protocol.Optional Preset = 1;
+  // TargetMode 是相机检测目标时应使用的模式，取值为上面的常量之一。
+  //
+  // TargetMode is the mode that the camera should use for detecting targets. This is one of the constants
+  // above.
+  //
+  // Added: v1.21.50
+  // Go type: Optional[int32]
+  .mousetunnel.minecraft.protocol.Optional TargetMode = 2;
+  // Angle 是辅助瞄准应围绕玩家光标检查目标的最大角度，
+  // 仅在 TargetMode 设置为 protocol.AimAssistTargetModeAngle 时使用。
+  //
+  // Angle is the maximum angle around the playes's cursor that the aim assist should check for a target,
+  // if TargetMode is set to protocol.AimAssistTargetModeAngle.
+  //
+  // Added: v1.21.50
+  // Go type: Optional[mgl32.Vec2]
+  .mousetunnel.minecraft.protocol.Optional Angle = 3;
+  // Distance 是应从玩家光标检查目标的最大距离，
+  // 仅在 TargetMode 设置为 protocol.AimAssistTargetModeDistance 时使用。
+  //
+  // Distance is the maximum distance from the player's cursor should check for a target, if TargetMode is
+  // set to protocol.AimAssistTargetModeDistance.
+  //
+  // Added: v1.21.50
+  // Go type: Optional[float32]
+  .mousetunnel.minecraft.protocol.Optional Distance = 4;
+}
+
+// CameraAimAssistCategory 是辅助瞄准分类，用于定义特定方块和实体的优先级。
+//
+// CameraAimAssistCategory is an aim assist category that defines priorities for specific blocks and entities.
+//
+// Added: v1.21.50
+message CameraAimAssistCategory {
+  // Name 是可被 CameraAimAssistPreset 使用的分类名称。
+  //
+  // Name is the name of the category which can be used by a CameraAimAssistPreset.
+  //
+  // Added: v1.21.50
+  string Name = 1;
+  // Priorities 表示该分类中方块和实体的特定优先级，以及默认优先级。
+  //
+  // Priorities represents the block and entity specific priorities as well as the default priorities for
+  // this category.
+  //
+  // Added: v1.21.50
+  CameraAimAssistPriorities Priorities = 2;
+}
+
+// CameraAimAssistCategoryGroup 是旧版预设布局使用的命名辅助瞄准分类组。
+//
+// CameraAimAssistCategoryGroup is a named group of aim assist categories used by the legacy presets layout.
+//
+// Added: v1.21.50
+// Removed: v1.21.80
+message CameraAimAssistCategoryGroup {
+  // Identifier 是组标识符。
+  //
+  // Identifier is the group identifier.
+  //
+  // Added: v1.21.50
+  string Identifier = 1;
+  // Categories 是该组中的分类列表。
+  //
+  // Categories is a list of categories in the group.
+  //
+  // Added: v1.21.50
+  // Go type: []CameraAimAssistCategory
+  repeated CameraAimAssistCategory Categories = 2;
+}
+
+// CameraAimAssistPriorities 表示用于目标选择的方块和实体特定优先级。
+// 辅助瞄准会在指定阈值内选择优先级最高的方块或实体。
+//
+// CameraAimAssistPriorities represents the block and entity specific priorities for targetting. The aim
+// assist will select the block or entity with the highest priority within the specified thresholds.
+//
+// Added: v1.21.50
+message CameraAimAssistPriorities {
+  // Entities 是特定实体标识符的优先级列表。
+  //
+  // Entities is a list of priorities for specific entity identifiers.
+  //
+  // Added: v1.21.50
+  // Go type: []CameraAimAssistPriority
+  repeated CameraAimAssistPriority Entities = 1;
+  // Blocks 是特定方块标识符的优先级列表。
+  //
+  // Blocks is a list of priorities for specific block identifiers.
+  //
+  // Added: v1.21.50
+  // Go type: []CameraAimAssistPriority
+  repeated CameraAimAssistPriority Blocks = 2;
+  // BlockTags 是特定方块标签的优先级列表。
+  //
+  // BlockTags is a list of priorities for specific block tags.
+  //
+  // Added: v1.21.130.28
+  // Go type: []CameraAimAssistPriority
+  repeated CameraAimAssistPriority BlockTags = 3;
+  // EntityTypeFamilies 是特定实体类型族的优先级列表。
+  //
+  // EntityTypeFamilies is a list of priorities for specific entity type families.
+  //
+  // Added: v1.26.0
+  // Go type: []CameraAimAssistPriority
+  repeated CameraAimAssistPriority EntityTypeFamilies = 4;
+  // EntityDefault 是实体的默认优先级。
+  //
+  // EntityDefault is the default priority for entities.
+  //
+  // Added: v1.21.50
+  // Go type: Optional[int32]
+  .mousetunnel.minecraft.protocol.Optional EntityDefault = 5;
+  // BlockDefault 是方块的默认优先级。
+  //
+  // BlockDefault is the default priority for blocks.
+  //
+  // Added: v1.21.50
+  // Go type: Optional[int32]
+  .mousetunnel.minecraft.protocol.Optional BlockDefault = 6;
+}
+
+// CameraAimAssistPriority 表示特定目标的非默认优先级。
+//
+// CameraAimAssistPriority represents a non-default priority for a specific target.
+//
+// Added: v1.21.50
+message CameraAimAssistPriority {
+  // Identifier 是要定义优先级的目标标识符。
+  //
+  // Identifier is the identifier of a target to define the priority for.
+  //
+  // Added: v1.21.50
+  string Identifier = 1;
+  // Priority 是该特定目标的优先级。
+  //
+  // Priority is the priority for this specific target.
+  //
+  // Added: v1.21.50
+  int32 Priority = 2;
+}
+
+// CameraAimAssistPreset 定义发送辅助瞄准时可继续扩展的基础预设。
+//
+// CameraAimAssistPreset defines a base preset that can be extended upon when sending an aim assist.
+//
+// Added: v1.21.50
+message CameraAimAssistPreset {
+  // Identifier 表示该预设的标识符。
+  //
+  // Identifier represents the identifier of this preset.
+  //
+  // Added: v1.21.50
+  string Identifier = 1;
+  // Category 是该预设使用的旧版分类组标识符。
+  //
+  // Category is the legacy category group identifier used by the preset.
+  //
+  // Added: v1.21.50
+  // Removed: v1.21.60
+  string Category = 2;
+  // BlockExclusions 是辅助瞄准应忽略的方块标识符列表。
+  //
+  // BlockExclusions is a list of block identifiers that should be ignored by the aim assist.
+  //
+  // Added: v1.21.50
+  // Go type: []string
+  repeated string BlockExclusions = 3;
+  // EntityExclusions 是辅助瞄准应忽略的实体标识符列表。
+  //
+  // EntityExclusions is a list of entity identifiers that should be ignored by the aim assist.
+  //
+  // Added: v1.21.130.28
+  // Go type: []string
+  repeated string EntityExclusions = 4;
+  // BlockTagExclusions 是辅助瞄准应忽略的方块标签列表。
+  //
+  // BlockTagExclusions is a list of block tags that should be ignored by the aim assist.
+  //
+  // Added: v1.21.130.28
+  // Go type: []string
+  repeated string BlockTagExclusions = 5;
+  // EntityTypeFamilyExclusions 是辅助瞄准应忽略的实体类型族列表。
+  //
+  // EntityTypeFamilyExclusions is a list of entity type families that should be ignored by the aim assist.
+  //
+  // Added: v1.26.0
+  // Go type: []string
+  repeated string EntityTypeFamilyExclusions = 6;
+  // LiquidTargets 是位于液体中时应被作为目标的实体标识符列表。
+  //
+  // LiquidTargets is a list of entity identifiers that should be targetted when inside of a liquid.
+  //
+  // Added: v1.21.50
+  // Go type: []string
+  repeated string LiquidTargets = 7;
+  // ItemSettings 是特定物品标识符的设置列表。如果物品未列在这里，
+  // 会回退到 DefaultItemSettings；若未手持物品，则回退到 HandSettings。
+  //
+  // ItemSettings is a list of settings for specific item identifiers. If an item is not listed here, it
+  // will fallback to DefaultItemSettings or HandSettings if no item is held.
+  //
+  // Added: v1.21.50
+  // Go type: []CameraAimAssistItemSettings
+  repeated CameraAimAssistItemSettings ItemSettings = 8;
+  // DefaultItemSettings 是玩家手持物品不在 ItemSettings 中时要使用的分类标识符。
+  // 它必须是 Categories 切片内某个分类的标识符。
+  //
+  // DefaultItemSettings is the identifier of a category to use when the player is not holding an item
+  // listed in ItemSettings. This must be the identifier of a category within the Categories slice.
+  //
+  // Added: v1.21.50
+  // Go type: Optional[string]
+  .mousetunnel.minecraft.protocol.Optional DefaultItemSettings = 9;
+  // HandSettings 是玩家未手持物品时要使用的分类标识符。
+  // 它必须是 Categories 切片内某个分类的标识符。
+  //
+  // HandSettings is the identifier of a category to use when the player is not holding an item. This must
+  // be the identifier of a category within Categories slice.
+  //
+  // Added: v1.21.50
+  // Go type: Optional[string]
+  .mousetunnel.minecraft.protocol.Optional HandSettings = 10;
+}
+
+// CameraAimAssistItemSettings 定义使用辅助瞄准时特定物品应如何表现。
+//
+// CameraAimAssistItemSettings defines settings for how specific items should behave when using aim assist.
+//
+// Added: v1.21.50
+message CameraAimAssistItemSettings {
+  // Item 是要应用这些设置的物品标识符。
+  //
+  // Item is the identifier of the item to apply the settings to.
+  //
+  // Added: v1.21.50
+  string Item = 1;
+  // Category 是要使用的分类标识符，该分类已由 CameraAimAssistCategory 定义。
+  // 这里只能使用 CameraAimAssistPreset 使用的 Categories 切片中定义的分类。
+  //
+  // Category is the identifier of a category to use which has been defined by a CameraAimAssistCategory.
+  // Only categories defined in the Categories slice used by the CameraAimAssistPreset can be
+  // used here.
+  //
+  // Added: v1.21.50
+  string Category = 2;
+}
+
+// CameraRotationOption 表示相机样条指令的旋转选项。
+//
+// CameraRotationOption represents a rotation option for camera spline instructions.
+//
+// Added: v1.21.120
+message CameraRotationOption {
+  // 值 是 rotation 值。
+  //
+  // Value is the rotation value.
+  //
+  // Added: v1.21.120
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 Value = 1;
+  // Time 是该旋转选项对应的时间。
+  //
+  // Time is the time for this rotation option.
+  //
+  // Added: v1.21.120
+  // Go type: float32
+  float Time = 2;
+  // EaseType 是插值到该旋转关键帧时使用的缓动函数。
+  //
+  // EaseType is the easing function used to interpolate towards this rotation key frame.
+  //
+  // Changed: v1.26.10, encoded as a string easing identifier instead of a uint8 enum value.
+  int32 EaseType = 3;
+}
+
+// CameraProgressOption 表示相机样条指令的进度关键帧选项。
+//
+// CameraProgressOption represents a progress keyframe option for camera spline instructions.
+//
+// Added: v1.26.0
+message CameraProgressOption {
+  // 值 是 progress 值。
+  //
+  // Value is the progress value.
+  //
+  // Added: v1.26.0
+  // Go type: float32
+  float Value = 1;
+  // Time 是该进度选项对应的时间。
+  //
+  // Time is the time for this progress option.
+  //
+  // Added: v1.26.0
+  // Go type: float32
+  float Time = 2;
+  // EaseType 是插值到该进度关键帧时使用的缓动函数。
+  //
+  // EaseType is the easing function used to interpolate towards this progress key frame.
+  //
+  // Changed: v1.26.10, encoded as a string easing identifier instead of a uint8 enum value.
+  int32 EaseType = 3;
+}
+
+// CameraSplineInstruction 表示创建相机跟随样条路径的相机指令。
+//
+// CameraSplineInstruction represents a camera instruction that creates a spline path for the camera to follow.
+//
+// Added: v1.21.120
+message CameraSplineInstruction {
+  // TotalTime 是样条动画的总时长。
+  //
+  // TotalTime is the total time for the spline animation.
+  //
+  // Added: v1.21.120
+  // Go type: float32
+  float TotalTime = 1;
+  // SplineType 是样条曲线可选的插值类型。
+  //
+  // SplineType is the optional spline interpolation type used for the spline curve.
+  //
+  // Added: v1.21.120
+  // Go type: Optional[string]
+  .mousetunnel.minecraft.protocol.Optional SplineType = 2;
+  // Curve 是定义样条曲线的点列表。
+  //
+  // Curve is a list of points that define the spline curve.
+  //
+  // Added: v1.21.120
+  // Go type: []mgl32.Vec3
+  repeated .mousetunnel.minecraft.protocol.mgl32.Vec3 Curve = 3;
+  // ProgressKeyFrames 是样条使用的进度关键帧列表。
+  //
+  // ProgressKeyFrames is a list of progress key frames for the spline.
+  //
+  // Added: v1.21.120
+  // Go type: []CameraProgressOption
+  repeated CameraProgressOption ProgressKeyFrames = 4;
+  // RotationOptions 是样条使用的旋转选项列表。
+  //
+  // RotationOptions is a list of rotation options for the spline.
+  //
+  // Added: v1.21.120
+  // Go type: []CameraRotationOption
+  repeated CameraRotationOption RotationOptions = 5;
+  // SplineIdentifier 是用于按名称引用样条的可选标识符。
+  //
+  // SplineIdentifier is an optional identifier for referencing the spline by name.
+  //
+  // Added: v1.26.10
+  // Go type: Optional[string]
+  .mousetunnel.minecraft.protocol.Optional SplineIdentifier = 6;
+  // LoadFromJson 可选地决定是否从 JSON 定义加载样条。
+  //
+  // LoadFromJson optionally determines whether the spline should be loaded from a JSON definition.
+  //
+  // Added: v1.26.10
+  // Go type: Optional[bool]
+  .mousetunnel.minecraft.protocol.Optional LoadFromJson = 7;
+}
+
+// CameraSplineDefinition 表示带名称的相机样条定义。
+//
+// CameraSplineDefinition represents a named camera spline definition.
+//
+// Added: v1.26.0
+message CameraSplineDefinition {
+  // Name 是样条定义的名称。
+  //
+  // Name is the name of the spline definition.
+  //
+  // Added: v1.26.0
+  string Name = 1;
+  // Instruction 是 v1.26.0 布局使用的嵌套样条指令负载。
+  //
+  // Instruction is the nested spline instruction payload used by the v1.26.0 layout.
+  //
+  // Removed: v1.26.10
+  CameraSplineInstruction Instruction = 2;
+  // TotalTime 是 v1.26.10+ 扁平布局中的样条动画总时长。
+  //
+  // TotalTime is the total time for the spline animation in the flattened v1.26.10+ layout.
+  //
+  // Added: v1.26.10
+  // Go type: float32
+  float TotalTime = 3;
+  // SplineType 是 v1.26.10+ 扁平布局中的可选样条插值类型。
+  //
+  // SplineType is the optional spline interpolation type in the flattened v1.26.10+ layout.
+  //
+  // Added: v1.26.10
+  // Go type: Optional[string]
+  .mousetunnel.minecraft.protocol.Optional SplineType = 4;
+  // ControlPoints 是 v1.26.10+ 扁平布局中定义样条曲线的点列表。
+  //
+  // ControlPoints is a list of points that define the spline curve in the flattened v1.26.10+ layout.
+  //
+  // Added: v1.26.10
+  // Go type: []mgl32.Vec3
+  repeated .mousetunnel.minecraft.protocol.mgl32.Vec3 ControlPoints = 5;
+  // ProgressKeyFrames 是 v1.26.10+ 扁平布局中样条使用的进度关键帧列表。
+  //
+  // ProgressKeyFrames is a list of progress key frames for the spline in the flattened v1.26.10+ layout.
+  //
+  // Added: v1.26.10
+  // Go type: []CameraProgressOption
+  repeated CameraProgressOption ProgressKeyFrames = 6;
+  // RotationKeyFrames 是 v1.26.10+ 扁平布局中样条使用的旋转关键帧列表。
+  //
+  // RotationKeyFrames is a list of rotation key frames for the spline in the flattened v1.26.10+ layout.
+  //
+  // Added: v1.26.10
+  // Go type: []CameraRotationOption
+  repeated CameraRotationOption RotationKeyFrames = 7;
+  // SplineIdentifier 是用于按名称引用样条的标识符。
+  //
+  // SplineIdentifier is the identifier for referencing the spline by name.
+  //
+  // Added: v1.26.10
+  // Go type: Optional[string]
+  .mousetunnel.minecraft.protocol.Optional SplineIdentifier = 8;
+  // LoadFromJson 决定是否从 JSON 定义加载样条。
+  //
+  // LoadFromJson determines whether the spline should be loaded from a JSON definition.
+  //
+  // Added: v1.26.10
+  // Go type: Optional[bool]
+  .mousetunnel.minecraft.protocol.Optional LoadFromJson = 9;
+}
+
+// CameraAimAssistActorPriorityData 表示辅助瞄准实体目标的优先级数据。
+//
+// CameraAimAssistActorPriorityData represents priority data for aim assist actor targeting.
+//
+// Added: v1.26.0
+message CameraAimAssistActorPriorityData {
+  // PresetIndex 是辅助瞄准预设的索引。
+  //
+  // PresetIndex is the index of the aim assist preset.
+  //
+  // Added: v1.26.0
+  int32 PresetIndex = 1;
+  // CategoryIndex 是辅助瞄准分类的索引。
+  //
+  // CategoryIndex is the index of the aim assist category.
+  //
+  // Added: v1.26.0
+  int32 CategoryIndex = 2;
+  // ActorIndex 是实体的索引。
+  //
+  // ActorIndex is the index of the actor.
+  //
+  // Added: v1.26.0
+  int32 ActorIndex = 3;
+  // Priority 是该实体的优先级值。
+  //
+  // Priority is the priority value for this actor.
+  //
+  // Added: v1.26.0
+  int32 Priority = 4;
+}
+

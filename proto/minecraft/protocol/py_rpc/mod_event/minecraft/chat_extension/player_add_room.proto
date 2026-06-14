@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_extension.player_add_room;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_extension;chat_extension";
+
+import "py_rpc/mod_event/minecraft/chat_extension/basic.proto";
+
+// PlayerAddRoom 在玩家加入房间时同步运行时 ID、维度和 UID。
+//
+// PlayerAddRoom synchronises runtime IDs, dimensions and UIDs when a player joins the room.
+message PlayerAddRoom {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_extension.basic.Basic Basic = 1;
+  // DimID 保存运行时 ID 到维度 ID 的映射。
+  //
+  // DimID stores the mapping from runtime ID to dimension ID.
+  // Go type: map[RuntimeID]int64
+  map<string, int64> DimID = 2;
+  // UIDByRuntimeID 保存运行时 ID 到网易 UID 的映射。
+  //
+  // UIDByRuntimeID stores the mapping from runtime ID to NetEase UID.
+  // Go type: map[RuntimeID]NetEaseUserUID
+  map<string, NetEaseUserUID> UIDByRuntimeID = 3;
+  // PrefixInfo 保存运行时 ID 到前缀信息的映射。
+  //
+  // PrefixInfo stores the mapping from runtime ID to prefix information.
+  // Go type: map[RuntimeID]PrefixInfo
+  map<string, PrefixInfo> PrefixInfo = 4;
+  // UID 保存加入房间的网易 UID 列表。
+  //
+  // UID stores the list of NetEase UIDs that joined the room.
+  // Go type: []NetEaseUserUID
+  repeated NetEaseUserUID UID = 5;
+}
+
+// PrefixInfo 描述聊天扩展玩家前缀。
+//
+// PrefixInfo describes a chat-extension player prefix.
+message PrefixInfo {
+  // Prefix 是前缀文本。
+  //
+  // Prefix is the prefix text.
+  string Prefix = 1;
+  // PrefixColor 是前缀颜色控制串。
+  //
+  // PrefixColor is the prefix color control string.
+  string PrefixColor = 2;
+}
+
+// RuntimeID 描述玩家运行时 ID。
+//
+// RuntimeID describes a player runtime ID.
+message RuntimeID {
+  string Value = 1;
+}
+
+// NetEaseUserUID 描述网易我的世界账号 UID。
+//
+// NetEaseUserUID describes a NetEase Minecraft account UID.
+message NetEaseUserUID {
+  string Value = 1;
+}
+

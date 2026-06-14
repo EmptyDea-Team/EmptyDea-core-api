@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.add_volume_entity;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "block_pos.proto";
+import "google/protobuf/struct.proto";
+import "packet_options.proto";
+
+// AddVolumeEntity 将体积实体的定义和元数据从服务器发送到客户端。
+//
+// AddVolumeEntity sends a volume entity's definition and metadata from server to client.
+//
+// Added: v1.17.30
+message AddVolumeEntity {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDAddVolumeEntity;
+  // EntityRuntimeID 是该体积的运行时 ID。运行时 ID 在每个世界会话中唯一，
+  // 数据包通常使用该运行时 ID 标识实体。
+  //
+  // EntityRuntimeID is the runtime ID of the volume. The runtime ID is unique for each world session, and
+  // entities are generally identified in packets using this runtime ID.
+  //
+  // Added: v1.17.30
+  uint32 EntityRuntimeID = 1;
+  // EntityMetadata 是实体元数据映射，包含会改变体积功能或外观的标志和数据属性。
+  //
+  // EntityMetadata is a map of entity metadata, which includes flags and data properties that alter in
+  // particular the way the volume functions or looks.
+  //
+  // Added: v1.17.30
+  // Go type: map[string]any
+  map<string, google.protobuf.Value> EntityMetadata = 2;
+  // EncodingIdentifier 是体积的唯一标识符。它必须采用 `namespace:name` 形式，
+  // 且命名空间不能是 `minecraft`。
+  //
+  // EncodingIdentifier is the unique identifier for the volume. It must be of the form 'namespace:name', where
+  // namespace cannot be 'minecraft'.
+  //
+  // Added: v1.18.10
+  string EncodingIdentifier = 3;
+  // InstanceIdentifier 是雾定义的标识符。
+  //
+  // InstanceIdentifier is the identifier of a fog definition.
+  //
+  // Added: v1.18.10
+  string InstanceIdentifier = 4;
+  // Bounds 表示体积边界。第一个值是最小边界，第二个值是最大边界。
+  //
+  // Bounds represent the volume's bounds. The first value is the minimum bounds, and the second value is the
+  // maximum bounds.
+  //
+  // Added: v1.18.30
+  // Go type: [2]protocol.BlockPos
+  repeated .mousetunnel.minecraft.protocol.block_pos.BlockPos Bounds = 5;
+  // Dimension 是该体积所在的维度。
+  //
+  // Dimension is the dimension in which the volume exists.
+  //
+  // Added: v1.18.30
+  int32 Dimension = 6;
+  // EngineVersion 是该实体使用的引擎版本，例如 `1.17.0`。
+  //
+  // EngineVersion is the engine version the entity is using, for example, '1.17.0'.
+  //
+  // Added: v1.17.30
+  string EngineVersion = 7;
+}
+

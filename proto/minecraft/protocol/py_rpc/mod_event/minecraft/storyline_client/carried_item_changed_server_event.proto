@@ -1,0 +1,72 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.storyline_client.carried_item_changed_server_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/storyline_client;storyline_client";
+
+import "py_rpc/mod_event/minecraft/storyline_client/basic.proto";
+
+// CarriedItemChangedServerEvent 转发客户端手持物品变化事件。
+//
+// CarriedItemChangedServerEvent forwards client carried item changes.
+message CarriedItemChangedServerEvent {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.storyline_client.basic.Basic Basic = 1;
+  // PlayerID 是客户端补充的本地玩家 ID。
+  //
+  // PlayerID is the local player ID added by the client.
+  string PlayerID = 2;
+  // Item 是切换后的物品信息字典。
+  //
+  // Item is the carried item dictionary after the change.
+  CarriedItem Item = 3;
+}
+
+// CarriedItem 描述引擎手持物品信息字典中常用字段。
+//
+// CarriedItem describes commonly used fields from the engine carried item dictionary.
+message CarriedItem {
+  // NewItemName 是物品标识。
+  //
+  // NewItemName is the item identifier.
+  string NewItemName = 1;
+  // NewAuxValue 是物品附加值。
+  //
+  // NewAuxValue is the item auxiliary value.
+  int64 NewAuxValue = 2;
+  // Count 是物品数量。
+  //
+  // Count is the item count.
+  int64 Count = 3;
+  // ExtraID 是额外数据 ID。
+  //
+  // ExtraID is the extra data ID.
+  string ExtraID = 4;
+  // CustomTips 是自定义提示文本。
+  //
+  // CustomTips is custom tip text.
+  string CustomTips = 5;
+  // EnchantData 是原版附魔数据。
+  //
+  // EnchantData is vanilla enchantment data.
+  // Go type: []ItemEnchant
+  repeated ItemEnchant EnchantData = 6;
+  // ModEnchantData 是模组附魔数据。
+  //
+  // ModEnchantData is mod enchantment data.
+  // Go type: []ItemEnchant
+  repeated ItemEnchant ModEnchantData = 7;
+}
+
+// ItemEnchant 描述引擎物品附魔二元组。
+//
+// ItemEnchant describes an engine item enchantment tuple.
+message ItemEnchant {
+  // ID 是附魔 ID。
+  //
+  // ID is the enchantment ID.
+  int64 ID = 1;
+  // Level 是附魔等级。
+  //
+  // Level is the enchantment level.
+  int64 Level = 2;
+}
+

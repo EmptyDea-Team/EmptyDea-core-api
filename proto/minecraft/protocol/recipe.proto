@@ -1,0 +1,581 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.recipe;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+import "item.proto";
+import "item_descriptor.proto";
+
+enum RecipeUnlockContextEnum {
+  RecipeUnlockContextNone = 0;
+  RecipeUnlockContextAlwaysUnlocked = 1;
+  RecipeUnlockContextPlayerInWater = 2;
+  RecipeUnlockContextPlayerHasManyItems = 3;
+}
+
+enum RecipeEnum {
+  RecipeShapeless = 0;
+  RecipeShaped = 1;
+  RecipeFurnace = 2;
+  RecipeFurnaceData = 3;
+  RecipeMulti = 4;
+  RecipeShulkerBox = 5;
+  RecipeShapelessChemistry = 6;
+  RecipeShapedChemistry = 7;
+  RecipeSmithingTransform = 8;
+  RecipeSmithingTrim = 9;
+}
+
+// PotionContainerChangeRecipe 表示将药水从一种类型转换为另一种类型的配方。
+// 这包括普通药水加火药变成喷溅药水，以及喷溅药水加龙息变成滞留药水。
+//
+// PotionContainerChangeRecipe represents a recipe to turn a potion from one type to another. This means from
+// a drinkable potion + gunpowder -> splash potion, and from a splash potion + dragon breath -> lingering
+// potion.
+//
+// Added: v1.13.0
+message PotionContainerChangeRecipe {
+  // InputItemID 是放入物品的物品 ID，通常是普通药水或喷溅药水的 ID。
+  //
+  // InputItemID is the item ID of the item to be put in. This is typically either the ID of a normal potion
+  // or a splash potion.
+  //
+  // Added: v1.13.0
+  int32 InputItemID = 1;
+  // ReagentItemID 是需要加入容器以创建输出物品的试剂物品 ID。
+  //
+  // ReagentItemID is the item ID of the item that needs to be added to the container in order to create the
+  // output item.
+  //
+  // Added: v1.13.0
+  int32 ReagentItemID = 2;
+  // OutputItemID 是由 InputItem 和 ReagentItem 组合创建的物品，
+  // 通常是喷溅药水或滞留药水的 ID。
+  //
+  // OutputItemID is the item that is created using a combination of the InputItem and ReagentItem, which is
+  // typically either the ID of a splash potion or a lingering potion.
+  //
+  // Added: v1.13.0
+  int32 OutputItemID = 3;
+}
+
+// PotionRecipe 表示可在酿造台中使用的药水混合配方。
+//
+// PotionRecipe represents a potion mixing recipe which may be used in a brewing stand.
+//
+// Added: v1.13.0
+message PotionRecipe {
+  // InputPotionID 是放入药水的物品 ID。
+  //
+  // InputPotionID is the item ID of the potion to be put in.
+  //
+  // Added: v1.13.0
+  int32 InputPotionID = 1;
+  // InputPotionMetadata 是放入药水的类型，通常是粗制药水的元数据，
+  // 或用于创建粗制药水的水瓶元数据。
+  //
+  // InputPotionMetadata is the type of the potion to be put in. This is typically the meta of the
+  // awkward potion (or water bottle to create an awkward potion).
+  //
+  // Added: v1.13.0
+  int32 InputPotionMetadata = 2;
+  // ReagentItemID 是需要加入酿造台以酿造输出药水的试剂物品 ID。
+  //
+  // ReagentItemID is the item ID of the item that needs to be added to the brewing stand in order to brew
+  // the output potion.
+  //
+  // Added: v1.13.0
+  int32 ReagentItemID = 3;
+  // ReagentItemMetadata 是需要加入酿造台以酿造输出药水的试剂物品元数据值。
+  //
+  // ReagentItemMetadata is the metadata value of the item that needs to be added to the brewing stand in
+  // order to brew the output potion.
+  //
+  // Added: v1.13.0
+  int32 ReagentItemMetadata = 4;
+  // OutputPotionID 是该酿造配方产出药水的物品 ID。
+  //
+  // OutputPotionID is the item ID of the potion obtained as a result of the brewing recipe.
+  //
+  // Added: v1.13.0
+  int32 OutputPotionID = 5;
+  // OutputPotionMetadata 是输入药水和试剂物品酿造后得到的药水类型。
+  //
+  // OutputPotionMetadata is the type of the potion that is obtained as a result of brewing the input
+  // potion with the reagent item.
+  //
+  // Added: v1.13.0
+  int32 OutputPotionMetadata = 6;
+}
+
+// RecipeUnlockRequirement 表示解锁配方必须满足的条件。
+// 它同时用于有形配方和无形配方。
+//
+// RecipeUnlockRequirement represents a requirement that must be met in order to unlock a recipe. This is used
+// for both shaped and shapeless recipes.
+//
+// Added: v1.21.0
+message RecipeUnlockRequirement {
+  // Context 是配方解锁时的上下文，取值为上面的常量之一。
+  //
+  // Context is the context in which the recipe is unlocked. This is one of the constants above.
+  //
+  // Added: v1.21.0
+  // Go type: byte
+  uint32 Context = 1;
+  // Ingredients 是解锁配方所需的材料，仅在 Context 设置为 none 时使用。
+  //
+  // Ingredients are the ingredients required to unlock the recipe and only used if Context is set to none.
+  //
+  // Added: v1.21.0
+  // Go type: []ItemDescriptorCount
+  repeated .mousetunnel.minecraft.protocol.item_descriptor.ItemDescriptorCount Ingredients = 2;
+}
+
+// ShapelessRecipe 是没有特定形状的配方。它的功能与 RecipeShulkerBox 和
+// RecipeShapelessChemistry 类型共享。
+//
+// ShapelessRecipe is a recipe that has no particular shape. Its functionality is shared with the
+// RecipeShulkerBox and RecipeShapelessChemistry types.
+//
+// Added: v1.11.1
+message ShapelessRecipe {
+  // RecipeID 是配方的唯一 ID。该 ID 在所有其他类型的配方中也必须唯一，
+  // 但它的确切功能尚不明确。
+  //
+  // RecipeID is a unique ID of the recipe. This ID must be unique amongst all other types of recipes too,
+  // but its functionality is not exactly known.
+  //
+  // Added: v1.19.60
+  string RecipeID = 1;
+  // Input 是作为无形配方输入的物品列表，这些物品是合成输出所需的物品。
+  //
+  // Input is a list of items that serve as the input of the shapeless recipe. These items are the items
+  // required to craft the output.
+  //
+  // Added: v1.11.1
+  // Go type: []ItemDescriptorCount
+  repeated .mousetunnel.minecraft.protocol.item_descriptor.ItemDescriptorCount Input = 2;
+  // Output 是该配方合成后创建的物品列表。
+  //
+  // Output is a list of items that are created as a result of crafting the recipe.
+  //
+  // Added: v1.11.1
+  // Go type: []ItemStack
+  repeated .mousetunnel.minecraft.protocol.item.ItemStack Output = 3;
+  // UUID 是标识配方的 UUID。由于 CraftingEvent 数据包已不存在，该字段可以始终为空。
+  //
+  // UUID is a UUID identifying the recipe. Since the CraftingEvent packet no longer exists, this can always be empty.
+  //
+  // Added: v1.11.1
+  // Go type: uuid.UUID
+  string UUID = 4;
+  // Block 是合成该配方输出所需的方块名称。方块名称不带 'minecraft:' 前缀，
+  // 例如会显示为 'crafting_table'。
+  //
+  // Block is the block name that is required to craft the output of the recipe. The block is not prefixed
+  // with 'minecraft:', so it will look like 'crafting_table' as an example.
+  // The available blocks are:
+  // - crafting_table
+  // - cartography_table
+  // - stonecutter
+  // - furnace
+  // - blast_furnace
+  // - smoker
+  // - campfire
+  //
+  // Added: v1.11.1
+  string Block = 5;
+  // Priority 是多个配方匹配同一输入时客户端使用的配方优先级。
+  //
+  // Priority is the recipe priority used by the client when multiple recipes match the same input.
+  //
+  // Added: v1.11.1
+  int32 Priority = 6;
+  // UnlockRequirement 是解锁该配方必须满足的条件。
+  //
+  // UnlockRequirement is a requirement that must be met in order to unlock the recipe.
+  //
+  // Added: v1.21.0
+  RecipeUnlockRequirement UnlockRequirement = 7;
+  // RecipeNetworkID 是用于在网络上标识该配方的唯一 ID。每个配方都必须有唯一网络 ID。
+  // 建议为每个注册的唯一配方递增一个变量。该字段绝不能为 0。
+  //
+  // RecipeNetworkID is a unique ID used to identify the recipe over network. Each recipe must have a unique
+  // network ID. Recommended is to just increment a variable for each unique recipe registered.
+  // This field must never be 0.
+  //
+  // Added: v1.16.220
+  uint32 RecipeNetworkID = 8;
+}
+
+// ShulkerBoxRecipe 是专门用于潜影盒合成的无形配方，确保给潜影盒染色时不会丢失用户数据。
+//
+// ShulkerBoxRecipe is a shapeless recipe made specifically for shulker box crafting, so that they don't lose
+// their user data when dyeing a shulker box.
+//
+// Added: v1.19.21
+message ShulkerBoxRecipe {
+  // ShapelessRecipe 保存底层无形配方数据。
+  //
+  // ShapelessRecipe holds the underlying shapeless recipe data.
+  //
+  // Added: v1.19.21
+  ShapelessRecipe ShapelessRecipe = 1;
+}
+
+// ShapelessChemistryRecipe 是专门用于化学相关功能的配方，这些功能只存在于教育版中。
+// 它的行为与无形配方相同。
+//
+// ShapelessChemistryRecipe is a recipe specifically made for chemistry related features, which exist only in
+// the Education Edition. They function the same as shapeless recipes do.
+//
+// Added: v1.19.21
+message ShapelessChemistryRecipe {
+  // ShapelessRecipe 保存底层无形配方数据。
+  //
+  // ShapelessRecipe holds the underlying shapeless recipe data.
+  //
+  // Added: v1.19.21
+  ShapelessRecipe ShapelessRecipe = 1;
+}
+
+// ShapedRecipe 是有特定形状的配方，必须按该形状合成才能得到输出。
+// 使用任何其他形状都无法合成。ShapedRecipe 与 ShapedChemistryRecipe 结构相同。
+//
+// ShapedRecipe is a recipe that has a specific shape that must be used to craft the output of the recipe.
+// Trying to craft the item in any other shape will not work. The ShapedRecipe is of the same structure as the
+// ShapedChemistryRecipe.
+//
+// Added: v1.11.1
+message ShapedRecipe {
+  // RecipeID 是配方的唯一 ID。该 ID 在所有其他类型的配方中也必须唯一，
+  // 但它的确切功能尚不明确。
+  //
+  // RecipeID is a unique ID of the recipe. This ID must be unique amongst all other types of recipes too,
+  // but its functionality is not exactly known.
+  //
+  // Added: v1.19.60
+  string RecipeID = 1;
+  // Width 是配方形状的宽度。
+  //
+  // Width is the width of the recipe's shape.
+  //
+  // Added: v1.11.1
+  int32 Width = 2;
+  // Height 是配方形状的高度。
+  //
+  // Height is the height of the recipe's shape.
+  //
+  // Added: v1.11.1
+  int32 Height = 3;
+  // Input 是作为有形配方输入的物品列表，这些物品是合成输出所需的物品。
+  // 输入物品数量必须恰好等于 Width * Height。
+  //
+  // Input is a list of items that serve as the input of the shapeless recipe. These items are the items
+  // required to craft the output. The amount of input items must be exactly equal to Width * Height.
+  //
+  // Added: v1.11.1
+  // Go type: []ItemDescriptorCount
+  repeated .mousetunnel.minecraft.protocol.item_descriptor.ItemDescriptorCount Input = 4;
+  // Output 是该配方合成后创建的物品列表。
+  //
+  // Output is a list of items that are created as a result of crafting the recipe.
+  //
+  // Added: v1.11.1
+  // Go type: []ItemStack
+  repeated .mousetunnel.minecraft.protocol.item.ItemStack Output = 5;
+  // UUID 是标识配方的 UUID。由于 CraftingEvent 数据包已不存在，该字段可以始终为空。
+  //
+  // UUID is a UUID identifying the recipe. Since the CraftingEvent packet no longer exists, this can always be empty.
+  //
+  // Added: v1.11.1
+  // Go type: uuid.UUID
+  string UUID = 6;
+  // Block 是合成该配方输出所需的方块名称。方块名称不带 'minecraft:' 前缀，
+  // 例如会显示为 'crafting_table'。
+  //
+  // Block is the block name that is required to craft the output of the recipe. The block is not prefixed
+  // with 'minecraft:', so it will look like 'crafting_table' as an example.
+  //
+  // Added: v1.11.1
+  string Block = 7;
+  // Priority 是多个配方匹配同一输入时客户端使用的配方优先级。
+  //
+  // Priority is the recipe priority used by the client when multiple recipes match the same input.
+  //
+  // Added: v1.11.1
+  int32 Priority = 8;
+  // AssumeSymmetry 指定配方是否对称。如果设置为 true，配方会沿对角轴镜像；
+  // 这意味着配方旋转 180 度后仍然相同。
+  //
+  // AssumeSymmetry specifies if the recipe is symmetrical. If this is set to true, the recipe will be
+  // mirrored along the diagonal axis. This means that the recipe will be the same if rotated 180 degrees.
+  //
+  // Added: v1.20.80
+  bool AssumeSymmetry = 9;
+  // UnlockRequirement 是解锁该配方必须满足的条件。
+  //
+  // UnlockRequirement is a requirement that must be met in order to unlock the recipe.
+  //
+  // Added: v1.21.0
+  RecipeUnlockRequirement UnlockRequirement = 10;
+  // RecipeNetworkID 是用于在网络上标识该配方的唯一 ID。每个配方都必须有唯一网络 ID。
+  // 建议为每个注册的唯一配方递增一个变量。该字段绝不能为 0。
+  //
+  // RecipeNetworkID is a unique ID used to identify the recipe over network. Each recipe must have a unique
+  // network ID. Recommended is to just increment a variable for each unique recipe registered.
+  // This field must never be 0.
+  //
+  // Added: v1.16.220
+  uint32 RecipeNetworkID = 11;
+}
+
+// ShapedChemistryRecipe 是专门用于化学相关功能的配方，这些功能只存在于教育版中。
+// 它的行为与普通 ShapedRecipe 相同。
+//
+// ShapedChemistryRecipe is a recipe specifically made for chemistry related features, which exist only in the
+// Education Edition. It functions the same as a normal ShapedRecipe.
+//
+// Added: v1.19.21
+message ShapedChemistryRecipe {
+  // ShapedRecipe 保存底层有形配方数据。
+  //
+  // ShapedRecipe holds the underlying shaped recipe data.
+  //
+  // Added: v1.19.21
+  ShapedRecipe ShapedRecipe = 1;
+}
+
+// FurnaceRecipe 是专门用于各种熔炉的配方。这些配方不仅适用于普通熔炉，
+// 也适用于高炉和烟熏炉。
+//
+// FurnaceRecipe is a recipe that is specifically used for all kinds of furnaces. These recipes don't just
+// apply to furnaces, but also blast furnaces and smokers.
+//
+// Removed: v1.26.20
+message FurnaceRecipe {
+  // RecipeID 是配方的唯一 ID。
+  //
+  // RecipeID is a unique ID of the recipe.
+  //
+  // Added: v1.26.20
+  string RecipeID = 1;
+  // InputType 是输入物品的物品类型。FurnaceRecipe 不使用物品元数据值。
+  // 如需只允许某一个元数据值的物品，请使用 FurnaceDataRecipe。
+  //
+  // InputType is the item type of the input item. The metadata value of the item is not used in the
+  // FurnaceRecipe. Use FurnaceDataRecipe to allow an item with only one metadata value.
+  .mousetunnel.minecraft.protocol.item.ItemType InputType = 2;
+  // Input 是作为熔炉配方输入的物品列表。
+  //
+  // Input is a list of items that serve as the input of the furnace recipe.
+  //
+  // Added: v1.26.20
+  // Go type: []ItemDescriptorCount
+  repeated .mousetunnel.minecraft.protocol.item_descriptor.ItemDescriptorCount Input = 3;
+  // Output 是在熔炉中熔炼或烹饪物品后创建的物品。
+  //
+  // Output is the item that is created as a result of smelting/cooking an item in the furnace.
+  .mousetunnel.minecraft.protocol.item.ItemStack Output = 4;
+  // UUID 是标识配方的 UUID。
+  //
+  // UUID is a UUID identifying the recipe.
+  //
+  // Added: v1.26.20
+  // Go type: uuid.UUID
+  string UUID = 5;
+  // Block 是创建该配方输出所需的方块名称。方块名称不带 'minecraft:' 前缀，
+  // 例如会显示为 'furnace'。
+  //
+  // Block is the block name that is required to create the output of the recipe. The block is not prefixed
+  // with 'minecraft:', so it will look like 'furnace' as an example.
+  string Block = 6;
+  // Priority 是多个配方匹配同一输入时客户端使用的配方优先级。
+  //
+  // Priority is the recipe priority used by the client when multiple recipes match the same input.
+  //
+  // Added: v1.26.20
+  int32 Priority = 7;
+  // UnlockRequirement 是解锁该配方必须满足的条件。
+  //
+  // UnlockRequirement is a requirement that must be met in order to unlock the recipe.
+  //
+  // Added: v1.26.20
+  RecipeUnlockRequirement UnlockRequirement = 8;
+  // RecipeNetworkID 是用于在网络上标识该配方的唯一 ID。
+  //
+  // RecipeNetworkID is a unique ID used to identify the recipe over network.
+  //
+  // Added: v1.26.20
+  uint32 RecipeNetworkID = 9;
+}
+
+// FurnaceDataRecipe 是专门用于熔炉类合成站的配方。它与 FurnaceRecipe 相同，
+// 但输入物品带有特定元数据值，而不是接受任意元数据值。
+//
+// FurnaceDataRecipe is a recipe specifically used for furnace-type crafting stations. It is equal to
+// FurnaceRecipe, except it has an input item with a specific metadata value, instead of any metadata value.
+//
+// Removed: v1.26.20
+message FurnaceDataRecipe {
+  // FurnaceRecipe 保存底层熔炉配方数据。
+  //
+  // FurnaceRecipe holds the underlying furnace recipe data.
+  //
+  // Removed: v1.26.20
+  FurnaceRecipe FurnaceRecipe = 1;
+}
+
+// MultiRecipe 作为多形状配方的“启用”开关。
+//
+// MultiRecipe serves as an 'enable' switch for multi-shape recipes.
+//
+// Added: v1.11.1
+message MultiRecipe {
+  // UUID 是标识配方的 UUID。由于 CraftingEvent 数据包已不存在，该字段可以始终为空。
+  //
+  // UUID is a UUID identifying the recipe. Since the CraftingEvent packet no longer exists, this can always be empty.
+  //
+  // Added: v1.11.1
+  // Go type: uuid.UUID
+  string UUID = 1;
+  // RecipeNetworkID 是用于在网络上标识该配方的唯一 ID。每个配方都必须有唯一网络 ID。
+  // 建议为每个注册的唯一配方递增一个变量。该字段绝不能为 0。
+  //
+  // RecipeNetworkID is a unique ID used to identify the recipe over network. Each recipe must have a unique
+  // network ID. Recommended is to just increment a variable for each unique recipe registered.
+  // This field must never be 0.
+  //
+  // Added: v1.16.220
+  uint32 RecipeNetworkID = 2;
+}
+
+// SmithingTransformRecipe 是专门用于锻造台的配方。它有三个输入物品，
+// 会将它们组合成一个新物品。
+//
+// SmithingTransformRecipe is a recipe specifically used for smithing tables. It has three input items and adds them
+// together, resulting in a new item.
+//
+// Added: v1.19.60
+message SmithingTransformRecipe {
+  // RecipeNetworkID 是用于在网络上标识该配方的唯一 ID。每个配方都必须有唯一网络 ID。
+  // 建议为每个注册的唯一配方递增一个变量。该字段绝不能为 0。
+  //
+  // RecipeNetworkID is a unique ID used to identify the recipe over network. Each recipe must have a unique
+  // network ID. Recommended is to just increment a variable for each unique recipe registered.
+  // This field must never be 0.
+  //
+  // Added: v1.19.60
+  uint32 RecipeNetworkID = 1;
+  // RecipeID 是配方的唯一 ID。该 ID 在所有其他类型的配方中也必须唯一，
+  // 但它的确切功能尚不明确。
+  //
+  // RecipeID is a unique ID of the recipe. This ID must be unique amongst all other types of recipes too,
+  // but its functionality is not exactly known.
+  //
+  // Added: v1.19.60
+  string RecipeID = 2;
+  // Template 是用于根据即将应用的 Addition 来塑形 Base 物品的物品。
+  //
+  // Template is the item that is used to shape the Base item based on the Addition being applied.
+  //
+  // Added: v1.19.60
+  .mousetunnel.minecraft.protocol.item_descriptor.ItemDescriptorCount Template = 3;
+  // Base 是锻造台中被 Addition 应用到的物品。
+  //
+  // Base is the item that the Addition is being applied to in the smithing table.
+  //
+  // Added: v1.19.60
+  .mousetunnel.minecraft.protocol.item_descriptor.ItemDescriptorCount Base = 4;
+  // Addition 是添加到 Base 物品上并产生修改后物品的物品。
+  //
+  // Addition is the item that is being added to the Base item to result in a modified item.
+  //
+  // Added: v1.19.60
+  .mousetunnel.minecraft.protocol.item_descriptor.ItemDescriptorCount Addition = 5;
+  // Result 是两个物品组合后产生的结果物品。
+  //
+  // Result is the resulting item from the two items being added together.
+  //
+  // Added: v1.19.60
+  .mousetunnel.minecraft.protocol.item.ItemStack Result = 6;
+  // Block 是创建该配方输出所需的方块名称。方块名称不带 'minecraft:' 前缀，
+  // 例如会显示为 'smithing_table'。
+  //
+  // Block is the block name that is required to create the output of the recipe. The block is not prefixed with
+  // 'minecraft:', so it will look like 'smithing_table' as an example.
+  //
+  // Added: v1.19.60
+  string Block = 7;
+}
+
+// SmithingTrimRecipe 是专门用于在锻造台中给盔甲部件应用盔甲纹饰的配方。
+//
+// SmithingTrimRecipe is a recipe specifically used for applying armour trims to an armour piece inside a smithing table.
+//
+// Added: v1.19.80
+message SmithingTrimRecipe {
+  // RecipeNetworkID 是用于在网络上标识该配方的唯一 ID。每个配方都必须有唯一网络 ID。
+  // 建议为每个注册的唯一配方递增一个变量。该字段绝不能为 0。
+  //
+  // RecipeNetworkID is a unique ID used to identify the recipe over network. Each recipe must have a unique
+  // network ID. Recommended is to just increment a variable for each unique recipe registered.
+  // This field must never be 0.
+  //
+  // Added: v1.19.80
+  uint32 RecipeNetworkID = 1;
+  // RecipeID 是配方的唯一 ID。该 ID 在所有其他类型的配方中也必须唯一，
+  // 但它的确切功能尚不明确。
+  //
+  // RecipeID is a unique ID of the recipe. This ID must be unique amongst all other types of recipes too,
+  // but its functionality is not exactly known.
+  //
+  // Added: v1.19.80
+  string RecipeID = 2;
+  // Template 是用于根据即将应用的 Addition 来塑形 Base 物品的物品。
+  //
+  // Template is the item that is used to shape the Base item based on the Addition being applied.
+  //
+  // Added: v1.19.80
+  .mousetunnel.minecraft.protocol.item_descriptor.ItemDescriptorCount Template = 3;
+  // Base 是锻造台中被 Addition 应用到的物品。
+  //
+  // Base is the item that the Addition is being applied to in the smithing table.
+  //
+  // Added: v1.19.80
+  .mousetunnel.minecraft.protocol.item_descriptor.ItemDescriptorCount Base = 4;
+  // Addition 是添加到 Base 物品上并产生修改后物品的物品。
+  //
+  // Addition is the item that is being added to the Base item to result in a modified item.
+  //
+  // Added: v1.19.80
+  .mousetunnel.minecraft.protocol.item_descriptor.ItemDescriptorCount Addition = 5;
+  // Block 是创建该配方输出所需的方块名称。方块名称不带 'minecraft:' 前缀，
+  // 例如会显示为 'smithing_table'。
+  //
+  // Block is the block name that is required to create the output of the recipe. The block is not prefixed with
+  // 'minecraft:', so it will look like 'smithing_table' as an example.
+  //
+  // Added: v1.19.80
+  string Block = 6;
+}
+
+// Recipe 表示可在 CraftingData 数据包中发送的配方，用于让客户端知道服务端可用的配方。
+//
+// Recipe represents a recipe that may be sent in a CraftingData packet to let the client know what recipes
+// are available server-side.
+message Recipe {
+  int64 Type = 1;
+  ShapelessRecipe Shapeless = 2;
+  ShapedRecipe Shaped = 3;
+  FurnaceRecipe Furnace = 4;
+  FurnaceDataRecipe FurnaceData = 5;
+  MultiRecipe Multi = 6;
+  ShulkerBoxRecipe ShulkerBox = 7;
+  ShapelessChemistryRecipe ShapelessChemistry = 8;
+  ShapedChemistryRecipe ShapedChemistry = 9;
+  SmithingTransformRecipe SmithingTransform = 10;
+  SmithingTrimRecipe SmithingTrim = 11;
+}
+

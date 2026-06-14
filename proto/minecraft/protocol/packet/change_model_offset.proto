@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.change_model_offset;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// ChangeModelOffset 是网易模型偏移变更数据包。
+//
+// ChangeModelOffset is a NetEase model offset change packet.
+//
+// Added: NetEase.
+message ChangeModelOffset {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDChangeModelOffset;
+  int64 Unknown1 = 1;
+  // Go type: []byte
+  bytes Unknown2 = 2;
+}
+

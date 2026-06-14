@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.info;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+// Profile 表示一个 Minecraft 协议版本配置。
+//
+// Profile represents a Minecraft protocol version profile.
+message Profile {
+  int32 Protocol = 1;
+  string Version = 2;
+  bool NetEase = 3;
+}
+

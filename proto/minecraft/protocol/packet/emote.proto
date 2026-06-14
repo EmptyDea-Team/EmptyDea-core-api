@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.emote;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+enum EmoteFlagEnum {
+  EMOTEFLAGENUM_UNSPECIFIED = 0;
+  EmoteFlagServerSide = 1;
+  EmoteFlagMuteChat = 2;
+}
+
+// Emote 可由服务器和客户端双方发送。当客户端发送表情时，会把该数据包发送给服务器，
+// 随后服务器会将该数据包广播给其他在线玩家。
+//
+// Emote is sent by both the server and the client. When the client sends an emote, it sends this packet to
+// the server, after which the server will broadcast the packet to other players online.
+//
+// Added: v1.13
+message Emote {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDEmote;
+  // EntityRuntimeID 是发送表情的实体。当玩家发送该数据包时，该字段会设置为自己的实体运行时 ID。
+  //
+  // EntityRuntimeID is the entity that sent the emote. When a player sends this packet, it has this field
+  // set as its own entity runtime ID.
+  //
+  // Added: v1.13
+  uint64 EntityRuntimeID = 1;
+  // EmoteLength 是表情持续的 tick 数。
+  //
+  // EmoteLength is the number of ticks that the emote lasts for.
+  //
+  // Added: v1.21.30
+  uint32 EmoteLength = 2;
+  // EmoteID 是要发送的表情 ID。
+  //
+  // EmoteID is the ID of the emote to send.
+  //
+  // Added: v1.13
+  string EmoteID = 3;
+  // XUID 是发送该表情的玩家 Xbox 用户 ID。只有通过 Xbox Live 认证的玩家使用表情时才会设置。
+  //
+  // XUID is the Xbox User ID of the player that sent the emote. It is only set when the emote is used by a player that
+  // is authenticated with Xbox Live.
+  //
+  // Added: v1.20.0
+  string XUID = 4;
+  // PlatformID 是使用表情时仅为特定平台设置的标识符（推测仅用于 Nintendo Switch）。
+  // 否则它为空字符串，用于决定哪些玩家能够彼此发送表情。
+  //
+  // PlatformID is an identifier only set for particular platforms when using an emote (presumably only for Nintendo
+  // Switch). It is otherwise an empty string, and is used to decide which players are able to emote with each other.
+  //
+  // Added: v1.20.0
+  string PlatformID = 5;
+  // Flags 是改变 Emote 数据包行为方式的标志组合。
+  // 当服务器将该数据包发送给其他玩家时，必须包含 EmoteFlagServerSide。
+  //
+  // Flags is a combination of flags that change the way the Emote packet operates. When the server sends
+  // this packet to other players, EmoteFlagServerSide must be present.
+  //
+  // Added: v1.13
+  // Go type: byte
+  uint32 Flags = 6;
+}
+

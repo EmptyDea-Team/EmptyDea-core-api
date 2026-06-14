@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.voxel_shapes;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+import "voxel.proto";
+
+// VoxelShapes 由服务器发送，用于向客户端发送体素形状数据。
+//
+// VoxelShapes is sent by the server to send voxel shape data to the client.
+//
+// Added: v1.26.0
+message VoxelShapes {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDVoxelShapes;
+  // Shapes 是体素形状列表。
+  //
+  // Shapes is a list of voxel shapes.
+  //
+  // Added: v1.26.0
+  // Go type: []protocol.VoxelShape
+  repeated .mousetunnel.minecraft.protocol.voxel.VoxelShape Shapes = 1;
+  // NameMap 是形状名称到 ID 的映射。
+  //
+  // NameMap is a map of shape names to IDs.
+  //
+  // Added: v1.26.0
+  // Go type: []protocol.VoxelShapeNameEntry
+  repeated .mousetunnel.minecraft.protocol.voxel.VoxelShapeNameEntry NameMap = 2;
+  // CustomShapeCount 是自定义形状数量。
+  //
+  // CustomShapeCount is the number of custom shapes.
+  //
+  // Added: v1.26.10
+  // Go type: uint16
+  uint32 CustomShapeCount = 3;
+}
+

@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.achievement.notify_achievement_finish;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/achievement;achievement";
+
+import "py_rpc/mod_event/minecraft/achievement/basic.proto";
+
+// NotifyAchievementFinish 通知客户端指定成就节点已完成。
+//
+// NotifyAchievementFinish notifies the client that an achievement node finished.
+message NotifyAchievementFinish {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.achievement.basic.Basic Basic = 1;
+  // NodeID 是完成的成就节点 ID。
+  //
+  // NodeID is the finished achievement node ID.
+  string NodeID = 2;
+}
+

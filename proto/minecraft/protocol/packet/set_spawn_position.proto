@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.set_spawn_position;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "block_pos.proto";
+import "packet_options.proto";
+
+enum SpawnTypeEnum {
+  SpawnTypePlayer = 0;
+  SpawnTypeWorld = 1;
+}
+
+// SetSpawnPosition 由服务器发送，用于更新玩家的出生点位置，例如玩家在床上睡觉时。
+//
+// SetSpawnPosition is sent by the server to update the spawn position of a player, for example when sleeping
+// in a bed.
+//
+// Added: v1.12
+message SetSpawnPosition {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDSetSpawnPosition;
+  // SpawnType 是要设置的出生点类型。它可以是 SpawnTypePlayer 或 SpawnTypeWorld，
+  // 并指定出生点设置的行为。如果设置为 SpawnTypeWorld，指南针指向的位置也会改变。
+  //
+  // SpawnType is the type of spawn to set. It is either SpawnTypePlayer or SpawnTypeWorld, and specifies
+  // the behaviour of the spawn set. If SpawnTypeWorld is set, the position to which compasses will point is
+  // also changed.
+  //
+  // Added: v1.12
+  int32 SpawnType = 1;
+  // Position 是被设置出生点的新位置。如果 SpawnType 为 SpawnTypeWorld，指南针会指向该位置。
+  // 自 1.16 起，Position 始终是玩家的位置。
+  //
+  // Position is the new position of the spawn that was set. If SpawnType is SpawnTypeWorld, compasses will
+  // point to this position. As of 1.16, Position is always the position of the player.
+  //
+  // Added: v1.12
+  // Changed: v1.16, no longer carries the world spawn position and instead always carries the player's spawn position.
+  .mousetunnel.minecraft.protocol.block_pos.BlockPos Position = 2;
+  // Dimension 是出生点被更新的维度 ID。这尤其与 1.16 新增行为相关，
+  // 例如重生锚允许在特定维度中设置出生点。
+  //
+  // Dimension is the ID of the dimension that had its spawn updated. This is specifically relevant for
+  // behaviour added in 1.16 such as the respawn anchor, which allows setting the spawn in a specific
+  // dimension.
+  //
+  // Added: v1.16
+  int32 Dimension = 3;
+  // SpawnPosition 是 1.16 新增的字段，保存世界出生点位置。
+  // 默认出生点时，该出生点位置为 {-2147483648, -2147483648, -2147483648}。
+  //
+  // SpawnPosition is a new field added in 1.16. It holds the spawn position of the world. This spawn
+  // position is {-2147483648, -2147483648, -2147483648} for a default spawn position.
+  //
+  // Added: v1.16
+  .mousetunnel.minecraft.protocol.block_pos.BlockPos SpawnPosition = 4;
+}
+

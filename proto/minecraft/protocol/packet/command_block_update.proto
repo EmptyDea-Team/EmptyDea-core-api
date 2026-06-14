@@ -1,0 +1,129 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.command_block_update;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "block_pos.proto";
+import "packet_options.proto";
+
+enum CommandBlockEnum {
+  CommandBlockImpulse = 0;
+  CommandBlockRepeating = 1;
+  CommandBlockChain = 2;
+}
+
+// CommandBlockUpdate 由客户端发送，用于更新特定位置的命令方块。
+// 命令方块可以是实际方块，也可以是实体。
+//
+// CommandBlockUpdate is sent by the client to update a command block at a specific position. The command
+// block may be either a physical block or an entity.
+//
+// Added: v1.11.1
+message CommandBlockUpdate {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDCommandBlockUpdate;
+  // Block 指定被更新的命令方块是否为实际物理方块。
+  // 如果为 false，则命令方块位于矿车中，并改用实体运行时 ID。
+  //
+  // Block specifies if the command block updated was an actual physical block. If false, the command block
+  // is in a minecart and has an entity runtime ID instead.
+  //
+  // Added: v1.11.1
+  bool Block = 1;
+  // Position 是被更新命令方块的位置。只有 Block 设为 true 时才会设置。
+  // 如果该位置没有命令方块，则不会发生任何事情。
+  //
+  // Position is the position of the command block updated. It is only set if Block is set to true. Nothing
+  // happens if no command block is set at this position.
+  //
+  // Added: v1.11.1
+  .mousetunnel.minecraft.protocol.block_pos.BlockPos Position = 2;
+  // Mode 是命令方块模式，可以是 CommandBlockImpulse、CommandBlockChain 或 CommandBlockRepeat。
+  // 只有 Block 设为 true 时才会设置。
+  //
+  // Mode is the mode of the command block. It is either CommandBlockImpulse, CommandBlockChain or
+  // CommandBlockRepeat. It is only set if Block is set to true.
+  //
+  // Added: v1.11.1
+  uint32 Mode = 3;
+  // NeedsRedstone 指定命令方块是否需要红石供能才能激活。
+  // 如果为 false，则命令方块始终处于激活状态。只有 Block 设为 true 时才会设置该字段。
+  //
+  // NeedsRedstone specifies if the command block needs to be powered by redstone to be activated. If false,
+  // the command block is always active. The field is only set if Block is set to true.
+  //
+  // Added: v1.11.1
+  bool NeedsRedstone = 4;
+  // Conditional 指定当前一个命令方块（箭头朝向相反侧的命令方块）执行失败时该命令方块的行为。
+  // 设为 false 时它始终激活；设为 true 时，只有上一个命令方块成功执行才会激活。
+  // 只有 Block 设为 true 时才会设置该字段。
+  //
+  // Conditional specifies the behaviour of the command block if the command block before it (the opposite
+  // side of the direction the arrow if facing) fails to execute. If set to false, it will activate at all
+  // times, whereas if set to true, it will activate only if the previous command block executed
+  // successfully. The field is only set if Block is set to true.
+  //
+  // Added: v1.11.1
+  bool Conditional = 5;
+  // MinecartEntityRuntimeID 是承载被更新命令方块的矿车实体运行时 ID。
+  // 只有 Block 设为 false 时才会设置。
+  //
+  // MinecartEntityRuntimeID is the runtime ID of the minecart entity carrying the command block that is
+  // updated. It is set only if Block is set to false.
+  //
+  // Added: v1.11.1
+  uint64 MinecartEntityRuntimeID = 6;
+  // Command 是当前输入在命令方块中的命令。命令方块激活时会执行该命令。
+  //
+  // Command is the command currently entered in the command block. This is the command that is executed
+  // when the command block is activated.
+  //
+  // Added: v1.11.1
+  string Command = 7;
+  // LastOutput 是命令方块上次执行命令的输出。结合 ShouldTrackOutput 设为 false，
+  // 可留空以完全不显示输出。
+  //
+  // LastOutput is the output of the last command executed by the command block. It may be left empty to
+  // show simply no output at all, in combination with setting ShouldTrackOutput to false.
+  //
+  // Added: v1.11.1
+  string LastOutput = 8;
+  // Name 是被更新命令方块的名称。如果不为空，光标悬停在方块上时会在命令方块上方显示该名称。
+  //
+  // Name is the name of the command block updated. If not empty, it will show this name hovering above the
+  // command block when hovering over the block with the cursor.
+  //
+  // Added: v1.11.1
+  string Name = 9;
+  // FilteredName 是移除了所有不当用语后的 Name 过滤版本。
+  // 如果该字段非空，且客户端启用了“过滤不当用语”设置，客户端会优先使用它而不是 Name。
+  //
+  // FilteredName is a filtered version of Name with all the profanity removed. The client will use this
+  // over Name if this field is not empty and they have the "Filter Profanity" setting enabled.
+  //
+  // Added: v1.21.60
+  string FilteredName = 10;
+  // ShouldTrackOutput 指定命令方块是否跟踪输出。设为 false 时，
+  // 命令方块内不会显示输出框。
+  //
+  // ShouldTrackOutput specifies if the command block tracks output. If set to false, the output box won't
+  // be shown within the command block.
+  //
+  // Added: v1.11.1
+  bool ShouldTrackOutput = 11;
+  // TickDelay 是重复型命令方块两次执行之间的延迟，以刻为单位。
+  //
+  // TickDelay is the delay in ticks between executions of a command block, if it is a repeating command
+  // block.
+  //
+  // Added: v1.12
+  uint32 TickDelay = 12;
+  // ExecuteOnFirstTick 指定命令方块是否应在第一个刻执行，
+  // 也就是命令方块刚启用时立即执行。
+  //
+  // ExecuteOnFirstTick specifies if the command block should execute on the first tick, AKA as soon as the
+  // command block is enabled.
+  //
+  // Added: v1.12
+  bool ExecuteOnFirstTick = 13;
+}
+

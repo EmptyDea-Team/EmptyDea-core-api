@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.inventory_content;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "container.proto";
+import "item.proto";
+import "packet_options.proto";
+
+// InventoryContent 由服务器发送，用于更新某个特定物品栏的完整内容。
+// 它通常用于玩家主物品栏，但也适用于玩家当前打开的其他物品栏。
+//
+// InventoryContent is sent by the server to update the full content of a particular inventory. It is usually
+// sent for the main inventory of the player, but also works for other inventories that are currently opened
+// by the player.
+//
+// Added: v1.11.1
+message InventoryContent {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDInventoryContent;
+  // WindowID 是标识客户端当前打开窗口之一的 ID，或主物品栏等固定窗口之一的 ID。
+  //
+  // WindowID is the ID that identifies one of the windows that the client currently has opened, or one of
+  // the consistent windows such as the main inventory.
+  //
+  // Added: v1.11.1
+  uint32 WindowID = 1;
+  // Content 是物品栏的新内容。该切片长度必须等于被更新物品栏窗口的完整大小。
+  //
+  // Content is the new content of the inventory. The length of this slice must be equal to the full size of
+  // the inventory window updated.
+  //
+  // Added: v1.11.1
+  // Go type: []protocol.ItemInstance
+  repeated .mousetunnel.minecraft.protocol.item.ItemInstance Content = 2;
+  // Container 是描述该内容所属容器的 protocol.FullContainerName。
+  //
+  // Container is the protocol.FullContainerName that describes the container that the content is for.
+  //
+  // Added: v1.21.30
+  // Changed: v1.21.40, replaced the DynamicWindowID field layout introduced in v1.21.20.
+  .mousetunnel.minecraft.protocol.container.FullContainerName Container = 3;
+  // StorageItem 是作为该物品栏存储容器的物品。如果物品栏不是动态容器，
+  // 该字段应保持为空。设置时，客户端只使用物品类型，不使用其他堆叠信息。
+  //
+  // StorageItem is the item that is acting as the storage container for the inventory. If the inventory is
+  // not a dynamic container then this field should be left empty. When set, only the item type is used by
+  // the client and none of the other stack info.
+  //
+  // Added: v1.21.40
+  // Changed: v1.21.40, replaced the DynamicContainerSize field introduced in v1.21.30.
+  .mousetunnel.minecraft.protocol.item.ItemInstance StorageItem = 4;
+}
+

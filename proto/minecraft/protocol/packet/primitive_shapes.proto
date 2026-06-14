@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.primitive_shapes;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+import "shape.proto";
+
+// PrimitiveShapes 是服务器发送的数据包，用于指示客户端在世界中渲染一个或多个形状。
+// 每个形状都可以根据其独立提供的数据被添加、移除或更新。
+//
+// PrimitiveShapes is a packet sent by the server to instruct the client to render one or more shapes in the world.
+// Shapes can be added, removed or updated based on the data provided individually.
+//
+// Added: v1.26.20
+message PrimitiveShapes {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDPrimitiveShapes;
+  // Shapes 是要在客户端侧绘制的形状列表。
+  //
+  // Shapes is a list of shapes to draw on the client-side.
+  //
+  // Added: v1.26.20
+  // Go type: []protocol.PrimitiveShape
+  repeated .mousetunnel.minecraft.protocol.shape.PrimitiveShape Shapes = 1;
+}
+

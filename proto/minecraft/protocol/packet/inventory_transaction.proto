@@ -1,0 +1,88 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.inventory_transaction;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "inventory.proto";
+import "packet_options.proto";
+
+enum InventoryTransactionTypeEnum {
+  InventoryTransactionTypeNormal = 0;
+  InventoryTransactionTypeMismatch = 1;
+  InventoryTransactionTypeUseItem = 2;
+  InventoryTransactionTypeUseItemOnEntity = 3;
+  InventoryTransactionTypeReleaseItem = 4;
+}
+
+// InventoryTransaction 是客户端发送的数据包。它本质上由多个子数据包组成，
+// 每个子数据包都以某种方式与物品栏有关。有些子数据包直接关联物品栏，
+// 另一些则关联与世界的交互，而这些交互可能导致物品栏变化。
+//
+// InventoryTransaction is a packet sent by the client. It essentially exists out of multiple sub-packets,
+// each of which have something to do with the inventory in one way or another. Some of these sub-packets
+// directly relate to the inventory, others relate to interaction with the world, that could potentially
+// result in a change in the inventory.
+//
+// Added: v1.11.1
+message InventoryTransaction {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDInventoryTransaction;
+  // LegacyRequestID 是一个只有客户端发送时才可能非零的 ID。服务器应始终发送 0。
+  // 当该字段不为 0 时，下方 LegacySetItemSlots 切片会包含值。
+  // LegacyRequestID 与 ItemStackResponse 数据包相关联。如果该字段非 0，
+  // 服务器应响应一个 ItemStackResponse 数据包。一些物品栏操作，例如从快捷栏丢出物品，
+  // 仍然使用该数据包完成，ItemStackResponse 数据包需要与它关联。
+  //
+  // LegacyRequestID is an ID that is only non-zero at times when sent by the client. The server should
+  // always send 0 for this. When this field is not 0, the LegacySetItemSlots slice below will have values
+  // in it.
+  // LegacyRequestID ties in with the ItemStackResponse packet. If this field is non-0, the server should
+  // respond with an ItemStackResponse packet. Some inventory actions such as dropping an item out of the
+  // hotbar are still one using this packet, and the ItemStackResponse packet needs to tie in with it.
+  //
+  // Added: v1.11.1
+  int32 LegacyRequestID = 1;
+  // LegacySetItemSlots 仅在 LegacyRequestID 非零时存在。这些物品槽位会告知服务器
+  // 物品栏事务期间哪些槽位发生了变化，服务器应回发包含这些槽位的 ItemStackResponse 数据包
+  // （如果拒绝，则返回 false 且不带槽位）。
+  //
+  // LegacySetItemSlots are only present if the LegacyRequestID is non-zero. These item slots inform the
+  // server of the slots that were changed during the inventory transaction, and the server should send
+  // back an ItemStackResponse packet with these slots present in it. (Or false with no slots, if rejected.)
+  //
+  // Added: v1.11.1
+  // Go type: []protocol.LegacySetItemSlot
+  repeated .mousetunnel.minecraft.protocol.inventory.LegacySetItemSlot LegacySetItemSlots = 2;
+  // HasNetworkIDs 指定是否在每个物品栏操作之后写入旧版堆叠网络 ID。
+  //
+  // HasNetworkIDs specifies if legacy stack network IDs are written after each inventory action.
+  //
+  // Added: v1.16.100
+  // Removed: v1.16.220
+  bool HasNetworkIDs = 3;
+  // Actions 是已发生操作的列表，这些操作共同组成物品栏事务。
+  // 每个操作都保存一个槽位，其中一个物品被更改为另一个物品。
+  // 通常，这些操作组合起来会形成一个平衡的物品栏事务。
+  // 应检查这一点，以确保没有物品被作弊加入物品栏。
+  //
+  // Actions is a list of actions that took place, that form the inventory transaction together. Each of
+  // these actions hold one slot in which one item was changed to another. In general, the combination of
+  // all of these actions results in a balanced inventory transaction. This should be checked to ensure that
+  // no items are cheated into the inventory.
+  //
+  // Added: v1.11.1
+  // Go type: []protocol.InventoryAction
+  repeated .mousetunnel.minecraft.protocol.inventory.InventoryAction Actions = 4;
+  // TransactionData 是保存事务类型专属数据的数据对象。
+  // 其具体类型必须是 NormalTransactionData、MismatchTransactionData、
+  // UseItemTransactionData、UseItemOnEntityTransactionData 或 ReleaseItemTransactionData 之一。
+  // 如果设置为 nil，该事务会被视为 InventoryTransactionTypeNormal 类型。
+  //
+  // TransactionData is a data object that holds data specific to the type of transaction that the
+  // TransactionPacket held. Its concrete type must be one of NormalTransactionData, MismatchTransactionData
+  // UseItemTransactionData, UseItemOnEntityTransactionData or ReleaseItemTransactionData. If nil is set,
+  // the transaction will be assumed to of type InventoryTransactionTypeNormal.
+  //
+  // Added: v1.11.1
+  .mousetunnel.minecraft.protocol.inventory.InventoryTransactionData TransactionData = 5;
+}
+

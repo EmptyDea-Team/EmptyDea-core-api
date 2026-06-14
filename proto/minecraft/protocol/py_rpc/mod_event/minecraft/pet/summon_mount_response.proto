@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.summon_mount_response;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// SummonMountResponse 返回坐骑召唤结果。
+//
+// SummonMountResponse returns the summon-mount result.
+message SummonMountResponse {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  MountSummonData MountSummonData = 2;
+}
+
+// MountSummonData 保存坐骑召唤响应字段。
+//
+// MountSummonData stores summon-mount response fields.
+message MountSummonData {
+  string PlayerID = 1;
+  string EntityID = 2;
+  int64 Code = 3;
+  bool Silent = 4;
+}
+

@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.request_ability;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "google/protobuf/struct.proto";
+import "packet_options.proto";
+
+enum AbilityEnum {
+  AbilityBuild = 0;
+  AbilityMine = 1;
+  AbilityDoorsAndSwitches = 2;
+  AbilityOpenContainers = 3;
+  AbilityAttackPlayers = 4;
+  AbilityAttackMobs = 5;
+  AbilityOperatorCommands = 6;
+  AbilityTeleport = 7;
+  AbilityInvulnerable = 8;
+  AbilityFlying = 9;
+  AbilityMayFly = 10;
+  AbilityInstantBuild = 11;
+  AbilityLightning = 12;
+  AbilityFlySpeed = 13;
+  AbilityWalkSpeed = 14;
+  AbilityMuted = 15;
+  AbilityWorldBuilder = 16;
+  AbilityNoClip = 17;
+  AbilityCount = 18;
+}
+
+// RequestAbility 是客户端发送给服务器的数据包，用于向服务器请求特定能力的权限。
+// 这些能力定义在上方。
+//
+// RequestAbility is a packet sent by the client to the server to request permission for a specific ability from the
+// server. These abilities are defined above.
+//
+// Added: v1.19
+message RequestAbility {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDRequestAbility;
+  // Ability 是客户端请求的能力，它是 protocol/ability.go 文件中定义的常量之一。
+  //
+  // Ability is the ability that the client is requesting. This is one of the constants defined in the
+  // protocol/ability.go file.
+  //
+  // Added: v1.19
+  int32 Ability = 1;
+  // Value 表示该能力的值。它可以是 boolean 或 float32，否则写入器或读取器会 panic。
+  //
+  // Value represents the value of the ability. This can either be a boolean or a float32, otherwise the writer/reader
+  // will panic.
+  //
+  // Added: v1.19
+  // Go type: any
+  google.protobuf.Value Value = 2;
+}
+

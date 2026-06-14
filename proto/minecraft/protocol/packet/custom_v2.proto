@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.custom_v2;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// CustomV2 是网易自定义载荷数据包。
+//
+// CustomV2 is a NetEase custom payload packet.
+//
+// Added: NetEase.
+message CustomV2 {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDCustomV2;
+  // Go type: []byte
+  bytes Data = 1;
+}
+

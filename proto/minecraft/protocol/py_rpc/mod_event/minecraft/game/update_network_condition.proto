@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.game.update_network_condition;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/game;game";
+
+import "py_rpc/mod_event/minecraft/game/basic.proto";
+
+// UpdateNetworkCondition 同步客户端采集的网络状态。
+//
+// UpdateNetworkCondition synchronises network-condition data collected by the client.
+message UpdateNetworkCondition {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.game.basic.Basic Basic = 1;
+  // Start 是客户端发送请求时的毫秒时间戳。
+  //
+  // Start is the client send timestamp in milliseconds.
+  int64 Start = 2;
+  // ServerTimestamp 是服务端转发时补充的毫秒时间戳。
+  //
+  // ServerTimestamp is the server forwarding timestamp in milliseconds.
+  int64 ServerTimestamp = 3;
+  // End 是客户端收到回显时补充的毫秒时间戳。
+  //
+  // End is the client receive timestamp in milliseconds.
+  int64 End = 4;
+}
+

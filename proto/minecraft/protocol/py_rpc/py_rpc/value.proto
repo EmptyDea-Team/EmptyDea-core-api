@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.py_rpc.value;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/py_rpc;py_rpc";
+
+// Value 保存 MsgPack 友好的动态值，避免事件结构体暴露 any。
+//
+// Value stores a MsgPack-friendly dynamic value without exposing any on event structs.
+message Value {
+  // Null 表示空值。
+  //
+  // Null indicates a null value.
+  bool Null = 1;
+  // Bool 保存布尔值。
+  //
+  // Bool stores a boolean value.
+  bool Bool = 2;
+  // Int 保存有符号整数。
+  //
+  // Int stores a signed integer.
+  int64 Int = 3;
+  // Uint 保存无符号整数。
+  //
+  // Uint stores an unsigned integer.
+  uint64 Uint = 4;
+  // Float 保存浮点数。
+  //
+  // Float stores a floating-point number.
+  // Go type: float64
+  double Float = 5;
+  // String 保存字符串。
+  //
+  // String stores a string.
+  string String = 6;
+  // Bytes 保存字节串。
+  //
+  // Bytes stores bytes.
+  // Go type: []byte
+  bytes Bytes = 7;
+  // List 保存列表。
+  //
+  // List stores a list.
+  // Go type: []Value
+  repeated Value List = 8;
+  // Map 保存字符串键映射。
+  //
+  // Map stores a string-keyed map.
+  // Go type: map[string]Value
+  map<string, Value> Map = 9;
+}
+

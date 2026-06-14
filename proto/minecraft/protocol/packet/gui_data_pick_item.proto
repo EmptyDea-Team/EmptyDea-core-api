@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.gui_data_pick_item;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// GUIDataPickItem 由服务器发送，用于让客户端“选择”一个快捷栏槽位。
+// 但它目前似乎已损坏，并不会真正把选中槽位设置为数据包中的快捷栏槽位。
+//
+// GUIDataPickItem is sent by the server to make the client 'select' a hot bar slot. It currently appears to
+// be broken however, and does not actually set the selected slot to the hot bar slot set in the packet.
+//
+// Added: v1.11.1
+message GUIDataPickItem {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDGUIDataPickItem;
+  // ItemName 是选择物品时弹窗顶部显示的物品名称。
+  // 它会像玩家自己选择了物品一样显示。
+  //
+  // ItemName is the name of the item that shows up in the top part of the popup that shows up when
+  // selecting an item. It is shown as if an item was selected by the player itself.
+  //
+  // Added: v1.11.1
+  string ItemName = 1;
+  // ItemEffects 是 ItemName 下方的一行，通常用于显示物品效果。
+  //
+  // ItemEffects is the line under the ItemName, where the effects of the item are usually situated.
+  //
+  // Added: v1.11.1
+  string ItemEffects = 2;
+  // HotBarSlot 是要选择或选取的快捷栏槽位。该字段目前不起作用，因此具体数值并不重要。
+  //
+  // HotBarSlot is the hot bar slot to be selected/picked. This does not currently work, so it does not
+  // matter what number this is.
+  //
+  // Added: v1.11.1
+  int32 HotBarSlot = 3;
+}
+

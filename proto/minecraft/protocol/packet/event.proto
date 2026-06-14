@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "events.proto";
+import "packet_options.proto";
+
+// Event 由服务器发送，用于发送带有额外数据的事件。它通常出于遥测目的发送给客户端，
+// 与 SimpleEvent 数据包类似。
+//
+// Event is sent by the server to send an event with additional data. It is typically sent to the client for
+// telemetry reasons, much like the SimpleEvent packet.
+//
+// Added: v1.11.1
+message Event {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDEvent;
+  // EntityRuntimeID 是玩家的运行时 ID。运行时 ID 在每个世界会话中唯一，
+  // 数据包通常使用该运行时 ID 标识实体。
+  //
+  // EntityRuntimeID is the runtime ID of the player. The runtime ID is unique for each world session, and
+  // entities are generally identified in packets using this runtime ID.
+  //
+  // Added: v1.11.1
+  // Changed: v1.21.20, encoded as a signed varint64 instead of an unsigned varuint64.
+  int64 EntityRuntimeID = 1;
+  // UsePlayerID 表示事件是否使用玩家 ID。
+  //
+  // UsePlayerID indicates whether the event uses the player ID.
+  // TODO: 弄清 UsePlayerID 的具体用途。
+  //
+  // TODO: Figure out what UsePlayerID is for.
+  //
+  // Added: v1.17.0
+  // Changed: v1.21.130.28, encoded as a bool instead of a uint8.
+  bool UsePlayerID = 2;
+  // Event 是被传输的事件。
+  //
+  // Event is the event that is transmitted.
+  //
+  // Added: v1.17.0
+  // Changed: v1.21.130.28, followed by an event ordinal before the event payload.
+  .mousetunnel.minecraft.protocol.events.Event Event = 3;
+}
+

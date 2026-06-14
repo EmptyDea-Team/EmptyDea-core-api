@@ -1,0 +1,79 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.container_open;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "block_pos.proto";
+import "packet_options.proto";
+
+// ContainerOpen 由服务器发送，用于在客户端侧打开一个容器。该容器必须真实存在于世界中，
+// 数据包才会生效。与 Java 版不同，基岩版要求箱子等容器必须存在且在范围内才能打开其物品栏。
+//
+// ContainerOpen is sent by the server to open a container client-side. This container must be physically
+// present in the world, for the packet to have any effect. Unlike Java Edition, Bedrock Edition requires that
+// chests for example must be present and in range to open its inventory.
+//
+// Added: v1.11.1
+message ContainerOpen {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDContainerOpen;
+  // WindowID 是正在打开窗口的 ID。之后可使用该 ID 通过 ContainerClose 数据包关闭容器。
+  //
+  // WindowID is the ID representing the window that is being opened. It may be used later to close the
+  // container using a ContainerClose packet.
+  //
+  // Added: v1.11.1
+  // Go type: byte
+  uint32 WindowID = 1;
+  // ContainerType 是在该数据包位置打开容器时容器的类型 ID。它取决于方块或实体，
+  // 例如可以是箱子、漏斗的窗口类型，也可以是马的物品栏。
+  //
+  // ContainerType is the type ID of the container that is being opened when opening the container at the
+  // position of the packet. It depends on the block/entity, and could, for example, be the window type of
+  // a chest or a hopper, but also a horse inventory.
+  //
+  // Added: v1.11.1
+  // Go type: byte
+  uint32 ContainerType = 2;
+  // ContainerPosition 是被打开容器的位置。该位置必须指向确实拥有容器的方块实体。
+  // 如果不是这样，且没有同时提供有效的 ContainerEntityUniqueID，窗口不会打开，该数据包会被忽略。
+  //
+  // ContainerPosition is the position of the container opened. The position must point to a block entity
+  // that actually has a container. If that is not the case, the window will not be opened and the packet
+  // will be ignored, if a valid ContainerEntityUniqueID has not also been provided.
+  //
+  // Added: v1.11.1
+  .mousetunnel.minecraft.protocol.block_pos.BlockPos ContainerPosition = 3;
+  // ContainerEntityUniqueID 是被打开实体容器的唯一 ID。只有当 ContainerType 指向实体时才会使用，
+  // 例如马。
+  //
+  // ContainerEntityUniqueID is the unique ID of the entity container that was opened. It is only used if
+  // the ContainerType is one that points to an entity, for example a horse.
+  //
+  // Added: v1.11.1
+  int64 ContainerEntityUniqueID = 4;
+  // NetEaseUnknown1 是网易额外的容器打开字段。
+  //
+  // NetEaseUnknown1 is an extra NetEase container open field.
+  //
+  // Added: NetEase.
+  bool NetEaseUnknown1 = 5;
+  // NetEaseUnknown2 是网易额外的容器打开字段。
+  //
+  // NetEaseUnknown2 is an extra NetEase container open field.
+  //
+  // Added: NetEase.
+  string NetEaseUnknown2 = 6;
+  // NetEaseUnknown3 是网易额外的容器打开字段。
+  //
+  // NetEaseUnknown3 is an extra NetEase container open field.
+  //
+  // Added: NetEase.
+  string NetEaseUnknown3 = 7;
+  // NetEaseUnknown4 是网易额外的容器打开字段。
+  //
+  // NetEaseUnknown4 is an extra NetEase container open field.
+  //
+  // Added: NetEase.
+  bool NetEaseUnknown4 = 8;
+}
+

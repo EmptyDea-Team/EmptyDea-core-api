@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.editor_config_cmd_sys.module;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/editor_config_cmd_sys;editor_config_cmd_sys";
+
+// Module 描述 Minecraft editorConfigCmdSys 模块。
+//
+// Module describes the Minecraft editorConfigCmdSys module.
+message Module {
+}
+

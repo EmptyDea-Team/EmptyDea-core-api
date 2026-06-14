@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.block_actor_data;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "block_pos.proto";
+import "google/protobuf/struct.proto";
+import "packet_options.proto";
+
+// BlockActorData 由服务器发送，用于更新客户端侧的方块实体数据，例如箱子的数据。
+//
+// BlockActorData is sent by the server to update data of a block entity client-side, for example the data of
+// a chest.
+//
+// Added: v1.12
+message BlockActorData {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDBlockActorData;
+  // Position 是持有该方块实体的方块位置。如果该位置没有方块实体，客户端会忽略此数据包。
+  //
+  // Position is the position of the block that holds the block entity. If no block entity is at this
+  // position, the packet is ignored by the client.
+  //
+  // Added: v1.12
+  .mousetunnel.minecraft.protocol.block_pos.BlockPos Position = 1;
+  // NBTData 是方块的新数据，会被编码为 NBT 并应用到客户端侧，使客户端能够看到方块更新。
+  // NBTData 应包含该方块的所有属性，而不只是发生变化的属性。
+  //
+  // NBTData is the new data of the block that will be encoded to NBT and applied client-side, so that the
+  // client can see the block update. The NBTData should contain all properties of the block, not just
+  // properties that were changed.
+  //
+  // Added: v1.12
+  // Go type: map[string]any
+  map<string, google.protobuf.Value> NBTData = 2;
+}
+

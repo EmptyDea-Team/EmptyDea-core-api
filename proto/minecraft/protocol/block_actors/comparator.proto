@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.comparator;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actors";
+
+import "block_actors/general_actors/block_actor.proto";
+
+// Comparator 描述比较器方块实体。
+//
+// Comparator describes the comparator block actor.
+message Comparator {
+  .mousetunnel.minecraft.protocol.block_actors.general_actors.block_actor.BlockActor BlockActor = 1;
+  // TAG_Int(4) = 0
+  int32 OutputSignal = 2;
+}
+

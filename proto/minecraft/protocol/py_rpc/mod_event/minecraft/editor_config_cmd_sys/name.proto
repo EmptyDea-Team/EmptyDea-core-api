@@ -1,0 +1,5 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.editor_config_cmd_sys.name;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/editor_config_cmd_sys;editor_config_cmd_sys";
+

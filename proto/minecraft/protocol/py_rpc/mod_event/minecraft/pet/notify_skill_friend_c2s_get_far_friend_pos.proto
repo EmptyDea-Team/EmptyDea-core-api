@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.notify_skill_friend_c2s_get_far_friend_pos;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// NotifySkillFriendC2SGetFarFriendPos 请求远处好友位置。
+//
+// NotifySkillFriendC2SGetFarFriendPos requests far friend positions.
+message NotifySkillFriendC2SGetFarFriendPos {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  FarFriendPosRequestData FarFriendPosRequestData = 2;
+}
+
+// FarFriendPosRequestData 保存远处好友位置请求字段。
+//
+// FarFriendPosRequestData stores far-friend position request fields.
+message FarFriendPosRequestData {
+  string RequestPlayerID = 1;
+  // Go type: []string
+  repeated string Players = 2;
+}
+

@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.game_rules_changed;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "game_rule.proto";
+import "packet_options.proto";
+
+// GameRulesChanged 由服务器发送给客户端，用于更新客户端侧游戏规则，例如 'showCoordinates'。
+//
+// GameRulesChanged is sent by the server to the client to update client-side game rules, such as game rules
+// like the 'showCoordinates' game rule.
+//
+// Added: v1.11.1
+message GameRulesChanged {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDGameRulesChanged;
+  // GameRules 定义发生变更的游戏规则及其对应值。规则值可以是 'bool'、'int32' 或 'float32'。
+  // 注意，有些游戏规则仅存在于服务器侧，不一定需要发送给客户端。
+  // 该数据包只需要发送发生变更的游戏规则；客户端已同步的未变更规则无需发送。
+  //
+  // GameRules defines game rules changed with their respective values. The value of these game rules may be
+  // either 'bool', 'int32' or 'float32'.
+  // Note that some game rules are server side only, and don't necessarily need to be sent to the client.
+  // Only changed game rules need to be sent in this packet. Game rules that were not changed do not need to
+  // be sent if the client is already updated on them.
+  //
+  // Added: v1.11.1
+  // Go type: []protocol.GameRule
+  repeated .mousetunnel.minecraft.protocol.game_rule.GameRule GameRules = 1;
+}
+

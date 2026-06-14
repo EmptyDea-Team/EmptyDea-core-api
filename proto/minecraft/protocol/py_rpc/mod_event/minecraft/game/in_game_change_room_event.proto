@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.game.in_game_change_room_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/game;game";
+
+import "py_rpc/mod_event/minecraft/game/basic.proto";
+
+// InGameChangeRoomEvent 通知服务端游戏内房间发生切换。
+//
+// InGameChangeRoomEvent notifies the server that the in-game room changed.
+message InGameChangeRoomEvent {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.game.basic.Basic Basic = 1;
+}
+

@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.get_mcp_check_num;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpc";
+
+// GetMCPCheckNum 是网易登录流程中的 MCP check-number 挑战请求。
+//
+// GetMCPCheckNum is one of the NetEase login challenges.
+message GetMCPCheckNum {
+  // MCPHex 是服务器发送的动态 MCP 字节码十六进制字符串。
+  //
+  // MCPHex is the hexadecimal dynamic MCP bytecode string sent by the server.
+  string MCPHex = 1;
+  // Challenge 保存嵌套的 check-number 挑战参数。
+  //
+  // Challenge stores the nested check-number challenge arguments.
+  GetMCPCheckNumChallenge Challenge = 2;
+}
+
+// GetMCPCheckNumChallenge 保存 GetMCPCheckNum 的嵌套挑战参数。
+//
+// GetMCPCheckNumChallenge stores the nested GetMCPCheckNum challenge arguments.
+message GetMCPCheckNumChallenge {
+  // Value 是参与 MCP check-number 计算的挑战值。
+  //
+  // Value is the challenge value used for the MCP check-number calculation.
+  string Value = 1;
+  // FirstExtraData 是挑战索引 1 的保留扩展数据列表。
+  //
+  // FirstExtraData is the reserved extension data list at challenge index 1.
+  MCPCheckChallengeExtraData FirstExtraData = 2;
+  // SecondExtraData 是挑战索引 2 的保留扩展数据列表。
+  //
+  // SecondExtraData is the reserved extension data list at challenge index 2.
+  MCPCheckChallengeExtraData SecondExtraData = 3;
+}
+
+// MCPCheckChallengeExtraData 是 MCP 校验请求中的保留扩展列表。
+//
+// MCPCheckChallengeExtraData is the reserved extension list in an MCP check
+// challenge.
+message MCPCheckChallengeExtraData {
+  // Go type: []string
+  repeated string Value = 1;
+}
+

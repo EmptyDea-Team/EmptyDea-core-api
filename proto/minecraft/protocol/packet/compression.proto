@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.compression;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "google/protobuf/struct.proto";
+
+// Compression 表示可压缩和解压数据的压缩算法。
+//
+// Compression represents a compression algorithm that can compress and decompress data.
+message Compression {
+  // Go type: interface {
+  // 	EncodeCompression() uint16
+  // 	Compress(decompressed [ // EncodeCompression 将压缩算法编码为 uint16 ID。
+  // 	//
+  // 	// EncodeCompression encodes the compression algorithm into a uint16 ID.
+  // 	// Compress 压缩给定数据并返回压缩结果。
+  // 	//
+  // 	// Compress compresses the given data and returns the compressed data.
+  // 	]byte) ([]byte, error)
+  // 	Decompress(compressed [ // Decompress 解压给定数据并返回解压结果。
+  // 	//
+  // 	// Decompress decompresses the given data and returns the decompressed data.
+  // 	]byte, limit int) ([]byte, error)
+  // }
+  google.protobuf.Value Value = 1;
+}
+

@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.change_model_texture;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// ChangeModelTexture 是网易模型纹理变更数据包。
+//
+// ChangeModelTexture is a NetEase model texture change packet.
+//
+// Added: NetEase.
+message ChangeModelTexture {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDChangeModelTexture;
+  int64 Unknown1 = 1;
+  string Unknown2 = 2;
+  int64 Unknown3 = 3;
+  // Go type: uint8
+  uint32 Unknown4 = 4;
+}
+

@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.transport_no_compress;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// TransportNoCompress 是网易未压缩传输载荷数据包。
+//
+// TransportNoCompress is a NetEase uncompressed transport payload packet.
+//
+// Added: NetEase.
+message TransportNoCompress {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDTransportNoCompress;
+  int32 Unknown1 = 1;
+  // Go type: []byte
+  bytes Unknown2 = 2;
+}
+

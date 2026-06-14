@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.item_frame_drop_item;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "block_pos.proto";
+import "packet_options.proto";
+
+// ItemFrameDropItem 由客户端在从物品展示框中掉落物品时发送。
+//
+// ItemFrameDropItem is sent by the client when it drops an item from an item frame.
+//
+// Added: v1.11.1
+message ItemFrameDropItem {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDItemFrameDropItem;
+  // Position 是物品展示框的位置。
+  //
+  // Position is the position of the item frame.
+  //
+  // Added: v1.11.1
+  .mousetunnel.minecraft.protocol.block_pos.BlockPos Position = 1;
+}
+

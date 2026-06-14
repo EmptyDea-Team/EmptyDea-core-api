@@ -1,0 +1,722 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.login.data;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/login;login";
+
+import "os.proto";
+
+enum DeviceIDFormatEnum {
+  // DeviceIDFormatUpperHexString 表示 iOS 使用的大写十六进制格式，例如 "ADA3DFA4622F4E2FB2C14A496D52DB96"。
+  //
+  // DeviceIDFormatUpperHexString represents the upper-case hex format used by iOS, for example "ADA3DFA4622F4E2FB2C14A496D52DB96".
+  DeviceIDFormatUpperHexString = 0;
+  // DeviceIDFormatLowerHexString 表示 Android 和 Win32 使用的小写十六进制格式，例如 "a4f365bb1e04459bbe4cb3cbf9d546e0"。
+  //
+  // DeviceIDFormatLowerHexString represents the lower-case hex format used by Android and Win32, for example "a4f365bb1e04459bbe4cb3cbf9d546e0".
+  DeviceIDFormatLowerHexString = 1;
+  // DeviceIDFormatBase64 表示 XBOX 使用的 base64 格式，例如 "VlhnpI7TuWyfHiUx3WYwFvQQHbDkv505h6VVo40Cngw="。
+  //
+  // DeviceIDFormatBase64 represents the base64 format used by XBOX, for example "VlhnpI7TuWyfHiUx3WYwFvQQHbDkv505h6VVo40Cngw=".
+  DeviceIDFormatBase64 = 2;
+  // DeviceIDFormatUUID 表示 Orbis 使用的 UUID 格式，例如 "05601fd2-9c71-30b1-b174-5fa11b9de09f"。
+  //
+  // DeviceIDFormatUUID represents the UUID format used by Orbis, for example "05601fd2-9c71-30b1-b174-5fa11b9de09f".
+  DeviceIDFormatUUID = 3;
+  DeviceIDFormatInvalid = 4;
+}
+
+// IdentityData 包含已登录玩家的身份数据。
+//
+// IdentityData contains identity data of the player logged in.
+//
+// For legacy logins, it is found in the Mojang JWT chain (extraData) and can thus be trusted.
+// For newer logins using multiplayer tokens (OIDC), it is derived from the verified ID token issued by the
+// Minecraft authorization service, and may be augmented with legacy chain data when present.
+//
+// Added: v1.11.1
+message IdentityData {
+  // XUID 是玩家的 XBOX Live 用户 ID。只要玩家登录同一个 XBOX Live 账号，该值就会保持一致。
+  // 如果用户未登录 XBL 账号，该字段为空。
+  //
+  // XUID is the XBOX Live user ID of the player, which will remain consistent as long as the player is
+  // logged in with the XBOX Live account. It is empty if the user is not logged into its XBL account.
+  //
+  // Added: v1.11.1
+  string XUID = 1;
+  // Identity 是玩家 UUID。只要用户登录同一个 XBOX Live 账号，该值也会保持一致。
+  //
+  // Identity is the UUID of the player, which will also remain consistent for as long as the user is logged
+  // into its XBOX Live account.
+  //
+  // Added: v1.11.1
+  string Identity = 2;
+  // DisplayName 是玩家用户名，用户可以修改该值，因此不应把它用作存储信息的键。
+  //
+  // DisplayName is the username of the player, which may be changed by the user. It should for that reason
+  // not be used as a key to store information.
+  //
+  // Added: v1.11.1
+  string DisplayName = 3;
+  // TitleID 是仅在用户通过 legacy 链登录 XBOX Live 时出现的数字 ID。
+  // 它保存玩家所用版本的 title ID（XBL 相关）。部分 ID 示例见下方。
+  //
+  // TitleID is a numerical ID present only if the user is logged into XBOX Live using the legacy chain. It holds
+  // the title ID (XBL related) of the version that the player is on. Some of these IDs may be found below:
+  // Win10: 896928775
+  // Mobile: 1739947436
+  // Nintendo: 2047319603
+  // Note that these IDs are protected using XBOX Live, making the spoofing of this data very difficult.
+  //
+  // Added: v1.14.60
+  string TitleID = 4;
+  // PlayFabTitleID 是 PlayFab 专用 title ID，来自 OIDC/multiplayer-token 的 `tid` claim。
+  // 零售版通常为 "20CA2"。
+  //
+  // PlayFabTitleID is the title ID specific to PlayFab, as found in the OIDC/multiplayer-token claim `tid`.
+  // It is typically "20CA2" for retail.
+  //
+  // Added: v1.21.90
+  string PlayFabTitleID = 5;
+  // PlayFabID 是 PlayFab 中玩家的唯一 ID。只要玩家通过 Xbox Live 或 PlayFab 支持的其他身份 provider
+  // 登录同一个 PlayFab 账号，该值就会保持一致。它特指 master player account ID，
+  // 由 Mojang 发布的所有 title 共享。该字段只会出现在使用 Minecraft 服务签发 multiplayer token 的新版登录请求中。
+  // 游戏中有时会把 PlayFabID 称为 Minecraft ID（MCID）或 PFID。
+  //
+  // PlayFabID is the unique ID of the player specific to PlayFab, which will remain consistent
+  // as long as they are logged in to the PlayFab account via Xbox Live and many other identity
+  // providers supported by PlayFab. It is specifically the ID for master player account, which
+  // is shared across all titles published by Mojang. It is only present for newer login requests
+  // involving multiplayer tokens issued by the Minecraft service.
+  // Sometimes, PlayFabID is referred to Minecraft ID (MCID) or PFID in the game.
+  //
+  // Added: v1.21.90
+  string PlayFabID = 6;
+  // UID 是 网易 user ID。
+  //
+  // UID is the NetEase user ID.
+  //
+  // Added: NetEase.
+  int64 UID = 7;
+  // Version 是网易客户端版本标识，用于伪装客户端版本。
+  //
+  // Version is the client version identifier for NetEase, used for fake client version.
+  //
+  // Added: NetEase.
+  int64 Version = 8;
+  // Env 是网易客户端运行环境标识。
+  //
+  // Env indicates the running environment of NetEase client.
+  //
+  // Added: NetEase.
+  string Env = 9;
+  // Platform 是客户端运行平台。
+  //
+  // Platform represents the running platform of the client.
+  //
+  // Added: NetEase.
+  string Platform = 10;
+  // NeteaseSid 是网易服务端会话标识。
+  //
+  // NeteaseSid is the server session ID of NetEase.
+  //
+  // Added: NetEase.
+  string NeteaseSid = 11;
+  // GameType 是游戏类型，例如 "RentalGame" 租赁游戏。
+  //
+  // GameType indicates the game type, e.g. "RentalGame".
+  //
+  // Added: NetEase.
+  string GameType = 12;
+  // EngineVersion 是启动器引擎版本号。
+  //
+  // EngineVersion is the version of the launcher engine.
+  //
+  // Added: NetEase.
+  string EngineVersion = 13;
+  // PatchVersion 是启动器补丁版本号。
+  //
+  // PatchVersion is the patch version of the launcher.
+  //
+  // Added: NetEase.
+  string PatchVersion = 14;
+  // OSName 是客户端操作系统名称。
+  //
+  // OSName is the name of the operating system.
+  //
+  // Added: NetEase.
+  string OSName = 15;
+  // Bit 是系统位数标识。
+  //
+  // Bit indicates the system bit version.
+  //
+  // Added: NetEase.
+  string Bit = 16;
+}
+
+// ClientData 是 Login 数据包中客户端专用数据的容器。
+// 它保存玩家皮肤、语言代码和设备信息等数据。
+//
+// ClientData is a container of client specific data of a Login packet. It holds data such as the skin of a
+// player, but also its language code and device information.
+//
+// Added: v1.11.1
+message ClientData {
+  // AnimatedImageData 是动画图像数据列表。切片中的每个元素保存动画单帧的图像数据。
+  //
+  // AnimatedImageData is a list of image data for animations. Each of the elements in this slice holds the
+  // image data of a single frame of the animation.
+  //
+  // Added: v1.13.0
+  // Go type: []SkinAnimation
+  repeated SkinAnimation AnimatedImageData = 1;
+  // CapeData 是披风数据的 base64 编码字符串。它通常为空字符串，因为皮肤本身一般不携带披风。
+  //
+  // CapeData is a base64 encoded string of cape data. This is usually an empty string, as skins typically
+  // don't carry capes themselves.
+  //
+  // Added: v1.11.1
+  string CapeData = 2;
+  // CapeID 与 SkinID 类似，用于标识皮肤。它通常为空（无披风），或是包含 UUID 的某种 ID。
+  //
+  // CapeID is an ID which, like the SkinID, identifies a skin. Usually this is either empty for no skin or
+  // some ID containing a UUID in it.
+  //
+  // Added: v1.13.0
+  string CapeID = 3;
+  // CapeImageHeight 和 CapeImageWidth 是披风图像的尺寸。
+  //
+  // CapeImageHeight and CapeImageWidth are the dimensions of the cape's image.
+  //
+  // Added: v1.13.0
+  // Go type: int
+  int64 CapeImageHeight = 4;
+  // Go type: int
+  int64 CapeImageWidth = 5;
+  // CapeOnClassicSkin 指定玩家装备的披风是否属于 classic skin，通常指较早的 MineCon 披风之一。
+  //
+  // CapeOnClassicSkin specifies if the cape that the player has equipped is part of a classic skin, which
+  // usually points to one of the older MineCon capes.
+  //
+  // Added: v1.13.0
+  bool CapeOnClassicSkin = 6;
+  // ClientRandomID 是为客户端生成的随机客户端 ID，通常会跨会话和游戏重启保持一致。
+  //
+  // ClientRandomID is a random client ID number generated for the client. It usually remains consistent
+  // through sessions and through game restarts.
+  //
+  // Added: v1.11.1
+  int64 ClientRandomID = 7;
+  // CurrentInputMode 是客户端当前使用的输入模式。移动端和 Win10 通常为 1，
+  // 控制台输入则使用不同值。
+  //
+  // CurrentInputMode is the input mode used by the client. It is 1 for mobile and win10, but is different
+  // for console input.
+  //
+  // Added: v1.11.1
+  // Go type: int
+  int64 CurrentInputMode = 8;
+  // DefaultInputMode 是设备默认使用的输入模式。
+  //
+  // DefaultInputMode is the default input mode used by the device.
+  //
+  // Added: v1.11.1
+  // Go type: int
+  int64 DefaultInputMode = 9;
+  // DeviceModel 是表示玩家所用设备型号的字符串。目前该名称似乎始终为
+  // "(Standard system devices) System devices"。
+  //
+  // DeviceModel is a string indicating the device model used by the player. At the moment, it appears that
+  // this name is always '(Standard system devices) System devices'.
+  //
+  // Added: v1.11.1
+  string DeviceModel = 10;
+  // DeviceOS 是表示设备操作系统的数字 ID。
+  //
+  // DeviceOS is a numerical ID indicating the OS of the device.
+  //
+  // Added: v1.11.1
+  .mousetunnel.minecraft.protocol.os.DeviceOS DeviceOS = 11;
+  // DeviceID 通常是设备专属 UUID；同一设备上的不同用户会拥有相同 UUID。
+  // DeviceID 不保证始终为 UUID，某些情况下它会是 base64 编码字符串。
+  // 默认不会自动验证该字段，因为各 OS 格式不同，且并非所有格式都已确认。
+  //
+  // DeviceID is usually a UUID specific to the device. A different user will have the same UUID for this.
+  // DeviceID is not guaranteed to always be a UUID. It is a base64 encoded string under some circumstances.
+  // This field is not automatically verified by default, because the format is different for each OS and
+  // not all have been verified.
+  //
+  // Added: v1.11.1
+  DeviceID DeviceID = 12;
+  // GameVersion 是尝试加入服务器的玩家游戏版本，例如 "1.11.0"。
+  //
+  // GameVersion is the game version of the player that attempted to join, for example '1.11.0'.
+  //
+  // Added: v1.11.1
+  string GameVersion = 13;
+  // GUIScale 是玩家 GUI 缩放。默认值为 0；若使用比通常更小的 GUI 缩放，则可能为 -1 或 -2。
+  //
+  // GUIScale is the GUI scale of the player. It is by default 0, and is otherwise -1 or -2 for a smaller
+  // GUI scale than usual.
+  //
+  // Added: v1.11.1
+  // Go type: int
+  int64 GUIScale = 14;
+  // IsEditorMode 指定玩家是否处于编辑器模式。
+  //
+  // IsEditorMode is a value to dictate if the player is in editor mode.
+  //
+  // Added: v1.19.40
+  bool IsEditorMode = 15;
+  // LanguageCode 是玩家语言代码，形式类似 "en_UK"。它遵循 ISO 语言代码，
+  // 但会把连字符 "-" 替换为下划线 "_"。
+  //
+  // LanguageCode is the language code of the player. It looks like 'en_UK'. It follows the ISO language
+  // codes, but hyphens ('-') are replaced with underscores. ('_')
+  //
+  // Added: v1.11.1
+  string LanguageCode = 16;
+  // PersonaSkin 指定皮肤是否为 persona skin，即是否通过游戏内皮肤创建器创建。
+  //
+  // PersonaSkin specifies if the skin was a persona skin, meaning that it was created through the in-game
+  // skin creator.
+  //
+  // Added: v1.13.0
+  bool PersonaSkin = 17;
+  // PlatformOfflineID 是 UUID 或空字符串。
+  //
+  // PlatformOfflineID is either a UUID or an empty string.
+  //
+  // Added: v1.11.1
+  string PlatformOfflineID = 18;
+  // PlatformOnlineID 是 uint64 字符串或空字符串。
+  //
+  // PlatformOnlineID is either a uint64 string or an empty string.
+  //
+  // Added: v1.11.1
+  string PlatformOnlineID = 19;
+  // PlatformUserID 保存仅在 DeviceOS 为 device.XBOX 时发送的 UUID。其具体用途尚不明确。
+  //
+  // PlatformUserID holds a UUID which is only sent if the DeviceOS is of type device.XBOX. Its function
+  // is not exactly clear.
+  //
+  // Added: v1.12
+  string PlatformUserID = 20;
+  // PremiumSkin 表示玩家持有的皮肤是否为付费获得的 premium skin。
+  //
+  // PremiumSkin indicates if the skin the player held was a premium skin, meaning it was obtained through
+  // payment.
+  //
+  // Added: v1.11.1
+  bool PremiumSkin = 21;
+  // SelfSignedID 是一个 UUID，会在游戏重启和新游戏会话之间保持一致。
+  //
+  // SelfSignedID is a UUID that remains consistent through restarts of the game and new game sessions.
+  //
+  // Added: v1.11.1
+  string SelfSignedID = 22;
+  // ServerAddress 是玩家用于加入服务器的精确地址。它可以是实际地址，也可以是主机名，
+  // 并包含端口，格式为 "address:port"。
+  //
+  // ServerAddress is the exact address the player used to join the server with. This may be either an
+  // actual address, or a hostname. ServerAddress also has the port in it, in the shape of
+  // 'address:port`.
+  //
+  // Added: v1.11.1
+  string ServerAddress = 23;
+  // TODO：确认 SkinAnimationData 保存什么值，以及它何时会非空。
+  //
+  // TODO: Find out what value SkinAnimationData holds and when it does hold something.
+  //
+  // Added: v1.13.0
+  string SkinAnimationData = 24;
+  // SkinData 是 base64 编码字节切片，长度为 64*32*4、64*64*4 或 128*128*4 字节。
+  // 它按 RGBA 顺序表示皮肤颜色。
+  //
+  // SkinData is a base64 encoded byte slice of 64*32*4, 64*64*4 or 128*128*4 bytes. It is a RGBA ordered
+  // byte representation of the skin colours.
+  //
+  // Added: v1.11.1
+  string SkinData = 25;
+  // SkinGeometry 是皮肤几何数据结构的 base64 JSON 编码，包含 bones、uv、pivot 等属性。
+  //
+  // SkinGeometry is a base64 JSON encoded structure of the geometry data of a skin, containing properties
+  // such as bones, uv, pivot etc.
+  //
+  // Added: v1.11.1
+  string SkinGeometry = 26;
+  // SkinGeometryVersion 是 SkinGeometry 的版本。
+  //
+  // SkinGeometryVersion is the version for SkinGeometry.
+  //
+  // Added: v1.17.30
+  string SkinGeometryVersion = 27;
+  // SkinID 是为皮肤生成的唯一 ID，例如默认 Alex 皮肤的
+  // "c18e65aa-7b21-4637-9b63-8ad63622ef01_Alex"。
+  //
+  // SkinID is a unique ID produced for the skin, for example 'c18e65aa-7b21-4637-9b63-8ad63622ef01_Alex'
+  // for the default Alex skin.
+  //
+  // Added: v1.11.1
+  string SkinID = 28;
+  // PlayFabID 是 PlayFab 后端平台使用的玩家唯一字母数字标识符。
+  // PlayFab 后端承载游戏内 Marketplace、皮肤和其他相关服务。
+  // PlayFabID 是半十六进制编码字符串，通常由 16 个字符组成；不过它不一定总是合法十六进制，
+  // 因为最后一个字符可能会被省略。
+  //
+  // PlayFabID is an alphanumeric identifier unique to the player used by the
+  // PlayFab backend platform. This platform hosts features like the
+  // Marketplace, skins, and other related services within the game. PlayFabID
+  // is a semi-hex encoded string, usually consisting of 16 characters. That
+  // said, this is not always valid hex, because the last character may be
+  // omitted.
+  //
+  // Added: v1.16.210
+  string PlayFabID = 29;
+  // SkinImageHeight 和 SkinImageWidth 是皮肤图像数据的尺寸。
+  //
+  // SkinImageHeight and SkinImageWidth are the dimensions of the skin's image data.
+  //
+  // Added: v1.13.0
+  // Go type: int
+  int64 SkinImageHeight = 30;
+  // Go type: int
+  int64 SkinImageWidth = 31;
+  // SkinResourcePatch 是保存 JSON 数据的 base64 编码字符串。JSON 内容指向塑造皮肤时应使用的资源。
+  // 下方是一个带头部动画的示例。
+  //
+  // SkinResourcePatch is a base64 encoded string which holds JSON data. The content of the JSON data points
+  // to the assets that should be used to shape the skin. An example with a head animation can be found
+  // below.
+  // {
+  //   "geometry" : {
+  //      "animated_face" : "geometry.animated_face_persona_d1625e47f4c9399f_0_1",
+  //      "default" : "geometry.persona_d1625e47f4c9399f_0_1"
+  //   }
+  // }
+  // A skin resource patch must be present at all times. The minimum required data that the field must hold
+  // is {"geometry": {"default": "geometry.persona_d1625e47f4c9399f_0_1"}}
+  //
+  // Added: v1.13.0
+  string SkinResourcePatch = 32;
+  // SkinColour 是皮肤基础颜色的十六进制表示（包含 #）。这里发送的颜色示例为 "#b37b62"。
+  //
+  // SkinColour is a hex representation (including #) of the base colour of the skin. An example of the
+  // colour sent here is '#b37b62'.
+  //
+  // Added: v1.14.60
+  string SkinColour = 33;
+  // ArmSize 是玩家模型手臂尺寸。该值为 "wide"（通常用于男性皮肤）或 "slim"（通常用于女性皮肤）。
+  //
+  // ArmSize is the size of the arms of the player's model. This is either 'wide' (generally for male skins)
+  // or 'slim' (generally for female skins).
+  //
+  // Added: v1.14.60
+  string ArmSize = 34;
+  // PersonaPieces 是组成该皮肤的所有 persona piece 列表。
+  //
+  // PersonaPieces is a list of all persona pieces that the skin is composed of.
+  //
+  // Added: v1.14.60
+  // Go type: []PersonaPiece
+  repeated PersonaPiece PersonaPieces = 35;
+  // PieceTintColours 是上方 persona piece 列表中部分 piece 的特定染色颜色列表。
+  //
+  // PieceTintColours is a list of specific tint colours for (some of) the persona pieces found in the list
+  // above.
+  //
+  // Added: v1.14.60
+  // Go type: []PersonaPieceTintColour
+  repeated PersonaPieceTintColour PieceTintColours = 36;
+  // ThirdPartyName 是玩家用户名。不过不应使用该用户名，应优先使用 IdentityData 中发送的 DisplayName。
+  //
+  // ThirdPartyName is the username of the player. This username should not be used however. The DisplayName
+  // sent in the IdentityData should be preferred over this.
+  //
+  // Added: v1.11.1
+  string ThirdPartyName = 37;
+  // ThirdPartyNameOnly 指定用户是否只有第三方名称。应始终假设该值为 false，
+  // 因为第三方名称不受 XBOX Live Auth 保护，可能被篡改并改变用户名。
+  // 虽然该字段显然有其存在原因，但允许它过于危险，不应这样做。
+  //
+  // ThirdPartyNameOnly specifies if the user only has a third party name. It should always be assumed to be
+  // false, because the third party name is not XBOX Live Auth protected, meaning it can be tempered with
+  // and the username changed.
+  // Although this field is obviously here for a reason, allowing this is too dangerous and should never be
+  // done.
+  //
+  // Added: v1.13.0
+  // Go type: *bool
+  bool ThirdPartyNameOnly = 38;
+  // UIProfile 是使用的 UI profile。"Pocket" UI 为 1，"Classic" UI 为 0。
+  //
+  // UIProfile is the UI profile used. For the 'Pocket' UI, this is 1. For the 'Classic' UI, this is 0.
+  //
+  // Added: v1.11.1
+  // Go type: int
+  int64 UIProfile = 39;
+  // TrustedSkin 表示客户端使用的皮肤是否可信。
+  //
+  // TrustedSkin is a boolean indicating if the skin the client is using is trusted.
+  //
+  // Added: v1.19.70
+  bool TrustedSkin = 40;
+  // OverrideSkin 是一个目前用途未知的布尔字段；它出现在这里的意义尚不明确。
+  //
+  // OverrideSkin is a boolean that does not make sense to be here. The current usage of this field is unknown.
+  //
+  // Added: v1.19.80
+  bool OverrideSkin = 41;
+  // CompatibleWithClientSideChunkGen 表示客户端硬件是否能够使用客户端侧区块生成系统。
+  //
+  // CompatibleWithClientSideChunkGen is a boolean indicating if the client's hardware is capable of using the client
+  // side chunk generation system.
+  //
+  // Added: v1.19.80
+  bool CompatibleWithClientSideChunkGen = 42;
+  // MaxViewDistance 是客户端硬件可承受的最高渲染距离。
+  //
+  // MaxViewDistance is the highest render distance that the client's hardware can handle.
+  //
+  // Added: v1.21.40
+  // Go type: int
+  int64 MaxViewDistance = 43;
+  // MemoryTier 是客户端硬件内存等级，取值为 0 到 4。
+  // 该等级的完整计算方式目前未知；下方是 Mojang 开发者给出的粗略估计。
+  //
+  // MemoryTier is the tier of memory that the client's hardware has. This is a number between 0 and 4. The
+  // full calculation of this tier is currently unknown but the following is a rough estimate from a
+  // developer at Mojang:
+  // 0 - Super Low, less than ~1.5GB of memory
+  // 1 - Low, less than ~2GB of memory
+  // 2 - Mid, less than ~4GB of memory
+  // 3 - High, less than ~8GB of memory
+  // 4 - Super High, more than ~8GB of memory
+  //
+  // Added: v1.21.40
+  // Go type: int
+  int64 MemoryTier = 44;
+  // PlatformType 是客户端运行平台的类型。
+  //
+  // PlatformType is the type of platform the client is running.
+  //
+  // Added: v1.21.40
+  // Go type: int
+  int64 PlatformType = 45;
+  // GraphicsMode 是客户端正在使用的图形模式。
+  //
+  // GraphicsMode is the graphics mode the client is running.
+  //
+  // Added: v1.21.70
+  // Go type: int
+  int64 GraphicsMode = 46;
+  // PartyID 是客户端所在队伍的标识符；如果客户端不在队伍中，则为空。
+  //
+  // PartyID is the identifier of the client's party, or empty if they are not in a party.
+  //
+  // Added: v1.26.20
+  string PartyID = 47;
+  // PartyLeader 表示客户端是否为所在队伍的队长。
+  //
+  // PartyLeader is if the client is the leader of the party they are in.
+  //
+  // Added: v1.26.20
+  bool PartyLeader = 48;
+  // SkinItemID 是皮肤对应的网易物品 ID。
+  //
+  // SkinItemID is the NetEase item ID of the skin.
+  //
+  // Added: NetEase.
+  string SkinItemID = 49;
+  // GrowthLevel 是玩家的网易成长等级。
+  //
+  // GrowthLevel is the NetEase growth level of the player.
+  //
+  // Added: NetEase.
+  // Go type: int
+  int64 GrowthLevel = 50;
+  // BloomData 是网易登录数据中携带的 Bloom 过滤数据。
+  //
+  // BloomData is the Bloom filter data carried by NetEase login data.
+  //
+  // Added: NetEase.
+  string BloomData = 51;
+  // IsReconnect 表示该登录是否为网易客户端重连。
+  //
+  // IsReconnect indicates if the login is a NetEase client reconnect.
+  //
+  // Added: NetEase.
+  bool IsReconnect = 52;
+}
+
+// PersonaPiece 表示 persona 皮肤中的一个部件。所有部件都会分别发送。
+//
+// PersonaPiece represents a piece of a persona skin. All pieces are sent separately.
+//
+// Added: v1.14.60
+message PersonaPiece {
+  // Default 指定该部件是否为默认部件。当该部件属于 Steve 或 Alex 皮肤拥有的默认部件时，该值为 true。
+  //
+  // Default specifies if the piece is one of the default pieces. This is true when the piece is one of
+  // those that a Steve or Alex skin have.
+  //
+  // Added: v1.14.60
+  bool Default = 1;
+  // PackID 是标识该 persona piece 所属包的 UUID。
+  //
+  // PackID is a UUID that identifies the pack that the persona piece belongs to.
+  //
+  // Added: v1.14.60
+  string PackID = 2;
+  // PieceID 是标识该部件本身的 UUID；每个独立部件都有唯一值。
+  //
+  // PieceId is a UUID that identifies the piece itself, which is unique for each separate piece.
+  //
+  // Added: v1.14.60
+  string PieceID = 3;
+  // PieceType 保存部件类型。下方列出了一些可以直接确认的类型。
+  //
+  // PieceType holds the type of the piece. Several types I was able to find immediately are listed below.
+  // - persona_skeleton
+  // - persona_body
+  // - persona_skin
+  // - persona_bottom
+  // - persona_feet
+  // - persona_top
+  // - persona_mouth
+  // - persona_hair
+  // - persona_eyes
+  // - persona_facial_hair
+  //
+  // Added: v1.14.60
+  string PieceType = 4;
+  // ProductID 是购买相关场景中用于标识该部件的 UUID。
+  // 对于 IsDefault 字段为 true 的部件，该字段为空。
+  //
+  // ProductID is a UUID that identifies the piece when it comes to purchases. It is empty for pieces that
+  // have the 'IsDefault' field set to true.
+  //
+  // Added: v1.14.60
+  string ProductID = 5;
+}
+
+// PersonaPieceTintColour 描述 persona 皮肤中某个特定部件的染色颜色。
+//
+// PersonaPieceTintColour describes the tint colours of a specific piece of a persona skin.
+//
+// Added: v1.14.60
+message PersonaPieceTintColour {
+  // Colours 是包含四个十六进制颜色的数组。注意：不同于 ClientData 中的 SkinColor 字段，
+  // 这里实际使用 ARGB，而不只是 RGB。
+  // 这些颜色对应皮肤部件的不同部分。例如 persona_eyes 可包含：
+  // ["#ffa12722","#ff2f1f0f","#ff3aafd9","#0"]。
+  // 第一个十六进制颜色表示虹膜染色，第二个表示眉毛，第三个表示巩膜。
+  // 第四个为 #0，因为 persona_eyes 皮肤部件只有 3 个部分。
+  //
+  // Colours is an array of four colours written in hex notation (note, that unlike the SkinColor field in
+  // the ClientData struct, this is actually ARGB, not just RGB).
+  // The colours refer to different parts of the skin piece. The 'persona_eyes' may have the following
+  // colours: ["#ffa12722","#ff2f1f0f","#ff3aafd9","#0"]
+  // The first hex colour represents the tint colour of the iris, the second hex colour represents the
+  // eyebrows and the third represents the sclera. The fourth is #0 because there are only 3 parts of the
+  // persona_eyes skin piece.
+  //
+  // Added: v1.14.60
+  // Go type: [4]string
+  repeated string Colours = 1;
+  // PieceType 是该染色颜色对应的 persona 皮肤部件类型。
+  // 该部件类型必须出现在 persona pieces 列表中，但并非每种部件都会发送染色颜色。
+  // 下方列出了一些可以直接确认带有染色颜色的部件。
+  //
+  // PieceType is the type of the persona skin piece that this tint colour concerns. The piece type must
+  // always be present in the persona pieces list, but not each piece type has a tint colour sent.
+  // Pieces that do have a tint colour that I was able to find immediately are listed below.
+  // - persona_mouth
+  // - persona_eyes
+  // - persona_hair
+  //
+  // Added: v1.14.60
+  string PieceType = 2;
+}
+
+// SkinAnimation 表示可能存在的皮肤动画。它叠加在默认皮肤上，并由客户端循环播放。
+//
+// SkinAnimation is an animation that may be present. It is applied on top of the skin default and is cycled
+// through client-side.
+//
+// Added: v1.13.0
+message SkinAnimation {
+  // Frames 是动画帧数。该值指定 Image 数据中可以找到多少帧。
+  //
+  // Frames is the amount of frames of the animation. The number of Frames here specifies how many
+  // frames may be found in the Image data.
+  //
+  // Added: v1.13.0
+  // Go type: float64
+  double Frames = 1;
+  // Image 是长度为 ImageWidth * ImageHeight 的 base64 编码字节切片。
+  // 它按 RGBA 顺序表示动画图像像素。ImageData 中包含 FrameCount 张图像，
+  // 每张图像表示动画的一个阶段。该字段实际保存皮肤的哪一部分取决于 Type：
+  // SkinAnimationHead 只保存头部及帽子，其他动画则保存整个身体。
+  //
+  // Image is a base64 encoded byte slice of ImageWidth * ImageHeight bytes. It is an RGBA ordered byte
+  // representation of the animation image pixels. The ImageData contains FrameCount images in it, which
+  // each represent one stage of the animation. The actual part of the skin that this field holds
+  // depends on the Type, where SkinAnimationHead holds only the head and its hat, whereas the other
+  // animations hold the entire body of the skin.
+  //
+  // Added: v1.13.0
+  string Image = 2;
+  // ImageHeight 和 ImageWidth 是动画图像尺寸。注意，该图像尺寸不一定总是 32/64/128。
+  //
+  // ImageHeight and ImageWidth are the dimensions of the animated image. Note that the size of this
+  // image is not always 32/64/128.
+  //
+  // Added: v1.13.0
+  // Go type: int
+  int64 ImageHeight = 3;
+  // Go type: int
+  int64 ImageWidth = 4;
+  // Type 是动画类型，定义 Image 数据保存身体的哪一部分。取值如下：
+  // 0 -> None，通常不会出现。
+  // 1 -> 面部动画。
+  // 2 -> 32x32 身体动画。
+  // 3 -> 128x128 身体动画。
+  //
+  // Type is the type of the animation, which defines what part of the body the Image data holds. It is
+  // one of the following:
+  // 0 -> 'None', doesn't typically occur.
+  // 1 -> Face animation.
+  // 2 -> 32x32 Body animation.
+  // 3 -> 128x128 Body animation.
+  //
+  // Added: v1.13.0
+  // Go type: int
+  int64 Type = 5;
+  // AnimationExpression 是皮肤表情类型，取值如下：
+  // 0 -> 线性。
+  // 1 -> 眨眼。
+  //
+  // ExpressionType is the type of expression made by the skin, which is one of the following:
+  // 0 -> Linear.
+  // 1 -> Blinking.
+  //
+  // Added: v1.16.200
+  // Go type: int
+  int64 AnimationExpression = 6;
+}
+
+// DeviceID 表示登录请求中的设备标识符。
+//
+// DeviceID represents a device identifier in a login request.
+message DeviceID {
+  string Value = 1;
+}
+
+// DeviceIDFormat 描述 DeviceID 的格式。
+//
+// DeviceIDFormat describes the format of a DeviceID.
+message DeviceIDFormat {
+  // Go type: uint8
+  uint32 Value = 1;
+}
+

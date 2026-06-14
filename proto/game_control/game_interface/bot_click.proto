@@ -1,0 +1,159 @@
+syntax = "proto3";
+
+package emptydea.game_control.game_interface;
+
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pb";
+
+import "google/protobuf/struct.proto";
+import "block_pos.proto";
+import "mgl32.proto";
+
+// UseItemOnBlocks 是机器人在使用手
+// 持物品对方块进行操作时的通用结构体
+message UseItemOnBlocks {
+  // 指代机器人当前已选择的快捷栏编号
+  uint32 HotbarSlotID = 1;
+  // 指代机器人操作该方块时的位置
+  mousetunnel.minecraft.protocol.mgl32.Vec3 BotPos = 2;
+  // 指代被操作方块的位置
+  mousetunnel.minecraft.protocol.block_pos.BlockPos BlockPos = 3;
+  // 指代被操作方块的名称
+  string BlockName = 4;
+  // 指代被操作方块的方块状态
+  map<string, google.protobuf.Value> BlockStates = 5;
+}
+
+// ChangeSelectedHotbarSlotRequest 是切换客户端的手持物品栏为 hotBarSlotID 的请求。
+message ChangeSelectedHotbarSlotRequest {
+  // HotbarSlotID 是客户端的手持物品栏。
+  // 若提供的 hotBarSlotID 大于 8 ，则会重定向为 0
+  uint32 HotbarSlotID = 1;
+}
+
+// BotClickResponse 是点击类操作的空响应。
+message BotClickResponse {}
+
+// ClickBlockRequest 是让客户端点击 request 所指代的方块的请求。
+message ClickBlockRequest {
+  // Request 指代要被点击的方块。
+  UseItemOnBlocks Request = 1;
+}
+
+// ClickBlockWithPositionRequest 是让客户端点击 request 所指代的方块，
+// 并且指定当次交互时玩家的位置为 position 的请求。
+message ClickBlockWithPositionRequest {
+  // Request 指代要被点击的方块。
+  UseItemOnBlocks Request = 1;
+  // Position 指定当次交互时玩家的位置。
+  mousetunnel.minecraft.protocol.mgl32.Vec3 Position = 2;
+}
+
+// ClickBlockWithPositionResponse 是带位置点击后的结果。
+message ClickBlockWithPositionResponse {
+  // ForceMoved 指示机器人是否被强制移动。
+  // 注意，即便 err 非空，forceMoved 也可能为 true。
+  bool ForceMoved = 1;
+}
+
+// ClickAirRequest 是使用快捷栏 hotbarSlotID 进行一次空点击操作的请求。
+message ClickAirRequest {
+  // HotbarSlot 是要使用的快捷栏。
+  uint32 HotbarSlot = 1;
+  // RealPosition 指示机器人在操作时的实际位置。
+  mousetunnel.minecraft.protocol.mgl32.Vec3 RealPosition = 2;
+}
+
+// PlaceBlockRequest 是按方块点击上下文放置方块的请求。
+message PlaceBlockRequest {
+  // Request 是使用物品点击目标方块的上下文。
+  UseItemOnBlocks Request = 1;
+  // BlockFace 是要点击的方块面。
+  int32 BlockFace = 2;
+}
+
+// PlaceBlockHighLevelRequest 是高级放置方块请求。
+message PlaceBlockHighLevelRequest {
+  // BlockPos 是目标方块位置。
+  mousetunnel.minecraft.protocol.block_pos.BlockPos BlockPos = 1;
+  // HotbarSlot 是使用的快捷栏槽位。
+  uint32 HotbarSlot = 2;
+  // Facing 是期望点击的方向。
+  uint32 Facing = 3;
+}
+
+// PlaceBlockHighLevelResponse 是高级放置方块的计算结果。
+message PlaceBlockHighLevelResponse {
+  // ClickPos 是实际点击的方块位置。
+  mousetunnel.minecraft.protocol.block_pos.BlockPos ClickPos = 1;
+  // OffsetPos 是相对目标位置的偏移。
+  mousetunnel.minecraft.protocol.block_pos.BlockPos OffsetPos = 2;
+  // BotPosPresent 表示 BotPos 是否存在。
+  bool BotPosPresent = 3;
+  // BotPos 是推荐或实际使用的机器人位置。
+  mousetunnel.minecraft.protocol.block_pos.BlockPos BotPos = 4;
+}
+
+// PickBlockRequest 是发送 Pick Block 请求的参数。
+message PickBlockRequest {
+  // Pos 是要选取的方块位置。
+  mousetunnel.minecraft.protocol.block_pos.BlockPos Pos = 1;
+  // AssignNBTData 表示是否附带方块 NBT 数据。
+  bool AssignNBTData = 2;
+}
+
+// PickBlockResponse 是选取方块结果。
+message PickBlockResponse {
+  // Success 表示选取方块是否成功。
+  bool Success = 1;
+  // Slot 是成功后目标物品所在的快捷栏槽位。
+  uint32 Slot = 2;
+}
+
+// BotClickService 是基于 ResourcesWrapper
+// 和 Commands 实现的已简化的点击实现。
+//
+// 由于点击操作与机器人手持物品强相关，
+// 本处也集成了切换手持物品的实现。
+//
+// 另外，考虑到 Pick Block 操作的语义
+// 也与 点击方块 有关，因此其也被集成在
+// 此，尽管它使用了完全不同的数据包。
+service BotClickService {
+  // ChangeSelectedHotbarSlot 切换客户端的手持物品栏为 hotBarSlotID 。
+  // 若提供的 hotBarSlotID 大于 8 ，则会重定向为 0
+  rpc ChangeSelectedHotbarSlot(ChangeSelectedHotbarSlotRequest) returns (BotClickResponse);
+  // ClickBlock 让客户端点击 request 所指代的方块。
+  //
+  // 你可以对容器使用这样的操作，这会使得容器被打开。
+  //
+  // 你亦可以对物品展示框使用这样的操作，
+  // 这会使得物品被放入或令展示框内的物品旋转。
+  //
+  // 此函数不会自动切换物品栏，但会等待租赁服响应更改
+  rpc ClickBlock(ClickBlockRequest) returns (BotClickResponse);
+  // ClickBlockWithPosition 让客户端点击 request 所指代的方块，
+  // 并且指定当次交互时玩家的位置为 position 。
+  //
+  // 应当说明的是，无论机器人当前所处的位置如何，
+  // ClickBlockWithPosition 总会将机器人强制
+  // 移动到 position 所指示的位置。
+  //
+  // 返回的 forceMoved 则会指示机器人是否被强制移动。
+  // 注意，即便 err 非空，forceMoved 也可能为 true。
+  //
+  // 该函数在通常情况下被用于十分精细的操作，
+  // 例如为告示牌的特定面附加发光效果。
+  //
+  // 此函数不会自动切换物品栏，但会等待租赁服响应更改
+  rpc ClickBlockWithPosition(ClickBlockWithPositionRequest) returns (ClickBlockWithPositionResponse);
+  // ClickAir 使用快捷栏 hotbarSlotID 进行一次空点击操作。
+  // realPosition 指示机器人在操作时的实际位置。
+  // 此函数不会自动切换物品栏，但会等待租赁服响应更改
+  rpc ClickAir(ClickAirRequest) returns (BotClickResponse);
+  // PlaceBlock 使用给定方块面信息放置方块。
+  rpc PlaceBlock(PlaceBlockRequest) returns (BotClickResponse);
+  // PlaceBlockHighLevel 根据目标位置、快捷栏和朝向自动计算点击位置并放置方块。
+  rpc PlaceBlockHighLevel(PlaceBlockHighLevelRequest) returns (PlaceBlockHighLevelResponse);
+  // PickBlock 发送 Pick Block 请求。
+  rpc PickBlock(PickBlockRequest) returns (PickBlockResponse);
+}

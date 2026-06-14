@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.show_credits;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+enum ShowCreditsStatusEnum {
+  ShowCreditsStatusStart = 0;
+  ShowCreditsStatusEnd = 1;
+}
+
+// ShowCredits 由服务器发送，用于向客户端显示 Minecraft 片尾制作人员界面。
+// 它通常在玩家击败末影龙并离开末地时发送。
+//
+// ShowCredits is sent by the server to show the Minecraft credits screen to the client. It is typically sent
+// when the player beats the ender dragon and leaves the End.
+//
+// Added: v1.12
+message ShowCredits {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDShowCredits;
+  // PlayerRuntimeID 是要向其显示片尾的玩家实体运行时 ID。目前尚不清楚为什么最初会有这个字段。
+  //
+  // PlayerRuntimeID is the entity runtime ID of the player to show the credits to. It's not clear why this
+  // field is actually here in the first place.
+  //
+  // Added: v1.12
+  uint64 PlayerRuntimeID = 1;
+  // StatusType 是片尾状态类型，它是上方常量之一，用于开始或停止片尾。
+  //
+  // StatusType is the status type of the credits. It is one of the constants above, and either starts or
+  // stops the credits.
+  //
+  // Added: v1.12
+  int32 StatusType = 2;
+}
+

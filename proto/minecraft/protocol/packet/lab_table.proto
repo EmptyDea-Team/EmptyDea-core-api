@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.lab_table;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "block_pos.proto";
+import "packet_options.proto";
+
+enum LabTableActionEnum {
+  LabTableActionCombine = 0;
+  LabTableActionReact = 1;
+  LabTableActionReset = 2;
+}
+
+// LabTable 由客户端发送，用于告知服务器它在教育版中开始了化学反应；
+// 也可由服务器发送给其他客户端以显示效果。
+// 该数据包仅在启用教育版功能时可用。
+//
+// LabTable is sent by the client to let the server know it started a chemical reaction in Education Edition,
+// and is sent by the server to other clients to show the effects.
+// The packet is only functional if Education features are enabled.
+//
+// Added: v1.11.1
+message LabTable {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDLabTable;
+  // ActionType 是已执行操作的类型，它是上方常量之一。通常客户端只发送 LabTableActionCombine，
+  // 而服务器发送 LabTableActionReact。
+  //
+  // ActionType is the type of the action that was executed. It is one of the constants above. Typically,
+  // only LabTableActionCombine is sent by the client, whereas LabTableActionReact is sent by the server.
+  //
+  // Added: v1.11.1
+  // Go type: byte
+  uint32 ActionType = 1;
+  // Position 是所使用实验台所在的位置。
+  //
+  // Position is the position at which the lab table used was located.
+  //
+  // Added: v1.11.1
+  .mousetunnel.minecraft.protocol.block_pos.BlockPos Position = 2;
+  // ReactionType 是放入实验台的物品产生的反应类型。
+  // 根据反应结果不同，反应类型可以是物品类型，也可以是粒子类型。
+  //
+  // ReactionType is the type of the reaction that took place as a result of the items put into the lab
+  // table. The reaction type can be either that of an item or a particle, depending on whatever the result
+  // was of the reaction.
+  //
+  // Added: v1.11.1
+  // Go type: byte
+  uint32 ReactionType = 3;
+}
+

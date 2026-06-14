@@ -1,0 +1,212 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.item;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+import "google/protobuf/struct.proto";
+
+enum ItemEntryVersionEnum {
+  ItemEntryVersionLegacy = 0;
+  ItemEntryVersionDataDriven = 1;
+  ItemEntryVersionNone = 2;
+}
+
+// ItemInstance 表示物品栈的唯一实例。这类实例携带一个对该物品栈保持稳定的特定网络 ID。
+//
+// ItemInstance represents a unique instance of an item stack. These instances carry a specific network ID
+// that is persistent for the stack.
+//
+// Added: v1.16
+message ItemInstance {
+  // StackNetworkID 是物品栈的网络 ID。若物品栈为空，该字段始终写入 0。
+  // 若物品栈非空，且 StartGame 数据包中禁用了服务端权威物品栏，则应设为 1；
+  // 若启用了服务端权威物品栏，则应设为唯一的物品栈 ID。
+  //
+  // StackNetworkID is the network ID of the item stack. If the stack is empty, 0 is always written for this
+  // field. If not, the field should be set to 1 if the server authoritative inventories are disabled in the
+  // StartGame packet, or to a unique stack ID if it is enabled.
+  //
+  // Added: v1.16
+  int32 StackNetworkID = 1;
+  // Stack 是该物品实例实际携带的物品栈。
+  //
+  // Stack is the actual item stack of the item instance.
+  //
+  // Added: v1.16
+  ItemStack Stack = 2;
+}
+
+// ItemStack 表示网络上传输的物品实例/物品栈。它由网络 ID 和元数据值共同定义类型。
+//
+// ItemStack represents an item instance/stack over network. It has a network ID and a metadata value that
+// define its type.
+//
+// Added: v1.16
+message ItemStack {
+  // ItemType 标识该物品栈的物品类型和元数据。
+  //
+  // ItemType identifies the item type and metadata of the stack.
+  //
+  // Added: v1.16
+  ItemType ItemType = 1;
+  // BlockRuntimeID 是该物品所代表方块的运行时 ID；仅在适用时使用。
+  //
+  // BlockRuntimeID is the runtime ID of the block represented by the item, if applicable.
+  //
+  // Added: v1.16
+  int32 BlockRuntimeID = 2;
+  // Count 是该物品栈持有的物品数量。
+  //
+  // Count is the count of items that the item stack holds.
+  //
+  // Added: v1.16
+  // Go type: uint16
+  uint32 Count = 3;
+  // NBTData 是发送到数据包时会被序列化为 NBT 表示的映射。
+  //
+  // NBTData is a map that is serialised to its NBT representation when sent in a packet.
+  //
+  // Added: v1.16
+  // Go type: map[string]any
+  map<string, google.protobuf.Value> NBTData = 4;
+  // CanBePlacedOn 是该物品可放置到其上的方块标识符列表，例如 "minecraft:stone"。
+  // 仅对可放置物品有意义。
+  //
+  // CanBePlacedOn is a list of block identifiers like 'minecraft:stone' which the item, if it is an item
+  // that can be placed, can be placed on top of.
+  //
+  // Added: v1.16
+  // Go type: []string
+  repeated string CanBePlacedOn = 5;
+  // CanBreak 是该物品可破坏的方块标识符列表，例如 "minecraft:dirt"。
+  //
+  // CanBreak is a list of block identifiers like 'minecraft:dirt' that the item is able to break.
+  //
+  // Added: v1.16
+  // Go type: []string
+  repeated string CanBreak = 6;
+  // HasNetworkID 指定是否应将 StackNetworkID 视为该物品栈已存在的字段。
+  //
+  // HasNetworkID specifies if StackNetworkID should be treated as present for this stack.
+  //
+  // Added: v1.16
+  bool HasNetworkID = 7;
+  // BlockingTick 是盾牌开始格挡时的 tick，仅用于盾牌物品。
+  //
+  // BlockingTick is the tick at which a shield started blocking. It is only used for shield items.
+  //
+  // Added: v1.16
+  int64 BlockingTick = 8;
+}
+
+// ItemType 表示物品网络 ID 与元数据值的稳定组合。除非获得新物品，否则通常不会改变。
+//
+// ItemType represents a consistent combination of network ID and metadata value of an item. It cannot usually
+// be changed unless a new item is obtained.
+//
+// Added: v1.16
+message ItemType {
+  // NetworkID 是物品的数字网络 ID。根据具体物品不同，它可能是正数，也可能是负数。
+  //
+  // NetworkID is the numerical network ID of the item. This is sometimes a positive ID, and sometimes a
+  // negative ID, depending on what item it concerns.
+  //
+  // Added: v1.16
+  int32 NetworkID = 1;
+  // MetadataValue 是物品的元数据值。对部分物品而言它表示耐久损伤值；
+  // 对其他物品而言，它只是物品变体的标识符。
+  //
+  // MetadataValue is the metadata value of the item. For some items, this is the damage value, whereas for
+  // other items it is simply an identifier of a variant of the item.
+  //
+  // Added: v1.16
+  uint32 MetadataValue = 2;
+}
+
+// ItemEntry 是 StartGame 物品表中发送的物品条目。它保存物品名称和 legacy ID，
+// 后续可通过该 ID 指回对应名称。
+//
+// ItemEntry is an item sent in the StartGame item table. It holds a name and a legacy ID, which is used to
+// point back to that name.
+//
+// Added: v1.16
+message ItemEntry {
+  // Name 是物品名称，例如 "minecraft:stick"。
+  //
+  // Name if the name of the item, which is a name like 'minecraft:stick'.
+  //
+  // Added: v1.16
+  string Name = 1;
+  // RuntimeID 是网络上用于标识该物品的 ID。
+  // StartGame 数据包发送所有物品后，后续会使用这些数字 ID 标识物品。
+  //
+  // RuntimeID is the ID that is used to identify the item over network. After sending all items in the
+  // StartGame packet, items will then be identified using these numerical IDs.
+  //
+  // Added: v1.16
+  // Go type: int16
+  int32 RuntimeID = 2;
+  // ComponentBased 指定该物品是否由组件创建；若为 true，表示该物品是自定义物品。
+  //
+  // ComponentBased specifies if the item was created using components, meaning the item is a custom item.
+  //
+  // Added: v1.16
+  bool ComponentBased = 3;
+  // Version 是物品条目的版本，客户端会据此决定如何处理该条目。
+  // 它是上方常量之一。
+  //
+  // Version is the version of the item entry which is used by the client to determine how to handle the
+  // item entry. It is one of the constants above.
+  //
+  // Added: v1.16
+  int32 Version = 4;
+  // Data 是组件化物品的组件和属性映射；仅当该物品基于组件时使用。
+  //
+  // Data is a map containing the components and properties of the item, if the item is component based.
+  //
+  // Added: v1.16
+  // Go type: map[string]any
+  map<string, google.protobuf.Value> Data = 5;
+}
+
+// MaterialReducerOutput 表示材料分解器的一项输出。
+//
+// MaterialReducerOutput is an output from a material reducer.
+//
+// Added: v1.16
+message MaterialReducerOutput {
+  // NetworkID 是输出物品的网络 ID。
+  //
+  // NetworkID is the network ID of the output.
+  //
+  // Added: v1.16
+  int32 NetworkID = 1;
+  // Count 是输出物品数量。
+  //
+  // Count is the quantity of the output.
+  //
+  // Added: v1.16
+  int32 Count = 2;
+}
+
+// MaterialReducer 表示教育版材料分解器方块中的一次合成/分解配方。
+//
+// MaterialReducer is a craft in a material reducer block in education edition.
+//
+// Added: v1.16
+message MaterialReducer {
+  // InputItem 是输入物品。
+  //
+  // InputItem is the starting item.
+  //
+  // Added: v1.16
+  ItemType InputItem = 1;
+  // Outputs 包含该配方产生的所有输出物品。
+  //
+  // Outputs contain all outputting items.
+  //
+  // Added: v1.16
+  // Go type: []MaterialReducerOutput
+  repeated MaterialReducerOutput Outputs = 2;
+}
+

@@ -1,0 +1,116 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.mob_effect;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+enum MobEffectEnum {
+  MOBEFFECTENUM_UNSPECIFIED = 0;
+  MobEffectAdd = 1;
+  MobEffectModify = 2;
+  MobEffectRemove = 3;
+}
+
+enum EffectEnum {
+  EFFECTENUM_UNSPECIFIED = 0;
+  EffectSpeed = 1;
+  EffectSlowness = 2;
+  EffectHaste = 3;
+  EffectMiningFatigue = 4;
+  EffectStrength = 5;
+  EffectInstantHealth = 6;
+  EffectInstantDamage = 7;
+  EffectJumpBoost = 8;
+  EffectNausea = 9;
+  EffectRegeneration = 10;
+  EffectResistance = 11;
+  EffectFireResistance = 12;
+  EffectWaterBreathing = 13;
+  EffectInvisibility = 14;
+  EffectBlindness = 15;
+  EffectNightVision = 16;
+  EffectHunger = 17;
+  EffectWeakness = 18;
+  EffectPoison = 19;
+  EffectWither = 20;
+  EffectHealthBoost = 21;
+  EffectAbsorption = 22;
+  EffectSaturation = 23;
+  EffectLevitation = 24;
+  EffectFatalPoison = 25;
+  EffectConduitPower = 26;
+  EffectSlowFalling = 27;
+}
+
+// MobEffect 由服务器发送，用于给玩家应用效果，例如中毒效果。
+// 它也可用于修改已有效果，或完全移除效果。
+//
+// MobEffect is sent by the server to apply an effect to the player, for example an effect like poison. It may
+// also be used to modify existing effects, or removing them completely.
+//
+// Added: v1.12
+message MobEffect {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDMobEffect;
+  // EntityRuntimeID 是实体的运行时 ID。运行时 ID 在每个世界会话中唯一，
+  // 数据包通常使用该运行时 ID 标识实体。
+  //
+  // EntityRuntimeID is the runtime ID of the entity. The runtime ID is unique for each world session, and
+  // entities are generally identified in packets using this runtime ID.
+  //
+  // Added: v1.12
+  uint64 EntityRuntimeID = 1;
+  // Operation 是该数据包的操作。它可以是 MobEffectAdd、MobEffectModify 或 MobEffectRemove，
+  // 并指定客户端侧的数据包结果。
+  //
+  // Operation is the operation of the packet. It is either MobEffectAdd, MobEffectModify or MobEffectRemove
+  // and specifies the result of the packet client-side.
+  //
+  // Added: v1.12
+  // Go type: byte
+  uint32 Operation = 2;
+  // EffectType 是要添加、移除或修改的效果 ID，应为上方常量之一。
+  //
+  // EffectType is the ID of the effect to be added, removed or modified. It is one of the constants that
+  // may be found above.
+  //
+  // Added: v1.12
+  int32 EffectType = 3;
+  // Amplifier 是效果强度。注意强度并不等同于效果等级；
+  // 等级通常比强度高一，且强度可以为负数以反转效果行为。
+  //
+  // Amplifier is the amplifier of the effect. Take note that the amplifier is not the same as the effect's
+  // level. The level is usually one higher than the amplifier, and the amplifier can actually be negative
+  // to reverse the behaviour effect.
+  //
+  // Added: v1.12
+  int32 Amplifier = 4;
+  // Particles 指定观察获得效果实体的玩家是否会看到其周围粒子。
+  // 如果设为 false，实体周围不会发出粒子。
+  //
+  // Particles specifies if viewers of the entity that gets the effect shows particles around it. If set to
+  // false, no particles are emitted around the entity.
+  //
+  // Added: v1.12
+  bool Particles = 5;
+  // Duration 是效果持续时间，以秒为单位。持续时间结束后，客户端侧会自动移除该效果。
+  //
+  // Duration is the duration of the effect in seconds. After the duration has elapsed, the effect will be
+  // removed automatically client-side.
+  //
+  // Added: v1.12
+  int32 Duration = 6;
+  // Tick 是发送该数据包时的服务器刻。它与 CorrectPlayerMovePrediction 相关联使用。
+  //
+  // Tick is the server tick at which the packet was sent. It is used in relation to CorrectPlayerMovePrediction.
+  //
+  // Added: v1.21.40
+  uint64 Tick = 7;
+  // Ambient 指定该效果是否为环境效果。如果设为 false，它不会被当作环境效果处理。
+  //
+  // Ambient specifies if the effect is ambient. If set to false, it will not get treated as an ambient effect.
+  //
+  // Added: v1.21.130.28
+  bool Ambient = 8;
+}
+

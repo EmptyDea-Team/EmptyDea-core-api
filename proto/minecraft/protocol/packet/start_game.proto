@@ -1,0 +1,861 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.start_game;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "block.proto";
+import "block_pos.proto";
+import "education.proto";
+import "experiments.proto";
+import "game_rule.proto";
+import "google/protobuf/struct.proto";
+import "item.proto";
+import "mgl32.proto";
+import "netease.proto";
+import "packet_options.proto";
+import "player.proto";
+import "server_join_information.proto";
+
+message StartGameOptionalBool {
+  bool Present = 1;
+  bool Value = 2;
+}
+
+message StartGameOptionalServerJoinInformation {
+  bool Present = 1;
+  .mousetunnel.minecraft.protocol.server_join_information.ServerJoinInformation Value = 2;
+}
+
+enum SpawnBiomeTypeEnum {
+  SpawnBiomeTypeDefault = 0;
+  SpawnBiomeTypeUserDefined = 1;
+}
+
+enum XBLBroadcastModeEnum {
+  XBLBroadcastModeNoMultiPlay = 0;
+  XBLBroadcastModeInviteOnly = 1;
+  XBLBroadcastModeFriendsOnly = 2;
+  XBLBroadcastModeFriendsOfFriends = 3;
+  XBLBroadcastModePublic = 4;
+}
+
+enum ChatRestrictionLevelEnum {
+  ChatRestrictionLevelNone = 0;
+  ChatRestrictionLevelDropped = 1;
+  ChatRestrictionLevelDisabled = 2;
+}
+
+enum EditorWorldTypeEnum {
+  EditorWorldTypeNotEditor = 0;
+  EditorWorldTypeProject = 1;
+  EditorWorldTypeTestLevel = 2;
+  EditorWorldTypeRealmsUpload = 3;
+}
+
+// StartGame 由服务器发送，用于告知客户端玩家将出生的世界信息。
+//
+// StartGame is sent by the server to send information about the world the player will be spawned in. It
+// contains information about the position the player spawns in, and information about the world in general
+// such as its game rules.
+//
+// Added: v1.11.1
+message StartGame {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDStartGame;
+  // EntityUniqueID 是玩家唯一 ID。该值在同一个世界的不同会话之间保持一致。
+  //
+  // EntityUniqueID is the unique ID of the player. The unique ID is a value that remains consistent across
+  // different sessions of the same world, but most servers simply fill the runtime ID of the entity out for
+  // this field.
+  //
+  // Added: v1.11.1
+  int64 EntityUniqueID = 1;
+  // EntityRuntimeID 是玩家运行时 ID。运行时 ID 在每个世界会话中唯一，数据包通常用它标识实体。
+  //
+  // EntityRuntimeID is the runtime ID of the player. The runtime ID is unique for each world session, and
+  // entities are generally identified in packets using this runtime ID.
+  //
+  // Added: v1.11.1
+  uint64 EntityRuntimeID = 2;
+  // PlayerGameMode 是玩家当前的游戏模式，取值为 0-4。
+  //
+  // PlayerGameMode is the game mode the player currently has. It is a value from 0-4, with 0 being
+  // survival mode, 1 being creative mode, 2 being adventure mode, 3 being survival spectator and 4 being
+  // creative spectator.
+  // This field may be set to 5 to make the client fall back to the game mode set in the WorldGameMode
+  // field.
+  //
+  // Added: v1.11.1
+  int32 PlayerGameMode = 3;
+  // PlayerPosition 是玩家在世界中的出生位置。服务器中它通常与下方的世界出生点相同。
+  //
+  // PlayerPosition is the spawn position of the player in the world. In servers this is often the same as
+  // the world's spawn position found below.
+  //
+  // Added: v1.11.1
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 PlayerPosition = 4;
+  // Pitch 是玩家的垂直旋转角度。正前方为 0，单位为度。
+  //
+  // Pitch is the vertical rotation of the player. Facing straight forward yields a pitch of 0. Pitch is
+  // measured in degrees.
+  //
+  // Added: v1.11.1
+  // Go type: float32
+  float Pitch = 5;
+  // Yaw 是玩家的水平旋转角度，同样以度为单位。
+  //
+  // Yaw is the horizontal rotation of the player. Yaw is also measured in degrees.
+  //
+  // Added: v1.11.1
+  // Go type: float32
+  float Yaw = 6;
+  // WorldSeed 是生成世界使用的种子。与 PC 版不同，它在改为 64 位小端整数前曾编码为 32 位 varint。
+  //
+  // WorldSeed is the seed used to generate the world. Unlike in PC edition, the seed was a 32-bit varint before it
+  // was changed to a 64-bit little endian integer.
+  //
+  // Added: v1.11.1
+  // Changed: v1.18.30, encoded as a 64-bit little endian integer.
+  int64 WorldSeed = 7;
+  // SpawnBiomeType 指定玩家出生的生物群系是用户定义的（通过行为包）还是内置的。
+  //
+  // SpawnBiomeType specifies if the biome that the player spawns in is user defined (through behaviour
+  // packs) or builtin. See the constants above.
+  //
+  // Added: v1.16.100
+  // Go type: int16
+  int32 SpawnBiomeType = 8;
+  // UserDefinedBiomeName 是玩家出生生物群系的可读名称，例如 'plains'。
+  //
+  // UserDefinedBiomeName is a readable name of the biome that the player spawned in, such as 'plains'. This
+  // might be a custom biome name if any custom biomes are present through behaviour packs.
+  //
+  // Added: v1.16.100
+  string UserDefinedBiomeName = 9;
+  // Dimension 是玩家出生维度的 ID，取值为 0-2。
+  //
+  // Dimension is the ID of the dimension that the player spawns in. It is a value from 0-2, with 0 being
+  // the overworld, 1 being the nether and 2 being the end.
+  //
+  // Added: v1.11.1
+  int32 Dimension = 10;
+  // Generator 是世界使用的生成器，取值为 0-4。
+  //
+  // Generator is the generator used for the world. It is a value from 0-4, with 0 being old limited worlds,
+  // 1 being infinite worlds, 2 being flat worlds, 3 being nether worlds and 4 being end worlds. A value of
+  // 0 will actually make the client stop rendering chunks you send beyond the world limit.
+  //
+  // Added: v1.11.1
+  int32 Generator = 11;
+  // WorldGameMode 是玩家首次出生到世界时获得的游戏模式。
+  //
+  // WorldGameMode is the game mode that a player gets when it first spawns in the world. It is shown in the
+  // settings and is used if the PlayerGameMode is set to 5.
+  //
+  // Added: v1.11.1
+  int32 WorldGameMode = 12;
+  // Hardcore 表示世界是否为硬核模式。硬核模式下玩家死亡后无法重生。
+  //
+  // Hardcore is if the world is in hardcore mode. In hardcore mode, the player cannot respawn after dying.
+  //
+  // Added: v1.20.80
+  bool Hardcore = 13;
+  // Difficulty 是世界难度，取值为 0-3。
+  //
+  // Difficulty is the difficulty of the world. It is a value from 0-3, with 0 being peaceful, 1 being easy,
+  // 2 being normal and 3 being hard.
+  //
+  // Added: v1.11.1
+  int32 Difficulty = 14;
+  // WorldSpawn 是世界出生点所在方块。该坐标不影响客户端实际出生位置，但会影响指南针指向。
+  //
+  // WorldSpawn is the block on which the world spawn of the world. This coordinate has no effect on the
+  // place that the client spawns, but it does have an effect on the direction that a compass points.
+  //
+  // Added: v1.11.1
+  .mousetunnel.minecraft.protocol.block_pos.BlockPos WorldSpawn = 15;
+  // AchievementsDisabled 定义世界中是否禁用成就。
+  //
+  // AchievementsDisabled defines if achievements are disabled in the world. The client crashes if this
+  // value is set to true while the player's or the world's game mode is creative, and it's recommended to
+  // simply always set this to false as a server.
+  //
+  // Added: v1.11.1
+  bool AchievementsDisabled = 16;
+  // EditorWorldType 指定编辑器模式类型；编辑器模式是近期加入的特殊模式。
+  //
+  // EditorWorldType is a value to dictate the type of editor mode, a special mode recently introduced adding
+  // "powerful tools for editing worlds, intended for experienced creators." It is one of the constants above.
+  //
+  // Added: v1.20.80
+  int32 EditorWorldType = 17;
+  // CreatedInEditor 指定世界是否作为编辑器模式项目创建。该字段当前功能未知。
+  //
+  // CreatedInEditor is a value to dictate if the world was created as a project in the editor mode. The functionality
+  // of this field is currently unknown.
+  //
+  // Added: v1.19.80
+  bool CreatedInEditor = 18;
+  // ExportedFromEditor 指定世界是否从编辑器模式导出。该字段当前功能未知。
+  //
+  // ExportedFromEditor is a value to dictate if the world was exported from editor mode. The functionality of this
+  // field is currently unknown.
+  //
+  // Added: v1.19.80
+  bool ExportedFromEditor = 19;
+  // DayCycleLockTime 是禁用日夜循环时锁定的时间。
+  //
+  // DayCycleLockTime is the time at which the day cycle was locked if the day cycle is disabled using the
+  // respective game rule. The client will maintain this time as long as the day cycle is disabled.
+  //
+  // Added: v1.11.1
+  int32 DayCycleLockTime = 20;
+  // EducationEditionOffer 是 Minecraft: Education Edition 字段，用于指定世界所属的“region”。
+  //
+  // EducationEditionOffer is some Minecraft: Education Edition field that specifies what 'region' the world
+  // was from, with 0 being None, 1 being RestOfWorld, and 2 being China.
+  // The actual use of this field is unknown.
+  //
+  // Added: v1.13
+  int32 EducationEditionOffer = 21;
+  // EducationFeaturesEnabled 指定世界是否启用教育版特性，例如教育版专属方块或实体。
+  //
+  // EducationFeaturesEnabled specifies if the world has education edition features enabled, such as the
+  // blocks or entities specific to education edition.
+  //
+  // Added: v1.11.1
+  bool EducationFeaturesEnabled = 22;
+  // EducationProductID 是用于标识教育版服务器实例的 UUID，通常在教育版服务器之间保持唯一。
+  //
+  // EducationProductID is a UUID used to identify the education edition server instance. It is generally
+  // unique for education edition servers.
+  //
+  // Added: v1.16.0
+  string EducationProductID = 23;
+  // RainLevel 指定降雨强度。设为 0 时完全不下雨。
+  //
+  // RainLevel is the level specifying the intensity of the rain falling. When set to 0, no rain falls at
+  // all.
+  //
+  // Added: v1.11.1
+  // Go type: float32
+  float RainLevel = 24;
+  // LightningLevel 指定雷暴强度。它可独立于 RainLevel 设置。
+  //
+  // LightningLevel is the level specifying the intensity of the thunder. This may actually be set
+  // independently from the RainLevel, meaning dark clouds can be produced without rain.
+  //
+  // Added: v1.11.1
+  // Go type: float32
+  float LightningLevel = 25;
+  // ConfirmedPlatformLockedContent 表示已确认的平台锁定内容。
+  //
+  // ConfirmedPlatformLockedContent indicates whether platform-locked content has been confirmed.
+  //
+  // Added: v1.9.0
+  bool ConfirmedPlatformLockedContent = 26;
+  // MultiPlayerGame 指定世界是否为多人游戏。服务器应始终将其设为 true。
+  //
+  // MultiPlayerGame specifies if the world is a multi-player game. This should always be set to true for
+  // servers.
+  //
+  // Added: v1.11.1
+  bool MultiPlayerGame = 27;
+  // LANBroadcastEnabled 指定世界是否预期启用 LAN 广播。
+  //
+  // LANBroadcastEnabled specifies if LAN broadcast was intended to be enabled for the world.
+  //
+  // Added: v1.11.1
+  bool LANBroadcastEnabled = 28;
+  // XBLBroadcastMode 是通过 Xbox Live 广播已加入游戏时使用的模式。
+  //
+  // XBLBroadcastMode is the mode used to broadcast the joined game across Xbox Live.
+  // When set to 0, the 'Invite' button in the pause screen is grayed out and players
+  // cannot invite their friends to the Xbox Live multiplayer session they're currently in.
+  // It only applies to worlds and has no effect on external servers.
+  //
+  // Added: v1.11.1
+  int32 XBLBroadcastMode = 29;
+  // PlatformBroadcastMode 是通过平台广播已加入游戏时使用的模式。
+  //
+  // PlatformBroadcastMode is the mode used to broadcast the joined game across the platform.
+  //
+  // Added: v1.11.1
+  int32 PlatformBroadcastMode = 30;
+  // CommandsEnabled 指定是否为玩家启用命令。服务器建议始终设为 true。
+  //
+  // CommandsEnabled specifies if commands are enabled for the player. It is recommended to always set this
+  // to true on the server, as setting it to false means the player cannot, under any circumstance, use a
+  // command.
+  //
+  // Added: v1.11.1
+  bool CommandsEnabled = 31;
+  // TexturePackRequired 指定世界可能携带的材质包是否为必需，也就是客户端加入前必须下载。
+  //
+  // TexturePackRequired specifies if the texture pack the world might hold is required, meaning the client
+  // was forced to download it before joining.
+  //
+  // Added: v1.11.1
+  bool TexturePackRequired = 32;
+  // GameRules 定义当前启用的游戏规则及其值。
+  //
+  // GameRules defines game rules currently active with their respective values. The value of these game
+  // rules may be either 'bool', 'int32' or 'float32'. Some game rules are server side only, and don't
+  // necessarily need to be sent to the client.
+  //
+  // Added: v1.11.1, Changed: v1.17.0
+  // Go type: []protocol.GameRule
+  repeated .mousetunnel.minecraft.protocol.game_rule.GameRule GameRules = 33;
+  // Experiments 保存玩家出生世界中启用或禁用的实验性功能列表。
+  //
+  // Experiments holds a list of experiments that are either enabled or disabled in the world that the
+  // player spawns in.
+  //
+  // Added: v1.16.100
+  // Go type: []protocol.ExperimentData
+  repeated .mousetunnel.minecraft.protocol.experiments.ExperimentData Experiments = 34;
+  // ExperimentsPreviouslyToggled 指定该世界此前是否切换过任何实验性功能。
+  //
+  // ExperimentsPreviouslyToggled specifies if any experiments were previously toggled in this world. It is
+  // probably used for some kind of metrics.
+  //
+  // Added: v1.16.100
+  bool ExperimentsPreviouslyToggled = 35;
+  // BonusChestEnabled 指定世界生成时是否启用奖励箱设置。它不会影响客户端。
+  //
+  // BonusChestEnabled specifies if the world had the bonus map setting enabled when generating it. It does
+  // not have any effect client-side.
+  //
+  // Added: v1.11.1
+  bool BonusChestEnabled = 36;
+  // StartWithMapEnabled 指定世界是否启用初始地图设置，也就是每个加入的玩家会获得地图。
+  //
+  // StartWithMapEnabled specifies if the world has the start with map setting enabled, meaning each joining
+  // player obtains a map. This should always be set to false, because the client obtains a map all on its
+  // own accord if this is set to true.
+  //
+  // Added: v1.11.1
+  bool StartWithMapEnabled = 37;
+  // TrustPlayers 指定旧版世界中玩家是否应被信任并拥有类似管理员的能力。
+  //
+  // TrustPlayers specifies if players should be trusted with operator-like abilities in legacy worlds.
+  //
+  // Added: v1.11.1, Removed: v1.9.0
+  bool TrustPlayers = 38;
+  // PlayerPermissions 是玩家权限等级，取值为 0-3。
+  //
+  // PlayerPermissions is the permission level of the player. It is a value from 0-3, with 0 being visitor,
+  // 1 being member, 2 being operator and 3 being custom.
+  //
+  // Added: v1.11.1
+  int32 PlayerPermissions = 39;
+  // GamePublish 是广播模式拆分前使用的旧版游戏发布设置。
+  //
+  // GamePublish is the legacy game publish setting used before broadcast modes were split.
+  //
+  // Added: v1.11.1, Removed: v1.9.0
+  int32 GamePublish = 40;
+  // ServerChunkTickRadius 是玩家周围会进行 tick 的区块半径。
+  //
+  // ServerChunkTickRadius is the radius around the player in which chunks are ticked. Most servers set this
+  // value to a fixed number, as it does not necessarily affect anything client-side.
+  //
+  // Added: v1.11.1
+  int32 ServerChunkTickRadius = 41;
+  // PlatformBroadcast 指定旧版协议中世界是否广播到平台。
+  //
+  // PlatformBroadcast specifies if the world is broadcast to the platform in legacy protocols.
+  //
+  // Added: v1.11.1, Removed: v1.9.0
+  bool PlatformBroadcast = 42;
+  // XBLBroadcastIntent 是广播模式拆分前使用的旧版 Xbox Live 广播意图。
+  //
+  // XBLBroadcastIntent is the legacy Xbox Live broadcast intent used before broadcast modes were split.
+  //
+  // Added: v1.11.1, Removed: v1.9.0
+  bool XBLBroadcastIntent = 43;
+  // HasLockedBehaviourPack 指定世界行为包是否锁定，锁定后不能从世界中禁用。
+  //
+  // HasLockedBehaviourPack specifies if the behaviour pack of the world is locked, meaning it cannot be
+  // disabled from the world. This is typically set for worlds on the marketplace that have a dedicated
+  // behaviour pack.
+  //
+  // Added: v1.11.1
+  bool HasLockedBehaviourPack = 44;
+  // HasLockedTexturePack 指定世界材质包是否锁定，锁定后不能从世界中禁用。
+  //
+  // HasLockedTexturePack specifies if the texture pack of the world is locked, meaning it cannot be
+  // disabled from the world. This is typically set for worlds on the marketplace that have a dedicated
+  // texture pack.
+  //
+  // Added: v1.11.1
+  bool HasLockedTexturePack = 45;
+  // FromLockedWorldTemplate 指定服务器提供的世界是否来自锁定的世界模板。
+  //
+  // FromLockedWorldTemplate specifies if the world from the server was from a locked world template. For
+  // servers this should always be set to false.
+  //
+  // Added: v1.11.1
+  bool FromLockedWorldTemplate = 46;
+  // MSAGamerTagsOnly 表示是否只使用 MSA 玩家标签。
+  //
+  // MSAGamerTagsOnly indicates whether only MSA gamer tags should be used.
+  //
+  // Added: v1.11.1
+  bool MSAGamerTagsOnly = 47;
+  // FromWorldTemplate 指定服务器提供的世界是否来自世界模板。服务器应始终将其设为 false。
+  //
+  // FromWorldTemplate specifies if the world from the server was from a world template. For servers this
+  // should always be set to false.
+  //
+  // Added: v1.11.1
+  bool FromWorldTemplate = 48;
+  // WorldTemplateSettingsLocked 指定世界模板是否锁定所有会改变上述属性的设置。
+  //
+  // WorldTemplateSettingsLocked specifies if the world was a template that locks all settings that change
+  // properties above in the settings GUI. It is recommended to set this to true for servers that do not
+  // allow things such as setting game rules through the GUI.
+  //
+  // Added: v1.11.1
+  bool WorldTemplateSettingsLocked = 49;
+  // OnlySpawnV1Villagers 是 Mojang 为保持旧村民向后兼容而加入的兼容字段。
+  //
+  // OnlySpawnV1Villagers is a hack that Mojang put in place to preserve backwards compatibility with old
+  // villagers. The bool is never actually read though, so it has no functionality.
+  //
+  // Added: v1.12.0
+  bool OnlySpawnV1Villagers = 50;
+  // PersonaDisabled 为 true 表示当前游戏会话禁用 persona 皮肤。
+  //
+  // PersonaDisabled is true if persona skins are disabled for the current game session.
+  //
+  // Added: v1.19.20
+  bool PersonaDisabled = 51;
+  // CustomSkinsDisabled 为 true 表示当前游戏会话禁用自定义皮肤。
+  //
+  // CustomSkinsDisabled is true if custom skins are disabled for the current game session.
+  //
+  // Added: v1.19.20
+  bool CustomSkinsDisabled = 52;
+  // EmoteChatMuted 指定玩家使用某些表情时是否会收到聊天消息。
+  //
+  // EmoteChatMuted specifies if players will be sent a chat message when using certain emotes.
+  //
+  // Added: v1.19.60
+  bool EmoteChatMuted = 53;
+  // BaseGameVersion 是原版特性来源的游戏版本。该字段的确切功能尚不明确。
+  //
+  // BaseGameVersion is the version of the game from which Vanilla features will be used. The exact function
+  // of this field isn't clear.
+  //
+  // Added: v1.13.0
+  string BaseGameVersion = 54;
+  // LimitedWorldWidth 和 LimitedWorldDepth 是有限世界的尺寸。
+  //
+  // LimitedWorldWidth and LimitedWorldDepth are the dimensions of the world if the world is a limited
+  // world. For unlimited worlds, these may simply be left as 0.
+  //
+  // Added: v1.16.100
+  int32 LimitedWorldWidth = 55;
+  // LimitedWorldWidth 和 LimitedWorldDepth 是有限世界的尺寸。
+  //
+  // LimitedWorldWidth and LimitedWorldDepth are the dimensions of the world if the world is a limited
+  // world. For unlimited worlds, these may simply be left as 0.
+  //
+  // Added: v1.16.100
+  int32 LimitedWorldDepth = 56;
+  // NewNether 指定服务器是否使用 1.16 更新引入的新下界。
+  //
+  // NewNether specifies if the server runs with the new nether introduced in the 1.16 update.
+  //
+  // Added: v1.16.100
+  bool NewNether = 57;
+  // EducationSharedResourceURI 是教育版特性，用于向客户端传输教育资源设置。
+  //
+  // EducationSharedResourceURI is an education edition feature that transmits education resource settings to clients.
+  //
+  // Added: v1.17.30
+  .mousetunnel.minecraft.protocol.education.EducationSharedResourceURI EducationSharedResourceURI = 58;
+  // ForceExperimentalGameplay 指定是否强制启用或禁用实验性玩法。服务器应始终留空。
+  //
+  // ForceExperimentalGameplay specifies if experimental gameplay should be force enabled/disabled. For servers this
+  // should always be empty.
+  //
+  // Added: v1.20.0, Changed: v1.21.130.28
+  // Go type: protocol.Optional[bool]
+  StartGameOptionalBool ForceExperimentalGameplay = 59;
+  // LevelID 是用于标识世界的 base64 编码世界 ID。
+  //
+  // LevelID is a base64 encoded world ID that is used to identify the world.
+  //
+  // Added: v1.11.1
+  string LevelID = 60;
+  // WorldName 是玩家正在加入的世界名称。
+  //
+  // WorldName is the name of the world that the player is joining. Note that this field shows up above the
+  // player list for the rest of the game session, and cannot be changed. Setting the server name to this
+  // field is recommended.
+  //
+  // Added: v1.11.1
+  string WorldName = 61;
+  // TemplateContentIdentity 是高级世界模板专用 UUID，该模板可能曾用于生成世界。
+  //
+  // TemplateContentIdentity is a UUID specific to the premium world template that might have been used to
+  // generate the world. Servers should always fill out an empty string for this.
+  //
+  // Added: v1.11.1, Changed: v1.19.0
+  string TemplateContentIdentity = 62;
+  // Trial 指定世界是否为试用世界；试用世界功能受限且有时间限制。
+  //
+  // Trial specifies if the world was a trial world, meaning features are limited and there is a time limit
+  // on the world.
+  //
+  // Added: v1.11.1
+  bool Trial = 63;
+  // PlayerMovementSettings 表示玩家移动设置。
+  //
+  // PlayerMovementSettings represents the player movement settings.
+  //
+  // Added: v1.16.0, Changed: v1.16.100, encoded as a varint movement mode.
+  // Changed: v1.16.210, added rewind history size and server authoritative block breaking.
+  .mousetunnel.minecraft.protocol.player.PlayerMovementSettings PlayerMovementSettings = 64;
+  // Time 是世界启动后经过的总时间。
+  //
+  // Time is the total time that has elapsed since the start of the world.
+  //
+  // Added: v1.11.1
+  int64 Time = 65;
+  // EnchantmentSeed 是用于初始化附魔台随机数的种子。
+  //
+  // EnchantmentSeed is the seed used to seed the random used to produce enchantments in the enchantment
+  // table. Note that the exact correct random implementation must be used to produce the correct results
+  // both client- and server-side.
+  //
+  // Added: v1.11.1
+  int32 EnchantmentSeed = 66;
+  // Blocks 是服务器注册的所有自定义方块列表。
+  //
+  // Blocks is a list of all custom blocks registered on the server.
+  //
+  // Added: v1.16.100
+  // Go type: []protocol.BlockEntry
+  repeated .mousetunnel.minecraft.protocol.block.BlockEntry Blocks = 67;
+  // Items 是服务器注册的所有物品条目列表。v1.21.60 之前，该列表编码在 StartGame 中。
+  //
+  // Items is a list of all item entries registered on the server. Before v1.21.60, this list is encoded in
+  // StartGame. Newer versions send these definitions through ItemRegistry instead.
+  //
+  // Added: v1.12.0, Removed: v1.21.60
+  // Go type: []protocol.ItemEntry
+  repeated .mousetunnel.minecraft.protocol.item.ItemEntry Items = 68;
+  // MultiPlayerCorrelationID 是标识玩家多人会话的唯一 ID，应填入随机 UUID。
+  //
+  // MultiPlayerCorrelationID is a unique ID specifying the multi-player session of the player. A random
+  // UUID should be filled out for this field.
+  //
+  // Added: v1.11.1
+  string MultiPlayerCorrelationID = 69;
+  // ServerAuthoritativeInventory 指定是否启用服务器权威物品栏系统。
+  //
+  // ServerAuthoritativeInventory specifies if the server authoritative inventory system is enabled. This
+  // is a new system introduced in 1.16. Backwards compatibility with the inventory transactions has to
+  // some extent been preserved, but will eventually be removed.
+  //
+  // Added: v1.16.0
+  bool ServerAuthoritativeInventory = 70;
+  // GameVersion 是服务器运行的游戏版本。该字段的确切功能尚不明确。
+  //
+  // GameVersion is the version of the game the server is running. The exact function of this field isn't clear.
+  //
+  // Added: v1.17.0
+  string GameVersion = 71;
+  // PropertyData 包含应应用到玩家身上的属性，与 SyncActorProperty 数据包发送的属性相同。
+  //
+  // PropertyData contains properties that should be applied on the player. These properties are the same as the
+  // ones that are sent in the SyncActorProperty packet.
+  //
+  // Added: v1.19.0
+  // Go type: map[string]any
+  map<string, google.protobuf.Value> PropertyData = 72;
+  // ServerBlockStateChecksum 是校验和，用于确保服务器与客户端的方块状态匹配。
+  //
+  // ServerBlockStateChecksum is a checksum to ensure block states between the server and client match.
+  // This can simply be left empty, and the client will avoid trying to verify it.
+  //
+  // Added: v1.18.0
+  uint64 ServerBlockStateChecksum = 73;
+  // ClientSideGeneration 为 true 表示客户端应使用 FeatureRegistry 数据包中注册的 feature 在客户端生成地形。
+  //
+  // ClientSideGeneration is true if the client should use the features registered in the FeatureRegistry packet to
+  // generate terrain client-side to save on bandwidth.
+  //
+  // Added: v1.19.20
+  bool ClientSideGeneration = 74;
+  // WorldTemplateID 是标识生成世界所用模板的 UUID。
+  //
+  // WorldTemplateID is a UUID that identifies the template that was used to generate the world. Servers that do not
+  // use a world based off of a template can set this to an empty UUID.
+  //
+  // Added: v1.19.0
+  // Go type: uuid.UUID
+  string WorldTemplateID = 75;
+  // ChatRestrictionLevel 指定游戏内聊天限制等级，取值为上方常量之一。
+  //
+  // ChatRestrictionLevel specifies the level of restriction on in-game chat. It is one of the constants above.
+  //
+  // Added: v1.19.20
+  // Go type: uint8
+  uint32 ChatRestrictionLevel = 76;
+  // DisablePlayerInteractions 为 true 表示客户端与世界交互时应忽略其他玩家。
+  //
+  // DisablePlayerInteractions is true if the client should ignore other players when interacting with the world.
+  //
+  // Added: v1.19.20
+  bool DisablePlayerInteractions = 77;
+  // TickDeathSystemsEnabled 指定是否启用新的 tick death 系统。
+  //
+  // TickDeathSystemsEnabled specifies if the new tick death systems are enabled.
+  //
+  // Added: v1.21.100
+  // Removed: v1.21.130.28
+  bool TickDeathSystemsEnabled = 78;
+  // UseBlockNetworkIDHashes 为 true 表示客户端应使用方块名称哈希作为网络 ID，而不是使用预期方块调色板中的索引。
+  //
+  // UseBlockNetworkIDHashes is true if the client should use the hash of a block's name as its network ID rather than
+  // its index in the expected block palette. This is useful for servers that wish to support multiple protocol versions
+  // and custom blocks, but it will result in extra bytes being written for every block in a sub chunk palette.
+  //
+  // Added: v1.20.0
+  bool UseBlockNetworkIDHashes = 79;
+  // ServerAuthoritativeSound 的具体作用当前未知。
+  //
+  // ServerAuthoritativeSound is currently unknown as to what it does.
+  //
+  // Added: v1.20.0
+  bool ServerAuthoritativeSound = 80;
+  // ServerJoinInformation 包含玩家正在加入的服务器的可选信息。
+  //
+  // ServerJoinInformation contains optional information about the server the player is joining.
+  //
+  // Added: v1.26.0
+  // Go type: protocol.Optional[protocol.ServerJoinInformation]
+  StartGameOptionalServerJoinInformation ServerJoinInformation = 81;
+  // ServerID 是遥测使用的服务器标识符。
+  //
+  // ServerID is the server identifier for telemetry.
+  //
+  // Added: v1.21.130
+  string ServerID = 82;
+  // ScenarioID 是遥测使用的场景标识符。
+  //
+  // ScenarioID is the scenario identifier for telemetry.
+  //
+  // Added: v1.21.130
+  string ScenarioID = 83;
+  // WorldID 是遥测使用的世界标识符。
+  //
+  // WorldID is the world identifier for telemetry.
+  //
+  // Added: v1.21.130
+  string WorldID = 84;
+  // OwnerID 是遥测使用的所有者标识符。
+  //
+  // OwnerID is the owner identifier for telemetry.
+  //
+  // Added: v1.26.0
+  string OwnerID = 85;
+  // NetEaseUnknown1 是额外的网易 StartGame 数据。
+  //
+  // NetEaseUnknown1 is extra NetEase start game data.
+  //
+  // Added: NetEase.
+  bool NetEaseUnknown1 = 86;
+  // NetEaseUnknown2 是额外的网易 StartGame 数据。
+  //
+  // NetEaseUnknown2 is extra NetEase start game data.
+  //
+  // Added: NetEase.
+  string NetEaseUnknown2 = 87;
+  // NetEaseUnknown3 是额外的网易 StartGame 数据。
+  //
+  // NetEaseUnknown3 is extra NetEase start game data.
+  //
+  // Added: NetEase.
+  string NetEaseUnknown3 = 88;
+  // NetEaseUnknown4 是额外的网易 StartGame 数据。
+  //
+  // NetEaseUnknown4 is extra NetEase start game data.
+  //
+  // Added: NetEase.
+  bool NetEaseUnknown4 = 89;
+  // NetEaseUnknown5 是额外的网易 StartGame 数据。
+  //
+  // NetEaseUnknown5 is extra NetEase start game data.
+  //
+  // Added: NetEase.
+  bool NetEaseUnknown5 = 90;
+  // NetEaseUnknown6 是额外的网易 StartGame 数据。
+  //
+  // NetEaseUnknown6 is extra NetEase start game data.
+  //
+  // Added: NetEase.
+  int32 NetEaseUnknown6 = 91;
+  // NetEaseUnknown7 是额外的网易 StartGame 数据。
+  //
+  // NetEaseUnknown7 is extra NetEase start game data.
+  //
+  // Added: NetEase.
+  int32 NetEaseUnknown7 = 92;
+  // NetEaseUnknown8 是额外的网易 StartGame 数据。
+  //
+  // NetEaseUnknown8 is extra NetEase start game data.
+  //
+  // Added: NetEase.
+  int32 NetEaseUnknown8 = 93;
+  // NetEaseUnknown9 是额外的网易 StartGame 数据。
+  //
+  // NetEaseUnknown9 is extra NetEase start game data.
+  //
+  // Added: NetEase.
+  int32 NetEaseUnknown9 = 94;
+  // NetEaseUnknown10 是额外的网易 StartGame 数据。
+  //
+  // NetEaseUnknown10 is extra NetEase start game data.
+  //
+  // Added: NetEase.
+  int32 NetEaseUnknown10 = 95;
+  // NetEaseUnknown11 是额外的网易 StartGame 数据。
+  //
+  // NetEaseUnknown11 is extra NetEase start game data.
+  //
+  // Added: NetEase.
+  bool NetEaseUnknown11 = 96;
+  // NetEaseUnknown12 是额外的网易 StartGame 数据。
+  //
+  // NetEaseUnknown12 is extra NetEase start game data.
+  //
+  // Added: NetEase.
+  bool NetEaseUnknown12 = 97;
+  // NetEaseUnknown13 是额外的网易 StartGame 数据。
+  //
+  // NetEaseUnknown13 is extra NetEase start game data.
+  //
+  // Added: NetEase.
+  bool NetEaseUnknown13 = 98;
+  // NetEaseUnknown14 是额外的网易 StartGame 数据。
+  //
+  // NetEaseUnknown14 is extra NetEase start game data.
+  //
+  // Added: NetEase.
+  int32 NetEaseUnknown14 = 99;
+  // NetEaseUnknown15 是额外的网易 StartGame 数据。
+  //
+  // NetEaseUnknown15 is extra NetEase start game data.
+  //
+  // Added: NetEase.
+  bool NetEaseUnknown15 = 100;
+  // NetEaseUnknown16 是额外的网易 StartGame 数据。
+  //
+  // NetEaseUnknown16 is extra NetEase start game data.
+  //
+  // Added: NetEase.
+  bool NetEaseUnknown16 = 101;
+  // NetEaseUnknown17 是额外的网易 StartGame 数据。
+  //
+  // NetEaseUnknown17 is extra NetEase start game data.
+  //
+  // Added: NetEase.
+  bool NetEaseUnknown17 = 102;
+  // NetEaseUnknown18 是额外的网易 StartGame 数据。
+  //
+  // NetEaseUnknown18 is extra NetEase start game data.
+  //
+  // Added: NetEase.
+  bool NetEaseUnknown18 = 103;
+  // NetEaseUnknown19 是额外的网易 StartGame 数据。
+  //
+  // NetEaseUnknown19 is extra NetEase start game data.
+  //
+  // Added: NetEase.
+  bool NetEaseUnknown19 = 104;
+  // NetEaseUnknown20 是额外的网易 StartGame 数据。
+  //
+  // NetEaseUnknown20 is extra NetEase start game data.
+  //
+  // Added: NetEase.
+  bool NetEaseUnknown20 = 105;
+  // NetEaseUnknown21 是额外的网易 StartGame 数据。
+  //
+  // NetEaseUnknown21 is extra NetEase start game data.
+  //
+  // Added: NetEase.
+  bool NetEaseUnknown21 = 106;
+  // NetEaseUnknown22 是额外的网易 StartGame 数据。
+  //
+  // NetEaseUnknown22 is extra NetEase start game data.
+  //
+  // Added: NetEase.
+  bool NetEaseUnknown22 = 107;
+  // NetEaseUnknown23 是额外的网易 StartGame 数据。
+  //
+  // NetEaseUnknown23 is extra NetEase start game data.
+  //
+  // Added: NetEase.
+  // Go type: []protocol.NetEaseStartGameData
+  repeated .mousetunnel.minecraft.protocol.netease.NetEaseStartGameData NetEaseUnknown23 = 108;
+  // NetEaseUnknown24 是额外的网易 StartGame 数据。
+  //
+  // NetEaseUnknown24 is extra NetEase start game data.
+  //
+  // Added: NetEase.
+  bool NetEaseUnknown24 = 109;
+  // NetEaseUnknown25 是额外的网易 StartGame 数据。
+  //
+  // NetEaseUnknown25 is extra NetEase start game data.
+  //
+  // Added: NetEase.
+  bool NetEaseUnknown25 = 110;
+  // NetEaseUnknown26 是额外的网易 StartGame 数据。
+  //
+  // NetEaseUnknown26 is extra NetEase start game data.
+  //
+  // Added: NetEase.
+  bool NetEaseUnknown26 = 111;
+  // NetEaseUnknown27 是额外的网易 StartGame 数据。
+  //
+  // NetEaseUnknown27 is extra NetEase start game data.
+  //
+  // Added: NetEase.
+  string NetEaseUnknown27 = 112;
+  // NetEaseUnknown28 是额外的网易 StartGame 数据。
+  //
+  // NetEaseUnknown28 is extra NetEase start game data.
+  //
+  // Added: NetEase.
+  bool NetEaseUnknown28 = 113;
+  // NetEaseUnknown29 是额外的网易 StartGame 数据。
+  //
+  // NetEaseUnknown29 is extra NetEase start game data.
+  //
+  // Added: NetEase.
+  bool NetEaseUnknown29 = 114;
+  // NetEaseUnknown30 是额外的网易 StartGame 数据。
+  //
+  // NetEaseUnknown30 is extra NetEase start game data.
+  //
+  // Added: NetEase.
+  bool NetEaseUnknown30 = 115;
+  // NetEaseUnknown31 是额外的网易 StartGame 数据。
+  //
+  // NetEaseUnknown31 is extra NetEase start game data.
+  //
+  // Added: NetEase.
+  bool NetEaseUnknown31 = 116;
+  // NetEaseUnknown32 是额外的网易 StartGame 数据。
+  //
+  // NetEaseUnknown32 is extra NetEase start game data.
+  //
+  // Added: NetEase.
+  bool NetEaseUnknown32 = 117;
+}
+

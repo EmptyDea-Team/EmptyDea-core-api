@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.award_achievement;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// AwardAchievement 由服务器发送，用于向玩家授予成就。
+//
+// AwardAchievement is sent by the server to award an achievement to a player.
+//
+// Added: v1.21.0
+message AwardAchievement {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDAwardAchievement;
+  // AchievementID 是要授予玩家的成就 ID。这些 ID 的具体取值目前未知。
+  //
+  // AchievementID is the ID of the achievement that should be awarded to the player. The values for these
+  // IDs are currently unknown.
+  //
+  // Added: v1.21.0
+  int32 AchievementID = 1;
+}
+

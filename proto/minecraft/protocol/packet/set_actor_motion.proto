@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.set_actor_motion;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "mgl32.proto";
+import "packet_options.proto";
+
+// SetActorMotion 由服务器发送，用于改变实体在客户端侧的速度。
+// 它通常与服务器侧移动计算配合使用。
+//
+// SetActorMotion is sent by the server to change the client-side velocity of an entity. It is usually used
+// in combination with server-side movement calculation.
+//
+// Added: v1.12
+message SetActorMotion {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDSetActorMotion;
+  // EntityRuntimeID 是实体的运行时 ID。运行时 ID 在每个世界会话中唯一，
+  // 数据包通常使用该运行时 ID 标识实体。
+  //
+  // EntityRuntimeID is the runtime ID of the entity. The runtime ID is unique for each world session, and
+  // entities are generally identified in packets using this runtime ID.
+  //
+  // Added: v1.12
+  uint64 EntityRuntimeID = 1;
+  // Velocity 是实体获得的新速度。该速度会启动实体在客户端侧的移动。
+  //
+  // Velocity is the new velocity the entity gets. This velocity will initiate the client-side movement of
+  // the entity.
+  //
+  // Added: v1.12
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 Velocity = 2;
+  // Tick 是发送该数据包时的服务器 tick。它与 CorrectPlayerMovePrediction 配合使用。
+  //
+  // Tick is the server tick at which the packet was sent. It is used in relation to CorrectPlayerMovePrediction.
+  //
+  // Added: v1.20.70
+  uint64 Tick = 3;
+}
+

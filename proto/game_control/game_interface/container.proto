@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+package emptydea.game_control.game_interface;
+
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pb";
+
+import "game_control/game_interface/bot_click.proto";
+
+// OpenContainerRequest 是打开 container 所指示的容器的请求。
+message OpenContainerRequest {
+  // Container 指示要打开的容器。
+  // action 中已自然包含打开容器时所使用的物品栏。
+  UseItemOnBlocks Container = 1;
+  // ChangeToTargetSlot 指示打开容器前是否需要
+  // 切换快捷栏为 container 中所指示的物品栏。
+  //
+  // 通常地，如果您已经保证了快捷栏的位置，那么
+  // 可以安全的将 changeToTargetSlot 填写为假。
+  bool ChangeToTargetSlot = 2;
+}
+
+// OpenContainerResponse 是打开容器或背包的结果。
+message OpenContainerResponse {
+  // Success 表示界面是否成功打开。
+  bool Success = 1;
+}
+
+// OpenInventoryRequest 是打开背包的请求。
+message OpenInventoryRequest {}
+
+// CloseContainerRequest 是关闭已打开的容器的请求。
+message CloseContainerRequest {}
+
+// CloseContainerResponse 是关闭容器后的空响应。
+message CloseContainerResponse {}
+
+// ContainerOpenAndCloseService 是基于 Resources 实现的容器打开和关闭控制系统。
+service ContainerOpenAndCloseService {
+  // OpenContainer 打开 container 所指示的容器。
+  // action 中已自然包含打开容器时所使用的物品栏。
+  //
+  // changeToTargetSlot 指示打开容器前是否需要
+  // 切换快捷栏为 container 中所指示的物品栏。
+  //
+  // 通常地，如果您已经保证了快捷栏的位置，那么
+  // 可以安全的将 changeToTargetSlot 填写为假。
+  //
+  // 另外，在打开容器后必须将容器关闭，否则再次调用
+  // OpenContainer 将会阻塞。
+  // 欲安全的关闭容器，请使用 CloseContainer。
+  //
+  // 可以确保 OpenContainer 在逻辑上是线程安全的
+  rpc OpenContainer(OpenContainerRequest) returns (OpenContainerResponse);
+  // OpenInventory 用于打开背包。
+  // 可以确保它在逻辑上是线程安全的
+  rpc OpenInventory(OpenInventoryRequest) returns (OpenContainerResponse);
+  // CloseContainer 关闭已打开的容器，
+  // 可以确保它在逻辑上是线程安全的
+  rpc CloseContainer(CloseContainerRequest) returns (CloseContainerResponse);
+}

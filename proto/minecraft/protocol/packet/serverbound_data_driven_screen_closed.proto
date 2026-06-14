@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.serverbound_data_driven_screen_closed;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// ServerBoundDataDrivenScreenClosed 在数据驱动 UI 界面关闭时由客户端发送。
+//
+// ServerBoundDataDrivenScreenClosed is sent by the client when a data-driven UI screen is closed.
+//
+// Added: v1.26.10
+message ServerBoundDataDrivenScreenClosed {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDServerBoundDataDrivenScreenClosed;
+  // FormID 是已关闭表单的唯一实例 ID。
+  //
+  // FormID is the unique instance ID of the form that was closed.
+  //
+  // Added: v1.26.10
+  int32 FormID = 1;
+  // CloseReason 是界面关闭原因，它是 DataDrivenScreenCloseReason 常量之一。
+  //
+  // CloseReason is the reason the screen was closed. It is one of the DataDrivenScreenCloseReason constants.
+  //
+  // Added: v1.26.10
+  string CloseReason = 2;
+}
+

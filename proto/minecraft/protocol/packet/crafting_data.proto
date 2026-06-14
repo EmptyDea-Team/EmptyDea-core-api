@@ -1,0 +1,96 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.crafting_data;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "item.proto";
+import "packet_options.proto";
+import "recipe.proto";
+
+// CraftingData 由服务器发送，用于让客户端知道服务器维护的所有合成数据。
+// 这包括无序合成、工作台配方、熔炉配方等；每个合成站的配方都会包含在其中。
+//
+// CraftingData is sent by the server to let the client know all crafting data that the server maintains. This
+// includes shapeless crafting, crafting table recipes, furnace recipes etc. Each crafting station's recipes
+// are included in it.
+//
+// Added: v1.13
+message CraftingData {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDCraftingData;
+  // Recipes 是服务器上所有可用配方的列表，其中包括无序、有序和熔炉配方等。
+  // 客户端只能合成这些配方。
+  //
+  // Recipes is a list of all recipes available on the server. It includes among others shapeless, shaped
+  // and furnace recipes. The client will only be able to craft these recipes.
+  //
+  // Added: v1.13
+  // Go type: []protocol.Recipe
+  repeated .mousetunnel.minecraft.protocol.recipe.Recipe Recipes = 1;
+  // PotionRecipes 是所有可在酿造台中使用的药水混合配方列表。
+  //
+  // PotionRecipes is a list of all potion mixing recipes which may be used in the brewing stand.
+  //
+  // Added: v1.13.0
+  // Go type: []protocol.PotionRecipe
+  repeated .mousetunnel.minecraft.protocol.recipe.PotionRecipe PotionRecipes = 2;
+  // PotionContainerChangeRecipes 是所有将药水从一种类型转换为另一种类型的配方列表，
+  // 例如从可饮用药水转换为喷溅药水，或从喷溅药水转换为滞留药水。
+  //
+  // PotionContainerChangeRecipes is a list of all recipes to convert a potion from one type to another,
+  // such as from a drinkable potion to a splash potion, or from a splash potion to a lingering potion.
+  //
+  // Added: v1.13.0
+  // Go type: []protocol.PotionContainerChangeRecipe
+  repeated .mousetunnel.minecraft.protocol.recipe.PotionContainerChangeRecipe PotionContainerChangeRecipes = 3;
+  // MaterialReducers 是教育版化学中使用的所有材料分解器列表。
+  //
+  // MaterialReducers is a list of all material reducers which is used in education edition chemistry.
+  //
+  // Added: v1.17.30
+  // Go type: []protocol.MaterialReducer
+  repeated .mousetunnel.minecraft.protocol.item.MaterialReducer MaterialReducers = 4;
+  // ClearRecipes 表示是否应清除客户端当前激活的所有配方。
+  // 这样做意味着客户端自身不会再保留任何已激活配方：之前发送的所有 CraftingData 数据包也会被丢弃，
+  // 只使用当前 CraftingData 数据包中的配方。
+  //
+  // ClearRecipes indicates if all recipes currently active on the client should be cleaned. Doing this
+  // means that the client will have no recipes active by itself: Any CraftingData packets previously sent
+  // will also be discarded, and only the recipes in this CraftingData packet will be used.
+  //
+  // Added: v1.13
+  bool ClearRecipes = 5;
+  // NetEaseUnknown1 是网易额外的合成数据。
+  //
+  // NetEaseUnknown1 is extra NetEase crafting data.
+  //
+  // Added: NetEase.
+  // Go type: []byte
+  bytes NetEaseUnknown1 = 6;
+  // NetEaseUnknown2 是网易额外的合成数据。
+  //
+  // NetEaseUnknown2 is extra NetEase crafting data.
+  //
+  // Added: NetEase.
+  // Go type: []byte
+  bytes NetEaseUnknown2 = 7;
+  // NetEaseUnknown3 是网易额外的合成数据。
+  //
+  // NetEaseUnknown3 is extra NetEase crafting data.
+  //
+  // Added: NetEase.
+  // Go type: []byte
+  bytes NetEaseUnknown3 = 8;
+  // NetEaseUnknown4 是网易额外的合成数据。
+  //
+  // NetEaseUnknown4 is extra NetEase crafting data.
+  //
+  // Added: NetEase.
+  string NetEaseUnknown4 = 9;
+  // NetEaseUnknown5 是网易额外的合成数据。
+  //
+  // NetEaseUnknown5 is extra NetEase crafting data.
+  //
+  // Added: NetEase.
+  bool NetEaseUnknown5 = 10;
+}
+

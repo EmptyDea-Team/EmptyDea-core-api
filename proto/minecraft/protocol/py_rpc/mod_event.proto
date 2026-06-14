@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpc";
+
+import "google/protobuf/struct.proto";
+import "py_rpc/mod_event/define/define.proto";
+
+enum ModEventTypeEnum {
+  // ModEventTypeC2S 表示客户端到服务器的 ModEvent。
+  //
+  // ModEventTypeC2S marks a client-to-server ModEvent.
+  ModEventTypeC2S = 0;
+  // ModEventTypeS2C 表示服务器到客户端的 ModEvent。
+  //
+  // ModEventTypeS2C marks a server-to-client ModEvent.
+  ModEventTypeS2C = 1;
+}
+
+// ModEvent 保存网易 ModEvent PyRpc 载荷。
+//
+// ModEvent stores a NetEase ModEvent PyRpc payload.
+message ModEvent {
+  // Type 选择 Name 返回 ModEventC2S 还是 ModEventS2C。
+  //
+  // Type selects whether Name returns ModEventC2S or ModEventS2C.
+  // Go type: uint8
+  uint32 Type = 1;
+  // PackageName 是顶层网易模块包名，例如 Minecraft。
+  //
+  // PackageName is the top-level NetEase module package, for example Minecraft.
+  string PackageName = 2;
+  // ModuleName 是包内模块名，例如 chatExtension。
+  //
+  // ModuleName is the package module name, for example chatExtension.
+  string ModuleName = 3;
+  // EventName 是模块内的具体事件名。
+  //
+  // EventName is the concrete event name inside the module.
+  string EventName = 4;
+  // Event 是该 ModEvent 对应的强类型事件。设置后 MakeGo 会直接使用该事件生成载荷。
+  //
+  // Event is the strongly typed event represented by this ModEvent. When set,
+  // MakeGo uses the event to generate the payload.
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.define.define.Event Event = 5;
+}
+

@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.resource_pack_chunk_data;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// ResourcePackChunkData 发送给客户端，使客户端能够下载资源包。
+// 每个数据包都保存压缩资源包的一个分块，分块大小由此前发送的 ResourcePackDataInfo 数据包定义。
+//
+// ResourcePackChunkData is sent to the client so that the client can download the resource pack. Each packet
+// holds a chunk of the compressed resource pack, of which the size is defined in the ResourcePackDataInfo
+// packet sent before.
+//
+// Added: v1.11.1
+message ResourcePackChunkData {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDResourcePackChunkData;
+  // UUID 是该数据分块所属资源包的唯一 ID。
+  //
+  // UUID is the unique ID of the resource pack that the chunk of data is taken out of.
+  //
+  // Added: v1.11.1
+  string UUID = 1;
+  // ChunkIndex 是该分块的当前分块索引。它从 0 开始，并随每个发送给客户端的资源包数据分块递增。
+  //
+  // ChunkIndex is the current chunk index of the chunk. It is a number that starts at 0 and is incremented
+  // for each resource pack data chunk sent to the client.
+  //
+  // Added: v1.11.1
+  uint32 ChunkIndex = 2;
+  // DataOffset 是当前字节进度，或该资源包数据分块在源数据中的偏移。
+  //
+  // DataOffset is the current progress in bytes or offset in the data that the resource pack data chunk is
+  // taken from.
+  //
+  // Added: v1.11.1
+  uint64 DataOffset = 3;
+  // Data 是包含资源包数据分块的字节切片。它的大小必须等于或小于
+  // ResourcePackDataInfo 数据包中设置的 DataChunkSize。
+  //
+  // Data is a byte slice containing a chunk of data from the resource pack. It must be of the same size or
+  // less than the DataChunkSize set in the ResourcePackDataInfo packet.
+  //
+  // Added: v1.11.1
+  // Go type: []byte
+  bytes Data = 4;
+}
+

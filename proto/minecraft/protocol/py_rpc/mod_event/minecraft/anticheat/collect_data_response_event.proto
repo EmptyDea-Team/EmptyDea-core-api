@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.anticheat.collect_data_response_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/anticheat;anticheat";
+
+import "py_rpc/mod_event/minecraft/anticheat/basic.proto";
+
+// CollectDataResponseEvent 返回客户端采集的反作弊数据。
+//
+// CollectDataResponseEvent returns anticheat data collected by the client.
+message CollectDataResponseEvent {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.anticheat.basic.Basic Basic = 1;
+  // Data 保存采集结果。
+  //
+  // Data stores collected result fields.
+  CollectDataResult Data = 2;
+}
+
+// CollectDataResult 描述客户端反作弊采集结果。
+//
+// CollectDataResult describes client anticheat collection results.
+message CollectDataResult {
+  // UniqueID 是请求关联 ID。
+  //
+  // UniqueID is the request correlation ID.
+  int64 UniqueID = 1;
+  // GameType 是本地玩家游戏类型。
+  //
+  // GameType is the local player's game type.
+  int64 GameType = 2;
+  // LevelGravity 是当前世界重力。
+  //
+  // LevelGravity is the current level gravity.
+  // Go type: float64
+  double LevelGravity = 3;
+  // PlayerHealth 是本地玩家生命值。
+  //
+  // PlayerHealth is the local player's health.
+  // Go type: float64
+  double PlayerHealth = 4;
+  // BlockName 是采样方块名。
+  //
+  // BlockName is the sampled block name.
+  string BlockName = 5;
+  // BlockAuxValue 是采样方块附加值。
+  //
+  // BlockAuxValue is the sampled block auxiliary value.
+  int64 BlockAuxValue = 6;
+  // EntityPosition 是采样实体坐标。
+  //
+  // EntityPosition is the sampled entity position.
+  // Go type: []float64
+  repeated double EntityPosition = 7;
+  // EntityGravity 是采样实体重力。
+  //
+  // EntityGravity is the sampled entity gravity.
+  // Go type: float64
+  double EntityGravity = 8;
+}
+

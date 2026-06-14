@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_extension.room_player_list;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_extension;chat_extension";
+
+import "py_rpc/mod_event/minecraft/chat_extension/basic.proto";
+import "py_rpc/mod_event/minecraft/chat_extension/player_add_room.proto";
+
+// RoomPlayerList 同步房间内完整玩家列表及其附加信息。
+//
+// RoomPlayerList synchronises the full room player list and its related metadata.
+message RoomPlayerList {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_extension.basic.Basic Basic = 1;
+  // PlayerAddRoom 复用玩家列表、UID、维度和前缀信息结构。
+  //
+  // PlayerAddRoom reuses the player list, UID, dimension and prefix information shape.
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_extension.player_add_room.PlayerAddRoom PlayerAddRoom = 2;
+  // ShowSocialNearby 表示是否显示附近社交信息。
+  //
+  // ShowSocialNearby indicates whether social-nearby information should be shown.
+  bool ShowSocialNearby = 3;
+}
+

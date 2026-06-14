@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.update_client_options;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+message UpdateClientOptionsOptionalBool {
+  bool Present = 1;
+  bool Value = 2;
+}
+
+message UpdateClientOptionsOptionalUint32 {
+  bool Present = 1;
+  uint32 Value = 2;
+}
+
+enum GraphicsModeEnum {
+  GraphicsModeSimple = 0;
+  GraphicsModeFancy = 1;
+  GraphicsModeAdvanced = 2;
+  GraphicsModeRayTraced = 3;
+}
+
+// UpdateClientOptions 在客户端部分选项更新时由客户端发送，例如图形模式更新。
+//
+// UpdateClientOptions is sent by the client when some of the client's options are updated, such as the
+// graphics mode.
+//
+// Added: v1.21.70
+message UpdateClientOptions {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDUpdateClientOptions;
+  // GraphicsMode 是客户端正在使用的图形模式，它是上方常量之一。
+  //
+  // GraphicsMode is the graphics mode that the client is using. It is one of the constants above.
+  //
+  // Added: v1.21.70
+  // Go type: protocol.Optional[byte]
+  UpdateClientOptionsOptionalUint32 GraphicsMode = 1;
+  // FilterProfanity 表示客户端是否只使用经过过滤的消息。
+  //
+  // FilterProfanity is if the client only uses filtered messages or not.
+  //
+  // Added: v1.26.20
+  // Go type: protocol.Optional[bool]
+  UpdateClientOptionsOptionalBool FilterProfanity = 2;
+}
+

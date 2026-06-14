@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.check_server_contain_pet;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// CheckServerContainPet 检查服务器是否包含宠物能力。
+//
+// CheckServerContainPet checks whether the server contains pet support.
+message CheckServerContainPet {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  // ClosePetAddon 表示房主是否关闭宠物组件。
+  //
+  // ClosePetAddon indicates whether the room owner closed the pet addon.
+  bool ClosePetAddon = 2;
+}
+

@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.trim_data;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+import "trim.proto";
+
+// TrimData 在客户端首次加入服务器时由服务器发送给客户端。
+// 它包含可通过盔甲纹饰应用的所有纹样和材料列表。
+//
+// TrimData is sent by the server to the client when they first join the server.
+// It contains a list of all the patterns and materials that can be applied via armour trims.
+//
+// Added: v1.19.80
+message TrimData {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDTrimData;
+  // Patterns 是可应用到盔甲上的纹样列表。每个纹样都有通过资源包定义的独立样式和纹理。
+  //
+  // Patterns is a list of patterns that can be applied to armour. Each pattern has its own style and texture that is
+  // defined through resource packs.
+  //
+  // Added: v1.19.80
+  // Go type: []protocol.TrimPattern
+  repeated .mousetunnel.minecraft.protocol.trim.TrimPattern Patterns = 1;
+  // Materials 是可应用到盔甲上的材料列表。它们主要是不同矿物，
+  // 具有不同颜色以提供更多自定义能力。
+  //
+  // Materials is a list of materials that can be applied to armour. These are mostly different ores that have different
+  // colours for more customization.
+  //
+  // Added: v1.19.80
+  // Go type: []protocol.TrimMaterial
+  repeated .mousetunnel.minecraft.protocol.trim.TrimMaterial Materials = 2;
+}
+

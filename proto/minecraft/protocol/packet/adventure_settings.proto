@@ -1,0 +1,106 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.adventure_settings;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+enum AdventureEnum {
+  ADVENTUREENUM_UNSPECIFIED = 0;
+  AdventureFlagWorldImmutable = 1;
+  AdventureSettingsFlagsNoPvM = 2;
+  AdventureSettingsFlagsNoMvP = 4;
+  AdventureSettingsFlagsUnused = 8;
+  AdventureSettingsFlagsShowNameTags = 16;
+  AdventureFlagAutoJump = 32;
+  AdventureFlagAllowFlight = 64;
+  AdventureFlagNoClip = 128;
+  AdventureFlagWorldBuilder = 256;
+  AdventureFlagFlying = 512;
+  AdventureFlagMuted = 1024;
+}
+
+enum ActionPermissionEnum {
+  ACTIONPERMISSIONENUM_UNSPECIFIED = 0;
+  ActionPermissionMine = 1;
+  ActionPermissionDoorsAndSwitches = 2;
+  ActionPermissionOpenContainers = 4;
+  ActionPermissionAttackPlayers = 8;
+  ActionPermissionAttackMobs = 16;
+  ActionPermissionOperator = 32;
+  ActionPermissionTeleport = 64;
+  ActionPermissionBuild = 128;
+  ActionPermissionDefault = 256;
+}
+
+enum PermissionLevelEnum {
+  PermissionLevelVisitor = 0;
+  PermissionLevelMember = 1;
+  PermissionLevelOperator = 2;
+  PermissionLevelCustom = 3;
+}
+
+// AdventureSettings 由服务器发送，用于更新与玩法相关的功能，
+// 尤其是客户端访问这些功能的权限。它包括允许玩家飞行、建造、挖掘和攻击实体。
+// 大多数此类标志都应在服务器侧检查，而不是只依赖该数据包。
+// 当客户端通过游戏内设置界面更新这些设置之一时，也可能向服务器发送该数据包。
+// 服务器应验证玩家是否确实有权限更新这些设置。
+//
+// AdventureSettings is sent by the server to update game-play related features, in particular permissions to
+// access these features for the client. It includes allowing the player to fly, build and mine, and attack
+// entities. Most of these flags should be checked server-side instead of using this packet only.
+// The client may also send this packet to the server when it updates one of these settings through the
+// in-game settings interface. The server should verify if the player actually has permission to update those
+// settings.
+//
+// Added: v1.16
+message AdventureSettings {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDAdventureSettings;
+  // Flags 是一组标志，用于指定玩家的某些属性，例如是否可以飞行或穿过方块。
+  // 它由上方 AdventureFlag 常量组成。
+  //
+  // Flags is a set of flags that specify certain properties of the player, such as whether or not it can
+  // fly and/or move through blocks. It is one of the AdventureFlag constants above.
+  //
+  // Added: v1.16
+  uint32 Flags = 1;
+  // CommandPermissionLevel 是权限等级，指定玩家允许使用哪类命令。
+  // 它是上方 CommandPermissionLevel 常量之一。
+  //
+  // CommandPermissionLevel is a permission level that specifies the kind of commands that the player is
+  // allowed to use. It is one of the CommandPermissionLevel constants above.
+  //
+  // Added: v1.16
+  uint32 CommandPermissionLevel = 2;
+  // ActionPermissions 与 Flags 类似，是一组标志，用于指定玩家允许执行的操作，
+  // 例如是否允许编辑方块、打开门等。它是上方 ActionPermission 常量的组合。
+  //
+  // ActionPermissions is, much like Flags, a set of flags that specify actions that the player is allowed
+  // to undertake, such as whether it is allowed to edit blocks, open doors etc. It is a combination of the
+  // ActionPermission constants above.
+  //
+  // Added: v1.16
+  uint32 ActionPermissions = 3;
+  // PermissionLevel 是玩家在通过 PlayerList 数据包构建的玩家列表中显示的权限等级。
+  // 它是上方 PermissionLevel 常量之一。
+  //
+  // PermissionLevel is the permission level of the player as it shows up in the player list built up using
+  // the PlayerList packet. It is one of the PermissionLevel constants above.
+  //
+  // Added: v1.16
+  uint32 PermissionLevel = 4;
+  // CustomStoredPermissions 保存自定义存储权限。
+  //
+  // CustomStoredPermissions holds the custom stored permissions.
+  //
+  // Added: v1.16
+  uint32 CustomStoredPermissions = 5;
+  // PlayerUniqueID 是玩家的唯一标识符。该字段必须填写玩家的实体唯一 ID。
+  //
+  // PlayerUniqueID is a unique identifier of the player. This must be filled out with the entity unique ID of the
+  // player.
+  //
+  // Added: v1.16
+  int64 PlayerUniqueID = 6;
+}
+

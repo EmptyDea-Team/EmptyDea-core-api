@@ -1,0 +1,90 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.set_title;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+enum TitleActionEnum {
+  TitleActionClear = 0;
+  TitleActionReset = 1;
+  TitleActionSetTitle = 2;
+  TitleActionSetSubtitle = 3;
+  TitleActionSetActionBar = 4;
+  TitleActionSetDurations = 5;
+  TitleActionTitleTextObject = 6;
+  TitleActionSubtitleTextObject = 7;
+  TitleActionActionbarTextObject = 8;
+}
+
+// SetTitle 由服务器发送，用于向玩家显示标题、副标题或操作栏。
+// 它包含多个可设置标题持续时间的字段。
+//
+// SetTitle is sent by the server to make a title, subtitle or action bar shown to a player. It has several
+// fields that allow setting the duration of the titles.
+//
+// Added: v1.12
+message SetTitle {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDSetTitle;
+  // ActionType 是应对玩家标题执行的动作类型。它应为上方常量之一，
+  // 并指定客户端对该数据包的响应。
+  //
+  // ActionType is the type of the action that should be executed upon the title of a player. It is one of
+  // the constants above and specifies the response of the client to the packet.
+  //
+  // Added: v1.12
+  int32 ActionType = 1;
+  // Text 是标题文本，其含义取决于数据包的 ActionType。
+  // 根据设置的类型，它可以是标题、副标题或操作栏文本。
+  //
+  // Text is the text of the title, which has a different meaning depending on the ActionType that the
+  // packet has. The text is the text of a title, subtitle or action bar, depending on the type set.
+  //
+  // Added: v1.12
+  string Text = 2;
+  // FadeInDuration 是标题在玩家屏幕上淡入所需的时间，以二十分之一秒为单位，也就是刻。
+  //
+  // FadeInDuration is the duration that the title takes to fade in on the screen of the player. It is
+  // measured in 20ths of a second (AKA in ticks).
+  //
+  // Added: v1.12
+  int32 FadeInDuration = 3;
+  // RemainDuration 是标题在玩家屏幕上保持显示的时间，以二十分之一秒为单位，也就是刻。
+  //
+  // RemainDuration is the duration that the title remains on the screen of the player. It is measured in
+  // 20ths of a second (AKA in ticks).
+  //
+  // Added: v1.12
+  int32 RemainDuration = 4;
+  // FadeOutDuration 是标题从玩家屏幕淡出所需的时间，以二十分之一秒为单位，也就是刻。
+  //
+  // FadeOutDuration is the duration that the title takes to fade out of the screen of the player. It is
+  // measured in 20ths of a second (AKA in ticks).
+  //
+  // Added: v1.12
+  int32 FadeOutDuration = 5;
+  // XUID 是玩家的 XBOX Live 用户 ID。只要玩家使用该 XBOX Live 帐户登录，它就会保持一致。
+  // 如果用户未登录 XBL 帐户，该字段为空。
+  //
+  // XUID is the XBOX Live user ID of the player, which will remain consistent as long as the player is
+  // logged in with the XBOX Live account. It is empty if the user is not logged into its XBL account.
+  //
+  // Added: v1.17.10
+  string XUID = 6;
+  // PlatformOnlineID 可以是 uint64，也可以是空字符串。
+  //
+  // PlatformOnlineID is either a uint64 or an empty string.
+  //
+  // Added: v1.17.10
+  string PlatformOnlineID = 7;
+  // FilteredMessage 是移除了所有不当用语后的 Message 过滤版本。
+  // 如果该字段非空，且客户端启用了“过滤不当用语”设置，客户端会优先使用它而不是 Message。
+  //
+  // FilteredMessage is a filtered version of Message with all the profanity removed. The client will use
+  // this over Message if this field is not empty and they have the "Filter Profanity" setting enabled.
+  //
+  // Added: v1.21.20
+  // Changed: v1.21.50, used as the profanity-filtered replacement for Text on clients with text filtering enabled.
+  string FilteredMessage = 8;
+}
+

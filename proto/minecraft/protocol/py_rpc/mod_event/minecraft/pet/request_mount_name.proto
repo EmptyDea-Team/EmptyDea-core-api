@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.request_mount_name;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// RequestMountName 请求服务器返回坐骑名称。
+//
+// RequestMountName asks the server for the mount name.
+message RequestMountName {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  PlayerIDData PlayerIDData = 2;
+}
+
+// PlayerIDData 保存 playerId 字段。
+//
+// PlayerIDData stores a playerId field.
+message PlayerIDData {
+  string PlayerID = 1;
+}
+

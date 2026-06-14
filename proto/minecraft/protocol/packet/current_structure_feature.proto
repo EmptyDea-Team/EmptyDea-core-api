@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.current_structure_feature;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// CurrentStructureFeature 由服务器发送，用于告知客户端玩家当前所处结构特征的名称。
+//
+// CurrentStructureFeature is sent by the server to let the client know the name of the structure feature
+// that the player is currently occupying.
+//
+// Added: v1.21.20
+message CurrentStructureFeature {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDCurrentStructureFeature;
+  // CurrentFeature 是玩家当前所处结构特征的标识符。如果玩家不在任何结构特征中，该字段为空。
+  //
+  // CurrentFeature is the identifier of the structure feature that the player is currently occupying.
+  // If the player is not occupying any structure feature, this field is empty.
+  //
+  // Added: v1.21.20
+  string CurrentFeature = 1;
+}
+

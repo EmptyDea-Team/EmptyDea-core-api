@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.clientbound_attribute_layer_sync;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "attribute_layer.proto";
+import "packet_options.proto";
+
+// ClientBoundAttributeLayerSync 由服务器发送，用于与客户端同步属性层。
+//
+// ClientBoundAttributeLayerSync is sent by the server to synchronise attribute layers with the client.
+//
+// Added: v1.26.10
+message ClientBoundAttributeLayerSync {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDClientBoundAttributeLayerSync;
+  // PayloadType 是属性层负载的类型，应为 protocol.AttributeLayerPayloadType 常量之一。
+  //
+  // PayloadType is the type of attribute layer payload. It is one of the protocol.AttributeLayerPayloadType constants.
+  //
+  // Added: v1.26.10
+  uint32 PayloadType = 1;
+  // Layers 在 PayloadType 为 AttributeLayerPayloadTypeUpdateLayers 时设置。
+  //
+  // Layers is set if PayloadType is AttributeLayerPayloadTypeUpdateLayers.
+  //
+  // Added: v1.26.10
+  // Go type: []protocol.AttributeLayerData
+  repeated .mousetunnel.minecraft.protocol.attribute_layer.AttributeLayerData Layers = 2;
+  // LayerName 是属性层名称，用于 UpdateSettings、UpdateEnvironment 和 RemoveEnvironment。
+  //
+  // LayerName is the attribute layer name, used for UpdateSettings, UpdateEnvironment and RemoveEnvironment.
+  //
+  // Added: v1.26.10
+  string LayerName = 3;
+  // DimensionID 是维度 ID，用于 UpdateSettings、UpdateEnvironment 和 RemoveEnvironment。
+  //
+  // DimensionID is the dimension ID, used for UpdateSettings, UpdateEnvironment and RemoveEnvironment.
+  //
+  // Added: v1.26.10
+  int32 DimensionID = 4;
+  // Settings 在 PayloadType 为 AttributeLayerPayloadTypeUpdateSettings 时设置。
+  //
+  // Settings is set if PayloadType is AttributeLayerPayloadTypeUpdateSettings.
+  //
+  // Added: v1.26.10
+  .mousetunnel.minecraft.protocol.attribute_layer.AttributeLayerSettings Settings = 5;
+  // EnvironmentAttributes 在 PayloadType 为 AttributeLayerPayloadTypeUpdateEnvironment 时设置。
+  //
+  // EnvironmentAttributes is set if PayloadType is AttributeLayerPayloadTypeUpdateEnvironment.
+  //
+  // Added: v1.26.10
+  // Go type: []protocol.EnvironmentAttributeData
+  repeated .mousetunnel.minecraft.protocol.attribute_layer.EnvironmentAttributeData EnvironmentAttributes = 6;
+  // RemoveAttributeNames 在 PayloadType 为 AttributeLayerPayloadTypeRemoveEnvironment 时设置。
+  //
+  // RemoveAttributeNames is set if PayloadType is AttributeLayerPayloadTypeRemoveEnvironment.
+  //
+  // Added: v1.26.10
+  // Go type: []string
+  repeated string RemoveAttributeNames = 7;
+}
+

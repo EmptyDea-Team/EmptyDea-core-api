@@ -1,0 +1,104 @@
+syntax = "proto3";
+
+package emptydea.game_control.game_interface;
+
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pb";
+
+import "game_control/game_interface/item_copy.proto";
+
+// TransitionRequest 是将库存 srcWindowID 处 src 所指示的物品状
+// 态转移到库存 dstWindowID 中，并且指定最终状态是 dst 的请求。
+message TransitionRequest {
+  // Src 是来源槽位和物品需求列表。
+  repeated ItemInfoWithSlot Src = 1;
+  // Dst 是目标槽位和物品需求列表。
+  repeated ItemInfoWithSlot Dst = 2;
+  // SrcWindowID 是来源窗口 ID。
+  int32 SrcWindowID = 3;
+  // DstWindowID 是目标窗口 ID。
+  int32 DstWindowID = 4;
+}
+
+// SimpleTransitionRequest 是使用预设窗口语义执行物品状态转移的请求。
+message SimpleTransitionRequest {
+  // Src 是来源槽位和物品需求列表。
+  repeated ItemInfoWithSlot Src = 1;
+  // Dst 是目标槽位和物品需求列表。
+  repeated ItemInfoWithSlot Dst = 2;
+}
+
+// TransitionResponse 是物品转移结果。
+message TransitionResponse {
+  // Success 表示物品转移是否成功。
+  bool Success = 1;
+}
+
+// ItemTransitionService 是基于 ResourcesWrapper 和 ItemStackOperation 实现的物品状态转移。
+service ItemTransitionService {
+  // Transition 将库存 srcWindowID 处 src 所指示的物品状
+  // 态转移到库存 dstWindowID 中，并且指定最终状态是 dst。
+  //
+  // 应当保证 dst 的物品可以完全从 src 中获得，
+  // 并且 src 和 dst 均不包括空气。
+  // 另外，实现假设状态转移前 dst 所指示的所有槽位都是空气。
+  //
+  // 底层实现不保证最终提交的操作是最简的，
+  // 这是因为目前使用的是基本的基线算法实现
+  rpc Transition(TransitionRequest) returns (TransitionResponse);
+  // TransitionBetweenInventory 将背包中 src 所
+  // 指示的物品进行状态转移，并且指定最终状态是 dst。
+  //
+  // 应当保证 dst 的物品可以完全从 src 中获得，
+  // 并且 src 和 dst 均不包括空气。
+  // 另外，TransitionBetweenInventory 假设状态转移
+  // 前 dst 所指示的所有槽位都是空气。
+  //
+  // 底层实现不保证最终提交的操作是最简的，
+  // 这是因为目前使用的是基本的基线算法实现。
+  //
+  // 此操作需要保证背包已被打开，
+  // 或者已打开的容器中可以在背包中移动物品
+  rpc TransitionBetweenInventory(SimpleTransitionRequest) returns (TransitionResponse);
+  // TransitionBetweenContainer 将已打开容器中 src
+  // 所指示的物品进行状态转移，并且指定最终状态是 dst。
+  //
+  // 应当保证 dst 的物品可以完全从 src 中获得，
+  // 并且 src 和 dst 均不包括空气。
+  // 另外，TransitionBetweenContainer 假设状态转移前
+  // dst 所指示的所有槽位都是空气。
+  //
+  // 底层实现不保证最终提交的操作是最简的，
+  // 这是因为目前使用的是基本的基线算法实现。
+  //
+  // 此操作需要保证目前已经打开了一个容器，
+  // 否则效果将会与 TransitionBetweenInventory 等同
+  rpc TransitionBetweenContainer(SimpleTransitionRequest) returns (TransitionResponse);
+  // TransitionToContainer 将背包中 src 所指示的物
+  // 品状态转移到已打开容器中，并且指定最终状态是 dst。
+  //
+  // 应当保证 dst 的物品可以完全从 src 中获得，
+  // 并且 src 和 dst 均不包括空气。
+  // 另外，实现TransitionToContainer 假设状态转移前
+  // dst 所指示的所有槽位都是空气。
+  //
+  // 底层实现不保证最终提交的操作是最简的，
+  // 目前使用的是基本的基线算法实现。
+  //
+  // 此操作需要保证目前已经打开了一个容器，
+  // 否则效果将会与 TransitionBetweenInventory 等同
+  rpc TransitionToContainer(SimpleTransitionRequest) returns (TransitionResponse);
+  // TransitionToInventory 将已打开容器中 src 所指
+  // 示的物品状态转移到背包中，并且指定最终状态是 dst。
+  //
+  // 应当保证 dst 的物品可以完全从 src 中获得，
+  // 并且 src 和 dst 均不包括空气。
+  // 另外，TransitionToInventory 假设状态转移前 dst
+  // 所指示的所有槽位都是空气。
+  //
+  // 底层实现不保证最终提交的操作是最简的，
+  // 这是因为目前使用的是基本的基线算法实现。
+  //
+  // 此操作需要保证目前已经打开了一个容器，
+  // 否则效果将会与 TransitionBetweenInventory 等同
+  rpc TransitionToInventory(SimpleTransitionRequest) returns (TransitionResponse);
+}

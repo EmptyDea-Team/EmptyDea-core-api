@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.clientbound_texture_shift;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+enum TextureShiftActionEnum {
+  TextureShiftActionInvalid = 0;
+  TextureShiftActionInitialize = 1;
+  TextureShiftActionStart = 2;
+  TextureShiftActionSetEnabled = 3;
+  TextureShiftActionSync = 4;
+}
+
+// ClientBoundTextureShift 由服务器发送，用于控制客户端上的纹理偏移动画。
+//
+// ClientBoundTextureShift is sent by the server to control texture shift animations on the client.
+//
+// Added: v1.26.0
+message ClientBoundTextureShift {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDClientBoundTextureShift;
+  // ActionID 是要执行的纹理偏移动作，应为上方常量之一。
+  //
+  // ActionID is the texture shift action to perform. It is one of the constants above.
+  //
+  // Added: v1.26.0
+  // Go type: uint8
+  uint32 ActionID = 1;
+  // CollectionName 是纹理偏移集合的名称。
+  //
+  // CollectionName is the name of the texture shift collection.
+  //
+  // Added: v1.26.0
+  string CollectionName = 2;
+  // FromStep 是偏移开始的步骤。
+  //
+  // FromStep is the step to shift from.
+  //
+  // Added: v1.26.0
+  string FromStep = 3;
+  // ToStep 是偏移到达的步骤。
+  //
+  // ToStep is the step to shift to.
+  //
+  // Added: v1.26.0
+  string ToStep = 4;
+  // AllSteps 是纹理偏移中的所有步骤列表。
+  //
+  // AllSteps is a list of all steps in the texture shift.
+  //
+  // Added: v1.26.0
+  // Go type: []string
+  repeated string AllSteps = 5;
+  // CurrentLengthTicks 是当前偏移长度，以刻为单位。
+  //
+  // CurrentLengthTicks is the current length of the shift in ticks.
+  //
+  // Added: v1.26.0
+  uint64 CurrentLengthTicks = 6;
+  // TotalLengthTicks 是偏移总长度，以刻为单位。
+  //
+  // TotalLengthTicks is the total length of the shift in ticks.
+  //
+  // Added: v1.26.0
+  uint64 TotalLengthTicks = 7;
+  // Enabled 指定纹理偏移是否启用。
+  //
+  // Enabled specifies if the texture shift is enabled.
+  //
+  // Added: v1.26.0
+  bool Enabled = 8;
+}
+

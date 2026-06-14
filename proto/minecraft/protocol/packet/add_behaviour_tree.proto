@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.add_behaviour_tree;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// AddBehaviourTree 由服务器发送给客户端。该数据包目前在客户端和服务器两侧都未使用。
+//
+// AddBehaviourTree is sent by the server to the client. The packet is currently unused by both client and
+// server.
+//
+// Added: v1.16
+message AddBehaviourTree {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDAddBehaviourTree;
+  // BehaviourTree 是未使用的字符串。
+  //
+  // BehaviourTree is an unused string.
+  //
+  // Added: v1.16
+  string BehaviourTree = 1;
+}
+

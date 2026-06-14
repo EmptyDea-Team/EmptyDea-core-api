@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.emote.play_emote_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/emote;emote";
+
+import "py_rpc/mod_event/minecraft/emote/basic.proto";
+
+// PlayEmoteEvent 转发表情动作播放请求或广播。
+//
+// PlayEmoteEvent forwards emote play requests or broadcasts.
+message PlayEmoteEvent {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.emote.basic.Basic Basic = 1;
+  // EventType 是 ModEvent 方向。
+  //
+  // EventType is the ModEvent direction.
+  // Go type: uint8
+  uint32 EventType = 2;
+  // PlayerID 是发起或播放动作的玩家 ID。
+  //
+  // PlayerID is the player ID that starts or plays the emote.
+  string PlayerID = 3;
+  // AnimName 是普通动作动画名。
+  //
+  // AnimName is the normal-emote animation name.
+  string AnimName = 4;
+  // StopExpression 是新版引擎播放动作时的停止表达式。
+  //
+  // StopExpression is the stop expression used by the new engine.
+  string StopExpression = 5;
+  // IsNewEngine 表示是否使用新版动画接口。
+  //
+  // IsNewEngine indicates whether the new animation API is used.
+  bool IsNewEngine = 6;
+  // IsLoop 表示动作是否循环。
+  //
+  // IsLoop indicates whether the emote loops.
+  bool IsLoop = 7;
+  // EmoteID 是动作配置 ID。
+  //
+  // EmoteID is the emote config ID.
+  int64 EmoteID = 8;
+  // TwoPersonEmoteID 是双人动作状态机使用的动作配置 ID。
+  //
+  // TwoPersonEmoteID is the emote config ID used by the two-person state machine.
+  int64 TwoPersonEmoteID = 9;
+  // EmoteType 是动作类型，双人动作为 two_person。
+  //
+  // EmoteType is the emote type, with two_person for two-person emotes.
+  string EmoteType = 10;
+  // Relation 是双人动作需要的亲密关系配置。
+  //
+  // Relation is the required relationship config for two-person emotes.
+  string Relation = 11;
+  // View 是播放动作前的视角。
+  //
+  // View is the camera view before playing the emote.
+  int64 View = 12;
+}
+

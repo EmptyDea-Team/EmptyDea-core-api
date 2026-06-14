@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.fields.beehive_occupants;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/fields;fields";
+
+import "google/protobuf/struct.proto";
+
+// BeehiveOccupants 描述蜂巢或蜂箱内的实体。
+//
+// BeehiveOccupants describes an entity inside a bee nest or beehive.
+message BeehiveOccupants {
+  // TAG_String(8) = "minecraft:bee<>"
+  string ActorIdentifier = 1;
+  // TAG_Compound(10)
+  // Go type: map[string]any
+  map<string, google.protobuf.Value> SaveData = 2;
+  // TAG_Int(4) = 0
+  int32 TicksLeftToStay = 3;
+}
+

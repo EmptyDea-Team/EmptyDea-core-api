@@ -1,0 +1,94 @@
+syntax = "proto3";
+
+package emptydea.game_control.resources_control;
+
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/resources_control;resources_control_pb";
+
+import "item.proto";
+
+// SlotLocation 描述一个物品的所在的位置
+message SlotLocation {
+  // WindowID 指示该物品所在的库存窗口 ID
+  int32 WindowID = 1;
+  // SlotID 指示该物品所在库存的槽位索引
+  uint32 SlotID = 2;
+}
+
+// GetInventoryRequest 是获取窗口 ID 为 windowID 的库存的请求。
+message GetInventoryRequest {
+  // WindowID 是机器人已打开(或持有)的库存的窗口 ID
+  int32 WindowID = 1;
+}
+
+// GetInventoryResponse 是窗口 ID 为 windowID 的库存。
+message GetInventoryResponse {
+  // Found 指示目标库存是否存在。
+  bool Found = 1;
+  // Items 是当前库存的全部物品堆栈实例。
+  repeated SlotItem Items = 2;
+}
+
+// GetItemStackRequest 是加载位于 windowID 的库存中索引为 slotID 的物品的请求。
+message GetItemStackRequest {
+  // WindowID 是机器人已打开(或持有)的库存的窗口 ID
+  int32 WindowID = 1;
+  // SlotID 是单个物品栏槽位的索引，它是从 0 开始索引的
+  uint32 SlotID = 2;
+}
+
+// GetItemStackResponse 是位于 windowID 的库存中索引为 slotID 的物品。
+message GetItemStackResponse {
+  // InventoryFound 指示目标库存是否存在。
+  bool InventoryFound = 1;
+  // ItemFound 表示目标槽位是否返回了物品。
+  bool ItemFound = 2;
+  // Item 是当前库存中物品栏编号为 slotID 的物品堆栈信息。
+  // 如果不存在，确保返回一个新的空气物品的堆栈实例表示，而非空指针
+  mousetunnel.minecraft.protocol.item.ItemInstance Item = 3;
+}
+
+// GetAllItemStacksRequest 是列出窗口 ID 为 windowID 的库存中的所有物品堆栈实例的请求。
+message GetAllItemStacksRequest {
+  // WindowID 是机器人已打开(或持有)的库存的窗口 ID
+  int32 WindowID = 1;
+}
+
+// GetAllItemStacksResponse 是窗口 ID 为 windowID 的库存中的所有物品堆栈实例。
+message GetAllItemStacksResponse {
+  // InventoryFound 指示目标库存是否存在。
+  bool InventoryFound = 1;
+  // Items 是当前库存的全部物品堆栈实例。
+  repeated SlotItem Items = 2;
+}
+
+// ListWindowIDsRequest 是列出当前所有库存的窗口 ID 的空请求。
+message ListWindowIDsRequest {}
+
+// ListWindowIDsResponse 是当前所有库存的窗口 ID。
+message ListWindowIDsResponse {
+  // WindowIDs 是当前所有库存的窗口 ID。
+  repeated int32 WindowIDs = 1;
+}
+
+// SlotItem 描述当前库存中某个槽位的物品堆栈实例。
+message SlotItem {
+  // SlotID 是单个物品栏槽位的索引，它是从 0 开始索引的
+  uint32 SlotID = 1;
+  // Item 是当前库存中物品栏编号为 slotID 的物品堆栈信息。
+  mousetunnel.minecraft.protocol.item.ItemInstance Item = 2;
+}
+
+// InventoryService 描述机器人已打开(或持有)的所有库存，
+// 例如背包、副手和胸甲。
+service InventoryService {
+  // GetInventory 返回窗口 ID 为 windowID 的库存。
+  // 如果目标库存不存在，则返回的 existed 为假
+  rpc GetInventory(GetInventoryRequest) returns (GetInventoryResponse);
+  // GetItemStack 加载位于 windowID 的库存中索引为 slotID 的物品。
+  // 如果目标库存不存在，则返回的 inventoryExisted 为假
+  rpc GetItemStack(GetItemStackRequest) returns (GetItemStackResponse);
+  // GetAllItemStacks 列出窗口 ID 为 windowID 的库存中的所有物品堆栈实例
+  rpc GetAllItemStacks(GetAllItemStacksRequest) returns (GetAllItemStacksResponse);
+  // ListWindowIDs 列出当前所有库存的窗口 ID
+  rpc ListWindowIDs(ListWindowIDsRequest) returns (ListWindowIDsResponse);
+}

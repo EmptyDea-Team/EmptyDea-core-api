@@ -1,0 +1,79 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.add_item_actor;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "entity_metadata.proto";
+import "item.proto";
+import "mgl32.proto";
+import "packet_options.proto";
+
+// AddItemActor 由服务器发送给客户端，用于显示一个物品实体。
+// 它是少数不能通过 AddActor 数据包发送的实体之一。
+//
+// AddItemActor is sent by the server to the client to make an item entity show up. It is one of the few
+// entities that cannot be sent using the AddActor packet
+//
+// Added: v1.16
+message AddItemActor {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDAddItemActor;
+  // EntityUniqueID 是实体的唯一 ID。唯一 ID 在同一世界的不同会话之间保持一致，
+  // 但大多数服务器会直接把实体的运行时 ID 填入该字段。
+  //
+  // EntityUniqueID is the unique ID of the entity. The unique ID is a value that remains consistent across
+  // different sessions of the same world, but most servers simply fill the runtime ID of the entity out for
+  // this field.
+  //
+  // Added: v1.16
+  int64 EntityUniqueID = 1;
+  // EntityRuntimeID 是实体的运行时 ID。运行时 ID 在每个世界会话中唯一，
+  // 数据包通常使用该运行时 ID 标识实体。
+  //
+  // EntityRuntimeID is the runtime ID of the entity. The runtime ID is unique for each world session, and
+  // entities are generally identified in packets using this runtime ID.
+  //
+  // Added: v1.16
+  uint64 EntityRuntimeID = 2;
+  // Item 是生成出的物品。它必须具有有效 ID 才能在客户端侧显示；
+  // 如果不是有效物品，客户端靠近时会崩溃。
+  //
+  // Item is the item that is spawned. It must have a valid ID for it to show up client-side. If it is not
+  // a valid item, the client will crash when coming near.
+  //
+  // Added: v1.16
+  .mousetunnel.minecraft.protocol.item.ItemInstance Item = 3;
+  // Position 是生成实体的位置。即使实体在玩家当前不可见的距离外，
+  // 玩家靠近后仍会看到该实体。
+  //
+  // Position is the position to spawn the entity on. If the entity is on a distance that the player cannot
+  // see it, the entity will still show up if the player moves closer.
+  //
+  // Added: v1.16
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 Position = 4;
+  // Velocity 是实体生成时的初始速度。该速度会触发客户端侧的实体移动。
+  //
+  // Velocity is the initial velocity the entity spawns with. This velocity will initiate client side
+  // movement of the entity.
+  //
+  // Added: v1.16
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 Velocity = 5;
+  // EntityMetadata 是实体元数据映射，包含会改变实体外观等行为的标志和数据属性。
+  // 标志包括“着火”“疾跑”等，元数据值按属性键索引。
+  //
+  // EntityMetadata is a map of entity metadata, which includes flags and data properties that alter in
+  // particular the way the entity looks. Flags include ones such as 'on fire' and 'sprinting'.
+  // The metadata values are indexed by their property key.
+  //
+  // Added: v1.16
+  .mousetunnel.minecraft.protocol.entity_metadata.EntityMetadata EntityMetadata = 6;
+  // FromFishing 指定该物品是否由钓竿钓起获得。目前不清楚客户端为何需要知道这一点。
+  //
+  // FromFishing specifies if the item was obtained by fishing it up using a fishing rod. It is not clear
+  // why the client needs to know this.
+  //
+  // Added: v1.16
+  bool FromFishing = 7;
+}
+

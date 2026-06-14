@@ -1,0 +1,128 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.text;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+message TextOptionalString {
+  bool Present = 1;
+  string Value = 2;
+}
+
+enum TextTypeEnum {
+  TextTypeRaw = 0;
+  TextTypeChat = 1;
+  TextTypeTranslation = 2;
+  TextTypePopup = 3;
+  TextTypeJukeboxPopup = 4;
+  TextTypeTip = 5;
+  TextTypeSystem = 6;
+  TextTypeWhisper = 7;
+  TextTypeAnnouncement = 8;
+  TextTypeObject = 9;
+  TextTypeObjectWhisper = 10;
+  TextTypeObjectAnnouncement = 11;
+}
+
+enum TextCategoryEnum {
+  TextCategoryMessageOnly = 0;
+  TextCategoryAuthoredMessage = 1;
+  TextCategoryMessageWithParameters = 2;
+}
+
+// Text 由客户端发送给服务器以发送聊天消息，也由服务器发送给客户端以转发或发送消息，
+// 这些消息可以是聊天、弹窗、提示等。
+//
+// Text is sent by the client to the server to send chat messages, and by the server to the client to forward
+// or send messages, which may be chat, popups, tips etc.
+//
+// Added: v1.11.1
+message Text {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDText;
+  // TextType 是所发送文本的类型。当客户端向服务器发送该数据包时，
+  // 它应始终为 TextTypeChat；如果由服务器发送，则可以是上方其他文本类型之一。
+  //
+  // TextType is the type of the text sent. When a client sends this to the server, it should always be
+  // TextTypeChat. If the server sends it, it may be one of the other text types above.
+  //
+  // Added: v1.11.1
+  // Go type: byte
+  uint32 TextType = 1;
+  // NeedsTranslation 指定是否有任何消息需要翻译。对于可翻译文本类型，
+  // 似乎只要出现 % 就会被翻译，而不管该布尔值如何。
+  // 可翻译文本类型包括 TextTypeTranslation、TextTypeTip、TextTypePopup 和 TextTypeJukeboxPopup。
+  //
+  // NeedsTranslation specifies if any of the messages need to be translated. It seems that where % is found
+  // in translatable text types, these are translated regardless of this bool. Translatable text types
+  // include TextTypeTranslation, TextTypeTip, TextTypePopup and TextTypeJukeboxPopup.
+  //
+  // Added: v1.11.1
+  bool NeedsTranslation = 2;
+  // SourceName 是消息来源名称。该来源会显示在 TextTypeChat 和 TextTypeWhisper
+  // 等文本类型中，通常显示用户名。
+  //
+  // SourceName is the name of the source of the messages. This source is displayed in text types such as
+  // the TextTypeChat and TextTypeWhisper, where typically the username is shown.
+  //
+  // Added: v1.11.1
+  string SourceName = 3;
+  // Message 是该数据包的消息。每种 TextType 都会设置该字段，
+  // 它是数据包的主要组成部分。
+  //
+  // Message is the message of the packet. This field is set for each TextType and is the main component of
+  // the packet.
+  //
+  // Added: v1.11.1
+  string Message = 4;
+  // Parameters 是应填入消息中的参数列表。只有数据包类型为 TextTypeTranslation、
+  // TextTypeTip、TextTypePopup 或 TextTypeJukeboxPopup 时才会写入这些参数。
+  //
+  // Parameters is a list of parameters that should be filled into the message. These parameters are only
+  // written if the type of the packet is TextTypeTranslation, TextTypeTip, TextTypePopup or TextTypeJukeboxPopup.
+  //
+  // Added: v1.11.1
+  // Go type: []string
+  repeated string Parameters = 5;
+  // XUID 是发送消息玩家的 XBOX Live 用户 ID。它只会在 TextTypeChat 数据包中设置。
+  // 发送给玩家时，只有玩家列表中存在该 XUID 且未被静音，或 XUID 为空时，玩家才会看到聊天消息。
+  //
+  // XUID is the XBOX Live user ID of the player that sent the message. It is only set for packets of
+  // TextTypeChat. When sent to a player, the player will only be shown the chat message if a player with
+  // this XUID is present in the player list and not muted, or if the XUID is empty.
+  //
+  // Added: v1.12.0
+  string XUID = 6;
+  // PlatformChatID 是聊天时仅为特定平台设置的标识符（推测仅用于 Nintendo Switch）。
+  // 否则它为空字符串，并用于决定哪些玩家可以互相聊天。
+  //
+  // PlatformChatID is an identifier only set for particular platforms when chatting (presumably only for
+  // Nintendo Switch). It is otherwise an empty string, and is used to decide which players are able to
+  // chat with each other.
+  //
+  // Added: v1.2.13, Changed: v1.19.50
+  string PlatformChatID = 7;
+  // FilteredMessage 是移除了所有不当用语后的 Message 过滤版本。
+  // 如果该字段非空，且客户端启用了“过滤不当用语”设置，客户端会优先使用它而不是 Message。
+  //
+  // FilteredMessage is a filtered version of Message with all the profanity removed. The client will use
+  // this over Message if this field is not empty and they have the "Filter Profanity" setting enabled.
+  //
+  // Added: v1.21.0
+  // Go type: protocol.Optional[string]
+  TextOptionalString FilteredMessage = 8;
+  // NetEaseExtraData 是 TextType 为 TextTypeChat 时网易附加的额外聊天数据。
+  //
+  // NetEaseExtraData is extra chat data appended by NetEase when TextType is TextTypeChat.
+  //
+  // Added: NetEase.
+  // Go type: []string
+  repeated string NetEaseExtraData = 9;
+  // NetEaseUnknown2 是 TextType 为 TextTypePopup 时网易附加的额外字符串。
+  //
+  // NetEaseUnknown2 is an extra string appended by NetEase when TextType is TextTypePopup.
+  //
+  // Added: NetEase.
+  string NetEaseUnknown2 = 10;
+}
+

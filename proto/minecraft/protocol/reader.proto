@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.reader;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+import "google/protobuf/struct.proto";
+import "info.proto";
+
+// Reader 实现 Minecraft 数据包中各类数据的读取操作。每个 Packet 实现都会收到一个 Reader。
+// Reader 的使用方应始终通过 defer recovery 包裹读取过程；Reader 会在遇到无效数据时 panic。
+//
+// Reader implements reading operations for reading types from Minecraft packets. Each Packet implementation
+// has one passed to it.
+// Reader's uses should always be encapsulated with a deferred recovery. Reader panics on invalid data.
+//
+// Added: v1.16
+message Reader {
+}
+

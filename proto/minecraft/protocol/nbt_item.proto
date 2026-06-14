@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.nbt_item;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+import "google/protobuf/struct.proto";
+
+// Enchant 描述 NetEase __tag NBT 物品栈中的单个附魔属性。
+//
+// Enchant describes one enchantment entry in a NetEase __tag NBT item stack.
+message Enchant {
+  // Go type: int16
+  int32 ID = 1;
+  // Go type: int16
+  int32 Level = 2;
+  string ModEnchant = 3;
+}
+
+// Item 描述 NetEase __tag NBT 物品栈实例。
+//
+// Item describes a NetEase __tag NBT item stack instance.
+message Item {
+  // Go type: byte
+  uint32 Count = 1;
+  // Go type: int16
+  int32 Damage = 2;
+  string Name = 3;
+  // Go type: byte
+  uint32 WasPickedUp = 4;
+  // Go type: map[string]any
+  map<string, google.protobuf.Value> Block = 5;
+  // Go type: map[string]any
+  map<string, google.protobuf.Value> Tag = 6;
+  // Go type: map[string]any
+  map<string, google.protobuf.Value> ModBlock = 7;
+  // Go type: []any
+  repeated google.protobuf.Value CanDestroy = 8;
+  // Go type: []any
+  repeated google.protobuf.Value CanPlaceOn = 9;
+}
+
+// ItemWithSlot 描述带容器槽位的 NetEase __tag NBT 物品栈实例。
+//
+// ItemWithSlot describes a NetEase __tag NBT item stack instance with a container slot.
+message ItemWithSlot {
+  // Go type: byte
+  uint32 Slot = 1;
+  Item Item = 2;
+}
+

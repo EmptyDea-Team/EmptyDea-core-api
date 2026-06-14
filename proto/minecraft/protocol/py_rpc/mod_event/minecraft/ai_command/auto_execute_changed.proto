@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.auto_execute_changed;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_command";
+
+import "py_rpc/mod_event/minecraft/ai_command/basic.proto";
+
+// AutoExecuteChanged 同步客户端自动执行设置。
+//
+// AutoExecuteChanged synchronises the client's auto-execute setting.
+message AutoExecuteChanged {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.basic.Basic Basic = 1;
+  // Auto 表示是否自动执行生成的指令。
+  //
+  // Auto indicates whether generated commands should be executed automatically.
+  bool Auto = 2;
+}
+

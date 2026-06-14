@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.open_sign;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "block_pos.proto";
+import "packet_options.proto";
+
+// OpenSign 由服务器发送，用于打开告示牌编辑界面。
+//
+// OpenSign is sent by the server to open a sign for editing.
+//
+// Added: v1.19.80
+// 自 1.19.80 起，玩家可以与告示牌交互并编辑正反两面的文本，而不再只限于正面。
+//
+// As of 1.19.80, the player can interact with a sign to edit the text on both sides instead of just the front.
+message OpenSign {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDOpenSign;
+  // Position 是要编辑的告示牌位置。客户端会使用该位置获取告示牌数据，
+  // 包括现有文本和格式等信息。
+  //
+  // Position is the position of the sign to edit. The client uses this position to get the data of the sign, including
+  // the existing text and formatting etc.
+  //
+  // Added: v1.19.80
+  .mousetunnel.minecraft.protocol.block_pos.BlockPos Position = 1;
+  // FrontSide 指定是否打开告示牌正面进行编辑。为 false 时，默认编辑背面。
+  //
+  // FrontSide dictates whether the front side of the sign should be opened for editing. If false, the back side is
+  // assumed to be edited.
+  //
+  // Added: v1.19.80
+  bool FrontSide = 2;
+}
+

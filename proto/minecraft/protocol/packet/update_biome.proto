@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.update_biome;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "block_pos.proto";
+import "netease.proto";
+import "packet_options.proto";
+
+// UpdateBiome 是网易生物群系更新数据包。
+//
+// UpdateBiome is a NetEase biome update packet.
+//
+// Added: NetEase.
+message UpdateBiome {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDUpdateBiome;
+  .mousetunnel.minecraft.protocol.block_pos.BlockPos Pos = 1;
+  // Go type: []protocol.NetEaseBiomeData
+  repeated .mousetunnel.minecraft.protocol.netease.NetEaseBiomeData BiomeData = 2;
+}
+

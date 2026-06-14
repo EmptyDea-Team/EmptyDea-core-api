@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.debug_info;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// DebugInfo 是服务器发送给客户端的数据包。在 1.16 中发送给普通客户端时，它似乎没有任何效果。
+//
+// DebugInfo is a packet sent by the server to the client. It does not seem to do anything when sent to the
+// normal client in 1.16.
+//
+// Added: v1.16
+message DebugInfo {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDDebugInfo;
+  // PlayerUniqueID 是接收该数据包的玩家唯一 ID。
+  //
+  // PlayerUniqueID is the unique ID of the player that the packet is sent to.
+  //
+  // Added: v1.16
+  int64 PlayerUniqueID = 1;
+  // Data 是调试数据。
+  //
+  // Data is the debug data.
+  //
+  // Added: v1.16
+  // Go type: []byte
+  bytes Data = 2;
+}
+

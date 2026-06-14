@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.party_changed;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+message PartyChangedOptionalPartyInfo {
+  bool Present = 1;
+  PartyInfo Value = 2;
+}
+
+// PartyChanged 由客户端发送给服务器，用于表示玩家的队伍 ID 已变化。
+//
+// PartyChanged is sent by the client to the server to indicate that the player's party ID has changed.
+//
+// Added: v1.26.10
+message PartyChanged {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDPartyChanged;
+  // PartyInfo 包含客户端发送的可选队伍信息负载。
+  //
+  // PartyInfo contains the optional party information payload sent by the client.
+  //
+  // Added: v1.26.10
+  // Go type: protocol.Optional[PartyInfo]
+  PartyChangedOptionalPartyInfo PartyInfo = 1;
+}
+
+// PartyInfo 表示客户端在队伍中的角色信息。
+//
+// PartyInfo represents the information of the client's role in a party.
+//
+// Added: v1.26.10
+message PartyInfo {
+  // PartyID 是队伍标识符。
+  //
+  // PartyID is the party identifier.
+  //
+  // Added: v1.26.10
+  string PartyID = 1;
+  // PartyLeader 表示客户端是否为新的队伍队长。
+  //
+  // PartyLeader is if the client is the new party leader or not.
+  //
+  // Added: v1.26.20
+  bool PartyLeader = 2;
+}
+

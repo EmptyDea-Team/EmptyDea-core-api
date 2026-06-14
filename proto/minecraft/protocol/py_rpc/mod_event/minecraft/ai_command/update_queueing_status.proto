@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.update_queueing_status;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_command";
+
+import "py_rpc/mod_event/minecraft/ai_command/basic.proto";
+import "py_rpc/mod_event/minecraft/ai_command/types.proto";
+
+// UpdateQueueingStatus 同步魔法指令生成队列状态。
+//
+// UpdateQueueingStatus synchronises AI-command generation queue status.
+message UpdateQueueingStatus {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.basic.Basic Basic = 1;
+  // Status 是当前状态，例如 queueing、processing 或 finish。
+  //
+  // Status is the current state, such as queueing, processing or finish.
+  string Status = 2;
+  // Queueing 是排队人数。
+  //
+  // Queueing is the queue position or queue size.
+  int64 Queueing = 3;
+  // IsOK 表示生成结果是否成功；使用指针以便 false 仍可序列化。
+  //
+  // IsOK indicates whether generation succeeded; a pointer lets false still marshal.
+  // Go type: *bool
+  bool IsOK = 4;
+  // FailedReason 是生成失败原因。
+  //
+  // FailedReason is the generation failure reason.
+  string FailedReason = 5;
+  // GenerateType 是生成类型。
+  //
+  // GenerateType is the generation type.
+  int64 GenerateType = 6;
+  // AIModel 是服务端返回的 AI 模型标识。
+  //
+  // AIModel is the AI model identifier returned by the server.
+  // Go type: *AIModel
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.types.AIModel AIModel = 7;
+}
+

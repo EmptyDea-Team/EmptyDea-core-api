@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.sub_chunk;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "chunk_pos.proto";
+import "packet_options.proto";
+import "sub_chunk.proto";
+
+// SubChunk 发送围绕中心点的多个子区块数据。
+//
+// SubChunk sends data about multiple sub-chunks around a center point.
+//
+// Added: v1.18.0
+message SubChunk {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDSubChunk;
+  // CacheEnabled 表示是否启用了子区块缓存。
+  //
+  // CacheEnabled is whether the sub-chunk caching is enabled or not.
+  //
+  // Added: v1.18.0
+  bool CacheEnabled = 1;
+  // Dimension 是这些子区块所在的维度。
+  //
+  // Dimension is the dimension the sub-chunks are in.
+  //
+  // Added: v1.18.0
+  int32 Dimension = 2;
+  // Position 是绝对子区块中心点，每个 SubChunkRequest 都会将其作为引用。
+  //
+  // Position is an absolute sub-chunk center point that every SubChunkRequest uses as a reference.
+  //
+  // Added: v1.18.0
+  .mousetunnel.minecraft.protocol.chunk_pos.SubChunkPos Position = 3;
+  // SubChunkEntries 包含相对于中心点的子区块条目。
+  //
+  // SubChunkEntries contains sub-chunk entries relative to the center point.
+  //
+  // Added: v1.18.0
+  // Go type: []protocol.SubChunkEntry
+  repeated .mousetunnel.minecraft.protocol.sub_chunk.SubChunkEntry SubChunkEntries = 4;
+}
+

@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package emptydea.game_control.game_interface;
+
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pb";
+
+import "google/protobuf/struct.proto";
+import "block_pos.proto";
+
+// SetBlockRequest 是在 pos 处以 setblock 命令放
+// 置名为 name 且方块状态为 states 的方块的请求。
+message SetBlockRequest {
+  // Pos 是放置方块的位置。
+  mousetunnel.minecraft.protocol.block_pos.BlockPos Pos = 1;
+  // Name 是要放置的方块名称。
+  string Name = 2;
+  // States 是要放置的方块状态。
+  string States = 3;
+}
+
+// SetBlockResponse 是设置方块后的空响应。
+message SetBlockResponse {}
+
+// SetAnvilRequest 是在 pos 处放置铁砧的请求。
+message SetAnvilRequest {
+  // Pos 是铁砧位置。
+  mousetunnel.minecraft.protocol.block_pos.BlockPos Pos = 1;
+  // PlaceBaseBlock 指示是否需要在 pos 下一格处放置铁砧的承重方块。
+  bool PlaceBaseBlock = 2;
+}
+
+// SetAnvilResponse 是所放置铁砧的方块状态 states。
+message SetAnvilResponse {
+  // States 是铁砧方块最终状态。
+  map<string, google.protobuf.Value> States = 1;
+}
+
+// SetBlockService 是基于 Commands 实现的，
+// 通过发送 MC 命令实现方块放置的若干实现。
+service SetBlockService {
+  // SetBlock 在 pos 处以 setblock 命令放
+  // 置名为 name 且方块状态为 states 的方块。
+  // 此实现是阻塞的，它将等待租赁服回应后再返回值
+  rpc SetBlock(SetBlockRequest) returns (SetBlockResponse);
+  // SetBlockAsync 在 pos 处以 setblock 命令
+  // 放置名为 name 且方块状态为 states 的方块。
+  //
+  // 此实现不会等待租赁服响应，这意味着调用
+  // SetBlockAsync 后将立即返回
+  rpc SetBlockAsync(SetBlockRequest) returns (SetBlockResponse);
+  // SetAnvil 在 pos 处放置铁砧，并返回所放置铁砧的方块状态 states。
+  // placeBaseBlock 指示是否需要在 pos 下一格处放置铁砧的承重方块
+  rpc SetAnvil(SetAnvilRequest) returns (SetAnvilResponse);
+}

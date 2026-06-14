@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.player_location;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "mgl32.proto";
+import "packet_options.proto";
+
+enum PlayerLocationTypeEnum {
+  PlayerLocationTypeCoordinates = 0;
+  PlayerLocationTypeHide = 1;
+}
+
+// PlayerLocation 由服务器发送给客户端，用于更新玩家在定位栏上的位置，或将其完全移除。
+// 客户端会根据自己到 Position 的距离决定如何在定位栏上渲染该玩家。
+//
+// PlayerLocation is sent by the server to the client to either update a player's position on the locator bar,
+// or remove them completely. The client will determine how to render the player on the locator bar based on
+// their own distance to Position.
+//
+// Added: v1.21.80
+message PlayerLocation {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDPlayerLocation;
+  // Type 是正在执行的操作，它是上方常量之一。
+  //
+  // Type is the action that is being performed. It is one of the constants above.
+  //
+  // Added: v1.21.80
+  int32 Type = 1;
+  // EntityUniqueID 是实体的唯一 ID。唯一 ID 会在同一世界的不同会话之间保持一致。
+  //
+  // EntityUniqueID is the unique ID of the entity. The unique ID is a value that remains consistent across
+  // different sessions of the same world.
+  //
+  // Added: v1.21.80
+  int64 EntityUniqueID = 2;
+  // Position 是定位栏上使用的玩家位置。仅当 Type 为 PlayerLocationTypeCoordinates 时才会设置。
+  //
+  // Position is the position of the player to be used on the locator bar. This is only set when the Type is
+  // PlayerLocationTypeCoordinates.
+  //
+  // Added: v1.21.80
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 Position = 3;
+}
+

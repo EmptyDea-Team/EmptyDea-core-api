@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.player_hot_bar;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// PlayerHotBar 由服务器发送给客户端。它过去用于把玩家快捷栏槽位链接到物品栏中的实际槽位，
+// 但从 1.2 起该行为已改变，快捷栏槽位不再是物品栏中可自由浮动的一部分。
+// 自 1.2 起，该数据包已被重新用于其他功能，但新功能尚不明确。
+//
+// PlayerHotBar is sent by the server to the client. It used to be used to link hot bar slots of the player to
+// actual slots in the inventory, but as of 1.2, this was changed and hot bar slots are no longer a free
+// floating part of the inventory.
+// Since 1.2, the packet has been re-purposed, but its new functionality is not clear.
+//
+// Added: v1.11.1
+message PlayerHotBar {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDPlayerHotBar;
+  // SelectedHotBarSlot 是客户端应视为活动状态的已选快捷栏槽位索引。
+  //
+  // SelectedHotBarSlot is the selected hotbar slot index that the client should treat as active.
+  //
+  // Added: v1.11.1
+  uint32 SelectedHotBarSlot = 1;
+  // WindowID 是已选快捷栏槽位所属的物品栏窗口。
+  //
+  // WindowID is the inventory window that the selected hotbar slot belongs to.
+  //
+  // Added: v1.11.1
+  // Go type: byte
+  uint32 WindowID = 2;
+  // SelectHotBarSlot 指定客户端是否应实际切换到已选快捷栏槽位。
+  //
+  // SelectHotBarSlot specifies if the client should actually switch to the selected hotbar slot.
+  //
+  // Added: v1.11.1
+  bool SelectHotBarSlot = 3;
+}
+

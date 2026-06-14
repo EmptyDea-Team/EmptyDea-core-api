@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.combine;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// Combine 是网易合并数据包。
+//
+// Combine is a NetEase combine packet.
+//
+// Added: NetEase.
+message Combine {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDCombine;
+  // Go type: uint8
+  uint32 Unknown1 = 1;
+}
+

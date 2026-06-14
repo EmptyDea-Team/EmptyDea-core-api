@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.client_local_replay_operations;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// ClientLocalReplayOperations 是网易本地回放操作数据包。
+//
+// ClientLocalReplayOperations is a NetEase local replay operations packet.
+//
+// Added: NetEase.
+message ClientLocalReplayOperations {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDClientLocalReplayOperations;
+  uint32 Unknown1 = 1;
+  string Unknown2 = 2;
+}
+

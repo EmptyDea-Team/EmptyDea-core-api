@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.fields.sign_text;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/fields;fields";
+
+// SignText 描述告示牌中的一个复用字段。
+//
+// SignText describes a reusable text field in signs.
+message SignText {
+  // Not used; TAG_Byte(1) = 0
+  // Go type: byte
+  uint32 HideGlowOutline = 1;
+  // TAG_Byte(1) = 0
+  // Go type: byte
+  uint32 IgnoreLighting = 2;
+  // TAG_Byte(1) = 1
+  // Go type: byte
+  uint32 PersistFormatting = 3;
+  // TAG_Int(4) = -16777216
+  int32 SignTextColor = 4;
+  // TAG_String(8) = ""
+  string Text = 5;
+  // TAG_String(8) = ""
+  string TextOwner = 6;
+}
+

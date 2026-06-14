@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.response_cheat_enable_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_command";
+
+import "py_rpc/mod_event/minecraft/ai_command/basic.proto";
+
+// ResponseCheatEnableEvent 返回作弊可用状态。
+//
+// ResponseCheatEnableEvent returns the cheat-enabled state.
+message ResponseCheatEnableEvent {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.basic.Basic Basic = 1;
+  // Enable 表示作弊功能和操作员权限是否都可用。
+  //
+  // Enable indicates whether both cheats and operator permission are available.
+  bool Enable = 2;
+}
+

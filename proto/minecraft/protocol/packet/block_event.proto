@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.block_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "block_pos.proto";
+import "packet_options.proto";
+
+// BlockEvent 由服务器发送，用于发起与特定方块相关的事件，例如打开箱子。
+//
+// BlockEvent is sent by the server to initiate a certain event that has something to do with blocks in
+// specific, for example opening a chest.
+//
+// Added: v1.11.1
+message BlockEvent {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDBlockEvent;
+  // Position 是发生事件的方块位置。
+  //
+  // Position is the position of the block that an event occurred at.
+  //
+  // Added: v1.11.1
+  .mousetunnel.minecraft.protocol.block_pos.BlockPos Position = 1;
+  // EventType 是方块事件类型。事件类型决定后续事件数据的使用方式，
+  // 它是上方常量之一。
+  //
+  // EventType is the type of the block event. The event type decides the way the event data that follows
+  // is used. It is one of the constants found above.
+  //
+  // Added: v1.11.1
+  int32 EventType = 2;
+  // EventData 保存特定于事件类型的数据。例如对箱子而言，打开箱子时数据必须为 1，
+  // 关闭箱子时应为 0。
+  //
+  // EventData holds event type specific data. For chests for example, opening the chest means the data must
+  // hold 1, whereas closing it should hold 0.
+  //
+  // Added: v1.11.1
+  int32 EventData = 3;
+}
+

@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.swap_pet_bag_item;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// SwapPetBagItem 同步宠物背包物品交换。
+//
+// SwapPetBagItem syncs pet-bag item swaps.
+message SwapPetBagItem {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  SwapPetBagItemData SwapPetBagItemData = 2;
+}
+
+// SwapPetBagItemData 保存宠物背包交换字段。
+//
+// SwapPetBagItemData stores pet-bag item swap fields.
+message SwapPetBagItemData {
+  string PlayerID = 1;
+  int64 FromSlot = 2;
+  int64 ToSlot = 3;
+  // Go type: *SwapPetBagItemItem
+  SwapPetBagItemItem FromItem = 4;
+  // Go type: *SwapPetBagItemItem
+  SwapPetBagItemItem ToItem = 5;
+  // Go type: float64
+  double TakePercent = 6;
+  bool IsNewRequest = 7;
+}
+
+// SwapPetBagItemItem 保存背包交换事件中的物品数据。
+//
+// SwapPetBagItemItem stores item data in a pet-bag swap event.
+message SwapPetBagItemItem {
+  string ItemName = 1;
+  string NewItemName = 2;
+  int64 AuxValue = 3;
+  int64 Count = 4;
+  // Go type: map[string]SwapPetBagItemUser
+  map<string, SwapPetBagItemUser> UserData = 5;
+  int64 Durability = 6;
+  bool EnchantData = 7;
+  // Go type: []SwapPetBagItemEnchant
+  repeated SwapPetBagItemEnchant ModEnchantData = 8;
+  string CustomTips = 9;
+  string ExtraID = 10;
+  string ItemShowName = 11;
+}
+
+// SwapPetBagItemUser 保存背包交换物品 userData 的已知项。
+//
+// SwapPetBagItemUser stores known item userData entries in a pet-bag swap event.
+message SwapPetBagItemUser {
+  string Mode = 1;
+}
+
+// SwapPetBagItemEnchant 保存背包交换物品附魔项。
+//
+// SwapPetBagItemEnchant stores item enchantment entries in a pet-bag swap event.
+message SwapPetBagItemEnchant {
+  int64 ID = 1;
+  int64 Level = 2;
+}
+

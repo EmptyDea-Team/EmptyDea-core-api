@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.toast_request;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// ToastRequest 是服务器发送给客户端的数据包，用于在屏幕顶部显示 toast。
+// 这些 toast 与加载新资源包或获得成就时看到的提示相同。
+//
+// ToastRequest is a packet sent from the server to the client to display a toast to the top of the screen. These toasts
+// are the same as the ones seen when, for example, loading a new resource pack or obtaining an achievement.
+//
+// Added: v1.19
+message ToastRequest {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDToastRequest;
+  // Title 是 toast 的标题。
+  //
+  // Title is the title of the toast.
+  //
+  // Added: v1.19
+  string Title = 1;
+  // Message 是 toast 中可与标题一同显示的消息。
+  //
+  // Message is the message that the toast may contain alongside the title.
+  //
+  // Added: v1.19
+  string Message = 2;
+}
+

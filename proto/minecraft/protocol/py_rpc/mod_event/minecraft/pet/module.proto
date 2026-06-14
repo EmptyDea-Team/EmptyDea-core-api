@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.module;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+// Module 描述 Minecraft pet 模块。
+//
+// Module describes the Minecraft pet module.
+message Module {
+}
+

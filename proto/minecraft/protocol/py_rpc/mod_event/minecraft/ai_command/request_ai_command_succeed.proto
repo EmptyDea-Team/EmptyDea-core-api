@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.request_ai_command_succeed;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_command";
+
+import "py_rpc/mod_event/minecraft/ai_command/basic.proto";
+
+// RequestAICommandSucceed 表示魔法指令请求已成功提交。
+//
+// RequestAICommandSucceed indicates the AI-command request was submitted successfully.
+message RequestAICommandSucceed {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.basic.Basic Basic = 1;
+  // JobID 是服务端队列任务 ID；预设快捷命令可能没有该字段。
+  //
+  // JobID is the server queue job ID; preset shortcut commands may omit it.
+  string JobID = 2;
+}
+

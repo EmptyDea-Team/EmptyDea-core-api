@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.init_ai_ui_visible_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_command";
+
+import "py_rpc/mod_event/minecraft/ai_command/ai_ui_visible_state_changed.proto";
+
+// InitAiUiVisibleEvent 初始化魔法指令 UI 可见状态。
+//
+// InitAiUiVisibleEvent initialises AI-command UI visibility.
+message InitAiUiVisibleEvent {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.ai_ui_visible_state_changed.AiUiVisibleStateChanged AiUiVisibleStateChanged = 1;
+}
+

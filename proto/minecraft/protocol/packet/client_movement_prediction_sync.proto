@@ -1,0 +1,122 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.client_movement_prediction_sync;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "bitset.proto";
+import "packet_options.proto";
+
+// ClientMovementPredictionSync 在客户端收到服务器的移动校正后，由客户端定期发送给服务器。
+// 它包含与移动相关的客户端预测信息。
+//
+// ClientMovementPredictionSync is sent by the client to the server periodically if the client has received
+// movement corrections from the server, containing information about client-predictions that are relevant
+// to movement.
+//
+// Added: v1.21.60
+message ClientMovementPredictionSync {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDClientMovementPredictionSync;
+  // ActorFlags 是当前为客户端设置的所有标志位集合。
+  //
+  // ActorFlags is a bitset of all the flags that are currently set for the client.
+  //
+  // Added: v1.21.60
+  .mousetunnel.minecraft.protocol.bitset.Bitset ActorFlags = 1;
+  // BoundingBoxScale 是客户端碰撞箱的缩放比例。
+  //
+  // BoundingBoxScale is the scale of the client's bounding box.
+  //
+  // Added: v1.21.60
+  // Go type: float32
+  float BoundingBoxScale = 2;
+  // BoundingBoxWidth 是客户端碰撞箱的宽度。
+  //
+  // BoundingBoxWidth is the width of the client's bounding box.
+  //
+  // Added: v1.21.60
+  // Go type: float32
+  float BoundingBoxWidth = 3;
+  // BoundingBoxHeight 是客户端碰撞箱的高度。
+  //
+  // BoundingBoxHeight is the height of the client's bounding box.
+  //
+  // Added: v1.21.60
+  // Go type: float32
+  float BoundingBoxHeight = 4;
+  // MovementSpeed 是移动速度属性；未设置时为 0。
+  //
+  // MovementSpeed is the movement speed attribute or 0 if not set.
+  //
+  // Added: v1.21.60
+  // Go type: float32
+  float MovementSpeed = 5;
+  // UnderwaterMovementSpeed 是水下移动速度属性；未设置时为 0。
+  //
+  // UnderwaterMovementSpeed is the underwater movement speed attribute or 0 if not set.
+  //
+  // Added: v1.21.60
+  // Go type: float32
+  float UnderwaterMovementSpeed = 6;
+  // LavaMovementSpeed 是熔岩中移动速度属性；未设置时为 0。
+  //
+  // LavaMovementSpeed is the lava movement speed attribute or 0 if not set.
+  //
+  // Added: v1.21.60
+  // Go type: float32
+  float LavaMovementSpeed = 7;
+  // JumpStrength 是跳跃强度属性；未设置时为 0。
+  //
+  // JumpStrength is the jump strength attribute or 0 if not set.
+  //
+  // Added: v1.21.60
+  // Go type: float32
+  float JumpStrength = 8;
+  // Health 是生命值属性；未设置时为 0。
+  //
+  // Health is the health attribute or 0 if not set.
+  //
+  // Added: v1.21.60
+  // Go type: float32
+  float Health = 9;
+  // Hunger 是饥饿值属性；未设置时为 0。
+  //
+  // Hunger is the hunger attribute or 0 if not set.
+  //
+  // Added: v1.21.60
+  // Go type: float32
+  float Hunger = 10;
+  // FrictionModifier 是摩擦修正移动属性。
+  //
+  // FrictionModifier is the friction modifier movement attribute.
+  //
+  // Added: v1.26.20
+  // Go type: float32
+  float FrictionModifier = 11;
+  // Bounciness 是弹性移动属性。
+  //
+  // Bounciness is the bounciness movement attribute.
+  //
+  // Added: v1.26.20
+  // Go type: float32
+  float Bounciness = 12;
+  // AirDragModifier 是空气阻力修正移动属性。
+  //
+  // AirDragModifier is the air drag modifier movement attribute.
+  //
+  // Added: v1.26.20
+  // Go type: float32
+  float AirDragModifier = 13;
+  // EntityRuntimeID 是该预测数据所适用实体的运行时 ID。
+  //
+  // EntityRuntimeID is the runtime ID of the entity that the prediction data applies to.
+  //
+  // Added: v1.21.60
+  uint64 EntityRuntimeID = 14;
+  // Flying 指定客户端当前是否正在飞行。
+  //
+  // Flying specifies if the client is currently flying.
+  //
+  // Added: v1.21.80
+  bool Flying = 15;
+}
+

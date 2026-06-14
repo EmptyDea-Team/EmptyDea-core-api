@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.block_pick_request;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "block_pos.proto";
+import "packet_options.proto";
+
+// BlockPickRequest 在客户端请求选取世界中的方块并将其物品放入物品栏时发送。
+//
+// BlockPickRequest is sent by the client when it requests to pick a block in the world and place its item in
+// their inventory.
+//
+// Added: v1.11.1
+message BlockPickRequest {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDBlockPickRequest;
+  // Position 是客户端请求选取方块的位置。如果 HotBarSlot 为空，
+  // 该位置的方块对应物品应放入 HotBarSlot。
+  //
+  // Position is the position at which the client requested to pick the block. The block at that position
+  // should have its item put in HotBarSlot if it is empty.
+  //
+  // Added: v1.11.1
+  .mousetunnel.minecraft.protocol.block_pos.BlockPos Position = 1;
+  // AddBlockNBT 指定物品是否应获得该方块的所有 NBT 标签，
+  // 这意味着该物品放置出的方块几乎总是与被选取的方块相同。
+  //
+  // AddBlockNBT specifies if the item should get all NBT tags from the block, meaning the item places a
+  // block practically always equal to the one picked.
+  //
+  // Added: v1.11.1
+  bool AddBlockNBT = 2;
+  // HotBarSlot 是选取方块时手持的槽位。
+  //
+  // HotBarSlot is the slot that was held at the time of picking a block.
+  //
+  // Added: v1.11.1
+  // Go type: byte
+  uint32 HotBarSlot = 3;
+}
+

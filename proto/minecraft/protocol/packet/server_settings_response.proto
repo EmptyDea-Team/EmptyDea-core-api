@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.server_settings_response;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// ServerSettingsResponse 可由服务器发送，用于响应客户端的 ServerSettingsRequest。
+// 它的结构与 ModalFormRequest 数据包相同；如果内容填写正确，会在客户端设置中显示服务器专属标签页。
+// 当客户端填写设置并再次关闭设置界面时，会发送 ModalFormResponse 数据包来响应 ServerSettingsResponse。
+//
+// ServerSettingsResponse is optionally sent by the server in response to a ServerSettingsRequest from the
+// client. It is structured the same as a ModalFormRequest packet, and if filled out correctly, will show
+// a specific tab for the server in the settings of the client. A ModalFormResponse packet is sent by the
+// client in response to a ServerSettingsResponse, when the client fills out the settings and closes the
+// settings again.
+//
+// Added: v1.12
+message ServerSettingsResponse {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDServerSettingsResponse;
+  // FormID 是用于标识表单的 ID。客户端会保存该 ID，并在玩家提交表单时回传，
+  // 使服务器能够识别提交的是哪个表单。
+  //
+  // FormID is an ID used to identify the form. The ID is saved by the client and sent back when the player
+  // submits the form, so that the server can identify which form was submitted.
+  //
+  // Added: v1.12
+  uint32 FormID = 1;
+  // FormData 是 JSON 编码的表单数据对象。对象内容会根据发送的表单类型变化，
+  // 表单类型也会在 JSON 中设置。
+  //
+  // FormData is a JSON encoded object of form data. The content of the object differs, depending on the
+  // type of the form sent, which is also set in the JSON.
+  //
+  // Added: v1.12
+  // Go type: []byte
+  bytes FormData = 2;
+}
+

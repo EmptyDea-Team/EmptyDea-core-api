@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.death_info;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// DeathInfo 是预期在玩家死亡时由服务器发送给客户端的数据包。
+// 它包含与玩家死亡有关的消息，自 v1.19.10 起这些消息会显示在死亡界面上。
+//
+// DeathInfo is a packet sent from the server to the client expected to be sent when a player dies. It contains messages
+// related to the player's death, which are shown on the death screen as of v1.19.10.
+//
+// Added: v1.19.10
+message DeathInfo {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDDeathInfo;
+  // Cause 是玩家死亡原因，例如 "suffocation" 或 "suicide"。
+  //
+  // Cause is the cause of the player's death, such as "suffocation" or "suicide".
+  //
+  // Added: v1.19.10
+  string Cause = 1;
+  // Messages 是要显示在死亡界面上的死亡消息列表。
+  //
+  // Messages is a list of death messages to be shown on the death screen.
+  //
+  // Added: v1.19.10
+  // Go type: []string
+  repeated string Messages = 2;
+}
+

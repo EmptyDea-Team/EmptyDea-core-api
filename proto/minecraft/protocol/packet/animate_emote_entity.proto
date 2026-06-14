@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.animate_emote_entity;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// AnimateEmoteEntity 是网易实体表情动画数据包。
+//
+// AnimateEmoteEntity is a NetEase entity emote animation packet.
+//
+// Added: NetEase.
+message AnimateEmoteEntity {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDAnimateEmoteEntity;
+  string Animation = 1;
+  string NextState = 2;
+  string StopExpression = 3;
+  int32 StopExpressionVersion = 4;
+  string Controller = 5;
+  // Go type: float32
+  float BlendOutTime = 6;
+  // Go type: []uint64
+  repeated uint64 RuntimeEntityIDs = 7;
+}
+

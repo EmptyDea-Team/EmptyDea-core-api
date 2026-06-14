@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.general_actors.randomizable_block_actor;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/general_actors;general_actors";
+
+import "block_actors/general_actors/block_actor.proto";
+
+// RandomizableBlockActor 描述部分容器的战利品表字段。
+//
+// RandomizableBlockActor describes loot table fields used by some containers.
+message RandomizableBlockActor {
+  .mousetunnel.minecraft.protocol.block_actors.general_actors.block_actor.BlockActor BlockActor = 1;
+  // TAG_String(8) = ""
+  // Go type: *string
+  string LootTable = 2;
+  // TAG_Int(4) = 0
+  int32 LootTableSeed = 3;
+}
+

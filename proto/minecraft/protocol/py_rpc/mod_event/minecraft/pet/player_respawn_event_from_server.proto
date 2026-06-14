@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.player_respawn_event_from_server;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// PlayerRespawnEventFromServer 同步玩家重生事件。
+//
+// PlayerRespawnEventFromServer syncs player respawn events.
+message PlayerRespawnEventFromServer {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  PlayerRespawnData PlayerRespawnData = 2;
+}
+
+// PlayerRespawnData 保存小地图死亡点字段。
+//
+// PlayerRespawnData stores minimap death-position fields.
+message PlayerRespawnData {
+  // Go type: []float64
+  repeated double DeathPos = 1;
+  bool IsPC = 2;
+}
+

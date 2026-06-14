@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.game.module;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/game;game";
+
+// Module 描述 Minecraft game 模块。
+//
+// Module describes the Minecraft game module.
+message Module {
+}
+

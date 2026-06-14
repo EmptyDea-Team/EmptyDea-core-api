@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.teleport_mount;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// TeleportMount 请求服务器传送或召唤坐骑。
+//
+// TeleportMount asks the server to teleport or summon a mount.
+message TeleportMount {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  TeleportMountData TeleportMountData = 2;
+}
+
+// TeleportMountData 保存 playerId 字段。
+//
+// TeleportMountData stores a playerId field.
+message TeleportMountData {
+  string PlayerID = 1;
+}
+

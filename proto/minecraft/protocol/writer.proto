@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.writer;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+import "google/protobuf/struct.proto";
+import "info.proto";
+
+// Writer 实现 Minecraft 数据包中各类数据的写入方法。每个 Packet 实现都会在写入时收到一个 Writer。
+// Writer 的方法通过指针传递值，使 Reader 和 Writer 具有一致接口，并共同实现 IO 接口。
+//
+// Writer implements writing methods for data types from Minecraft packets. Each Packet implementation has one
+// passed to it when writing.
+// Writer implements methods where values are passed using a pointer, so that Reader and Writer have a
+// synonymous interface and both implement the IO interface.
+//
+// Added: v1.16
+message Writer {
+}
+

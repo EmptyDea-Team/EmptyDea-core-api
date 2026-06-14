@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.login.request;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/login;login";
+
+// AuthResult 是 Parse 的返回结果，包含客户端的 ecdsa.PublicKey 和玩家是否通过 XBOX Live 登录的标记。
+//
+// AuthResult is returned by a call to Parse. It holds the ecdsa.PublicKey of the client and a bool that
+// indicates if the player was logged in with XBOX Live.
+//
+// Added: v1.21.90
+message AuthResult {
+  // PublicKey 是已验证的客户端公钥，用于加密。
+  //
+  // PublicKey is the verified client public key used for encryption.
+  //
+  // Added: v1.21.90
+  // Go type: *ecdsa.PublicKey
+  bytes PublicKey = 1;
+  // XBOXLiveAuthenticated 表示登录请求是否通过 Xbox Live 认证。
+  //
+  // XBOXLiveAuthenticated indicates if the login request was authenticated through Xbox Live.
+  //
+  // Added: v1.21.90
+  bool XBOXLiveAuthenticated = 2;
+}
+

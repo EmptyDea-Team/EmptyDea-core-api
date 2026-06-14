@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.add_talk_trigger_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// AddTalkTriggerEvent 添加伙伴对话触发事件。
+//
+// AddTalkTriggerEvent adds a partner talk trigger.
+message AddTalkTriggerEvent {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  AddTalkTriggerData AddTalkTriggerData = 2;
+}
+
+// AddTalkTriggerData 保存添加对话触发字段。
+//
+// AddTalkTriggerData stores add-talk-trigger fields.
+message AddTalkTriggerData {
+  int64 EventID = 1;
+  string Key = 2;
+  bool IsStoreCommand = 3;
+}
+

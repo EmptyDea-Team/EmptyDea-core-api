@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+package emptydea.frame;
+
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb;api_pb";
+
+import "google/protobuf/empty.proto";
+
+// StartConnectionRequest 是启动 Minecraft 连接所需的登录参数。
+message StartConnectionRequest {
+  // AuthServer 是登录认证服务地址。
+  string AuthServer = 1;
+  // UserToken 是用于认证当前用户的令牌。
+  string UserToken = 2;
+  // ServerCode 是目标租赁服或服务器的连接代码。
+  string ServerCode = 3;
+  // ServerPassword 是目标服务器的连接密码。
+  string ServerPassword = 4;
+}
+
+// StartConnectionResponse 是启动连接后的响应信息。
+message StartConnectionResponse {
+  // Message 是连接启动过程返回的可读说明。
+  string Message = 1;
+}
+
+// StopConnectionRequest 是关闭当前连接的请求。
+message StopConnectionRequest {}
+
+// StopConnectionResponse 是关闭当前连接后的空响应。
+message StopConnectionResponse {}
+
+// GetConnectionStateRequest 是查询当前连接状态的请求。
+message GetConnectionStateRequest {}
+
+// ConnectionState 描述当前受管连接是否可用。
+message ConnectionState {
+  // Connected 表示当前连接是否仍然处于连接状态。
+  bool Connected = 1;
+  // CloseReason 是连接已关闭时记录的关闭原因。
+  string CloseReason = 2;
+}
+
+// PingResponse 是 API 服务心跳检查结果。
+message PingResponse {
+  // Success 表示 API 服务是否正常响应。
+  bool Success = 1;
+}
+
+// ClosedEvent 是连接关闭事件。
+message ClosedEvent {
+  // Reason 是连接关闭原因。
+  string Reason = 1;
+}
+
+// FrameService 管理 EmptyDeaCore 与 Minecraft 服务端之间的受管连接。
+service FrameService {
+  // StartConnection 使用登录参数启动连接。
+  rpc StartConnection(StartConnectionRequest) returns (StartConnectionResponse);
+  // StopConnection 主动关闭当前连接。
+  rpc StopConnection(StopConnectionRequest) returns (StopConnectionResponse);
+  // GetConnectionState 查询当前连接是否仍然可用，以及关闭原因。
+  rpc GetConnectionState(GetConnectionStateRequest) returns (ConnectionState);
+  // Ping 检查 API 服务是否可响应。
+  rpc Ping(google.protobuf.Empty) returns (PingResponse);
+  // WatchClosed 监听连接关闭事件。
+  rpc WatchClosed(google.protobuf.Empty) returns (stream ClosedEvent);
+}

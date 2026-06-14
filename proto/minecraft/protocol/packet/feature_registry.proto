@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.feature_registry;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+import "world.proto";
+
+// FeatureRegistry 用于通知客户端服务器当前使用的世界生成特性。它与 v1.19.20 引入的客户端侧世界生成系统配合使用，
+// 允许客户端完全生成世界区块，而无需依赖服务器。
+//
+// FeatureRegistry is a packet used to notify the client about the world generation features the server is currently
+// using. This is used in combination with the client-side world generation system introduced in v1.19.20, allowing the
+// client to completely generate the chunks of the world without having to rely on the server.
+//
+// Added: v1.19.20
+message FeatureRegistry {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDFeatureRegistry;
+  // Features 是所有已注册世界生成特性的切片。
+  //
+  // Features is a slice of all registered world generation features.
+  //
+  // Added: v1.19.20
+  // Go type: []protocol.GenerationFeature
+  repeated .mousetunnel.minecraft.protocol.world.GenerationFeature Features = 1;
+}
+

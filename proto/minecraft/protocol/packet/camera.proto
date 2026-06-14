@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.camera;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// Camera 由服务器发送，用于对玩家使用教育版相机。它会在客户端侧生成一张图片。
+//
+// Camera is sent by the server to use an Education Edition camera on a player. It produces an image
+// client-side.
+//
+// Added: v1.16
+message Camera {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDCamera;
+  // CameraEntityUniqueID 是拍摄该照片的相机实体的唯一 ID。
+  //
+  // CameraEntityUniqueID is the unique ID of the camera entity from which the picture was taken.
+  //
+  // Added: v1.16
+  int64 CameraEntityUniqueID = 1;
+  // TargetPlayerUniqueID 是目标玩家的唯一 ID。唯一 ID 在同一世界的不同会话之间保持一致，
+  // 但大多数服务器会直接把玩家运行时 ID 填入这个字段。
+  //
+  // TargetPlayerUniqueID is the unique ID of the target player. The unique ID is a value that remains
+  // consistent across different sessions of the same world, but most servers simply fill the runtime ID of
+  // the player out for this field.
+  //
+  // Added: v1.16
+  int64 TargetPlayerUniqueID = 2;
+}
+

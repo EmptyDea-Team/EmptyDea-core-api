@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.client_load_addons_finished_from_gac;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpc";
+
+import "py_rpc/empty_payload.proto";
+
+// ClientLoadAddonsFinishedFromGac 在网易 GAC 客户端完成客户端附加包加载后发送。
+// 反编译客户端调用点无参数。
+//
+// ClientLoadAddonsFinishedFromGac is sent after the NetEase GAC client has
+// finished loading client add-ons. Decompiled client call sites pass no
+// arguments.
+message ClientLoadAddonsFinishedFromGac {
+  .mousetunnel.minecraft.protocol.py_rpc.empty_payload.EmptyPayload EmptyPayload = 1;
+}
+

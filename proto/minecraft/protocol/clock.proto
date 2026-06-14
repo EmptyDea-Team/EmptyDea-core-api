@@ -1,0 +1,112 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.clock;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+import "io.proto";
+
+enum ClockPayloadTypeEnum {
+  ClockPayloadTypeSyncState = 0;
+  ClockPayloadTypeInitializeRegistry = 1;
+  ClockPayloadTypeAddTimeMarker = 2;
+  ClockPayloadTypeRemoveTimeMarker = 3;
+}
+
+// SyncWorldClockStateData 表示用于同步世界时钟的状态数据。
+//
+// SyncWorldClockStateData represents the state data for synchronising a world clock.
+//
+// Added: v1.26.10
+message SyncWorldClockStateData {
+  // ClockID 是该时钟的唯一标识符。
+  //
+  // ClockID is the unique identifier for the clock.
+  //
+  // Added: v1.26.10
+  uint64 ClockID = 1;
+  // Time 是该时钟的当前时间。
+  //
+  // Time is the current time of the clock.
+  //
+  // Added: v1.26.10
+  int32 Time = 2;
+  // Paused 表示该时钟是否暂停。
+  //
+  // Paused indicates if the clock is paused.
+  //
+  // Added: v1.26.10
+  bool Paused = 3;
+}
+
+// TimeMarkerData 表示世界时钟中的时间标记。
+//
+// TimeMarkerData represents a time marker within a world clock.
+//
+// Added: v1.26.10
+message TimeMarkerData {
+  // ID 是该时间标记的唯一标识符。
+  //
+  // ID is the unique identifier for the time marker.
+  //
+  // Added: v1.26.10
+  uint64 ID = 1;
+  // Name 是该时间标记的名称。
+  //
+  // Name is the name of the time marker.
+  //
+  // Added: v1.26.10
+  string Name = 2;
+  // Time 是设置该标记的时间。
+  //
+  // Time is the time at which the marker is set.
+  //
+  // Added: v1.26.10
+  int32 Time = 3;
+  // Period 是该时间标记的可选周期。
+  //
+  // Period is the optional period for the time marker.
+  //
+  // Added: v1.26.10
+  // Go type: Optional[int32]
+  .mousetunnel.minecraft.protocol.Optional Period = 4;
+}
+
+// WorldClockData 表示包含其时间标记的完整世界时钟。
+//
+// WorldClockData represents a complete world clock with its time markers.
+//
+// Added: v1.26.10
+message WorldClockData {
+  // ID 是该时钟的唯一标识符。
+  //
+  // ID is the unique identifier for the clock.
+  //
+  // Added: v1.26.10
+  uint64 ID = 1;
+  // Name 是该时钟的名称。
+  //
+  // Name is the name of the clock.
+  //
+  // Added: v1.26.10
+  string Name = 2;
+  // Time 是该时钟的当前时间。
+  //
+  // Time is the current time of the clock.
+  //
+  // Added: v1.26.10
+  int32 Time = 3;
+  // Paused 表示该时钟是否暂停。
+  //
+  // Paused indicates if the clock is paused.
+  //
+  // Added: v1.26.10
+  bool Paused = 4;
+  // TimeMarkers 是该时钟的时间标记列表。
+  //
+  // TimeMarkers is a list of time markers for this clock.
+  //
+  // Added: v1.26.10
+  // Go type: []TimeMarkerData
+  repeated TimeMarkerData TimeMarkers = 5;
+}
+

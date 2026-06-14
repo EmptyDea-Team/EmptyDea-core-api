@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.minimap_init_data_from_server;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// MinimapInitDataFromServer 同步小地图初始化数据。
+//
+// MinimapInitDataFromServer syncs minimap init data.
+message MinimapInitDataFromServer {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  MinimapDeathData MinimapDeathData = 2;
+}
+
+// MinimapDeathData 保存小地图死亡点字段。
+//
+// MinimapDeathData stores minimap death-position fields.
+message MinimapDeathData {
+  // Go type: []float64
+  repeated double DeathPos = 1;
+  bool IsPC = 2;
+}
+

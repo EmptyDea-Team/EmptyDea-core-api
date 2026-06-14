@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.item_arrange_request_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// ItemArrangeRequestEvent 请求服务器整理物品。
+//
+// ItemArrangeRequestEvent asks the server to arrange items.
+message ItemArrangeRequestEvent {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  ItemArrangeRequestData ItemArrangeRequestData = 2;
+}
+
+// ItemArrangeRequestData 保存物品整理请求字段。
+//
+// ItemArrangeRequestData stores item-arrange request fields.
+message ItemArrangeRequestData {
+  string PlayerID = 1;
+}
+

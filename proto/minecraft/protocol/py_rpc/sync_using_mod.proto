@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.sync_using_mod;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpc";
+
+// SyncUsingMod 同步客户端当前启用的网易 mod。
+//
+// SyncUsingMod syncs the NetEase mods currently used by the client.
+message SyncUsingMod {
+  // ModUUIDs 是客户端启用的网易 mod UUID 列表。
+  //
+  // ModUUIDs is the list of enabled NetEase mod UUIDs.
+  // Go type: []string
+  repeated string ModUUIDs = 1;
+  // SkinID 是登录数据中的客户端皮肤 UUID。
+  //
+  // SkinID is the client skin UUID from login data.
+  string SkinID = 2;
+  // SkinItemID 是登录数据中的客户端皮肤物品 UUID。
+  //
+  // SkinItemID is the client skin item UUID from login data.
+  string SkinItemID = 3;
+  // Enabled 表示客户端启用了该同步载荷。
+  //
+  // Enabled indicates that this synchronisation payload is enabled by the client.
+  bool Enabled = 4;
+  // Components 保存 mod UUID 到装扮组件类型的映射。
+  //
+  // Components stores the mapping from mod UUID to outfit component type.
+  // Go type: map[string]int64
+  map<string, int64> Components = 5;
+}
+

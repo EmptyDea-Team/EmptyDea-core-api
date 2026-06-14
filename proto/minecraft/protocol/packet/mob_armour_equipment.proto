@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.mob_armour_equipment;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "item.proto";
+import "packet_options.proto";
+
+// MobArmourEquipment 由服务器发送给客户端，用于更新实体穿戴的盔甲。该数据包既用于玩家，
+// 也用于僵尸等其他实体。
+//
+// MobArmourEquipment is sent by the server to the client to update the armour an entity is wearing. It is
+// sent for both players and other entities, such as zombies.
+//
+// Added: v1.12
+message MobArmourEquipment {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDMobArmourEquipment;
+  // EntityRuntimeID 是实体的运行时 ID。运行时 ID 在每个世界会话中唯一，
+  // 数据包通常使用该运行时 ID 标识实体。
+  //
+  // EntityRuntimeID is the runtime ID of the entity. The runtime ID is unique for each world session, and
+  // entities are generally identified in packets using this runtime ID.
+  //
+  // Added: v1.12
+  uint64 EntityRuntimeID = 1;
+  // Helmet 是实体装备的头盔。不能穿戴在头部的物品不会被客户端渲染。
+  // 与 Java 版不同，方块不能作为头盔穿戴。
+  //
+  // Helmet is the equipped helmet of the entity. Items that are not wearable on the head will not be
+  // rendered by the client. Unlike in Java Edition, blocks cannot be worn.
+  //
+  // Added: v1.12
+  .mousetunnel.minecraft.protocol.item.ItemInstance Helmet = 2;
+  // Chestplate 是实体的胸甲。不能作为胸甲穿戴的物品不会被渲染。
+  //
+  // Chestplate is the chestplate of the entity. Items that are not wearable as chestplate will not be
+  // rendered.
+  //
+  // Added: v1.12
+  .mousetunnel.minecraft.protocol.item.ItemInstance Chestplate = 3;
+  // Leggings 是实体作为护腿穿戴的物品。不能作为护腿穿戴的物品不会在客户端渲染。
+  //
+  // Leggings is the item worn as leggings by the entity. Items not wearable as leggings will not be
+  // rendered client-side.
+  //
+  // Added: v1.12
+  .mousetunnel.minecraft.protocol.item.ItemInstance Leggings = 4;
+  // Boots 是实体作为靴子穿戴的物品。不能作为靴子穿戴的物品不会被渲染。
+  //
+  // Boots is the item worn as boots by the entity. Items not wearable as boots will not be rendered.
+  //
+  // Added: v1.12
+  .mousetunnel.minecraft.protocol.item.ItemInstance Boots = 5;
+  // Body 是实体穿戴在身体部位的物品。不能穿戴在身体部位的物品不会被渲染。
+  //
+  // Body is the item worn on the body of the entity. Items not wearable on the body will not be rendered.
+  //
+  // Added: v1.21.20
+  .mousetunnel.minecraft.protocol.item.ItemInstance Body = 6;
+}
+

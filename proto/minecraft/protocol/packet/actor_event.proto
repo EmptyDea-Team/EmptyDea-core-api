@@ -1,0 +1,127 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.actor_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "mgl32.proto";
+import "packet_options.proto";
+
+message ActorEventOptionalVec3 {
+  bool Present = 1;
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 Value = 2;
+}
+
+enum ActorEventEnum {
+  ACTOREVENTENUM_UNSPECIFIED = 0;
+  ActorEventJump = 1;
+  ActorEventHurt = 2;
+  ActorEventDeath = 3;
+  ActorEventStartAttacking = 4;
+  ActorEventStopAttacking = 5;
+  ActorEventTamingFailed = 6;
+  ActorEventTamingSucceeded = 7;
+  ActorEventShakeWetness = 8;
+  ActorEventUseItem = 9;
+  ActorEventEatGrass = 10;
+  ActorEventFishhookBubble = 11;
+  ActorEventFishhookFishPosition = 12;
+  ActorEventFishhookHookTime = 13;
+  ActorEventFishhookTease = 14;
+  ActorEventSquidFleeing = 15;
+  ActorEventZombieConverting = 16;
+  ActorEventPlayAmbient = 17;
+  ActorEventSpawnAlive = 18;
+  ActorEventStartOfferFlower = 19;
+  ActorEventStopOfferFlower = 20;
+  ActorEventLoveHearts = 21;
+  ActorEventVillagerAngry = 22;
+  ActorEventVillagerHappy = 23;
+  ActorEventWitchHatMagic = 24;
+  ActorEventFireworksExplode = 25;
+  ActorEventInLoveHearts = 26;
+  ActorEventSilverfishMergeAnimation = 27;
+  ActorEventGuardianAttackSound = 28;
+  ActorEventDrinkPotion = 29;
+  ActorEventThrowPotion = 30;
+  ActorEventCartWithPrimeTNT = 31;
+  ActorEventPrimeCreeper = 32;
+  ActorEventAirSupply = 33;
+  ActorEventAddPlayerLevels = 34;
+  ActorEventGuardianMiningFatigue = 35;
+  ActorEventAgentSwingArm = 36;
+  ActorEventDragonStartDeathAnim = 37;
+  ActorEventGroundDust = 38;
+  ActorEventShake = 39;
+}
+
+enum ActorEventEnumType {
+  ACTOREVENTENUMTYPE_UNSPECIFIED = 0;
+  ActorEventFeed = 57;
+  ActorEventBabyEat = 60;
+  ActorEventInstantDeath = 61;
+  ActorEventNotifyTrade = 62;
+  ActorEventLeashDestroyed = 63;
+  ActorEventCaravanUpdated = 64;
+  ActorEventTalismanActivate = 65;
+  ActorEventUpdateStructureFeature = 66;
+  ActorEventPlayerSpawnedMob = 67;
+  ActorEventPuke = 68;
+  ActorEventUpdateStackSize = 69;
+  ActorEventStartSwimming = 70;
+  ActorEventBalloonPop = 71;
+  ActorEventTreasureHunt = 72;
+  ActorEventSummonAgent = 73;
+  ActorEventFinishedChargingItem = 74;
+  ActorEventLandedOnGround = 75;
+  ActorEventActorGrowUp = 76;
+  ActorEventVibrationDetected = 77;
+  ActorEventDrinkMilk = 78;
+  ActorEventWetnessStop = 79;
+  ActorEventKineticDamageDealt = 80;
+  ActorEventHurtWithoutReceivingDamage = 81;
+}
+
+// ActorEvent 在发生与实体有关的特定事件时由服务器发送。
+// 其中一些事件是实体专属的，例如狼甩干身体；另一些事件则可用于每个实体，例如死亡。
+//
+// ActorEvent is sent by the server when a particular event happens that has to do with an entity. Some of
+// these events are entity-specific, for example a wolf shaking itself dry, but others are used for each
+// entity, such as dying.
+//
+// Added: v1.16
+message ActorEvent {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDActorEvent;
+  // EntityRuntimeID 是实体的运行时 ID。运行时 ID 在每个世界会话中唯一，
+  // 数据包通常使用该运行时 ID 标识实体。
+  //
+  // EntityRuntimeID is the runtime ID of the entity. The runtime ID is unique for each world session, and
+  // entities are generally identified in packets using this runtime ID.
+  //
+  // Added: v1.16
+  uint64 EntityRuntimeID = 1;
+  // EventType 是要调用的事件 ID，它是上方常量之一。
+  //
+  // EventType is the ID of the event to be called. It is one of the constants that can be found above.
+  //
+  // Added: v1.16
+  // Go type: byte
+  uint32 EventType = 2;
+  // EventData 是与特定事件关联的可选数据。该数据在不同事件中有不同作用，
+  // 但大多数事件完全不使用该字段。
+  //
+  // EventData is optional data associated with a particular event. The data has a different function for
+  // different events, however most events don't use this field at all.
+  //
+  // Added: v1.16
+  int32 EventData = 3;
+  // FireAtPosition 是事件应在同一世界中触发的位置。如果未提供该字段，
+  // 则会改用实体位置。
+  //
+  // FireAtPosition is the position in the same world at which the event should fire. If this is not
+  // present, the position entity will be used instead.
+  //
+  // Added: v1.26.20
+  // Go type: protocol.Optional[mgl32.Vec3]
+  ActorEventOptionalVec3 FireAtPosition = 4;
+}
+

@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.move.add_player_around_motion;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/move;move";
+
+import "py_rpc/mod_event/minecraft/move/basic.proto";
+import "py_rpc/mod_event/minecraft/move/types.proto";
+
+// AddPlayerAroundMotion 添加玩家环绕运动。
+//
+// AddPlayerAroundMotion adds a player around-target motion.
+message AddPlayerAroundMotion {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.move.basic.Basic Basic = 1;
+  string PlayerID = 2;
+  string Target = 3;
+  // Go type: float64
+  double AngularVelocity = 4;
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.move.types.MotionVector Axis = 5;
+  bool LockDir = 6;
+  // Go type: float64
+  double StopRad = 7;
+  int64 ServerMotionID = 8;
+  // Go type: float64
+  double Radius = 9;
+}
+

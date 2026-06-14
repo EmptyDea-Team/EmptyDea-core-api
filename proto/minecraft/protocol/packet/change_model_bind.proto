@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.change_model_bind;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// ChangeModelBind 是网易模型绑定数据包。
+//
+// ChangeModelBind is a NetEase model bind packet.
+//
+// Added: NetEase.
+message ChangeModelBind {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDChangeModelBind;
+  int64 Unknown1 = 1;
+  int64 Unknown2 = 2;
+}
+

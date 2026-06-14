@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.dismiss_pet_request;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// DismissPetRequest 请求服务器收回宠物。
+//
+// DismissPetRequest asks the server to dismiss a pet.
+message DismissPetRequest {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  DismissPetData DismissPetData = 2;
+}
+
+// DismissPetData 保存收回宠物请求字段。
+//
+// DismissPetData stores dismiss-pet request fields.
+message DismissPetData {
+  string EntityID = 1;
+  string PlayerID = 2;
+}
+

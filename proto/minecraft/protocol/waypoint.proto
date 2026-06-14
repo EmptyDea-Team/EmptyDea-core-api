@@ -1,0 +1,152 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.waypoint;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+import "io.proto";
+import "mgl32.proto";
+
+enum WaypointActionEnum {
+  WaypointActionNone = 0;
+  WaypointActionAdd = 1;
+  WaypointActionRemove = 2;
+  WaypointActionUpdate = 3;
+}
+
+enum WaypointUpdateFlagEnum {
+  WAYPOINTUPDATEFLAGENUM_UNSPECIFIED = 0;
+  WaypointUpdateFlagVisible = 1;
+  WaypointUpdateFlagPosition = 2;
+  WaypointUpdateFlagTextureID = 4;
+  WaypointUpdateFlagColour = 8;
+  WaypointUpdateFlagClientPositionAuthority = 16;
+  WaypointUpdateFlagActorUniqueID = 32;
+}
+
+enum WaypointTextureEnum {
+  WAYPOINTTEXTUREENUM_UNSPECIFIED = 0;
+  WaypointTextureSquare = 2;
+  WaypointTextureCircle = 3;
+  WaypointTextureSmallSquare = 4;
+  WaypointTextureSmallStar = 5;
+}
+
+// LocatorBarWaypoint 表示定位栏数据包中的航点条目。
+//
+// LocatorBarWaypoint represents a waypoint entry in the locator bar packet.
+//
+// Added: v1.26.10
+message LocatorBarWaypoint {
+  // GroupHandle 是航点分组的 UUID 句柄。
+  //
+  // GroupHandle is the UUID handle for the waypoint group.
+  //
+  // Added: v1.26.10
+  // Go type: uuid.UUID
+  string GroupHandle = 1;
+  // Waypoint 包含航点数据。
+  //
+  // Waypoint contains the waypoint data.
+  //
+  // Added: v1.26.10
+  Waypoint Waypoint = 2;
+  // Action 决定该航点的动作，应为 WaypointAction 常量之一。
+  //
+  // Action determines the action for this waypoint. It is one of the WaypointAction constants.
+  //
+  // Added: v1.26.10
+  // Go type: uint8
+  uint32 Action = 3;
+}
+
+// WaypointWorldPosition 保存航点的位置和维度。
+//
+// WaypointWorldPosition holds a position and dimension for a waypoint.
+//
+// Added: v1.26.10
+message WaypointWorldPosition {
+  // Position 是航点的世界位置。
+  //
+  // Position is the world position of the waypoint.
+  //
+  // Added: v1.26.10
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 Position = 1;
+  // DimensionID 是航点所在的维度。
+  //
+  // DimensionID is the dimension the waypoint is in.
+  //
+  // Added: v1.26.10
+  int32 DimensionID = 2;
+}
+
+// Waypoint 保存定位栏航点的可选数据。
+//
+// Waypoint holds optional data for a locator bar waypoint.
+//
+// Added: v1.26.10
+message Waypoint {
+  // UpdateFlag 是位掩码，用于指示哪些可选字段已设置。
+  //
+  // UpdateFlag is a bitmask indicating which optional fields are set.
+  //
+  // Added: v1.26.10
+  uint32 UpdateFlag = 1;
+  // Visible 决定是否显示该航点。
+  //
+  // Visible determines whether the waypoint is shown.
+  //
+  // Added: v1.26.10
+  // Go type: Optional[bool]
+  .mousetunnel.minecraft.protocol.Optional Visible = 2;
+  // WorldPosition 是航点的位置和维度。
+  //
+  // WorldPosition is the position and dimension of the waypoint.
+  //
+  // Added: v1.26.10
+  // Go type: Optional[WaypointWorldPosition]
+  .mousetunnel.minecraft.protocol.Optional WorldPosition = 3;
+  // TextureID 是航点的旧版图标纹理标识符，应为 WaypointTexture 常量之一。
+  //
+  // TextureID is the legacy icon texture identifier of the waypoint. It is one of the WaypointTexture constants.
+  //
+  // Removed: v1.26.20.26
+  // Go type: Optional[uint32]
+  .mousetunnel.minecraft.protocol.Optional TextureID = 4;
+  // TexturePath 是航点图标纹理的资源路径。
+  //
+  // TexturePath is the resource path for the waypoint icon texture.
+  //
+  // Added: v1.26.20.26
+  // Go type: Optional[string]
+  .mousetunnel.minecraft.protocol.Optional TexturePath = 5;
+  // IconSize 是航点图标的渲染大小。
+  //
+  // IconSize is the rendered size of the waypoint icon.
+  //
+  // Added: v1.26.20.26
+  // Go type: Optional[mgl32.Vec2]
+  .mousetunnel.minecraft.protocol.Optional IconSize = 6;
+  // Colour 是用于给航点图标着色的 RGB 颜色。
+  //
+  // Colour is the RGB colour used to tint the waypoint icon.
+  //
+  // Added: v1.26.10
+  // Go type: Optional[int32]
+  .mousetunnel.minecraft.protocol.Optional Colour = 7;
+  // ClientPositionAuthority 决定客户端是否拥有该航点位置的控制权。
+  //
+  // ClientPositionAuthority determines whether the client has authority over the waypoint position.
+  //
+  // Added: v1.26.10
+  // Go type: Optional[bool]
+  .mousetunnel.minecraft.protocol.Optional ClientPositionAuthority = 8;
+  // ActorUniqueID 是该航点跟踪实体的唯一 ID。
+  //
+  // ActorUniqueID is the unique ID of the entity the waypoint tracks.
+  //
+  // Added: v1.26.10
+  // Go type: Optional[int64]
+  .mousetunnel.minecraft.protocol.Optional ActorUniqueID = 9;
+}
+

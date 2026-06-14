@@ -1,0 +1,105 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.achievement.init_information;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/achievement;achievement";
+
+import "py_rpc/mod_event/minecraft/achievement/basic.proto";
+
+message InitInformationMapStringNodeInfo {
+  map<string, NodeInfo> Value = 1;
+}
+
+message InitInformationMapStringString {
+  map<string, string> Value = 1;
+}
+
+// InitInformation 同步网易成就树和玩家成就进度信息。
+//
+// InitInformation synchronises the NetEase achievement tree and player progress.
+message InitInformation {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.achievement.basic.Basic Basic = 1;
+  // AllNodeInformation 保存全部成就节点信息。
+  //
+  // AllNodeInformation stores all achievement node information.
+  // Go type: map[string]NodeInfo
+  map<string, NodeInfo> AllNodeInformation = 2;
+  // NodeInformation 保存当前节点信息。
+  //
+  // NodeInformation stores current node information.
+  // Go type: map[string]map[string]NodeInfo
+  map<string, InitInformationMapStringNodeInfo> NodeInformation = 3;
+  // Parent 保存成就节点父级关系。
+  //
+  // Parent stores achievement node parent relationships.
+  // Go type: map[string]map[string][]string
+  map<string, InitInformationMapStringString> Parent = 4;
+  // PlayerNodeProgress 保存玩家成就节点进度。
+  //
+  // PlayerNodeProgress stores player achievement node progress.
+  // Go type: map[string]int64
+  map<string, int64> PlayerNodeProgress = 5;
+  // RootNode 保存根成就节点列表。
+  //
+  // RootNode stores root achievement nodes.
+  // Go type: []string
+  repeated string RootNode = 6;
+}
+
+// NodeInfo 描述 customAchievements 节点 JSON 中脚本读取的字段。
+//
+// NodeInfo describes fields read from customAchievements node JSON.
+message NodeInfo {
+  string NodeID = 1;
+  int64 GoalNumber = 2;
+  string ParentNode = 3;
+  bool DependParent = 4;
+  bool IsCloud = 5;
+  // Go type: *bool
+  bool AutoSentCloud = 6;
+  string Title = 7;
+  string Description = 8;
+  GoalDetails GoalDetails = 9;
+  // Go type: []NodeReward
+  repeated NodeReward Reward = 10;
+}
+
+// GoalDetails 描述成就节点目标条件。
+//
+// GoalDetails describes achievement node goal conditions.
+message GoalDetails {
+  string GoalType = 1;
+  string EntityIdentifier = 2;
+  ItemInfo Item = 3;
+}
+
+// ItemInfo 描述成就节点物品匹配条件。
+//
+// ItemInfo describes item matching conditions in achievement nodes.
+message ItemInfo {
+  string NewItemName = 1;
+  int64 NewAuxValue = 2;
+  string ExtraID = 3;
+  string CustomTips = 4;
+  int64 Count = 5;
+  // Go type: []EnchantPair
+  repeated EnchantPair EnchantData = 6;
+  // Go type: []EnchantPair
+  repeated EnchantPair ModEnchantData = 7;
+}
+
+// EnchantPair 描述成就 JSON 中的附魔二元组。
+//
+// EnchantPair describes an enchantment tuple in achievement JSON.
+message EnchantPair {
+  int64 ID = 1;
+  int64 Level = 2;
+}
+
+// NodeReward 描述成就完成后的奖励调用。
+//
+// NodeReward describes a reward call after an achievement is completed.
+message NodeReward {
+  string Namespace = 1;
+  string FunctionName = 2;
+}
+

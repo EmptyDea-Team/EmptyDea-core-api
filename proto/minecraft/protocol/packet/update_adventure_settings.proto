@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.update_adventure_settings;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// UpdateAdventureSettings 是服务器发送给客户端的数据包，用于更新玩家的冒险设置。
+// 自 v1.19.10 起，它与 UpdateAbilities 数据包一起取代了 AdventureSettings 数据包。
+//
+// UpdateAdventureSettings is a packet sent from the server to the client to update the adventure settings of the player.
+// It, along with the UpdateAbilities packet, are replacements of the AdventureSettings packet since v1.19.10.
+//
+// Added: v1.19.10
+message UpdateAdventureSettings {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDUpdateAdventureSettings;
+  // NoPvM 是一个布尔值，表示玩家是否允许与生物战斗。
+  //
+  // NoPvM is a boolean indicating whether the player is allowed to fight mobs or not.
+  //
+  // Added: v1.19.10
+  bool NoPvM = 1;
+  // NoMvP 是一个布尔值，表示生物是否允许攻击玩家。尚不清楚为什么要将其发送给客户端。
+  //
+  // NoMvP is a boolean indicating whether mobs are allowed to fight the player or not. It is unclear why this is sent
+  // to the client.
+  //
+  // Added: v1.19.10
+  bool NoMvP = 2;
+  // ImmutableWorld 是一个布尔值，表示玩家是否允许修改世界。
+  //
+  // ImmutableWorld is a boolean indicating whether the player is allowed to modify the world or not.
+  //
+  // Added: v1.19.10
+  bool ImmutableWorld = 3;
+  // ShowNameTags 是一个布尔值，表示是否显示玩家名称标签。
+  //
+  // ShowNameTags is a boolean indicating whether player name tags are shown or not.
+  //
+  // Added: v1.19.10
+  bool ShowNameTags = 4;
+  // AutoJump 是一个布尔值，表示玩家是否允许自动跳跃。
+  //
+  // AutoJump is a boolean indicating whether the player is allowed to jump automatically or not.
+  //
+  // Added: v1.19.10
+  bool AutoJump = 5;
+}
+

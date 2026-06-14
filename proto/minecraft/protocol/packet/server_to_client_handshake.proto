@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.server_to_client_handshake;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// ServerToClientHandshake 由服务器发送给客户端，用于完成密钥交换，
+// 以便在客户端和服务器侧初始化加密。随后客户端会发送 ClientToServerHandshake 数据包。
+//
+// ServerToClientHandshake is sent by the server to the client to complete the key exchange in order to
+// initialise encryption on client and server side. It is followed up by a ClientToServerHandshake packet
+// from the client.
+//
+// Added: v1.11.1
+message ServerToClientHandshake {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDServerToClientHandshake;
+  // JWT 是原始 JWT 令牌，包含服务器公钥、所用算法和服务器令牌等数据。
+  // 客户端会使用它生成共享密钥。
+  //
+  // JWT is a raw JWT token containing data such as the public key from the server, the algorithm used and
+  // the server's token. It is used for the client to produce a shared secret.
+  //
+  // Added: v1.11.1
+  // Go type: []byte
+  bytes JWT = 1;
+}
+

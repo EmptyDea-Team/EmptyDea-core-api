@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.add_painting;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "mgl32.proto";
+import "packet_options.proto";
+
+// AddPainting 由服务器发送给客户端，用于显示一个画实体。
+// 它是少数不能使用 AddActor 数据包发送的实体之一。
+//
+// AddPainting is sent by the server to the client to make a painting entity show up. It is one of the few
+// entities that cannot be sent using the AddActor packet.
+//
+// Added: v1.16
+message AddPainting {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDAddPainting;
+  // EntityUniqueID 是实体的唯一 ID。唯一 ID 会在同一世界的不同会话之间保持一致，
+  // 但大多数服务器会直接把实体运行时 ID 填入该字段。
+  //
+  // EntityUniqueID is the unique ID of the entity. The unique ID is a value that remains consistent across
+  // different sessions of the same world, but most servers simply fill the runtime ID of the entity out for
+  // this field.
+  //
+  // Added: v1.16
+  int64 EntityUniqueID = 1;
+  // EntityRuntimeID 是实体的运行时 ID。运行时 ID 在每个世界会话中唯一，
+  // 数据包通常使用该运行时 ID 标识实体。
+  //
+  // EntityRuntimeID is the runtime ID of the entity. The runtime ID is unique for each world session, and
+  // entities are generally identified in packets using this runtime ID.
+  //
+  // Added: v1.16
+  uint64 EntityRuntimeID = 2;
+  // Position 是生成实体的位置。如果实体距离玩家太远导致玩家当前看不到它，
+  // 玩家靠近后该实体仍会显示出来。
+  //
+  // Position is the position to spawn the entity on. If the entity is on a distance that the player cannot
+  // see it, the entity will still show up if the player moves closer.
+  //
+  // Added: v1.16
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 Position = 3;
+  // Direction 是画朝向的方向。
+  //
+  // Direction is the facing direction of the painting.
+  //
+  // Added: v1.16
+  int32 Direction = 4;
+  // Title 是画的标题。它指定画的图案，且画标题必须有效。
+  //
+  // Title is the title of the painting. It specifies the motive of the painting. The title of the painting
+  // must be valid.
+  //
+  // Added: v1.16
+  string Title = 5;
+}
+

@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.get_start_type;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpc";
+
+// GetStartType 是网易登录流程中的 start-type 挑战请求。
+//
+// GetStartType is one of the NetEase login challenges.
+message GetStartType {
+  // Content 是需要客户端转换的服务器挑战字符串。
+  //
+  // Content is the server challenge string that must be transformed by the client.
+  string Content = 1;
+}
+

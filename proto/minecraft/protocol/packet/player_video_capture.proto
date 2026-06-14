@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.player_video_capture;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+enum PlayerVideoCaptureActionEnum {
+  PlayerVideoCaptureActionStop = 0;
+  PlayerVideoCaptureActionStart = 1;
+}
+
+// PlayerVideoCapture 数据包由服务器发送，用于开始或停止玩家的视频录制。
+// 它只在开发构建中生效，对正式构建没有效果。录制时，
+// 客户端会按下方指定格式把单独帧保存到 '/LocalCache/minecraftpe'。
+//
+// PlayerVideoCapture packet is sent by the server to start or stop video recording for a player. It only works on
+// development builds and has no effect on retail builds. When recording,
+// the client will save individual frames to '/LocalCache/minecraftpe' in the format specified below.
+//
+// Added: v1.21.70
+message PlayerVideoCapture {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDPlayerVideoCapture;
+  // Action 是要对视频捕获执行的操作，它是上方常量之一。
+  //
+  // Action is the action to perform with the video capture. It is one of the constants above.
+  //
+  // Added: v1.21.70
+  // Go type: byte
+  uint32 Action = 1;
+  // FrameRate 是录制视频时应使用的帧率。仅当 Action 为 PlayerVideoCaptureActionStart 时使用。
+  // 更高帧率会记录更多帧，但也会明显增加卡顿。
+  //
+  // FrameRate is the frame rate at which the video should be recorded. It is only used when Action is
+  // PlayerVideoCaptureActionStart. A higher frame rate will cause more frames to be recorded, but also
+  // a noticeable increase in lag.
+  //
+  // Added: v1.21.70
+  int32 FrameRate = 2;
+  // FilePrefix 是保存帧时使用的文件名前缀。帧会以 'FilePrefix%d.png' 格式保存，其中 %d 为帧索引。
+  //
+  // FilePrefix is the prefix of the file name that will be used to save the frames. The frames will be saved
+  // in the format 'FilePrefix%d.png' where %d is the frame index.
+  //
+  // Added: v1.21.70
+  string FilePrefix = 3;
+}
+

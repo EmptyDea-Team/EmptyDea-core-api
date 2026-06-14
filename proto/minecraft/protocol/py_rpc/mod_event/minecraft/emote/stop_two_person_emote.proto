@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.emote.stop_two_person_emote;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/emote;emote";
+
+import "py_rpc/mod_event/minecraft/emote/basic.proto";
+
+// StopTwoPersonEmote 请求服务器停止双人动作。
+//
+// StopTwoPersonEmote asks the server to stop a two-person emote.
+message StopTwoPersonEmote {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.emote.basic.Basic Basic = 1;
+}
+

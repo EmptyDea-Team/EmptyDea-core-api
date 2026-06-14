@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.camera_shake;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+enum CameraShakeTypeEnum {
+  CameraShakeTypePositional = 0;
+  CameraShakeTypeRotational = 1;
+}
+
+enum CameraShakeActionEnum {
+  CameraShakeActionAdd = 0;
+  CameraShakeActionStop = 1;
+}
+
+// CameraShake 由服务器发送，用于让客户端侧相机抖动。
+// 该功能是为地图制作合作伙伴添加的。
+//
+// CameraShake is sent by the server to make the camera shake client-side. This feature was added for map-
+// making partners.
+//
+// Added: v1.16.100
+message CameraShake {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDCameraShake;
+  // Intensity 是抖动强度。客户端会将该值限制为 4，因此更高的值可能不起作用。
+  //
+  // Intensity is the intensity of the shaking. The client limits this value to 4, so anything higher may
+  // not work.
+  //
+  // Added: v1.16.100
+  // Go type: float32
+  float Intensity = 1;
+  // Duration 是相机抖动持续的秒数。
+  //
+  // Duration is the number of seconds the camera will shake for.
+  //
+  // Added: v1.16.100
+  // Go type: float32
+  float Duration = 2;
+  // Type 是抖动类型，它是上方列出的常量之一。不同类型会影响游戏中抖动的外观。
+  //
+  // Type is the type of shake, and is one of the constants listed above. The different type affects how
+  // the shake looks in game.
+  //
+  // Added: v1.16.100
+  // Go type: uint8
+  uint32 Type = 3;
+  // Action 是要执行的操作，它是上方列出的常量之一。当前不同操作会添加或停止客户端抖动。
+  //
+  // Action is the action to be performed, and is one of the constants listed above. Currently the
+  // different actions will either add or stop shaking the client.
+  //
+  // Added: v1.16.210
+  // Go type: uint8
+  uint32 Action = 4;
+}
+

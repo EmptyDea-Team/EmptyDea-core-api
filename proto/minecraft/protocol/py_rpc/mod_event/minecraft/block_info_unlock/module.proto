@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.block_info_unlock.module;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/block_info_unlock;block_info_unlock";
+
+// Module 描述 Minecraft blockInfoUnlock 模块。
+//
+// Module describes the Minecraft blockInfoUnlock module.
+message Module {
+}
+

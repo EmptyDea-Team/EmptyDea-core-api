@@ -1,0 +1,92 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.move_actor_delta;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "mgl32.proto";
+import "packet_options.proto";
+
+enum MoveActorDeltaFlagEnum {
+  MOVEACTORDELTAFLAGENUM_UNSPECIFIED = 0;
+  MoveActorDeltaFlagHasX = 1;
+  MoveActorDeltaFlagHasY = 2;
+  MoveActorDeltaFlagHasZ = 4;
+  MoveActorDeltaFlagHasRotX = 8;
+  MoveActorDeltaFlagHasRotY = 16;
+  MoveActorDeltaFlagHasRotZ = 32;
+  MoveActorDeltaFlagOnGround = 64;
+  MoveActorDeltaFlagTeleport = 128;
+  MoveActorDeltaFlagForceMove = 256;
+  MoveActorDeltaFlagHasFloatDeltaXY = 512;
+  MoveActorDeltaFlagHasFloatDeltaZ = 1024;
+  MoveActorDeltaFlagHasUintDeltaXY = 2048;
+  MoveActorDeltaFlagHasUintDeltaZ = 4096;
+  MoveActorDeltaFlagHasQuat = 8192;
+}
+
+// MoveActorDelta 由服务器发送，用于移动实体。该数据包专门为节省空间优化，
+// 只会写入非零字段。从 1.16.100 开始，该数据包实际上不再包含任何增量。
+//
+// MoveActorDelta is sent by the server to move an entity. The packet is specifically optimised to save as
+// much space as possible, by only writing non-zero fields.
+// As of 1.16.100, this packet no longer actually contains any deltas.
+//
+// Added: v1.12
+// Changed: v1.16.100, position and rotation fields became absolute values while retaining the delta-style flag layout.
+message MoveActorDelta {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDMoveActorDelta;
+  // Flags 是一组标志位，用于指定该数据包中包含哪些数据。
+  //
+  // Flags is a list of flags that specify what data is in the packet.
+  //
+  // Added: v1.12
+  // Go type: uint16
+  uint32 Flags = 1;
+  // EntityRuntimeID 是被移动实体的运行时 ID。只要存在具有该运行时 ID 的非玩家实体，
+  // 该数据包就能生效。
+  //
+  // EntityRuntimeID is the runtime ID of the entity that is being moved. The packet works provided a
+  // non-player entity with this runtime ID is present.
+  //
+  // Added: v1.12
+  uint64 EntityRuntimeID = 2;
+  // Position 是实体被移动到的新位置。
+  //
+  // Position is the new position that the entity was moved to.
+  //
+  // Added: v1.12
+  // Changed: v1.16.100, no longer represents a delta and instead carries absolute coordinates when present.
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 Position = 3;
+  // Rotation 是新的绝对旋转。与位置类似，它实际上不是增量。
+  // 如果某些旋转值没有发送，这些值为 0，且不会存在对应标志。
+  //
+  // Rotation is the new absolute rotation. Unlike the position, it is not actually a delta. If any of the
+  // values of this rotation are not sent, these values are 0 and no flag for them is present.
+  //
+  // Added: v1.12
+  // Changed: v1.16.100, no longer represents a delta and instead carries absolute rotation values when present.
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 Rotation = 4;
+  // FloatDeltaPosition 是网易额外的移动增量数据，按 ByteFloat 编码。
+  //
+  // FloatDeltaPosition is extra NetEase movement delta data encoded as ByteFloat.
+  //
+  // Added: NetEase.
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 FloatDeltaPosition = 5;
+  // UintDeltaPosition 是网易额外的移动增量数据。
+  //
+  // UintDeltaPosition is extra NetEase movement delta data.
+  //
+  // Added: NetEase.
+  // Go type: [3]uint16
+  repeated uint32 UintDeltaPosition = 6;
+  // Quat 是网易额外的移动旋转数据。
+  //
+  // Quat is extra NetEase movement rotation data.
+  //
+  // Added: NetEase.
+  uint32 Quat = 7;
+}
+

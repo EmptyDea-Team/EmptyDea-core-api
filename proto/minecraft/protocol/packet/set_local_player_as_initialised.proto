@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.set_local_player_as_initialised;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// SetLocalPlayerAsInitialised 由客户端发送，用于响应状态设置为 3 的 PlayStatus 数据包。
+// 该数据包标记客户端已经完全初始化，可以接收任何数据包而不会丢弃它们。
+//
+// SetLocalPlayerAsInitialised is sent by the client in response to a PlayStatus packet with the status set
+// to 3. The packet marks the moment at which the client is fully initialised and can receive any packet
+// without discarding it.
+//
+// Added: v1.12
+message SetLocalPlayerAsInitialised {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDSetLocalPlayerAsInitialised;
+  // EntityRuntimeID 是玩家在登录流程早期由 StartGame 数据包分配到的实体运行时 ID。
+  //
+  // EntityRuntimeID is the entity runtime ID the player was assigned earlier in the login sequence in the
+  // StartGame packet.
+  //
+  // Added: v1.12
+  uint64 EntityRuntimeID = 1;
+}
+

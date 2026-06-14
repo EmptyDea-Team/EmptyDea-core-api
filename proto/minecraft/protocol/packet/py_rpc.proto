@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.py_rpc;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "google/protobuf/struct.proto";
+import "packet_options.proto";
+
+enum PyRpcOperationTypeEnum {
+  PYRPCOPERATIONTYPEENUM_UNSPECIFIED = 0;
+  PyRpcOperationTypeSend = 98247598;
+  PyRpcOperationTypeRecv = 9753608;
+}
+
+// PyRpc 是网易 Python RPC 数据包。
+//
+// PyRpc is a NetEase Python RPC packet.
+//
+// Added: NetEase.
+message PyRpc {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDPyRpc;
+  // Go type: any
+  google.protobuf.Value Value = 1;
+  uint32 OperationType = 2;
+}
+

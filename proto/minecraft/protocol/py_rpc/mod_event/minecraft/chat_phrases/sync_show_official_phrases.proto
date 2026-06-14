@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_phrases.sync_show_official_phrases;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_phrases;chat_phrases";
+
+import "py_rpc/mod_event/minecraft/chat_phrases/basic.proto";
+
+// SyncShowOfficialPhrases 同步官方快捷短语显示状态。
+//
+// SyncShowOfficialPhrases synchronises official quick-phrase visibility.
+message SyncShowOfficialPhrases {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_phrases.basic.Basic Basic = 1;
+  // Show 表示是否显示官方快捷短语。
+  //
+  // Show indicates whether official quick phrases should be shown.
+  bool Show = 2;
+}
+

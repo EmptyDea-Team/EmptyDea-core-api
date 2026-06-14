@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.types;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_command";
+
+// AICommandResult 描述一条生成出的命令。
+//
+// AICommandResult describes one generated command.
+message AICommandResult {
+  // Command 是生成出的命令文本。
+  //
+  // Command is the generated command text.
+  string Command = 1;
+  // LocateTPFront 是 locate/tp 组合命令的前置关联 ID。
+  //
+  // LocateTPFront is the front correlation ID for locate/tp command pairs.
+  string LocateTPFront = 2;
+  // LocateTPPost 是 locate/tp 组合命令的后置关联 ID。
+  //
+  // LocateTPPost is the post correlation ID for locate/tp command pairs.
+  string LocateTPPost = 3;
+}
+
+// AIModel 是魔法指令 AI 模型标识。
+//
+// AIModel is an AI-command model identifier.
+message AIModel {
+  int64 Value = 1;
+}
+

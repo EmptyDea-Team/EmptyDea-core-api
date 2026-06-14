@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.camera_presets;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "camera.proto";
+import "packet_options.proto";
+
+// CameraPresets 向客户端提供自定义摄像机预设列表。
+//
+// CameraPresets gives the client a list of custom camera presets.
+//
+// Added: v1.20.30
+message CameraPresets {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDCameraPresets;
+  // Presets 是可供其他摄像机使用的摄像机预设列表。该列表顺序很重要，因为 CameraInstruction 数据包会用预设索引作为指针。
+  //
+  // Presets is a list of camera presets that can be used by other cameras. The order of this list is important because
+  // the index of presets is used as a pointer in the CameraInstruction packet.
+  //
+  // Added: v1.20.30
+  // Go type: []protocol.CameraPreset
+  repeated .mousetunnel.minecraft.protocol.camera.CameraPreset Presets = 1;
+}
+

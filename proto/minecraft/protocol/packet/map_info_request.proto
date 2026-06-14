@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.map_info_request;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "map.proto";
+import "packet_options.proto";
+
+// MapInfoRequest 由客户端发送，用于请求服务器传递玩家物品栏中某张地图的信息。
+// 服务器应以 ClientBoundMapItemData 数据包响应。
+//
+// MapInfoRequest is sent by the client to request the server to deliver information of a certain map in the
+// inventory of the player. The server should respond with a ClientBoundMapItemData packet.
+//
+// Added: v1.12
+message MapInfoRequest {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDMapInfoRequest;
+  // MapID 是表示网络上所请求地图的唯一标识符。它会跨会话保持一致。
+  //
+  // MapID is the unique identifier that represents the map that is requested over network. It remains
+  // consistent across sessions.
+  //
+  // Added: v1.12
+  int64 MapID = 1;
+  // ClientPixels 是客户端发送的像素切片，用于通知服务器它尚不知道的像素。
+  //
+  // ClientPixels is a slice of pixels sent from the client to notify the server about the pixels that it isn't aware
+  // of.
+  //
+  // Added: v1.19.20
+  // Go type: []protocol.PixelRequest
+  repeated .mousetunnel.minecraft.protocol.map.PixelRequest ClientPixels = 2;
+}
+

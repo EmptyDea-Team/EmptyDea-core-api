@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.unknown;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+// Unknown 是用于未知或未实现数据包的 Packet 接口实现。它保存数据包 ID 和原始负载。
+// 它提供了一种读取原始未知数据包并转发到另一个连接的方式，而不一定需要实现这些数据包。
+//
+// Unknown is an implementation of the Packet interface for unknown/unimplemented packets. It holds the packet
+// ID and the raw payload. It serves as a way to read raw unknown packets and forward them to another
+// connection, without necessarily implementing them.
+//
+// Added: v1.11.1
+message Unknown {
+  // PacketID 是该数据包的数据包 ID。
+  //
+  // PacketID is the packet ID of the packet.
+  //
+  // Added: v1.11.1
+  uint32 PacketID = 1;
+  // Payload 是该数据包的原始负载。
+  //
+  // Payload is the raw payload of the packet.
+  //
+  // Added: v1.11.1
+  // Go type: []byte
+  bytes Payload = 2;
+}
+

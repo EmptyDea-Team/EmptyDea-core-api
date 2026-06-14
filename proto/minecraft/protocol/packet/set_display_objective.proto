@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.set_display_objective;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+enum ScoreboardSortOrderEnum {
+  ScoreboardSortOrderAscending = 0;
+  ScoreboardSortOrderDescending = 1;
+}
+
+// SetDisplayObjective 由服务器发送，用于向玩家显示一个作为记分板的目标。发送后，
+// 通常需要继续发送 SetScore 数据包来设置记分板的各行内容。
+//
+// SetDisplayObjective is sent by the server to display an object as a scoreboard to the player. Once sent,
+// it should be followed up by a SetScore packet to set the lines of the packet.
+//
+// Added: v1.12
+message SetDisplayObjective {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDSetDisplayObjective;
+  // DisplaySlot 是记分板应显示的位置。可用选项可见上方常量。
+  //
+  // DisplaySlot is the slot in which the scoreboard should be displayed. Available options can be found in
+  // the constants above.
+  //
+  // Added: v1.12
+  string DisplaySlot = 1;
+  // ObjectiveName 是记分板显示的目标名称。填入任意唯一值即可，
+  // 该字段不会显示在记分板中。
+  //
+  // ObjectiveName is the name of the objective that the scoreboard displays. Filling out a random unique
+  // value for this field works: It is not displayed in the scoreboard.
+  //
+  // Added: v1.12
+  string ObjectiveName = 2;
+  // DisplayName 是显示在记分板顶部的名称或标题。
+  //
+  // DisplayName is the name, or title, that is displayed at the top of the scoreboard.
+  //
+  // Added: v1.12
+  string DisplayName = 3;
+  // CriteriaName 是分数增加所需满足条件的名称。它可以是任意字符串，
+  // 且不会显示在客户端侧。
+  //
+  // CriteriaName is the name of the criteria that need to be fulfilled in order for the score to be
+  // increased. This can be any kind of string and does not show up client-side.
+  //
+  // Added: v1.12
+  string CriteriaName = 4;
+  // SortOrder 是记分板条目的排序方式。它应为上方定义的常量之一。
+  //
+  // SortOrder is the order in which entries on the scoreboard should be sorted. It is one of the constants
+  // that may be found above.
+  //
+  // Added: v1.12
+  int32 SortOrder = 5;
+}
+

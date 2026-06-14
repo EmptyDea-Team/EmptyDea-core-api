@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.request_replay_record_status;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// RequestReplayRecordStatus 是网易回放状态请求数据包。
+//
+// RequestReplayRecordStatus is a NetEase replay status request packet.
+//
+// Added: NetEase.
+message RequestReplayRecordStatus {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDRequestReplayRecordStatus;
+  // Go type: uint8
+  uint32 Unknown1 = 1;
+  // Go type: uint8
+  uint32 Unknown2 = 2;
+  // Go type: float32
+  float Unknown3 = 3;
+  string Unknown4 = 4;
+}
+

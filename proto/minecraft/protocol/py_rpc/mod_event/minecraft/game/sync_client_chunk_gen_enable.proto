@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.game.sync_client_chunk_gen_enable;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/game;game";
+
+import "py_rpc/mod_event/minecraft/game/basic.proto";
+
+// SyncClientChunkGenEnable 同步客户端区块生成开关。
+//
+// SyncClientChunkGenEnable synchronises the client chunk-generation switch.
+message SyncClientChunkGenEnable {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.game.basic.Basic Basic = 1;
+  // IsClientGen 表示客户端是否启用本地区块生成。
+  //
+  // IsClientGen indicates whether client-side chunk generation is enabled.
+  bool IsClientGen = 2;
+}
+

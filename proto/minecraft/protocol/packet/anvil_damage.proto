@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.anvil_damage;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "block_pos.proto";
+import "packet_options.proto";
+
+// AnvilDamage 由客户端发送，用于请求对铁砧造成损坏。这个数据包完全没有意义，
+// 服务器不应监听它。
+//
+// AnvilDamage is sent by the client to request the dealing damage to an anvil. This packet is completely
+// pointless and the server should never listen to it.
+//
+// Added: v1.13
+message AnvilDamage {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDAnvilDamage;
+  // Damage 是客户端请求施加到铁砧上的损坏值。
+  //
+  // Damage is the damage that the client requests to be dealt to the anvil.
+  //
+  // Added: v1.13
+  // Go type: uint8
+  uint32 Damage = 1;
+  // AnvilPosition 是铁砧在世界中的位置。
+  //
+  // AnvilPosition is the position in the world that the anvil can be found at.
+  //
+  // Added: v1.13
+  .mousetunnel.minecraft.protocol.block_pos.BlockPos AnvilPosition = 2;
+}
+

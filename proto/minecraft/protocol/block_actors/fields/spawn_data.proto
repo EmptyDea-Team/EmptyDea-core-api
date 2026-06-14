@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.fields.spawn_data;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/fields;fields";
+
+import "google/protobuf/struct.proto";
+
+// SpawnData 描述刷怪笼中的一个复用字段。
+//
+// SpawnData describes a reusable field in mob spawners.
+message SpawnData {
+  // TAG_Compound(10)
+  // Go type: map[string]any
+  map<string, google.protobuf.Value> Properties = 1;
+  // TAG_String(8)
+  string TypeID = 2;
+  // TAG_Int(4)
+  int32 Weight = 3;
+}
+

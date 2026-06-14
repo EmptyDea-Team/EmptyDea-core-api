@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.withdraw_furnace_xp;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "block_pos.proto";
+import "packet_options.proto";
+
+// WithdrawFurnaceXp 是网易熔炉经验提取数据包。
+//
+// WithdrawFurnaceXp is a NetEase furnace XP withdrawal packet.
+//
+// Added: NetEase.
+message WithdrawFurnaceXp {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDWithdrawFurnaceXp;
+  .mousetunnel.minecraft.protocol.block_pos.BlockPos Position = 1;
+}
+

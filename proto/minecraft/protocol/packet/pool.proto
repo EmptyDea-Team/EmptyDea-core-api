@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.pool;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+// Pool 是按数据包 ID 索引数据包的映射。
+//
+// Pool is a map holding packets indexed by a packet ID.
+message Pool {
+  // Go type: map[uint32]func() Packet
+  map<uint32, bytes> Value = 1;
+}
+

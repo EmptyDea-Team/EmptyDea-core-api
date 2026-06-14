@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.reset_minimap_visible_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// ResetMinimapVisibleEvent 请求服务器重置小地图可见状态。
+//
+// ResetMinimapVisibleEvent asks the server to reset minimap visibility.
+message ResetMinimapVisibleEvent {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  ResetMinimapVisibleData ResetMinimapVisibleData = 2;
+}
+
+// ResetMinimapVisibleData 保存小地图可见状态字段。
+//
+// ResetMinimapVisibleData stores minimap visibility fields.
+message ResetMinimapVisibleData {
+  string PlayerID = 1;
+  bool State = 2;
+}
+

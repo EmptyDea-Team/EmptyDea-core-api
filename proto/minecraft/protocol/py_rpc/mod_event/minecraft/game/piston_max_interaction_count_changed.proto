@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.game.piston_max_interaction_count_changed;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/game;game";
+
+import "py_rpc/mod_event/minecraft/game/basic.proto";
+
+// PistonMaxInteractionCountChanged 同步活塞最大交互次数。
+//
+// PistonMaxInteractionCountChanged synchronises the piston max interaction count.
+message PistonMaxInteractionCountChanged {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.game.basic.Basic Basic = 1;
+  // Count 是最大交互次数。
+  //
+  // Count is the max interaction count.
+  int64 Count = 2;
+}
+

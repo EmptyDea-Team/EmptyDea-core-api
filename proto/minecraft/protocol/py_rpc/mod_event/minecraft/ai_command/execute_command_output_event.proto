@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.execute_command_output_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_command";
+
+import "py_rpc/mod_event/minecraft/ai_command/basic.proto";
+
+// ExecuteCommandOutputEvent 描述魔法指令的命令输出。
+//
+// ExecuteCommandOutputEvent describes command output for an AI command.
+message ExecuteCommandOutputEvent {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.basic.Basic Basic = 1;
+  // AIModel 是服务端返回的 AI 模型标识。
+  //
+  // AIModel is the AI model identifier returned by the server.
+  string AIModel = 2;
+  // CommandLine 是关联的命令文本。
+  //
+  // CommandLine is the related command text.
+  string CommandLine = 3;
+  // GenerateType 是输出生成类型。
+  //
+  // GenerateType is the output generation type.
+  int64 GenerateType = 4;
+  // IsReExecute 表示这是否是重新执行。
+  //
+  // IsReExecute indicates whether this is a re-execution.
+  bool IsReExecute = 5;
+  // IsLast 表示这是否是最后一段输出。
+  //
+  // IsLast indicates whether this is the final output segment.
+  bool IsLast = 6;
+  // CommandOutput 是命令输出文本。
+  //
+  // CommandOutput is the command output text.
+  string CommandOutput = 7;
+  // CommandRequestID 是命令请求 UUID。
+  //
+  // CommandRequestID is the command request UUID.
+  // Go type: uuid.UUID
+  string CommandRequestID = 8;
+}
+

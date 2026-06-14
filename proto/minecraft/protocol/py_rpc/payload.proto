@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.payload;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpc";
+
+import "google/protobuf/struct.proto";
+
+// Payload 表示未注册的 PyRpc 载荷，保留 RPC 名称和原始 MsgPack 解码值。
+//
+// Payload represents an unregistered PyRpc payload, preserving the RPC name and raw MsgPack-decoded value.
+message Payload {
+  // RPCName 是 PyRpc MsgPack 载荷索引 0 中存储的 RPC 名称。
+  //
+  // RPCName is the RPC name stored at index 0 of the PyRpc MsgPack payload.
+  string RPCName = 1;
+  // Data 是 PyRpc MsgPack 载荷索引 1 中存储的原始数据。
+  //
+  // Data is the raw data stored at index 1 of the PyRpc MsgPack payload.
+  // Go type: any
+  google.protobuf.Value Data = 2;
+}
+

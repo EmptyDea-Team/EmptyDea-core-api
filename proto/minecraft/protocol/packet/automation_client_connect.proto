@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.automation_client_connect;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// AutomationClientConnect 用于让客户端连接到 websocket 服务器。该 websocket 服务器可以代表客户端执行命令，
+// 也可以监听客户端触发的特定事件。
+//
+// AutomationClientConnect is used to make the client connect to a websocket server. This websocket server has
+// the ability to execute commands on the behalf of the client and it can listen for certain events fired by
+// the client.
+//
+// Added: v1.12
+message AutomationClientConnect {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDAutomationClientConnect;
+  // ServerURI 是客户端要连接的 URI，例如可使用 'localhost:8000/ws' 连接本机 8000 端口的 websocket 服务器。
+  //
+  // ServerURI is the URI to make the client connect to. It can be, for example, 'localhost:8000/ws' to
+  // connect to a websocket server on the localhost at port 8000.
+  //
+  // Added: v1.12
+  string ServerURI = 1;
+}
+

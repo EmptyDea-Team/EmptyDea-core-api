@@ -1,0 +1,169 @@
+syntax = "proto3";
+
+package emptydea.game_control.resources_control;
+
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/resources_control;resources_control_pb";
+
+import "creative.proto";
+import "item.proto";
+
+// ListCreativeItemsRequest 是查询登录序列创造物品数据的空请求。
+message ListCreativeItemsRequest {}
+
+// ListCreativeItemsResponse 是租赁服在登录序列发送的创造物品数据。
+message ListCreativeItemsResponse {
+  // Items 是租赁服在登录序列发送的创造物品数据。
+  //
+  // 使用者不应修改返回的值，否则不保证程序的行为是正确的
+  repeated mousetunnel.minecraft.protocol.creative.CreativeItem Items = 1;
+}
+
+// GetCreativeItemByCNIRequest 是按创造物品网络 ID 查询创造物品的请求。
+message GetCreativeItemByCNIRequest {
+  // CreativeNetworkID 是创造物品网络 ID。
+  uint32 CreativeNetworkID = 1;
+}
+
+// GetCreativeItemResponse 是创造物品网络 ID 为 creativeNetworkID 的创造物品。
+message GetCreativeItemResponse {
+  // Found 表示是否找到创造物品。
+  bool Found = 1;
+  // Item 是创造物品网络 ID 为 creativeNetworkID 的创造物品。
+  //
+  // 使用者不应修改返回的值，否则不保证程序的行为是正确的
+  mousetunnel.minecraft.protocol.creative.CreativeItem Item = 2;
+}
+
+// ListCreativeItemsByNetworkIDRequest 是按物品数字网络 ID 查询创造物品的请求。
+message ListCreativeItemsByNetworkIDRequest {
+  // NetworkID 是物品数字网络 ID。
+  int32 NetworkID = 1;
+}
+
+// ListCreativeItemsByNameRequest 是按名称查询创造物品的请求。
+message ListCreativeItemsByNameRequest {
+  // Name 是物品名称。
+  string Name = 1;
+}
+
+// ListAvailableItemsRequest 是查询登录序列所有可用物品的空请求。
+message ListAvailableItemsRequest {}
+
+// ListAvailableItemsResponse 是租赁服在登录序列发送的所有可用物品。
+message ListAvailableItemsResponse {
+  // Items 是租赁服在登录序列发送的所有可用物品。
+  //
+  // 使用者不应修改返回的值，否则不保证程序的行为是正确的
+  repeated mousetunnel.minecraft.protocol.item.ItemEntry Items = 1;
+}
+
+// GetItemByNetworkIDRequest 是按物品网络 ID 查询物品条目的请求。
+message GetItemByNetworkIDRequest {
+  // NetworkID 是物品网络 ID。
+  int32 NetworkID = 1;
+}
+
+// GetItemByNameRequest 是按物品名称查询物品条目的请求。
+message GetItemByNameRequest {
+  // Name 是物品名称。
+  string Name = 1;
+}
+
+// GetItemEntryResponse 是查询到的物品。
+message GetItemEntryResponse {
+  // Found 表示是否找到物品条目。
+  bool Found = 1;
+  // Item 是查询到的物品。
+  //
+  // 使用者不应修改返回的值，否则不保证程序的行为是正确的
+  mousetunnel.minecraft.protocol.item.ItemEntry Item = 2;
+}
+
+// GetItemNameByNetworkIDRequest 是按物品网络 ID 查询物品名称的请求。
+message GetItemNameByNetworkIDRequest {
+  // NetworkID 是物品网络 ID。
+  int32 NetworkID = 1;
+}
+
+// GetItemNameByNetworkIDResponse 是物品名称查询结果。
+message GetItemNameByNetworkIDResponse {
+  // Found 表示是否找到物品名称。
+  bool Found = 1;
+  // Name 是找到的物品名称。
+  string Name = 2;
+}
+
+// ListCommandItemsRequest 是查询可以通过指令获得的全部物品的空请求。
+message ListCommandItemsRequest {}
+
+// ListCommandItemsResponse 是可以通过指令获得的全部物品。
+message ListCommandItemsResponse {
+  // Names 是可以通过指令获得的全部物品。
+  //
+  // 使用者不应修改返回的值，否则不保证程序的行为是正确的
+  repeated string Names = 1;
+}
+
+// ItemCanGetByCommandRequest 是检查物品是否可通过命令获得的请求。
+message ItemCanGetByCommandRequest {
+  // Name 是物品名称。
+  string Name = 1;
+}
+
+// ItemCanGetByCommandResponse 是命令获取能力检查结果。
+message ItemCanGetByCommandResponse {
+  // CanGet 表示该物品是否可通过命令获得。
+  bool CanGet = 1;
+}
+
+// GetTrimRecipeNetworkIDRequest 是查询锻造台纹饰操作对应合成 ID 的空请求。
+message GetTrimRecipeNetworkIDRequest {}
+
+// GetTrimRecipeNetworkIDResponse 是锻造台纹饰操作对应的合成 ID。
+message GetTrimRecipeNetworkIDResponse {
+  // NetworkID 是锻造台纹饰操作对应的合成 ID。
+  uint32 NetworkID = 1;
+}
+
+// ConstantPacketService 查询在登录序列期间，
+// 由租赁服发送的在整个连接期间不会变化的常量。
+service ConstantPacketService {
+  // ListCreativeItems 返回租赁服在登录序列发送的创造物品数据。
+  //
+  // 使用者不应修改返回的值，否则不保证程序的行为是正确的
+  rpc ListCreativeItems(ListCreativeItemsRequest) returns (ListCreativeItemsResponse);
+  // GetCreativeItemByCNI 返回创造物品网络 ID 为 creativeNetworkID 的创造物品。
+  //
+  // 使用者不应修改返回的值，否则不保证程序的行为是正确的
+  rpc GetCreativeItemByCNI(GetCreativeItemByCNIRequest) returns (GetCreativeItemResponse);
+  // ListCreativeItemsByNetworkID 返回物品数字网络 ID 为 networkID 的多个创造物品。
+  //
+  // 使用者不应修改返回的值，否则不保证程序的行为是正确的
+  rpc ListCreativeItemsByNetworkID(ListCreativeItemsByNetworkIDRequest) returns (ListCreativeItemsResponse);
+  // ListCreativeItemsByName 返回名称为 name 的多个创造物品。
+  //
+  // 使用者不应修改返回的值，否则不保证程序的行为是正确的
+  rpc ListCreativeItemsByName(ListCreativeItemsByNameRequest) returns (ListCreativeItemsResponse);
+  // ListAvailableItems 返回租赁服在登录序列发送的所有可用物品。
+  //
+  // 使用者不应修改返回的值，否则不保证程序的行为是正确的
+  rpc ListAvailableItems(ListAvailableItemsRequest) returns (ListAvailableItemsResponse);
+  // GetItemByNetworkID 返回网络 ID 为 networkID 的物品。
+  //
+  // 使用者不应修改返回的值，否则不保证程序的行为是正确的
+  rpc GetItemByNetworkID(GetItemByNetworkIDRequest) returns (GetItemEntryResponse);
+  // GetItemByName 返回物品名称为 name 的物品。
+  //
+  // 使用者不应修改返回的值，否则不保证程序的行为是正确的
+  rpc GetItemByName(GetItemByNameRequest) returns (GetItemEntryResponse);
+  // GetItemNameByNetworkID 返回网络 ID 为 networkID 的物品的名称。
+  rpc GetItemNameByNetworkID(GetItemNameByNetworkIDRequest) returns (GetItemNameByNetworkIDResponse);
+  // ListCommandItems 返回可以通过指令获得的全部物品。
+  //
+  // 使用者不应修改返回的值，否则不保证程序的行为是正确的
+  rpc ListCommandItems(ListCommandItemsRequest) returns (ListCommandItemsResponse);
+  // ItemCanGetByCommand 检查物品名为 name 的物品是否可以通过命令获取。
+  rpc ItemCanGetByCommand(ItemCanGetByCommandRequest) returns (ItemCanGetByCommandResponse);
+  // GetTrimRecipeNetworkID 返回锻造台纹饰操作对应的合成 ID。
+  rpc GetTrimRecipeNetworkID(GetTrimRecipeNetworkIDRequest) returns (GetTrimRecipeNetworkIDResponse);
+}

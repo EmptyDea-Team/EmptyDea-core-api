@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.game_rule;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+import "google/protobuf/struct.proto";
+
+// GameRule 包含游戏规则数据。
+//
+// GameRule contains game rule data.
+//
+// Added: v1.17.0
+message GameRule {
+  // Name 是游戏规则的名称。
+  //
+  // Name is the name of the game rule.
+  //
+  // Added: v1.17.0
+  string Name = 1;
+  // CanBeModifiedByPlayer 指定玩家是否可以通过游戏内 UI 修改该游戏规则。
+  //
+  // CanBeModifiedByPlayer specifies if the game rule can be modified by the player through the in-game UI.
+  //
+  // Added: v1.17.0
+  bool CanBeModifiedByPlayer = 2;
+  // Value 是游戏规则的新值。它可以是 bool、uint32 或 float32。
+  //
+  // Value is the new value of the game rule. This is either a bool, uint32 or float32.
+  //
+  // Added: v1.17.0
+  // Go type: any
+  google.protobuf.Value Value = 3;
+}
+

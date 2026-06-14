@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.player_input;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// PlayerInput 由客户端发送，用于在旧输入模式下发送移动输入。
+//
+// PlayerInput is sent by the client to send movement input in older input modes.
+//
+// Added: v1.11.1
+message PlayerInput {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDPlayerInput;
+  // MotionX 是玩家的横向移动输入。
+  //
+  // MotionX is the player's sideways movement input.
+  //
+  // Added: v1.11.1
+  // Go type: float32
+  float MotionX = 1;
+  // MotionY 是玩家的前向移动输入。
+  //
+  // MotionY is the player's forward movement input.
+  //
+  // Added: v1.11.1
+  // Go type: float32
+  float MotionY = 2;
+  // Jumping 指定玩家是否正在跳跃。
+  //
+  // Jumping specifies if the player is jumping.
+  //
+  // Added: v1.11.1
+  bool Jumping = 3;
+  // Sneaking 指定玩家是否正在潜行。
+  //
+  // Sneaking specifies if the player is sneaking.
+  //
+  // Added: v1.11.1
+  bool Sneaking = 4;
+}
+

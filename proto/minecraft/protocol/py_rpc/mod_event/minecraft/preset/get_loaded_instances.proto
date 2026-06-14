@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.preset.get_loaded_instances;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/preset;preset";
+
+import "py_rpc/mod_event/minecraft/preset/basic.proto";
+
+// GetLoadedInstances 请求客户端当前已加载的预设实例。
+//
+// GetLoadedInstances requests the preset instances currently loaded by the client.
+message GetLoadedInstances {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.preset.basic.Basic Basic = 1;
+  // PlayerRuntimeID 是玩家运行时 ID。
+  //
+  // PlayerRuntimeID is the player runtime ID.
+  string PlayerRuntimeID = 2;
+}
+

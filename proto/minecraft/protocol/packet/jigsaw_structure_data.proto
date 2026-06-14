@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.jigsaw_structure_data;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "google/protobuf/struct.proto";
+import "packet_options.proto";
+
+// JigsawStructureData 由服务器发送，用于让客户端知道拼图结构的所有规则。
+//
+// JigsawStructureData is sent by the server to let the client know all the rules for jigsaw structures.
+//
+// Added: v1.21.20
+message JigsawStructureData {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDJigsawStructureData;
+  // StructureData 是网络 NBT 序列化的复合标签，包含服务器上定义的所有拼图结构规则。
+  //
+  // StructureData is a network NBT serialised compound of all the jigsaw structure rules defined
+  // on the server.
+  //
+  // Added: v1.21.20
+  // Go type: map[string]any
+  map<string, google.protobuf.Value> StructureData = 1;
+}
+

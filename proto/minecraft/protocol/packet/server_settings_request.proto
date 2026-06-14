@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.server_settings_request;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// ServerSettingsRequest 由客户端发送，用于请求服务器专属设置。这些设置会显示在客户端侧的独立标签页中，
+// 并且结构与自定义表单相同。
+//
+// ServerSettingsRequest is sent by the client to request the settings specific to the server. These settings
+// are shown in a separate tab client-side, and have the same structure as a custom form.
+//
+// Added: v1.12
+message ServerSettingsRequest {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDServerSettingsRequest;
+}
+

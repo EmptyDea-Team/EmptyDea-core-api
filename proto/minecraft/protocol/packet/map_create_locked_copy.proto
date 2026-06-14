@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.map_create_locked_copy;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// MapCreateLockedCopy 由客户端发送，用于把一张地图创建为另一张地图的锁定副本。
+// 在原版中，它用于在制图台中创建一张已锁定且无法修改的地图。
+//
+// MapCreateLockedCopy is sent by the client to create a locked copy of one map into another map. In vanilla,
+// it is used in the cartography table to create a map that is locked and cannot be modified.
+//
+// Added: v1.12
+message MapCreateLockedCopy {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDMapCreateLockedCopy;
+  // OriginalMapID 是正在被复制的地图 ID。锁定副本会获得这张地图上所有可见内容，
+  // 但内容不会再发生变化。
+  //
+  // OriginalMapID is the ID of the map that is being copied. The locked copy will obtain all content that
+  // is visible on this map, except the content will not change.
+  //
+  // Added: v1.12
+  int64 OriginalMapID = 1;
+  // NewMapID 是保存 OriginalMapID 所指地图锁定副本的地图 ID。其内容将无法更改。
+  //
+  // NewMapID is the ID of the map that holds the locked copy of the map that OriginalMapID points to. Its
+  // contents will be impossible to change.
+  //
+  // Added: v1.12
+  int64 NewMapID = 2;
+}
+

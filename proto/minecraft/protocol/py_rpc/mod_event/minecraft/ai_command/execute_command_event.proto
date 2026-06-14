@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.execute_command_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_command";
+
+import "py_rpc/mod_event/minecraft/ai_command/basic.proto";
+
+// ExecuteCommandEvent 请求执行魔法指令。
+//
+// ExecuteCommandEvent requests execution of an AI command.
+message ExecuteCommandEvent {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.basic.Basic Basic = 1;
+  // CommandLine 是要执行的命令文本。
+  //
+  // CommandLine is the command text to execute.
+  string CommandLine = 2;
+  // CommandRequestID 是命令请求 UUID。
+  //
+  // CommandRequestID is the command request UUID.
+  // Go type: uuid.UUID
+  string CommandRequestID = 3;
+  // AIModel 是请求使用的 AI 模型标识。
+  //
+  // AIModel is the requested AI model identifier.
+  string AIModel = 4;
+  // IsReExecute 表示这是否是重新执行请求。
+  //
+  // IsReExecute indicates whether this is a re-execution request.
+  bool IsReExecute = 5;
+}
+

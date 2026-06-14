@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.test.tiled_buffer.dump_results;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/test/tiled_buffer;tiled_buffer";
+
+// BlockNBTWithBuffer 描述一个带原始平铺型 __tag NBT 数据的方块实体测试样本。
+//
+// BlockNBTWithBuffer describes a block actor test sample with raw flat __tag NBT data.
+message BlockNBTWithBuffer {
+  // 该方块实体的 ID 名。 / The block actor ID.
+  string ID = 1;
+  // 该方块实体的 __tag NBT 二进制切片。 / The block actor __tag NBT binary payload.
+  // Go type: []byte
+  bytes Buffer = 2;
+}
+

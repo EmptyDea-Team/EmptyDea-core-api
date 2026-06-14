@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.code_builder_source;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+enum CodeBuilderOperationEnum {
+  CodeBuilderOperationNone = 0;
+  CodeBuilderOperationGet = 1;
+  CodeBuilderOperationSet = 2;
+  CodeBuilderOperationReset = 3;
+}
+
+enum CodeBuilderCategoryEnum {
+  CodeBuilderCategoryNone = 0;
+  CodeBuilderCategoryStatus = 1;
+  CodeBuilderCategoryInstantiation = 2;
+}
+
+enum CodeBuilderStatusEnum {
+  CodeBuilderStatusNone = 0;
+  CodeBuilderStatusNotStarted = 1;
+  CodeBuilderStatusInProgress = 2;
+  CodeBuilderStatusPaused = 3;
+  CodeBuilderStatusError = 4;
+  CodeBuilderStatusSucceeded = 5;
+}
+
+// CodeBuilderSource 是教育版数据包，由客户端发送给服务器，用于对 code builder 运行操作。
+//
+// CodeBuilderSource is an Education Edition packet sent by the client to the server to run an operation with a
+// code builder.
+//
+// Added: v1.18.10
+// Changed: v1.21.0, the Value payload field was replaced with the CodeStatus field.
+message CodeBuilderSource {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDCodeBuilderSource;
+  // Operation 用于区分执行的操作，它始终是上方列出的常量之一。
+  //
+  // Operation is used to distinguish the operation performed. It is always one of the constants listed above.
+  //
+  // Added: v1.18.10
+  // Go type: byte
+  uint32 Operation = 1;
+  // Category 用于区分执行操作的类别，它始终是上方列出的常量之一。
+  //
+  // Category is used to distinguish the category of the operation performed. It is always one of the constants
+  // listed above.
+  //
+  // Added: v1.18.10
+  // Go type: byte
+  uint32 Category = 2;
+  // CodeStatus 是 code builder 的状态，它始终是上方列出的常量之一。
+  //
+  // CodeStatus is the status of the code builder. It is always one of the constants listed above.
+  //
+  // Added: v1.21.0
+  // Go type: byte
+  uint32 CodeStatus = 3;
+}
+

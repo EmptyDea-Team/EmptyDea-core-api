@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+import "block_pos.proto";
+import "google/protobuf/struct.proto";
+
+// BlockEntry 是 StartGame 数据包中的自定义方块条目。
+// 这些自定义方块条目的运行时 ID 基于其在按字母顺序排序后的方块调色板中的索引。
+//
+// BlockEntry is an entry for a custom block found in the StartGame packet. The runtime ID of these custom
+// block entries is based on the index they have in the block palette when the palette is ordered
+// alphabetically.
+//
+// Added: v1.16.100
+message BlockEntry {
+  // Name 是自定义方块名称。
+  //
+  // Name is the name of the custom block.
+  //
+  // Added: v1.16.100
+  string Name = 1;
+  // Properties 是属性列表，与名称组合后用于指定唯一方块。
+  //
+  // Properties is a list of properties which, in combination with the name, specify a unique block.
+  //
+  // Added: v1.16.100
+  // Go type: map[string]any
+  map<string, google.protobuf.Value> Properties = 2;
+}
+
+// BlockChangeEntry 由 UpdateSubChunkBlocks 数据包使用。
+//
+// BlockChangeEntry is used by the UpdateSubChunkBlocks packet.
+//
+// Added: v1.17.30
+message BlockChangeEntry {
+  // BlockPos 是发生变化的方块位置。
+  //
+  // BlockPos is the position of the block that changed.
+  //
+  // Added: v1.17.30
+  .mousetunnel.minecraft.protocol.block_pos.BlockPos BlockPos = 1;
+  // BlockRuntimeID 是方块的运行时 ID。
+  //
+  // BlockRuntimeID is the runtime ID of the block.
+  //
+  // Added: v1.17.30
+  uint32 BlockRuntimeID = 2;
+  // Flags 是一组标志位组合，用于指定客户端侧更新方块的方式。
+  //
+  // Flags is a combination of flags that specify the way the block is updated client-side.
+  //
+  // Added: v1.17.30
+  uint32 Flags = 3;
+  // SyncedUpdateEntityUniqueID 是同步方块变化时参与转换的下落方块实体唯一 ID，
+  // 它可以是方块转换成的实体，也可以是转换回方块的实体。
+  //
+  // SyncedUpdateEntityUniqueID  is the unique ID of the falling block entity that the block transitions to or that the entity transitions from if the block change entry is synced.
+  //
+  // Added: v1.17.30
+  uint64 SyncedUpdateEntityUniqueID = 4;
+  // SyncedUpdateType 是发生的转换类型。方块变为下落实体时为 BlockToEntityTransition，
+  // 下落实体落地并重新变为固体方块时为 EntityToBlockTransition。
+  //
+  // SyncedUpdateType is the type of the transition that happened. It is either BlockToEntityTransition, when
+  // a block placed becomes a falling entity, or EntityToBlockTransition, when a falling entity hits the
+  // ground and becomes a solid block again.
+  //
+  // Added: v1.17.30
+  uint32 SyncedUpdateType = 5;
+}
+

@@ -1,0 +1,196 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.add_actor;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "attribute.proto";
+import "entity_link.proto";
+import "entity_metadata.proto";
+import "entity_properties.proto";
+import "mgl32.proto";
+import "netease.proto";
+import "packet_options.proto";
+
+// AddActor 由服务器发送给客户端，用于向玩家生成实体。
+// 它用于除其他玩家之外的所有实体；其他玩家使用 AddPlayer 数据包。
+//
+// AddActor is sent by the server to the client to spawn an entity to the player. It is used for every entity
+// except other players, for which the AddPlayer packet is used.
+//
+// Added: v1.16
+message AddActor {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDAddActor;
+  // EntityUniqueID 是实体的唯一 ID。唯一 ID 在同一世界的不同会话之间保持一致，
+  // 但大多数服务器会直接把实体的运行时 ID 填入该字段。
+  //
+  // EntityUniqueID is the unique ID of the entity. The unique ID is a value that remains consistent across
+  // different sessions of the same world, but most servers simply fill the runtime ID of the entity out for
+  // this field.
+  //
+  // Added: v1.16
+  int64 EntityUniqueID = 1;
+  // EntityRuntimeID 是实体的运行时 ID。运行时 ID 在每个世界会话中唯一，
+  // 数据包通常使用该运行时 ID 标识实体。
+  //
+  // EntityRuntimeID is the runtime ID of the entity. The runtime ID is unique for each world session, and
+  // entities are generally identified in packets using this runtime ID.
+  //
+  // Added: v1.16
+  uint64 EntityRuntimeID = 2;
+  // EntityType 是实体的字符串实体类型，例如 `minecraft:skeleton`。
+  // 这些实体的列表可以在线找到。
+  //
+  // EntityType is the string entity type of the entity, for example 'minecraft:skeleton'. A list of these
+  // entities may be found online.
+  //
+  // Added: v1.16
+  string EntityType = 3;
+  // LegacyEntityType 是引入字符串实体标识符之前写入的数字实体类型。
+  //
+  // LegacyEntityType is the numeric entity type written before string entity identifiers were introduced.
+  //
+  // Removed: v1.8.0
+  uint32 LegacyEntityType = 4;
+  // Position 是生成实体的位置。即使实体在玩家当前不可见的距离外，
+  // 玩家靠近后仍会看到该实体。
+  //
+  // Position is the position to spawn the entity on. If the entity is on a distance that the player cannot
+  // see it, the entity will still show up if the player moves closer.
+  //
+  // Added: v1.16
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 Position = 5;
+  // Velocity 是实体生成时的初始速度。该速度会触发客户端侧的实体移动。
+  //
+  // Velocity is the initial velocity the entity spawns with. This velocity will initiate client side
+  // movement of the entity.
+  //
+  // Added: v1.16
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 Velocity = 6;
+  // Pitch 是实体的垂直旋转。正前方对应 pitch 为 0，以度为单位。
+  //
+  // Pitch is the vertical rotation of the entity. Facing straight forward yields a pitch of 0. Pitch is
+  // measured in degrees.
+  //
+  // Added: v1.16
+  // Go type: float32
+  float Pitch = 7;
+  // Yaw 是实体的水平旋转，同样以度为单位。
+  //
+  // Yaw is the horizontal rotation of the entity. Yaw is also measured in degrees.
+  //
+  // Added: v1.16
+  // Go type: float32
+  float Yaw = 8;
+  // HeadYaw 与 Yaw 类似，但它专门应用于实体头部。
+  // 如果 HeadYaw 与 Yaw 不同，表示实体会转动头部。
+  //
+  // HeadYaw is the same as Yaw, except that it applies specifically to the head of the entity. A different value for
+  // HeadYaw than Yaw means that the entity will have its head turned.
+  //
+  // Added: v1.16
+  // Go type: float32
+  float HeadYaw = 9;
+  // BodyYaw 与 Yaw 类似，但它专门应用于实体身体。
+  // 如果 BodyYaw 与 HeadYaw 不同，表示实体会转动身体；
+  // 但 BodyYaw 与 Yaw 的区别目前尚不清楚。
+  //
+  // BodyYaw is the same as Yaw, except that it applies specifically to the body of the entity. A different value for
+  // BodyYaw than HeadYaw means that the entity will have its body turned, although it is unclear what the difference
+  // between BodyYaw and Yaw is.
+  //
+  // Added: v1.16
+  // Go type: float32
+  float BodyYaw = 10;
+  // Attributes 是实体拥有的属性切片，包括生命值、移动速度等属性。
+  //
+  // Attributes is a slice of attributes that the entity has. It includes attributes such as its health,
+  // movement speed, etc.
+  //
+  // Added: v1.16
+  // Go type: []protocol.AttributeValue
+  repeated .mousetunnel.minecraft.protocol.attribute.AttributeValue Attributes = 11;
+  // EntityMetadata 是实体元数据映射，包含会改变实体外观等行为的标志和数据属性。
+  // 标志包括“着火”“疾跑”等，元数据值按属性键索引。
+  //
+  // EntityMetadata is a map of entity metadata, which includes flags and data properties that alter in
+  // particular the way the entity looks. Flags include ones such as 'on fire' and 'sprinting'.
+  // The metadata values are indexed by their property key.
+  //
+  // Added: v1.16
+  .mousetunnel.minecraft.protocol.entity_metadata.EntityMetadata EntityMetadata = 12;
+  // EntityProperties 是该实体具有的属性列表。这些属性定义并改变实体的特定属性。
+  //
+  // EntityProperties is a list of properties that the entity inhibits. These properties define and alter specific
+  // attributes of the entity.
+  //
+  // Added: v1.19.20
+  .mousetunnel.minecraft.protocol.entity_properties.EntityProperties EntityProperties = 13;
+  // EntityLinks 是实体当前激活的实体链接列表。这些链接会改变实体首次生成时的显示方式，
+  // 例如显示为正在骑乘另一个实体。设置这些链接对新观察者看到实体正骑乘另一个实体很重要。
+  //
+  // EntityLinks is a list of entity links that are currently active on the entity. These links alter the
+  // way the entity shows up when first spawned in terms of it shown as riding an entity. Setting these
+  // links is important for new viewers to see the entity is riding another entity.
+  //
+  // Added: v1.16
+  // Go type: []protocol.EntityLink
+  repeated .mousetunnel.minecraft.protocol.entity_link.EntityLink EntityLinks = 14;
+  // NetEaseUnknown1 是网易额外的添加实体字段。
+  //
+  // NetEaseUnknown1 is an extra NetEase add actor field.
+  //
+  // Added: NetEase.
+  string NetEaseUnknown1 = 15;
+  // NetEaseUnknown2 是网易额外的添加实体字段。
+  //
+  // NetEaseUnknown2 is an extra NetEase add actor field.
+  //
+  // Added: NetEase.
+  string NetEaseUnknown2 = 16;
+  // NetEaseUnknown3 是网易额外的添加实体字段。
+  //
+  // NetEaseUnknown3 is an extra NetEase add actor field.
+  //
+  // Added: NetEase.
+  string NetEaseUnknown3 = 17;
+  // NetEaseUnknown4 是网易额外的添加实体字段。
+  //
+  // NetEaseUnknown4 is an extra NetEase add actor field.
+  //
+  // Added: NetEase.
+  bool NetEaseUnknown4 = 18;
+  // NetEaseUnknown5 是网易额外的添加实体字段。
+  //
+  // NetEaseUnknown5 is an extra NetEase add actor field.
+  //
+  // Added: NetEase.
+  bool NetEaseUnknown5 = 19;
+  // NetEaseUnknown6 是网易额外的添加实体字段。
+  //
+  // NetEaseUnknown6 is an extra NetEase add actor field.
+  //
+  // Added: NetEase.
+  bool NetEaseUnknown6 = 20;
+  // NetEaseUnknown7 是网易额外的添加实体字段。
+  //
+  // NetEaseUnknown7 is an extra NetEase add actor field.
+  //
+  // Added: NetEase.
+  bool NetEaseUnknown7 = 21;
+  // NetEaseUnknown8 是网易额外的添加实体字段。
+  //
+  // NetEaseUnknown8 is an extra NetEase add actor field.
+  //
+  // Added: NetEase.
+  bool NetEaseUnknown8 = 22;
+  // EntityPhysxShapes 是网易额外的实体物理形状数据。
+  //
+  // EntityPhysxShapes is extra NetEase entity physics shape data.
+  //
+  // Added: NetEase.
+  // Go type: []protocol.EntityPhysxShapes
+  repeated .mousetunnel.minecraft.protocol.netease.EntityPhysxShapes EntityPhysxShapes = 23;
+}
+

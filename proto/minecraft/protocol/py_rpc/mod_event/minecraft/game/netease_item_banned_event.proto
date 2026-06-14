@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.game.netease_item_banned_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/game;game";
+
+import "py_rpc/mod_event/minecraft/game/basic.proto";
+
+// NeteaseItemBannedEvent 同步本地玩家的禁用物品过期时间。
+//
+// NeteaseItemBannedEvent synchronises banned item expiry times for the local player.
+message NeteaseItemBannedEvent {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.game.basic.Basic Basic = 1;
+  // Items 保存物品名到封禁过期时间戳的映射。
+  //
+  // Items stores item names to ban-expiry timestamps.
+  // Go type: map[string]int64
+  map<string, int64> Items = 2;
+}
+

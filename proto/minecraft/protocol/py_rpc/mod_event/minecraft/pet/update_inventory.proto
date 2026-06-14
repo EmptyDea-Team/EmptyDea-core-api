@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.update_inventory;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// UpdateInventory 同步宠物背包物品更新。
+//
+// UpdateInventory syncs pet-bag inventory updates.
+message UpdateInventory {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  UpdateInventoryData UpdateInventoryData = 2;
+}
+
+// UpdateInventoryData 保存宠物背包更新字段。
+//
+// UpdateInventoryData stores pet-bag inventory update fields.
+message UpdateInventoryData {
+  UpdateInventoryBag InventoryBag = 1;
+  UpdateInventoryBag PetBag = 2;
+}
+
+// UpdateInventoryItem 保存背包更新事件中的物品数据。
+//
+// UpdateInventoryItem stores item data in an inventory update event.
+message UpdateInventoryItem {
+  string ItemName = 1;
+  string NewItemName = 2;
+  int64 AuxValue = 3;
+  int64 Count = 4;
+  // Go type: map[string]UpdateInventoryUser
+  map<string, UpdateInventoryUser> UserData = 5;
+  int64 Durability = 6;
+  bool EnchantData = 7;
+  // Go type: []UpdateInventoryEnchant
+  repeated UpdateInventoryEnchant ModEnchantData = 8;
+  string CustomTips = 9;
+  string ExtraID = 10;
+  string ItemShowName = 11;
+}
+
+// UpdateInventoryUser 保存背包更新物品 userData 的已知项。
+//
+// UpdateInventoryUser stores known item userData entries in an inventory update event.
+message UpdateInventoryUser {
+  string Mode = 1;
+}
+
+// UpdateInventoryEnchant 保存背包更新物品附魔项。
+//
+// UpdateInventoryEnchant stores item enchantment entries in an inventory update event.
+message UpdateInventoryEnchant {
+  int64 ID = 1;
+  int64 Level = 2;
+}
+
+// UpdateInventoryBag 保存背包更新事件中的槽位物品映射。
+//
+// UpdateInventoryBag stores slot items in an inventory update event.
+message UpdateInventoryBag {
+  // Go type: map[int64]UpdateInventoryItem
+  map<int64, UpdateInventoryItem> Value = 1;
+}
+

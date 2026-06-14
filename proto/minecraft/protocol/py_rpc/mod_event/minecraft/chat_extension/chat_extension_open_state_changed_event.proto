@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_extension.chat_extension_open_state_changed_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_extension;chat_extension";
+
+import "py_rpc/mod_event/minecraft/chat_extension/basic.proto";
+
+// ChatExtensionOpenStateChangedEvent 同步聊天扩展开关状态。
+//
+// ChatExtensionOpenStateChangedEvent synchronises the chat extension open state.
+message ChatExtensionOpenStateChangedEvent {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_extension.basic.Basic Basic = 1;
+  // Open 表示聊天扩展是否开启。
+  //
+  // Open indicates whether the chat extension is open.
+  bool Open = 2;
+}
+

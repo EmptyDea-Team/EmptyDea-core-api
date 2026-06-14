@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.player_action;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "block_pos.proto";
+import "packet_options.proto";
+
+// PlayerAction 在客户端执行任何操作时发送，例如开始疾跑、游泳、开始破坏方块或丢弃物品等。
+//
+// PlayerAction is sent by the client when it executes any action, for example starting to sprint, swim,
+// starting the breaking of a block, dropping an item, etc.
+//
+// Added: v1.11.1
+message PlayerAction {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDPlayerAction;
+  // EntityRuntimeID 是玩家的运行时 ID。运行时 ID 在每个世界会话中唯一，
+  // 数据包通常使用该运行时 ID 标识实体。
+  //
+  // EntityRuntimeID is the runtime ID of the player. The runtime ID is unique for each world session, and
+  // entities are generally identified in packets using this runtime ID.
+  //
+  // Added: v1.11.1
+  uint64 EntityRuntimeID = 1;
+  // ActionType 是玩家执行的操作 ID，它是 protocol/player.go 中的常量之一。
+  //
+  // ActionType is the ID of the action that was executed by the player. It is one of the constants that may
+  // be found in protocol/player.go.
+  //
+  // Added: v1.11.1
+  int32 ActionType = 2;
+  // BlockPosition 是目标方块的位置，仅当设置的 ActionType 对应的操作涉及方块时有效。
+  // 否则，方块位置为零值。
+  //
+  // BlockPosition is the position of the target block, if the action with the ActionType set concerned a
+  // block. If that is not the case, the block position will be zero.
+  //
+  // Added: v1.11.1
+  .mousetunnel.minecraft.protocol.block_pos.BlockPos BlockPosition = 3;
+  // ResultPosition 是操作结果的位置。发送 UseItemOn 操作时，它是被点击方块的位置；
+  // 但放置方块时，它是方块将被放置的位置。
+  //
+  // ResultPosition is the position of the action's result. When a UseItemOn action is sent, this is the position of
+  // the block clicked, but when a block is placed, this is the position at which the block will be placed.
+  //
+  // Added: v1.19.0.29
+  .mousetunnel.minecraft.protocol.block_pos.BlockPos ResultPosition = 4;
+  // BlockFace 是被触碰的目标方块面。仅当设置的 ActionType 对应的操作涉及方块时有效；
+  // 否则，该面始终为 0。
+  //
+  // BlockFace is the face of the target block that was touched. If the action with the ActionType set
+  // concerned a block. If not, the face is always 0.
+  //
+  // Added: v1.11.1
+  int32 BlockFace = 5;
+}
+

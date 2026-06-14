@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.item_stack_response;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "item_stack.proto";
+import "packet_options.proto";
+
+// ItemStackResponse 由服务器发送，用于响应客户端的 ItemStackRequest 数据包。
+// 该数据包用于批准或拒绝客户端的 ItemStackRequest。批准后客户端会正常继续；
+// 拒绝后客户端会撤销操作，使物品栏重新与服务器同步。
+//
+// ItemStackResponse is sent by the server in response to an ItemStackRequest packet from the client. This
+// packet is used to either approve or reject ItemStackRequests from the client. If a request is approved, the
+// client will simply continue as normal. If rejected, the client will undo the actions so that the inventory
+// should be in sync with the server again.
+//
+// Added: v1.16
+message ItemStackResponse {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDItemStackResponse;
+  // Responses 是对客户端此前发送的 ItemStackRequest 的响应列表。每个响应会批准或拒绝一个客户端请求。
+  // 原版限制该切片大小为 4096。
+  //
+  // Responses is a list of responses to ItemStackRequests sent by the client before. Responses either
+  // approve or reject a request from the client.
+  // Vanilla limits the size of this slice to 4096.
+  //
+  // Added: v1.16
+  // Go type: []protocol.ItemStackResponse
+  repeated .mousetunnel.minecraft.protocol.item_stack.ItemStackResponse Responses = 1;
+}
+

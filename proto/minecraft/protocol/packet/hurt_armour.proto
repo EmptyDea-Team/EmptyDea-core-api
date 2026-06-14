@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.hurt_armour;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// HurtArmour 由服务器发送，用于在玩家被击中后损坏玩家的盔甲。
+// 服务器不应使用该数据包，因为它会把责任完全交给玩家；
+// 服务器本身可以轻易且可靠地更新玩家的盔甲损伤。
+//
+// HurtArmour is sent by the server to damage the player's armour after being hit. The packet should never be
+// used by servers as it hands the responsibility over to the player completely, while the server can easily
+// reliably update the armour damage of players itself.
+//
+// Added: v1.11.1
+message HurtArmour {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDHurtArmour;
+  // Cause 是对盔甲造成伤害的原因。
+  //
+  // Cause is the cause of the damage dealt to the armour.
+  //
+  // Added: v1.16.0
+  int32 Cause = 1;
+  // Damage 是对玩家造成的伤害点数。客户端会基于该伤害计算盔甲损伤，
+  // 也会考虑盔甲可能具有的荆棘等附魔。
+  //
+  // Damage is the amount of damage points that was dealt to the player. The damage to the armour will be
+  // calculated by the client based upon this damage, and will also be based upon any enchantments like
+  // thorns that the armour may have.
+  //
+  // Added: v1.11.1
+  int32 Damage = 2;
+  // ArmourSlots 是所有受影响盔甲槽位的位集。
+  //
+  // ArmourSlots is a bitset of all armour slots affected.
+  //
+  // Added: v1.17.30
+  uint64 ArmourSlots = 3;
+}
+

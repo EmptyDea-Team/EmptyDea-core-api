@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.packet_violation_warning;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+enum ViolationSeverityEnum {
+  ViolationSeverityWarning = 0;
+  ViolationSeverityFinalWarning = 1;
+  ViolationSeverityTerminatingConnection = 2;
+}
+
+// PacketViolationWarning 在客户端收到来自服务器的无效数据包时由客户端发送。
+// 它保存发生错误的一些信息。
+// noinspection GoNameStartsWithPackageName
+//
+// PacketViolationWarning is sent by the client when it receives an invalid packet from the server. It holds
+// some information on the error that occurred.
+// noinspection GoNameStartsWithPackageName
+//
+// Added: v1.16
+message PacketViolationWarning {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDPacketViolationWarning;
+  // Type 是违规类型，它是上方常量之一。
+  //
+  // Type is the type of violation. It is one of the constants above.
+  //
+  // Added: v1.16
+  int32 Type = 1;
+  // Severity 指定数据包违规的严重程度。客户端在该违规后采取的动作取决于发送的严重程度。
+  //
+  // Severity specifies the severity of the packet violation. The action the client takes after this
+  // violation depends on the severity sent.
+  //
+  // Added: v1.16
+  int32 Severity = 2;
+  // PacketID 是收到的无效数据包 ID。
+  //
+  // PacketID is the ID of the invalid packet that was received.
+  //
+  // Added: v1.16
+  int32 PacketID = 3;
+  // ViolationContext 保存该数据包违规的描述。
+  //
+  // ViolationContext holds a description on the violation of the packet.
+  //
+  // Added: v1.16
+  string ViolationContext = 4;
+}
+

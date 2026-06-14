@@ -1,0 +1,148 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.map;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+import "block_pos.proto";
+
+enum MapDecorationTypeEnum {
+  MapDecorationTypeMarkerWhite = 0;
+  MapDecorationTypeMarkerGreen = 1;
+  MapDecorationTypeMarkerRed = 2;
+  MapDecorationTypeMarkerBlue = 3;
+  MapDecorationTypeCrossWhite = 4;
+  MapDecorationTypeTriangleRed = 5;
+  MapDecorationTypeSquareWhite = 6;
+  MapDecorationTypeMarkerSign = 7;
+  MapDecorationTypeMarkerPink = 8;
+  MapDecorationTypeMarkerOrange = 9;
+  MapDecorationTypeMarkerYellow = 10;
+  MapDecorationTypeMarkerTeal = 11;
+  MapDecorationTypeTriangleGreen = 12;
+  MapDecorationTypeSmallSquareWhite = 13;
+  MapDecorationTypeMansion = 14;
+  MapDecorationTypeMonument = 15;
+  MapDecorationTypeNoDraw = 16;
+  MapDecorationTypeVillageDesert = 17;
+  MapDecorationTypeVillagePlains = 18;
+  MapDecorationTypeVillageSavanna = 19;
+  MapDecorationTypeVillageSnowy = 20;
+  MapDecorationTypeVillageTaiga = 21;
+  MapDecorationTypeJungleTemple = 22;
+  MapDecorationTypeWitchHut = 23;
+}
+
+enum MapObjectTypeEnum {
+  MapObjectTypeEntity = 0;
+  MapObjectTypeBlock = 1;
+}
+
+// MapTrackedObject 是地图上由客户端“跟踪”的对象，例如实体或方块。
+// 该对象可能会移动，这由客户端侧处理。
+//
+// MapTrackedObject is an object on a map that is 'tracked' by the client, such as an entity or a block. This
+// object may move, which is handled client-side.
+//
+// Added: v1.16
+message MapTrackedObject {
+  // Type 是被跟踪对象的类型，可以是 MapObjectTypeEntity 或 MapObjectTypeBlock。
+  //
+  // Type is the type of the tracked object. It is either MapObjectTypeEntity or MapObjectTypeBlock.
+  //
+  // Added: v1.16
+  int32 Type = 1;
+  // EntityUniqueID 是被跟踪对象为实体时的实体唯一 ID。
+  // 如果 Type 不是 MapObjectTypeEntity，则不需要填写。
+  //
+  // EntityUniqueID is the unique ID of the entity, if the tracked object was an entity. It needs not to be
+  // filled out if Type is not MapObjectTypeEntity.
+  //
+  // Added: v1.16
+  int64 EntityUniqueID = 2;
+  // BlockPosition 是被跟踪对象为方块时的方块位置。
+  // 如果 Type 不是 MapObjectTypeBlock，则不需要填写。
+  //
+  // BlockPosition is the position of the block, if the tracked object was a block. It needs not to be
+  // filled out if Type is not MapObjectTypeBlock.
+  //
+  // Added: v1.16
+  .mousetunnel.minecraft.protocol.block_pos.BlockPos BlockPosition = 3;
+}
+
+// MapDecoration 是地图上的固定装饰：其位置或其他属性不会在客户端侧自动变化。
+//
+// MapDecoration is a fixed decoration on a map: Its position or other properties do not change automatically
+// client-side.
+//
+// Added: v1.16
+message MapDecoration {
+  // Type 是地图装饰类型。该类型指定地图装饰获得的形状（有时也指定颜色），
+  // 应为上方 MapDecorationType 常量之一。
+  //
+  // Type is the type of the map decoration. The type specifies the shape (and sometimes the colour) that
+  // the map decoration gets. It is one of the MapDecorationType constants above.
+  //
+  // Added: v1.16
+  // Go type: byte
+  uint32 Type = 1;
+  // Rotation 是地图装饰的旋转。由于地图装饰可面向 16 个固定方向，因此使用 byte。
+  //
+  // Rotation is the rotation of the map decoration. It is byte due to the 16 fixed directions that the
+  // map decoration may face.
+  //
+  // Added: v1.16
+  // Go type: byte
+  uint32 Rotation = 2;
+  // X 是装饰在 X 轴上的像素偏移。
+  //
+  // X is the offset on the X axis in pixels of the decoration.
+  //
+  // Added: v1.16
+  // Go type: byte
+  uint32 X = 3;
+  // Y 是装饰在 Y 轴上的像素偏移。
+  //
+  // Y is the offset on the Y axis in pixels of the decoration.
+  //
+  // Added: v1.16
+  // Go type: byte
+  uint32 Y = 4;
+  // Label 是地图装饰的名称。该名称可以是任意值。
+  //
+  // Label is the name of the map decoration. This name may be of any value.
+  //
+  // Added: v1.16
+  string Label = 5;
+  // Colour 是地图装饰的颜色。某些地图装饰类型会自动设置特定颜色，
+  // 其他类型则可以更改。
+  //
+  // Colour is the colour of the map decoration. Some map decoration types have a specific colour set
+  // automatically, whereas others may be changed.
+  //
+  // Added: v1.16
+  // Go type: color.RGBA
+  bytes Colour = 6;
+}
+
+// PixelRequest 是 MapInfoRequest 数据包中对某个像素颜色的请求。
+//
+// PixelRequest is the request for the colour of a pixel in a MapInfoRequest packet.
+//
+// Added: v1.16
+message PixelRequest {
+  // Colour 是应写入被请求像素的颜色。
+  //
+  // Colour is the colour that should be written to the requested pixel.
+  //
+  // Added: v1.16
+  // Go type: color.RGBA
+  bytes Colour = 1;
+  // Index 是被请求地图纹理中该像素的线性索引。
+  //
+  // Index is the linear index of the pixel in the requested map texture.
+  //
+  // Added: v1.16
+  // Go type: uint16
+  uint32 Index = 2;
+}
+

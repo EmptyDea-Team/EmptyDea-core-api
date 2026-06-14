@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.player_dimension_change_finished_from_server;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// PlayerDimensionChangeFinishedFromServer 同步玩家维度切换完成事件。
+//
+// PlayerDimensionChangeFinishedFromServer syncs player dimension-change-finished events.
+message PlayerDimensionChangeFinishedFromServer {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  PlayerDimensionChangeFinishedData PlayerDimensionChangeFinishedData = 2;
+}
+
+// PlayerDimensionChangeFinishedData 保存小地图死亡点字段。
+//
+// PlayerDimensionChangeFinishedData stores minimap death-position fields.
+message PlayerDimensionChangeFinishedData {
+  // Go type: []float64
+  repeated double DeathPos = 1;
+  bool IsPC = 2;
+}
+

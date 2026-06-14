@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.fields.trial_spawner;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/fields;fields";
+
+import "google/protobuf/struct.proto";
+
+// TrialSpawnerSpawnData 描述试炼刷怪笼中的生成数据字段。
+//
+// TrialSpawnerSpawnData describes the spawn data field in trial spawners.
+message TrialSpawnerSpawnData {
+  // Not used; TAG_String(8)
+  string TypeID = 1;
+  // Not used; TAG_Int(3) = 1
+  int32 Weight = 2;
+  // Not used; TAG_String(8)
+  string EquipmentLootTable = 3;
+}
+
+// TrialSpawnerConfig 描述试炼刷怪笼中的配置字段。
+//
+// TrialSpawnerConfig describes the config field in trial spawners.
+message TrialSpawnerConfig {
+  // Not used; TAG_Float(5) = 2
+  // Go type: float32
+  float SimultaneousMobs = 1;
+  // Not used; TAG_Float(5) = 6
+  // Go type: float32
+  float TotalMobs = 2;
+  // Not used; TAG_Float(5) = 2
+  // Go type: float32
+  float TotalMobsAddedPerPlayer = 3;
+  // Not used; TAG_Float(5) = 1
+  // Go type: float32
+  float SimultaneousMobsAddedPerPlayer = 4;
+  // Not used; TAG_Int(3) = 36000
+  int32 TargetCooldownLength = 5;
+  // Not used; TAG_Int(3) = 20
+  int32 TicksBetweenSpawn = 6;
+  // Not used; TAG_Int(3) = 4
+  int32 SpawnRange = 7;
+  // Not used; TAG_List[TAG_Compound] (9[10])
+  // Go type: []any
+  repeated google.protobuf.Value LootTablesToEject = 8;
+  // Not used; TAG_List[TAG_Compound] (9[10])
+  // Go type: []any
+  repeated google.protobuf.Value SpawnPotentials = 9;
+  // Not used; TAG_String (8) = "loot_tables/spawners/trial_chamber/items_to_drop_when_ominous.json"
+  string ItemsToDropWhenOminous = 10;
+}
+

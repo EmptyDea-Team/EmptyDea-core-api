@@ -1,0 +1,96 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.available_commands;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "command.proto";
+import "packet_options.proto";
+
+// AvailableCommands 由服务器发送，用于发送玩家可在服务器上使用的所有命令列表。
+// 该数据包也包含每个命令的全部参数，使客户端能够提供自动补全和命令用法提示。
+// AvailableCommands 数据包可以重复发送，但它通常很大，因此应避免过于频繁发送。
+//
+// AvailableCommands is sent by the server to send a list of all commands that
+// the player is able to use on the server. This packet holds all the arguments
+// of each commands as well, making it possible for the client to provide
+// auto-completion and command usages. AvailableCommands packets can be resent,
+// but the packet is often very big, so doing this very often should be avoided.
+//
+// Added: v1.12
+message AvailableCommands {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDAvailableCommands;
+  // EnumValues 是 AvailableCommands 数据包中所有枚举的所有枚举值切片。
+  // EnumValues 通常应让每个可能值只出现一次。枚举通过指向该切片中的条目构建。
+  //
+  // EnumValues is a slice of all enum values of any enum in the
+  // AvailableCommands packet. EnumValues generally should contain each
+  // possible value only once. Enums are built by pointing to entries in this
+  // slice.
+  //
+  // Added: v1.12
+  // Go type: []string
+  repeated string EnumValues = 1;
+  // ChainedSubcommandValues 是所有链式子命令名称的切片。它通常应让每个可能值只出现一次。
+  // ChainedSubcommands 通过指向该切片中的条目构建。
+  //
+  // ChainedSubcommandValues is a slice of all chained subcommand names. ChainedSubcommandValues generally should
+  // contain each possible value only once. ChainedSubcommands are built by pointing to entries in this slice.
+  //
+  // Added: v1.20.0
+  // Go type: []string
+  repeated string ChainedSubcommandValues = 2;
+  // Suffixes 与 EnumValues 类似，是 AvailableCommands 数据包中任意命令参数的所有后缀值切片。
+  //
+  // Suffixes, like EnumValues, is a slice of all suffix values of any command
+  // parameter in the AvailableCommands packet.
+  //
+  // Added: v1.12
+  // Go type: []string
+  repeated string Suffixes = 3;
+  // Enums 是所有命令中出现的全部固定命令枚举切片。
+  //
+  // Enums is a slice of all (fixed) command enums present in any of the
+  // commands.
+  //
+  // Added: v1.12
+  // Go type: []protocol.CommandEnum
+  repeated .mousetunnel.minecraft.protocol.command.CommandEnum Enums = 4;
+  // ChainedSubcommands 是后接链式命令的所有子命令切片。
+  // 典型用法是 /execute，它允许以其他实体身份或在不同位置等条件下运行另一个命令。
+  //
+  // ChainedSubcommands is a slice of all subcommands that are followed by a chained command. An example usage of this
+  // is /execute which allows you to run another command as another entity or at a different position etc.
+  //
+  // Added: v1.20.0
+  // Go type: []protocol.ChainedSubcommand
+  repeated .mousetunnel.minecraft.protocol.command.ChainedSubcommand ChainedSubcommands = 5;
+  // Commands 是客户端侧应显示的所有命令列表。AvailableCommands 数据包会替换之前发送的所有命令，
+  // 而不是只追加其中发送的命令。
+  //
+  // Commands is a list of all commands that the client should show
+  // client-side. The AvailableCommands packet replaces any commands sent
+  // before. It does not only add the commands that are sent in it.
+  //
+  // Added: v1.12
+  // Go type: []protocol.Command
+  repeated .mousetunnel.minecraft.protocol.command.Command Commands = 6;
+  // DynamicEnums 是动态命令枚举切片。这些命令枚举可在运行时更改，
+  // 而不必重新发送 AvailableCommands 数据包。
+  //
+  // DynamicEnums is a slice of dynamic command enums. These command enums can
+  // be changed during runtime without having to resend an AvailableCommands
+  // packet.
+  //
+  // Added: v1.12
+  // Go type: []protocol.DynamicEnum
+  repeated .mousetunnel.minecraft.protocol.command.DynamicEnum DynamicEnums = 7;
+  // Constraints 是应应用到上方命令中某些枚举选项的约束列表。
+  //
+  // Constraints is a list of constraints that should be applied to certain
+  // options of enums in the commands above.
+  //
+  // Added: v1.12
+  // Go type: []protocol.CommandEnumConstraint
+  repeated .mousetunnel.minecraft.protocol.command.CommandEnumConstraint Constraints = 8;
+}
+

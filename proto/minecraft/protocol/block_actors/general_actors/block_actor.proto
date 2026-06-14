@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.general_actors.block_actor;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/general_actors;general_actors";
+
+// BlockActor 描述一个方块实体的通用字段。
+//
+// BlockActor describes common fields shared by block actors.
+message BlockActor {
+  // TAG_Byte(1) = 1
+  // Go type: byte
+  uint32 IsMovable = 1;
+  // TAG_String(8) = ""
+  string CustomName = 2;
+  // TAG_String(8) = ""
+  string UserCustomData = 3;
+}
+

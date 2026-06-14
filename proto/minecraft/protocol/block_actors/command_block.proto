@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.command_block;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actors";
+
+import "block_actors/general_actors/block_actor.proto";
+import "google/protobuf/struct.proto";
+
+message CommandBlock {
+  .mousetunnel.minecraft.protocol.block_actors.general_actors.block_actor.BlockActor BlockActor = 1;
+  // TAG_String(8) = ""
+  string Command = 2;
+  // TAG_String(8) = ""
+  string CustomName = 3;
+  // TAG_Byte(1) = 0
+  // Go type: byte
+  uint32 ExecuteOnFirstTick = 4;
+  // TAG_Int(4) = 0
+  int32 LPCommandMode = 5;
+  // TAG_Byte(1) = 0
+  // Go type: byte
+  uint32 LPCondionalMode = 6;
+  // TAG_Byte(1) = 0
+  // Go type: byte
+  uint32 LPRedstoneMode = 7;
+  // TAG_Long(5) = 0
+  int64 LastExecution = 8;
+  // TAG_Byte(8) = ""
+  string LastOutput = 9;
+  // TAG_List[TAG_String] (9[8]) = []
+  // Go type: []any
+  repeated google.protobuf.Value LastOutputParams = 10;
+  // TAG_Int(4) = 0
+  int32 SuccessCount = 11;
+  // TAG_Int(4) = 0
+  int32 TickDelay = 12;
+  // TAG_Byte(1) = 1
+  // Go type: byte
+  uint32 TrackOutput = 13;
+  // TAG_Int(4) = 35
+  int32 Version = 14;
+  // TAG_Byte(1) = 1
+  // Go type: byte
+  uint32 Auto = 15;
+  // TAG_Byte(1) = 0
+  // Go type: byte
+  uint32 ConditionMet = 16;
+  // TAG_Byte(1) = 0
+  // Go type: byte
+  uint32 Powered = 17;
+  // 		Types for command blocks are checked by their names.
+  // 		Whether a command block is conditional is checked through its data value.
+  // 		SINCE IT IS NOT INCLUDED IN NBT DATA!!!
+  //
+  // 		(Wrote by LNSSPsd/Ruphane, added by Happy2018new)
+  // Go type: byte
+  uint32 ConditionalMode = 18;
+}
+

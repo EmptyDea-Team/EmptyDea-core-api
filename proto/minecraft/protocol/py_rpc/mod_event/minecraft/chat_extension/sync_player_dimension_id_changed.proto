@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_extension.sync_player_dimension_id_changed;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_extension;chat_extension";
+
+import "py_rpc/mod_event/minecraft/chat_extension/basic.proto";
+import "py_rpc/mod_event/minecraft/chat_extension/player_add_room.proto";
+
+// SyncPlayerDimensionIDChanged 同步玩家运行时 ID 到维度 ID 的变化。
+//
+// SyncPlayerDimensionIDChanged synchronises runtime ID to dimension ID changes.
+message SyncPlayerDimensionIDChanged {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_extension.basic.Basic Basic = 1;
+  // DimID 保存运行时 ID 到维度 ID 的映射。
+  //
+  // DimID stores the mapping from runtime ID to dimension ID.
+  // Go type: map[RuntimeID]int64
+  map<string, int64> DimID = 2;
+}
+

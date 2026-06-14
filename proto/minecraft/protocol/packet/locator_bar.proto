@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.locator_bar;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+import "waypoint.proto";
+
+// LocatorBar 由服务器发送，用于在客户端定位栏上添加、移除或更新路径点。
+//
+// LocatorBar is sent by the server to add, remove or update waypoints on the client's locator bar.
+//
+// Added: v1.26.10
+message LocatorBar {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDLocatorBar;
+  // Waypoints 是要添加、移除或更新的路径点切片。
+  //
+  // Waypoints is a slice of waypoints to add, remove or update.
+  //
+  // Added: v1.26.10
+  // Go type: []protocol.LocatorBarWaypoint
+  repeated .mousetunnel.minecraft.protocol.waypoint.LocatorBarWaypoint Waypoints = 1;
+}
+

@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.jigsaw_block;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actors";
+
+import "block_actors/general_actors/block_actor.proto";
+
+// JigsawBlock 描述拼图方块实体。
+//
+// JigsawBlock describes the jigsaw block actor.
+message JigsawBlock {
+  .mousetunnel.minecraft.protocol.block_actors.general_actors.block_actor.BlockActor BlockActor = 1;
+  // TAG_String(8) = "minecraft:air"
+  string FinalState = 2;
+  // TAG_String(8) = "rollable"
+  string Joint = 3;
+  // TAG_String(8) = "minecraft:empty"
+  string Name = 4;
+  // Not used; TAG_Int(4) = 0
+  int32 PlacementPriority = 5;
+  // Not used; TAG_Int(4) = 0
+  int32 SelectionPriority = 6;
+  // TAG_String(8) = "minecraft:empty"
+  string Target = 7;
+  // TAG_String(8) = "minecraft:empty"
+  string TargetPool = 8;
+}
+

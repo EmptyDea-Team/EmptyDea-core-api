@@ -1,0 +1,319 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.player_auth_input;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "bitset.proto";
+import "inventory.proto";
+import "item_stack.proto";
+import "mgl32.proto";
+import "packet_options.proto";
+import "player.proto";
+
+enum InputFlagEnum {
+  InputFlagAscend = 0;
+  InputFlagDescend = 1;
+  InputFlagNorthJump = 2;
+  InputFlagJumpDown = 3;
+  InputFlagSprintDown = 4;
+  InputFlagChangeHeight = 5;
+  InputFlagJumping = 6;
+  InputFlagAutoJumpingInWater = 7;
+  InputFlagSneaking = 8;
+  InputFlagSneakDown = 9;
+  InputFlagUp = 10;
+  InputFlagDown = 11;
+  InputFlagLeft = 12;
+  InputFlagRight = 13;
+  InputFlagUpLeft = 14;
+  InputFlagUpRight = 15;
+  InputFlagWantUp = 16;
+  InputFlagWantDown = 17;
+  InputFlagWantDownSlow = 18;
+  InputFlagWantUpSlow = 19;
+  InputFlagSprinting = 20;
+  InputFlagAscendBlock = 21;
+  InputFlagDescendBlock = 22;
+  InputFlagSneakToggleDown = 23;
+  InputFlagPersistSneak = 24;
+  InputFlagStartSprinting = 25;
+  InputFlagStopSprinting = 26;
+  InputFlagStartSneaking = 27;
+  InputFlagStopSneaking = 28;
+  InputFlagStartSwimming = 29;
+  InputFlagStopSwimming = 30;
+  InputFlagStartJumping = 31;
+  InputFlagStartGliding = 32;
+  InputFlagStopGliding = 33;
+  InputFlagPerformItemInteraction = 34;
+  InputFlagPerformBlockActions = 35;
+  InputFlagPerformItemStackRequest = 36;
+  InputFlagHandledTeleport = 37;
+  InputFlagEmoting = 38;
+  InputFlagMissedSwing = 39;
+  InputFlagStartCrawling = 40;
+  InputFlagStopCrawling = 41;
+  InputFlagStartFlying = 42;
+  InputFlagStopFlying = 43;
+  InputFlagClientAckServerData = 44;
+  InputFlagClientPredictedVehicle = 45;
+  InputFlagPaddlingLeft = 46;
+  InputFlagPaddlingRight = 47;
+  InputFlagBlockBreakingDelayEnabled = 48;
+  InputFlagHorizontalCollision = 49;
+  InputFlagVerticalCollision = 50;
+  InputFlagDownLeft = 51;
+  InputFlagDownRight = 52;
+  InputFlagStartUsingItem = 53;
+  InputFlagCameraRelativeMovementEnabled = 54;
+  InputFlagRotControlledByMoveDirection = 55;
+  InputFlagStartSpinAttack = 56;
+  InputFlagStopSpinAttack = 57;
+  InputFlagIsHotbarTouchOnly = 58;
+  InputFlagJumpReleasedRaw = 59;
+  InputFlagJumpPressedRaw = 60;
+  InputFlagJumpCurrentRaw = 61;
+  InputFlagSneakReleasedRaw = 62;
+  InputFlagSneakPressedRaw = 63;
+  InputFlagSneakCurrentRaw = 64;
+}
+
+enum InputModeEnum {
+  INPUTMODEENUM_UNSPECIFIED = 0;
+  InputModeMouse = 1;
+  InputModeTouch = 2;
+  InputModeGamePad = 3;
+}
+
+enum PlayModeEnum {
+  PlayModeNormal = 0;
+  PlayModeTeaser = 1;
+  PlayModeScreen = 2;
+  PlayModeViewer = 3;
+  PlayModeReality = 4;
+  PlayModeExitLevel = 8;
+  PlayModeNumModes = 10;
+}
+
+enum InteractionModelEnum {
+  InteractionModelTouch = 0;
+  InteractionModelCrosshair = 1;
+  InteractionModelClassic = 2;
+}
+
+// PlayerAuthInput 由客户端发送，用于支持服务器权威移动。
+// 它用于将玩家输入与服务器侧位置同步。当 StartGame 数据包中的
+// ServerAuthoritativeMovementMode 字段设为 true 时，客户端会每刻发送一次该数据包，
+// 而不是发送 MovePlayer 数据包。
+//
+// PlayerAuthInput is sent by the client to allow for server authoritative movement. It is used to synchronise
+// the player input with the position server-side.
+// The client sends this packet when the ServerAuthoritativeMovementMode field in the StartGame packet is set
+// to true, instead of the MovePlayer packet. The client will send this packet once every tick.
+//
+// Added: v1.13
+message PlayerAuthInput {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDPlayerAuthInput;
+  // Pitch 和 Yaw 保存玩家报告的旋转。
+  //
+  // Pitch and Yaw hold the rotation that the player reports it has.
+  // Go type: float32
+  float Pitch = 1;
+  // Pitch 和 Yaw 保存玩家报告的旋转。
+  //
+  // Pitch and Yaw hold the rotation that the player reports it has.
+  // Go type: float32
+  float Yaw = 2;
+  // Position 保存玩家报告的位置。
+  //
+  // Position holds the position that the player reports it has.
+  //
+  // Added: v1.13
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 Position = 3;
+  // MoveVector 是一个 Vec2，用 X/Z 值组合指定玩家移动方向，
+  // 这些值由 WASD 或控制器摇杆状态产生。
+  //
+  // MoveVector is a Vec2 that specifies the direction in which the player moved, as a combination of X/Z
+  // values which are created using the WASD/controller stick state.
+  //
+  // Added: v1.13
+  // Go type: mgl32.Vec2
+  .mousetunnel.minecraft.protocol.mgl32.Vec2 MoveVector = 4;
+  // HeadYaw 是玩家报告的头部水平旋转。
+  //
+  // HeadYaw is the horizontal rotation of the head that the player reports it has.
+  //
+  // Added: v1.13
+  // Go type: float32
+  float HeadYaw = 5;
+  // InputData 是一组位标志组合，共同指定玩家上一刻的移动方式。
+  // 它由上方标志组合而成。
+  //
+  // InputData is a combination of bit flags that together specify the way the player moved last tick. It
+  // is a combination of the flags above.
+  //
+  // Added: v1.13
+  // Changed: v1.21.50, represented using protocol.Bitset instead of a raw integer bitfield.
+  .mousetunnel.minecraft.protocol.bitset.Bitset InputData = 6;
+  // InputMode 指定客户端向屏幕输入数据的方式，应为上方常量之一。
+  //
+  // InputMode specifies the way that the client inputs data to the screen. It is one of the constants that
+  // may be found above.
+  //
+  // Added: v1.13
+  uint32 InputMode = 7;
+  // PlayMode 指定玩家的游玩方式。它保存的值比较零散，可见上方常量。
+  //
+  // PlayMode specifies the way that the player is playing. The values it holds, which are rather random,
+  // may be found above.
+  //
+  // Added: v1.13
+  uint32 PlayMode = 8;
+  // InteractionModel 是表示玩家所用交互模型的常量，应为上方常量之一。
+  //
+  // InteractionModel is a constant representing the interaction model the player is using. It is one of the
+  // constants that may be found above.
+  //
+  // Added: v1.20.80
+  uint32 InteractionModel = 9;
+  // InteractPitch 和 InteractYaw 是玩家准备用于交互的视角旋转。
+  // 它们只会在 VR 或使用自定义相机等情况下不同于 Pitch 和 Yaw。
+  //
+  // InteractPitch and interactYaw is the rotation the player is looking that they intend to use for
+  // interactions. This is only different to Pitch and Yaw in cases such as VR or when custom cameras
+  // being used.
+  //
+  // Added: v1.21.40
+  // Go type: float32
+  float InteractPitch = 10;
+  // InteractPitch 和 InteractYaw 是玩家准备用于交互的视角旋转。
+  // 它们只会在 VR 或使用自定义相机等情况下不同于 Pitch 和 Yaw。
+  //
+  // InteractPitch and interactYaw is the rotation the player is looking that they intend to use for
+  // interactions. This is only different to Pitch and Yaw in cases such as VR or when custom cameras
+  // being used.
+  //
+  // Added: v1.21.40
+  // Go type: float32
+  float InteractYaw = 11;
+  // Tick 是发送该数据包时的服务器刻，它与 CorrectPlayerMovePrediction 相关联使用。
+  //
+  // Tick is the server tick at which the packet was sent. It is used in relation to
+  // CorrectPlayerMovePrediction.
+  //
+  // Added: v1.16.100
+  uint64 Tick = 12;
+  // Delta 是旧位置与新位置之间的差值。该字段没有实际用途，
+  // 因为服务器可以自行计算它。
+  //
+  // Delta was the delta between the old and the new position. There isn't any practical use for this field
+  // as it can be calculated by the server itself.
+  //
+  // Added: v1.16.100
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 Delta = 13;
+  // ItemInteractionData 是 InputData 包含物品交互时的交易数据。
+  //
+  // ItemInteractionData is the transaction data if the InputData includes an item interaction.
+  //
+  // Added: v1.16.210
+  .mousetunnel.minecraft.protocol.inventory.UseItemTransactionData ItemInteractionData = 14;
+  // ItemStackRequest 由客户端发送，用于更改其物品栏中的物品。
+  //
+  // ItemStackRequest is sent by the client to change an item in their inventory.
+  //
+  // Added: v1.16.210
+  .mousetunnel.minecraft.protocol.item_stack.ItemStackRequest ItemStackRequest = 15;
+  // BlockActions 是客户端交互过的方块动作切片。
+  //
+  // BlockActions is a slice of block actions that the client has interacted with.
+  //
+  // Added: v1.16.210
+  // Go type: []protocol.PlayerBlockAction
+  repeated .mousetunnel.minecraft.protocol.player.PlayerBlockAction BlockActions = 16;
+  // VehicleRotation 是玩家所在载具的旋转，如果存在的话。
+  //
+  // VehicleRotation is the rotation of the vehicle that the player is in, if any.
+  //
+  // Added: v1.20.70
+  // Go type: mgl32.Vec2
+  .mousetunnel.minecraft.protocol.mgl32.Vec2 VehicleRotation = 17;
+  // ClientPredictedVehicle 是客户端预测玩家所在载具的唯一 ID。
+  //
+  // ClientPredictedVehicle is the unique ID of the vehicle that the client predicts the player to be in.
+  //
+  // Added: v1.20.60
+  int64 ClientPredictedVehicle = 18;
+  // AnalogueMoveVector 是一个 Vec2，用模拟输入产生的 X/Z 值组合指定玩家移动方向。
+  //
+  // AnalogueMoveVector is a Vec2 that specifies the direction in which the player moved, as a combination
+  // of X/Z values which are created using an analogue input.
+  //
+  // Added: v1.19.70.24
+  // Go type: mgl32.Vec2
+  .mousetunnel.minecraft.protocol.mgl32.Vec2 AnalogueMoveVector = 19;
+  // CameraOrientation 是表示相机前方向的向量，可用于将移动转换为相机相对移动。
+  //
+  // CameraOrientation is the vector that represents the camera's forward direction which can be used to
+  // transform movement to be camera relative.
+  //
+  // Added: v1.21.50
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 CameraOrientation = 20;
+  // RawMoveVector 是 MoveVector 在受到输入权限、潜行/飞行速度影响之前的值，
+  // 并且不会针对模拟输入归一化。
+  //
+  // RawMoveVector is the value of MoveVector before it is affected by input permissions, sneaking/fly
+  // speeds and isn't normalised for analogue inputs.
+  //
+  // Added: v1.21.50
+  // Go type: mgl32.Vec2
+  .mousetunnel.minecraft.protocol.mgl32.Vec2 RawMoveVector = 21;
+  // NetEaseUnknown1 是网易额外的玩家认证输入字段。
+  //
+  // NetEaseUnknown1 is an extra NetEase player auth input field.
+  //
+  // Added: NetEase.
+  // Go type: float32
+  float NetEaseUnknown1 = 22;
+  // NetEaseUnknown2 是网易额外的玩家认证输入字段。
+  //
+  // NetEaseUnknown2 is an extra NetEase player auth input field.
+  //
+  // Added: NetEase.
+  // Go type: float32
+  float NetEaseUnknown2 = 23;
+  // NetEaseUnknown3 是网易额外的玩家认证输入字段。
+  //
+  // NetEaseUnknown3 is an extra NetEase player auth input field.
+  //
+  // Added: NetEase.
+  bool NetEaseUnknown3 = 24;
+  // NetEaseUnknown4 是网易额外的玩家认证输入字段。
+  //
+  // NetEaseUnknown4 is an extra NetEase player auth input field.
+  //
+  // Added: NetEase.
+  bool NetEaseUnknown4 = 25;
+  // NetEaseUnknown5 是网易额外的玩家认证输入字段。
+  //
+  // NetEaseUnknown5 is an extra NetEase player auth input field.
+  //
+  // Added: NetEase.
+  bool NetEaseUnknown5 = 26;
+  // NetEaseUnknown6 是网易额外的玩家认证输入字段。
+  //
+  // NetEaseUnknown6 is an extra NetEase player auth input field.
+  //
+  // Added: NetEase.
+  bool NetEaseUnknown6 = 27;
+  // NetEaseUnknown7 是网易额外的玩家认证输入字段，按 ByteFloat 编码。
+  //
+  // NetEaseUnknown7 is an extra NetEase player auth input field encoded as ByteFloat.
+  //
+  // Added: NetEase.
+  // Go type: float32
+  float NetEaseUnknown7 = 28;
+}
+

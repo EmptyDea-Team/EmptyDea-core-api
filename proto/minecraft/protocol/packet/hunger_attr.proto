@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.hunger_attr;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// HungerAttr 是网易饥饿属性数据包。
+//
+// HungerAttr is a NetEase hunger attribute packet.
+//
+// Added: NetEase.
+message HungerAttr {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDHungerAttr;
+  // Go type: []byte
+  bytes Data = 1;
+}
+

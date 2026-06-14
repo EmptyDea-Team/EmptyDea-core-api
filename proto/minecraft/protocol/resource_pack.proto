@@ -1,0 +1,178 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.resource_pack;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+import "google/protobuf/struct.proto";
+
+enum PackSettingTypeEnum {
+  PackSettingTypeFloat = 0;
+  PackSettingTypeBool = 1;
+  PackSettingTypeString = 2;
+}
+
+// TexturePackInfo 表示通过网络发送的材质包信息。
+// 它保存材质包的名称、描述和版本等信息。
+//
+// TexturePackInfo represents a texture pack's info sent over network. It holds information about the
+// texture pack such as its name, description and version.
+//
+// Added: v1.16.200
+message TexturePackInfo {
+  // UUID 是材质包的 UUID。每个下载的材质包都必须有不同 UUID，
+  // 以便客户端能够正确处理它们。
+  //
+  // UUID is the UUID of the texture pack. Each texture pack downloaded must have a different UUID in
+  // order for the client to be able to handle them properly.
+  //
+  // Added: v1.16.200
+  // Go type: uuid.UUID
+  string UUID = 1;
+  // Version 是材质包版本。只要服务器发送的材质包携带相同版本，
+  // 客户端就会缓存它们；发送与此前不同版本的材质包会强制客户端重新下载。
+  //
+  // Version is the version of the texture pack. The client will cache texture packs sent by the server as
+  // long as they carry the same version. Sending a texture pack with a different version than previously
+  // will force the client to re-download it.
+  //
+  // Added: v1.16.200
+  string Version = 2;
+  // Size 是材质包占用的总字节数，即材质包压缩归档（zip）的大小。
+  //
+  // Size is the total size in bytes that the texture pack occupies. This is the size of the compressed
+  // archive (zip) of the texture pack.
+  //
+  // Added: v1.16.200
+  uint64 Size = 3;
+  // ContentKey 是行为包加密时用于解密的密钥，市场材质包通常会使用该字段。
+  //
+  // ContentKey is the key used to decrypt the behaviour pack if it is encrypted. This is generally the case
+  // for marketplace texture packs.
+  //
+  // Added: v1.16.200
+  string ContentKey = 4;
+  // SubPackName 是材质包内选中的子包名称，如果存在的话。
+  //
+  // SubPackName is the selected sub-pack name inside the texture pack, if any.
+  //
+  // Added: v1.16.200
+  string SubPackName = 5;
+  // ContentIdentity 是资源包的另一个 UUID，通常为市场材质包设置。
+  // 当资源包被加密时，客户端侧验证也需要它。
+  //
+  // ContentIdentity is another UUID for the resource pack, and is generally set for marketplace texture
+  // packs. It is also required for client-side validations when the resource pack is encrypted.
+  //
+  // Added: v1.6.0.5
+  string ContentIdentity = 6;
+  // HasScripts 指定材质包是否包含脚本。只有支持脚本的客户端才会下载该行为包；
+  // 截至 1.11，这只包括 Windows 10。
+  //
+  // HasScripts specifies if the texture packs has any scripts in it. A client will only download the
+  // behaviour pack if it supports scripts, which, up to 1.11, only includes Windows 10.
+  //
+  // Added: v1.9.0
+  bool HasScripts = 7;
+  // AddonPack 指定该材质包是否来自附加包。
+  //
+  // AddonPack specifies if the texture pack is from an addon.
+  //
+  // Added: v1.16.200
+  bool AddonPack = 8;
+  // RTXEnabled 指定该材质包是否使用 1.16.200 引入的光线追踪技术。
+  //
+  // RTXEnabled specifies if the texture pack uses the raytracing technology introduced in 1.16.200.
+  //
+  // Added: v1.16.200
+  bool RTXEnabled = 9;
+  // DownloadURL 是客户端可用于下载包的 URL，替代服务器按块发送。
+  // 如果该字段留空，服务器会继续按块发送。
+  //
+  // DownloadURL is a URL that the client can use to download the pack instead of the server sending it in
+  // chunks, which it will continue to do if this field is left empty.
+  //
+  // Added: v1.16.200
+  string DownloadURL = 10;
+}
+
+// StackResourcePack 表示发送到客户端包栈上的资源包。
+// 发送后，客户端会按发送的包栈顺序应用它们。
+//
+// StackResourcePack represents a resource pack sent on the stack of the client. When sent, the client will
+// apply them in the order of the stack sent.
+//
+// Added: v1.13.0
+message StackResourcePack {
+  // UUID 是资源包的 UUID。每个下载的资源包都必须有不同 UUID，
+  // 以便客户端能够正确处理它们。
+  //
+  // UUID is the UUID of the resource pack. Each resource pack downloaded must have a different UUID in
+  // order for the client to be able to handle them properly.
+  //
+  // Added: v1.13.0
+  string UUID = 1;
+  // Version 是资源包版本。只要服务器发送的资源包携带相同版本，
+  // 客户端就会缓存它们；发送与此前不同版本的资源包会强制客户端重新下载。
+  //
+  // Version is the version of the resource pack. The client will cache resource packs sent by the server as
+  // long as they carry the same version. Sending a resource pack with a different version than previously
+  // will force the client to re-download it.
+  //
+  // Added: v1.13.0
+  string Version = 2;
+  // SubPackName 是资源包内选中的子包名称。
+  //
+  // SubPackName is the name of the selected sub-pack within the resource pack.
+  //
+  // Added: v1.13.0
+  string SubPackName = 3;
+}
+
+// PackURL 表示通过 HTTP 服务器提供的资源包，而不是通过 Minecraft 协议发送的资源包。
+//
+// PackURL represents a resource pack that is being served from a HTTP server rather than being sent over
+// the Minecraft protocol.
+//
+// Added: v1.20.30
+message PackURL {
+  // UUIDVersion 是资源包 UUID 和版本的组合，格式为 UUID_Version。
+  // 只有当客户端缓存中没有该资源包时，才会尝试下载它。
+  //
+  // UUIDVersion is a combination of the UUID and version of the resource pack in the format UUID_Version.
+  // The client will only attempt to download the resource pack if it does not already have it cached.
+  //
+  // Added: v1.20.30
+  string UUIDVersion = 1;
+  // URL 是下载资源包的 URL。该 URL 必须提供一个 zip 文件，
+  // 文件中要在另一个文件夹内包含 manifest.json；manifest 不能位于 zip 根目录。
+  //
+  // URL is the URL from which the resource pack is downloaded. This URL must serve a zip file containing
+  // a manifest.json file inside another folder. The manifest cannot be in the root of the zip file.
+  //
+  // Added: v1.20.30
+  string URL = 2;
+}
+
+// PackSetting 表示包设置 UI 中的单个设置。
+// 它保存被更改设置的信息，包括名称和新值。
+//
+// PackSetting represents a single setting from the pack settings UI. It holds information
+// about the setting that was changed, including its name and the new value.
+//
+// Added: v1.21.111
+message PackSetting {
+  // Name 是包设置的名称。
+  //
+  // Name is the name of the pack setting.
+  //
+  // Added: v1.21.111
+  string Name = 1;
+  // Value 是设置的新值，可以是 float32、bool 或 string。
+  //
+  // Value is the new value of the setting. This is either a float32, bool or string.
+  //
+  // Added: v1.21.111
+  // Go type: any
+  google.protobuf.Value Value = 2;
+}
+

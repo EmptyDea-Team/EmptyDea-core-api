@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.set_dimension_local_time;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// SetDimensionLocalTime 是网易维度本地时间数据包。
+//
+// SetDimensionLocalTime is a NetEase local dimension time packet.
+//
+// Added: NetEase.
+message SetDimensionLocalTime {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDSetDimensionLocalTime;
+  // Go type: []byte
+  bytes Unknown3 = 1;
+}
+

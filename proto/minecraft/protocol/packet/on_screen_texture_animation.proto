@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.on_screen_texture_animation;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// OnScreenTextureAnimation 由服务器发送，用于在玩家屏幕上显示特定动画。
+// 例如触发袭击或袭击被击败时会使用该数据包。
+//
+// OnScreenTextureAnimation is sent by the server to show a certain animation on the screen of the player.
+// The packet is used, as an example, for when a raid is triggered and when a raid is defeated.
+//
+// Added: v1.16.100
+message OnScreenTextureAnimation {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDOnScreenTextureAnimation;
+  // AnimationType 是要显示的动画类型。该数据包不提供额外数据来修改动画时长或其他属性。
+  //
+  // AnimationType is the type of the animation to show. The packet provides no further extra data to allow
+  // modifying the duration or other properties of the animation.
+  //
+  // Added: v1.16.100
+  uint32 AnimationType = 1;
+}
+

@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.education;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+// EducationSharedResourceURI 是教育版功能，用于向客户端传输教育资源设置。
+// 它包含按钮名称和链接 URL。
+//
+// EducationSharedResourceURI is an education edition feature that is used for transmitting
+// education resource settings to clients. It contains a button name and a link URL.
+//
+// Added: v1.17.30
+message EducationSharedResourceURI {
+  // ButtonName 是资源 URI 的按钮名称。
+  //
+  // ButtonName is the button name of the resource URI.
+  //
+  // Added: v1.17.30
+  string ButtonName = 1;
+  // LinkURI 是资源 URI 的链接地址。
+  //
+  // LinkURI is the link URI for the resource URI.
+  //
+  // Added: v1.17.30
+  string LinkURI = 2;
+}
+
+// EducationExternalLinkSettings 保存教育版 UI 中显示的外部链接元数据。
+//
+// EducationExternalLinkSettings holds the external link metadata shown in Education Edition UI.
+//
+// Added: v1.17.30
+message EducationExternalLinkSettings {
+  // URL 是外部链接地址。
+  //
+  // URL is the external link URL.
+  //
+  // Added: v1.17.30
+  string URL = 1;
+  // DisplayName 是游戏内显示名称。
+  //
+  // DisplayName is the display name in game.
+  //
+  // Added: v1.17.30
+  string DisplayName = 2;
+}
+

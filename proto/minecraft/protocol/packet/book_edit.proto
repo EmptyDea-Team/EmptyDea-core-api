@@ -1,0 +1,101 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.book_edit;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+enum BookActionEnum {
+  BookActionReplacePage = 0;
+  BookActionAddPage = 1;
+  BookActionDeletePage = 2;
+  BookActionSwapPages = 3;
+  BookActionSign = 4;
+}
+
+// BookEdit 由客户端在编辑书时发送。每次书被修改且玩家停止当前输入“会话”时都会发送，
+// 而不是只在关闭书后发送。
+//
+// BookEdit is sent by the client when it edits a book. It is sent each time a modification was made and the
+// player stops its typing 'session', rather than simply after closing the book.
+//
+// Added: v1.12
+message BookEdit {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDBookEdit;
+  // InventorySlot 是被编辑书所在的槽位。通常服务器应检查该槽位是否与玩家手持物品槽位匹配。
+  //
+  // InventorySlot is the slot in which the book that was edited may be found. Typically, the server should
+  // check if this slot matches the held item slot of the player.
+  //
+  // Added: v1.12
+  // Changed: v1.26.0, moved before ActionType and encoded as a varint instead of a byte.
+  int32 InventorySlot = 1;
+  // ActionType 是书本编辑动作类型。获得的数据取决于该类型，
+  // 动作类型应为上方常量之一。
+  //
+  // ActionType is the type of the book edit action. The data obtained depends on what type this is. The
+  // action type is one of the constants above.
+  //
+  // Added: v1.12
+  // Changed: v1.26.0, encoded as a varuint32 after InventorySlot instead of a leading byte.
+  uint32 ActionType = 2;
+  // PageNumber 是该书本编辑动作涉及的页码。除 BookActionSign 外所有动作都会使用它；
+  // 在 BookActionSwapPages 中，它是被交换的其中一页。
+  //
+  // PageNumber is the number of the page that the book edit action concerns. It applies for all actions
+  // but the BookActionSign. In BookActionSwapPages, it is one of the pages that was swapped.
+  //
+  // Added: v1.12
+  // Changed: v1.26.0, encoded as a varint instead of a byte.
+  int32 PageNumber = 3;
+  // SecondaryPageNumber 是该动作涉及的第二个页码。只有 BookActionSwapPages 动作会设置它，
+  // 此时它表示被交换的另一页。
+  //
+  // SecondaryPageNumber is the page number of the second page that the action concerned. It is only set for
+  // the BookActionSwapPages action, in which case it is the other page that is swapped.
+  //
+  // Added: v1.12
+  // Changed: v1.26.0, encoded as a varint instead of a byte.
+  int32 SecondaryPageNumber = 4;
+  // Text 是写入书中某一页的文本。它只适用于 BookActionAddPage 和 BookActionReplacePage。
+  //
+  // Text is the text that was written in a particular page of the book. It applies for the
+  // BookActionAddPage and BookActionReplacePage only.
+  //
+  // Added: v1.12
+  string Text = 5;
+  // PhotoName 是书中该页照片的名称。它只适用于 BookActionAddPage 和 BookActionReplacePage。
+  // 遗憾的是，该字段的功能已从默认 Minecraft 基岩版中移除，但教育版仍可使用。
+  //
+  // PhotoName is the name of the photo on the page in the book. It applies for the BookActionAddPage and
+  // BookActionReplacePage only.
+  // Unfortunately, the functionality of this field was removed from the default Minecraft Bedrock Edition.
+  // It is still available on Education Edition.
+  //
+  // Added: v1.12
+  string PhotoName = 6;
+  // Title 是玩家为书设置的标题。它只适用于 BookActionSign 动作。
+  //
+  // Title is the title that the player has given the book. It applies only for the BookActionSign action.
+  //
+  // Added: v1.12
+  string Title = 7;
+  // Author 是玩家为书设置的作者。它只适用于 BookActionSign 动作。
+  // 注意作者可被自由更改，因此不能假设作者一定是某个玩家的名称。
+  //
+  // Author is the author that the player has given the book. It applies only for the BookActionSign action.
+  // Note that the author may be freely changed, so no assumptions can be made on if the author is actually
+  // the name of a player.
+  //
+  // Added: v1.12
+  string Author = 8;
+  // XUID 是编辑该书的玩家的 XBOX Live 用户 ID。该字段意义不大，
+  // 因为服务器本来就已经知道玩家的 XUID。
+  //
+  // XUID is the XBOX Live User ID of the player that edited the book. The field is rather pointless, as the
+  // server is already aware of the XUID of the player anyway.
+  //
+  // Added: v1.12
+  string XUID = 9;
+}
+

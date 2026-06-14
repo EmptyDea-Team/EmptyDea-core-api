@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.agent_animation;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// AgentAnimation 是教育版数据包，由服务器发送给客户端，用于让 agent 执行动画。
+//
+// AgentAnimation is an Education Edition packet sent from the server to the client to make an agent perform an animation.
+//
+// Added: v1.20.0
+message AgentAnimation {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDAgentAnimation;
+  // Animation 是 agent 应执行的动画 ID。按当前实现，普通客户端中没有可用的 ID。
+  //
+  // Animation is the ID of the animation that the agent should perform. As of its implementation, there are no IDs
+  // that can be used in the regular client.
+  //
+  // Added: v1.20.0
+  // Go type: byte
+  uint32 Animation = 1;
+  // EntityRuntimeID 是实体的运行时 ID。运行时 ID 在每个世界会话中唯一，
+  // 数据包通常使用该运行时 ID 标识实体。
+  //
+  // EntityRuntimeID is the runtime ID of the entity. The runtime ID is unique for each world session, and
+  // entities are generally identified in packets using this runtime ID.
+  //
+  // Added: v1.20.0
+  uint64 EntityRuntimeID = 2;
+}
+

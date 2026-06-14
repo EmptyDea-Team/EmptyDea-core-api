@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.serverbound_data_store;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "data_store.proto";
+import "packet_options.proto";
+
+// ServerBoundDataStore 由客户端发送，用于更新服务器上的数据存储属性。
+//
+// ServerBoundDataStore is sent by the client to update a data store property on the server.
+//
+// Added: v1.26.10
+message ServerBoundDataStore {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDServerBoundDataStore;
+  // Update 包含数据存储更新内容。
+  //
+  // Update contains the data store update.
+  //
+  // Added: v1.26.10
+  .mousetunnel.minecraft.protocol.data_store.DataStoreUpdate Update = 1;
+}
+

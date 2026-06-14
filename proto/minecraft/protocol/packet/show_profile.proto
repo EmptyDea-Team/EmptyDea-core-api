@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.show_profile;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// ShowProfile 由服务器发送，用于向一个玩家展示另一个玩家的 XBOX Live 档案。
+//
+// ShowProfile is sent by the server to show the XBOX Live profile of one player to another.
+//
+// Added: v1.12
+message ShowProfile {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDShowProfile;
+  // XUID 是应向玩家展示其档案的玩家的 XBOX Live 用户 ID。如果它不是有效的 XUID，客户端会忽略该数据包。
+  //
+  // XUID is the XBOX Live User ID of the player whose profile should be shown to the player. If it is not
+  // a valid XUID, the client ignores the packet.
+  //
+  // Added: v1.12
+  string XUID = 1;
+}
+

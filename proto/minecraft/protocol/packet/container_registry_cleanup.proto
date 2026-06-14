@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.container_registry_cleanup;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "container.proto";
+import "packet_options.proto";
+
+// ContainerRegistryCleanup 由服务器发送，用于触发客户端侧动态容器注册表清理。
+//
+// ContainerRegistryCleanup is sent by the server to trigger a client-side cleanup of the dynamic container
+// registry.
+//
+// Added: v1.21.30
+message ContainerRegistryCleanup {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDContainerRegistryCleanup;
+  // RemovedContainers 是应从客户端侧容器注册表移除的 protocol.FullContainerName 列表。
+  //
+  // RemovedContainers is a list of protocol.FullContainerName's that should be removed from the client-side
+  // container registry.
+  //
+  // Added: v1.21.30
+  // Go type: []protocol.FullContainerName
+  repeated .mousetunnel.minecraft.protocol.container.FullContainerName RemovedContainers = 1;
+}
+

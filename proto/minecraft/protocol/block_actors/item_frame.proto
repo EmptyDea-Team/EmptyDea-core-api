@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.item_frame;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actors";
+
+import "block_actors/general_actors/item_frame_block_actor.proto";
+
+// ItemFrame 描述物品展示框方块实体。
+//
+// ItemFrame describes the item frame block actor.
+message ItemFrame {
+  .mousetunnel.minecraft.protocol.block_actors.general_actors.item_frame_block_actor.ItemFrameBlockActor ItemFrameBlockActor = 1;
+}
+

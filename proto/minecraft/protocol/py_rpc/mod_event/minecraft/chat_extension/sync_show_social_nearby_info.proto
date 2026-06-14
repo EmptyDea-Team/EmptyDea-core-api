@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_extension.sync_show_social_nearby_info;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_extension;chat_extension";
+
+import "py_rpc/mod_event/minecraft/chat_extension/basic.proto";
+
+// SyncShowSocialNearbyInfo 同步附近社交信息显示状态。
+//
+// SyncShowSocialNearbyInfo synchronises the social-nearby display state.
+message SyncShowSocialNearbyInfo {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_extension.basic.Basic Basic = 1;
+  // ShowSocialNearby 表示是否显示附近社交信息。
+  //
+  // ShowSocialNearby indicates whether social-nearby information should be shown.
+  bool ShowSocialNearby = 2;
+}
+

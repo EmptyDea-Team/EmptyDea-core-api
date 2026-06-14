@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.notify_stop_music_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// NotifyStopMusicEvent 请求服务器广播宠物停止音乐。
+//
+// NotifyStopMusicEvent asks the server to broadcast stopping pet music.
+message NotifyStopMusicEvent {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  NotifyStopMusicData NotifyStopMusicData = 2;
+}
+
+// NotifyStopMusicData 保存宠物音乐事件字段。
+//
+// NotifyStopMusicData stores pet music event fields.
+message NotifyStopMusicData {
+  string PetID = 1;
+  int64 MusicID = 2;
+}
+

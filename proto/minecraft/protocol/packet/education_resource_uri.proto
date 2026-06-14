@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.education_resource_uri;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "education.proto";
+import "packet_options.proto";
+
+// EducationResourceURI 是向所有客户端传输教育版资源设置的数据包。
+//
+// EducationResourceURI is a packet that transmits education resource settings to all clients.
+//
+// Added: v1.17.30
+message EducationResourceURI {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDEducationResourceURI;
+  // Resource 是被引用的资源。
+  //
+  // Resource is the resource that is being referenced.
+  //
+  // Added: v1.17.30
+  .mousetunnel.minecraft.protocol.education.EducationSharedResourceURI Resource = 1;
+}
+

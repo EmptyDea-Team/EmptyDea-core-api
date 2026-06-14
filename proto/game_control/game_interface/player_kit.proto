@@ -1,0 +1,144 @@
+syntax = "proto3";
+
+package emptydea.game_control.game_interface;
+
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pb";
+
+import "game_control/common.proto";
+import "game_control/resources_control/uqholder.proto";
+
+// GetPlayerByNameRequest 是按玩家名称查询玩家的请求。
+message GetPlayerByNameRequest {
+  // Name 是玩家名称。
+  string Name = 1;
+}
+
+// GetPlayerByUUIDRequest 是按玩家 UUID 字符串查询玩家的请求。
+message GetPlayerByUUIDRequest {
+  // UUID 是玩家 UUID 字符串。
+  string UUID = 1;
+}
+
+// GetPlayerByUniqueIDRequest 是按实体唯一 ID 查询玩家的请求。
+message GetPlayerByUniqueIDRequest {
+  // UniqueID 是玩家实体唯一 ID。
+  int64 UniqueID = 1;
+}
+
+// GetPlayerByRuntimeIDRequest 是按实体运行时 ID 查询玩家的请求。
+message GetPlayerByRuntimeIDRequest {
+  // RuntimeID 是玩家实体运行时 ID。
+  uint64 RuntimeID = 1;
+}
+
+// PlayerLookupResponse 是 PlayerKit 查询玩家的结果。
+message PlayerLookupResponse {
+  // Found 表示是否找到玩家。
+  bool Found = 1;
+  // Player 是找到的玩家引用。
+  emptydea.game_control.resources_control.PlayerRef Player = 2;
+}
+
+// PlayerRefsResponse 是当前在线玩家引用列表。
+message PlayerRefsResponse {
+  // Players 是当前在线玩家引用列表。
+  repeated emptydea.game_control.resources_control.PlayerRef Players = 1;
+}
+
+// PlayerChatRequest 是向玩家发送普通聊天文本的请求。
+message PlayerChatRequest {
+  // Player 是目标玩家引用。
+  emptydea.game_control.resources_control.PlayerRef Player = 1;
+  // Message 是普通聊天文本。
+  string Message = 2;
+}
+
+// PlayerRawChatRequest 是向玩家发送 rawtext 聊天文本的请求。
+message PlayerRawChatRequest {
+  // Player 是目标玩家引用。
+  emptydea.game_control.resources_control.PlayerRef Player = 1;
+  // RawText 是 Minecraft rawtext JSON 文本。
+  string RawText = 2;
+}
+
+// PlayerTitleRequest 是向玩家发送标题文本的请求。
+message PlayerTitleRequest {
+  // Player 是目标玩家引用。
+  emptydea.game_control.resources_control.PlayerRef Player = 1;
+  // Title 是标题文本。
+  string Title = 2;
+}
+
+// PlayerRawTitleRequest 是向玩家发送 rawtext 标题文本的请求。
+message PlayerRawTitleRequest {
+  // Player 是目标玩家引用。
+  emptydea.game_control.resources_control.PlayerRef Player = 1;
+  // RawTitle 是 Minecraft rawtext JSON 标题文本。
+  string RawTitle = 2;
+}
+
+// PlayerSubTitleRequest 是向玩家发送副标题文本的请求。
+message PlayerSubTitleRequest {
+  // Player 是目标玩家引用。
+  emptydea.game_control.resources_control.PlayerRef Player = 1;
+  // Subtitle 是副标题文本。
+  string Subtitle = 2;
+}
+
+// PlayerRawSubTitleRequest 是向玩家发送 rawtext 副标题文本的请求。
+message PlayerRawSubTitleRequest {
+  // Player 是目标玩家引用。
+  emptydea.game_control.resources_control.PlayerRef Player = 1;
+  // RawSubtitle 是 Minecraft rawtext JSON 副标题文本。
+  string RawSubtitle = 2;
+}
+
+// PlayerActionBarRequest 是向玩家发送 actionbar 文本的请求。
+message PlayerActionBarRequest {
+  // Player 是目标玩家引用。
+  emptydea.game_control.resources_control.PlayerRef Player = 1;
+  // ActionBar 是 actionbar 文本。
+  string ActionBar = 2;
+}
+
+// PlayerRawActionBarRequest 是向玩家发送 rawtext actionbar 文本的请求。
+message PlayerRawActionBarRequest {
+  // Player 是目标玩家引用。
+  emptydea.game_control.resources_control.PlayerRef Player = 1;
+  // RawText 是 Minecraft rawtext JSON actionbar 文本。
+  string RawText = 2;
+}
+
+// PlayerActionResponse 是玩家交互后的空响应。
+message PlayerActionResponse {}
+
+// PlayerKitService 提供在线玩家查询并允许对查询到的玩家执行交互操作。
+service PlayerKitService {
+  // ListOnlinePlayers 返回当前在线玩家引用列表。
+  rpc ListOnlinePlayers(emptydea.game_control.Empty) returns (PlayerRefsResponse);
+  // GetPlayerByName 根据玩家名查询玩家。
+  rpc GetPlayerByName(GetPlayerByNameRequest) returns (PlayerLookupResponse);
+  // GetPlayerByUUIDString 根据玩家 UUID 字符串查询玩家。
+  rpc GetPlayerByUUIDString(GetPlayerByUUIDRequest) returns (PlayerLookupResponse);
+  // GetPlayerByUniqueID 根据实体唯一 ID 查询玩家。
+  rpc GetPlayerByUniqueID(GetPlayerByUniqueIDRequest) returns (PlayerLookupResponse);
+  // GetPlayerByRuntimeID 根据实体运行时 ID 查询玩家。
+  rpc GetPlayerByRuntimeID(GetPlayerByRuntimeIDRequest) returns (PlayerLookupResponse);
+
+  // SendChat 向指定玩家发送普通聊天栏消息。
+  rpc SendChat(PlayerChatRequest) returns (PlayerActionResponse);
+  // SendRawChat 向指定玩家发送原始 rawtext 消息。
+  rpc SendRawChat(PlayerRawChatRequest) returns (PlayerActionResponse);
+  // SendTitle 向指定玩家发送标题。
+  rpc SendTitle(PlayerTitleRequest) returns (PlayerActionResponse);
+  // SendRawTitle 向指定玩家发送原始 rawtext 标题。
+  rpc SendRawTitle(PlayerRawTitleRequest) returns (PlayerActionResponse);
+  // SendSubTitle 向指定玩家发送副标题。
+  rpc SendSubTitle(PlayerSubTitleRequest) returns (PlayerActionResponse);
+  // SendRawSubTitle 向指定玩家发送原始 rawtext 副标题。
+  rpc SendRawSubTitle(PlayerRawSubTitleRequest) returns (PlayerActionResponse);
+  // SendActionBar 向指定玩家发送 actionbar 消息。
+  rpc SendActionBar(PlayerActionBarRequest) returns (PlayerActionResponse);
+  // SendRawActionBar 向指定玩家发送原始 rawtext actionbar 消息。
+  rpc SendRawActionBar(PlayerRawActionBarRequest) returns (PlayerActionResponse);
+}

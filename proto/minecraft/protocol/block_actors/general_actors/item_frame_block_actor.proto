@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.general_actors.item_frame_block_actor;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/general_actors;general_actors";
+
+import "block_actors/general_actors/block_actor.proto";
+import "nbt_item.proto";
+
+// ItemFrameBlockActor 描述物品展示框和荧光物品展示框的通用字段。
+//
+// ItemFrameBlockActor describes common fields shared by item frames and glow item frames.
+message ItemFrameBlockActor {
+  .mousetunnel.minecraft.protocol.block_actors.general_actors.block_actor.BlockActor BlockActor = 1;
+  // TAG_Compound(10)
+  // Go type: *protocol.Item
+  .mousetunnel.minecraft.protocol.nbt_item.Item Item = 2;
+  // TAG_Float(6) = 1
+  // Go type: *float32
+  float ItemDropChance = 3;
+  // TAG_Float(6) = 0
+  // Go type: *float32
+  float ItemRotation = 4;
+}
+

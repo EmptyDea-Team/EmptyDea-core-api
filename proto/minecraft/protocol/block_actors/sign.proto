@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.sign;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actors";
+
+import "block_actors/general_actors/sign_block_actor.proto";
+
+// Sign 描述告示牌方块实体。
+//
+// Sign describes the sign block actor.
+message Sign {
+  .mousetunnel.minecraft.protocol.block_actors.general_actors.sign_block_actor.SignBlockActor SignBlockActor = 1;
+}
+

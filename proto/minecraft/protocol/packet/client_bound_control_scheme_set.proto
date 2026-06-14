@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.client_bound_control_scheme_set;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+enum ControlSchemeEnum {
+  ControlSchemeLockedPlayerRelativeStrafe = 0;
+  ControlSchemeCameraRelative = 1;
+  ControlSchemeCameraRelativeStrafe = 2;
+  ControlSchemePlayerRelative = 3;
+  ControlSchemePlayerRelativeStrafe = 4;
+}
+
+// ClientBoundControlSchemeSet 由服务器在客户端请求或使用原版 /controlscheme 命令时发送。
+// 它用于设置客户端控制方案，通常与自定义摄像机配合使用。
+//
+// ClientBoundControlSchemeSet is sent by the server upon the client's request or the usage of the vanilla
+// /controlscheme command. It is used to set the control scheme of the client, often used in combination with
+// custom cameras.
+//
+// Added: v1.21.80
+message ClientBoundControlSchemeSet {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDClientBoundControlSchemeSet;
+  // ControlScheme 是客户端应使用的控制方案，可为下列值之一：
+  //
+  // ControlScheme is the control scheme that the client should use. It is one of the following:
+  //  - ControlSchemeLockedPlayerRelativeStrafe is the default behaviour, this cannot be set when the client
+  //    is in a custom camera.
+  //  - ControlSchemeCameraRelative makes movement relative to the camera's transform, with the client's
+  //    rotation being relative to the client's movement.
+  //  - ControlSchemeCameraRelativeStrafe makes movement relative to the camera's transform, with the
+  //    client's rotation being locked.
+  //  - ControlSchemePlayerRelative makes movement relative to the player's transform, meaning holding
+  //    left/right will make the player turn in a circle.
+  //  - ControlSchemePlayerRelativeStrafe makes movement the same as the default behaviour, but can be
+  //    used in a custom camera.
+  //
+  // Added: v1.21.80
+  // Go type: byte
+  uint32 ControlScheme = 1;
+}
+

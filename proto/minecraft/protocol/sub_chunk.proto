@@ -1,0 +1,97 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.sub_chunk;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+enum HeightMapDataEnum {
+  HeightMapDataNone = 0;
+  HeightMapDataHasData = 1;
+  HeightMapDataTooHigh = 2;
+  HeightMapDataTooLow = 3;
+  HeightMapDataAllCopied = 4;
+}
+
+enum SubChunkResultEnum {
+  SUBCHUNKRESULTENUM_UNSPECIFIED = 0;
+  SubChunkResultSuccess = 1;
+  SubChunkResultChunkNotFound = 2;
+  SubChunkResultInvalidDimension = 3;
+  SubChunkResultPlayerNotFound = 4;
+  SubChunkResultIndexOutOfBounds = 5;
+  SubChunkResultSuccessAllAir = 6;
+}
+
+// SubChunkEntry 包含相对于中心子区块位置的子区块条目数据，
+// 用于 v1.18.10 引入的子区块请求系统。
+//
+// SubChunkEntry contains the data of a sub-chunk entry relative to a center sub chunk position, used for the sub-chunk
+// requesting system introduced in v1.18.10.
+//
+// Added: v1.18.10
+message SubChunkEntry {
+  // Offset 包含子区块位置与中心位置之间的偏移。
+  //
+  // Offset contains the offset between the sub-chunk position and the center position.
+  //
+  // Added: v1.18.10
+  SubChunkOffset Offset = 1;
+  // Result 始终是 SubChunkResult 常量中定义的值之一。
+  //
+  // Result is always one of the constants defined in the SubChunkResult constants.
+  //
+  // Added: v1.18.10
+  // Go type: byte
+  uint32 Result = 2;
+  // RawPayload 包含序列化后的子区块数据。
+  //
+  // RawPayload contains the serialized sub-chunk data.
+  //
+  // Added: v1.18.10
+  // Go type: []byte
+  bytes RawPayload = 3;
+  // HeightMapType 始终是 HeightMapData 常量中定义的值之一。
+  //
+  // HeightMapType is always one of the constants defined in the HeightMapData constants.
+  //
+  // Added: v1.18.10
+  // Go type: byte
+  uint32 HeightMapType = 4;
+  // HeightMapData 是高度图数据。
+  //
+  // HeightMapData is the data for the height map.
+  //
+  // Added: v1.18.10
+  // Go type: []int8
+  repeated int32 HeightMapData = 5;
+  // RenderHeightMapType 始终是 HeightMapData 常量中定义的值之一。
+  //
+  // RenderHeightMapType is always one of the constants defined in the HeightMapData constants.
+  //
+  // Added: v1.18.10
+  // Go type: byte
+  uint32 RenderHeightMapType = 6;
+  // RenderHeightMapData 是渲染高度图数据。
+  //
+  // RenderHeightMapData is the data for the render height map.
+  //
+  // Added: v1.18.10
+  // Go type: []int8
+  repeated int32 RenderHeightMapData = 7;
+  // BlobHash 是 blob 的哈希。
+  //
+  // BlobHash is the hash of the blob.
+  //
+  // Added: v1.18.10
+  uint64 BlobHash = 8;
+}
+
+// SubChunkOffset 表示相对于另一个子区块基准位置的偏移。
+//
+// SubChunkOffset represents an offset from the base position of another sub chunk.
+//
+// Added: v1.18.10
+message SubChunkOffset {
+  // Go type: [3]int8
+  repeated int32 Value = 1;
+}
+

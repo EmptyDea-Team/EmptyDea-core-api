@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.change_actor_motion;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// ChangeActorMotion 是网易实体运动变更数据包。
+//
+// ChangeActorMotion is a NetEase actor motion change packet.
+//
+// Added: NetEase.
+message ChangeActorMotion {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDChangeActorMotion;
+  int64 Unknown1 = 1;
+  // Go type: uint8
+  uint32 Unknown2 = 2;
+}
+

@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.filter_text;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// FilterText 可由客户端和服务器双方发送。客户端将该数据包发送给服务器，使服务器能够在服务器侧过滤文本。
+// 随后服务器会用同一个数据包返回更安全的文本版本。
+//
+// FilterText is sent by the both the client and the server. The client sends the packet to the server to
+// allow the server to filter the text server-side. The server then responds with the same packet and the
+// safer version of the text.
+//
+// Deprecated: 该数据包已弃用，具体版本未知。
+//
+// Deprecated: This packet was deprecated in unknown.
+//
+// Added: v1.16.200
+message FilterText {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDFilterText;
+  // Text 可以是来自客户端的文本，也可以是服务器发送的更安全文本版本。
+  //
+  // Text is either the text from the client or the safer version of the text sent by the server.
+  //
+  // Added: v1.16.200
+  string Text = 1;
+  // FromServer 表示该数据包是否由服务器发送。
+  //
+  // FromServer indicates if the packet was sent by the server or not.
+  //
+  // Added: v1.16.200
+  bool FromServer = 2;
+}
+

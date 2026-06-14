@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.skill_carried_new_item_changed;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// SkillCarriedNewItemChanged 同步玩家手持物品是否为方块。
+//
+// SkillCarriedNewItemChanged syncs whether the carried item is a block.
+message SkillCarriedNewItemChanged {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  SkillCarriedNewItemData SkillCarriedNewItemData = 2;
+}
+
+// SkillCarriedNewItemData 保存手持物品是否为方块字段。
+//
+// SkillCarriedNewItemData stores whether the carried item is a block.
+message SkillCarriedNewItemData {
+  bool IsBlock = 1;
+}
+

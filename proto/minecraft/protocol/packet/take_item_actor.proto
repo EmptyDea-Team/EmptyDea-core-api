@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.take_item_actor;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// TakeItemActor 在玩家捡起物品实体时由服务器发送。它会让观看者看到物品实体消失，
+// 并显示拾取动画。
+//
+// TakeItemActor is sent by the server when a player picks up an item entity. It makes the item entity
+// disappear to viewers and shows the pick-up animation.
+//
+// Added: v1.12
+message TakeItemActor {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDTakeItemActor;
+  // ItemEntityRuntimeID 是被另一个实体拾取的物品实体运行时 ID。
+  // 在显示拾取动画后，它会从观看者视野中消失。
+  //
+  // ItemEntityRuntimeID is the entity runtime ID of the item that is being taken by another entity. It will
+  // disappear to viewers after showing the pick-up animation.
+  //
+  // Added: v1.12
+  uint64 ItemEntityRuntimeID = 1;
+  // TakerEntityRuntimeID 是拾取该物品的实体运行时 ID，通常是玩家，
+  // 但也可能是僵尸等其他实体。
+  //
+  // TakerEntityRuntimeID is the runtime ID of the entity that took the item, which is usually a player, but
+  // could be another entity like a zombie too.
+  //
+  // Added: v1.12
+  uint64 TakerEntityRuntimeID = 2;
+}
+

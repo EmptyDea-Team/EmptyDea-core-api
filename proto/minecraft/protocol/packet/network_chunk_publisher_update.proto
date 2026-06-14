@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.network_chunk_publisher_update;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "block_pos.proto";
+import "chunk_pos.proto";
+import "packet_options.proto";
+
+// NetworkChunkPublisherUpdate 由服务器发送，用于改变区块加载并保持加载所围绕的中心点。
+// 这对小游戏服务器很有用，因为这类服务器通常只加载一个区域，此时可在区域中心发送
+// NetworkChunkPublisherUpdate，使游戏过程中不再需要额外发送区块。
+// 实际上，该数据包并没有特别有用，大多数服务器只是不断在玩家位置发送它。
+// 如果完全不发送该数据包，无论区块被发送到哪里，玩家都看不到任何区块。
+//
+// NetworkChunkPublisherUpdate is sent by the server to change the point around which chunks are and remain
+// loaded. This is useful for mini-game servers, where only one area is ever loaded, in which case the
+// NetworkChunkPublisherUpdate packet can be sent in the middle of it, so that no chunks ever need to be
+// additionally sent during the course of the game.
+// In reality, the packet is not extraordinarily useful, and most servers just send it constantly at the
+// position of the player.
+// If the packet is not sent at all, no chunks will be shown to the player, regardless of where they are sent.
+//
+// Added: v1.12
+message NetworkChunkPublisherUpdate {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDNetworkChunkPublisherUpdate;
+  // Position 是已加载区块会围绕其继续向客户端显示的方块位置。
+  // 大多数服务器会把该位置设置为玩家自身位置。
+  //
+  // Position is the block position around which chunks loaded will remain shown to the client. Most servers
+  // set this position to the position of the player itself.
+  //
+  // Added: v1.12
+  .mousetunnel.minecraft.protocol.block_pos.BlockPos Position = 1;
+  // Radius 是围绕 Position 的半径，单位为方块；发送的区块会在该范围内显示并保持加载。
+  // 与 RequestChunkRadius 和 ChunkRadiusUpdated 数据包不同，该半径以方块而不是区块为单位，
+  // 因此区块视距需要乘以 16（或左移 4 位）。
+  //
+  // Radius is the radius in blocks around Position that chunks sent show up in and will remain loaded in.
+  // Unlike the RequestChunkRadius and ChunkRadiusUpdated packets, this radius is in blocks rather than
+  // chunks, so the chunk radius needs to be multiplied by 16. (Or shifted to the left by 4.)
+  //
+  // Added: v1.12
+  uint32 Radius = 2;
+  // SavedChunks 包含客户端应保留在已保存区块列表中的区块位置。
+  //
+  // SavedChunks contains chunk positions that the client should keep in its saved chunk list.
+  // TODO: 弄清该字段的具体用途。
+  //
+  // TODO: Figure out what this field is used for.
+  //
+  // Added: v1.19.20
+  // Go type: []protocol.ChunkPos
+  repeated .mousetunnel.minecraft.protocol.chunk_pos.ChunkPos SavedChunks = 3;
+}
+

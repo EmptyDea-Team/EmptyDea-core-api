@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_phrases.module;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_phrases;chat_phrases";
+
+// Module 描述 Minecraft chatPhrases 模块。
+//
+// Module describes the Minecraft chatPhrases module.
+message Module {
+}
+

@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.server_stats;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// ServerStats 是服务器发送给客户端的数据包，用于更新客户端上的服务器统计信息。
+// 它仅用于遥测。
+//
+// ServerStats is a packet sent from the server to the client to update the client on server statistics. It is purely
+// used for telemetry.
+//
+// Added: v1.19.30
+message ServerStats {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDServerStats;
+  // ServerTime 是服务器耗时统计。
+  //
+  // ServerTime is the server time statistic.
+  //
+  // Added: v1.19.30
+  // Go type: float32
+  float ServerTime = 1;
+  // NetworkTime 是网络耗时统计。
+  //
+  // NetworkTime is the network time statistic.
+  //
+  // Added: v1.19.30
+  // Go type: float32
+  float NetworkTime = 2;
+}
+

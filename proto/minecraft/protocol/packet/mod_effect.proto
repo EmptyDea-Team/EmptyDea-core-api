@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.mod_effect;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "netease.proto";
+import "packet_options.proto";
+
+// ModEffect 是网易模组效果数据包。
+//
+// ModEffect is a NetEase mod effect packet.
+//
+// Added: NetEase.
+message ModEffect {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDModEffect;
+  // Go type: []protocol.MobEffectV2UnknownEntry
+  repeated .mousetunnel.minecraft.protocol.netease.MobEffectV2UnknownEntry Items = 1;
+}
+

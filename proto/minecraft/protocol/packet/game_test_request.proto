@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.game_test_request;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "block_pos.proto";
+import "packet_options.proto";
+
+enum GameTestRequestRotationEnum {
+  GameTestRequestRotation0 = 0;
+  GameTestRequestRotation90 = 1;
+  GameTestRequestRotation180 = 2;
+  GameTestRequestRotation270 = 3;
+  GameTestRequestRotation360 = 4;
+}
+
+// GameTestRequest 请求服务器使用提供的参数运行一个游戏测试实例。
+//
+// GameTestRequest requests that the server run a game test instance with the parameters provided.
+//
+// Added: v1.19.40
+message GameTestRequest {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDGameTestRequest;
+  // Name 表示测试名称。
+  //
+  // Name represents the name of the test.
+  //
+  // Added: v1.19.40
+  string Name = 1;
+  // Rotation 表示测试旋转角度，应为上方常量之一。
+  //
+  // Rotation represents the rotation of the test. It is one of the constants above.
+  //
+  // Added: v1.19.40
+  // Go type: uint8
+  uint32 Rotation = 2;
+  // Repetitions 表示该测试将运行的次数。
+  //
+  // Repetitions represents the amount of times the test will be run.
+  //
+  // Added: v1.19.40
+  int32 Repetitions = 3;
+  // Position 是执行测试的位置。
+  //
+  // Position is the position at which the test will be performed.
+  //
+  // Added: v1.19.40
+  .mousetunnel.minecraft.protocol.block_pos.BlockPos Position = 4;
+  // StopOnError 表示测试遇到错误时是否应立即停止。
+  //
+  // StopOnError indicates whether the test should immediately stop when an error is encountered.
+  //
+  // Added: v1.19.40
+  bool StopOnError = 5;
+  // TestsPerRow 是构建重复测试实例时每一行应放置的测试数量。
+  //
+  // TestsPerRow is the amount of tests that should be placed on each row when building repeated test instances.
+  //
+  // Added: v1.19.40
+  int32 TestsPerRow = 6;
+  // MaxTestsPerBatch 是单个批次中可处理的测试实例最大数量。
+  //
+  // MaxTestsPerBatch is the maximum amount of test instances that may be processed in a single batch.
+  //
+  // Added: v1.19.40
+  int32 MaxTestsPerBatch = 7;
+}
+

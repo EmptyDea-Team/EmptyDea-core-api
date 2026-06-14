@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.request_network_settings;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// RequestNetworkSettings 由客户端发送，用于向服务器请求网络设置，例如压缩设置。
+//
+// RequestNetworkSettings is sent by the client to request network settings, such as compression, from the server.
+//
+// Added: v1.19.30
+message RequestNetworkSettings {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDRequestNetworkSettings;
+  // ClientProtocol 是玩家使用的协议版本。如果该协议与服务器协议不兼容，玩家会被断开连接。
+  //
+  // ClientProtocol is the protocol version of the player. The player is disconnected if the protocol is
+  // incompatible with the protocol of the server.
+  //
+  // Added: v1.19.30
+  int32 ClientProtocol = 1;
+}
+

@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.editor_config_cmd_sys.run_cmd_server;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/editor_config_cmd_sys;editor_config_cmd_sys";
+
+import "google/protobuf/struct.proto";
+import "py_rpc/mod_event/minecraft/editor_config_cmd_sys/basic.proto";
+
+// RunCmdServer 请求服务端执行编辑器配置脚本。
+//
+// RunCmdServer asks the server to run an editor config script.
+message RunCmdServer {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.editor_config_cmd_sys.basic.Basic Basic = 1;
+  // Script 是待执行脚本文本。
+  //
+  // Script is the script text to run.
+  string Script = 2;
+  // Args 是传给脚本的参数列表。
+  //
+  // Args is the argument list passed to the script.
+  // Go type: []any
+  repeated google.protobuf.Value Args = 3;
+}
+

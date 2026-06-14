@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.sync_actor_property;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "google/protobuf/struct.proto";
+import "packet_options.proto";
+
+// SyncActorProperty 是同步实体数据的替代数据包。
+//
+// SyncActorProperty is an alternative to synced actor data.
+//
+// Added: v1.17.0
+message SyncActorProperty {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDSyncActorProperty;
+  // PropertyData 是要同步的属性数据。
+  //
+  // PropertyData is the property data to synchronise.
+  //
+  // Added: v1.17.0
+  // Go type: map[string]any
+  map<string, google.protobuf.Value> PropertyData = 1;
+}
+

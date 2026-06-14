@@ -1,0 +1,100 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_extension.chat_extension_violation_report;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_extension;chat_extension";
+
+import "py_rpc/mod_event/minecraft/chat_extension/basic.proto";
+
+// ChatExtensionViolationReport 上报聊天扩展违规内容。
+//
+// ChatExtensionViolationReport reports chat extension violation content.
+message ChatExtensionViolationReport {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_extension.basic.Basic Basic = 1;
+  // Content 是上报内容。
+  //
+  // Content is the reported content.
+  ViolationReportContent Content = 2;
+  // UserID 是上报用户 UID。
+  //
+  // UserID is the reporting user UID.
+  int64 UserID = 3;
+}
+
+// ViolationReportContent 描述聊天违规举报日志内容。
+//
+// ViolationReportContent describes chat violation report log content.
+message ViolationReportContent {
+  // Reason 是举报原因。
+  //
+  // Reason is the report reason.
+  string Reason = 1;
+  // Timestamp 是举报时间戳。
+  //
+  // Timestamp is the report timestamp.
+  int64 Timestamp = 2;
+  // ReportID 是被举报用户 UID。
+  //
+  // ReportID is the reported user UID.
+  string ReportID = 3;
+  // ReportName 是被举报用户名。
+  //
+  // ReportName is the reported user name.
+  string ReportName = 4;
+  // GameType 是游戏类型。
+  //
+  // GameType is the game type.
+  string GameType = 5;
+  // RoomID 是房间 ID。
+  //
+  // RoomID is the room ID.
+  int64 RoomID = 6;
+  // Evidence 是举报证据文本。
+  //
+  // Evidence is the report evidence text.
+  string Evidence = 7;
+  // SendFromServerSpecialGarbledFlag 是服务端补充的上报标记。
+  //
+  // SendFromServerSpecialGarbledFlag is the server-added reporting flag.
+  bool SendFromServerSpecialGarbledFlag = 8;
+  // RoleID 是日志公共字段中的当前角色 ID。
+  //
+  // RoleID is the current role ID from log common fields.
+  string RoleID = 9;
+  // RoleName 是日志公共字段中的当前角色名。
+  //
+  // RoleName is the current role name from log common fields.
+  string RoleName = 10;
+  // ServerID 是日志公共字段中的服务器 ID。
+  //
+  // ServerID is the server ID from log common fields.
+  string ServerID = 11;
+  // GameID 是日志公共字段中的游戏 ID。
+  //
+  // GameID is the game ID from log common fields.
+  string GameID = 12;
+  // NetworkType 是日志公共字段中的网络类型。
+  //
+  // NetworkType is the network type from log common fields.
+  string NetworkType = 13;
+  // DeviceID 是日志公共字段中的设备 ID。
+  //
+  // DeviceID is the device ID from log common fields.
+  string DeviceID = 14;
+  // DeviceModel 是日志公共字段中的设备型号。
+  //
+  // DeviceModel is the device model from log common fields.
+  string DeviceModel = 15;
+  // SystemName 是日志公共字段中的系统名。
+  //
+  // SystemName is the system name from log common fields.
+  string SystemName = 16;
+  // SystemVersion 是日志公共字段中的系统版本。
+  //
+  // SystemVersion is the system version from log common fields.
+  string SystemVersion = 17;
+  // ClientVersion 是日志公共字段中的客户端版本。
+  //
+  // ClientVersion is the client version from log common fields.
+  string ClientVersion = 18;
+}
+

@@ -1,0 +1,145 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.structure;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+import "block_pos.proto";
+import "mgl32.proto";
+
+enum StructureMirrorEnum {
+  StructureMirrorNone = 0;
+  StructureMirrorXAxis = 1;
+  StructureMirrorZAxis = 2;
+  StructureMirrorBothAxes = 3;
+}
+
+enum StructureRotationEnum {
+  StructureRotationNone = 0;
+  StructureRotationRotate90 = 1;
+  StructureRotationRotate180 = 2;
+  StructureRotationRotate270 = 3;
+}
+
+enum AnimationModeEnum {
+  AnimationModeNone = 0;
+  AnimationModeLayers = 1;
+  AnimationModeBlocks = 2;
+}
+
+// StructureSettings 是保存结构方块设置的结构体。
+// 它的字段可通过客户端侧的游戏内 UI 修改。
+//
+// StructureSettings is a struct holding settings of a structure block. Its fields may be changed using the
+// in-game UI on the client-side.
+//
+// Added: v1.12
+message StructureSettings {
+  // PaletteName 是结构中使用的调色板名称。目前该字段似乎总是 `default`。
+  //
+  // PaletteName is the name of the palette used in the structure. Currently, it seems that this field is
+  // always 'default'.
+  //
+  // Added: v1.12
+  string PaletteName = 1;
+  // IgnoreEntities 指定结构是否应忽略实体或包含实体。
+  // 如果设为 false，实体也会出现在导出的结构中。
+  //
+  // IgnoreEntities specifies if the structure should ignore entities or include them. If set to false,
+  // entities will also show up in the exported structure.
+  //
+  // Added: v1.12
+  bool IgnoreEntities = 2;
+  // IgnoreBlocks 指定结构是否应忽略方块或包含方块。
+  // 如果设为 false，方块会出现在导出的结构中。
+  //
+  // IgnoreBlocks specifies if the structure should ignore blocks or include them. If set to false, blocks
+  // will show up in the exported structure.
+  //
+  // Added: v1.12
+  bool IgnoreBlocks = 3;
+  // AllowNonTickingChunks 指定结构是否应允许非 ticking 区块。
+  // 如果设为 false，结构会导出非 ticking 区块。
+  //
+  // AllowNonTickingChunks specifies if the structure should allow non-ticking chunks. If set to false, the structure
+  // will export non-ticking chunks.
+  //
+  // Added: v1.12
+  bool AllowNonTickingChunks = 4;
+  // Size 是即将导出区域的大小。导出区域会从 Position + Offset 开始，
+  // 并延伸到 Size 指定的范围。
+  //
+  // Size is the size of the area that is about to be exported. The area exported will start at the
+  // Position + Offset, and will extend as far as Size specifies.
+  //
+  // Added: v1.12
+  .mousetunnel.minecraft.protocol.block_pos.BlockPos Size = 5;
+  // Offset 是结构方块中设置的偏移位置。导出区域会按该位置偏移。
+  //
+  // Offset is the offset position that was set in the structure block. The area exported is offset by this
+  // position.
+  //
+  // Added: v1.12
+  .mousetunnel.minecraft.protocol.block_pos.BlockPos Offset = 6;
+  // LastEditingPlayerUniqueID 是最后编辑这些设置所对应结构方块的玩家唯一 ID。
+  //
+  // LastEditingPlayerUniqueID is the unique ID of the player that last edited the structure block that
+  // these settings concern.
+  //
+  // Added: v1.12
+  int64 LastEditingPlayerUniqueID = 7;
+  // Rotation 是结构方块应采用的旋转。可用选项见上方常量。
+  //
+  // Rotation is the rotation that the structure block should obtain. See the constants above for available
+  // options.
+  //
+  // Added: v1.12
+  // Go type: byte
+  uint32 Rotation = 8;
+  // Mirror 指定结构应如何镜像。它可以是不镜像、沿 X/Z 轴镜像或两个轴都镜像。
+  //
+  // Mirror specifies the way the structure should be mirrored. It is either no mirror at all, mirror on the
+  // x/z axis or both.
+  //
+  // Added: v1.12
+  // Go type: byte
+  uint32 Mirror = 9;
+  // AnimationMode 控制结构放置动画的播放方式。
+  //
+  // AnimationMode controls how the structure placement animation is played.
+  //
+  // Added: v1.12
+  // Go type: byte
+  uint32 AnimationMode = 10;
+  // AnimationDuration 是结构放置动画的持续时间，以秒为单位。
+  //
+  // AnimationDuration is the duration of the structure placement animation in seconds.
+  //
+  // Added: v1.12
+  // Go type: float32
+  float AnimationDuration = 11;
+  // Integrity 通常为 1，但也可设为 0 到 1 之间的数字，
+  // 以使用后续 Seed 随机省略方块。
+  //
+  // Integrity is usually 1, but may be set to a number between 0 and 1 to omit blocks randomly, using
+  // the Seed that follows.
+  //
+  // Added: v1.12
+  // Go type: float32
+  float Integrity = 12;
+  // Seed 是 Integrity 不等于 1 时用于省略方块的种子。
+  // 如果 Seed 为 0，会随机选择一个种子来省略方块。
+  //
+  // Seed is the seed used to omit blocks if Integrity is not equal to one. If the Seed is 0, a random
+  // seed is selected to omit blocks.
+  //
+  // Added: v1.12
+  uint32 Seed = 13;
+  // Pivot 是结构可围绕其旋转的枢轴点。
+  //
+  // Pivot is the pivot around which the structure may be rotated.
+  //
+  // Added: v1.12
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 Pivot = 14;
+}
+

@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.block_info_unlock.init_block_info_unlock_dic;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/block_info_unlock;block_info_unlock";
+
+import "py_rpc/mod_event/minecraft/block_info_unlock/basic.proto";
+
+// InitBlockInfoUnlockDic 同步玩家已解锁方块信息字典。
+//
+// InitBlockInfoUnlockDic synchronises the player's existing block-info unlock dictionary.
+message InitBlockInfoUnlockDic {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.block_info_unlock.basic.Basic Basic = 1;
+  // Entries 保存 groupId 到解锁信息的映射。
+  //
+  // Entries stores groupId to unlock information mappings.
+  // Go type: map[string]InitialUnlockInfo
+  map<string, InitialUnlockInfo> Entries = 2;
+}
+
+// InitialUnlockInfo 描述服务器初始化下发的已解锁条目。
+//
+// InitialUnlockInfo describes an already-unlocked entry sent during initialisation.
+message InitialUnlockInfo {
+  // BlockID 是方块或实体标识。
+  //
+  // BlockID is the block or entity identifier.
+  string BlockID = 1;
+  // UnlockReason 是历史解锁原因。
+  //
+  // UnlockReason is the historical unlock reason.
+  string UnlockReason = 2;
+  // Time 是解锁日期字符串。
+  //
+  // Time is the unlock date string.
+  string Time = 3;
+}
+

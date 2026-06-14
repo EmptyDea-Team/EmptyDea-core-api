@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.move_actor_absolute;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "mgl32.proto";
+import "packet_options.proto";
+
+enum MoveFlagEnum {
+  MOVEFLAGENUM_UNSPECIFIED = 0;
+  MoveFlagOnGround = 1;
+  MoveFlagTeleport = 2;
+  MoveFlagForceMove = 4;
+  MoveFlagForceCompletion = 8;
+}
+
+// MoveActorAbsolute 由服务器发送，用于把实体移动到绝对位置。
+// 它通常用于不需要高精度的移动，例如远距离传送。
+//
+// MoveActorAbsolute is sent by the server to move an entity to an absolute position. It is typically used
+// for movements where high accuracy isn't needed, such as for long range teleporting.
+//
+// Added: v1.12
+message MoveActorAbsolute {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDMoveActorAbsolute;
+  // EntityRuntimeID 是实体的运行时 ID。运行时 ID 在每个世界会话中唯一，
+  // 数据包通常使用该运行时 ID 标识实体。
+  //
+  // EntityRuntimeID is the runtime ID of the entity. The runtime ID is unique for each world session, and
+  // entities are generally identified in packets using this runtime ID.
+  //
+  // Added: v1.12
+  uint64 EntityRuntimeID = 1;
+  // Flags 是一组用于指定移动细节的标志组合，由上方标志组成。
+  //
+  // Flags is a combination of flags that specify details of the movement. It is a combination of the flags
+  // above.
+  //
+  // Added: v1.12
+  // Changed: v1.26.20.26, may include the ForceMoveLocalActor and ForceCompletion bits.
+  // Go type: byte
+  uint32 Flags = 2;
+  // Position 是生成实体的位置。如果实体距离玩家太远导致玩家当前看不到它，
+  // 玩家靠近后该实体仍会显示出来。
+  //
+  // Position is the position to spawn the entity on. If the entity is on a distance that the player cannot
+  // see it, the entity will still show up if the player moves closer.
+  //
+  // Added: v1.12
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 Position = 3;
+  // Rotation 是保存移动后实体 X、Y、Z 旋转的 Vec3。这里使用 Vec3 的原因是，
+  // 箭等投射物没有 yaw/pitch，但有 roll。
+  //
+  // Rotation is a Vec3 holding the X, Y and Z rotation of the entity after the movement. This is a Vec3 for
+  // the reason that projectiles like arrows don't have yaw/pitch, but do have roll.
+  //
+  // Added: v1.12
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 Rotation = 4;
+}
+

@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.moving_block;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actors";
+
+import "block_actors/general_actors/block_actor.proto";
+import "google/protobuf/struct.proto";
+
+// MovingBlock 描述移动方块实体。
+//
+// MovingBlock describes the moving block actor.
+message MovingBlock {
+  .mousetunnel.minecraft.protocol.block_actors.general_actors.block_actor.BlockActor BlockActor = 1;
+  // TAG_Compound(10)
+  // Go type: map[string]any
+  map<string, google.protobuf.Value> MovingBlock = 2;
+  // TAG_Compound(10)
+  // Go type: map[string]any
+  map<string, google.protobuf.Value> MovingBlockExtra = 3;
+  // TAG_Int(4) = 0
+  int32 PistonPosX = 4;
+  // TAG_Int(4) = 0
+  int32 PistonPosY = 5;
+  // TAG_Int(4) = 0
+  int32 PistonPosZ = 6;
+  // Not used; TAG_Byte(1) = 0 or 1 (Boolean)
+  // Go type: byte
+  uint32 Expanding = 7;
+  // TAG_Compound(10)
+  // Go type: *map[string]any
+  map<string, google.protobuf.Value> MovingEntity = 8;
+}
+

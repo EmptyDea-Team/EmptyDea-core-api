@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.camera_aim_assist;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "mgl32.proto";
+import "packet_options.proto";
+
+enum CameraAimAssistActionEnum {
+  CameraAimAssistActionSet = 0;
+  CameraAimAssistActionClear = 1;
+}
+
+// CameraAimAssist 由服务器发送给客户端，用于为客户端相机设置瞄准辅助。
+//
+// CameraAimAssist is sent by the server to the client to set up aim assist for the client's camera.
+//
+// Added: v1.21.30
+message CameraAimAssist {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDCameraAimAssist;
+  // Preset 是此前在 CameraAimAssistPresets 数据包中定义的预设 ID。
+  //
+  // Preset is the ID of the preset that has previously been defined in the CameraAimAssistPresets packet.
+  //
+  // Added: v1.21.50
+  string Preset = 1;
+  // Angle 是瞄准辅助应在玩家光标周围检查目标的最大角度，
+  // 仅当 TargetMode 设置为 protocol.AimAssistTargetModeAngle 时使用。
+  //
+  // Angle is the maximum angle around the playes's cursor that the aim assist should check for a target,
+  // if TargetMode is set to protocol.AimAssistTargetModeAngle.
+  //
+  // Added: v1.21.40
+  // Go type: mgl32.Vec2
+  .mousetunnel.minecraft.protocol.mgl32.Vec2 Angle = 2;
+  // Distance 是从玩家光标开始检查目标的最大距离，
+  // 仅当 TargetMode 设置为 protocol.AimAssistTargetModeDistance 时使用。
+  //
+  // Distance is the maximum distance from the player's cursor should check for a target, if TargetMode is
+  // set to protocol.AimAssistTargetModeDistance.
+  //
+  // Added: v1.21.30
+  // Go type: float32
+  float Distance = 3;
+  // TargetMode 是相机检测目标时应使用的模式。目前它是
+  // protocol.AimAssistTargetModeAngle 或 protocol.AimAssistTargetModeDistance 之一。
+  //
+  // TargetMode is the mode that the camera should use for detecting targets. This is currently one of
+  // protocol.AimAssistTargetModeAngle or protocol.AimAssistTargetModeDistance.
+  //
+  // Added: v1.21.30
+  // Go type: byte
+  uint32 TargetMode = 4;
+  // Action 是应对瞄准辅助执行的操作，它是上方常量之一。
+  //
+  // Action is the action that should be performed with the aim assist. This is one of the constants above.
+  //
+  // Added: v1.21.30
+  // Go type: byte
+  uint32 Action = 5;
+  // ShowDebugRender 指定是否应显示调试渲染。
+  //
+  // ShowDebugRender specifies if debug render should be shown.
+  //
+  // Added: v1.21.100
+  bool ShowDebugRender = 6;
+}
+

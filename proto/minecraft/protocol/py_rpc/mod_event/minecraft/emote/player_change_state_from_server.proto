@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.emote.player_change_state_from_server;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/emote;emote";
+
+import "py_rpc/mod_event/minecraft/emote/basic.proto";
+
+// PlayerChangeStateFromServer 同步双人动作玩家状态。
+//
+// PlayerChangeStateFromServer syncs a player's two-person-emote state.
+message PlayerChangeStateFromServer {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.emote.basic.Basic Basic = 1;
+  // PlayerID 是状态变化的玩家 ID。
+  //
+  // PlayerID is the player ID whose state changed.
+  string PlayerID = 2;
+  // StateName 是状态名称。
+  //
+  // StateName is the state name.
+  string StateName = 3;
+  // Data 是状态附带数据。
+  //
+  // Data is state-associated data.
+  TwoPersonStateData Data = 4;
+}
+
+// TwoPersonStateData 描述双人动作 Ready 或 Playing 状态数据。
+//
+// TwoPersonStateData describes Ready or Playing state data for two-person emotes.
+message TwoPersonStateData {
+  // PlayerID 是 Ready 状态的发起玩家 ID。
+  //
+  // PlayerID is the player ID for Ready state.
+  string PlayerID = 1;
+  // EmoteID 是双人动作 ID。
+  //
+  // EmoteID is the two-person emote ID.
+  int64 EmoteID = 2;
+  // EmoteType 是动作类型。
+  //
+  // EmoteType is the emote type.
+  string EmoteType = 3;
+  // Relation 是双人动作需要的亲密关系配置。
+  //
+  // Relation is the required relationship config.
+  string Relation = 4;
+  // Inviter 是 Playing 状态的邀请方玩家 ID。
+  //
+  // Inviter is the inviting player ID for Playing state.
+  string Inviter = 5;
+  // Invitee 是 Playing 状态的加入方玩家 ID。
+  //
+  // Invitee is the joining player ID for Playing state.
+  string Invitee = 6;
+}
+

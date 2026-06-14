@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.ticking_areas_load_status;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// TickingAreasLoadStatus 由服务器发送给客户端，用于通知客户端 ticking area 的加载状态。
+//
+// TickingAreasLoadStatus is sent by the server to the client to notify the client of a ticking area's loading status.
+//
+// Added: v1.18.30
+message TickingAreasLoadStatus {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDTickingAreasLoadStatus;
+  // Preload 为 true 时表示服务器正在等待该区域预加载。
+  //
+  // Preload is true if the server is waiting for the area's preload.
+  //
+  // Added: v1.18.30
+  bool Preload = 1;
+}
+

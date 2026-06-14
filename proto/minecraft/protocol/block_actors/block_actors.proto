@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.block_actors;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actors";
+
+import "google/protobuf/struct.proto";
+
+// BlockActors 描述方块实体的通用接口。
+//
+// BlockActors describes the common interface implemented by block actors.
+message BlockActors {
+  // Go type: interface {
+  // 	ID() string
+  // 	Marshal(io protocol.IO)
+  // }// 返回该方块实体的 ID。 / Returns the block actor ID.
+  // // 解码或编码为二进制的平铺型 __tag NBT。 / Decodes or encodes flat binary __tag NBT.
+  // 
+  google.protobuf.Value Value = 1;
+}
+

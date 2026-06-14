@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.empty_payload;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpc";
+
+// EmptyPayload 表示已知无参数的 PyRpc 载荷。
+//
+// EmptyPayload represents a known PyRpc payload with no arguments.
+message EmptyPayload {
+}
+

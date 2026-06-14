@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.move.add_player_velocity_motion;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/move;move";
+
+import "py_rpc/mod_event/minecraft/move/basic.proto";
+import "py_rpc/mod_event/minecraft/move/types.proto";
+
+// AddPlayerVelocityMotion 添加玩家速度运动。
+//
+// AddPlayerVelocityMotion adds a player velocity motion.
+message AddPlayerVelocityMotion {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.move.basic.Basic Basic = 1;
+  string PlayerID = 2;
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.move.types.MotionVector Velocity = 3;
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.move.types.MotionVector Accelerate = 4;
+  bool UseVelocityDir = 5;
+  int64 ServerMotionID = 6;
+}
+

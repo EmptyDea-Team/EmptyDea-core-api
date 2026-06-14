@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.mod_block_actor_changed;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "block_pos.proto";
+import "packet_options.proto";
+
+// ModBlockActorChanged 是网易模组方块实体变更数据包。
+//
+// ModBlockActorChanged is a NetEase mod block actor change packet.
+//
+// Added: NetEase.
+message ModBlockActorChanged {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDModBlockActorChanged;
+  .mousetunnel.minecraft.protocol.block_pos.BlockPos Position = 1;
+}
+

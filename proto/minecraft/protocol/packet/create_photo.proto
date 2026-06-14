@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.create_photo;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// CreatePhoto 是允许玩家将作品集中照片导出为物品栏内物品的数据包。
+// 该数据包仅适用于 Minecraft 教育版。
+//
+// CreatePhoto is a packet that allows players to export photos from their portfolios into items in their inventory.
+// This packet only works on the Education Edition version of Minecraft.
+//
+// Added: v1.17.30
+message CreatePhoto {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDCreatePhoto;
+  // EntityUniqueID 是实体的唯一 ID。
+  //
+  // EntityUniqueID is the unique ID of the entity.
+  //
+  // Added: v1.17.30
+  int64 EntityUniqueID = 1;
+  // PhotoName 是照片名称。
+  //
+  // PhotoName is the name of the photo.
+  //
+  // Added: v1.17.30
+  string PhotoName = 2;
+  // ItemName 是该照片作为物品时的名称。
+  //
+  // ItemName is the name of the photo as an item.
+  //
+  // Added: v1.17.30
+  string ItemName = 3;
+}
+

@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.trim;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+// TrimPattern 表示可与 TrimMaterial 组合应用到盔甲部件上的纹样。
+//
+// TrimPattern represents a pattern that can be applied to an armour piece in combination with a TrimMaterial.
+//
+// Added: v1.19.80
+message TrimPattern {
+  // ItemName 是表示该纹样的物品标识符，例如 'minecraft:wayfinder_armor_trim_smithing_template'。
+  //
+  // ItemName is the identifier of the item that represents the pattern, for example
+  // 'minecraft:wayfinder_armor_trim_smithing_template'.
+  //
+  // Added: v1.19.80
+  string ItemName = 1;
+  // PatternID 是纹样标识符，例如 'wayfinder'。
+  //
+  // PatternID is the identifier of the pattern, for example, 'wayfinder'.
+  //
+  // Added: v1.19.80
+  string PatternID = 2;
+}
+
+// TrimMaterial 表示应用盔甲纹饰时可使用的材料。
+//
+// TrimMaterial represents a material that can be used when applying an armour trim.
+//
+// Added: v1.19.80
+message TrimMaterial {
+  // MaterialID 是材料标识符，例如 'netherite'。
+  //
+  // MaterialID is the identifier of the material, for example 'netherite'.
+  //
+  // Added: v1.19.80
+  string MaterialID = 1;
+  // Colour 是用于文本格式化的颜色代码，例如 '§j'。
+  //
+  // Colour is the colour code used for text formatting, for example '§j'.
+  //
+  // Added: v1.19.80
+  string Colour = 2;
+  // ItemName 是表示该材料的物品标识符，例如 'minecraft:netherite_ingot'。
+  //
+  // ItemName is the identifier of the item that represents the material, for example, 'minecraft:netherite_ingot'.
+  //
+  // Added: v1.19.80
+  string ItemName = 3;
+}
+

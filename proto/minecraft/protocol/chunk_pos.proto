@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.chunk_pos;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+// ChunkPos 是区块的位置。它由两个整数组成，并写作两个 varint32。
+//
+// ChunkPos is the position of a chunk. It is composed of two integers and is written as two varint32s.
+message ChunkPos {
+  // Go type: [2]int32
+  repeated int32 Value = 1;
+}
+
+// SubChunkPos 是子区块的位置。X 和 Z 坐标是区块坐标，Y 坐标是绝对子区块索引。
+//
+// SubChunkPos is the position of a sub-chunk. The X and Z coordinates are the coordinates of the chunk, and the Y
+// coordinate is the absolute sub-chunk index.
+message SubChunkPos {
+  // Go type: [3]int32
+  repeated int32 Value = 1;
+}
+

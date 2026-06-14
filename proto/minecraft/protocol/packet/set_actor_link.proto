@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.set_actor_link;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "entity_link.proto";
+import "packet_options.proto";
+
+// SetActorLink 由服务器发送，用于在客户端侧建立实体链接，表示一个实体会开始骑乘另一个实体。
+//
+// SetActorLink is sent by the server to initiate an entity link client-side, meaning one entity will start
+// riding another.
+//
+// Added: v1.12
+message SetActorLink {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDSetActorLink;
+  // EntityLink 是要在客户端侧设置的链接。它会把两个实体连接在一起，使一个实体骑乘另一个实体。
+  // 注意，之后才看到这些实体的玩家不会看到该链接，除非 AddActor 和 AddPlayer 数据包中也发送了它。
+  //
+  // EntityLink is the link to be set client-side. It links two entities together, so that one entity rides
+  // another. Note that players that see those entities later will not see the link, unless it is also sent
+  // in the AddActor and AddPlayer packets.
+  //
+  // Added: v1.12
+  .mousetunnel.minecraft.protocol.entity_link.EntityLink EntityLink = 1;
+}
+

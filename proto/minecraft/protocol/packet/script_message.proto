@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.script_message;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// ScriptMessage 用于在客户端到服务器，或服务器到客户端之间传递自定义消息。
+// 虽然名称可能暗示该数据包用于已停止维护的脚本 API，但它更可能用于 GameTest 框架。
+//
+// ScriptMessage is used to communicate custom messages from the client to the server, or from the server to the client.
+// While the name may suggest this packet is used for the discontinued scripting API, it is likely instead for the
+// GameTest framework.
+//
+// Added: v1.18.10
+message ScriptMessage {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDScriptMessage;
+  // Identifier 是消息标识符，双方都可使用它来识别发送的消息数据。
+  //
+  // Identifier is the identifier of the message, used by either party to identify the message data sent.
+  //
+  // Added: v1.18.10
+  string Identifier = 1;
+  // Data 包含消息数据。
+  //
+  // Data contains the data of the message.
+  //
+  // Added: v1.18.10
+  // Go type: []byte
+  bytes Data = 2;
+}
+

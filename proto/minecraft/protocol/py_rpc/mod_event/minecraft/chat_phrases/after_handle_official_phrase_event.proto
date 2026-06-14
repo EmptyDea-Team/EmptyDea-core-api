@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_phrases.after_handle_official_phrase_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_phrases;chat_phrases";
+
+import "py_rpc/mod_event/minecraft/chat_phrases/basic.proto";
+
+// AfterHandleOfficialPhraseEvent 返回服务器处理后的快捷短语内容。
+//
+// AfterHandleOfficialPhraseEvent returns quick phrase content produced by the server.
+message AfterHandleOfficialPhraseEvent {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_phrases.basic.Basic Basic = 1;
+  // Content 是处理后的快捷短语内容。
+  //
+  // Content is the handled quick phrase content.
+  string Content = 2;
+}
+

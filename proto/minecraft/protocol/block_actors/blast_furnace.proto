@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.blast_furnace;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actors";
+
+import "block_actors/general_actors/furnace_block_actor.proto";
+
+// BlastFurnace 描述高炉方块实体。
+//
+// BlastFurnace describes the blast furnace block actor.
+message BlastFurnace {
+  .mousetunnel.minecraft.protocol.block_actors.general_actors.furnace_block_actor.FurnaceBlockActor FurnaceBlockActor = 1;
+}
+

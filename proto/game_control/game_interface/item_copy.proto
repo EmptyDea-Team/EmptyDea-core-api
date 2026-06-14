@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package emptydea.game_control.game_interface;
+
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pb";
+
+import "game_control/game_interface/bot_click.proto";
+
+// ItemInfo 是物品的信息
+message ItemInfo {
+  // 物品的数量
+  uint32 Count = 1;
+  // 物品的类型
+  uint32 ItemType = 2;
+}
+
+// ItemInfoWithSlot 是具有物品栏槽位的 ItemInfo
+message ItemInfoWithSlot {
+  // 该物品位于哪个槽位
+  uint32 Slot = 1;
+  // 该物品的信息
+  ItemInfo Item = 2;
+}
+
+// CopyItemRequest 是批量复制物品的请求。
+message CopyItemRequest {
+  // ContainerInfo 是目标容器或操作方块上下文。
+  UseItemOnBlocks ContainerInfo = 1;
+  // BaseItems 是作为复制来源的基础物品槽位列表。
+  repeated ItemInfoWithSlot BaseItems = 2;
+  // TargetItems 是目标槽位期望写入的物品列表。
+  //
+  // targetItems 的长度应该与目标容器的格子数量相等，并且空气物品应当
+  // 置为 nil。
+  repeated ItemInfo TargetItems = 3;
+}
+
+// CopyItemResponse 是复制物品后的空响应。
+message CopyItemResponse {}
+
+// ItemCopyService 封装从来源槽位复制物品到目标槽位的操作。
+service ItemCopyService {
+  // CopyItem 复制指定物品并写入目标背包或容器槽位。
+  rpc CopyItem(CopyItemRequest) returns (CopyItemResponse);
+}

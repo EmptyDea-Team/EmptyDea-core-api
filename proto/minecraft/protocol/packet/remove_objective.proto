@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.remove_objective;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// RemoveObjective 由服务器发送，用于移除一个计分板目标。它用于停止向玩家显示计分板。
+//
+// RemoveObjective is sent by the server to remove a scoreboard objective. It is used to stop showing a
+// scoreboard to a player.
+//
+// Added: v1.12
+message RemoveObjective {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDRemoveObjective;
+  // ObjectiveName 是当前激活计分板所使用的目标名称。该名称必须与 SetDisplayObjective 数据包中发送的名称完全一致。
+  //
+  // ObjectiveName is the name of the objective that the scoreboard currently active has. This name must
+  // be identical to the one sent in the SetDisplayObjective packet.
+  //
+  // Added: v1.12
+  string ObjectiveName = 1;
+}
+

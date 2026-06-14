@@ -1,0 +1,182 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.disconnect;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+enum DisconnectReasonEnum {
+  DisconnectReasonUnknown = 0;
+  DisconnectReasonCantConnectNoInternet = 1;
+  DisconnectReasonNoPermissions = 2;
+  DisconnectReasonUnrecoverableError = 3;
+  DisconnectReasonThirdPartyBlocked = 4;
+  DisconnectReasonThirdPartyNoInternet = 5;
+  DisconnectReasonThirdPartyBadIP = 6;
+  DisconnectReasonThirdPartyNoServerOrServerLocked = 7;
+  DisconnectReasonVersionMismatch = 8;
+  DisconnectReasonSkinIssue = 9;
+  DisconnectReasonInviteSessionNotFound = 10;
+  DisconnectReasonEduLevelSettingsMissing = 11;
+  DisconnectReasonLocalServerNotFound = 12;
+  DisconnectReasonLegacyDisconnect = 13;
+  DisconnectReasonUserLeaveGameAttempted = 14;
+  DisconnectReasonPlatformLockedSkinsError = 15;
+  DisconnectReasonRealmsWorldUnassigned = 16;
+  DisconnectReasonRealmsServerCantConnect = 17;
+  DisconnectReasonRealmsServerHidden = 18;
+  DisconnectReasonRealmsServerDisabledBeta = 19;
+  DisconnectReasonRealmsServerDisabled = 20;
+  DisconnectReasonCrossPlatformDisabled = 21;
+  DisconnectReasonCantConnect = 22;
+  DisconnectReasonSessionNotFound = 23;
+  DisconnectReasonServerFull = 25;
+  DisconnectReasonInvalidPlatformSkin = 26;
+  DisconnectReasonEditionVersionMismatch = 27;
+  DisconnectReasonEditionMismatch = 28;
+  DisconnectReasonLevelNewerThanExeVersion = 29;
+  DisconnectReasonNoFailOccurred = 30;
+  DisconnectReasonBannedSkin = 31;
+  DisconnectReasonTimeout = 32;
+  DisconnectReasonServerNotFound = 33;
+  DisconnectReasonOutdatedServer = 34;
+  DisconnectReasonOutdatedClient = 35;
+  DisconnectReasonMultiplayerDisabled = 37;
+  DisconnectReasonNoWiFi = 38;
+  DisconnectReasonNoReason = 40;
+  DisconnectReasonDisconnected = 41;
+  DisconnectReasonInvalidPlayer = 42;
+  DisconnectReasonLoggedInOtherLocation = 43;
+  DisconnectReasonServerIdConflict = 44;
+  DisconnectReasonNotAllowed = 45;
+  DisconnectReasonNotAuthenticated = 46;
+  DisconnectReasonInvalidTenant = 47;
+  DisconnectReasonUnknownPacket = 48;
+  DisconnectReasonUnexpectedPacket = 49;
+  DisconnectReasonInvalidCommandRequestPacket = 50;
+  DisconnectReasonHostSuspended = 51;
+  DisconnectReasonLoginPacketNoRequest = 52;
+  DisconnectReasonLoginPacketNoCert = 53;
+  DisconnectReasonMissingClient = 54;
+  DisconnectReasonKicked = 55;
+  DisconnectReasonKickedForExploit = 56;
+  DisconnectReasonKickedForIdle = 57;
+  DisconnectReasonResourcePackProblem = 58;
+  DisconnectReasonIncompatiblePack = 59;
+  DisconnectReasonOutOfStorage = 60;
+  DisconnectReasonInvalidLevel = 61;
+  DisconnectReasonBlockMismatch = 63;
+  DisconnectReasonInvalidHeights = 64;
+  DisconnectReasonInvalidWidths = 65;
+  DisconnectReasonShutdown = 68;
+  DisconnectReasonLoadingStateTimeout = 70;
+  DisconnectReasonResourcePackLoadingFailed = 71;
+  DisconnectReasonSearchingForSessionLoadingScreenFailed = 72;
+  DisconnectReasonNetherNetProtocolVersion = 73;
+  DisconnectReasonSubsystemStatusError = 74;
+  DisconnectReasonEmptyAuthFromDiscovery = 75;
+  DisconnectReasonEmptyUrlFromDiscovery = 76;
+  DisconnectReasonExpiredAuthFromDiscovery = 77;
+  DisconnectReasonUnknownSignalServiceSignInFailure = 78;
+  DisconnectReasonXBLJoinLobbyFailure = 79;
+  DisconnectReasonUnspecifiedClientInstanceDisconnection = 80;
+  DisconnectReasonNetherNetSessionNotFound = 81;
+  DisconnectReasonNetherNetCreatePeerConnection = 82;
+  DisconnectReasonNetherNetICE = 83;
+  DisconnectReasonNetherNetConnectRequest = 84;
+  DisconnectReasonNetherNetConnectResponse = 85;
+  DisconnectReasonNetherNetNegotiationTimeout = 86;
+  DisconnectReasonNetherNetInactivityTimeout = 87;
+  DisconnectReasonStaleConnectionBeingReplaced = 88;
+  DisconnectReasonBadPacket = 90;
+  DisconnectReasonNetherNetFailedToCreateOffer = 91;
+  DisconnectReasonNetherNetFailedToCreateAnswer = 92;
+  DisconnectReasonNetherNetFailedToSetLocalDescription = 93;
+  DisconnectReasonNetherNetFailedToSetRemoteDescription = 94;
+  DisconnectReasonNetherNetNegotiationTimeoutWaitingForResponse = 95;
+  DisconnectReasonNetherNetNegotiationTimeoutWaitingForAccept = 96;
+  DisconnectReasonNetherNetIncomingConnectionIgnored = 97;
+  DisconnectReasonNetherNetSignalingParsingFailure = 98;
+  DisconnectReasonNetherNetSignalingUnknownError = 99;
+  DisconnectReasonNetherNetSignalingUnicastDeliveryFailed = 100;
+  DisconnectReasonNetherNetSignalingBroadcastDeliveryFailed = 101;
+  DisconnectReasonNetherNetSignalingGenericDeliveryFailed = 102;
+  DisconnectReasonEditorMismatchEditorWorld = 103;
+  DisconnectReasonEditorMismatchVanillaWorld = 104;
+  DisconnectReasonWorldTransferNotPrimaryClient = 105;
+  DisconnectReasonRequestServerShutdown = 106;
+  DisconnectReasonClientGameSetupCancelled = 107;
+  DisconnectReasonClientGameSetupFailed = 108;
+  DisconnectReasonNetherNetSignalingSigninFailed = 110;
+  DisconnectReasonSessionAccessDenied = 111;
+  DisconnectReasonServiceSigninIssue = 112;
+  DisconnectReasonNetherNetNoSignalingChannel = 113;
+  DisconnectReasonNetherNetNotLoggedIn = 114;
+  DisconnectReasonNetherNetClientSignalingError = 115;
+  DisconnectReasonSubClientLoginDisabled = 116;
+  DisconnectReasonDeepLinkTryingToOpenDemoWorldWhileSignedIn = 117;
+  DisconnectReasonAsyncJoinTaskDenied = 118;
+  DisconnectReasonRealmsTimelineRequired = 119;
+  DisconnectReasonGuestWithoutHost = 120;
+  DisconnectReasonFailedToJoinExperience = 121;
+  DisconnectReasonNetherNetDataChannelClosed = 122;
+  DisconnectReasonDiscoveryEnvironmentMismatch = 123;
+  DisconnectReasonHostWithoutKeys = 124;
+  DisconnectReasonHostSignedOut = 125;
+  DisconnectReasonScriptWatchdogException = 126;
+  DisconnectReasonScriptMemoryLimitExceeded = 127;
+  DisconnectReasonStorageLowDuringGameplay = 128;
+  DisconnectReasonStorageFullDuringGameplay = 129;
+  DisconnectReasonLevelStorageCorruption = 130;
+  DisconnectReasonEditionMismatchVanillaToEdu = 131;
+  DisconnectReasonEditionMismatchEduToVanilla = 132;
+  DisconnectReasonEditorMismatchEditorToVanilla = 133;
+  DisconnectReasonEditorMismatchVanillaToEditor = 134;
+  DisconnectReasonDenyListed = 135;
+  DisconnectReasonNonceMissing = 136;
+  DisconnectReasonNonceNotFound = 137;
+  DisconnectReasonNonceExpired = 138;
+  DisconnectReasonNonceNotValid = 139;
+}
+
+// Disconnect 可由服务器发送，用于断开客户端连接，并可带上显示在断开连接界面上的可选消息。
+//
+// Disconnect may be sent by the server to disconnect the client using an optional message to send as the
+// disconnect screen.
+//
+// Added: v1.11.1
+message Disconnect {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDDisconnect;
+  // Reason 是断开连接的原因。它会影响 Ore UI 断开连接界面上显示的错误码，
+  // 并且是上方常量之一。
+  //
+  // Reason is the reason for the disconnection. This affects the error code displayed on the Ore UI
+  // disconnection screen and is one of the constants above.
+  //
+  // Added: v1.11.1
+  int32 Reason = 1;
+  // HideDisconnectionScreen 指定客户端断开连接时是否应隐藏断开连接界面，
+  // 也就是直接返回主菜单。
+  //
+  // HideDisconnectionScreen specifies if the disconnection screen should be hidden when the client is
+  // disconnected, meaning it will be sent directly to the main menu.
+  //
+  // Added: v1.11.1
+  bool HideDisconnectionScreen = 2;
+  // Message 是断开连接时显示的可选消息。只有 HideDisconnectionScreen 字段为 true 时才会写入该消息。
+  //
+  // Message is an optional message to show when disconnected. This message is only written if the
+  // HideDisconnectionScreen field is set to true.
+  //
+  // Added: v1.11.1
+  string Message = 3;
+  // FilteredMessage 是移除所有不当词语后的 Message 过滤版本。
+  // 如果该字段不为空且客户端启用了“Filter Profanity”设置，客户端会优先使用它而不是 Message。
+  //
+  // FilteredMessage is a filtered version of Message with all the profanity removed. The client will use
+  // this over Message if this field is not empty and they have the "Filter Profanity" setting enabled.
+  //
+  // Added: v1.21.20
+  string FilteredMessage = 4;
+}
+

@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.animate_entity;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// AnimateEntity 由服务器发送，用于在客户端侧播放实体动画。它可以播放单个动画，
+// 也可以激活动画控制器，并由控制器根据不同条件启动一系列动画。
+// 该数据包的大部分文档可在下方链接中找到。
+//
+// AnimateEntity is sent by the server to animate an entity client-side. It may be used to play a single
+// animation, or to activate a controller which can start a sequence of animations based on different
+// conditions specified in an animation controller.
+// Much of the documentation of this packet can be found at
+// https://learn.microsoft.com/en-us/minecraft/creator/reference/content/animationsreference
+//
+// Added: v1.16.100
+message AnimateEntity {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDAnimateEntity;
+  // Animation 是要开始播放的单个动画名称。
+  //
+  // Animation is the name of a single animation to start playing.
+  //
+  // Added: v1.16.100
+  string Animation = 1;
+  // NextState 是首先进入的状态。这些状态声明在动画控制器中，动画控制器本身也是动画；
+  // 每个状态又可以包含动画和用于切换到下一个状态的转换条件。
+  //
+  // NextState is the first state to start with. These states are declared in animation controllers (which,
+  // in themselves, are animations too). These states in turn may have animations and transitions to move to
+  // a next state.
+  //
+  // Added: v1.16.100
+  string NextState = 2;
+  // StopCondition 是一个 MoLang 表达式，用于指定动画何时停止。
+  //
+  // StopCondition is a MoLang expression that specifies when the animation should be stopped.
+  //
+  // Added: v1.16.100
+  string StopCondition = 3;
+  // StopConditionVersion 是 MoLang 停止条件版本。
+  //
+  // StopConditionVersion is the MoLang stop condition version.
+  //
+  // Added: v1.17.30
+  int32 StopConditionVersion = 4;
+  // Controller 是用于管理动画的动画控制器。这些控制器决定何时播放哪个动画。
+  //
+  // Controller is the animation controller that is used to manage animations. These controllers decide when
+  // to play which animation.
+  //
+  // Added: v1.16.100
+  string Controller = 5;
+  // BlendOutTime 目前看起来尚未被使用。
+  //
+  // BlendOutTime does not currently seem to be used.
+  //
+  // Added: v1.16.100
+  // Go type: float32
+  float BlendOutTime = 6;
+  // EntityRuntimeIDs 是应应用该动画的实体运行时 ID 列表。
+  //
+  // EntityRuntimeIDs is list of runtime IDs of entities that the animation should be applied to.
+  //
+  // Added: v1.16.100
+  // Go type: []uint64
+  repeated uint64 EntityRuntimeIDs = 7;
+}
+

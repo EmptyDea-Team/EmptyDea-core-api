@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ride.horse_dismount_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ride;ride";
+
+import "py_rpc/mod_event/minecraft/ride/basic.proto";
+
+// HorseDismountEvent 请求服务器强制结束多人马匹骑乘。
+//
+// HorseDismountEvent asks the server to force-stop a multi-horse ride.
+message HorseDismountEvent {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ride.basic.Basic Basic = 1;
+  // PlayerID 是请求下马的本地玩家 ID。
+  //
+  // PlayerID is the local player ID requesting dismount.
+  string PlayerID = 2;
+}
+

@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.item_stack_request;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "item_stack.proto";
+import "packet_options.proto";
+
+// ItemStackRequest 由客户端发送，用于更改物品栏中的物品堆叠。它本质上是 1.16 加入的、
+// 面向物品栏特定操作的 InventoryTransaction 替代品，例如移动物品或合成。
+// InventoryTransaction 仍用于放置方块、与实体交互等操作。
+//
+// ItemStackRequest is sent by the client to change item stacks in an inventory. It is essentially a
+// replacement of the InventoryTransaction packet added in 1.16 for inventory specific actions, such as moving
+// items around or crafting. The InventoryTransaction packet is still used for actions such as placing blocks
+// and interacting with entities.
+//
+// Added: v1.16
+message ItemStackRequest {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDItemStackRequest;
+  // Requests 保存物品堆叠请求列表。这些请求彼此独立，但客户端会缓冲请求，因此该数据包中可能包含多个无关请求。
+  //
+  // Requests holds a list of item stack requests. These requests are all separate, but the client buffers
+  // the requests, so you might find multiple unrelated requests in this packet.
+  //
+  // Added: v1.16
+  // Go type: []protocol.ItemStackRequest
+  repeated .mousetunnel.minecraft.protocol.item_stack.ItemStackRequest Requests = 1;
+}
+

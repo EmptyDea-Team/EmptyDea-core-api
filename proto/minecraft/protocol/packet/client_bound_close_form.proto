@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.client_bound_close_form;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// ClientBoundCloseForm 由服务器发送，用于清空客户端的整个表单栈。这表示所有当前打开的表单都会被关闭。
+// 它不会影响物品栏或其他容器。
+//
+// ClientBoundCloseForm 由服务器发送，用于清空客户端的整个表单栈。
+// 这会关闭当前打开的所有表单，但不会影响物品栏或其他容器。
+//
+// ClientBoundCloseForm is sent by the server to clear the entire form stack of the client. This means that all
+// forms that are currently open will be closed. This does not affect inventories and other containers.
+//
+// Added: v1.21.20
+message ClientBoundCloseForm {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDClientBoundCloseForm;
+}
+

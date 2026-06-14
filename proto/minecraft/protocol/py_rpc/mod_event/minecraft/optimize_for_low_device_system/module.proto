@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.optimize_for_low_device_system.module;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/optimize_for_low_device_system;optimize_for_low_device_system";
+
+// Module 描述 Minecraft optimizeForLowDeviceSystem 模块。
+//
+// Module describes the Minecraft optimizeForLowDeviceSystem module.
+message Module {
+}
+

@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.show_tips;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// ShowTips 显示宠物系统提示。
+//
+// ShowTips shows a pet-system tip.
+message ShowTips {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  ShowTipsData ShowTipsData = 2;
+}
+
+// ShowTipsData 保存提示文本字段。
+//
+// ShowTipsData stores a tip message field.
+message ShowTipsData {
+  string Message = 1;
+}
+

@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.purchase_receipt;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// PurchaseReceipt 由客户端发送给服务器，用于通知服务器它已购买服务器提供的 Marketplace 商店物品。
+// 该数据包只用于合作伙伴服务器。
+//
+// PurchaseReceipt is sent by the client to the server to notify the server it purchased an item from the
+// Marketplace store that was offered by the server. The packet is only used for partnered servers.
+//
+// Added: v1.13
+message PurchaseReceipt {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDPurchaseReceipt;
+  // Receipts 是玩家已购买商品的收据列表，也就是购买证明列表。
+  //
+  // Receipts is a list of receipts, or proofs of purchases, for the offers that have been purchased by the
+  // player.
+  //
+  // Added: v1.13
+  // Go type: []string
+  repeated string Receipts = 1;
+}
+

@@ -1,0 +1,187 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.memory_category;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+enum MemoryCategoryEnum {
+  MemoryCategoryUnknown = 0;
+  MemoryCategoryInvalidSizeUnknown = 1;
+  MemoryCategoryActor = 2;
+  MemoryCategoryActorAnimation = 3;
+  MemoryCategoryActorRendering = 4;
+  MemoryCategoryBlockTickingQueues = 5;
+  MemoryCategoryBiomeStorage = 6;
+  MemoryCategoryCereal = 7;
+  MemoryCategoryCircuitSystem = 8;
+  MemoryCategoryClient = 9;
+  MemoryCategoryCommands = 10;
+  MemoryCategoryDBStorage = 11;
+  MemoryCategoryDebug = 12;
+  MemoryCategoryDocumentation = 13;
+  MemoryCategoryECSSystems = 14;
+  MemoryCategoryFMOD = 15;
+  MemoryCategoryFonts = 16;
+  MemoryCategoryImGUI = 17;
+  MemoryCategoryInput = 18;
+  MemoryCategoryJsonUI = 19;
+  MemoryCategoryJsonUIControlFactoryJson = 20;
+  MemoryCategoryJsonUIControlTree = 21;
+  MemoryCategoryJsonUIControlTreeControlElement = 22;
+  MemoryCategoryJsonUIControlTreePopulateDataBinding = 23;
+  MemoryCategoryJsonUIControlTreePopulateFocus = 24;
+  MemoryCategoryJsonUIControlTreePopulateLayout = 25;
+  MemoryCategoryJsonUIControlTreePopulateOther = 26;
+  MemoryCategoryJsonUIControlTreePopulateSprite = 27;
+  MemoryCategoryJsonUIControlTreePopulateText = 28;
+  MemoryCategoryJsonUIControlTreePopulateTTS = 29;
+  MemoryCategoryJsonUIControlTreeVisibility = 30;
+  MemoryCategoryJsonUICreateUI = 31;
+  MemoryCategoryJsonUIDefs = 32;
+  MemoryCategoryJsonUILayoutManager = 33;
+  MemoryCategoryJsonUILayoutManagerRemoveDependencies = 34;
+  MemoryCategoryJsonUILayoutManagerInitVariable = 35;
+  MemoryCategoryLanguages = 36;
+  MemoryCategoryLevel = 37;
+  MemoryCategoryLevelStructures = 38;
+  MemoryCategoryLevelChunk = 39;
+  MemoryCategoryLevelChunkGen = 40;
+  MemoryCategoryLevelChunkGenThreadLocal = 41;
+  MemoryCategoryLightVolumeManager = 42;
+  MemoryCategoryNetwork = 43;
+  MemoryCategoryMarketplace = 44;
+  MemoryCategoryMaterialDragonCompiledDefinition = 45;
+  MemoryCategoryMaterialDragonMaterial = 46;
+  MemoryCategoryMaterialDragonResource = 47;
+  MemoryCategoryMaterialDragonUniformMap = 48;
+  MemoryCategoryMaterialRenderMaterial = 49;
+  MemoryCategoryMaterialRenderMaterialGroup = 50;
+  MemoryCategoryMaterialVariationManager = 51;
+  MemoryCategoryMolang = 52;
+  MemoryCategoryOreUI = 53;
+  MemoryCategoryPersona = 54;
+  MemoryCategoryPlayer = 55;
+  MemoryCategoryRenderChunk = 56;
+  MemoryCategoryRenderChunkIndexBuffer = 57;
+  MemoryCategoryRenderChunkVertexBuffer = 58;
+  MemoryCategoryRendering = 59;
+  MemoryCategoryRenderingLibrary = 60;
+  MemoryCategoryRequestLog = 61;
+  MemoryCategoryResourcePacks = 62;
+  MemoryCategorySound = 63;
+  MemoryCategorySubChunkBiomeData = 64;
+  MemoryCategorySubChunkBlockData = 65;
+  MemoryCategorySubChunkLightData = 66;
+  MemoryCategoryTextures = 67;
+  MemoryCategoryVR = 68;
+  MemoryCategoryWeatherRenderer = 69;
+  MemoryCategoryWorldGenerator = 70;
+  MemoryCategoryTasks = 71;
+  MemoryCategoryTest = 72;
+  MemoryCategoryScripting = 73;
+  MemoryCategoryScriptingRuntime = 74;
+  MemoryCategoryScriptingContext = 75;
+  MemoryCategoryScriptingContextBindingsMC = 76;
+  MemoryCategoryScriptingContextBindingsGT = 77;
+  MemoryCategoryScriptingContextRun = 78;
+  MemoryCategoryDataDrivenUI = 79;
+  MemoryCategoryDataDrivenUIDefs = 80;
+  MemoryCategoryGameface = 81;
+  MemoryCategoryGamefaceSystem = 82;
+  MemoryCategoryGamefaceDOM = 83;
+  MemoryCategoryGamefaceCSS = 84;
+  MemoryCategoryGamefaceDisplay = 85;
+  MemoryCategoryGamefaceTempAllocator = 86;
+  MemoryCategoryGamefacePoolAllocator = 87;
+  MemoryCategoryGamefaceDump = 88;
+  MemoryCategoryGamefaceMedia = 89;
+  MemoryCategoryGamefaceJSON = 90;
+  MemoryCategoryGamefaceScriptEngine = 91;
+}
+
+// MemoryCategoryCounter 表示特定类别的内存使用计数器。
+//
+// MemoryCategoryCounter represents a memory usage counter for a specific category.
+//
+// Added: v1.26.0
+message MemoryCategoryCounter {
+  // Category 是内存类别，应为上方 MemoryCategory 常量之一。
+  //
+  // Category is the memory category. It is one of the MemoryCategory constants above.
+  //
+  // Added: v1.26.0
+  // Go type: uint8
+  uint32 Category = 1;
+  // Bytes 是该类别使用的字节数。
+  //
+  // Bytes is the number of bytes used by this category.
+  //
+  // Added: v1.26.0
+  uint64 Bytes = 2;
+}
+
+// EntityDiagnosticTimingInfo 表示特定实体类型的诊断信息。
+//
+// EntityDiagnosticTimingInfo represents diagnostics for a specific entity type.
+//
+// Added: v1.26.20
+message EntityDiagnosticTimingInfo {
+  // DisplayName 是该计时条目要显示的名称。
+  //
+  // DisplayName is the name to display for this timing entry.
+  //
+  // Added: v1.26.20
+  string DisplayName = 1;
+  // Entity 是正在计时实体的标识符。
+  //
+  // Entity is the identifier of the entity that is being timed.
+  //
+  // Added: v1.26.20
+  string Entity = 2;
+  // DurationNanos 是该计时条目的持续时间，以纳秒为单位。
+  //
+  // DurationNanos is how long the timing entry lasted, in nanoseconds.
+  //
+  // Added: v1.26.20
+  uint64 DurationNanos = 3;
+  // PercentOfTotal 是该计时条目相对于其他条目所使用时间的百分比。
+  //
+  // PercentOfTotal is the percentage of time that this timing entry has used compared to others.
+  //
+  // Added: v1.26.20
+  // Go type: byte
+  uint32 PercentOfTotal = 4;
+}
+
+// SystemDiagnosticTimingInfo 表示特定系统索引的诊断信息。
+//
+// SystemDiagnosticTimingInfo represents diagnostics for a specific system index.
+//
+// Added: v1.26.20
+message SystemDiagnosticTimingInfo {
+  // DisplayName 是该计时条目要显示的名称。
+  //
+  // DisplayName is the name to display for this timing entry.
+  //
+  // Added: v1.26.20
+  string DisplayName = 1;
+  // SystemIndex 是正在计时系统的索引。
+  //
+  // SystemIndex is the index of the system that is being timed.
+  //
+  // Added: v1.26.20
+  uint64 SystemIndex = 2;
+  // DurationNanos 是该计时条目的持续时间，以纳秒为单位。
+  //
+  // DurationNanos is how long the timing entry lasted, in nanoseconds.
+  //
+  // Added: v1.26.20
+  uint64 DurationNanos = 3;
+  // PercentOfTotal 是该计时条目相对于其他条目所使用时间的百分比。
+  //
+  // PercentOfTotal is the percentage of time that this timing entry has used compared to others.
+  //
+  // Added: v1.26.20
+  // Go type: byte
+  uint32 PercentOfTotal = 4;
+}
+

@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.sub_chunk_request;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "chunk_pos.proto";
+import "packet_options.proto";
+import "sub_chunk.proto";
+
+// SubChunkRequest 使用中心点从服务器请求特定子区块。
+//
+// SubChunkRequest requests specific sub-chunks from the server using a center point.
+//
+// Added: v1.17.40
+message SubChunkRequest {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDSubChunkRequest;
+  // Dimension 是子区块所在维度。
+  //
+  // Dimension is the dimension of the sub-chunk.
+  //
+  // Added: v1.17.40
+  int32 Dimension = 1;
+  // Position 是绝对子区块中心点，用作所有被请求子区块的基准点。
+  // X 和 Z 坐标表示区块坐标，Y 坐标表示绝对子区块索引。
+  //
+  // Position is an absolute sub-chunk center point used as a base point for all sub-chunks requested. The X and Z
+  // coordinates represent the chunk coordinates, while the Y coordinate is the absolute sub-chunk index.
+  //
+  // Added: v1.17.40
+  .mousetunnel.minecraft.protocol.chunk_pos.SubChunkPos Position = 2;
+  // Offsets 包含围绕中心点的所有请求偏移。
+  //
+  // Offsets contains all requested offsets around the center point.
+  //
+  // Added: v1.17.40
+  // Changed: v1.18.10, offsets became signed sub-chunk offsets.
+  // Go type: []protocol.SubChunkOffset
+  repeated .mousetunnel.minecraft.protocol.sub_chunk.SubChunkOffset Offsets = 3;
+}
+

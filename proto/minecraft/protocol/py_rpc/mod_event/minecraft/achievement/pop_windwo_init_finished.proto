@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.achievement.pop_windwo_init_finished;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/achievement;achievement";
+
+import "py_rpc/mod_event/minecraft/achievement/basic.proto";
+
+// PopWindwoInitFinished 通知服务器成就弹窗初始化完成。
+//
+// PopWindwoInitFinished notifies the server that the achievement popup finished initialising.
+message PopWindwoInitFinished {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.achievement.basic.Basic Basic = 1;
+  // PlayerID 是客户端本地玩家 ID。
+  //
+  // PlayerID is the client local player ID.
+  string PlayerID = 2;
+}
+

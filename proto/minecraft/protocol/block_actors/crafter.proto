@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.crafter;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actors";
+
+import "block_actors/general_actors/dispenser_block_actor.proto";
+
+// Crafter 描述合成器方块实体。
+//
+// Crafter describes the crafter block actor.
+message Crafter {
+  .mousetunnel.minecraft.protocol.block_actors.general_actors.dispenser_block_actor.DispenserBlockActor DispenserBlockActor = 1;
+  // Not used; TAG_Short(3) = 0
+  string DisabledSlots = 2;
+}
+

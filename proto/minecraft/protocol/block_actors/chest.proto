@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.chest;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actors";
+
+import "block_actors/general_actors/chest_block_actor.proto";
+
+// Chest 描述箱子方块实体。
+//
+// Chest describes the chest block actor.
+message Chest {
+  .mousetunnel.minecraft.protocol.block_actors.general_actors.chest_block_actor.ChestBlockActor ChestBlockActor = 1;
+}
+

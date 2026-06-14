@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.container_set_data;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+enum ContainerDataFurnaceEnum {
+  ContainerDataFurnaceTickCount = 0;
+  ContainerDataFurnaceLitTime = 1;
+  ContainerDataFurnaceLitDuration = 2;
+  ContainerDataFurnaceFuelAux = 4;
+}
+
+enum ContainerDataBrewingStandEnum {
+  ContainerDataBrewingStandBrewTime = 0;
+  ContainerDataBrewingStandFuelAmount = 1;
+  ContainerDataBrewingStandFuelTotal = 2;
+}
+
+// ContainerSetData 由服务器发送，用于更新单个容器的特定数据，
+// 也就是熔炉或酿造台等方块的数据。客户端通常使用这些数据在客户端侧显示某些功能。
+//
+// ContainerSetData is sent by the server to update specific data of a single container, meaning a block such
+// as a furnace or a brewing stand. This data is usually used by the client to display certain features
+// client-side.
+//
+// Added: v1.11.1
+message ContainerSetData {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDContainerSetData;
+  // WindowID 是应设置数据的窗口 ID。玩家必须打开了传入窗口 ID 对应的窗口，
+  // 否则不会发生任何效果。
+  //
+  // WindowID is the ID of the window that should have its data set. The player must have a window open with
+  // the window ID passed, or nothing will happen.
+  //
+  // Added: v1.11.1
+  // Go type: byte
+  uint32 WindowID = 1;
+  // Key 是属性键，它是上方常量之一。多个属性可能共享同一个键，
+  // 但具体功能取决于被设置数据的容器类型。
+  //
+  // Key is the key of the property. It is one of the constants that can be found above. Multiple properties
+  // share the same key, but the functionality depends on the type of the container that the data is set to.
+  //
+  // Added: v1.11.1
+  int32 Key = 2;
+  // Value 是属性值，其用途因属性而异。
+  //
+  // Value is the value of the property. Its use differs per property.
+  //
+  // Added: v1.11.1
+  int32 Value = 3;
+}
+

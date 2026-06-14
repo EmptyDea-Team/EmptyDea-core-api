@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.skill_friend_s2c_far_friend_pos;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// SkillFriendS2CFarFriendPos 返回远处好友位置。
+//
+// SkillFriendS2CFarFriendPos returns far friend positions.
+message SkillFriendS2CFarFriendPos {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  FarFriendPosResponseData FarFriendPosResponseData = 2;
+}
+
+// FarFriendPosResponseData 保存远处好友位置响应字段。
+//
+// FarFriendPosResponseData stores far-friend position response fields.
+message FarFriendPosResponseData {
+  // Go type: map[string][]float64
+  map<string, double> Position = 1;
+  // Go type: map[string]string
+  map<string, string> Name = 2;
+  // Go type: map[string]bool
+  map<string, bool> SameDim = 3;
+}
+

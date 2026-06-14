@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.vip_event_system.player_ui_init;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/vip_event_system;vip_event_system";
+
+import "py_rpc/mod_event/minecraft/vip_event_system/basic.proto";
+
+// PlayerUiInit 在玩家 UI 初始化时发送玩家运行时 ID。
+//
+// PlayerUiInit sends the player runtime ID when the player UI is initialised.
+message PlayerUiInit {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.vip_event_system.basic.Basic Basic = 1;
+  // RuntimeID 是玩家运行时 ID。
+  //
+  // RuntimeID is the player runtime ID.
+  string RuntimeID = 2;
+}
+

@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.set_commands_enabled;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// SetCommandsEnabled 由服务器发送，用于启用或禁用客户端执行命令的能力。
+// 如果被禁用，客户端本身会停止执行命令。
+//
+// SetCommandsEnabled is sent by the server to enable or disable the ability to execute commands for the
+// client. If disabled, the client itself will stop the execution of commands.
+//
+// Added: v1.11.1
+message SetCommandsEnabled {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDSetCommandsEnabled;
+  // Enabled 定义命令是否应被启用；为 false 时表示禁用。
+  //
+  // Enabled defines if the commands should be enabled, or if false, disabled.
+  //
+  // Added: v1.11.1
+  bool Enabled = 1;
+}
+

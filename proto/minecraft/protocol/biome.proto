@@ -1,0 +1,1145 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.biome;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+import "io.proto";
+
+enum BiomeExpressionEnum {
+  option allow_alias = true;
+  BIOMEEXPRESSIONENUM_UNSPECIFIED = 0;
+  BiomeExpressionOpUnknown = -1;
+  BiomeExpressionOpLeftBrace = 0;
+  BiomeExpressionOpRightBrace = 1;
+  BiomeExpressionOpLeftBracket = 2;
+  BiomeExpressionOpRightBracket = 3;
+  BiomeExpressionOpLeftParenthesis = 4;
+  BiomeExpressionOpRightParenthesis = 5;
+  BiomeExpressionOpNegate = 6;
+  BiomeExpressionOpLogicalNot = 7;
+  BiomeExpressionOpAbs = 8;
+  BiomeExpressionOpAdd = 9;
+  BiomeExpressionOpAcos = 10;
+  BiomeExpressionOpAsin = 11;
+  BiomeExpressionOpAtan = 12;
+  BiomeExpressionOpAtan2 = 13;
+  BiomeExpressionOpCeil = 14;
+  BiomeExpressionOpClamp = 15;
+  BiomeExpressionOpCopySign = 16;
+  BiomeExpressionCos = 17;
+  BiomeExpressionDieRoll = 18;
+  BiomeExpressionDieRollInt = 19;
+  BiomeExpressionDiv = 20;
+  BiomeExpressionExp = 21;
+  BiomeExpressionFloor = 22;
+  BiomeExpressionHermiteBlend = 23;
+  BiomeExpressionLerp = 24;
+  BiomeExpressionLerpRotate = 25;
+  BiomeExpressionLn = 26;
+  BiomeExpressionMax = 27;
+  BiomeExpressionMin = 28;
+  BiomeExpressionMinAngle = 29;
+  BiomeExpressionMod = 30;
+  BiomeExpressionMul = 31;
+  BiomeExpressionPow = 32;
+  BiomeExpressionRandom = 33;
+  BiomeExpressionRandomInt = 34;
+  BiomeExpressionRound = 35;
+  BiomeExpressionSin = 36;
+  BiomeExpressionSign = 37;
+  BiomeExpressionSqrt = 38;
+  BiomeExpressionTrunc = 39;
+  BiomeExpressionQueryFunction = 40;
+  BiomeExpressionArrayVariable = 41;
+  BiomeExpressionContextVariable = 42;
+  BiomeExpressionEntityVariable = 43;
+  BiomeExpressionTempVariable = 44;
+  BiomeExpressionMemberAccessor = 45;
+  BiomeExpressionHashedStringHash = 46;
+  BiomeExpressionGeometryVariable = 47;
+  BiomeExpressionMaterialVariable = 48;
+  BiomeExpressionTextureVariable = 49;
+  BiomeExpressionLessThan = 50;
+  BiomeExpressionLessEqual = 51;
+  BiomeExpressionGreaterEqual = 52;
+  BiomeExpressionGreaterThan = 53;
+  BiomeExpressionLogicalEqual = 54;
+  BiomeExpressionLogicalNotEqual = 55;
+  BiomeExpressionLogicalOr = 56;
+  BiomeExpressionLogicalAnd = 57;
+  BiomeExpressionNullCoalescing = 58;
+  BiomeExpressionConditional = 59;
+  BiomeExpressionConditionalElse = 60;
+  BiomeExpressionFloat = 61;
+  BiomeExpressionPi = 62;
+  BiomeExpressionArray = 63;
+  BiomeExpressionGeometry = 64;
+  BiomeExpressionMaterial = 65;
+  BiomeExpressionTexture = 66;
+  BiomeExpressionLoop = 67;
+  BiomeExpressionForEach = 68;
+  BiomeExpressionBreak = 69;
+  BiomeExpressionContinue = 70;
+  BiomeExpressionAssignment = 71;
+  BiomeExpressionPointer = 72;
+  BiomeExpressionSemicolon = 73;
+  BiomeExpressionReturn = 74;
+  BiomeExpressionComma = 75;
+  BiomeExpressionThis = 76;
+  BiomeExpressionNonEvaluatedArray = 77;
+  BiomeExpressionInverseLerp = 78;
+  BiomeExpressionEaseInQuad = 79;
+  BiomeExpressionEaseOutQuad = 80;
+  BiomeExpressionEaseInOutQuad = 81;
+  BiomeExpressionEaseInCubic = 82;
+  BiomeExpressionEaseOutCubic = 83;
+  BiomeExpressionEaseInOutCubic = 84;
+  BiomeExpressionEaseInQuart = 85;
+  BiomeExpressionEaseOutQuart = 86;
+  BiomeExpressionEaseInOutQuart = 87;
+  BiomeExpressionEaseInQuint = 88;
+  BiomeExpressionEaseOutQuint = 89;
+  BiomeExpressionEaseInOutQuint = 90;
+  BiomeExpressionEaseInSine = 91;
+  BiomeExpressionEaseOutSine = 92;
+  BiomeExpressionEaseInOutSine = 93;
+  BiomeExpressionEaseInExpo = 94;
+  BiomeExpressionEaseOutExpo = 95;
+  BiomeExpressionEaseInOutExpo = 96;
+  BiomeExpressionEaseInCirc = 97;
+  BiomeExpressionEaseOutCirc = 98;
+  BiomeExpressionEaseInOutCirc = 99;
+  BiomeExpressionEaseInBounce = 100;
+  BiomeExpressionEaseOutBounce = 101;
+  BiomeExpressionEaseInOutBounce = 102;
+  BiomeExpressionEaseInBack = 103;
+  BiomeExpressionEaseOutBack = 104;
+  BiomeExpressionEaseInOutBack = 105;
+  BiomeExpressionEaseInElastic = 106;
+  BiomeExpressionEaseOutElastic = 107;
+  BiomeExpressionEaseInOutElastic = 108;
+  BiomeExpressionCount = 109;
+}
+
+enum BiomeCoordinateEvaluationOrderEnum {
+  BiomeCoordinateEvaluationOrderXYZ = 0;
+  BiomeCoordinateEvaluationOrderXZY = 1;
+  BiomeCoordinateEvaluationOrderYXZ = 2;
+  BiomeCoordinateEvaluationOrderYZX = 3;
+  BiomeCoordinateEvaluationOrderZXY = 4;
+  BiomeCoordinateEvaluationOrderZYX = 5;
+}
+
+enum BiomeRandomDistributionTypeEnum {
+  BiomeRandomDistributionTypeSingleValued = 0;
+  BiomeRandomDistributionTypeUniform = 1;
+  BiomeRandomDistributionTypeGaussian = 2;
+  BiomeRandomDistributionTypeInverseGaussian = 3;
+  BiomeRandomDistributionTypeFixedGrid = 4;
+  BiomeRandomDistributionTypeJitteredGrid = 5;
+  BiomeRandomDistributionTypeTriangle = 6;
+}
+
+// BiomeDefinition 表示游戏中的生物群系定义，可以是原版生物群系，也可以是完全自定义的生物群系。
+//
+// BiomeDefinition represents a biome definition in the game. This can be a vanilla biome or a completely
+// custom biome.
+//
+// Added: v1.21.80
+message BiomeDefinition {
+  // NameIndex 表示生物群系名称在字符串列表中的索引。
+  //
+  // NameIndex represents the index of the biome name in the string list.
+  //
+  // Added: v1.21.80
+  // Go type: int16
+  int32 NameIndex = 1;
+  // BiomeID 是生物群系 ID。
+  //
+  // BiomeID is the biome ID.
+  //
+  // Added: v1.21.80, Changed: v1.21.100
+  // 自 v1.21.100 起，BiomeID 从 Optional[uint16] 改为 int16。
+  //
+  // Since v1.21.100, BiomeID changed from Optional[uint16] to int16.
+  // Go type: int16
+  int32 BiomeID = 2;
+  // Temperature 是生物群系温度，用于天气、生物群系行为和天空颜色。
+  //
+  // Temperature is the temperature of the biome, used for weather, biome behaviours and sky colour.
+  //
+  // Added: v1.21.80
+  // Go type: float32
+  float Temperature = 3;
+  // Downfall 表示降水对颜色和方块变化的影响程度。
+  //
+  // Downfall is the amount that precipitation affects colours and block changes.
+  //
+  // Added: v1.21.80
+  // Go type: float32
+  float Downfall = 4;
+  // FoliageSnow 是树叶因积雪变白的进度因子。
+  //
+  // FoliageSnow is the progression factor for foliage turning white due to snow.
+  //
+  // Added: v1.21.110
+  // Go type: float32
+  float FoliageSnow = 5;
+  // RedSporeDensity 是生物群系中的红色孢子密度。
+  //
+  // RedSporeDensity is the density of red spores in the biome.
+  //
+  // Added: v1.21.80, Removed: v1.21.110
+  // Go type: float32
+  float RedSporeDensity = 6;
+  // BlueSporeDensity 是生物群系中的蓝色孢子密度。
+  //
+  // BlueSporeDensity is the density of blue spores in the biome.
+  //
+  // Added: v1.21.80, Removed: v1.21.110
+  // Go type: float32
+  float BlueSporeDensity = 7;
+  // AshDensity 是生物群系中的灰烬密度。
+  //
+  // AshDensity is the density of ash in the biome.
+  //
+  // Added: v1.21.80, Removed: v1.21.110
+  // Go type: float32
+  float AshDensity = 8;
+  // WhiteAshDensity 是生物群系中的白色灰烬密度。
+  //
+  // WhiteAshDensity is the density of white ash in the biome.
+  //
+  // Added: v1.21.80, Removed: v1.21.110
+  // Go type: float32
+  float WhiteAshDensity = 9;
+  // Depth 是生物群系的深度。
+  //
+  // Depth is the depth of the biome.
+  //
+  // Added: v1.21.80
+  // Go type: float32
+  float Depth = 10;
+  // Scale 是生物群系的缩放值。
+  //
+  // Scale is the scale of the biome.
+  //
+  // Added: v1.21.80
+  // Go type: float32
+  float Scale = 11;
+  // MapWaterColour 是地图上该生物群系水体颜色使用的 ARGB 值。
+  //
+  // MapWaterColour is an ARGB value for the water colour on maps in the biome.
+  //
+  // Added: v1.21.80
+  int32 MapWaterColour = 12;
+  // Rain 为 true 表示该生物群系会下雨；为 false 表示它是干燥生物群系。
+  //
+  // Rain is true if the biome has rain, false if it is a dry biome.
+  //
+  // Added: v1.21.80
+  bool Rain = 13;
+  // Dimension 是网易生物群系定义携带的维度 ID。
+  //
+  // Dimension is the dimension ID carried by NetEase biome definitions.
+  //
+  // Added: NetEase.
+  int32 Dimension = 14;
+  // Vanilla 是网易生物群系定义关联的原版生物群系名称。
+  //
+  // Vanilla is the vanilla biome name associated with a NetEase biome definition.
+  //
+  // Added: NetEase.
+  string Vanilla = 15;
+  // Tags 是字符串列表中标签索引的列表，用于在生成等场景中对生物群系分组。
+  //
+  // Tags are a list of indices of tags in the string list. These are used to group biomes together for
+  // biome generation and other purposes.
+  //
+  // Added: v1.21.80
+  // Go type: Optional[[]uint16]
+  .mousetunnel.minecraft.protocol.Optional Tags = 16;
+  // ChunkGeneration 是辅助客户端区块生成的可选信息。几乎所有服务器都可以且应该留空，以显著减小该数据包体积。
+  //
+  // ChunkGeneration is optional information to assist in client-side chunk generation. Almost all servers
+  // can and should leave this empty to greatly reduce the size of this packet. Only BDS and servers which
+  // *exactly* match the vanilla chunk generation can benefit from this.
+  //
+  // Added: v1.21.80
+  // Go type: Optional[BiomeChunkGeneration]
+  .mousetunnel.minecraft.protocol.Optional ChunkGeneration = 17;
+}
+
+// BiomeChunkGeneration 表示客户端自行生成区块所需的信息，用于营造更大渲染距离的效果。
+//
+// BiomeChunkGeneration represents the information required for the client to generate chunks itself
+// to create the illusion of a larger render distance.
+//
+// Added: v1.21.80
+message BiomeChunkGeneration {
+  // Climate 是用于指定生物群系气候的可选信息。
+  //
+  // Climate is optional information to specify the biome's climate.
+  //
+  // Added: v1.21.80
+  // Go type: Optional[BiomeClimate]
+  .mousetunnel.minecraft.protocol.Optional Climate = 1;
+  // ConsolidatedFeatures 是被合并为单个 feature 的 feature 列表。
+  //
+  // ConsolidatedFeatures is a list of features that are consolidated into a single feature.
+  //
+  // Added: v1.21.80
+  // Go type: Optional[[]BiomeConsolidatedFeature]
+  .mousetunnel.minecraft.protocol.Optional ConsolidatedFeatures = 2;
+  // MountainParameters 是用于指定生物群系山地参数的可选信息。
+  //
+  // MountainParameters is optional information to specify the biome's mountain parameters.
+  //
+  // Added: v1.21.80
+  // Go type: Optional[BiomeMountainParameters]
+  .mousetunnel.minecraft.protocol.Optional MountainParameters = 3;
+  // SurfaceMaterialAdjustments 是表面材料调整列表。
+  //
+  // SurfaceMaterialAdjustments is a list of surface material adjustments.
+  //
+  // Added: v1.21.80
+  // Go type: Optional[[]BiomeElementData]
+  .mousetunnel.minecraft.protocol.Optional SurfaceMaterialAdjustments = 4;
+  // SurfaceMaterials 是生物群系表层使用的一组材料。
+  //
+  // SurfaceMaterials is a set of materials to use for the surface layers of the biome.
+  //
+  // Added: v1.21.80
+  // Go type: Optional[BiomeSurfaceMaterial]
+  .mousetunnel.minecraft.protocol.Optional SurfaceMaterials = 5;
+  // HasDefaultOverworldSurface 为 true 表示生物群系具有默认主世界表面。
+  //
+  // HasDefaultOverworldSurface is true if the biome has a default overworld surface.
+  //
+  // Added: v1.21.110
+  bool HasDefaultOverworldSurface = 6;
+  // HasSwampSurface 为 true 表示生物群系具有沼泽表面。
+  //
+  // HasSwampSurface is true if the biome has a swamp surface.
+  //
+  // Added: v1.21.80
+  bool HasSwampSurface = 7;
+  // HasFrozenOceanSurface 为 true 表示生物群系具有冻洋表面。
+  //
+  // HasFrozenOceanSurface is true if the biome has a frozen ocean surface.
+  //
+  // Added: v1.21.80
+  bool HasFrozenOceanSurface = 8;
+  // HasEndSurface 为 true 表示生物群系具有末地表面。
+  //
+  // HasEndSurface is true if the biome has an end surface.
+  //
+  // Added: v1.21.80
+  bool HasEndSurface = 9;
+  // MesaSurface 是用于指定生物群系恶地表面的可选信息。
+  //
+  // MesaSurface is optional information to specify the biome's mesa surface.
+  //
+  // Added: v1.21.80
+  // Go type: Optional[BiomeMesaSurface]
+  .mousetunnel.minecraft.protocol.Optional MesaSurface = 10;
+  // CappedSurface 是用于指定生物群系封顶表面的可选信息，例如下界中的表面。
+  //
+  // CappedSurface is optional information to specify the biome's capped surface, i.e. in the Nether.
+  //
+  // Added: v1.21.80
+  // Go type: Optional[BiomeCappedSurface]
+  .mousetunnel.minecraft.protocol.Optional CappedSurface = 11;
+  // OverworldRules 是用于指定生物群系主世界规则的可选信息，例如河流和丘陵。
+  //
+  // OverworldRules is optional information to specify the biome's overworld rules, such as rivers and hills.
+  //
+  // Added: v1.21.80
+  // Go type: Optional[BiomeOverworldRules]
+  .mousetunnel.minecraft.protocol.Optional OverworldRules = 12;
+  // MultiNoiseRules 是用于指定生物群系多噪声规则的可选信息。
+  //
+  // MultiNoiseRules is optional information to specify the biome's multi-noise rules.
+  //
+  // Added: v1.21.80
+  // Go type: Optional[BiomeMultiNoiseRules]
+  .mousetunnel.minecraft.protocol.Optional MultiNoiseRules = 13;
+  // LegacyRules 是旧格式生物群系使用的旧规则列表；该旧格式只是加权生物群系列表。
+  //
+  // LegacyRules is a list of legacy rules for the biomes using an older format, which is just a list of
+  // weighted biomes.
+  //
+  // Added: v1.21.80
+  // Go type: Optional[[]BiomeConditionalTransformation]
+  .mousetunnel.minecraft.protocol.Optional LegacyRules = 14;
+  // ReplacementsData 是生物群系替换数据列表。
+  //
+  // ReplacementsData is a list of biome replacement data.
+  //
+  // Added: v1.26.0
+  // Go type: Optional[[]BiomeReplacementData]
+  .mousetunnel.minecraft.protocol.Optional ReplacementsData = 15;
+  // VillageType 是生物群系区块生成使用的可选村庄类型。
+  //
+  // VillageType is the optional village type for the biome's chunk generation.
+  //
+  // Added: v1.26.0
+  // Go type: Optional[uint8]
+  .mousetunnel.minecraft.protocol.Optional VillageType = 16;
+  // SurfaceBuilder 是生物群系表面构建器使用的可选信息。
+  //
+  // SurfaceBuilder is optional information for the biome's surface builder.
+  //
+  // Added: v1.26.20
+  // Go type: Optional[BiomeSurfaceBuilder]
+  .mousetunnel.minecraft.protocol.Optional SurfaceBuilder = 17;
+  // SubsurfaceBuilder 是生物群系地下表面构建器使用的可选信息。
+  //
+  // SubsurfaceBuilder is optional information for the biome's subsurface builder.
+  //
+  // Added: v1.26.20
+  // Go type: Optional[BiomeSurfaceBuilder]
+  .mousetunnel.minecraft.protocol.Optional SubsurfaceBuilder = 18;
+}
+
+// BiomeClimate 表示生物群系气候，主要用于环境效果，也会定义部分行为。
+//
+// BiomeClimate represents the climate of a biome, mainly for ambience but also defines certain behaviours.
+//
+// Added: v1.21.80
+message BiomeClimate {
+  // Temperature 是生物群系温度，用于天气、生物群系行为和天空颜色。
+  //
+  // Temperature is the temperature of the biome, used for weather, biome behaviours and sky colour.
+  //
+  // Added: v1.21.80
+  // Go type: float32
+  float Temperature = 1;
+  // Downfall 表示降水对颜色和方块变化的影响程度。
+  //
+  // Downfall is the amount that precipitation affects colours and block changes.
+  //
+  // Added: v1.21.80
+  // Go type: float32
+  float Downfall = 2;
+  // SnowAccumulationMin 是生物群系可累积的最小积雪量，每 0.125 表示一层雪。
+  //
+  // SnowAccumulationMin is the minimum amount of snow that can accumulate in the biome, every 0.125 is
+  // another layer of snow.
+  //
+  // Added: v1.21.80
+  // Go type: float32
+  float SnowAccumulationMin = 3;
+  // SnowAccumulationMax 是生物群系可累积的最大积雪量，每 0.125 表示一层雪。
+  //
+  // SnowAccumulationMax is the maximum amount of snow that can accumulate in the biome, every 0.125 is
+  // another layer of snow.
+  //
+  // Added: v1.21.80
+  // Go type: float32
+  float SnowAccumulationMax = 4;
+  // RedSporeDensity 是生物群系中的红色孢子密度。
+  //
+  // RedSporeDensity is the density of red spores in the biome.
+  //
+  // Added: v1.21.80, Removed: v1.21.110
+  // Go type: float32
+  float RedSporeDensity = 5;
+  // BlueSporeDensity 是生物群系中的蓝色孢子密度。
+  //
+  // BlueSporeDensity is the density of blue spores in the biome.
+  //
+  // Added: v1.21.80, Removed: v1.21.110
+  // Go type: float32
+  float BlueSporeDensity = 6;
+  // AshDensity 是生物群系中的灰烬密度。
+  //
+  // AshDensity is the density of ash in the biome.
+  //
+  // Added: v1.21.80, Removed: v1.21.110
+  // Go type: float32
+  float AshDensity = 7;
+  // WhiteAshDensity 是生物群系中的白色灰烬密度。
+  //
+  // WhiteAshDensity is the density of white ash in the biome.
+  //
+  // Added: v1.21.80, Removed: v1.21.110
+  // Go type: float32
+  float WhiteAshDensity = 8;
+}
+
+// BiomeConsolidatedFeature 表示为生物群系合并成单个 feature 的 feature。
+//
+// BiomeConsolidatedFeature represents a feature that is consolidated into a single feature for the biome.
+//
+// Added: v1.21.80
+message BiomeConsolidatedFeature {
+  // Scatter 定义 feature 在生物群系中的散布方式。
+  //
+  // Scatter defines how the feature is scattered in the biome.
+  //
+  // Added: v1.21.80
+  BiomeScatterParameter Scatter = 1;
+  // Feature 是 feature 名称在字符串列表中的索引。
+  //
+  // Feature is the index of the feature's name in the string list.
+  //
+  // Added: v1.21.80
+  // Go type: int16
+  int32 Feature = 2;
+  // Identifier 是 feature 标识符在字符串列表中的索引。
+  //
+  // Identifier is the index of the feature's identifier in the string list.
+  //
+  // Added: v1.21.80
+  // Go type: int16
+  int32 Identifier = 3;
+  // Pass 是 feature pass 在字符串列表中的索引。
+  //
+  // Pass is the index of the feature's pass in the string list.
+  //
+  // Added: v1.21.80
+  // Go type: int16
+  int32 Pass = 4;
+  // CanUseInternal 为 true 表示该 feature 可使用内部 feature。
+  //
+  // CanUseInternal is true if the feature can use internal features.
+  //
+  // Added: v1.21.80
+  bool CanUseInternal = 5;
+}
+
+// BiomeScatterParameter 定义生物群系 feature 的散布方式，以及可尝试散布的次数。
+//
+// BiomeScatterParameter defines how a biome feature is scattered and how many times it may be attempted.
+//
+// Added: v1.21.80
+message BiomeScatterParameter {
+  // Coordinates 是散布 feature 时使用的坐标规则列表。
+  //
+  // Coordinates is a list of coordinate rules to scatter the feature within.
+  //
+  // Added: v1.21.80
+  // Go type: []BiomeCoordinate
+  repeated BiomeCoordinate Coordinates = 1;
+  // EvaluationOrder 是坐标求值顺序，取值为上方 CoordinateEvaluationOrder 常量之一。
+  //
+  // EvaluationOrder is the order in which the coordinates are evaluated, and is one of the
+  // CoordinateEvaluationOrder constants above.
+  //
+  // Added: v1.21.80
+  int32 EvaluationOrder = 2;
+  // ChancePercentType 是 chance percent 使用的表达式操作类型，取值为上方 BiomeExpressionOp 常量之一。
+  //
+  // ChancePercentType is the type of expression operation to use for the chance percent, and is one of the
+  // BiomeExpressionOp constants above.
+  //
+  // Added: v1.21.80
+  int32 ChancePercentType = 3;
+  // ChancePercent 是 chance 表达式在字符串列表中的索引。
+  //
+  // ChancePercent is the index of the chance expression in the string list.
+  //
+  // Added: v1.21.80
+  // Go type: int16
+  int32 ChancePercent = 4;
+  // ChanceNumerator 是 chance 表达式的分子。
+  //
+  // ChanceNumerator is the numerator of the chance expression.
+  //
+  // Added: v1.21.80
+  int32 ChanceNumerator = 5;
+  // ChanceDenominator 是 chance 表达式的分母。
+  //
+  // ChanceDenominator is the denominator of the chance expression.
+  //
+  // Added: v1.21.80
+  int32 ChanceDenominator = 6;
+  // IterationsType 是 iterations 使用的表达式操作类型，取值为上方 BiomeExpressionOp 常量之一。
+  //
+  // IterationsType is the type of expression operation to use for the iterations, and is one of the
+  // BiomeExpressionOp constants above.
+  //
+  // Added: v1.21.80
+  int32 IterationsType = 7;
+  // Iterations 是 iterations 表达式在字符串列表中的索引。
+  //
+  // Iterations is the index of the iterations expression in the string list.
+  //
+  // Added: v1.21.80
+  // Go type: int16
+  int32 Iterations = 8;
+}
+
+// BiomeCoordinate 指定 feature 可在生物群系中散布的坐标规则。
+//
+// BiomeCoordinate specifies coordinate rules for where features can be scattered in the biome.
+//
+// Added: v1.21.80
+message BiomeCoordinate {
+  // MinValueType 是 minimum value 使用的表达式操作类型，取值为上方 BiomeExpressionOp 常量之一。
+  //
+  // MinValueType is the type of expression operation to use for the minimum value, and is one of the
+  // BiomeExpressionOp constants above.
+  //
+  // Added: v1.21.80
+  int32 MinValueType = 1;
+  // MinValue 是 minimum value 表达式在字符串列表中的索引。
+  //
+  // MinValue is the index of the minimum value expression in the string list.
+  //
+  // Added: v1.21.80
+  // Go type: int16
+  int32 MinValue = 2;
+  // MaxValueType 是 maximum value 使用的表达式操作类型，取值为上方 BiomeExpressionOp 常量之一。
+  //
+  // MaxValueType is the type of expression operation to use for the maximum value, and is one of the
+  // BiomeExpressionOp constants above.
+  //
+  // Added: v1.21.80
+  int32 MaxValueType = 3;
+  // MaxValue 是 maximum value 表达式在字符串列表中的索引。
+  //
+  // MaxValue is the index of the maximum value expression in the string list.
+  //
+  // Added: v1.21.80
+  // Go type: int16
+  int32 MaxValue = 4;
+  // GridOffset 是网格偏移量，用于固定网格和抖动网格分布。
+  //
+  // GridOffset is the offset of the grid, used for fixed grid and jittered grid distributions.
+  //
+  // Added: v1.21.80
+  uint32 GridOffset = 5;
+  // GridStepSize 是网格步长，用于固定网格和抖动网格分布。
+  //
+  // GridStepSize is the step size of the grid, used for fixed grid and jittered grid distributions.
+  //
+  // Added: v1.21.80
+  uint32 GridStepSize = 6;
+  // Distribution 是坐标使用的分布类型，取值为上方 BiomeRandomDistributionType 常量之一。
+  //
+  // Distribution is the type of distribution to use for the coordinate, and is one of the
+  // BiomeRandomDistributionType constants above.
+  //
+  // Added: v1.21.80
+  int32 Distribution = 7;
+}
+
+// BiomeMountainParameters 指定山地生物群系的参数。
+//
+// BiomeMountainParameters specifies the parameters for a mountain biome.
+//
+// Added: v1.21.80
+message BiomeMountainParameters {
+  // SteepBlock 是陡坡使用的方块运行时 ID。
+  //
+  // SteepBlock is the runtime ID of the block to use for steep slopes.
+  //
+  // Added: v1.21.80
+  int32 SteepBlock = 1;
+  // NorthSlopes 为 true 表示生物群系具有北向坡面。
+  //
+  // NorthSlopes is true if the biome has north slopes.
+  //
+  // Added: v1.21.80
+  bool NorthSlopes = 2;
+  // SouthSlopes 为 true 表示生物群系具有南向坡面。
+  //
+  // SouthSlopes is true if the biome has south slopes.
+  //
+  // Added: v1.21.80
+  bool SouthSlopes = 3;
+  // WestSlopes 为 true 表示生物群系具有西向坡面。
+  //
+  // WestSlopes is true if the biome has west slopes.
+  //
+  // Added: v1.21.80
+  bool WestSlopes = 4;
+  // EastSlopes 为 true 表示生物群系具有东向坡面。
+  //
+  // EastSlopes is true if the biome has east slopes.
+  //
+  // Added: v1.21.80
+  bool EastSlopes = 5;
+  // TopSlideEnabled 为 true 表示生物群系启用了顶部滑坡。
+  //
+  // TopSlideEnabled is true if the biome has top slide enabled.
+  //
+  // Added: v1.21.80
+  bool TopSlideEnabled = 6;
+}
+
+// BiomeElementData 是用于调整生物群系表面材料的一组规则。
+//
+// BiomeElementData are set rules to adjust the surface materials of the biome.
+//
+// Added: v1.21.80
+message BiomeElementData {
+  // NoiseFrequencyScale 是调整表面材料时使用的噪声频率缩放值。
+  //
+  // NoiseFrequencyScale is the frequency scale of the noise used to adjust the surface materials.
+  //
+  // Added: v1.21.80
+  // Go type: float32
+  float NoiseFrequencyScale = 1;
+  // NoiseLowerBound 是被选中所需的最小噪声值。
+  //
+  // NoiseLowerBound is the minimum noise value required to be selected.
+  //
+  // Added: v1.21.80
+  // Go type: float32
+  float NoiseLowerBound = 2;
+  // NoiseUpperBound 是被选中所需的最大噪声值。
+  //
+  // NoiseUpperBound is the maximum noise value required to be selected.
+  //
+  // Added: v1.21.80
+  // Go type: float32
+  float NoiseUpperBound = 3;
+  // HeightMinType 是 minimum height 使用的表达式操作类型，取值为上方 BiomeExpressionOp 常量之一。
+  //
+  // HeightMinType is the type of expression operation to use for the minimum height, and is one of the
+  // BiomeExpressionOp constants above.
+  //
+  // Added: v1.21.80
+  int32 HeightMinType = 4;
+  // HeightMin 是 minimum height 表达式在字符串列表中的索引。
+  //
+  // HeightMin is the index of the minimum height expression in the string list.
+  //
+  // Added: v1.21.80
+  // Go type: int16
+  int32 HeightMin = 5;
+  // HeightMaxType 是 maximum height 使用的表达式操作类型，取值为上方 BiomeExpressionOp 常量之一。
+  //
+  // HeightMaxType is the type of expression operation to use for the maximum height, and is one of the
+  // BiomeExpressionOp constants above.
+  //
+  // Added: v1.21.80
+  int32 HeightMaxType = 6;
+  // HeightMax 是 maximum height 表达式在字符串列表中的索引。
+  //
+  // HeightMax is the index of the maximum height expression in the string list.
+  //
+  // Added: v1.21.80
+  // Go type: int16
+  int32 HeightMax = 7;
+  // AdjustedMaterials 是该规则被选中时生物群系表层使用的材料。
+  //
+  // AdjustedMaterials is the materials to use for the surface layers of the biome if selected.
+  //
+  // Added: v1.21.80
+  BiomeSurfaceMaterial AdjustedMaterials = 8;
+}
+
+// BiomeSurfaceMaterial 指定生物群系表层使用的材料。
+//
+// BiomeSurfaceMaterial specifies the materials to use for the surface layers of the biome.
+//
+// Added: v1.21.80
+message BiomeSurfaceMaterial {
+  // TopBlock 是顶层使用的方块运行时 ID。
+  //
+  // TopBlock is the runtime ID of the block to use for the top layer.
+  //
+  // Added: v1.21.80
+  int32 TopBlock = 1;
+  // MidBlock 是中间层使用的运行时 ID。
+  //
+  // MidBlock is the runtime ID to use for the middle layers.
+  //
+  // Added: v1.21.80
+  int32 MidBlock = 2;
+  // SeaFloorBlock 是海床使用的运行时 ID。
+  //
+  // SeaFloorBlock is the runtime ID to use for the sea floor.
+  //
+  // Added: v1.21.80
+  int32 SeaFloorBlock = 3;
+  // FoundationBlock 是基础层使用的运行时 ID。
+  //
+  // FoundationBlock is the runtime ID to use for the foundation layers.
+  //
+  // Added: v1.21.80
+  int32 FoundationBlock = 4;
+  // SeaBlock 是海洋层使用的运行时 ID。
+  //
+  // SeaBlock is the runtime ID to use for the sea layers.
+  //
+  // Added: v1.21.80
+  int32 SeaBlock = 5;
+  // SeaFloorDepth 是海床深度，单位为方块。
+  //
+  // SeaFloorDepth is the depth of the sea floor, in blocks.
+  //
+  // Added: v1.21.80
+  int32 SeaFloorDepth = 6;
+}
+
+// BiomeSurfaceBuilder 指定生物群系表面使用的材料和特殊表面规则。
+//
+// BiomeSurfaceBuilder specifies the materials and special surface rules to use for a biome surface.
+message BiomeSurfaceBuilder {
+  // SurfaceMaterials 是生物群系表层使用的一组材料。
+  //
+  // SurfaceMaterials is a set of materials to use for the surface layers of the biome.
+  // Go type: Optional[BiomeSurfaceMaterial]
+  .mousetunnel.minecraft.protocol.Optional SurfaceMaterials = 1;
+  // HasDefaultOverworldSurface 为 true 表示生物群系具有默认主世界表面。
+  //
+  // HasDefaultOverworldSurface is true if the biome has a default overworld surface.
+  bool HasDefaultOverworldSurface = 2;
+  // HasSwampSurface 为 true 表示生物群系具有沼泽表面。
+  //
+  // HasSwampSurface is true if the biome has a swamp surface.
+  bool HasSwampSurface = 3;
+  // HasFrozenOceanSurface 为 true 表示生物群系具有冻洋表面。
+  //
+  // HasFrozenOceanSurface is true if the biome has a frozen ocean surface.
+  bool HasFrozenOceanSurface = 4;
+  // HasEndSurface 为 true 表示生物群系具有末地表面。
+  //
+  // HasEndSurface is true if the biome has an end surface.
+  bool HasEndSurface = 5;
+  // MesaSurface 是用于指定生物群系恶地表面的可选信息。
+  //
+  // MesaSurface is optional information to specify the biome's mesa surface.
+  // Go type: Optional[BiomeMesaSurface]
+  .mousetunnel.minecraft.protocol.Optional MesaSurface = 6;
+  // CappedSurface 是用于指定生物群系封顶表面的可选信息，例如下界中的表面。
+  //
+  // CappedSurface is optional information to specify the biome's capped surface, i.e. in the Nether.
+  // Go type: Optional[BiomeCappedSurface]
+  .mousetunnel.minecraft.protocol.Optional CappedSurface = 7;
+  // NoiseGradientSurface 是用于指定噪声渐变表面数据的可选信息。
+  //
+  // NoiseGradientSurface is optional information to specify noise-gradient surface data.
+  // Go type: Optional[BiomeNoiseGradientSurface]
+  .mousetunnel.minecraft.protocol.Optional NoiseGradientSurface = 8;
+}
+
+// BiomeNoiseGradientSurface 指定生物群系的噪声渐变表面方块数据。
+//
+// BiomeNoiseGradientSurface specifies noise-gradient surface block data for a biome.
+message BiomeNoiseGradientSurface {
+  // NonReplaceableBlocks 是不可被替换的方块运行时 ID 列表。
+  //
+  // NonReplaceableBlocks is a list of block runtime IDs that may not be replaced.
+  // Go type: []uint32
+  repeated uint32 NonReplaceableBlocks = 1;
+  // GradientBlocks 是渐变使用的方块运行时 ID 列表。
+  //
+  // GradientBlocks is a list of block runtime IDs used by the gradient.
+  // Go type: []uint32
+  repeated uint32 GradientBlocks = 2;
+  // NoiseSeedString 是渐变噪声使用的种子字符串。
+  //
+  // NoiseSeedString is the seed string used by the gradient noise.
+  string NoiseSeedString = 3;
+  // FirstOctave 是渐变噪声使用的第一个 octave。
+  //
+  // FirstOctave is the first octave used by the gradient noise.
+  int32 FirstOctave = 4;
+  // Amplitudes 是渐变噪声使用的振幅值列表。
+  //
+  // Amplitudes is a list of amplitude values used by the gradient noise.
+  // Go type: []float32
+  repeated float Amplitudes = 5;
+}
+
+// BiomeMesaSurface 指定恶地生物群系使用的材料。
+//
+// BiomeMesaSurface specifies the materials to use for the mesa biome.
+//
+// Added: v1.21.80
+message BiomeMesaSurface {
+  // ClayMaterial 是黏土层使用的方块运行时 ID。
+  //
+  // ClayMaterial is the runtime ID of the block to use for clay layers.
+  //
+  // Added: v1.21.80
+  uint32 ClayMaterial = 1;
+  // HardClayMaterial 是硬化黏土层使用的方块运行时 ID。
+  //
+  // HardClayMaterial is the runtime ID of the block to use for hard clay layers.
+  //
+  // Added: v1.21.80
+  uint32 HardClayMaterial = 2;
+  // BrycePillars 为 true 表示生物群系具有 Bryce 石柱，也就是高耸的尖塔状结构。
+  //
+  // BrycePillars is true if the biome has bryce pillars, which are tall spire-like structures.
+  //
+  // Added: v1.21.80
+  bool BrycePillars = 3;
+  // HasForest 为 true 表示生物群系具有森林。
+  //
+  // HasForest is true if the biome has a forest.
+  //
+  // Added: v1.21.80
+  bool HasForest = 4;
+}
+
+// BiomeCappedSurface 指定生物群系封顶表面使用的材料，例如下界中的表面。
+//
+// BiomeCappedSurface specifies the materials to use for the capped surface of a biome, such as in the Nether.
+//
+// Added: v1.21.80
+message BiomeCappedSurface {
+  // FloorBlocks 是地面方块使用的运行时 ID 列表。
+  //
+  // FloorBlocks is a list of runtime IDs to use for the floor blocks.
+  //
+  // Added: v1.21.80
+  // Go type: []int32
+  repeated int32 FloorBlocks = 1;
+  // CeilingBlocks 是顶部方块使用的运行时 ID 列表。
+  //
+  // CeilingBlocks is a list of runtime IDs to use for the ceiling blocks.
+  //
+  // Added: v1.21.80
+  // Go type: []int32
+  repeated int32 CeilingBlocks = 2;
+  // SeaBlock 是海洋方块使用的可选运行时 ID。
+  //
+  // SeaBlock is an optional runtime ID to use for the sea block.
+  //
+  // Added: v1.21.80
+  // Go type: Optional[uint32]
+  .mousetunnel.minecraft.protocol.Optional SeaBlock = 3;
+  // FoundationBlock 是基础方块使用的可选运行时 ID。
+  //
+  // FoundationBlock is an optional runtime ID to use for the foundation block.
+  //
+  // Added: v1.21.80
+  // Go type: Optional[uint32]
+  .mousetunnel.minecraft.protocol.Optional FoundationBlock = 4;
+  // BeachBlock 是沙滩方块使用的可选运行时 ID。
+  //
+  // BeachBlock is an optional runtime ID to use for the beach block.
+  //
+  // Added: v1.21.80
+  // Go type: Optional[uint32]
+  .mousetunnel.minecraft.protocol.Optional BeachBlock = 5;
+}
+
+// BiomeOverworldRules 指定应用到主世界不同部分的转换规则列表。
+//
+// BiomeOverworldRules specifies a list of transformation rules to apply to different parts of the overworld.
+//
+// Added: v1.21.80
+message BiomeOverworldRules {
+  // HillsTransformations 是应用到丘陵的加权生物群系转换列表。
+  //
+  // HillsTransformations is a list of weighted biome transformations to apply to hills.
+  //
+  // Added: v1.21.80
+  // Go type: []BiomeWeight
+  repeated BiomeWeight HillsTransformations = 1;
+  // MutateTransformations 是应用到变种生物群系的加权生物群系转换列表。
+  //
+  // MutateTransformations is a list of weighted biome transformations to apply to mutated biomes.
+  //
+  // Added: v1.21.80
+  // Go type: []BiomeWeight
+  repeated BiomeWeight MutateTransformations = 2;
+  // RiverTransformations 是应用到河流的加权生物群系转换列表。
+  //
+  // RiverTransformations is a list of weighted biome transformations to apply to rivers.
+  //
+  // Added: v1.21.80
+  // Go type: []BiomeWeight
+  repeated BiomeWeight RiverTransformations = 3;
+  // ShoreTransformations 是应用到海岸的加权生物群系转换列表。
+  //
+  // ShoreTransformations is a list of weighted biome transformations to apply to shores.
+  //
+  // Added: v1.21.80
+  // Go type: []BiomeWeight
+  repeated BiomeWeight ShoreTransformations = 4;
+  // PreHillsEdgeTransformations 是应用到丘陵边缘的条件转换列表。
+  //
+  // PreHillsEdgeTransformations is a list of conditional transformations to apply to the edges of hills.
+  //
+  // Added: v1.21.80
+  // Go type: []BiomeConditionalTransformation
+  repeated BiomeConditionalTransformation PreHillsEdgeTransformations = 5;
+  // PostShoreEdgeTransformations 是应用到海岸边缘的条件转换列表。
+  //
+  // PostShoreEdgeTransformations is a list of conditional transformations to apply to the edges of shores.
+  //
+  // Added: v1.21.80
+  // Go type: []BiomeConditionalTransformation
+  repeated BiomeConditionalTransformation PostShoreEdgeTransformations = 6;
+  // ClimateTransformations 是应用到生物群系气候的加权温度转换列表。
+  //
+  // ClimateTransformations is a list of weighted temperature transformations to apply to the biome's climate.
+  //
+  // Added: v1.21.80
+  // Go type: []BiomeTemperatureWeight
+  repeated BiomeTemperatureWeight ClimateTransformations = 7;
+}
+
+// BiomeMultiNoiseRules 指定多噪声生物群系的规则；这类生物群系由多个噪声参数定义，而不只依赖温度和湿度。
+//
+// BiomeMultiNoiseRules specifies the rules for multi-noise biomes, which are biomes that are defined by
+// multiple noise parameters instead of just temperature and humidity.
+//
+// Added: v1.21.80
+message BiomeMultiNoiseRules {
+  // Temperature 是生物群系的温度等级。
+  //
+  // Temperature is the temperature level of the biome.
+  //
+  // Added: v1.21.80
+  // Go type: float32
+  float Temperature = 1;
+  // Humidity 是生物群系的湿度等级。
+  //
+  // Humidity is the humidity level of the biome.
+  //
+  // Added: v1.21.80
+  // Go type: float32
+  float Humidity = 2;
+  // Altitude 是生物群系的海拔等级。
+  //
+  // Altitude is the altitude level of the biome.
+  //
+  // Added: v1.21.80
+  // Go type: float32
+  float Altitude = 3;
+  // Weirdness 是生物群系的 weirdness 等级。
+  //
+  // Weirdness is the weirdness level of the biome.
+  //
+  // Added: v1.21.80
+  // Go type: float32
+  float Weirdness = 4;
+  // Weight 是生物群系权重，权重越高越可能被选中。
+  //
+  // Weight is the weight of the biome, with a higher weight being more likely to be selected.
+  //
+  // Added: v1.21.80
+  // Go type: float32
+  float Weight = 5;
+}
+
+// BiomeConditionalTransformation 是转换生物群系的旧方法。
+//
+// BiomeConditionalTransformation is the legacy method of transforming biomes.
+//
+// Added: v1.21.80
+message BiomeConditionalTransformation {
+  // WeightedBiomes 是生物群系及其权重的列表。
+  //
+  // WeightedBiomes is a list of biomes and their weights.
+  //
+  // Added: v1.21.80
+  // Go type: []BiomeWeight
+  repeated BiomeWeight WeightedBiomes = 1;
+  // ConditionJSON 是条件 JSON 数据在字符串列表中的索引。
+  //
+  // ConditionJSON is an index of the condition JSON data in the string list.
+  //
+  // Added: v1.21.80
+  // Go type: int16
+  int32 ConditionJSON = 2;
+  // MinPassingNeighbours 是应用转换所需的、满足条件的最小相邻数量。
+  //
+  // MinPassingNeighbours is the minimum number of neighbours that must pass the condition for the
+  // transformation to be applied.
+  //
+  // Added: v1.21.80
+  uint32 MinPassingNeighbours = 3;
+}
+
+// BiomeWeight 定义生物群系权重，用于加权随机。
+//
+// BiomeWeight defines the weight for a biome, used for weighted randomness.
+//
+// Added: v1.21.80
+message BiomeWeight {
+  // Biome 是生物群系名称在字符串列表中的索引。
+  //
+  // Biome is the index of the biome name in the string list.
+  //
+  // Added: v1.21.80
+  // Go type: int16
+  int32 Biome = 1;
+  // Weight 是生物群系权重，权重越高越可能被选中。
+  //
+  // Weight is the weight of the biome, with a higher weight being more likely to be selected.
+  //
+  // Added: v1.21.80
+  uint32 Weight = 2;
+}
+
+// BiomeTemperatureWeight 定义温度权重，用于加权随机。
+//
+// BiomeTemperatureWeight defines the weight for a temperature, used for weighted randomness.
+//
+// Added: v1.21.80
+message BiomeTemperatureWeight {
+  // Temperature 是可被选中的温度。
+  //
+  // Temperature is the temperature that can be selected.
+  //
+  // Added: v1.21.80
+  int32 Temperature = 1;
+  // Weight 是温度权重，权重越高越可能被选中。
+  //
+  // Weight is the weight of the temperature, with a higher weight being more likely to be selected.
+  //
+  // Added: v1.21.80
+  uint32 Weight = 2;
+}
+
+// BiomeReplacementData 表示生物群系替换数据。
+//
+// BiomeReplacementData represents data for biome replacements.
+//
+// Added: v1.26.0
+message BiomeReplacementData {
+  // Biome 是要替换的生物群系 ID。
+  //
+  // Biome is the biome ID to replace.
+  //
+  // Added: v1.26.0
+  // Go type: int16
+  int32 Biome = 1;
+  // Dimension 是替换生效的维度 ID。
+  //
+  // Dimension is the dimension ID where the replacement applies.
+  //
+  // Added: v1.26.0
+  // Go type: int16
+  int32 Dimension = 2;
+  // TargetBiomes 是替换目标生物群系 ID 列表。
+  //
+  // TargetBiomes is a list of target biome IDs for the replacement.
+  //
+  // Added: v1.26.0
+  // Go type: []int16
+  repeated int32 TargetBiomes = 3;
+  // Amount 是要应用的替换量。
+  //
+  // Amount is the amount of replacement to apply.
+  //
+  // Added: v1.26.0
+  // Go type: float32
+  float Amount = 4;
+  // NoiseFrequencyScale 表示替换使用的噪声频率缩放值。
+  //
+  // NoiseFrequencyScale is the noise frequency scale used by the replacement.
+  //
+  // Added: v1.26.0
+  // Go type: float32
+  float NoiseFrequencyScale = 5;
+  // ReplacementIndex 是替换索引。
+  //
+  // ReplacementIndex is the index of the replacement.
+  //
+  // Added: v1.26.0
+  uint32 ReplacementIndex = 6;
+}
+

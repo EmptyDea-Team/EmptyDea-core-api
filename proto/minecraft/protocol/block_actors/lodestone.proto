@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.lodestone;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actors";
+
+import "block_actors/general_actors/block_actor.proto";
+
+// Lodestone 描述磁石方块实体。
+//
+// Lodestone describes the lodestone block actor.
+message Lodestone {
+  .mousetunnel.minecraft.protocol.block_actors.general_actors.block_actor.BlockActor BlockActor = 1;
+  // TAG_Int(4) = 0
+  // Go type: *int32
+  int32 TrackingHandle = 2;
+}
+

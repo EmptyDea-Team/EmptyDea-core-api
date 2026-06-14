@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.destroy_pets_request;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// DestroyPetsRequest 请求服务器销毁宠物。
+//
+// DestroyPetsRequest asks the server to destroy pets.
+message DestroyPetsRequest {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  DestroyPetsData DestroyPetsData = 2;
+}
+
+// DestroyPetsData 保存销毁旧宠物请求字段。
+//
+// DestroyPetsData stores destroy-old-pets request fields.
+message DestroyPetsData {
+  // Go type: []string
+  repeated string EntityIDs = 1;
+  string PlayerID = 2;
+}
+

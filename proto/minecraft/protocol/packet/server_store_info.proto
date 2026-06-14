@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.server_store_info;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+import "server_join_information.proto";
+
+message ServerStoreInfoOptionalStoreEntryPointInfo {
+  bool Present = 1;
+  .mousetunnel.minecraft.protocol.server_join_information.StoreEntryPointInfo Value = 2;
+}
+
+// ServerStoreInfo 由服务器发送，用于向客户端提供商店入口点。与 ShowStoreOffer 数据包一样，
+// 它只会在合作伙伴服务器上生效。
+//
+// ServerStoreInfo is sent by the server to provide the client with a store entry point. Like the ShowStoreOffer packet,
+// this only has an effect on partnered servers.
+//
+// Added: v1.26.20
+message ServerStoreInfo {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDServerStoreInfo;
+  // StoreInfo 是要设置的商店信息；为空时会回退到默认值。
+  //
+  // StoreInfo is the store info to set, or nothing to fall back to the default.
+  //
+  // Added: v1.26.20
+  // Go type: protocol.Optional[protocol.StoreEntryPointInfo]
+  ServerStoreInfoOptionalStoreEntryPointInfo StoreInfo = 1;
+}
+

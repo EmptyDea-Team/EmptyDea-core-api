@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+package emptydea.game_control.game_interface;
+
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pb";
+
+import "block_pos.proto";
+
+// ReplaceitemInfo 指示要通过 replaceitem 生成的物品的基本信息
+message ReplaceitemInfo {
+  // 该物品的名称
+  string Name = 1;
+  // 该物品的数量
+  uint32 Count = 2;
+  // 该物品的元数据
+  int32 MetaData = 3;
+  // 该物品应当生成在哪个槽位
+  uint32 Slot = 4;
+}
+
+// ReplaceitemInInventoryRequest 是向背包填充物品的请求。
+message ReplaceitemInInventoryRequest {
+  // Target 指代被填充物品的目标，是一个目标选择器。
+  string Target = 1;
+  // Path 指代该物品所处的槽位类型，一个例子是"slot.hotbar"。
+  string Path = 2;
+  // ItemInfo 指代要生成的物品的基本信息。
+  ReplaceitemInfo ItemInfo = 3;
+  // Method 指代该物品的物品组件信息。
+  string Method = 4;
+  // Blocked 指示是否使用以阻塞的方式运行此函数，
+  // 如果为真，它将等待租赁服响应后再返回值。
+  bool Blocked = 5;
+}
+
+// ReplaceitemInContainerAsyncRequest 是向 blockPos 处的容器填充物品的请求。
+message ReplaceitemInContainerAsyncRequest {
+  // BlockPos 是目标容器方块位置。
+  mousetunnel.minecraft.protocol.block_pos.BlockPos BlockPos = 1;
+  // ItemInfo 指代要填充的物品的基本信息。
+  ReplaceitemInfo ItemInfo = 2;
+  // Method 指代该物品的物品组件信息。
+  string Method = 3;
+}
+
+// ReplaceitemResponse 是 replaceitem 操作后的空响应。
+message ReplaceitemResponse {}
+
+// ReplaceitemService 是基于 Commands 实现的简单 replaceitem 包装。
+service ReplaceitemService {
+  // ReplaceitemInInventory 向背包填充物品。
+  //
+  // target 指代被填充物品的目标，是一个目标选择器；
+  // path 指代该物品所处的槽位类型，一个例子是"slot.hotbar"；
+  // itemInfo 指代要生成的物品的基本信息；
+  // method 指代该物品的物品组件信息；
+  //
+  // blocked 指示是否使用以阻塞的方式运行此函数，
+  // 如果为真，它将等待租赁服响应后再返回值
+  rpc ReplaceitemInInventory(ReplaceitemInInventoryRequest) returns (ReplaceitemResponse);
+  // ReplaceitemInContainerAsync
+  // 向 blockPos 处的容器填充物品。
+  //
+  // itemInfo 指代要填充的物品的基本信息，
+  // method 指代该物品的物品组件信息。
+  //
+  // 此实现不会等待租赁服响应，
+  // 数据包被发送后将立即返回值
+  rpc ReplaceitemInContainerAsync(ReplaceitemInContainerAsyncRequest) returns (ReplaceitemResponse);
+}

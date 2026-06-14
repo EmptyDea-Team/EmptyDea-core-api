@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.change_dimension;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "mgl32.proto";
+import "packet_options.proto";
+
+message ChangeDimensionOptionalUint32 {
+  bool Present = 1;
+  uint32 Value = 2;
+}
+
+enum DimensionEnum {
+  DimensionOverworld = 0;
+  DimensionNether = 1;
+  DimensionEnd = 2;
+}
+
+// ChangeDimension 由服务器发送给客户端，用于在客户端侧显示维度切换界面。
+// 一旦客户端侧清除该界面，客户端会发送带有 PlayerActionDimensionChangeDone 的 PlayerAction 数据包。
+//
+// ChangeDimension is sent by the server to the client to send a dimension change screen client-side. Once the
+// screen is cleared client-side, the client will send a PlayerAction packet with
+// PlayerActionDimensionChangeDone.
+//
+// Added: v1.11.1
+message ChangeDimension {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDChangeDimension;
+  // Dimension 是客户端应切换到的维度。雾颜色会根据维度类型变化，
+  // 维度类型是上方常量之一。
+  // 注意，Dimension 必须不同于玩家当前所在维度。发送玩家当前维度的 ChangeDimension 数据包
+  // 会导致维度切换界面永不结束。
+  //
+  // Dimension is the dimension that the client should be changed to. The fog colour will change depending
+  // on the type of dimension, which is one of the constants above.
+  // Note that Dimension MUST be a different dimension than the one that the player is currently in. Sending
+  // a ChangeDimension packet with a Dimension that the player is currently in will result in a never-ending
+  // dimension change screen.
+  //
+  // Added: v1.11.1
+  int32 Dimension = 1;
+  // Position 是玩家在新维度中生成的位置。
+  //
+  // Position is the position in the new dimension that the player is spawned in.
+  //
+  // Added: v1.11.1
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 Position = 2;
+  // Respawn 指定该维度切换是否基于重生，也就是玩家在一个维度死亡并在另一个维度重生。
+  // 如果玩家在另一个维度死亡，客户端会发送带有 PlayerActionDimensionChangeRequest 的 PlayerAction 数据包，
+  // 表示它需要一个 Respawn 设置为 true 的 DimensionChange 数据包。
+  //
+  // Respawn specifies if the dimension change was respawn based, meaning that the player died in one
+  // dimension and got respawned into another. The client will send a PlayerAction packet with
+  // PlayerActionDimensionChangeRequest if it dies in another dimension, indicating that it needs a
+  // DimensionChange packet with Respawn set to true.
+  //
+  // Added: v1.11.1
+  bool Respawn = 3;
+  // LoadingScreenID 是玩家当前所在加载界面的唯一 ID。客户端会通过 ServerBoundLoadingScreen 数据包
+  // 向服务器更新其状态；服务器也可用它在客户端切换维度时避免发送特定数据包。
+  // 每个发送的 ChangeDimension 数据包都应使用唯一的该字段值。
+  //
+  // LoadingScreenID is a unique ID for the loading screen that the player is currently in. The client will
+  // update the server on its state through the ServerBoundLoadingScreen packet, and it can be used to not
+  // send specific packets to the client if it is changing dimensions. This field should be unique for every
+  // ChangeDimension packet sent.
+  //
+  // Added: v1.21.20
+  // Go type: protocol.Optional[uint32]
+  ChangeDimensionOptionalUint32 LoadingScreenID = 4;
+}
+

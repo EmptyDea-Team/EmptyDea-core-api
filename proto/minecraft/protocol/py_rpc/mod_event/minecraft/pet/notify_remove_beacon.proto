@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.notify_remove_beacon;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// NotifyRemoveBeacon 请求服务器移除宠物技能信标。
+//
+// NotifyRemoveBeacon asks the server to remove a pet skill beacon.
+message NotifyRemoveBeacon {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  NotifyRemoveBeaconData NotifyRemoveBeaconData = 2;
+}
+
+// NotifyRemoveBeaconData 保存宠物信标字段。
+//
+// NotifyRemoveBeaconData stores pet beacon fields.
+message NotifyRemoveBeaconData {
+  string PetID = 1;
+  // Go type: []float64
+  repeated double Position = 2;
+  // Go type: []float64
+  repeated double MixColor = 3;
+}
+

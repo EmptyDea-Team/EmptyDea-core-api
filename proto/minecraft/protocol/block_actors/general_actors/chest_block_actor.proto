@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.general_actors.chest_block_actor;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/general_actors;general_actors";
+
+import "block_actors/general_actors/randomizable_block_actor.proto";
+import "google/protobuf/struct.proto";
+
+// ChestBlockActor 描述箱子、末影箱、木桶和潜影盒的通用字段。
+//
+// ChestBlockActor describes common fields shared by chests, ender chests, barrels, and shulker boxes.
+message ChestBlockActor {
+  .mousetunnel.minecraft.protocol.block_actors.general_actors.randomizable_block_actor.RandomizableBlockActor RandomizableBlockActor = 1;
+  // TAG_Byte(1) = 0
+  // Go type: byte
+  uint32 Findable = 2;
+  // TAG_List[TAG_Compound] (9[10])
+  // Go type: []any
+  repeated google.protobuf.Value Items = 3;
+  // TAG_Byte(1) = 0
+  // Go type: *byte
+  uint32 Pairlead = 4;
+  // TAG_Int(4) = 0
+  // Go type: *int32
+  int32 Pairx = 5;
+  // TAG_Int(4) = 0
+  // Go type: *int32
+  int32 Pairz = 6;
+  // TAG_Byte(1) = 1
+  // Go type: *byte
+  uint32 ForceUnpair = 7;
+  // TAG_Short(3) = 0
+  // Go type: *int16
+  int32 CustomSize = 8;
+}
+

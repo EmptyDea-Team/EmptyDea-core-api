@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.interact;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "mgl32.proto";
+import "packet_options.proto";
+
+message InteractOptionalVec3 {
+  bool Present = 1;
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 Value = 2;
+}
+
+enum InteractActionEnum {
+  INTERACTACTIONENUM_UNSPECIFIED = 0;
+  InteractActionLeaveVehicle = 3;
+  InteractActionMouseOverEntity = 4;
+  InteractActionNPCOpen = 5;
+  InteractActionOpenInventory = 6;
+}
+
+// Interact 在客户端以某种方式与另一个实体交互时发送。
+// 它曾用于普通实体和方块交互，但现在已不再如此。
+//
+// Interact is sent by the client when it interacts with another entity in some way. It used to be used for
+// normal entity and block interaction, but this is no longer the case now.
+//
+// Added: v1.11.1
+message Interact {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDInteract;
+  // ActionType 是玩家执行的操作 ID，它是上方常量之一。
+  //
+  // Action type is the ID of the action that was executed by the player. It is one of the constants that
+  // may be found above.
+  //
+  // Added: v1.11.1
+  // Go type: byte
+  uint32 ActionType = 1;
+  // TargetEntityRuntimeID 是玩家交互目标实体的运行时 ID。
+  // 对 InteractActionOpenInventory 操作类型而言，该字段为空。
+  //
+  // TargetEntityRuntimeID is the runtime ID of the entity that the player interacted with. This is empty
+  // for the InteractActionOpenInventory action type.
+  //
+  // Added: v1.11.1
+  uint64 TargetEntityRuntimeID = 2;
+  // Position 是与上方 ActionType 关联的位置。对 InteractActionMouseOverEntity 而言，
+  // 它是玩家鼠标或触摸悬停处相对于被指向实体的位置。对 InteractActionLeaveVehicle 而言，
+  // 它是玩家离开载具后生成的位置。
+  //
+  // Position associated with the ActionType above. For the InteractActionMouseOverEntity, this is the
+  // position relative to the entity moused over over which the player hovered with its mouse/touch. For the
+  // InteractActionLeaveVehicle, this is the position that the player spawns at after leaving the vehicle.
+  //
+  // Added: v1.11.1
+  // Changed: v1.21.130.28, encoded as an optional Vec3 instead of conditionally encoding a plain Vec3 for specific action types.
+  // Go type: protocol.Optional[mgl32.Vec3]
+  InteractOptionalVec3 Position = 3;
+}
+

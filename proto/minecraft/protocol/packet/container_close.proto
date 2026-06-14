@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.container_close;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// ContainerClose 由服务器发送，用于关闭玩家当前打开的容器，该容器由 ContainerOpen 数据包打开；
+// 也可由客户端发送，用于告知服务器它关闭了某个特定容器，例如合成网格。
+//
+// ContainerClose is sent by the server to close a container the player currently has opened, which was opened
+// using the ContainerOpen packet, or by the client to tell the server it closed a particular container, such
+// as the crafting grid.
+//
+// Added: v1.11.1
+message ContainerClose {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDContainerClose;
+  // WindowID 是表示应关闭容器窗口的 ID。它必须等于 ContainerOpen 数据包中发送的 ID，
+  // 才能关闭指定窗口。
+  //
+  // WindowID is the ID representing the window of the container that should be closed. It must be equal to
+  // the one sent in the ContainerOpen packet to close the designated window.
+  //
+  // Added: v1.11.1
+  // Go type: byte
+  uint32 WindowID = 1;
+  // ContainerType 是服务器尝试关闭的容器类型。客户端会使用它验证服务器的关闭请求是否有效。
+  //
+  // ContainerType is the type of container that the server is trying to close. This is used to validate on
+  // the client side whether or not the server's close request is valid.
+  //
+  // Added: v1.21.0
+  // Changed: v1.21.0, encoded in the server-side close field group added in v1.16.100.
+  // Go type: byte
+  uint32 ContainerType = 2;
+  // ServerSide 决定该容器是否由服务器强制关闭。如果该值设置不正确，
+  // 客户端可能会忽略数据包并响应 PacketViolationWarning。
+  //
+  // ServerSide determines whether or not the container was force-closed by the server. If this value is
+  // not set correctly, the client may ignore the packet and respond with a PacketViolationWarning.
+  //
+  // Added: v1.16.100
+  bool ServerSide = 3;
+}
+

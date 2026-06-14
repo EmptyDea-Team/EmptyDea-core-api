@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.client_input_record;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "netease.proto";
+import "packet_options.proto";
+
+// ClientInputRecord 是网易回放输入记录数据包。
+//
+// ClientInputRecord is a NetEase replay input record packet.
+//
+// Added: NetEase.
+message ClientInputRecord {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDClientInputRecord;
+  string Unknown1 = 1;
+  bool Unknown2 = 2;
+  // Go type: float32
+  float Unknown3 = 3;
+  // Go type: float32
+  float Unknown4 = 4;
+  uint32 Unknown5 = 5;
+  uint32 Unknown6 = 6;
+  string Unknown7 = 7;
+  .mousetunnel.minecraft.protocol.netease.NetEaseClientInputRecordData Unknown8 = 8;
+}
+

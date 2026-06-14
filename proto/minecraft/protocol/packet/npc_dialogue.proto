@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.npc_dialogue;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+enum NPCDialogueActionEnum {
+  NPCDialogueActionOpen = 0;
+  NPCDialogueActionClose = 1;
+}
+
+// NPCDialogue 是用于让客户端显示 NPC 交互对话框的数据包。
+//
+// NPCDialogue is a packet that allows the client to display dialog boxes for interacting with NPCs.
+//
+// Added: v1.17.10
+message NPCDialogue {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDNPCDialogue;
+  // EntityUniqueID 是被请求 NPC 的唯一 ID。
+  //
+  // EntityUniqueID is the unique ID of the NPC being requested.
+  //
+  // Added: v1.17.10
+  uint64 EntityUniqueID = 1;
+  // ActionType 是该数据包表示的动作类型。
+  //
+  // ActionType is the type of action for the packet.
+  //
+  // Added: v1.17.10
+  int32 ActionType = 2;
+  // Dialogue 是客户端应当显示的文本。
+  //
+  // Dialogue is the text that the client should see.
+  //
+  // Added: v1.17.10
+  string Dialogue = 3;
+  // SceneName 是场景的标识符。如果该字段留空，客户端会使用最后一次发送给它的场景。
+  //
+  // SceneName is the identifier of the scene. If this is left empty, the client will use the last scene sent to it.
+  // https://docs.microsoft.com/en-us/minecraft/creator/documents/npcdialogue.
+  //
+  // Added: v1.17.10
+  string SceneName = 4;
+  // NPCName 是客户端应显示的 NPC 名称。
+  //
+  // NPCName is the name of the NPC to be displayed to the client.
+  //
+  // Added: v1.17.10
+  string NPCName = 5;
+  // ActionJSON 是服务器可执行按钮或动作的 JSON 字符串。
+  //
+  // ActionJSON is the JSON string of the buttons/actions the server can perform.
+  //
+  // Added: v1.17.10
+  string ActionJSON = 6;
+}
+

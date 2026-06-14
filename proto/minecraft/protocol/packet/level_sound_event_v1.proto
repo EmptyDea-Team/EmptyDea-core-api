@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.level_sound_event_v1;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "mgl32.proto";
+import "packet_options.proto";
+
+// LevelSoundEventV1 是网易声音事件数据包。
+//
+// LevelSoundEventV1 is a NetEase sound event packet.
+//
+// Added: NetEase.
+message LevelSoundEventV1 {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDLevelSoundEventV1;
+  // Go type: uint8
+  uint32 SoundType = 1;
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 Position = 2;
+  int32 ExtraData = 3;
+  int32 Pitch = 4;
+  bool IsBabyMob = 5;
+  bool IsGlobal = 6;
+}
+

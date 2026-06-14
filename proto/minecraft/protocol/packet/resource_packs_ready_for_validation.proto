@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.resource_packs_ready_for_validation;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// ResourcePacksReadyForValidation 由客户端发送，用于通知服务器客户端已完成资源包加载并可进行验证。
+//
+// ResourcePacksReadyForValidation is sent by the client to inform the server that the client has finished
+// loading resource packs and is ready for validation.
+//
+// Added: v1.26.10
+message ResourcePacksReadyForValidation {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDResourcePacksReadyForValidation;
+}
+

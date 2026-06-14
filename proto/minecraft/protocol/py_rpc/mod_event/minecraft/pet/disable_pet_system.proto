@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.disable_pet_system;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// DisablePetSystem 通知客户端禁用宠物系统。
+//
+// DisablePetSystem notifies the client to disable the pet system.
+message DisablePetSystem {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  DisablePetSystemData DisablePetSystemData = 2;
+}
+
+// DisablePetSystemData 保存宠物系统开关字段。
+//
+// DisablePetSystemData stores pet-system enable fields.
+message DisablePetSystemData {
+  bool Enable = 1;
+}
+

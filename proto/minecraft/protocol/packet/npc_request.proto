@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.npc_request;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+enum NPCRequestActionEnum {
+  NPCRequestActionSetActions = 0;
+  NPCRequestActionExecuteAction = 1;
+  NPCRequestActionExecuteClosingCommands = 2;
+  NPCRequestActionSetName = 3;
+  NPCRequestActionSetSkin = 4;
+  NPCRequestActionSetInteractText = 5;
+  NPCRequestActionExecuteOpeningCommands = 6;
+}
+
+// NPCRequest 在客户端与 NPC 交互时发送。
+// 该数据包专为教育版制作，教育版中可以使用 NPC。
+//
+// NPCRequest is sent by the client when it interacts with an NPC.
+// The packet is specifically made for Education Edition, where NPCs are available to use.
+//
+// Added: v1.12
+message NPCRequest {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDNPCRequest;
+  // EntityRuntimeID 是玩家交互的 NPC 实体运行时 ID。
+  // 它与服务器生成该实体时发送的 ID 相同。
+  //
+  // EntityRuntimeID is the runtime ID of the NPC entity that the player interacted with. It is the same
+  // as sent by the server when spawning the entity.
+  //
+  // Added: v1.12
+  uint64 EntityRuntimeID = 1;
+  // RequestType 是请求类型，取决于玩家拥有的权限。
+  // 它会表示 NPC 应显示对话框，或应打开编辑窗口。
+  //
+  // RequestType is the type of the request, which depends on the permission that the player has. It will
+  // be either a type that indicates that the NPC should show its dialog, or that it should open the
+  // editing window.
+  //
+  // Added: v1.12
+  // Go type: byte
+  uint32 RequestType = 2;
+  // CommandString 是 NPC 中设置的命令字符串。根据玩家设置的内容，它可能由多个命令组成。
+  //
+  // CommandString is the command string set in the NPC. It may consist of multiple commands, depending on
+  // what the player set in it.
+  //
+  // Added: v1.12
+  string CommandString = 3;
+  // ActionType 是要执行的操作类型。
+  //
+  // ActionType is the type of the action to execute.
+  //
+  // Added: v1.12
+  // Go type: byte
+  uint32 ActionType = 4;
+  // SceneName 是场景名称。它可以留空，用于指定最后发送给玩家的场景。
+  //
+  // SceneName is the name of the scene. This can be left empty to specify the last scene that the player
+  // was sent.
+  //
+  // Added: v1.12
+  string SceneName = 5;
+}
+

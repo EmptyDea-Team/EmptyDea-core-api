@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.server_post_move_position;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "mgl32.proto";
+import "packet_options.proto";
+
+// ServerPostMovePosition 由服务器发送，用于更新客户端移动后的坐标。
+//
+// ServerPostMovePosition is sent by the server to update the client's post-move position.
+//
+// Added: v1.20.50
+message ServerPostMovePosition {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDServerPostMovePosition;
+  // Position 是服务器侧处理完移动后发送的坐标。
+  //
+  // Position is the position sent after movement has been processed server-side.
+  //
+  // Added: v1.20.50
+  // Go type: mgl32.Vec3
+  .mousetunnel.minecraft.protocol.mgl32.Vec3 Position = 1;
+}
+

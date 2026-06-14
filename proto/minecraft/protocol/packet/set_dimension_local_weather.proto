@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.set_dimension_local_weather;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// SetDimensionLocalWeather 是网易维度本地天气数据包。
+//
+// SetDimensionLocalWeather is a NetEase local dimension weather packet.
+//
+// Added: NetEase.
+message SetDimensionLocalWeather {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDSetDimensionLocalWeather;
+  bool Unknown1 = 1;
+  // Go type: float32
+  float Unknown2 = 2;
+  int32 Unknown3 = 3;
+  // Go type: float32
+  float Unknown4 = 4;
+  int32 Unknown5 = 5;
+  bool Unknown6 = 6;
+}
+

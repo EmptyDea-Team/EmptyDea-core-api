@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.move.player_motion_control;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/move;move";
+
+import "py_rpc/mod_event/minecraft/move/basic.proto";
+
+// PlayerMotionControl 控制已有玩家运动。
+//
+// PlayerMotionControl controls an existing player motion.
+message PlayerMotionControl {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.move.basic.Basic Basic = 1;
+  string NameValue = 2;
+  string PlayerID = 3;
+  int64 ServerMotionID = 4;
+}
+

@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.modal_form_response;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+message ModalFormResponseOptionalBytes {
+  bool Present = 1;
+  bytes Value = 2;
+}
+
+message ModalFormResponseOptionalUint32 {
+  bool Present = 1;
+  uint32 Value = 2;
+}
+
+enum ModalFormCancelReasonUserEnum {
+  ModalFormCancelReasonUserClosed = 0;
+  ModalFormCancelReasonUserBusy = 1;
+}
+
+// ModalFormResponse 在玩家提交服务器发送的表单后，由客户端发送以响应 ModalFormRequest。
+// 它包含玩家选择的选项或属性；如果表单通过点击右上角 X 关闭，则包含 JSON 编码的 "null"。
+//
+// ModalFormResponse is sent by the client in response to a ModalFormRequest, after the player has submitted
+// the form sent. It contains the options/properties selected by the player, or a JSON encoded 'null' if
+// the form was closed by clicking the X at the top right corner of the form.
+//
+// Added: v1.12
+message ModalFormResponse {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDModalFormResponse;
+  // FormID 是客户端所响应表单的表单 ID。它与 ModalFormRequest 中发送的 ID 相同，
+  // 可用于识别提交的是哪个表单。
+  //
+  // FormID is the form ID of the form the client has responded to. It is the same as the ID sent in the
+  // ModalFormRequest, and may be used to identify which form was submitted.
+  //
+  // Added: v1.12
+  uint32 FormID = 1;
+  // ResponseData 是表示玩家响应的 JSON 编码值。对模态表单而言，响应为 true 或 false；
+  // 对菜单表单而言，响应为表示被点击按钮索引的整数；对自定义表单而言，
+  // 响应为包含每个元素对应值的数组。
+  //
+  // ResponseData is a JSON encoded value representing the response of the player. For a modal form, the response is
+  // either true or false, for a menu form, the response is an integer specifying the index of the button clicked, and
+  // for a custom form, the response is an array containing a value for each element.
+  //
+  // Added: v1.12
+  // Changed: v1.19.20, encoded as an optional response payload instead of using a separate presence flag.
+  // Go type: protocol.Optional[[]byte]
+  ModalFormResponseOptionalBytes ResponseData = 2;
+  // CancelReason 表示表单被取消的原因，它是上方常量之一。
+  //
+  // CancelReason represents the reason why the form was cancelled. It is one of the constants above.
+  //
+  // Added: v1.19.20
+  // Changed: v1.19.20, encoded as an optional cancel reason instead of using a separate presence flag.
+  // Go type: protocol.Optional[uint8]
+  ModalFormResponseOptionalUint32 CancelReason = 3;
+}
+

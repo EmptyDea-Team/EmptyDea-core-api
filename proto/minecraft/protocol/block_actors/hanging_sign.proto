@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.hanging_sign;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actors";
+
+import "block_actors/general_actors/sign_block_actor.proto";
+
+// HangingSign 描述悬挂式告示牌方块实体。
+//
+// HangingSign describes the hanging sign block actor.
+message HangingSign {
+  .mousetunnel.minecraft.protocol.block_actors.general_actors.sign_block_actor.SignBlockActor SignBlockActor = 1;
+}
+

@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.stop_sound;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// StopSound 由服务器发送，用于停止向玩家播放的声音，例如正在播放的唱片音轨或其他长时间持续的声音。
+//
+// StopSound is sent by the server to stop a sound playing to the player, such as a playing music disk track
+// or other long-lasting sounds.
+//
+// Added: v1.12
+message StopSound {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDStopSound;
+  // SoundName 是应停止播放的声音名称。如果当前没有该名称的声音处于活动状态，
+  // 客户端会忽略该数据包。
+  //
+  // SoundName is the name of the sound that should be stopped from playing. If no sound with this name is
+  // currently active, the packet is ignored.
+  //
+  // Added: v1.12
+  string SoundName = 1;
+  // StopAll 指定是否停止当前向玩家播放的所有声音。如果设置为 true，
+  // SoundName 字段可以留空。
+  //
+  // StopAll specifies if all sounds currently playing to the player should be stopped. If set to true, the
+  // SoundName field may be left empty.
+  //
+  // Added: v1.12
+  bool StopAll = 2;
+  // StopMusicLegacy 的用途目前未知。
+  //
+  // StopMusicLegacy is currently unknown.
+  //
+  // Added: v1.21.20
+  bool StopMusicLegacy = 3;
+}
+

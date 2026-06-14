@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.has_create_minimap_ui_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// HasCreateMinimapUIEvent 通知服务器小地图 UI 已创建。
+//
+// HasCreateMinimapUIEvent notifies the server that the minimap UI was created.
+message HasCreateMinimapUIEvent {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  MinimapCreatedData MinimapCreatedData = 2;
+}
+
+// MinimapCreatedData 保存小地图创建通知字段。
+//
+// MinimapCreatedData stores minimap-created notification fields.
+message MinimapCreatedData {
+  string PlayerID = 1;
+  bool IsPC = 2;
+}
+

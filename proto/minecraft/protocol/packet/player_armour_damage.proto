@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.player_armour_damage;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+import "player.proto";
+
+enum PlayerArmourDamageFlagEnum {
+  PlayerArmourDamageFlagHelmet = 0;
+  PlayerArmourDamageFlagChestplate = 1;
+  PlayerArmourDamageFlagLeggings = 2;
+  PlayerArmourDamageFlagBoots = 3;
+  PlayerArmourDamageFlagBody = 4;
+}
+
+// PlayerArmourDamage 由服务器发送，用于损坏玩家身上的盔甲。这是一个很高效的数据包，
+// 但通常直接发送受损盔甲的槽位更新会更简单。
+//
+// PlayerArmourDamage is sent by the server to damage the armour of a player. It is a very efficient packet,
+// but generally it's much easier to just send a slot update for the damaged armour.
+//
+// Added: v1.16
+message PlayerArmourDamage {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDPlayerArmourDamage;
+  // List 是盔甲条目列表，用于表示哪些盔甲部件应受到耐久损伤。
+  //
+  // List is a list of armour entries indicating which pieces of armour should receive damage.
+  //
+  // Added: v1.16
+  // Changed: v1.21.20, may include body armour entries.
+  // Changed: v1.21.110, encoded as an array of armour slot and damage pairs instead of a bitset and damage list.
+  // Go type: []protocol.PlayerArmourDamageEntry
+  repeated .mousetunnel.minecraft.protocol.player.PlayerArmourDamageEntry List = 1;
+}
+

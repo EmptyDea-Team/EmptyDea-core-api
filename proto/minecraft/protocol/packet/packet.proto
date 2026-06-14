@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.packet;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "google/protobuf/any.proto";
+
+// Header 是数据包头。它由单个 varuint32 组成，其中包含数据包 ID、
+// 发送方子客户端 ID 和目标子客户端 ID。这些 ID 用于分屏功能。
+//
+// Header is the header of a packet. It exists out of a single varuint32 which is composed of a packet ID and
+// a sender and target sub client ID. These IDs are used for split screen functionality.
+//
+// Added: v1.11.1
+message Header {
+  // PacketID 是包头中包含的数据包数字 ID。
+  //
+  // PacketID is the numeric ID of the packet contained in the header.
+  //
+  // Added: v1.11.1
+  uint32 PacketID = 1;
+  // SenderSubClient 是编码到包头中的源分屏子客户端 ID。
+  //
+  // SenderSubClient is the originating split-screen sub-client ID encoded into the header.
+  //
+  // Added: v1.11.1
+  // Go type: byte
+  uint32 SenderSubClient = 2;
+  // TargetSubClient 是编码到包头中的目标分屏子客户端 ID。
+  //
+  // TargetSubClient is the destination split-screen sub-client ID encoded into the header.
+  //
+  // Added: v1.11.1
+  // Go type: byte
+  uint32 TargetSubClient = 3;
+}
+
+// Packet 表示可通过 Minecraft 网络连接发送的数据包。
+// 数据包需要包含将自身编码为二进制以及从二进制解码自身的方法。
+//
+// Packet represents a packet that may be sent over a Minecraft network connection. The packet needs to hold
+// a method to encode itself to binary and decode itself from binary.
+message Packet {
+  google.protobuf.Any Value = 1;
+}
+

@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+package emptydea.game_control;
+
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control;game_control_pb";
+
+import "google/protobuf/timestamp.proto";
+
+// BoolValue 表示可能不存在的 bool 值。
+message BoolValue {
+  // Ok 表示 Value 是否存在且有效。
+  bool Ok = 1;
+  // Value 是实际的 bool 值。
+  bool Value = 2;
+}
+
+// StringValue 表示可能不存在的 string 值。
+message StringValue {
+  // Ok 表示 Value 是否存在且有效。
+  bool Ok = 1;
+  // Value 是实际的字符串值。
+  string Value = 2;
+}
+
+// Int32Value 表示可能不存在的 int32 值。
+message Int32Value {
+  // Ok 表示 Value 是否存在且有效。
+  bool Ok = 1;
+  // Value 是实际的 int32 值。
+  int32 Value = 2;
+}
+
+// Int64Value 表示可能不存在的 int64 值。
+message Int64Value {
+  // Ok 表示 Value 是否存在且有效。
+  bool Ok = 1;
+  // Value 是实际的 int64 值。
+  int64 Value = 2;
+}
+
+// Uint64Value 表示可能不存在的 uint64 值。
+message Uint64Value {
+  // Ok 表示 Value 是否存在且有效。
+  bool Ok = 1;
+  // Value 是实际的 uint64 值。
+  uint64 Value = 2;
+}
+
+// Uint32Value 表示可能不存在的 uint32 值。
+message Uint32Value {
+  // Ok 表示 Value 是否存在且有效。
+  bool Ok = 1;
+  // Value 是实际的 uint32 值。
+  uint32 Value = 2;
+}
+
+// Float32Value 表示可能不存在的 float32 值。
+message Float32Value {
+  // Ok 表示 Value 是否存在且有效。
+  bool Ok = 1;
+  // Value 是实际的 float32 值。
+  float Value = 2;
+}
+
+// TimeValue 表示可能不存在的时间值。
+message TimeValue {
+  // Ok 表示 Value 是否存在且有效。
+  bool Ok = 1;
+  // Value 是实际的时间戳值。
+  google.protobuf.Timestamp Value = 2;
+}
+
+// Empty 是 EmptyDeaCore API 使用的空消息。
+message Empty {}

@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.barrel;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actors";
+
+import "block_actors/general_actors/chest_block_actor.proto";
+
+// Barrel 描述木桶方块实体。
+//
+// Barrel describes the barrel block actor.
+message Barrel {
+  .mousetunnel.minecraft.protocol.block_actors.general_actors.chest_block_actor.ChestBlockActor ChestBlockActor = 1;
+}
+

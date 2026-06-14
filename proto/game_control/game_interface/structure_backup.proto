@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+package emptydea.game_control.game_interface;
+
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pb";
+
+import "block_pos.proto";
+
+// BackupStructureRequest 是通过使用 structure 命令保存 pos 处的方块的请求。
+message BackupStructureRequest {
+  // Pos 是要保存的方块位置。
+  mousetunnel.minecraft.protocol.block_pos.BlockPos Pos = 1;
+}
+
+// BackupOffsetRequest 是通过使用 structure 命令保存 pos 到 pos+offset 处的方块的请求。
+message BackupOffsetRequest {
+  // Pos 是结构起始位置。
+  mousetunnel.minecraft.protocol.block_pos.BlockPos Pos = 1;
+  // Offset 是相对起始位置的备份范围偏移。
+  mousetunnel.minecraft.protocol.block_pos.BlockPos Offset = 2;
+}
+
+// BackupStructureResponse 是结构备份结果。
+message BackupStructureResponse {
+  // UUID 是标识该结构的唯一标识符。
+  string UUID = 1;
+}
+
+// RevertStructureRequest 是在 pos 处恢复先前备份的结构的请求。
+message RevertStructureRequest {
+  // UUID 是该结构的唯一标识符。
+  string UUID = 1;
+  // Pos 是恢复目标位置。
+  mousetunnel.minecraft.protocol.block_pos.BlockPos Pos = 2;
+}
+
+// DeleteStructureRequest 是删除标识符为 uniqueID 的结构的请求。
+message DeleteStructureRequest {
+  // UUID 是该结构的唯一标识符。
+  string UUID = 1;
+}
+
+// StructureActionResponse 是结构恢复或删除后的空响应。
+message StructureActionResponse {}
+
+// StructureBackupService 是基于 Commands 包装的结构备份与恢复相关的实现。
+service StructureBackupService {
+  // BackupStructure 通过使用 structure 命令保存 pos 处的方块。
+  // 返回的 uuid 是标识该结构的唯一标识符
+  rpc BackupStructure(BackupStructureRequest) returns (BackupStructureResponse);
+  // BackupOffset 通过使用 structure 命令保存 pos 到 pos+offset 处的方块。
+  // 返回的 uuid 是标识该结构的唯一标识符
+  rpc BackupOffset(BackupOffsetRequest) returns (BackupStructureResponse);
+  // RevertStructure 在 pos 处恢复先前备份的结构，
+  // 其中，uniqueID 是该结构的唯一标识符
+  rpc RevertStructure(RevertStructureRequest) returns (StructureActionResponse);
+  // DeleteStructure 删除标识符为 uniqueID 的结构。
+  // 即便目标结构不存在，此函数在通常情况下也仍然会返回空错误
+  rpc DeleteStructure(DeleteStructureRequest) returns (StructureActionResponse);
+}

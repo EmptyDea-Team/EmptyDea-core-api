@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.minimap_update_pos_info_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// MinimapUpdatePosInfoEvent 同步小地图位置数据。
+//
+// MinimapUpdatePosInfoEvent syncs minimap position data.
+message MinimapUpdatePosInfoEvent {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  MinimapUpdateData MinimapUpdateData = 2;
+}
+
+// MinimapUpdateData 保存小地图位置更新字段。
+//
+// MinimapUpdateData stores minimap position update fields.
+message MinimapUpdateData {
+  string BiomeName = 1;
+}
+

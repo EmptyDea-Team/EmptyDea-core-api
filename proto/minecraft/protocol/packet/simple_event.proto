@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.simple_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+enum SimpleEventEnum {
+  SIMPLEEVENTENUM_UNSPECIFIED = 0;
+  SimpleEventCommandsEnabled = 1;
+  SimpleEventCommandsDisabled = 2;
+  SimpleEventUnlockWorldTemplateSettings = 3;
+}
+
+// SimpleEvent 用于启用或禁用命令，以及解锁世界模板设置
+// （包括解锁客户端上的 UI 按钮和服务器上的实际设置）。
+// 客户端会向服务器触发该事件，启用命令时服务器会回发 SetCommandsEnabled。
+//
+// SimpleEvent is used for enabling or disabling commands and for unlocking world template settings
+// (both unlocking UI buttons on client and the actual setting on the server).
+// This is fired from the client to the server and a SetCommandsEnabled is sent back when enabling commands.
+//
+// Added: v1.12
+message SimpleEvent {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDSimpleEvent;
+  // EventType 是要调用的事件类型，它是上方常量之一。
+  //
+  // EventType is the type of the event to be called. It is one of the constants that may be found above.
+  //
+  // Added: v1.12
+  // Go type: uint16
+  uint32 EventType = 1;
+}
+

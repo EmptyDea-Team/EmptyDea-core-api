@@ -1,0 +1,104 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.voxel;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+// VoxelCells 表示体素单元数据的 3D 网格。
+//
+// VoxelCells represents a 3D grid of voxel cell data.
+//
+// Added: v1.26.0
+message VoxelCells {
+  // XSize 是网格沿 X 轴的大小。
+  //
+  // XSize is the size of the grid along the X axis.
+  //
+  // Added: v1.26.0
+  // Go type: uint8
+  uint32 XSize = 1;
+  // YSize 是网格沿 Y 轴的大小。
+  //
+  // YSize is the size of the grid along the Y axis.
+  //
+  // Added: v1.26.0
+  // Go type: uint8
+  uint32 YSize = 2;
+  // ZSize 是网格沿 Z 轴的大小。
+  //
+  // ZSize is the size of the grid along the Z axis.
+  //
+  // Added: v1.26.0
+  // Go type: uint8
+  uint32 ZSize = 3;
+  // Storage 是存储在网格中的原始单元数据。
+  //
+  // Storage is the raw cell data stored in the grid.
+  //
+  // Added: v1.26.0
+  // Go type: []uint8
+  bytes Storage = 4;
+}
+
+// VoxelShapeNameEntry 表示体素形状的名称到 ID 映射条目。
+//
+// VoxelShapeNameEntry represents a name-to-ID mapping entry for voxel shapes.
+//
+// Added: v1.26.0
+message VoxelShapeNameEntry {
+  // Name 是体素形状名称。
+  //
+  // Name is the name of the voxel shape.
+  //
+  // Added: v1.26.0
+  string Name = 1;
+  // ID 是体素形状的数字 ID。
+  //
+  // ID is the numeric ID of the voxel shape.
+  //
+  // Added: v1.26.0
+  // Go type: uint16
+  uint32 ID = 2;
+}
+
+// VoxelShape 表示带有单元格和坐标轴的体素形状。
+//
+// VoxelShape represents a voxel shape with cells and coordinate axes.
+//
+// Added: v1.26.0
+message VoxelShape {
+  // Cells 是表示实心和空白区域的单元格网格。
+  //
+  // Cells is the grid of cells representing solid and empty regions.
+  //
+  // Added: v1.26.20
+  VoxelCells Cells = 1;
+  // CellsList 是表示实心和空白区域的网格列表。
+  //
+  // CellsList is a list of grids representing solid and empty regions.
+  //
+  // Added: v1.26.0, Removed: v1.26.20
+  // Go type: []VoxelCells
+  repeated VoxelCells CellsList = 2;
+  // XCoordinates 是该形状的 X 轴坐标列表。
+  //
+  // XCoordinates is a list of X axis coordinates for the shape.
+  //
+  // Added: v1.26.0
+  // Go type: []float32
+  repeated float XCoordinates = 3;
+  // YCoordinates 是该形状的 Y 轴坐标列表。
+  //
+  // YCoordinates is a list of Y axis coordinates for the shape.
+  //
+  // Added: v1.26.0
+  // Go type: []float32
+  repeated float YCoordinates = 4;
+  // ZCoordinates 是该形状的 Z 轴坐标列表。
+  //
+  // ZCoordinates is a list of Z axis coordinates for the shape.
+  //
+  // Added: v1.26.0
+  // Go type: []float32
+  repeated float ZCoordinates = 5;
+}
+

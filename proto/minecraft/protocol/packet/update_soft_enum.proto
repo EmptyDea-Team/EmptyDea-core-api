@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.update_soft_enum;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+enum SoftEnumActionEnum {
+  SoftEnumActionAdd = 0;
+  SoftEnumActionRemove = 1;
+  SoftEnumActionSet = 2;
+}
+
+// UpdateSoftEnum 由服务器发送，用于更新此前在 AvailableCommands 数据包中发送的软枚举，
+// 也称为动态枚举。当枚举需要获得新选项，或需要移除部分选项时，会发送该数据包。
+// UpdateSoftEnum 数据包只会作用于 AvailableCommands 数据包中 CommandEnum 的 Dynamic 字段设为 true 的枚举。
+//
+// UpdateSoftEnum is sent by the server to update a soft enum, also known as a dynamic enum, previously sent
+// in the AvailableCommands packet. It is sent whenever the enum should get new options or when some of its
+// options should be removed.
+// The UpdateSoftEnum packet will apply for enums that have been set in the AvailableCommands packet with the
+// 'Dynamic' field of the CommandEnum set to true.
+//
+// Added: v1.12
+message UpdateSoftEnum {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDUpdateSoftEnum;
+  // EnumType 是枚举类型。该类型必须与 AvailableCommands 数据包中设置的类型完全一致，
+  // 因为客户端会用它识别要更新哪个枚举。
+  //
+  // EnumType is the type of the enum. This type must be identical to the one set in the AvailableCommands
+  // packet, because the client uses this to recognise which enum to update.
+  //
+  // Added: v1.12
+  string EnumType = 1;
+  // Options 是应更新的选项列表。根据 ActionType 字段不同，
+  // 这些选项会被加入枚举、用于覆盖枚举选项，或从枚举中全部移除。
+  //
+  // Options is a list of options that should be updated. Depending on the ActionType field, either these
+  // options will be added to the enum, the enum options will be set to these options or all of these
+  // options will be removed from the enum.
+  //
+  // Added: v1.12
+  // Go type: []string
+  repeated string Options = 2;
+  // ActionType 是要对枚举执行的操作类型。Options 字段会根据所用 ActionType 产生不同结果。
+  //
+  // ActionType is the type of the action to execute on the enum. The Options field has a different result,
+  // depending on what ActionType is used.
+  //
+  // Added: v1.12
+  // Go type: byte
+  uint32 ActionType = 3;
+}
+

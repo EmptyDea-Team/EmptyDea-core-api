@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.sync_vip_skin_uuid;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpc";
+
+// SyncVipSkinUUID 同步网易 VIP 皮肤 UUID 数据。
+//
+// SyncVipSkinUUID syncs NetEase VIP skin UUID data.
+message SyncVipSkinUUID {
+  // UUID 是 VIP 皮肤 UUID。为空表示未使用 VIP 皮肤 UUID。
+  //
+  // UUID is the VIP skin UUID. Empty means no VIP skin UUID is in use.
+  string UUID = 1;
+}
+

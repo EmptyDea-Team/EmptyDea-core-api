@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.sync_config_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// SyncConfigEvent 同步客户端宠物配置。
+//
+// SyncConfigEvent syncs client pet configuration.
+message SyncConfigEvent {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  SyncConfigData SyncConfigData = 2;
+}
+
+// SyncConfigData 保存客户端宠物配置字段。
+//
+// SyncConfigData stores client pet configuration fields.
+message SyncConfigData {
+  string PlayerID = 1;
+  // Go type: *bool
+  bool AllowStepOnBlock = 2;
+  // Go type: *bool
+  bool AvoidOwner = 3;
+}
+

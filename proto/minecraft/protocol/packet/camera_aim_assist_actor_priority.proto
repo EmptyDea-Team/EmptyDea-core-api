@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.camera_aim_assist_actor_priority;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "camera.proto";
+import "packet_options.proto";
+
+// CameraAimAssistActorPriority 由服务器发送，用于定义特定实体的辅助瞄准优先级。
+//
+// CameraAimAssistActorPriority is sent by the server to define actor-specific aim assist priorities.
+//
+// Added: v1.26.0
+message CameraAimAssistActorPriority {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDCameraAimAssistActorPriority;
+  // PriorityData 是辅助瞄准实体优先级条目列表。
+  //
+  // PriorityData is a list of aim assist actor priority entries.
+  //
+  // Added: v1.26.0
+  // Go type: []protocol.CameraAimAssistActorPriorityData
+  repeated .mousetunnel.minecraft.protocol.camera.CameraAimAssistActorPriorityData PriorityData = 1;
+}
+

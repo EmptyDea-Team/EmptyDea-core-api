@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.netease_json;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// NetEaseJson 是网易 JSON 载荷数据包。
+//
+// NetEaseJson is a NetEase JSON payload packet.
+//
+// Added: NetEase.
+message NetEaseJson {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDNetEaseJson;
+  // Go type: []byte
+  bytes Data = 1;
+}
+

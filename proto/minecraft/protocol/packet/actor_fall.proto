@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.actor_fall;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// ActorFall 在实体坠落时由客户端发送。
+//
+// ActorFall is sent by the client when an actor falls.
+//
+// Added: v1.11.1
+message ActorFall {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDActorFall;
+  // EntityRuntimeID 是正在坠落的实体运行时 ID。
+  //
+  // EntityRuntimeID is the runtime ID of the falling actor.
+  //
+  // Added: v1.11.1
+  uint64 EntityRuntimeID = 1;
+  // FallDistance 是实体坠落的距离。
+  //
+  // FallDistance is the distance the actor fell.
+  //
+  // Added: v1.11.1
+  // Go type: float32
+  float FallDistance = 2;
+  // Unknown 是写在坠落距离之后的额外标志。
+  //
+  // Unknown is an extra flag written after the fall distance.
+  //
+  // Added: v1.11.1
+  bool Unknown = 3;
+}
+

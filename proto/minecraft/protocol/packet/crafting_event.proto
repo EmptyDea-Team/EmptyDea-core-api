@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.crafting_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "item.proto";
+import "packet_options.proto";
+
+enum CraftingEventTypeEnum {
+  CraftingEventTypeInventory = 0;
+  CraftingEventTypeCrafting = 1;
+  CraftingEventTypeWorkbench = 2;
+}
+
+// CraftingEvent 在客户端使用配方合成物品后发送。
+//
+// CraftingEvent is sent by the client after crafting an item using a recipe.
+//
+// Added: v1.11.1
+message CraftingEvent {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDCraftingEvent;
+  // WindowID 是合成窗口的 ID。
+  //
+  // WindowID is the ID of the crafting window.
+  //
+  // Added: v1.11.1
+  // Go type: byte
+  uint32 WindowID = 1;
+  // CraftingType 是合成来源类型，它是 CraftingEventType 常量之一。
+  //
+  // CraftingType is the crafting source type. It is one of the CraftingEventType constants.
+  //
+  // Added: v1.11.1
+  int32 CraftingType = 2;
+  // RecipeUUID 是被合成配方的 UUID。
+  //
+  // RecipeUUID is the UUID of the recipe that was crafted.
+  //
+  // Added: v1.11.1
+  // Go type: uuid.UUID
+  string RecipeUUID = 3;
+  // Input 是该配方使用的输入物品列表。
+  //
+  // Input is the list of input items used by the recipe.
+  //
+  // Added: v1.11.1
+  // Go type: []protocol.ItemInstance
+  repeated .mousetunnel.minecraft.protocol.item.ItemInstance Input = 4;
+  // Output 是该配方创建的输出物品列表。
+  //
+  // Output is the list of output items created by the recipe.
+  //
+  // Added: v1.11.1
+  // Go type: []protocol.ItemInstance
+  repeated .mousetunnel.minecraft.protocol.item.ItemInstance Output = 5;
+}
+

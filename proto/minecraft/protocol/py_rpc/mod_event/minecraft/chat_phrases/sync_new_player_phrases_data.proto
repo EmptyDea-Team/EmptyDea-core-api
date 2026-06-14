@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_phrases.sync_new_player_phrases_data;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_phrases;chat_phrases";
+
+import "py_rpc/mod_event/minecraft/chat_phrases/basic.proto";
+
+message SyncNewPlayerPhrasesDataMapUint64PhrasesData {
+  map<uint64, PhrasesData> Value = 1;
+}
+
+// SyncNewPlayerPhrasesData 同步新玩家快捷短语数据。
+//
+// SyncNewPlayerPhrasesData synchronises new-player quick phrase data.
+message SyncNewPlayerPhrasesData {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_phrases.basic.Basic Basic = 1;
+  // Phrases 保存按来源和 ID 索引的快捷短语。
+  //
+  // Phrases stores quick phrases indexed by source and ID.
+  // Go type: map[string]map[uint64]PhrasesData
+  map<string, SyncNewPlayerPhrasesDataMapUint64PhrasesData> Phrases = 2;
+  // Show 表示客户端是否显示快捷短语。
+  //
+  // Show indicates whether the client should show quick phrases.
+  bool Show = 3;
+}
+
+// PhrasesData 描述一条快捷短语。
+//
+// PhrasesData describes a quick phrase entry.
+message PhrasesData {
+  // Source 是短语来源标识。
+  //
+  // Source is the phrase source identifier.
+  string Source = 1;
+  // ID 是短语 ID。
+  //
+  // ID is the phrase ID.
+  uint64 ID = 2;
+  // Content 是短语内容。
+  //
+  // Content is the phrase content.
+  string Content = 3;
+}
+

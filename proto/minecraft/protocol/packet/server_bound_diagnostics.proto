@@ -1,0 +1,111 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.server_bound_diagnostics;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "memory_category.proto";
+import "packet_options.proto";
+
+// ServerBoundDiagnostics 由客户端发送，用于告知服务器客户端的性能诊断信息。
+// 当启用“Creator > Enable Client Diagnostics”设置时，客户端大约每 500ms
+// 或每 10 个游戏刻发送一次。
+//
+// ServerBoundDiagnostics is sent by the client to tell the server about the performance diagnostics
+// of the client. It is sent by the client roughly every 500ms or 10 in-game ticks when the
+// "Creator > Enable Client Diagnostics" setting is enabled.
+//
+// Added: v1.21.20
+message ServerBoundDiagnostics {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDServerBoundDiagnostics;
+  // AverageFramesPerSecond 是客户端运行时的平均每秒帧数。
+  //
+  // AverageFramesPerSecond is the average amount of frames per second that the client has been
+  // running at.
+  //
+  // Added: v1.21.20
+  // Go type: float32
+  float AverageFramesPerSecond = 1;
+  // AverageServerSimTickTime 是服务器模拟单个刻所花费的平均时间，以毫秒为单位。
+  //
+  // AverageServerSimTickTime is the average time that the server spends simulating a single tick
+  // in milliseconds.
+  //
+  // Added: v1.21.20
+  // Go type: float32
+  float AverageServerSimTickTime = 2;
+  // AverageClientSimTickTime 是客户端模拟单个刻所花费的平均时间，以毫秒为单位。
+  //
+  // AverageClientSimTickTime is the average time that the client spends simulating a single tick
+  // in milliseconds.
+  //
+  // Added: v1.21.20
+  // Go type: float32
+  float AverageClientSimTickTime = 3;
+  // AverageBeginFrameTime 是客户端开始一帧所花费的平均时间，以毫秒为单位。
+  //
+  // AverageBeginFrameTime is the average time that the client spends beginning a frame in
+  // milliseconds.
+  //
+  // Added: v1.21.20
+  // Go type: float32
+  float AverageBeginFrameTime = 4;
+  // AverageInputTime 是客户端处理输入所花费的平均时间，以毫秒为单位。
+  //
+  // AverageInputTime is the average time that the client spends processing input in milliseconds.
+  //
+  // Added: v1.21.20
+  // Go type: float32
+  float AverageInputTime = 5;
+  // AverageRenderTime 是客户端渲染所花费的平均时间，以毫秒为单位。
+  //
+  // AverageRenderTime is the average time that the client spends rendering in milliseconds.
+  //
+  // Added: v1.21.20
+  // Go type: float32
+  float AverageRenderTime = 6;
+  // AverageEndFrameTime 是客户端结束一帧所花费的平均时间，以毫秒为单位。
+  //
+  // AverageEndFrameTime is the average time that the client spends ending a frame in milliseconds.
+  //
+  // Added: v1.21.20
+  // Go type: float32
+  float AverageEndFrameTime = 7;
+  // AverageRemainderTimePercent 是客户端花在未归类任务上的平均时间百分比。
+  //
+  // AverageRemainderTimePercent is the average percentage of time that the client spends on
+  // tasks that are not accounted for.
+  //
+  // Added: v1.21.20
+  // Go type: float32
+  float AverageRemainderTimePercent = 8;
+  // AverageUnaccountedTimePercent 是客户端花在未统计任务上的平均时间百分比。
+  //
+  // AverageUnaccountedTimePercent is the average percentage of time that the client spends on
+  // unaccounted tasks.
+  //
+  // Added: v1.21.20
+  // Go type: float32
+  float AverageUnaccountedTimePercent = 9;
+  // MemoryCategoryValues 是客户端发送的内存类别计数器列表。
+  //
+  // MemoryCategoryValues is a list of memory category counters sent by the client.
+  //
+  // Added: v1.26.0
+  // Go type: []protocol.MemoryCategoryCounter
+  repeated .mousetunnel.minecraft.protocol.memory_category.MemoryCategoryCounter MemoryCategoryValues = 10;
+  // EntityDiagnostics 是客户端发送的实体计时条目列表。
+  //
+  // EntityDiagnostics is a list of entity timing entries sent by the client.
+  //
+  // Added: v1.26.20
+  // Go type: []protocol.EntityDiagnosticTimingInfo
+  repeated .mousetunnel.minecraft.protocol.memory_category.EntityDiagnosticTimingInfo EntityDiagnostics = 11;
+  // SystemDiagnostics 是客户端发送的系统计时条目列表。
+  //
+  // SystemDiagnostics is a list of system timing entries sent by the client.
+  //
+  // Added: v1.26.20
+  // Go type: []protocol.SystemDiagnosticTimingInfo
+  repeated .mousetunnel.minecraft.protocol.memory_category.SystemDiagnosticTimingInfo SystemDiagnostics = 12;
+}
+

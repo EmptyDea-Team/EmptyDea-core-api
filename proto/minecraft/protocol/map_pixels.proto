@@ -1,0 +1,92 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.map_pixels;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+enum MapPixelsTypeEnum {
+  MAPPIXELSTYPEENUM_UNSPECIFIED = 0;
+  MapPixelsTypeNetEaseUint8 = 1;
+  MapPixelsTypeNetEaseUint16 = 2;
+  MapPixelsTypeStandard = 3;
+}
+
+// Uint8ColorMap 是网易 uint8 地图像素颜色映射。
+//
+// Uint8ColorMap is a NetEase uint8 map pixel colour mapping.
+//
+// Added: NetEase.
+message Uint8ColorMap {
+  // Go type: color.RGBA
+  bytes Colour = 1;
+  // Go type: uint8
+  uint32 Index = 2;
+}
+
+// Uint8Pixels 是网易 uint8 索引地图像素数据。
+//
+// Uint8Pixels is NetEase uint8 indexed map pixel data.
+//
+// Added: NetEase.
+message Uint8Pixels {
+  // Go type: []uint8
+  bytes Pixels = 1;
+  // Go type: []Uint8ColorMap
+  repeated Uint8ColorMap ColorMap = 2;
+}
+
+// Uint16ColorMap 是网易 uint16 地图像素颜色映射。
+//
+// Uint16ColorMap is a NetEase uint16 map pixel colour mapping.
+//
+// Added: NetEase.
+message Uint16ColorMap {
+  // Go type: color.RGBA
+  bytes Colour = 1;
+  // Go type: uint16
+  uint32 Index = 2;
+}
+
+// Uint16Pixels 是网易 uint16 索引地图像素数据。
+//
+// Uint16Pixels is NetEase uint16 indexed map pixel data.
+//
+// Added: NetEase.
+message Uint16Pixels {
+  // Go type: []uint16
+  repeated uint32 Pixels = 1;
+  // Go type: []Uint16ColorMap
+  repeated Uint16ColorMap ColorMap = 2;
+}
+
+// StandardPixels 是使用标准 RGBA 值的地图像素数据。
+//
+// StandardPixels is map pixel data using standard RGBA values.
+//
+// Added: NetEase.
+message StandardPixels {
+  // Go type: []color.RGBA
+  repeated bytes Pixels = 1;
+}
+
+// MapPixels 是网易使用的可选地图像素数据。
+//
+// MapPixels is optional map pixel data used by NetEase.
+//
+// Added: NetEase.
+message MapPixels {
+  bool IsEmpty = 1;
+  MapPixelsData Data = 2;
+}
+
+// MapPixelsData 表示地图像素数据。
+//
+// MapPixelsData represents map pixel data.
+//
+// Added: NetEase.
+message MapPixelsData {
+  int64 Type = 1;
+  Uint8Pixels Uint8 = 2;
+  Uint16Pixels Uint16 = 3;
+  StandardPixels Standard = 4;
+}
+

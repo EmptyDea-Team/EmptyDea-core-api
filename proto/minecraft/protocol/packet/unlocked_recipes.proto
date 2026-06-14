@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.unlocked_recipes;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+enum UnlockedRecipesTypeEnum {
+  UnlockedRecipesTypeEmpty = 0;
+  UnlockedRecipesTypeInitiallyUnlocked = 1;
+  UnlockedRecipesTypeNewlyUnlocked = 2;
+  UnlockedRecipesTypeRemoveUnlocked = 3;
+  UnlockedRecipesTypeRemoveAllUnlocked = 4;
+}
+
+// UnlockedRecipes 向客户端提供已解锁配方列表，用于限制配方书中出现的配方。
+//
+// UnlockedRecipes gives the client a list of recipes that have been unlocked, restricting the recipes that appear in
+// the recipe book.
+//
+// Added: v1.19.70
+message UnlockedRecipes {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDUnlockedRecipes;
+  // UnlockType 是该数据包表示的解锁类型，可以是添加或移除一组配方。
+  // 它是上方列出的常量之一。
+  //
+  // UnlockType is the type of unlock that the packet represents, and can either be adding or removing a list of recipes.
+  // It is one of the constants listed above.
+  //
+  // Added: v1.19.70
+  // Changed: v1.20.0.23, encoded as a little-endian uint32 action instead of a boolean newly unlocked flag.
+  uint32 UnlockType = 1;
+  // Recipes 是已解锁的配方名称列表。
+  //
+  // Recipes is a list of recipe names that have been unlocked.
+  //
+  // Added: v1.19.70
+  // Go type: []string
+  repeated string Recipes = 2;
+}
+

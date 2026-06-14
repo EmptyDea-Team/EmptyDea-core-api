@@ -1,0 +1,135 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+import "google/protobuf/struct.proto";
+
+// Optional 表示协议中的可选值。未设置时只写入 false；已设置时写入 true 和对应的 Marshaler。
+//
+// Optional is an optional type in the protocol. If not set, only a false bool is written. If set, a true bool is
+// written and the Marshaler.
+message Optional {
+}
+
+// IO 表示数据包的 IO 方向。Reader 会把输入流中的数据读入传入的指针，Writer 会把指针指向的值写入输出流。
+//
+// IO represents a packet IO direction. Implementations of this interface are Reader and Writer. Reader reads
+// data from the input stream into the pointers passed, whereas Writer writes the values the pointers point to
+// to the output stream.
+//
+// Added: v1.16
+message IO {
+  // Go type: interface {
+  // 	Protocol() int32
+  // 	NetEase() bool
+  // 	Uint16(x *uint16)
+  // 	Int16(x *int16)
+  // 	Varint16(x *int16)
+  // 	Varuint16(x *uint16)
+  // 	Uint32(x *uint32)
+  // 	Int32(x *int32)
+  // 	BEInt32(x *int32)
+  // 	Uint64(x *uint64)
+  // 	Int64(x *int64)
+  // 	Float32(x *float32)
+  // 	Float64(x *float64)
+  // 	Uint8(x *uint8)
+  // 	Int8(x *int8)
+  // 	Bool(x *bool)
+  // 	Varint64(x *int64)
+  // 	Varuint64(x *uint64)
+  // 	Varint32(x *int32)
+  // 	Varuint32(x *uint32)
+  // 	String(x *string)
+  // 	StringUTF(x *string)
+  // 	ByteSlice(x *[]byte)
+  // 	Vec3(x *mgl32.Vec3)
+  // 	Vec2(x *mgl32.Vec2)
+  // 	MsgPack(x *any)
+  // 	MapPixelsDataType(x *MapPixelsData)
+  // 	BlockPos(x *BlockPos)
+  // 	UBlockPos(x *BlockPos)
+  // 	ChunkPos(x *ChunkPos)
+  // 	SubChunkPos(x *SubChunkPos)
+  // 	USubChunkPos(x *SubChunkPos)
+  // 	SoundPos(x *mgl32.Vec3)
+  // 	USoundPos(x *mgl32.Vec3)
+  // 	ByteFloat(x *float32)
+  // 	Bytes(p *[]byte)
+  // 	PistonAttachedBlocks(m *[]int32)
+  // 	NBT(m *map[string]any, encoding nbt.Encoding)
+  // 	NBTWithLength(m *map[string]any)
+  // 	NBTItem(m *Item)
+  // 	EnchantList(x *[]Enchant)
+  // 	ItemList(x *[]ItemWithSlot)
+  // 	NBTList(m *[]any, encoding nbt.Encoding)
+  // 	UUID(x *uuid.UUID)
+  // 	RGB(x *color.RGBA)
+  // 	RGBA(x *color.RGBA)
+  // 	ARGB(x *color.RGBA)
+  // 	BEARGB(x *color.RGBA)
+  // 	VarRGBA(x *color.RGBA)
+  // 	EntityMetadata(x *EntityMetadata)
+  // 	Item(x *ItemStack)
+  // 	ItemInstance(i *ItemInstance)
+  // 	ItemInstanceNew(i *ItemInstance)
+  // 	ItemDescriptorCount(i *ItemDescriptorCount)
+  // 	StackRequestAction(x *StackRequestAction)
+  // 	MaterialReducer(x *MaterialReducer)
+  // 	Recipe(x *Recipe)
+  // 	EventType(x *Event)
+  // 	EventOrdinal(x *Event)
+  // 	TransactionDataType(x *InventoryTransactionData)
+  // 	PlayerInventoryAction(x *UseItemTransactionData)
+  // 	GameRule(x *GameRule)
+  // 	GameRuleLegacy(x *GameRule)
+  // 	AbilityValue(x *any)
+  // 	Bitset(x *Bitset, size int)
+  // 	PackSetting(x *PackSetting)
+  // 	ShapeData(x *ShapeData)
+  // 	StringConst(x string)
+  // 	ShieldID() int32
+  // 	UnknownEnumOption(value any, enum string)
+  // 	InvalidValue(value any, forField, reason string)
+  // }
+  google.protobuf.Value Value = 1;
+}
+
+// Marshaler 表示可通过 IO 读写的类型。
+//
+// Marshaler is a type that can be written to or read from an IO.
+message Marshaler {
+  // Go type: interface{ Marshal(r IO) }
+  google.protobuf.Value Value = 1;
+}
+
+// Int 描述 __tag NBT 在网络传输时可用的整数编码类型。
+//
+// Int describes integer encoding types used by NetEase __tag NBT network data.
+message Int {
+  // Go type: interface {
+  // 	uint16 | uint32 | uint64 | int16 | int32 | int64
+  // }
+  google.protobuf.Value Value = 1;
+}
+
+// TAGNumber 描述标准 NBT 中允许的整数数值类型。
+//
+// TAGNumber describes integer number types allowed by standard NBT values.
+message TAGNumber {
+  // Go type: interface{ uint8 | int16 | int32 | int64 }
+  google.protobuf.Value Value = 1;
+}
+
+// PtrMarshaler 表示指针类型实现了 Marshaler 的类型。
+//
+// PtrMarshaler represents a type that implements Marshaler for its pointer.
+message PtrMarshaler {
+  // Go type: interface {
+  // 	Marshaler
+  // 	*T
+  // }
+  google.protobuf.Value Value = 1;
+}
+

@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.v_connection;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// VConnection 是网易连接载荷数据包。
+//
+// VConnection is a NetEase connection payload packet.
+//
+// Added: NetEase.
+message VConnection {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDVConnection;
+  int32 Unknown1 = 1;
+  // Go type: []byte
+  bytes Unknown2 = 2;
+}
+

@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.update_equip;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// UpdateEquip 在打开马物品栏时由服务器发送给客户端。
+// 它用于设置物品栏内容，并指定额外属性，例如允许放入物品栏槽位的物品。
+//
+// UpdateEquip is sent by the server to the client upon opening a horse inventory. It is used to set the
+// content of the inventory and specify additional properties, such as the items that are allowed to be put
+// in slots of the inventory.
+//
+// Added: v1.12
+message UpdateEquip {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDUpdateEquip;
+  // WindowID 是与 UpdateEquip 数据包所涉及窗口关联的标识符。
+  // 它是在发送该数据包前打开的马物品栏 ID。
+  //
+  // WindowID is the identifier associated with the window that the UpdateEquip packet concerns. It is the
+  // ID sent for the horse inventory that was opened before this packet was sent.
+  //
+  // Added: v1.12
+  // Go type: byte
+  uint32 WindowID = 1;
+  // WindowType 是已打开窗口的类型。通常这是马物品栏类型，因为该数据包就是专为它制作的。
+  //
+  // WindowType is the type of the window that was opened. Generally, this is the type of a horse inventory,
+  // as the packet is specifically made for that.
+  //
+  // Added: v1.12
+  // Go type: byte
+  uint32 WindowType = 2;
+  // Size 是应打开的马物品栏大小。更大的大小确实会改变显示的槽位数量。
+  //
+  // Size is the size of the horse inventory that should be opened. A bigger size does, in fact, change the
+  // amount of slots displayed.
+  //
+  // Added: v1.12
+  int32 Size = 3;
+  // EntityUniqueID 是其装备被“更新”给玩家的实体唯一 ID。它通常是打开了物品栏的马实体。
+  //
+  // EntityUniqueID is the unique ID of the entity whose equipment was 'updated' to the player. It is
+  // typically the horse entity that had its inventory opened.
+  //
+  // Added: v1.12
+  int64 EntityUniqueID = 4;
+  // SerialisedInventoryData 是网络 NBT 序列化复合标签，保存实体物品栏内容（装备），
+  // 以及特定槽位允许物品等额外数据，用于确保只有鞍能放入鞍槽等规则。
+  //
+  // SerialisedInventoryData is a network NBT serialised compound holding the content of the inventory of
+  // the entity (the equipment) and additional data such as the allowed items for a particular slot, used to
+  // make sure only saddles can be put in the saddle slot etc.
+  //
+  // Added: v1.12
+  // Go type: []byte
+  bytes SerialisedInventoryData = 5;
+}
+

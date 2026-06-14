@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.store_buy_succ;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// StoreBuySucc 是网易商店购买成功数据包。
+//
+// StoreBuySucc is a NetEase store purchase success packet.
+//
+// Added: NetEase.
+message StoreBuySucc {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDStoreBuySucc;
+  // Go type: []byte
+  bytes Data = 1;
+}
+

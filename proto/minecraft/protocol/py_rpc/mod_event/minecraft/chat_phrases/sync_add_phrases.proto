@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_phrases.sync_add_phrases;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_phrases;chat_phrases";
+
+import "py_rpc/mod_event/minecraft/chat_phrases/basic.proto";
+import "py_rpc/mod_event/minecraft/chat_phrases/sync_new_player_phrases_data.proto";
+
+message SyncAddPhrasesMapUint64PhrasesData {
+  map<uint64, .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_phrases.sync_new_player_phrases_data.PhrasesData> Value = 1;
+}
+
+// SyncAddPhrases 同步新增快捷短语数据。
+//
+// SyncAddPhrases synchronises added quick phrase data.
+message SyncAddPhrases {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_phrases.basic.Basic Basic = 1;
+  // Phrases 保存按来源和 ID 索引的新增快捷短语。
+  //
+  // Phrases stores added quick phrases indexed by source and ID.
+  // Go type: map[string]map[uint64]PhrasesData
+  map<string, SyncAddPhrasesMapUint64PhrasesData> Phrases = 2;
+}
+

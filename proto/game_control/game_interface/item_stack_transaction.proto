@@ -1,0 +1,750 @@
+syntax = "proto3";
+
+package emptydea.game_control.game_interface;
+
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pb";
+
+import "game_control/resources_control/inventory.proto";
+import "google/protobuf/struct.proto";
+import "item.proto";
+import "item_stack.proto";
+import "packet/item_stack_request.proto";
+
+// ExpectedNewItem 描述单个物品堆栈在经历一次物品堆栈操作后，
+// 其最终应当拥有的一些数据信息。应当说明的是，这些数据信息不
+// 会由服务器告知，它应当是客户端内部处理的。
+message ExpectedNewItem {
+  // ItemType 指示我们应当如何更新物品的一些基本字段。
+  ItemNewType ItemType = 1;
+  // BlockRuntimeID 指示我们应当如何更新物品对应的方块运行时 ID 数据。
+  ItemNewBlockRuntimeID BlockRuntimeID = 2;
+  // NBT 指示我们应当如何更新物品的 NBT 字段。
+  ItemNewNBTData NBT = 3;
+  // Component 指示我们应该如何更新物品的 Legacy 物品组件字段。
+  ItemNewComponent Component = 4;
+}
+
+// ItemNewType 描述物品的一些基本字段应如何更新。
+message ItemNewType {
+  // UseNetworkID 指示是否需要采用下方的 NetworkID 更新物品的数值网络 ID。
+  bool UseNetworkID = 1;
+  // NetworkID 是该物品的数值网络 ID，它在单个 MC 版本中不会变化。
+  // 它可正亦可负，具体取决于其所关注的物品堆栈实例。
+  int32 NetworkID = 2;
+  // UseMetadata 指示是否需要采用下方的 Metadata 更新物品的元数据。
+  bool UseMetadata = 3;
+  // Metadata 指示这跟物品的新元数据。特别地，耐久数据不在本处设置。
+  uint32 Metadata = 4;
+}
+
+// ItemNewBlockRuntimeID 描述物品对应的方块运行时数据应该如何更新。
+message ItemNewBlockRuntimeID {
+  // UseBlockRuntimeID 指示是否需要采用下方的 BlockRuntimeID 更新物品的方块运行时 ID。
+  bool UseBlockRuntimeID = 1;
+  // BlockRuntimeID 指示这个物品获得的新方块运行时 ID 数据。
+  int32 BlockRuntimeID = 2;
+}
+
+// ItemNewNBTData 描述物品的新 NBT 字段如何更新。
+message ItemNewNBTData {
+  // UseNBTData 指示是否需要采用下方的 NBTData 更新物品的 NBT 数据。
+  bool UseNBTData = 1;
+  // UseOriginDamage 指示在采用下方的 NBTData 时是否保留原有的 Damage 标签的数据。
+  bool UseOriginDamage = 2;
+  // NBTData 指示经过相应的物品堆栈操作后，其 NBT 字段的最终状态。
+  map<string, google.protobuf.Value> NBTData = 3;
+  // ChangeRepairCost 指示是否需要更新物品的 RepairCost 字段。
+  bool ChangeRepairCost = 4;
+  // RepairCostDelta 是要修改的 RepairCost 的增量，可以为负。
+  int32 RepairCostDelta = 5;
+  // ChangeDamage 指示是否需要更新的 Damage 字段。
+  bool ChangeDamage = 6;
+  // DamageDelta 是要修改的 Damage 的增量，可以为负。
+  int32 DamageDelta = 7;
+}
+
+// ItemNewComponent 描述物品的 Legacy 物品组件应当如何更新。
+message ItemNewComponent {
+  // UseCanPlaceOn 指示是否需要采用下方的 CanPlaceOn 更新物品的 can place on 物品组件。
+  bool UseCanPlaceOn = 1;
+  // CanPlaceOn 指示物品在 can place on 上的新物品组件数据。
+  repeated string CanPlaceOn = 2;
+  // UseCanDestroy 指示是否需要采用下方的 CanDestroy 更新物品的 can destroy 物品组件。
+  bool UseCanDestroy = 3;
+  // CanDestroy 指示物品在 can destroy 上的新物品组件数据。
+  repeated string CanDestroy = 4;
+}
+
+// OpenTransactionRequest 是创建物品栈事务的空请求。
+message OpenTransactionRequest {}
+
+// OpenTransactionResponse 是新建物品栈事务的响应。
+message OpenTransactionResponse {
+  // TransactionID 是后续追加操作和提交事务使用的事务 ID。
+  string TransactionID = 1;
+}
+
+// TransactionRef 引用一个已打开的物品栈事务。
+message TransactionRef {
+  // TransactionID 是目标事务 ID。
+  string TransactionID = 1;
+}
+
+// TransactionActionResponse 是向事务追加操作后的响应。
+message TransactionActionResponse {
+  // TransactionID 是被修改的事务 ID。
+  string TransactionID = 1;
+}
+
+// MoveItemRequest 是在两个显式槽位之间移动或交换物品的请求。
+message MoveItemRequest {
+  // TransactionID 是目标事务 ID。
+  string TransactionID = 1;
+  // Source 是来源槽位。
+  emptydea.game_control.resources_control.SlotLocation Source = 2;
+  // Destination 是目标槽位。
+  emptydea.game_control.resources_control.SlotLocation Destination = 3;
+  // Count 是移动的物品数量。
+  uint32 Count = 4;
+}
+
+// MoveBySlotRequest 是在默认窗口语义下按槽位移动或交换物品的请求。
+message MoveBySlotRequest {
+  // TransactionID 是目标事务 ID。
+  string TransactionID = 1;
+  // SrcSlot 是来源槽位 ID。
+  uint32 SrcSlot = 2;
+  // DstSlot 是目标槽位 ID。
+  uint32 DstSlot = 3;
+  // Count 是移动的物品数量。
+  uint32 Count = 4;
+}
+
+// DropItemRequest 是从显式槽位丢弃物品的请求。
+message DropItemRequest {
+  // TransactionID 是目标事务 ID。
+  string TransactionID = 1;
+  // Slot 是要丢弃物品的槽位。
+  emptydea.game_control.resources_control.SlotLocation Slot = 2;
+  // Count 是丢弃的物品数量。
+  uint32 Count = 3;
+}
+
+// DropSlotRequest 是按默认窗口槽位丢弃物品的请求。
+message DropSlotRequest {
+  // TransactionID 是目标事务 ID。
+  string TransactionID = 1;
+  // Slot 是要丢弃物品的槽位 ID。
+  uint32 Slot = 2;
+  // Count 是丢弃的物品数量。
+  uint32 Count = 3;
+}
+
+// CreativeItemRequest 是从创造物品表取出物品的请求。
+message CreativeItemRequest {
+  // TransactionID 是目标事务 ID。
+  string TransactionID = 1;
+  // CreativeItemNetworkID 是创造物品网络 ID。
+  uint32 CreativeItemNetworkID = 2;
+  // Destination 是目标槽位。
+  emptydea.game_control.resources_control.SlotLocation Destination = 3;
+  // Count 是移动的物品数量。
+  uint32 Count = 4;
+}
+
+// RenameItemRequest 是重命名显式槽位物品的请求。
+message RenameItemRequest {
+  // TransactionID 是目标事务 ID。
+  string TransactionID = 1;
+  // Slot 是要重命名物品所在槽位。
+  emptydea.game_control.resources_control.SlotLocation Slot = 2;
+  // NewName 是新的物品显示名。
+  string NewName = 3;
+}
+
+// RenameSlotRequest 是按默认窗口槽位重命名物品的请求。
+message RenameSlotRequest {
+  // TransactionID 是目标事务 ID。
+  string TransactionID = 1;
+  // Slot 是要重命名物品所在槽位 ID。
+  uint32 Slot = 2;
+  // NewName 是新的物品显示名。
+  string NewName = 3;
+}
+
+// LoomingRequest 是追加织布机图案操作的请求。
+message LoomingRequest {
+  // TransactionID 是目标事务 ID。
+  string TransactionID = 1;
+  // PatternName 是织布时使用的图案。
+  string PatternName = 2;
+  // Pattern 是图案物品槽位。
+  emptydea.game_control.resources_control.SlotLocation Pattern = 3;
+  // Banner 是旗帜物品槽位。
+  emptydea.game_control.resources_control.SlotLocation Banner = 4;
+  // Dye 是染料物品槽位。
+  emptydea.game_control.resources_control.SlotLocation Dye = 5;
+  // ResultItem 指示期望得到的旗帜的部分数据。
+  ExpectedNewItem ResultItem = 6;
+}
+
+// CraftingRequest 是追加合成操作的请求。
+message CraftingRequest {
+  // TransactionID 是目标事务 ID。
+  string TransactionID = 1;
+  // RecipeNetworkID 是合成配方网络 ID。
+  uint32 RecipeNetworkID = 2;
+  // ResultSlotID 是合成后物品应当放置的位置。
+  uint32 ResultSlotID = 3;
+  // ResultCount 是合成后所得物品的数量。
+  uint32 ResultCount = 4;
+  // ResultItem 是合成后物品的最终数据。
+  ExpectedNewItem ResultItem = 5;
+}
+
+// TrimmingRequest 是追加锻造台纹饰操作的请求。
+message TrimmingRequest {
+  // TransactionID 是目标事务 ID。
+  string TransactionID = 1;
+  // Input 是被纹饰的装备槽位。
+  emptydea.game_control.resources_control.SlotLocation Input = 2;
+  // Material 是纹饰材料槽位。
+  emptydea.game_control.resources_control.SlotLocation Material = 3;
+  // Template 是纹饰模板槽位。
+  emptydea.game_control.resources_control.SlotLocation Template = 4;
+  // ResultItem 指示期望得到的锻造结果数据。
+  ExpectedNewItem ResultItem = 5;
+}
+
+// MoveItemOperation 是在两个显式槽位之间移动物品的操作。
+message MoveItemOperation {
+  // Source 是来源槽位。
+  emptydea.game_control.resources_control.SlotLocation Source = 1;
+  // Destination 是目标槽位。
+  emptydea.game_control.resources_control.SlotLocation Destination = 2;
+  // Count 是移动的物品数量。
+  uint32 Count = 3;
+}
+
+// MoveBetweenInventoryOperation 是在背包内移动物品的操作。
+message MoveBetweenInventoryOperation {
+  // SrcSlot 是来源槽位 ID。
+  uint32 SrcSlot = 1;
+  // DstSlot 是目标槽位 ID。
+  uint32 DstSlot = 2;
+  // Count 是移动的物品数量。
+  uint32 Count = 3;
+}
+
+// MoveBetweenContainerOperation 是在已打开容器内移动物品的操作。
+message MoveBetweenContainerOperation {
+  // SrcSlot 是来源槽位 ID。
+  uint32 SrcSlot = 1;
+  // DstSlot 是目标槽位 ID。
+  uint32 DstSlot = 2;
+  // Count 是移动的物品数量。
+  uint32 Count = 3;
+}
+
+// MoveToContainerOperation 是从背包移动物品到已打开容器的操作。
+message MoveToContainerOperation {
+  // SrcSlot 是背包来源槽位 ID。
+  uint32 SrcSlot = 1;
+  // DstSlot 是容器目标槽位 ID。
+  uint32 DstSlot = 2;
+  // Count 是移动的物品数量。
+  uint32 Count = 3;
+}
+
+// MoveToInventoryOperation 是从已打开容器移动物品到背包的操作。
+message MoveToInventoryOperation {
+  // SrcSlot 是容器来源槽位 ID。
+  uint32 SrcSlot = 1;
+  // DstSlot 是背包目标槽位 ID。
+  uint32 DstSlot = 2;
+  // Count 是移动的物品数量。
+  uint32 Count = 3;
+}
+
+// MoveToCraftingTableOperation 是从背包移动物品到合成栏的操作。
+message MoveToCraftingTableOperation {
+  // SrcSlot 是背包来源槽位 ID。
+  uint32 SrcSlot = 1;
+  // DstSlot 是合成栏目标槽位 ID。
+  uint32 DstSlot = 2;
+  // Count 是移动的物品数量。
+  uint32 Count = 3;
+}
+
+// MoveFromCraftingTableOperation 是从合成栏移动物品到背包的操作。
+message MoveFromCraftingTableOperation {
+  // SrcSlot 是合成栏来源槽位 ID。
+  uint32 SrcSlot = 1;
+  // DstSlot 是背包目标槽位 ID。
+  uint32 DstSlot = 2;
+  // Count 是移动的物品数量。
+  uint32 Count = 3;
+}
+
+// SwapItemOperation 是交换两个显式槽位物品的操作。
+message SwapItemOperation {
+  // Source 是来源槽位。
+  emptydea.game_control.resources_control.SlotLocation Source = 1;
+  // Destination 是目标槽位。
+  emptydea.game_control.resources_control.SlotLocation Destination = 2;
+}
+
+// SwapBetweenInventoryOperation 是交换背包内两个槽位物品的操作。
+message SwapBetweenInventoryOperation {
+  // SrcSlot 是来源槽位 ID。
+  uint32 SrcSlot = 1;
+  // DstSlot 是目标槽位 ID。
+  uint32 DstSlot = 2;
+}
+
+// SwapInventoryBetweenContainerOperation 是交换背包和已打开容器中物品的操作。
+message SwapInventoryBetweenContainerOperation {
+  // SrcSlot 是背包来源槽位 ID。
+  uint32 SrcSlot = 1;
+  // DstSlot 是容器目标槽位 ID。
+  uint32 DstSlot = 2;
+}
+
+// DropItemOperation 是从显式槽位丢弃物品的操作。
+message DropItemOperation {
+  // Slot 是要丢弃物品的槽位。
+  emptydea.game_control.resources_control.SlotLocation Slot = 1;
+  // Count 是丢弃的物品数量。
+  uint32 Count = 2;
+}
+
+// DropInventoryItemOperation 是从背包槽位丢弃物品的操作。
+message DropInventoryItemOperation {
+  // Slot 是要丢弃物品的背包槽位 ID。
+  uint32 Slot = 1;
+  // Count 是丢弃的物品数量。
+  uint32 Count = 2;
+}
+
+// DropContainerItemOperation 是从已打开容器槽位丢弃物品的操作。
+message DropContainerItemOperation {
+  // Slot 是要丢弃物品的容器槽位 ID。
+  uint32 Slot = 1;
+  // Count 是丢弃的物品数量。
+  uint32 Count = 2;
+}
+
+// GetCreativeItemOperation 是从创造物品表取出物品的操作。
+message GetCreativeItemOperation {
+  // CreativeItemNetworkID 是创造物品网络 ID。
+  uint32 CreativeItemNetworkID = 1;
+  // Destination 是目标槽位。
+  emptydea.game_control.resources_control.SlotLocation Destination = 2;
+  // Count 是移动的物品数量。
+  uint32 Count = 3;
+}
+
+// GetCreativeItemToInventoryOperation 是从创造物品表取出物品到背包的操作。
+message GetCreativeItemToInventoryOperation {
+  // CreativeItemNetworkID 是创造物品网络 ID。
+  uint32 CreativeItemNetworkID = 1;
+  // Slot 是背包目标槽位 ID。
+  uint32 Slot = 2;
+  // Count 是移动的物品数量。
+  uint32 Count = 3;
+}
+
+// RenameItemOperation 是重命名显式槽位物品的操作。
+message RenameItemOperation {
+  // Slot 是要重命名物品所在槽位。
+  emptydea.game_control.resources_control.SlotLocation Slot = 1;
+  // NewName 是新的物品显示名。
+  string NewName = 2;
+}
+
+// RenameInventoryItemOperation 是重命名背包槽位物品的操作。
+message RenameInventoryItemOperation {
+  // Slot 是要重命名物品所在的背包槽位 ID。
+  uint32 Slot = 1;
+  // NewName 是新的物品显示名。
+  string NewName = 2;
+}
+
+// LoomingOperation 是织布机图案操作。
+message LoomingOperation {
+  // PatternName 是织布时使用的图案。
+  string PatternName = 1;
+  // Pattern 是图案物品槽位。
+  emptydea.game_control.resources_control.SlotLocation Pattern = 2;
+  // Banner 是旗帜物品槽位。
+  emptydea.game_control.resources_control.SlotLocation Banner = 3;
+  // Dye 是染料物品槽位。
+  emptydea.game_control.resources_control.SlotLocation Dye = 4;
+  // ResultItem 指示期望得到的旗帜的部分数据。
+  ExpectedNewItem ResultItem = 5;
+}
+
+// LoomingFromInventoryOperation 是从背包槽位执行织布机图案的操作。
+message LoomingFromInventoryOperation {
+  // PatternName 是织布时使用的图案。
+  string PatternName = 1;
+  // PatternSlot 是图案物品所在背包槽位 ID。
+  uint32 PatternSlot = 2;
+  // BannerSlot 是旗帜物品所在背包槽位 ID。
+  uint32 BannerSlot = 3;
+  // DyeSlot 是染料物品所在背包槽位 ID。
+  uint32 DyeSlot = 4;
+  // ResultItem 指示期望得到的旗帜的部分数据。
+  ExpectedNewItem ResultItem = 5;
+}
+
+// CraftingOperation 是合成物品的操作。
+message CraftingOperation {
+  // RecipeNetworkID 是合成配方网络 ID。
+  uint32 RecipeNetworkID = 1;
+  // ResultSlotID 是合成后物品应当放置的位置。
+  uint32 ResultSlotID = 2;
+  // ResultCount 是合成后所得物品的数量。
+  uint32 ResultCount = 3;
+  // ResultItem 是合成后物品的最终数据。
+  ExpectedNewItem ResultItem = 4;
+}
+
+// TrimmingOperation 是锻造台纹饰操作。
+message TrimmingOperation {
+  // Input 是被纹饰的装备槽位。
+  emptydea.game_control.resources_control.SlotLocation Input = 1;
+  // Material 是纹饰材料槽位。
+  emptydea.game_control.resources_control.SlotLocation Material = 2;
+  // Template 是纹饰模板槽位。
+  emptydea.game_control.resources_control.SlotLocation Template = 3;
+  // ResultItem 指示期望得到的锻造结果数据。
+  ExpectedNewItem ResultItem = 4;
+}
+
+// TrimmingFromInventoryOperation 是从背包槽位执行锻造台纹饰的操作。
+message TrimmingFromInventoryOperation {
+  // InputSlot 是被纹饰装备所在背包槽位 ID。
+  uint32 InputSlot = 1;
+  // MaterialSlot 是纹饰材料所在背包槽位 ID。
+  uint32 MaterialSlot = 2;
+  // TemplateSlot 是纹饰模板所在背包槽位 ID。
+  uint32 TemplateSlot = 3;
+  // ResultItem 指示期望得到的锻造结果数据。
+  ExpectedNewItem ResultItem = 4;
+}
+
+// ItemStackOperation 是可批量提交的单个物品堆栈操作。
+message ItemStackOperation {
+  // Operation 是实际执行的操作类型。
+  oneof Operation {
+    // MoveItem 将 source 处的物品移动到 destination 处。
+    MoveItemOperation MoveItem = 1;
+    // MoveBetweenInventory 将背包中 source 处的物品移动到 destination 处。
+    MoveBetweenInventoryOperation MoveBetweenInventory = 2;
+    // MoveBetweenContainer 将已打开容器中 source 处的物品移动到 destination 处。
+    MoveBetweenContainerOperation MoveBetweenContainer = 3;
+    // MoveToContainer 将背包物品移动到已打开容器。
+    MoveToContainerOperation MoveToContainer = 4;
+    // MoveToInventory 将已打开容器物品移动到背包。
+    MoveToInventoryOperation MoveToInventory = 5;
+    // MoveToCraftingTable 将背包物品移动到合成栏。
+    MoveToCraftingTableOperation MoveToCraftingTable = 6;
+    // MoveFromCraftingTable 将合成栏物品移动到背包。
+    MoveFromCraftingTableOperation MoveFromCraftingTable = 7;
+    // SwapItem 交换两个显式槽位的物品。
+    SwapItemOperation SwapItem = 8;
+    // SwapBetweenInventory 交换背包内两个槽位的物品。
+    SwapBetweenInventoryOperation SwapBetweenInventory = 9;
+    // SwapInventoryBetweenContainer 交换背包和已打开容器中的物品。
+    SwapInventoryBetweenContainerOperation SwapInventoryBetweenContainer = 10;
+    // DropItem 从显式槽位丢弃物品。
+    DropItemOperation DropItem = 11;
+    // DropInventoryItem 从背包槽位丢弃物品。
+    DropInventoryItemOperation DropInventoryItem = 12;
+    // DropContainerItem 从已打开容器槽位丢弃物品。
+    DropContainerItemOperation DropContainerItem = 13;
+    // GetCreativeItem 从创造物品表取出物品。
+    GetCreativeItemOperation GetCreativeItem = 14;
+    // GetCreativeItemToInventory 从创造物品表取出物品到背包。
+    GetCreativeItemToInventoryOperation GetCreativeItemToInventory = 15;
+    // RenameItem 重命名显式槽位物品。
+    RenameItemOperation RenameItem = 16;
+    // RenameInventoryItem 重命名背包槽位物品。
+    RenameInventoryItemOperation RenameInventoryItem = 17;
+    // Looming 执行织布机图案操作。
+    LoomingOperation Looming = 18;
+    // LoomingFromInventory 从背包槽位执行织布机图案操作。
+    LoomingFromInventoryOperation LoomingFromInventory = 19;
+    // Crafting 执行合成操作。
+    CraftingOperation Crafting = 20;
+    // Trimming 执行锻造台纹饰操作。
+    TrimmingOperation Trimming = 21;
+    // TrimmingFromInventory 从背包槽位执行锻造台纹饰操作。
+    TrimmingFromInventoryOperation TrimmingFromInventory = 22;
+  }
+}
+
+// CommitItemStackOperationsRequest 是一次性提交物品堆栈操作列表的请求。
+message CommitItemStackOperationsRequest {
+  // Operations 是按顺序追加到同一事务后提交的操作列表。
+  repeated ItemStackOperation Operations = 1;
+}
+
+// CommitTransactionRequest 是提交物品栈事务的请求。
+message CommitTransactionRequest {
+  // TransactionID 是要提交的事务 ID。
+  string TransactionID = 1;
+}
+
+// CommitTransactionResponse 是提交物品栈事务后的结果。
+message CommitTransactionResponse {
+  // Success 表示服务端是否接受事务。
+  bool Success = 1;
+  // Responses 是服务端返回的物品栈响应列表。
+  repeated mousetunnel.minecraft.protocol.item_stack.ItemStackResponse Responses = 2;
+  // Operations 是事务提交后相关的物品实例变更。
+  repeated mousetunnel.minecraft.protocol.item.ItemInstance Operations = 3;
+  // Packet 指示最终编译得到的数据包，它可以用于调试，但不应重新用于发送。
+  mousetunnel.minecraft.protocol.packet.item_stack_request.ItemStackRequest Packet = 4;
+}
+
+// DiscardTransactionRequest 是丢弃未提交事务的请求。
+message DiscardTransactionRequest {
+  // TransactionID 是要丢弃的事务 ID。
+  string TransactionID = 1;
+}
+
+// DiscardTransactionResponse 是丢弃事务后的空响应。
+message DiscardTransactionResponse {}
+
+// ItemStackTransactionService 是单个物品操作事务，
+// 它希望使用者尽可能多的将物品堆栈请求内联在一个数据包中，
+// 这样可以有效的节省操作的时间消耗。
+service ItemStackTransactionService {
+  // OpenTransaction 基于 api 创建并返回一个新的 ItemStackTransaction。
+  rpc OpenTransaction(OpenTransactionRequest) returns (OpenTransactionResponse);
+  // MoveItem 将 source 处的物品移动到 destination 处，
+  // 且只移动 count 个物品。
+  //
+  // 该操作是支持内联的，它会与所有相邻的支持内联的操作一
+  // 起被内联到单个物品堆栈操作请求中
+  rpc MoveItem(MoveItemRequest) returns (TransactionActionResponse);
+  // MoveBetweenInventory 将背包中 source 处的物品移动到 destination 处，
+  // 且只移动 count 个物品。
+  //
+  // 此操作需要保证背包已被打开，或者已打开的容器中可以在背包中移动物品。
+  //
+  // 该操作是支持内联的，它会与所有相邻的支持内联的操作一起被内联到单个
+  // 物品堆栈操作请求中
+  rpc MoveBetweenInventory(MoveBySlotRequest) returns (TransactionActionResponse);
+  // MoveBetweenContainer 将已打开容器中 source 处的物品
+  // 移动到已打开容器的 destination 处，且只移动 count 个物品。
+  //
+  // 此操作需要保证目前已经打开了一个容器，否则效果将会与
+  // MoveBetweenInventory 等同。
+  //
+  // 该操作是支持内联的，它会与所有相邻的支持内联的操作一起被内联
+  // 到单个物品堆栈操作请求中
+  rpc MoveBetweenContainer(MoveBySlotRequest) returns (TransactionActionResponse);
+  // MoveToContainer 将背包中 source 处的物品移动到已打开容器的
+  // destination 处，且只移动 count 个物品。
+  //
+  // 此操作需要保证目前已经打开了一个容器，否则效果将会与
+  // MoveBetweenInventory 等同。
+  //
+  // 该操作是支持内联的，它会与所有相邻的支持内联的操作一起被内联
+  // 到单个物品堆栈操作请求中
+  rpc MoveToContainer(MoveBySlotRequest) returns (TransactionActionResponse);
+  // MoveToInventory 将已打开容器中 source 处的物品移动到
+  // 背包的 destination 处，且只移动 count 个物品。
+  //
+  // 此操作需要保证目前已经打开了一个容器，否则效果将会与
+  // MoveBetweenInventory 等同。
+  //
+  // 该操作是支持内联的，它会与所有相邻的支持内联的操作一起
+  // 被内联到单个物品堆栈操作请求中
+  rpc MoveToInventory(MoveBySlotRequest) returns (TransactionActionResponse);
+  // MoveToCraftingTable 将背包中 source 处的物品移动
+  // 到合成栏的 destination 处，且只移动 count 个物品。
+  //
+  // 此操作需要保证背包已被打开，或打开了工作台，
+  // 否则整个事务将会失败。
+  //
+  // 该操作是支持内联的，它会与所有相邻的支持内联的操作一
+  // 起被内联到单个物品堆栈操作请求中
+  rpc MoveToCraftingTable(MoveBySlotRequest) returns (TransactionActionResponse);
+  // MoveFromCraftingTable 将已放入合成栏 source 处的物品
+  // 移动到背包的 destination 处，且只移动 count 个物品。
+  //
+  // 此操作需要保证背包已被打开，或打开了工作台，否则整个事务
+  // 将会失败。
+  //
+  // 该操作是支持内联的，它会与所有相邻的支持内联的操作一起被
+  // 内联到单个物品堆栈操作请求中
+  rpc MoveFromCraftingTable(MoveBySlotRequest) returns (TransactionActionResponse);
+  // SwapItem 交换 source 处和 destination 处的物品。
+  //
+  // 该操作是支持内联的，它会与所有相邻的支持内联的操作
+  // 一起被内联到单个物品堆栈操作请求中
+  rpc SwapItem(MoveItemRequest) returns (TransactionActionResponse);
+  // SwapBetweenInventory 交换背包中 source
+  // 处和背包中 destination 处的物品。
+  //
+  // 此操作需要保证背包已被打开，或者已打开
+  // 的容器中可以在背包中移动物品。
+  //
+  // 该操作是支持内联的，它会与所有相邻的支
+  // 持内联的操作一起被内联到单个物品堆栈操
+  // 作请求中
+  rpc SwapBetweenInventory(MoveBySlotRequest) returns (TransactionActionResponse);
+  // SwapInventoryBetweenContainer 交换背包中 source
+  // 处和已打开容器 destination 处的物品。
+  //
+  // 此操作需要保证目前已经打开了一个容器，否则效果将会与
+  // SwapInventoryItem 等同。
+  //
+  // 该操作是支持内联的，它会与所有相邻的支持内联的操作一起
+  // 被内联到单个物品堆栈操作请求中
+  rpc SwapInventoryBetweenContainer(MoveBySlotRequest) returns (TransactionActionResponse);
+  // DropItem 将 slot 处的物品丢出，且只丢出 count 个。
+  //
+  // 该操作是支持内联的，它会与所有相邻的支持内联的操作一
+  // 起被内联到单个物品堆栈操作请求中
+  rpc DropItem(DropItemRequest) returns (TransactionActionResponse);
+  // DropInventoryItem 将背包中 slot 处的
+  // 物品丢出，且只丢出 count 个。
+  //
+  // 此操作需要保证背包已被打开，
+  // 或者已打开的容器中可以在背包中移动物品。
+  //
+  // 该操作是支持内联的，它会与所有相邻的支
+  // 持内联的操作一起被内联到单个物品堆栈操
+  // 作请求中
+  rpc DropInventoryItem(DropSlotRequest) returns (TransactionActionResponse);
+  // DropContainerItem 将已打开容器 slot 处的物品丢出，且只丢出 count 个。
+  //
+  // 此操作需要保证目前已经打开了一个容器，否则效果将会与
+  // DropInventoryItem 等同。
+  //
+  // 该操作是支持内联的，它会与所有相邻的支持内联的操作一起被内联
+  // 到单个物品堆栈操作请求中
+  rpc DropContainerItem(DropSlotRequest) returns (TransactionActionResponse);
+  // GetCreativeItem 从创造物品栏获取 创造物品网络 ID 为
+  // creativeItemNetworkID 的物品到 slot 处，
+  // 且只移动 count 个物品。
+  //
+  // 该操作不支持内联，但它仍然可以被紧缩在单个的物品堆栈操
+  // 作请求的数据包中
+  rpc GetCreativeItem(CreativeItemRequest) returns (TransactionActionResponse);
+  // GetCreativeItemToInventory 从创造物品栏获取创造物品网络
+  // ID 为 creativeItemNetworkID 的物品到背包中的 slot 处，
+  // 且只移动 count 个物品。
+  //
+  // 该操作不支持内联，但它仍然可以被紧缩在单个的物品堆栈操作请
+  // 求的数据包中
+  rpc GetCreativeItemToInventory(CreativeItemRequest) returns (TransactionActionResponse);
+  // RenameItem 将 slot 处的物品全部重命名为 newName
+  //
+  // 重命名操作是通过铁砧完成的，这意味着您需要确保铁砧已被打开，
+  // 且铁砧内没有放置任何物品。
+  //
+  // 如果操作成功，则物品将回到原位。
+  //
+  // 该操作不支持内联，但它仍然可以被紧缩在单个的物品堆栈操作请
+  // 求的数据包中
+  rpc RenameItem(RenameItemRequest) returns (TransactionActionResponse);
+  // RenameInventoryItem 将背包中 slot 处的物品全部重命名为 newName。
+  //
+  // 重命名操作是通过铁砧完成的，这意味着您需要确保铁砧已被打开，
+  // 且铁砧内没有放置任何物品。如果操作成功，则物品将回到原位。
+  //
+  // 与 RenameItem 的不同之处在于，它只能操作背包中的物品，
+  // 因此您需要确保背包已被打开。
+  //
+  // 该操作不支持内联，但它仍然可以被紧缩在单个的物品堆栈操作请求的数据包中
+  rpc RenameInventoryItem(RenameSlotRequest) returns (TransactionActionResponse);
+  // Looming 将 patternSlot 处的旗帜放入织布机中，
+  // 并通过使用 dyeSlot 处的染料合成新旗帜。
+  //
+  // patternName 是织布时使用的图案，patternSlot
+  // 则指示该图案物品的位置。如果无需使用图案，
+  // 请将 patternName 和 patternSlot 都置为默认的
+  // 零值。
+  //
+  // resultItem 指示期望得到的旗帜的部分数据。
+  // 如果操作成功，则新旗帜将回到原位。
+  //
+  // 该操作不支持内联，但它仍然可以被紧缩在单个的物品
+  // 堆栈操作请求的数据包中
+  rpc Looming(LoomingRequest) returns (TransactionActionResponse);
+  // LoomingFromInventory 将背包中 patternSlot 处的旗帜放入织布机中，
+  // 并通过使用背包中 dyeSlot 处的染料合成新旗帜。
+  //
+  // patternName 是织布时使用的图案，patternSlot 则指示该图案物品
+  // 在背包中的位置。如果使用的旗帜图案无需实际的旗帜图案物品用于合成，
+  // 请将 patternSlot 置为默认的零值。
+  //
+  // resultItem 指示期望得到的旗帜的部分数据。
+  // 如果操作成功，则新旗帜将回到原位。
+  //
+  // 该操作不支持内联，但它仍然可以被紧缩在单个的物品堆栈操作请求的数据包中
+  rpc LoomingFromInventory(LoomingRequest) returns (TransactionActionResponse);
+  // Crafting 用于合成一个物品。
+  //
+  // 它消耗已放入合成栏的全部物品，
+  // 然后制作相应的物品到背包。
+  //
+  // recipeNetworkID 是合成配方的网络 ID；
+  // resultSlotID 是合成后物品应当放置的位置；
+  // resultCount 是合成后所得物品的数量；
+  // resultItem 是合成后物品的最终数据
+  rpc Crafting(CraftingRequest) returns (TransactionActionResponse);
+  // Trimming 将下面列出的物品放置在锻造台中，
+  // 并进行对于的锻造台的纹饰操作。
+  //
+  // - trimItemPath 处的 1 个装备
+  // - materialPath 处的 1 个材料
+  // - templatePath 处的 1 个模板
+  //
+  // resultItem 指示期望得到的锻造结果数据。
+  // 如果操作成功，则被锻造物品将回到原位。
+  //
+  // 该操作不支持内联，但它仍然可以被紧缩在单个
+  // 的物品堆栈操作请求的数据包中
+  rpc Trimming(TrimmingRequest) returns (TransactionActionResponse);
+  // TrimmingFromInventory 将下面列出的，
+  // 位于背包中的物品放置在锻造台中，
+  // 并进行对于的锻造台的纹饰操作。
+  //
+  // - trimItemSlot 处的 1 个装备
+  // - materialSlot 处的 1 个材料
+  // - templateSlot 处的 1 个模板
+  //
+  // resultItem 指示期望得到的锻造结果数据。
+  // 如果操作成功，则被锻造物品将回到原位。
+  //
+  // 该操作不支持内联，但它仍然可以被紧缩在单个
+  // 的物品堆栈操作请求的数据包中
+  rpc TrimmingFromInventory(TrimmingRequest) returns (TransactionActionResponse);
+  // CommitTransaction 将底层操作序列内联到单个物品堆栈操作请求数据包中执行物品堆栈操作事务。
+  // 如果没有返回错误，Commit 在完成后将使用 Discord 清空底层操作序列。
+  // 应当说明的是，如果事务没有全部成功，则若没有返回错误，则 Discord 仍然会执行。
+  //
+  // Commit 在设计上考虑并预期事务的所有都会成功，因此内联将尽可能紧凑，而这依赖于“成功”的预期前提。
+  // 这意味着，一旦某个步骤失败，那么整个物品堆栈操作都可能失败，并且最终的结果将是未定义的。
+  //
+  // success 为真指示该事务的全部操作完全成功，若为否则可能部分失败。
+  // 作为一种特殊情况，如果底层操作序列为空，则 success 总是真。
+  //
+  // pk 指示最终编译得到的数据包，它可以用于调试，但不应重新用于发送；
+  // serverResponse 则指示租赁服针对 pk 中每个物品堆栈操作的结果
+  rpc CommitTransaction(CommitTransactionRequest) returns (CommitTransactionResponse);
+  // CommitItemStackOperations 一次性提交物品堆栈操作列表，避免每个操作都发生一次 RPC。
+  //
+  // Operations 会被按顺序追加到同一个事务中，并在服务端直接提交。
+  rpc CommitItemStackOperations(CommitItemStackOperationsRequest) returns (CommitTransactionResponse);
+  // DiscardTransaction 丢弃曾经执行的更改。
+  // 从本质上说，它将清空底层操作序列
+  rpc DiscardTransaction(DiscardTransactionRequest) returns (DiscardTransactionResponse);
+}

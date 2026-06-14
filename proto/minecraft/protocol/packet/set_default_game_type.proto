@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.set_default_game_type;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// SetDefaultGameType 在客户端切换设置界面中的默认游戏模式时由客户端发送；
+// 当服务器实际改变默认游戏模式时也会发送，使设置界面中的开关随之变化。
+//
+// SetDefaultGameType is sent by the client when it toggles the default game type in the settings UI, and is
+// sent by the server when it actually changes the default game type, resulting in the toggle being changed
+// in the settings UI.
+//
+// Added: v1.12
+message SetDefaultGameType {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDSetDefaultGameType;
+  // GameType 是要设置的新游戏模式。由客户端发送时，它表示请求使用的新默认游戏模式。
+  //
+  // GameType is the new game type that is set. When sent by the client, this is the requested new default
+  // game type.
+  //
+  // Added: v1.12
+  int32 GameType = 1;
+}
+

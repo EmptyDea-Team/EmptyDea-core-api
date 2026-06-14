@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.client_camera_aim_assist;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+enum ClientCameraAimAssistActionEnum {
+  ClientCameraAimAssistActionSet = 0;
+  ClientCameraAimAssistActionClear = 1;
+}
+
+// ClientCameraAimAssist 由服务器发送，用于设置或清除客户端的相机瞄准辅助。
+//
+// ClientCameraAimAssist is sent by the server to send a player animation from one player to all viewers of that player. It
+// is used for a couple of actions, such as arm swimming and critical hits.
+//
+// Added: v1.21.70
+message ClientCameraAimAssist {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDClientCameraAimAssist;
+  // PresetID 是要使用的预设标识符，该预设此前在 CameraAimAssistPresets 数据包中定义。
+  //
+  // PresetID is the identifier of the preset to use which was previously defined in the CameraAimAssistPresets
+  // packet.
+  //
+  // Added: v1.21.70
+  string PresetID = 1;
+  // Action 是要对瞄准辅助执行的操作，它是上方常量之一。
+  //
+  // Action is the action to perform with the aim assist. It is one of the constants above.
+  //
+  // Added: v1.21.70
+  // Go type: byte
+  uint32 Action = 2;
+  // AllowAimAssist 指定客户端是否可以使用瞄准辅助。
+  //
+  // AllowAimAssist specifies the client can use aim assist or not.
+  //
+  // Added: v1.21.70
+  bool AllowAimAssist = 3;
+}
+

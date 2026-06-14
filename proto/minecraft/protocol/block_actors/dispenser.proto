@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.dispenser;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actors";
+
+import "block_actors/general_actors/dispenser_block_actor.proto";
+
+// Dispenser 描述发射器方块实体。
+//
+// Dispenser describes the dispenser block actor.
+message Dispenser {
+  .mousetunnel.minecraft.protocol.block_actors.general_actors.dispenser_block_actor.DispenserBlockActor DispenserBlockActor = 1;
+}
+

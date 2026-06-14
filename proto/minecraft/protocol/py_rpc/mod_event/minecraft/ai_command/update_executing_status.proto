@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.update_executing_status;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_command";
+
+import "py_rpc/mod_event/minecraft/ai_command/basic.proto";
+
+// UpdateExecutingStatus 同步命令执行状态。
+//
+// UpdateExecutingStatus synchronises command execution status.
+message UpdateExecutingStatus {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.basic.Basic Basic = 1;
+  // Status 是当前执行状态。
+  //
+  // Status is the current execution status.
+  string Status = 2;
+}
+

@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.modal_form_request;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// ModalFormRequest 由服务器发送，用于让客户端打开一个表单。该表单可以是带有两个选项的模态表单、
+// 用于选择选项的菜单表单，或用于属性输入的自定义表单。
+//
+// ModalFormRequest is sent by the server to make the client open a form. This form may be either a modal form
+// which has two options, a menu form for a selection of options and a custom form for properties.
+//
+// Added: v1.12
+message ModalFormRequest {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDModalFormRequest;
+  // FormID 是用于标识表单的 ID。客户端会保存该 ID，并在玩家提交表单时回传，
+  // 使服务器能够识别提交的是哪个表单。
+  //
+  // FormID is an ID used to identify the form. The ID is saved by the client and sent back when the player
+  // submits the form, so that the server can identify which form was submitted.
+  //
+  // Added: v1.12
+  uint32 FormID = 1;
+  // FormData 是 JSON 编码的表单数据对象。对象内容会根据发送的表单类型变化，
+  // 表单类型也会在 JSON 中设置。
+  //
+  // FormData is a JSON encoded object of form data. The content of the object differs, depending on the
+  // type of the form sent, which is also set in the JSON.
+  //
+  // Added: v1.12
+  // Go type: []byte
+  bytes FormData = 2;
+}
+

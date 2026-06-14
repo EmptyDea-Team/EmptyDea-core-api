@@ -1,0 +1,79 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.inventory_slot;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "container.proto";
+import "item.proto";
+import "packet_options.proto";
+
+message InventorySlotOptionalFullContainerName {
+  bool Present = 1;
+  .mousetunnel.minecraft.protocol.container.FullContainerName Value = 2;
+}
+
+message InventorySlotOptionalItemInstance {
+  bool Present = 1;
+  .mousetunnel.minecraft.protocol.item.ItemInstance Value = 2;
+}
+
+// InventorySlot 由服务器发送，用于更新客户端当前打开的某个物品栏窗口中的单个槽位。
+// 通常这是主物品栏，但也可能是副手，或例如箱子物品栏。
+//
+// InventorySlot is sent by the server to update a single slot in one of the inventory windows that the client
+// currently has opened. Usually this is the main inventory, but it may also be the off hand or, for example,
+// a chest inventory.
+//
+// Added: v1.11.1
+message InventorySlot {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDInventorySlot;
+  // WindowID 是该数据包修改的窗口 ID。它必须指向客户端当前打开的某个窗口。
+  //
+  // WindowID is the ID of the window that the packet modifies. It must point to one of the windows that the
+  // client currently has opened.
+  //
+  // Added: v1.11.1
+  uint32 WindowID = 1;
+  // Slot 是该数据包修改的槽位索引。新物品会被设置到该索引处的槽位。
+  //
+  // Slot is the index of the slot that the packet modifies. The new item will be set to the slot at this
+  // index.
+  //
+  // Added: v1.11.1
+  uint32 Slot = 2;
+  // Container 是描述该内容所属容器的 protocol.FullContainerName。
+  //
+  // Container is the protocol.FullContainerName that describes the container that the content is for.
+  //
+  // Added: v1.21.20
+  // Changed: v1.21.30, expanded from a dynamic container ID to a full container name.
+  // Changed: v1.26.20, encoded as an optional full container name instead of a plain full container name.
+  // Go type: protocol.Optional[protocol.FullContainerName]
+  InventorySlotOptionalFullContainerName Container = 3;
+  // NetworkID 是写在物品实例之前的旧版堆叠网络 ID。
+  //
+  // NetworkID is the legacy stack network ID written before the item instance.
+  //
+  // Added: v1.16.0
+  // Removed: v1.16.220
+  int32 NetworkID = 4;
+  // StorageItem 是作为该物品栏存储容器的物品。如果物品栏不是动态容器，
+  // 该字段应保持为空。设置时，客户端只使用物品类型，不使用其他堆叠信息。
+  //
+  // StorageItem is the item that is acting as the storage container for the inventory. If the inventory is
+  // not a dynamic container then this field should be left empty. When set, only the item type is used by
+  // the client and none of the other stack info.
+  //
+  // Added: v1.21.40
+  // Changed: v1.26.20, encoded as an optional storage item instead of a plain item instance.
+  // Go type: protocol.Optional[protocol.ItemInstance]
+  InventorySlotOptionalItemInstance StorageItem = 5;
+  // NewItem 是要放入 Slot 所指槽位的物品。它会覆盖该槽位中当前可能存在的任何物品。
+  //
+  // NewItem is the item to be put in the slot at Slot. It will overwrite any item that may currently
+  // be present in that slot.
+  //
+  // Added: v1.11.1
+  .mousetunnel.minecraft.protocol.item.ItemInstance NewItem = 6;
+}
+

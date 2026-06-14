@@ -1,0 +1,150 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.client_bound_map_item_data;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "block_pos.proto";
+import "map.proto";
+import "map_pixels.proto";
+import "packet_options.proto";
+
+enum MapUpdateFlagEnum {
+  MAPUPDATEFLAGENUM_UNSPECIFIED = 0;
+  MapUpdateFlagTexture = 2;
+  MapUpdateFlagDecoration = 4;
+  MapUpdateFlagInitialisation = 8;
+}
+
+// ClientBoundMapItemData 由服务器发送给客户端，用于更新客户端显示的地图数据。
+// 它会携带一组标志来指定更新哪些数据。该数据包可只更新地图的特定部分，
+// 更新某一部分时不需要每次都发送整张地图。
+//
+// ClientBoundMapItemData is sent by the server to the client to update the data of a map shown to the client.
+// It is sent with a combination of flags that specify what data is updated.
+// The ClientBoundMapItemData packet may be used to update specific parts of the map only. It is not required
+// to send the entire map each time when updating one part.
+//
+// Added: v1.11.1
+message ClientBoundMapItemData {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDClientBoundMapItemData;
+  // MapID 是表示通过网络更新的地图的唯一标识符，并会跨会话保持一致。
+  //
+  // MapID is the unique identifier that represents the map that is updated over network. It remains
+  // consistent across sessions.
+  //
+  // Added: v1.11.1
+  int64 MapID = 1;
+  // UpdateFlags 是上方标志的组合，用于指示客户端侧应更新地图的哪些部分。
+  //
+  // UpdateFlags is a combination of flags found above that indicate what parts of the map should be updated
+  // client-side.
+  //
+  // Added: v1.11.1
+  uint32 UpdateFlags = 2;
+  // Dimension 是应更新地图所在的维度，例如主世界 (0)、下界 (1) 或末地 (2)。
+  //
+  // Dimension is the dimension of the map that should be updated, for example the overworld (0), the nether
+  // (1) or the end (2).
+  //
+  // Added: v1.11.1
+  // Go type: byte
+  uint32 Dimension = 3;
+  // LockedMap 指定被更新的地图是否为锁定地图，这可通过制图台完成。
+  //
+  // LockedMap specifies if the map that was updated was a locked map, which may be done using a cartography
+  // table.
+  //
+  // Added: v1.11.1
+  bool LockedMap = 4;
+  // Origin 是被更新地图的中心位置。
+  //
+  // Origin is the center position of the map being updated.
+  //
+  // Added: v1.19.20
+  .mousetunnel.minecraft.protocol.block_pos.BlockPos Origin = 5;
+  // Scale 是地图在游戏中显示时的比例。当任意 MapUpdateFlags 被设置到 UpdateFlags 字段时写入。
+  //
+  // Scale is the scale of the map as it is shown in-game. It is written when any of the MapUpdateFlags are
+  // set to the UpdateFlags field.
+  //
+  // Added: v1.11.1
+  // Go type: byte
+  uint32 Scale = 6;
+  // MapsIncludedIn 保存包含被更新地图的地图 ID 数组。这与地图比例有关：
+  // 每张地图都保存自身地图 ID，以及所有包含该地图且比例更大的地图 ID。
+  // 这意味着比例 0 的地图会在该切片中有 5 个地图 ID，而比例 4 的地图只有 1 个（即自身）。
+  // 该字段的实际用途仍未知。
+  //
+  // MapsIncludedIn holds an array of map IDs that the map updated is included in. This has to do with the
+  // scale of the map: Each map holds its own map ID and all map IDs of maps that include this map and have
+  // a bigger scale. This means that a scale 0 map will have 5 map IDs in this slice, whereas a scale 4 map
+  // will have only 1 (its own).
+  // The actual use of this field remains unknown.
+  //
+  // Added: v1.11.1
+  // Go type: []int64
+  repeated int64 MapsIncludedIn = 7;
+  // TrackedObjects 是地图上被跟踪对象的列表，这些对象可以是实体或方块。
+  // 客户端会确保这些被跟踪对象确实被跟踪，例如更新位置等。
+  //
+  // TrackedObjects is a list of tracked objects on the map, which may either be entities or blocks. The
+  // client makes sure these tracked objects are actually tracked. (position updated etc.)
+  //
+  // Added: v1.11.1
+  // Go type: []protocol.MapTrackedObject
+  repeated .mousetunnel.minecraft.protocol.map.MapTrackedObject TrackedObjects = 8;
+  // Decorations 是位于地图上的固定装饰列表。除非服务器更新它们，
+  // 这些装饰不会在客户端侧改变。
+  //
+  // Decorations is a list of fixed decorations located on the map. The decorations will not change
+  // client-side, unless the server updates them.
+  //
+  // Added: v1.11.1
+  // Go type: []protocol.MapDecoration
+  repeated .mousetunnel.minecraft.protocol.map.MapDecoration Decorations = 9;
+  // Height 是被更新纹理区域的高度。该高度可以是地图总高度的一个子集。
+  //
+  // Height is the height of the texture area that was updated. The height may be a subset of the total
+  // height of the map.
+  //
+  // Added: v1.11.1
+  int32 Height = 10;
+  // Width 是被更新纹理区域的宽度。该宽度可以是地图总宽度的一个子集。
+  //
+  // Width is the width of the texture area that was updated. The width may be a subset of the total width
+  // of the map.
+  //
+  // Added: v1.11.1
+  int32 Width = 11;
+  // XOffset 是更新纹理区域起点的 X 像素偏移。
+  // 从该 X 开始，更新纹理会向右精确延伸 Width 个像素。
+  //
+  // XOffset is the X offset in pixels at which the updated texture area starts. From this X, the updated
+  // texture will extend exactly Width pixels to the right.
+  //
+  // Added: v1.11.1
+  int32 XOffset = 12;
+  // YOffset 是更新纹理区域起点的 Y 像素偏移。
+  // 从该 Y 开始，更新纹理会向上精确延伸 Height 个像素。
+  //
+  // YOffset is the Y offset in pixels at which the updated texture area starts. From this Y, the updated
+  // texture will extend exactly Height pixels up.
+  //
+  // Added: v1.11.1
+  int32 YOffset = 13;
+  // Pixels 是地图新纹理的像素颜色列表，索引方式为 Pixels[y*height + x]。
+  //
+  // Pixels is a list of pixel colours for the new texture of the map. It is indexed as Pixels[y*height + x].
+  //
+  // Added: v1.11.1
+  // Changed: v1.19.20, flattened from a 2D slice to a single slice indexed as Pixels[y*height + x].
+  // Go type: []color.RGBA
+  repeated bytes Pixels = 14;
+  // NetEasePixels 是使用网易地图像素变体编码的地图像素数据。
+  //
+  // NetEasePixels is map pixel data encoded using NetEase's map pixel variants.
+  //
+  // Added: NetEase.
+  .mousetunnel.minecraft.protocol.map_pixels.MapPixels NetEasePixels = 15;
+}
+

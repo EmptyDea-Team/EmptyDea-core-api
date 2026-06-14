@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.emote_list;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// EmoteList 在客户端每次加入服务器以及装备新表情时发送。服务器可以用它判断客户端有哪些可用表情。
+// 如果玩家没有装备表情，则不会发送该数据包。
+// 在某些情况下，该数据包也会由服务器发送给客户端，但目前尚未确认具体触发时机。
+//
+// EmoteList is sent by the client every time it joins the server and when it equips new emotes. It may be
+// used by the server to find out which emotes the client has available. If the player has no emotes equipped,
+// this packet is not sent.
+// Under certain circumstances, this packet is also sent from the server to the client, but I was unable to
+// find when this is done.
+//
+// Added: v1.16
+message EmoteList {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDEmoteList;
+  // PlayerRuntimeID 是拥有下方表情片段的玩家运行时 ID。由客户端发送时，
+  // 该玩家运行时 ID 始终是玩家自身的 ID。
+  //
+  // PlayerRuntimeID is the runtime ID of the player that owns the emote pieces below. If sent by the
+  // client, this player runtime ID is always that of the player itself.
+  //
+  // Added: v1.16
+  uint64 PlayerRuntimeID = 1;
+  // EmotePieces 是上方运行时 ID 对应玩家拥有的表情片段列表。
+  //
+  // EmotePieces is a list of emote pieces that the player with the runtime ID above has.
+  //
+  // Added: v1.16
+  // Go type: []uuid.UUID
+  repeated string EmotePieces = 2;
+}
+

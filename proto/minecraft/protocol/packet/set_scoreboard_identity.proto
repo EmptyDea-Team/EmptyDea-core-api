@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.set_scoreboard_identity;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+import "scoreboard.proto";
+
+enum ScoreboardIdentityActionEnum {
+  ScoreboardIdentityActionRegister = 0;
+  ScoreboardIdentityActionClear = 1;
+}
+
+// SetScoreboardIdentity 由服务器发送，用于改变计分板上某个条目的身份类型。
+// 例如，当某个指向玩家的条目离开服务器时，可改为假玩家；再次加入时再改回真实玩家。
+// 在非原版场景下，该数据包基本没有用途。
+//
+// SetScoreboardIdentity is sent by the server to change the identity type of one of the entries on a
+// scoreboard. This is used to change, for example, an entry pointing to a player, to a fake player when it
+// leaves the server, and to change it back to a real player when it joins again.
+// In non-vanilla situations, the packet is quite useless.
+//
+// Added: v1.12
+message SetScoreboardIdentity {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDSetScoreboardIdentity;
+  // ActionType 是要执行的操作类型。该操作可以是 ScoreboardIdentityActionRegister，
+  // 用于把身份关联到条目；也可以是 ScoreboardIdentityActionClear，用于移除与实体的关联。
+  //
+  // ActionType is the type of the action to execute. The action is either ScoreboardIdentityActionRegister
+  // to associate an identity with the entry, or ScoreboardIdentityActionClear to remove associations with
+  // an entity.
+  //
+  // Added: v1.12
+  // Go type: byte
+  uint32 ActionType = 1;
+  // Entries 是数据包中的所有条目列表。每个条目都指向计分板上的一个条目。
+  // 根据 ActionType 的不同，它们的身份会被注册或清除。
+  //
+  // Entries is a list of all entries in the packet. Each of these entries points to one of the entries on
+  // a scoreboard. Depending on ActionType, their identity will either be registered or cleared.
+  //
+  // Added: v1.12
+  // Go type: []protocol.ScoreboardIdentityEntry
+  repeated .mousetunnel.minecraft.protocol.scoreboard.ScoreboardIdentityEntry Entries = 2;
+}
+

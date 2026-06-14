@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.server_bound_loading_screen;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+message ServerBoundLoadingScreenOptionalUint32 {
+  bool Present = 1;
+  uint32 Value = 2;
+}
+
+enum LoadingScreenTypeEnum {
+  LoadingScreenTypeUnknown = 0;
+  LoadingScreenTypeStart = 1;
+  LoadingScreenTypeEnd = 2;
+}
+
+// ServerBoundLoadingScreen 由客户端发送，用于告知服务器客户端当前显示的加载界面状态。
+//
+// ServerBoundLoadingScreen is sent by the client to tell the server about the state of the loading
+// screen that the client is currently displaying.
+//
+// Added: v1.21.20
+message ServerBoundLoadingScreen {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDServerBoundLoadingScreen;
+  // Type 是加载界面事件类型，它是上方常量之一。
+  //
+  // Type is the type of the loading screen event. It is one of the constants that may be found above.
+  //
+  // Added: v1.21.20
+  int32 Type = 1;
+  // LoadingScreenID 是服务器此前在 ChangeDimension 数据包中发送的界面 ID。
+  // 服务器应验证该 ID 是否与它最后发送的 ID 一致。
+  //
+  // LoadingScreenID is the ID of the screen that was previously sent by the server in the ChangeDimension
+  // packet. The server should validate that the ID matches the last one it sent.
+  //
+  // Added: v1.21.20
+  // Go type: protocol.Optional[uint32]
+  ServerBoundLoadingScreenOptionalUint32 LoadingScreenID = 2;
+}
+

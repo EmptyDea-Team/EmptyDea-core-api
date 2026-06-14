@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.storyline_client.basic;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/storyline_client;storyline_client";
+
+// Basic 提供 storylineClient 事件共用的包名和模块名。
+//
+// Basic provides the package and module names shared by storylineClient events.
+message Basic {
+}
+

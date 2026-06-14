@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.set_health;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// SetHealth 由服务器发送，用于设置接收该数据包的玩家生命值。
+// SetHealth 数据包不应再使用；应改用生命值属性，以便直接修改当前生命值和最大生命值。
+//
+// SetHealth is sent by the server. It sets the health of the player it is sent to. The SetHealth packet
+// should no longer be used. Instead, the health attribute should be used so that the health and maximum
+// health may be changed directly.
+//
+// Added: v1.11.1
+message SetHealth {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDSetHealth;
+  // Health 是玩家的新生命值。
+  //
+  // Health is the new health of the player.
+  //
+  // Added: v1.11.1
+  int32 Health = 1;
+}
+

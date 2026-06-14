@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.end_gateway;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actors";
+
+import "block_actors/general_actors/block_actor.proto";
+
+// EndGateway 描述末地折跃门方块实体。
+//
+// EndGateway describes the end gateway block actor.
+message EndGateway {
+  .mousetunnel.minecraft.protocol.block_actors.general_actors.block_actor.BlockActor BlockActor = 1;
+  // TAG_Int(4) = 0
+  int32 Age = 2;
+  // TAG_List[TAG_Int] (9[4])
+  // Go type: []int32
+  repeated int32 ExitPortal = 3;
+}
+

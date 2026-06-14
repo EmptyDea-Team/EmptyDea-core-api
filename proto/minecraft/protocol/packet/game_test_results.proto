@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.game_test_results;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// GameTestResults 是响应 GameTestRequest 数据包发送的数据包，
+// 其中包含一个表示测试是否成功的布尔值，以及测试失败时的错误字符串。
+//
+// GameTestResults is a packet sent in response to the GameTestRequest packet, with a boolean indicating whether the
+// test was successful or not, and an error string if the test failed.
+//
+// Added: v1.19.40
+message GameTestResults {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDGameTestResults;
+  // Name 表示测试名称。
+  //
+  // Name represents the name of the test.
+  //
+  // Added: v1.19.40
+  string Name = 1;
+  // Succeeded 表示测试是否成功。
+  //
+  // Succeeded indicates whether the test succeeded or not.
+  //
+  // Added: v1.19.40
+  bool Succeeded = 2;
+  // Error 是发生的错误。如果 Succeeded 为 true，该字段为空。
+  //
+  // Error is the error that occurred. If Succeeded is true, this field is empty.
+  //
+  // Added: v1.19.40
+  string Error = 3;
+}
+

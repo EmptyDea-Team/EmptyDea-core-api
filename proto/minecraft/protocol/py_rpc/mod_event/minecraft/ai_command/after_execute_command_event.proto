@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.after_execute_command_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_command";
+
+import "py_rpc/mod_event/minecraft/ai_command/basic.proto";
+
+// AfterExecuteCommandEvent 描述魔法指令执行后的结果。
+//
+// AfterExecuteCommandEvent describes the result after an AI command is executed.
+message AfterExecuteCommandEvent {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.basic.Basic Basic = 1;
+  // Success 表示命令是否执行成功。
+  //
+  // Success indicates whether the command was executed successfully.
+  bool Success = 2;
+  // CommandRequestID 是命令请求 UUID。
+  //
+  // CommandRequestID is the command request UUID.
+  // Go type: uuid.UUID
+  string CommandRequestID = 3;
+}
+

@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.ai_ui_visible_state_changed;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_command";
+
+import "py_rpc/mod_event/minecraft/ai_command/basic.proto";
+
+// AiUiVisibleStateChanged 同步魔法指令 UI 可见状态变化。
+//
+// AiUiVisibleStateChanged synchronises changes to AI-command UI visibility.
+message AiUiVisibleStateChanged {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.basic.Basic Basic = 1;
+  // Visible 表示魔法指令 UI 是否可见。
+  //
+  // Visible indicates whether the AI-command UI is visible.
+  bool Visible = 2;
+}
+

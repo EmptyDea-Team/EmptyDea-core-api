@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.actor_pick_request;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// ActorPickRequest 在客户端尝试选取实体时发送，使其获得能够生成该实体的刷怪蛋。
+//
+// ActorPickRequest is sent by the client when it tries to pick an entity, so that it gets a spawn egg which
+// can spawn that entity.
+//
+// Added: v1.16
+message ActorPickRequest {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDActorPickRequest;
+  // EntityUniqueID 是尝试被选取实体的唯一 ID。服务器必须找到该实体的类型，
+  // 并向玩家提供正确的刷怪蛋。
+  //
+  // EntityUniqueID is the unique ID of the entity that was attempted to be picked. The server must find the
+  // type of that entity and provide the correct spawn egg to the player.
+  //
+  // Added: v1.16
+  int64 EntityUniqueID = 1;
+  // HotBarSlot 是玩家尝试选取实体时手持的快捷栏槽位。如果该槽位为空，
+  // 生成的刷怪蛋应放入该槽位。
+  //
+  // HotBarSlot is the held hot bar slot of the player at the time of trying to pick the entity. If empty,
+  // the resulting spawn egg should be put into this slot.
+  //
+  // Added: v1.16
+  // Go type: byte
+  uint32 HotBarSlot = 2;
+  // WithData 为 true 时表示该选取请求需要实体元数据。
+  //
+  // WithData is true if the pick request requests the entity metadata.
+  //
+  // Added: v1.16
+  bool WithData = 3;
+}
+

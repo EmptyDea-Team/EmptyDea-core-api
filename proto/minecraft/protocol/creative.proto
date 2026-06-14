@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.creative;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+import "item.proto";
+
+enum CreativeCategoryEnum {
+  CreativeCategoryAll = 0;
+  CreativeCategoryConstruction = 1;
+  CreativeCategoryNature = 2;
+  CreativeCategoryEquipment = 3;
+  CreativeCategoryItems = 4;
+  CreativeCategoryItemCommandOnly = 5;
+  CreativeCategoryUndefined = 6;
+}
+
+// CreativeGroup 表示创造物品栏中的一组物品。每个分组都有类别、名称和代表该分组的图标。
+//
+// CreativeGroup represents a group of items in the creative inventory. Each group has a category, name and an
+// icon that represents the group.
+//
+// Added: v1.21.60
+message CreativeGroup {
+  // Category 是该分组所属的类别，应为上方常量之一。
+  //
+  // Category is the category the group falls under. It is one of the constants above.
+  //
+  // Added: v1.21.60
+  int32 Category = 1;
+  // Name 是该分组的本地化名称，例如 "itemGroup.name.planks"。
+  //
+  // Name is the locale name of the group, i.e. "itemGroup.name.planks".
+  //
+  // Added: v1.21.60
+  string Name = 2;
+  // Icon 是创造物品栏中代表该分组的物品。
+  //
+  // Icon is the item that represents the group in the creative inventory.
+  //
+  // Added: v1.21.60
+  .mousetunnel.minecraft.protocol.item.ItemStack Icon = 3;
+}
+
+// CreativeItem 表示创造物品栏中的创造物品。
+//
+// CreativeItem represents a creative item present in the creative inventory.
+//
+// Added: v1.16
+message CreativeItem {
+  // CreativeItemNetworkID 是创造物品的唯一 ID。它必须在发送给客户端的每个创造物品之间唯一；
+  // 为每个创造物品使用递增 ID 即可。
+  //
+  // CreativeItemNetworkID is a unique ID for the creative item. It has to be unique for each creative item
+  // sent to the client. An incrementing ID per creative item does the job.
+  //
+  // Added: v1.16
+  uint32 CreativeItemNetworkID = 1;
+  // Item 是应添加到创造物品栏的物品。
+  //
+  // Item is the item that should be added to the creative inventory.
+  //
+  // Added: v1.16
+  .mousetunnel.minecraft.protocol.item.ItemStack Item = 2;
+  // GroupIndex 是该物品应放入分组的索引。它对应此前发送给客户端的 CreativeContent 数据包中的分组索引。
+  //
+  // GroupIndex is the index of the group that the item should be placed in. It is the index of the group in
+  // the CreativeContent packet previously sent to the client.
+  //
+  // Added: v1.21.60
+  uint32 GroupIndex = 3;
+}
+

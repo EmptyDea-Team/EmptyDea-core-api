@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.change_biome;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// ChangeBiome 是网易生物群系变更数据包。
+//
+// ChangeBiome is a NetEase biome change packet.
+//
+// Added: NetEase.
+message ChangeBiome {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDChangeBiome;
+  string Unknown1 = 1;
+  // Go type: float32
+  float Unknown2 = 2;
+  // Go type: float32
+  float Unknown3 = 3;
+  // Go type: float32
+  float Unknown4 = 4;
+  // Go type: float32
+  float Unknown5 = 5;
+  bool Unknown6 = 6;
+}
+

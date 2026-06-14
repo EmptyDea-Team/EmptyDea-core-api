@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.talk_display_feedback_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// TalkDisplayFeedbackEvent 反馈伙伴对话展示结果。
+//
+// TalkDisplayFeedbackEvent reports partner talk-display feedback.
+message TalkDisplayFeedbackEvent {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  TalkDisplayFeedbackData TalkDisplayFeedbackData = 2;
+}
+
+// TalkDisplayFeedbackData 保存对话展示反馈字段。
+//
+// TalkDisplayFeedbackData stores talk-display feedback fields.
+message TalkDisplayFeedbackData {
+  string PlayerID = 1;
+  bool Result = 2;
+  string Key = 3;
+}
+

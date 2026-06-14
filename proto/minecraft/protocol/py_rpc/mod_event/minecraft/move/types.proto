@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.move.types;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/move;move";
+
+// MotionVector 是运动事件中的三维向量。
+//
+// MotionVector is a 3D vector used by motion events.
+message MotionVector {
+  // Go type: []float64
+  repeated double Value = 1;
+}
+

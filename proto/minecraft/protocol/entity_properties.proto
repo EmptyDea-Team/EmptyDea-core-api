@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.entity_properties;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+// EntityProperties 保存定义实体特定属性的实体属性列表。从 v1.19.40 开始，
+// 原版服务器不使用这些属性，但协议仍然支持它们。
+//
+// EntityProperties holds lists of entity properties that define specific attributes of an entity. As of v1.19.40, the
+// vanilla server does not use these properties, however they are still supported by the protocol.
+//
+// Added: v1.19.40
+message EntityProperties {
+  // IntegerProperties 是包含整数值的实体属性列表。
+  //
+  // IntegerProperties is a list of entity properties that contain integer values.
+  //
+  // Added: v1.19.40
+  // Go type: []IntegerEntityProperty
+  repeated IntegerEntityProperty IntegerProperties = 1;
+  // FloatProperties 是包含浮点值的实体属性列表。
+  //
+  // FloatProperties is a list of entity properties that contain float values.
+  //
+  // Added: v1.19.40
+  // Go type: []FloatEntityProperty
+  repeated FloatEntityProperty FloatProperties = 2;
+}
+
+// IntegerEntityProperty 是包含整数值的实体属性。
+//
+// IntegerEntityProperty is an entity property that contains an integer value.
+//
+// Added: v1.19.40
+message IntegerEntityProperty {
+  // Index 表示该属性的索引。目前尚不清楚它的确切用途。
+  //
+  // Index represents the index of the property. It is unclear what the exact purpose of this is.
+  //
+  // Added: v1.19.40
+  uint32 Index = 1;
+  // Value 是该属性的值。
+  //
+  // Value is the value of the property.
+  //
+  // Added: v1.19.40
+  int32 Value = 2;
+}
+
+// FloatEntityProperty 是包含浮点值的实体属性。
+//
+// FloatEntityProperty is an entity property that contains a float value.
+//
+// Added: v1.19.40
+message FloatEntityProperty {
+  // Index 表示该属性的索引。目前尚不清楚它的确切用途。
+  //
+  // Index represents the index of the property. It is unclear what the exact purpose of this is.
+  //
+  // Added: v1.19.40
+  uint32 Index = 1;
+  // Value 是该属性的值。
+  //
+  // Value is the value of the property.
+  //
+  // Added: v1.19.40
+  // Go type: float32
+  float Value = 2;
+}
+

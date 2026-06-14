@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.tick_sync;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// TickSync 用于同步客户端和服务器的 tick 时间戳。
+//
+// TickSync is sent to synchronise client and server tick timestamps.
+//
+// Added: v1.11.1
+message TickSync {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDTickSync;
+  // RequestTimestamp 是请求方发送的时间戳。
+  //
+  // RequestTimestamp is the timestamp sent by the requester.
+  int64 RequestTimestamp = 1;
+  // ResponseTimestamp 是响应中发送的时间戳。
+  //
+  // ResponseTimestamp is the timestamp sent in response.
+  int64 ResponseTimestamp = 2;
+}
+

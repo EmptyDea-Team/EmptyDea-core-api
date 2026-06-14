@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.open_pet_bag;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// OpenPetBag 打开宠物背包，双向使用。
+//
+// OpenPetBag opens the pet bag and is used bidirectionally.
+message OpenPetBag {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  OpenPetBagData OpenPetBagData = 2;
+}
+
+// OpenPetBagData 保存打开宠物背包字段。
+//
+// OpenPetBagData stores open-pet-bag fields.
+message OpenPetBagData {
+  string PlayerID = 1;
+  bool IsNewRequest = 2;
+  OpenPetBagBag InventoryBag = 3;
+  OpenPetBagBag PetBag = 4;
+}
+
+// OpenPetBagItem 保存打开背包事件中的物品数据。
+//
+// OpenPetBagItem stores item data in an open-bag event.
+message OpenPetBagItem {
+  string ItemName = 1;
+  string NewItemName = 2;
+  int64 AuxValue = 3;
+  int64 Count = 4;
+  // Go type: map[string]OpenPetBagUser
+  map<string, OpenPetBagUser> UserData = 5;
+  int64 Durability = 6;
+  bool EnchantData = 7;
+  // Go type: []OpenPetBagEnchant
+  repeated OpenPetBagEnchant ModEnchantData = 8;
+  string CustomTips = 9;
+  string ExtraID = 10;
+  string ItemShowName = 11;
+}
+
+// OpenPetBagUser 保存打开背包物品 userData 的已知项。
+//
+// OpenPetBagUser stores known item userData entries in an open-bag event.
+message OpenPetBagUser {
+  string Mode = 1;
+}
+
+// OpenPetBagEnchant 保存打开背包物品附魔项。
+//
+// OpenPetBagEnchant stores item enchantment entries in an open-bag event.
+message OpenPetBagEnchant {
+  int64 ID = 1;
+  int64 Level = 2;
+}
+
+// OpenPetBagBag 保存打开背包事件中的槽位物品映射。
+//
+// OpenPetBagBag stores slot items in an open-bag event.
+message OpenPetBagBag {
+  // Go type: map[int64]OpenPetBagItem
+  map<int64, OpenPetBagItem> Value = 1;
+}
+

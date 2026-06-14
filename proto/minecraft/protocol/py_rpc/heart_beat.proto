@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.heart_beat;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpc";
+
+enum HeartBeatTypeEnum {
+  // HeartBeatTypeC2S 表示客户端到服务器的心跳。
+  //
+  // HeartBeatTypeC2S marks a client-to-server heartbeat.
+  HeartBeatTypeC2S = 0;
+  // HeartBeatTypeS2C 表示服务器到客户端的心跳。
+  //
+  // HeartBeatTypeS2C marks a server-to-client heartbeat.
+  HeartBeatTypeS2C = 1;
+}
+
+// HeartBeat 是网易心跳 PyRpc 载荷。
+//
+// HeartBeat is a NetEase heartbeat PyRpc payload.
+message HeartBeat {
+  // Type 选择 Name 返回 C2SHeartBeat 还是 S2CHeartBeat。
+  //
+  // Type selects whether Name returns C2SHeartBeat or S2CHeartBeat.
+  // Go type: uint8
+  uint32 Type = 1;
+  // Content 保存载荷索引 0 中的心跳元数据。
+  //
+  // Content stores the heartbeat metadata at payload index 0.
+  HeartBeatContent Content = 2;
+}
+
+// HeartBeatContent 保存网易心跳数据。
+//
+// HeartBeatContent stores the NetEase heartbeat data.
+message HeartBeatContent {
+  // Is64 是服务端请求的 64 位平台标记，客户端会回填实际检测结果。
+  //
+  // Is64 is a server-requested 64-bit platform flag. The client fills the
+  // actual probe result.
+  bool Is64 = 1;
+  // IsAndroid 是服务端请求的 Android 平台标记，客户端会回填实际检测结果。
+  //
+  // IsAndroid is a server-requested Android platform flag. The client fills the
+  // actual probe result.
+  bool IsAndroid = 2;
+  // OSName 是服务端请求的操作系统名，客户端可能回填 android、iOS 或 windows。
+  //
+  // OSName is a server-requested operating-system name. The client may fill
+  // android, iOS, or windows.
+  string OSName = 3;
+  // Memcheck 保存客户端动态内存自检错误。
+  //
+  // Memcheck stores the client dynamic memory self-check error.
+  string Memcheck = 4;
+  // T 是网易发送的心跳时间戳值。
+  //
+  // T is the heartbeat timestamp value sent by NetEase.
+  uint64 T = 5;
+}
+

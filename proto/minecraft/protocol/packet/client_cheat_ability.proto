@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.client_cheat_ability;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "ability.proto";
+import "packet_options.proto";
+
+// ClientCheatAbility 与 UpdateAbilities 功能相同，目前不清楚二者为什么被拆分。
+//
+// ClientCheatAbility functions the same as UpdateAbilities. It is unclear why these two were separated.
+//
+// Deprecated: ClientCheatAbility 自 1.20.10 起已弃用。
+//
+// Deprecated: ClientCheatAbility is deprecated as of 1.20.10.
+//
+// Added: v1.19.60
+message ClientCheatAbility {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDClientCheatAbility;
+  // AbilityData 表示玩家能力的各种数据，例如能力层或权限。
+  //
+  // AbilityData represents various data about the abilities of a player, such as ability layers or permissions.
+  //
+  // Added: v1.19.60
+  .mousetunnel.minecraft.protocol.ability.AbilityData AbilityData = 1;
+}
+

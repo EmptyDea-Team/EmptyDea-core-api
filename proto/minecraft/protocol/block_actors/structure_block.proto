@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.structure_block;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actors";
+
+import "block_actors/general_actors/block_actor.proto";
+
+// StructureBlock 描述结构方块实体。
+//
+// StructureBlock describes the structure block actor.
+message StructureBlock {
+  .mousetunnel.minecraft.protocol.block_actors.general_actors.block_actor.BlockActor BlockActor = 1;
+  // TAG_Byte(1) = 0
+  // Go type: byte
+  uint32 AnimationMode = 2;
+  // TAG_Float(6) = 0
+  // Go type: float32
+  float AnimationSeconds = 3;
+  // TAG_Int(4) = 1
+  int32 Data = 4;
+  // TAG_String(8) = ""
+  string DataField = 5;
+  // TAG_Byte(1) = 0
+  // Go type: byte
+  uint32 IgnoreEntities = 6;
+  // TAG_Byte(1) = 0
+  // Go type: byte
+  uint32 IncludePlayers = 7;
+  // TAG_Float(6) = 100
+  // Go type: float32
+  float Integrity = 8;
+  // TAG_Byte(1) = 0
+  // Go type: byte
+  uint32 IsPowered = 9;
+  // TAG_Byte(1) = 0
+  // Go type: byte
+  uint32 Mirror = 10;
+  // TAG_Int(4) = 0
+  int32 RedstoneSaveMode = 11;
+  // TAG_Byte(1) = 0
+  // Go type: byte
+  uint32 RemoveBlocks = 12;
+  // TAG_Byte(1) = 0
+  // Go type: byte
+  uint32 Rotation = 13;
+  // TAG_Long(5) = 0
+  int64 Seed = 14;
+  // TAG_Byte(1) = 0
+  // Go type: byte
+  uint32 ShowBoundingBox = 15;
+  // TAG_String(8) = ""
+  string StructureName = 16;
+  // TAG_Int(4) = 0
+  int32 XStructureOffset = 17;
+  // TAG_Int(4) = 5
+  int32 XStructureSize = 18;
+  // TAG_Int(4) = -1
+  int32 YStructureOffset = 19;
+  // TAG_Int(4) = 5
+  int32 YStructureSize = 20;
+  // TAG_Int(4) = 0
+  int32 ZStructureOffset = 21;
+  // TAG_Int(4) = 5
+  int32 ZStructureSize = 22;
+}
+

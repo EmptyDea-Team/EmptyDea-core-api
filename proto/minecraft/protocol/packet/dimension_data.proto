@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.dimension_data;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+import "world.proto";
+
+// DimensionData 是服务器发送给客户端的数据包，包含服务器可能已注册的数据驱动维度信息。
+// 该数据包默认似乎不会发送，通常只在注册了数据驱动维度时发送。
+//
+// DimensionData is a packet sent from the server to the client containing information about data-driven dimensions
+// that the server may have registered. This packet does not seem to be sent by default, rather only being sent when
+// any data-driven dimensions are registered.
+//
+// Added: v1.18.30
+message DimensionData {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDDimensionData;
+  // Definitions 包含服务器上注册的数据驱动维度定义列表。
+  //
+  // Definitions contain a list of data-driven dimension definitions registered on the server.
+  //
+  // Added: v1.18.30
+  // Go type: []protocol.DimensionDefinition
+  repeated .mousetunnel.minecraft.protocol.world.DimensionDefinition Definitions = 1;
+}
+

@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.set_actor_data;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "entity_metadata.proto";
+import "entity_properties.proto";
+import "packet_options.proto";
+
+// SetActorData 由服务器发送，用于更新实体的实体元数据。
+// 它包含实体是否着火等标志，也包含实体开始溺水前剩余空气量等属性。
+//
+// SetActorData is sent by the server to update the entity metadata of an entity. It includes flags such as
+// if the entity is on fire, but also properties such as the air it has left until it starts drowning.
+//
+// Added: v1.11.1
+message SetActorData {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDSetActorData;
+  // EntityRuntimeID 是实体的运行时 ID。运行时 ID 在每个世界会话中唯一，
+  // 数据包通常使用该运行时 ID 标识实体。
+  //
+  // EntityRuntimeID is the runtime ID of the entity. The runtime ID is unique for each world session, and
+  // entities are generally identified in packets using this runtime ID.
+  //
+  // Added: v1.11.1
+  uint64 EntityRuntimeID = 1;
+  // EntityMetadata 是实体元数据映射，包含会改变实体外观等内容的标志和数据属性。
+  // 标志包括“着火”和“疾跑”等。元数据值按其属性键索引。
+  //
+  // EntityMetadata is a map of entity metadata, which includes flags and data properties that alter in
+  // particular the way the entity looks. Flags include ones such as 'on fire' and 'sprinting'.
+  // The metadata values are indexed by their property key.
+  //
+  // Added: v1.11.1
+  .mousetunnel.minecraft.protocol.entity_metadata.EntityMetadata EntityMetadata = 2;
+  // EntityProperties 是实体拥有的属性列表。这些属性定义并改变实体的特定属性。
+  //
+  // EntityProperties is a list of properties that the entity inhibits. These properties define and alter specific
+  // attributes of the entity.
+  //
+  // Added: v1.19.40
+  .mousetunnel.minecraft.protocol.entity_properties.EntityProperties EntityProperties = 3;
+  // Tick 是发送该数据包时的服务器 tick。它与 CorrectPlayerMovePrediction 配合使用。
+  //
+  // Tick is the server tick at which the packet was sent. It is used in relation to CorrectPlayerMovePrediction.
+  //
+  // Added: v1.16.100
+  uint64 Tick = 4;
+}
+

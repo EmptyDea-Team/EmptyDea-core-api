@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.editor_network;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "google/protobuf/struct.proto";
+import "packet_options.proto";
+
+// EditorNetwork 是服务器与客户端双向发送的数据包，用于传递编辑器模式相关信息。
+// 它携带一个包含相关信息的复合标签。
+//
+// EditorNetwork is a packet sent from the server to the client and vise-versa to communicate editor-mode related
+// information. It carries a single compound tag containing the relevant information.
+//
+// Added: v1.19.10
+message EditorNetwork {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDEditorNetwork;
+  // RouteToManager 表示该数据包是否应路由到管理器。
+  //
+  // RouteToManager indicates whether this packet should be routed to the manager.
+  //
+  // Added: v1.21.20
+  bool RouteToManager = 1;
+  // Payload 是一个网络小端复合标签，保存与编辑器相关的数据。
+  //
+  // Payload is a network little endian compound tag holding data relevant to the editor.
+  //
+  // Added: v1.19.10
+  // Go type: map[string]any
+  map<string, google.protobuf.Value> Payload = 2;
+}
+

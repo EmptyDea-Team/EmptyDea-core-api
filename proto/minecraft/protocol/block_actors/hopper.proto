@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.hopper;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actors";
+
+import "block_actors/general_actors/block_actor.proto";
+import "google/protobuf/struct.proto";
+
+// Hopper 描述漏斗方块实体。
+//
+// Hopper describes the hopper block actor.
+message Hopper {
+  .mousetunnel.minecraft.protocol.block_actors.general_actors.block_actor.BlockActor BlockActor = 1;
+  // TAG_List[TAG_Compound] (9[10])
+  // Go type: []any
+  repeated google.protobuf.Value Items = 2;
+  // TAG_Int(4) = 0
+  int32 TransferCooldown = 3;
+  // TAG_Short(3) = 0
+  // Go type: int16
+  int32 MoveItemSpeed = 4;
+}
+

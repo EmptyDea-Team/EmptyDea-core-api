@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.item_arrange_response_event;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// ItemArrangeResponseEvent 返回整理物品结果。
+//
+// ItemArrangeResponseEvent returns the item-arrange result.
+message ItemArrangeResponseEvent {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  ItemArrangeResponseData ItemArrangeResponseData = 2;
+}
+
+// ItemArrangeResponseData 保存物品整理响应字段。
+//
+// ItemArrangeResponseData stores item-arrange response fields.
+message ItemArrangeResponseData {
+  bool Result = 1;
+}
+

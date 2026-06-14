@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.login;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// Login 在客户端最初尝试加入服务器时发送。它是第一个发送的数据包，包含玩家相关信息。
+//
+// Login is sent when the client initially tries to join the server. It is the first packet sent and contains
+// information specific to the player.
+//
+// Added: v1.11.1
+message Login {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDLogin;
+  // ClientProtocol 是玩家使用的协议版本。如果该协议与服务器协议不兼容，玩家会被断开连接。
+  // 它已被 RequestNetworkSettings 数据包发送的协议版本取代，因此服务器不应再使用该字段。
+  //
+  // ClientProtocol is the protocol version of the player. The player is disconnected if the protocol is incompatible
+  // with the protocol of the server. It has been superseded by the protocol version sent in the
+  // RequestNetworkSettings packet, so this should no longer be used by the server.
+  //
+  // Added: v1.11.1
+  int32 ClientProtocol = 1;
+  // ConnectionRequest 是包含玩家信息和 JWT 的字符串，这些 JWT 可用于验证玩家是否已连接到 XBOX Live。
+  // 该连接请求还包含初始化加密所需的客户端公钥。
+  //
+  // ConnectionRequest is a string containing information about the player and JWTs that may be used to
+  // verify if the player is connected to XBOX Live. The connection request also contains the necessary
+  // client public key to initiate encryption.
+  //
+  // Added: v1.11.1
+  // Go type: []byte
+  bytes ConnectionRequest = 2;
+}
+

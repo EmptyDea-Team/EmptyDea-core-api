@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_extension.update_player_prefix_info;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_extension;chat_extension";
+
+import "py_rpc/mod_event/minecraft/chat_extension/basic.proto";
+import "py_rpc/mod_event/minecraft/chat_extension/player_add_room.proto";
+
+// UpdatePlayerPrefixInfo 更新玩家聊天前缀信息。
+//
+// UpdatePlayerPrefixInfo updates a player's chat prefix information.
+message UpdatePlayerPrefixInfo {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_extension.basic.Basic Basic = 1;
+  // PlayerID 是被更新的玩家运行时 ID。
+  //
+  // PlayerID is the runtime ID of the player being updated.
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_extension.player_add_room.RuntimeID PlayerID = 2;
+  // PrefixInfo 是新的前缀信息。
+  //
+  // PrefixInfo is the new prefix information.
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_extension.player_add_room.PrefixInfo PrefixInfo = 3;
+}
+

@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package emptydea.game_control.resources_control;
+
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/resources_control;resources_control_pb";
+
+import "packet/container_open.proto";
+
+// GetContainerStateRequest 是查询已打开容器状态的空请求。
+message GetContainerStateRequest {}
+
+// GetContainerStateResponse 是已打开容器的状态。
+message GetContainerStateResponse {
+  // State 返回已打开容器的状态。
+  //
+  // 目前只存在 4 种状态：
+  //   - ContainerStatesHaveNotOpen (0): 曾经没有打开过容器
+  //   - ContainerStatesOpening (1): 目前存在一个已被打开的容器
+  //   - ContainerStatesClosed (2): 曾经打开过容器，但是关闭了
+  //   - ContainerStatesConnClosed (3): 机器人当前已经断开连接
+  uint32 State = 1;
+}
+
+// GetContainerDataRequest 是获取当前已打开容器状态的空请求。
+message GetContainerDataRequest {}
+
+// GetContainerDataResponse 是当前已打开容器的状态。
+message GetContainerDataResponse {
+  // Found 指示当前是否已经打开了容器。
+  bool Found = 1;
+  // Data 是当前已打开容器的数据。
+  mousetunnel.minecraft.protocol.packet.container_open.ContainerOpen Data = 2;
+  // ContainerID 是提前预设的，这意味着其值如果
+  // 不是 mapping.ContainerIDUnknown 则应当优
+  // 先使用
+  uint32 ContainerID = 3;
+}
+
+// ContainerResourceService 描述一个在内存中维护的容器实现，
+// 它用于追踪和监控目前已打开容器的状态。
+service ContainerResourceService {
+  // GetContainerState 返回已打开容器的状态。
+  //
+  // 目前只存在 4 种状态：
+  //   - ContainerStatesHaveNotOpen (0): 曾经没有打开过容器
+  //   - ContainerStatesOpening (1): 目前存在一个已被打开的容器
+  //   - ContainerStatesClosed (2): 曾经打开过容器，但是关闭了
+  //   - ContainerStatesConnClosed (3): 机器人当前已经断开连接
+  rpc GetContainerState(GetContainerStateRequest) returns (GetContainerStateResponse);
+  // GetContainerData 获取当前已打开容器的状态。
+  // 返回的 existed 指示当前是否已经打开了容器。
+  //
+  // containerID 是提前预设的，这意味着其值如果
+  // 不是 mapping.ContainerIDUnknown 则应当优
+  // 先使用
+  rpc GetContainerData(GetContainerDataRequest) returns (GetContainerDataResponse);
+}

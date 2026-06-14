@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.receive_ai_command_result_not_execute;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_command";
+
+import "py_rpc/mod_event/minecraft/ai_command/basic.proto";
+import "py_rpc/mod_event/minecraft/ai_command/types.proto";
+
+// ReceiveAICommandResultNotExecute 接收但不自动执行生成的魔法指令。
+//
+// ReceiveAICommandResultNotExecute receives generated AI commands without executing them automatically.
+message ReceiveAICommandResultNotExecute {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.basic.Basic Basic = 1;
+  // Result 是生成出的命令列表。
+  //
+  // Result is the list of generated commands.
+  // Go type: []AICommandResult
+  repeated .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.types.AICommandResult Result = 2;
+  // GenerateType 是生成类型。
+  //
+  // GenerateType is the generation type.
+  int64 GenerateType = 3;
+  // AIModel 是服务端返回的 AI 模型标识。
+  //
+  // AIModel is the AI model identifier returned by the server.
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.types.AIModel AIModel = 4;
+}
+

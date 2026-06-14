@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.beacon;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actors";
+
+import "block_actors/general_actors/block_actor.proto";
+
+// Beacon 描述信标方块实体。
+//
+// Beacon describes the beacon block actor.
+message Beacon {
+  .mousetunnel.minecraft.protocol.block_actors.general_actors.block_actor.BlockActor BlockActor = 1;
+  // TAG_Int(4) = 0
+  int32 Primary = 2;
+  // TAG_Int(4) = 0
+  int32 Secondary = 3;
+}
+

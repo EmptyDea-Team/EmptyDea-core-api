@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.packet.position_tracking_db_client_request;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packet";
+
+import "packet_options.proto";
+
+// PositionTrackingDBClientRequest 是客户端发送的数据包，用于请求“tracking ID”的位置和维度。
+// 这些 ID 由服务器在数据库中跟踪。在 1.16 中，它用于磁石。
+// 客户端会发送该请求来寻找磁石指南针需要指向的位置。如果找到，指南针会指向磁石；
+// 如果未找到，指南针会开始旋转。
+// 服务端应发送 PositionTrackingDBServerBroadcast 数据包作为响应。
+//
+// PositionTrackingDBClientRequest is a packet sent by the client to request the position and dimension of a
+// 'tracking ID'. These IDs are tracked in a database by the server. In 1.16, this is used for lodestones.
+// The client will send this request to find the position a lodestone compass needs to point to. If found, it
+// will point to the lodestone. If not, it will start spinning around.
+// A PositionTrackingDBServerBroadcast packet should be sent in response to this packet.
+//
+// Added: v1.16
+message PositionTrackingDBClientRequest {
+  option (mousetunnel.minecraft.protocol.packet_options.packet_id) = IDPositionTrackingDBClientRequest;
+  // RequestAction 是接收该数据包后应执行的操作，它是上方常量之一。
+  //
+  // RequestAction is the action that should be performed upon the receiving of the packet. It is one of the
+  // constants found above.
+  //
+  // Added: v1.16
+  // Go type: byte
+  uint32 RequestAction = 1;
+  // TrackingID 是用于标识请求的唯一 ID。服务器会响应带有相同 ID 的 PositionTrackingDBServerBroadcast 数据包，
+  // 使客户端能够判断该数据包响应的是哪个请求。
+  //
+  // TrackingID is a unique ID used to identify the request. The server responds with a
+  // PositionTrackingDBServerBroadcast packet holding the same ID, so that the client can find out what that
+  // packet was in response to.
+  //
+  // Added: v1.16
+  int32 TrackingID = 2;
+}
+

@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.block_actors.mob_spawner;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actors";
+
+import "block_actors/fields/spawn_data.proto";
+import "block_actors/general_actors/block_actor.proto";
+import "google/protobuf/struct.proto";
+
+// MobSpawner 描述刷怪笼方块实体。
+//
+// MobSpawner describes the mob spawner block actor.
+message MobSpawner {
+  .mousetunnel.minecraft.protocol.block_actors.general_actors.block_actor.BlockActor BlockActor = 1;
+  // TAG_Short(3) = 20
+  // Go type: int16
+  int32 Delay = 2;
+  // TAG_Float(6) = 1.7999999523162842
+  // Go type: float32
+  float DisplayEntityHeight = 3;
+  // TAG_Float(6) = 1
+  // Go type: float32
+  float DisplayEntityScale = 4;
+  // TAG_Float(6) = 0.800000011920929
+  // Go type: float32
+  float DisplayEntityWidth = 5;
+  // TAG_String(8) = ""
+  string EntityIdentifier = 6;
+  // TAG_Short(3) = 6
+  // Go type: int16
+  int32 MaxNearbyEntities = 7;
+  // TAG_Short(3) = 800
+  // Go type: int16
+  int32 MaxSpawnDelay = 8;
+  // TAG_Short(3) = 200
+  // Go type: int16
+  int32 MinSpawnDelay = 9;
+  // TAG_Short(3) = 16
+  // Go type: int16
+  int32 RequiredPlayerRange = 10;
+  // TAG_Short(3) = 4
+  // Go type: int16
+  int32 SpawnCount = 11;
+  // TAG_Short(3) = 4
+  // Go type: int16
+  int32 SpawnRange = 12;
+  // TAG_Compound(10)
+  // Go type: *fields.SpawnData
+  .mousetunnel.minecraft.protocol.block_actors.fields.spawn_data.SpawnData SpawnData = 13;
+  // TAG_List[TAG_Compound] (9[10])
+  // Go type: []any
+  repeated google.protobuf.Value SpawnPotentials = 14;
+}
+

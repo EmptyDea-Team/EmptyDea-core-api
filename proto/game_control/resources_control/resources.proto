@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package emptydea.game_control.resources_control;
+
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/resources_control;resources_control_pb";
+
+// BotInfo 是当前机器人基础登录信息。
+message BotInfo {
+  // BotName 是机器人玩家名。
+  string BotName = 1;
+  // XUID 是机器人 XUID。
+  string XUID = 2;
+  // EntityUniqueID 是机器人实体唯一 ID。
+  int64 EntityUniqueID = 3;
+  // EntityRuntimeID 是机器人实体运行时 ID。
+  uint64 EntityRuntimeID = 4;
+}
+
+// GetBotInfoRequest 是查询机器人基础信息的空请求。
+message GetBotInfoRequest {}
+
+// ResourcesService 查询资源层维护的基础连接信息。
+service ResourcesService {
+  // GetBotInfo 返回当前机器人的基础登录信息。
+  rpc GetBotInfo(GetBotInfoRequest) returns (BotInfo);
+}

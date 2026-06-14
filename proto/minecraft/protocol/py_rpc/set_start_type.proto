@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.set_start_type;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpc";
+
+// SetStartType 是 GetStartType 的响应。
+//
+// SetStartType is the response to GetStartType.
+message SetStartType {
+  // Content 是客户端返回的转换后 start-type 挑战字符串。
+  //
+  // Content is the transformed start-type challenge string returned by the client.
+  string Content = 1;
+}
+

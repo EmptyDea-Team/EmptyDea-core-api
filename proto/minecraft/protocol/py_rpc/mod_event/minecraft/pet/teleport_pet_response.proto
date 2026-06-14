@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.teleport_pet_response;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;pet";
+
+import "py_rpc/mod_event/minecraft/pet/basic.proto";
+
+// TeleportPetResponse 返回宠物传送结果。
+//
+// TeleportPetResponse returns the teleport-pet result.
+message TeleportPetResponse {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.Basic Basic = 1;
+  CodeData CodeData = 2;
+}
+
+// CodeData 保存结果码字段。
+//
+// CodeData stores a result code field.
+message CodeData {
+  int64 Code = 1;
+}
+

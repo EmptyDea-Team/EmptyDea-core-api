@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.safaia.safaia_run_server;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/safaia;safaia";
+
+import "py_rpc/mod_event/minecraft/safaia/basic.proto";
+
+// SafaiaRunServer 请求服务端运行 safaia 脚本。
+//
+// SafaiaRunServer asks the server to run a safaia script.
+message SafaiaRunServer {
+  .mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.safaia.basic.Basic Basic = 1;
+  // Script 是要运行的脚本文本。
+  //
+  // Script is the script text to run.
+  string Script = 2;
+}
+

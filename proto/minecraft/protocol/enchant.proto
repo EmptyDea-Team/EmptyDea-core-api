@@ -1,0 +1,120 @@
+syntax = "proto3";
+
+package mousetunnel.minecraft.protocol.enchant;
+option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocol";
+
+// EnchantmentOption 表示附魔台中针对单个物品的一个选项。
+//
+// EnchantmentOption represents a single option in the enchantment table for a single item.
+//
+// Added: v1.16
+message EnchantmentOption {
+  // Cost 是该选项的花费，即选择该附魔选项所需的经验等级数量。
+  //
+  // Cost is the cost of the option. This is the amount of XP levels required to select this enchantment
+  // option.
+  //
+  // Changed: v1.26.20.26, encoded as a uint8 instead of a varuint32.
+  // Go type: uint8
+  uint32 Cost = 1;
+  // Enchantments 保存点击该选项时将应用到物品上的附魔。
+  //
+  // Enchantments holds the enchantments that will be applied to the item when this option is clicked.
+  //
+  // Added: v1.16
+  ItemEnchantments Enchantments = 2;
+  // Name 是客户端侧会转换为“标准银河字母”的名称。
+  // 这些名称通常没有实际含义，例如下方示例。
+  //
+  // Name is a name that will be translated to the 'Standard Galactic Alphabet'
+  // (https://minecraft.wiki/w/Enchanting_Table#Standard_Galactic_Alphabet) client-side. The names
+  // generally have no meaning, such as:
+  // 'animal imbue range galvanize '
+  // 'bless inside creature shrink '
+  // 'elder free of inside '
+  //
+  // Added: v1.16
+  string Name = 3;
+  // RecipeNetworkID 是该附魔选项的唯一网络 ID。附魔时，客户端会在带 CraftRecipe
+  // 动作的 ItemStackRequest 数据包中提交该网络 ID，使服务器知道选择了哪个附魔。
+  // 注意该 ID 仍应与其他实际配方保持唯一。建议从普通配方网络 ID 计数器之后开始为附魔网络 ID 计数。
+  //
+  // RecipeNetworkID is a unique network ID for this enchantment option. When enchanting, the client
+  // will submit this network ID in a ItemStackRequest packet with the CraftRecipe action, so that the
+  // server knows which enchantment was selected.
+  // Note that this ID should still be unique with other actual recipes. It's recommended to start counting
+  // for enchantment network IDs from the counter used for producing network IDs for the normal recipes.
+  //
+  // Added: v1.16
+  uint32 RecipeNetworkID = 4;
+}
+
+// ItemEnchantments 保存点击附魔台中特定按钮时将应用到物品上的附魔信息。
+//
+// ItemEnchantments holds information on the enchantments that are applied to an item when a specific button
+// is clicked in the enchantment table.
+//
+// Added: v1.16
+message ItemEnchantments {
+  // Slot 可以是 0、1 或 2。其确切用途尚不清楚。
+  //
+  // Slot is either 0, 1 or 2. Its exact usage is not clear.
+  //
+  // Added: v1.16
+  int32 Slot = 1;
+  // Enchantments 是由 3 个附魔实例切片组成的数组。每个数组表示会以不同激活类型添加到物品上的附魔。
+  // 原版服务器发送附魔的数组如下：第一个切片保存盔甲附魔，第二和第三个切片之间的区别定义较模糊。
+  //
+  // Enchantments is an array of 3 slices of enchantment instances. Each array represents enchantments that
+  // will be added to the item with a different activation type. The arrays in which enchantments are sent
+  // by the vanilla server are as follows:
+  // slice 1 { protection, fire protection, feather falling, blast protection, projectile protection,
+  //           thorns, respiration, depth strider, aqua affinity, frost walker, soul speed }
+  // slice 2 { sharpness, smite, bane of arthropods, fire aspect, looting, silk touch, unbreaking, fortune,
+  //           flame, luck of the sea, impaling }
+  // slice 3 { knockback, efficiency, power, punch, infinity, lure, mending, curse of binding,
+  //           curse of vanishing, riptide, loyalty, channeling, multishot, piercing, quick charge }
+  // The first slice holds armour enchantments, the differences between the slice 2 and slice 3 are more
+  // vaguely defined.
+  //
+  // Added: v1.16
+  // Go type: [3][]EnchantmentInstance
+  repeated EnchantmentInstance Enchantments = 2;
+  // NetEaseUnknown 是网易额外的附魔数据。
+  //
+  // NetEaseUnknown is extra NetEase enchantment data.
+  //
+  // Added: NetEase.
+  // Go type: byte
+  uint32 NetEaseUnknown = 3;
+}
+
+// EnchantmentInstance 表示单个附魔实例，包含附魔类型及其等级。
+//
+// EnchantmentInstance represents a single enchantment instance with the type of the enchantment and its
+// level.
+//
+// Added: v1.16
+message EnchantmentInstance {
+  // Type 是附魔类型。
+  //
+  // Type is the type of the enchantment.
+  //
+  // Changed: v1.26.20.26, encoded as a varuint32 instead of a uint8.
+  // Go type: byte
+  uint32 Type = 1;
+  // Level 是附魔等级。
+  //
+  // Level is the level of the enchantment.
+  //
+  // Added: v1.16
+  // Go type: byte
+  uint32 Level = 2;
+  // ModEnchant 是网易额外的附魔数据。
+  //
+  // ModEnchant is extra NetEase enchantment data.
+  //
+  // Added: NetEase.
+  string ModEnchant = 3;
+}
+
