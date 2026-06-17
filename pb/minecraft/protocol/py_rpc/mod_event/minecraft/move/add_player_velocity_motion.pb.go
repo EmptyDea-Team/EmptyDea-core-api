@@ -121,7 +121,7 @@ const file_py_rpc_mod_event_minecraft_move_add_player_velocity_motion_proto_rawD
 	"Accelerate\x18\x04 \x01(\v2R.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.move.types.MotionVectorR\n" +
 	"Accelerate\x12&\n" +
 	"\x0eUseVelocityDir\x18\x05 \x01(\bR\x0eUseVelocityDir\x12&\n" +
-	"\x0eServerMotionID\x18\x06 \x01(\x03R\x0eServerMotionIDBaZ_github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/move;moveb\x06proto3"
+	"\x0eServerMotionID\x18\x06 \x01(\x03R\x0eServerMotionIDBgZegithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/move;moveb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_move_add_player_velocity_motion_proto_rawDescOnce sync.Once

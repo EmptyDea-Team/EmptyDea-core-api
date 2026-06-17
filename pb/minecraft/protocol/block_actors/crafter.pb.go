@@ -85,7 +85,7 @@ const file_block_actors_crafter_proto_rawDesc = "" +
 	"\x1ablock_actors/crafter.proto\x123mousetunnel.minecraft.protocol.block_actors.crafter\x1a7block_actors/general_actors/dispenser_block_actor.proto\"\xc9\x01\n" +
 	"\aCrafter\x12\x97\x01\n" +
 	"\x13DispenserBlockActor\x18\x01 \x01(\v2e.mousetunnel.minecraft.protocol.block_actors.general_actors.dispenser_block_actor.DispenserBlockActorR\x13DispenserBlockActor\x12$\n" +
-	"\rDisabledSlots\x18\x02 \x01(\tR\rDisabledSlotsBVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	"\rDisabledSlots\x18\x02 \x01(\tR\rDisabledSlotsB\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_crafter_proto_rawDescOnce sync.Once

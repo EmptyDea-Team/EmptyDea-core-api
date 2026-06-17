@@ -162,7 +162,7 @@ const file_py_rpc_mod_event_minecraft_pet_skill_friend_s2c_far_friend_pos_proto_
 	"\x05value\x18\x02 \x01(\tR\x05value:\x028\x01\x1a:\n" +
 	"\fSameDimEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\bR\x05value:\x028\x01B_Z]github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
+	"\x05value\x18\x02 \x01(\bR\x05value:\x028\x01BeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_pet_skill_friend_s2c_far_friend_pos_proto_rawDescOnce sync.Once

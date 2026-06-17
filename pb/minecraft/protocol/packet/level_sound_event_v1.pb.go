@@ -124,7 +124,7 @@ const file_packet_level_sound_event_v1_proto_rawDesc = "" +
 	"\tExtraData\x18\x03 \x01(\x05R\tExtraData\x12\x14\n" +
 	"\x05Pitch\x18\x04 \x01(\x05R\x05Pitch\x12\x1c\n" +
 	"\tIsBabyMob\x18\x05 \x01(\bR\tIsBabyMob\x12\x1a\n" +
-	"\bIsGlobal\x18\x06 \x01(\bR\bIsGlobal:\x04\xc0\xc8\x05\x18BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\bIsGlobal\x18\x06 \x01(\bR\bIsGlobal:\x04\xc0\xc8\x05\x18BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_level_sound_event_v1_proto_rawDescOnce sync.Once

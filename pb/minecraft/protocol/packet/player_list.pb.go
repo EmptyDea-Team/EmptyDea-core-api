@@ -236,7 +236,7 @@ const file_packet_player_list_proto_rawDesc = "" +
 	"\x0fNetEaseUnknown4\x18\a \x03(\bR\x0fNetEaseUnknown4:\x04\xc0\xc8\x05?*K\n" +
 	"\x14PlayerListActionEnum\x12\x17\n" +
 	"\x13PlayerListActionAdd\x10\x00\x12\x1a\n" +
-	"\x16PlayerListActionRemove\x10\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x16PlayerListActionRemove\x10\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_player_list_proto_rawDescOnce sync.Once

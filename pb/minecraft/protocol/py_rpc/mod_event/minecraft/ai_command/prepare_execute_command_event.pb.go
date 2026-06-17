@@ -74,7 +74,7 @@ const file_py_rpc_mod_event_minecraft_ai_command_prepare_execute_command_event_p
 	"\n" +
 	"Ipy_rpc/mod_event/minecraft/ai_command/prepare_execute_command_event.proto\x12bmousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.prepare_execute_command_event\x1a1py_rpc/mod_event/minecraft/ai_command/basic.proto\"\x85\x01\n" +
 	"\x1aPrepareExecuteCommandEvent\x12g\n" +
-	"\x05Basic\x18\x01 \x01(\v2Q.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.basic.BasicR\x05BasicBmZkgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_commandb\x06proto3"
+	"\x05Basic\x18\x01 \x01(\v2Q.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.basic.BasicR\x05BasicBsZqgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_commandb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_ai_command_prepare_execute_command_event_proto_rawDescOnce sync.Once

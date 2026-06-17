@@ -85,7 +85,7 @@ const file_block_actors_fields_banner_patterns_proto_rawDesc = "" +
 	")block_actors/fields/banner_patterns.proto\x12Bmousetunnel.minecraft.protocol.block_actors.fields.banner_patterns\"@\n" +
 	"\x0eBannerPatterns\x12\x14\n" +
 	"\x05Color\x18\x01 \x01(\x05R\x05Color\x12\x18\n" +
-	"\aPattern\x18\x02 \x01(\tR\aPatternBWZUgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/fields;fieldsb\x06proto3"
+	"\aPattern\x18\x02 \x01(\tR\aPatternB]Z[github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/fields;fieldsb\x06proto3"
 
 var (
 	file_block_actors_fields_banner_patterns_proto_rawDescOnce sync.Once

@@ -98,7 +98,7 @@ const file_py_rpc_mod_event_minecraft_ai_command_after_execute_useful_command_ev
 	"\x1eAfterExecuteUsefulCommandEvent\x12g\n" +
 	"\x05Basic\x18\x01 \x01(\v2Q.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.basic.BasicR\x05Basic\x12\x18\n" +
 	"\aCommand\x18\x02 \x01(\tR\aCommand\x12\x18\n" +
-	"\aSuccess\x18\x03 \x01(\bR\aSuccessBmZkgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_commandb\x06proto3"
+	"\aSuccess\x18\x03 \x01(\bR\aSuccessBsZqgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_commandb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_ai_command_after_execute_useful_command_event_proto_rawDescOnce sync.Once

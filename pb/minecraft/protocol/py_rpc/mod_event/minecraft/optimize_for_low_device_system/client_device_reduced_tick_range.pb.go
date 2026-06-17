@@ -86,7 +86,7 @@ const file_py_rpc_mod_event_minecraft_optimize_for_low_device_system_client_devi
 	"`py_rpc/mod_event/minecraft/optimize_for_low_device_system/client_device_reduced_tick_range.proto\x12ymousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.optimize_for_low_device_system.client_device_reduced_tick_range\x1aEpy_rpc/mod_event/minecraft/optimize_for_low_device_system/basic.proto\"\xb7\x01\n" +
 	"\x1cClientDeviceReducedTickRange\x12{\n" +
 	"\x05Basic\x18\x01 \x01(\v2e.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.optimize_for_low_device_system.basic.BasicR\x05Basic\x12\x1a\n" +
-	"\bPlayerID\x18\x02 \x01(\tR\bPlayerIDB\x96\x01Z\x93\x01github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/optimize_for_low_device_system;optimize_for_low_device_systemb\x06proto3"
+	"\bPlayerID\x18\x02 \x01(\tR\bPlayerIDB\x9c\x01Z\x99\x01github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/optimize_for_low_device_system;optimize_for_low_device_systemb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_optimize_for_low_device_system_client_device_reduced_tick_range_proto_rawDescOnce sync.Once

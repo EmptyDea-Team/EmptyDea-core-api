@@ -87,7 +87,7 @@ const file_packet_set_last_hurt_by_proto_rawDesc = "" +
 	"\rSetLastHurtBy\x12\x1e\n" +
 	"\n" +
 	"EntityType\x18\x01 \x01(\x04R\n" +
-	"EntityType:\x04\xc0\xc8\x05`BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"EntityType:\x04\xc0\xc8\x05`BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_set_last_hurt_by_proto_rawDescOnce sync.Once

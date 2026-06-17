@@ -198,7 +198,7 @@ const file_packet_move_actor_absolute_proto_rawDesc = "" +
 	"\x10MoveFlagOnGround\x10\x01\x12\x14\n" +
 	"\x10MoveFlagTeleport\x10\x02\x12\x15\n" +
 	"\x11MoveFlagForceMove\x10\x04\x12\x1b\n" +
-	"\x17MoveFlagForceCompletion\x10\bBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x17MoveFlagForceCompletion\x10\bBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_move_actor_absolute_proto_rawDescOnce sync.Once

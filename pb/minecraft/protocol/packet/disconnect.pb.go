@@ -698,7 +698,7 @@ const file_packet_disconnect_proto_rawDesc = "" +
 	"\x1cDisconnectReasonNonceMissing\x10\x88\x01\x12\"\n" +
 	"\x1dDisconnectReasonNonceNotFound\x10\x89\x01\x12!\n" +
 	"\x1cDisconnectReasonNonceExpired\x10\x8a\x01\x12\"\n" +
-	"\x1dDisconnectReasonNonceNotValid\x10\x8b\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x1dDisconnectReasonNonceNotValid\x10\x8b\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_disconnect_proto_rawDescOnce sync.Once

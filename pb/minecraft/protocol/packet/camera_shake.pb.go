@@ -230,7 +230,7 @@ const file_packet_camera_shake_proto_rawDesc = "" +
 	"\x19CameraShakeTypeRotational\x10\x01*L\n" +
 	"\x15CameraShakeActionEnum\x12\x18\n" +
 	"\x14CameraShakeActionAdd\x10\x00\x12\x19\n" +
-	"\x15CameraShakeActionStop\x10\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x15CameraShakeActionStop\x10\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_camera_shake_proto_rawDescOnce sync.Once

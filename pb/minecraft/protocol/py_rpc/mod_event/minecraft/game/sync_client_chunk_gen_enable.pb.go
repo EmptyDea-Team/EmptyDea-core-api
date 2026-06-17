@@ -86,7 +86,7 @@ const file_py_rpc_mod_event_minecraft_game_sync_client_chunk_gen_enable_proto_ra
 	"Bpy_rpc/mod_event/minecraft/game/sync_client_chunk_gen_enable.proto\x12[mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.game.sync_client_chunk_gen_enable\x1a+py_rpc/mod_event/minecraft/game/basic.proto\"\x9f\x01\n" +
 	"\x18SyncClientChunkGenEnable\x12a\n" +
 	"\x05Basic\x18\x01 \x01(\v2K.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.game.basic.BasicR\x05Basic\x12 \n" +
-	"\vIsClientGen\x18\x02 \x01(\bR\vIsClientGenBaZ_github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/game;gameb\x06proto3"
+	"\vIsClientGen\x18\x02 \x01(\bR\vIsClientGenBgZegithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/game;gameb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_game_sync_client_chunk_gen_enable_proto_rawDescOnce sync.Once

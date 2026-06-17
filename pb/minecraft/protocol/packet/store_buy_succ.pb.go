@@ -77,7 +77,7 @@ const file_packet_store_buy_succ_proto_rawDesc = "" +
 	"\n" +
 	"\x1bpacket/store_buy_succ.proto\x124mousetunnel.minecraft.protocol.packet.store_buy_succ\x1a\x14packet_options.proto\")\n" +
 	"\fStoreBuySucc\x12\x12\n" +
-	"\x04Data\x18\x01 \x01(\fR\x04Data:\x05\xc0\xc8\x05\xca\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x04Data\x18\x01 \x01(\fR\x04Data:\x05\xc0\xc8\x05\xca\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_store_buy_succ_proto_rawDescOnce sync.Once

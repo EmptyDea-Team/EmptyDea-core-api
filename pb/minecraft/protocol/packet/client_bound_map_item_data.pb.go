@@ -370,7 +370,7 @@ const file_packet_client_bound_map_item_data_proto_rawDesc = "" +
 	"\x1dMAPUPDATEFLAGENUM_UNSPECIFIED\x10\x00\x12\x18\n" +
 	"\x14MapUpdateFlagTexture\x10\x02\x12\x1b\n" +
 	"\x17MapUpdateFlagDecoration\x10\x04\x12\x1f\n" +
-	"\x1bMapUpdateFlagInitialisation\x10\bBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x1bMapUpdateFlagInitialisation\x10\bBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_client_bound_map_item_data_proto_rawDescOnce sync.Once

@@ -86,7 +86,7 @@ const file_py_rpc_mod_event_minecraft_pet_check_server_contain_pet_proto_rawDesc
 	"=py_rpc/mod_event/minecraft/pet/check_server_contain_pet.proto\x12Vmousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.check_server_contain_pet\x1a*py_rpc/mod_event/minecraft/pet/basic.proto\"\x9f\x01\n" +
 	"\x15CheckServerContainPet\x12`\n" +
 	"\x05Basic\x18\x01 \x01(\v2J.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.BasicR\x05Basic\x12$\n" +
-	"\rClosePetAddon\x18\x02 \x01(\bR\rClosePetAddonB_Z]github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
+	"\rClosePetAddon\x18\x02 \x01(\bR\rClosePetAddonBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_pet_check_server_contain_pet_proto_rawDescOnce sync.Once

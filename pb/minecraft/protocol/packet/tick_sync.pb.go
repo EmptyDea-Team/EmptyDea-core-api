@@ -91,7 +91,7 @@ const file_packet_tick_sync_proto_rawDesc = "" +
 	"\x16packet/tick_sync.proto\x12/mousetunnel.minecraft.protocol.packet.tick_sync\x1a\x14packet_options.proto\"j\n" +
 	"\bTickSync\x12*\n" +
 	"\x10RequestTimestamp\x18\x01 \x01(\x03R\x10RequestTimestamp\x12,\n" +
-	"\x11ResponseTimestamp\x18\x02 \x01(\x03R\x11ResponseTimestamp:\x04\xc0\xc8\x05\x17BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x11ResponseTimestamp\x18\x02 \x01(\x03R\x11ResponseTimestamp:\x04\xc0\xc8\x05\x17BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_tick_sync_proto_rawDescOnce sync.Once

@@ -299,7 +299,7 @@ const file_nbt_item_proto_rawDesc = "" +
 	"\x05value\x18\x02 \x01(\v2\x16.google.protobuf.ValueR\x05value:\x028\x01\"e\n" +
 	"\fItemWithSlot\x12\x12\n" +
 	"\x04Slot\x18\x01 \x01(\rR\x04Slot\x12A\n" +
-	"\x04Item\x18\x02 \x01(\v2-.mousetunnel.minecraft.protocol.nbt_item.ItemR\x04ItemBEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\x04Item\x18\x02 \x01(\v2-.mousetunnel.minecraft.protocol.nbt_item.ItemR\x04ItemBKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_nbt_item_proto_rawDescOnce sync.Once

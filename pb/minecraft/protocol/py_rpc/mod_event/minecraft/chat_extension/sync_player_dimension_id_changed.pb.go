@@ -91,7 +91,7 @@ const file_py_rpc_mod_event_minecraft_chat_extension_sync_player_dimension_id_ch
 	"\n" +
 	"DimIDEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
-	"\x05value\x18\x02 \x01(\x03R\x05value:\x028\x01BuZsgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_extension;chat_extensionb\x06proto3"
+	"\x05value\x18\x02 \x01(\x03R\x05value:\x028\x01B{Zygithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_extension;chat_extensionb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_chat_extension_sync_player_dimension_id_changed_proto_rawDescOnce sync.Once

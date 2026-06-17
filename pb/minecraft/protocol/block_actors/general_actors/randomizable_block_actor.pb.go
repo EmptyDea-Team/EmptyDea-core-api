@@ -97,7 +97,7 @@ const file_block_actors_general_actors_randomizable_block_actor_proto_rawDesc = 
 	"BlockActor\x18\x01 \x01(\v2R.mousetunnel.minecraft.protocol.block_actors.general_actors.block_actor.BlockActorR\n" +
 	"BlockActor\x12\x1c\n" +
 	"\tLootTable\x18\x02 \x01(\tR\tLootTable\x12$\n" +
-	"\rLootTableSeed\x18\x03 \x01(\x05R\rLootTableSeedBgZegithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/general_actors;general_actorsb\x06proto3"
+	"\rLootTableSeed\x18\x03 \x01(\x05R\rLootTableSeedBmZkgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/general_actors;general_actorsb\x06proto3"
 
 var (
 	file_block_actors_general_actors_randomizable_block_actor_proto_rawDescOnce sync.Once

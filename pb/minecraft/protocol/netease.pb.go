@@ -961,7 +961,7 @@ const file_netease_proto_rawDesc = "" +
 	"\x1cNetEaseRecordUnknownFlagEnum\x12,\n" +
 	"(NETEASERECORDUNKNOWNFLAGENUM_UNSPECIFIED\x10\x00\x12\x1d\n" +
 	"\x19NetEaseRecordUnknownFlag1\x10\x01\x12\x1d\n" +
-	"\x19NetEaseRecordUnknownFlag2\x10\x02BEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\x19NetEaseRecordUnknownFlag2\x10\x02BKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_netease_proto_rawDescOnce sync.Once

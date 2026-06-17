@@ -240,7 +240,7 @@ const file_entity_properties_proto_rawDesc = "" +
 	"\x05Value\x18\x02 \x01(\x05R\x05Value\"A\n" +
 	"\x13FloatEntityProperty\x12\x14\n" +
 	"\x05Index\x18\x01 \x01(\rR\x05Index\x12\x14\n" +
-	"\x05Value\x18\x02 \x01(\x02R\x05ValueBEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\x05Value\x18\x02 \x01(\x02R\x05ValueBKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_entity_properties_proto_rawDescOnce sync.Once

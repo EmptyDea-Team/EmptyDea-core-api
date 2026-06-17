@@ -24,7 +24,7 @@ var File_py_rpc_mod_event_minecraft_optimize_for_low_device_system_pool_proto pr
 
 const file_py_rpc_mod_event_minecraft_optimize_for_low_device_system_pool_proto_rawDesc = "" +
 	"\n" +
-	"Dpy_rpc/mod_event/minecraft/optimize_for_low_device_system/pool.proto\x12]mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.optimize_for_low_device_system.poolB\x96\x01Z\x93\x01github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/optimize_for_low_device_system;optimize_for_low_device_systemb\x06proto3"
+	"Dpy_rpc/mod_event/minecraft/optimize_for_low_device_system/pool.proto\x12]mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.optimize_for_low_device_system.poolB\x9c\x01Z\x99\x01github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/optimize_for_low_device_system;optimize_for_low_device_systemb\x06proto3"
 
 var file_py_rpc_mod_event_minecraft_optimize_for_low_device_system_pool_proto_goTypes = []any{}
 var file_py_rpc_mod_event_minecraft_optimize_for_low_device_system_pool_proto_depIdxs = []int32{

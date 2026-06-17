@@ -112,7 +112,7 @@ const file_packet_transfer_proto_rawDesc = "" +
 	"\bTransfer\x12\x18\n" +
 	"\aAddress\x18\x01 \x01(\tR\aAddress\x12\x12\n" +
 	"\x04Port\x18\x02 \x01(\rR\x04Port\x12 \n" +
-	"\vReloadWorld\x18\x03 \x01(\bR\vReloadWorld:\x04\xc0\xc8\x05UBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\vReloadWorld\x18\x03 \x01(\bR\vReloadWorld:\x04\xc0\xc8\x05UBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_transfer_proto_rawDescOnce sync.Once

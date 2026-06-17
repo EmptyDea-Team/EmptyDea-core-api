@@ -106,7 +106,7 @@ const file_packet_server_settings_response_proto_rawDesc = "" +
 	"%packet/server_settings_response.proto\x12>mousetunnel.minecraft.protocol.packet.server_settings_response\x1a\x14packet_options.proto\"R\n" +
 	"\x16ServerSettingsResponse\x12\x16\n" +
 	"\x06FormID\x18\x01 \x01(\rR\x06FormID\x12\x1a\n" +
-	"\bFormData\x18\x02 \x01(\fR\bFormData:\x04\xc0\xc8\x05gBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\bFormData\x18\x02 \x01(\fR\bFormData:\x04\xc0\xc8\x05gBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_server_settings_response_proto_rawDescOnce sync.Once

@@ -436,7 +436,7 @@ const file_packet_text_proto_rawDesc = "" +
 	"\x10TextCategoryEnum\x12\x1b\n" +
 	"\x17TextCategoryMessageOnly\x10\x00\x12\x1f\n" +
 	"\x1bTextCategoryAuthoredMessage\x10\x01\x12%\n" +
-	"!TextCategoryMessageWithParameters\x10\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"!TextCategoryMessageWithParameters\x10\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_text_proto_rawDescOnce sync.Once

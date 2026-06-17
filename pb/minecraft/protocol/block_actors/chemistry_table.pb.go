@@ -88,7 +88,7 @@ const file_block_actors_chemistry_table_proto_rawDesc = "" +
 	"\n" +
 	"BlockActor\x18\x01 \x01(\v2R.mousetunnel.minecraft.protocol.block_actors.general_actors.block_actor.BlockActorR\n" +
 	"BlockActor\x12\x8b\x01\n" +
-	"\x12ChemistryTableItem\x18\x02 \x01(\v2[.mousetunnel.minecraft.protocol.block_actors.fields.chemistry_table_item.ChemistryTableItemR\x12ChemistryTableItemBVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	"\x12ChemistryTableItem\x18\x02 \x01(\v2[.mousetunnel.minecraft.protocol.block_actors.fields.chemistry_table_item.ChemistryTableItemR\x12ChemistryTableItemB\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_chemistry_table_proto_rawDescOnce sync.Once

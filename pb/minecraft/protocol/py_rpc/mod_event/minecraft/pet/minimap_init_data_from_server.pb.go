@@ -142,7 +142,7 @@ const file_py_rpc_mod_event_minecraft_pet_minimap_init_data_from_server_proto_ra
 	"\x10MinimapDeathData\x18\x02 \x01(\v2m.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.minimap_init_data_from_server.MinimapDeathDataR\x10MinimapDeathData\"B\n" +
 	"\x10MinimapDeathData\x12\x1a\n" +
 	"\bDeathPos\x18\x01 \x03(\x01R\bDeathPos\x12\x12\n" +
-	"\x04IsPC\x18\x02 \x01(\bR\x04IsPCB_Z]github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
+	"\x04IsPC\x18\x02 \x01(\bR\x04IsPCBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_pet_minimap_init_data_from_server_proto_rawDescOnce sync.Once

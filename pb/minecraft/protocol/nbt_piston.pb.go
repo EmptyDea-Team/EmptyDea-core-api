@@ -24,7 +24,7 @@ var File_nbt_piston_proto protoreflect.FileDescriptor
 
 const file_nbt_piston_proto_rawDesc = "" +
 	"\n" +
-	"\x10nbt_piston.proto\x12)mousetunnel.minecraft.protocol.nbt_pistonBEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\x10nbt_piston.proto\x12)mousetunnel.minecraft.protocol.nbt_pistonBKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var file_nbt_piston_proto_goTypes = []any{}
 var file_nbt_piston_proto_depIdxs = []int32{

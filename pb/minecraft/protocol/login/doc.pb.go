@@ -24,7 +24,7 @@ var File_login_doc_proto protoreflect.FileDescriptor
 
 const file_login_doc_proto_rawDesc = "" +
 	"\n" +
-	"\x0flogin/doc.proto\x12(mousetunnel.minecraft.protocol.login.docBHZFgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/login;loginb\x06proto3"
+	"\x0flogin/doc.proto\x12(mousetunnel.minecraft.protocol.login.docBNZLgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/login;loginb\x06proto3"
 
 var file_login_doc_proto_goTypes = []any{}
 var file_login_doc_proto_depIdxs = []int32{

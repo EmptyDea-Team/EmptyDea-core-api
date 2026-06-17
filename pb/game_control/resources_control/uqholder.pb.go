@@ -940,7 +940,7 @@ const file_game_control_resources_control_uqholder_proto_rawDesc = "" +
 	"\x18GetEntityEffectAmplifier\x125.emptydea.game_control.resources_control.MobEffectRef\x1a!.emptydea.game_control.Int32Value\x12s\n" +
 	"\x17GetEntityEffectDuration\x125.emptydea.game_control.resources_control.MobEffectRef\x1a!.emptydea.game_control.Int32Value\x12s\n" +
 	"\x18GetEntityEffectParticles\x125.emptydea.game_control.resources_control.MobEffectRef\x1a .emptydea.game_control.BoolValue\x12w\n" +
-	"\x1aGetEntityEffectUpdatedTick\x125.emptydea.game_control.resources_control.MobEffectRef\x1a\".emptydea.game_control.Uint64ValueB]Z[github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/resources_control;resources_control_pbb\x06proto3"
+	"\x1aGetEntityEffectUpdatedTick\x125.emptydea.game_control.resources_control.MobEffectRef\x1a\".emptydea.game_control.Uint64ValueBcZagithub.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/resources_control;resources_control_pbb\x06proto3"
 
 var (
 	file_game_control_resources_control_uqholder_proto_rawDescOnce sync.Once

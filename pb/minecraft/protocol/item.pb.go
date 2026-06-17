@@ -657,7 +657,7 @@ const file_item_proto_rawDesc = "" +
 	"\x14ItemEntryVersionEnum\x12\x1a\n" +
 	"\x16ItemEntryVersionLegacy\x10\x00\x12\x1e\n" +
 	"\x1aItemEntryVersionDataDriven\x10\x01\x12\x18\n" +
-	"\x14ItemEntryVersionNone\x10\x02BEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\x14ItemEntryVersionNone\x10\x02BKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_item_proto_rawDescOnce sync.Once

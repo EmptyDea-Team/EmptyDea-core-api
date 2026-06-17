@@ -91,7 +91,7 @@ const file_py_rpc_payload_proto_rawDesc = "" +
 	"\x14py_rpc/payload.proto\x12-mousetunnel.minecraft.protocol.py_rpc.payload\x1a\x1cgoogle/protobuf/struct.proto\"O\n" +
 	"\aPayload\x12\x18\n" +
 	"\aRPCName\x18\x01 \x01(\tR\aRPCName\x12*\n" +
-	"\x04Data\x18\x02 \x01(\v2\x16.google.protobuf.ValueR\x04DataBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpcb\x06proto3"
+	"\x04Data\x18\x02 \x01(\v2\x16.google.protobuf.ValueR\x04DataBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpcb\x06proto3"
 
 var (
 	file_py_rpc_payload_proto_rawDescOnce sync.Once

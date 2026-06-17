@@ -248,7 +248,7 @@ const file_py_rpc_heart_beat_proto_rawDesc = "" +
 	"\x01T\x18\x05 \x01(\x04R\x01T*?\n" +
 	"\x11HeartBeatTypeEnum\x12\x14\n" +
 	"\x10HeartBeatTypeC2S\x10\x00\x12\x14\n" +
-	"\x10HeartBeatTypeS2C\x10\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpcb\x06proto3"
+	"\x10HeartBeatTypeS2C\x10\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpcb\x06proto3"
 
 var (
 	file_py_rpc_heart_beat_proto_rawDescOnce sync.Once

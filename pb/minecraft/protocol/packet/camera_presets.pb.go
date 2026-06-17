@@ -84,7 +84,7 @@ const file_packet_camera_presets_proto_rawDesc = "" +
 	"\n" +
 	"\x1bpacket/camera_presets.proto\x124mousetunnel.minecraft.protocol.packet.camera_presets\x1a\fcamera.proto\x1a\x14packet_options.proto\"e\n" +
 	"\rCameraPresets\x12M\n" +
-	"\aPresets\x18\x01 \x03(\v23.mousetunnel.minecraft.protocol.camera.CameraPresetR\aPresets:\x05\xc0\xc8\x05\xc6\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\aPresets\x18\x01 \x03(\v23.mousetunnel.minecraft.protocol.camera.CameraPresetR\aPresets:\x05\xc0\xc8\x05\xc6\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_camera_presets_proto_rawDescOnce sync.Once

@@ -138,7 +138,7 @@ const file_packet_server_presence_info_proto_rawDesc = "" +
 	"\aPresent\x18\x01 \x01(\bR\aPresent\x12Z\n" +
 	"\x05Value\x18\x02 \x01(\v2D.mousetunnel.minecraft.protocol.server_join_information.PresenceInfoR\x05Value\"\xa4\x01\n" +
 	"\x12ServerPresenceInfo\x12\x86\x01\n" +
-	"\fPresenceInfo\x18\x01 \x01(\v2b.mousetunnel.minecraft.protocol.packet.server_presence_info.ServerPresenceInfoOptionalPresenceInfoR\fPresenceInfo:\x05\xc0\xc8\x05\xdb\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\fPresenceInfo\x18\x01 \x01(\v2b.mousetunnel.minecraft.protocol.packet.server_presence_info.ServerPresenceInfoOptionalPresenceInfoR\fPresenceInfo:\x05\xc0\xc8\x05\xdb\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_server_presence_info_proto_rawDescOnce sync.Once

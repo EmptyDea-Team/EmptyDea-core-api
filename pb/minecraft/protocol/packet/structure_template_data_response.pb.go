@@ -188,7 +188,7 @@ const file_packet_structure_template_data_response_proto_rawDesc = "" +
 	"\x1dStructureTemplateResponseEnum\x12-\n" +
 	")STRUCTURETEMPLATERESPONSEENUM_UNSPECIFIED\x10\x00\x12#\n" +
 	"\x1fStructureTemplateResponseExport\x10\x01\x12\"\n" +
-	"\x1eStructureTemplateResponseQuery\x10\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x1eStructureTemplateResponseQuery\x10\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_structure_template_data_response_proto_rawDescOnce sync.Once

@@ -281,7 +281,7 @@ const file_packet_modal_form_response_proto_rawDesc = "" +
 	"\fCancelReason\x18\x03 \x01(\v2Z.mousetunnel.minecraft.protocol.packet.modal_form_response.ModalFormResponseOptionalUint32R\fCancelReason:\x04\xc0\xc8\x05e*g\n" +
 	"\x1dModalFormCancelReasonUserEnum\x12#\n" +
 	"\x1fModalFormCancelReasonUserClosed\x10\x00\x12!\n" +
-	"\x1dModalFormCancelReasonUserBusy\x10\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x1dModalFormCancelReasonUserBusy\x10\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_modal_form_response_proto_rawDescOnce sync.Once

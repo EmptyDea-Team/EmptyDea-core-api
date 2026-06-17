@@ -82,7 +82,7 @@ const file_packet_item_frame_drop_item_proto_rawDesc = "" +
 	"\n" +
 	"!packet/item_frame_drop_item.proto\x12:mousetunnel.minecraft.protocol.packet.item_frame_drop_item\x1a\x0fblock_pos.proto\x1a\x14packet_options.proto\"i\n" +
 	"\x11ItemFrameDropItem\x12N\n" +
-	"\bPosition\x18\x01 \x01(\v22.mousetunnel.minecraft.protocol.block_pos.BlockPosR\bPosition:\x04\xc0\xc8\x05GBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\bPosition\x18\x01 \x01(\v22.mousetunnel.minecraft.protocol.block_pos.BlockPosR\bPosition:\x04\xc0\xc8\x05GBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_item_frame_drop_item_proto_rawDescOnce sync.Once

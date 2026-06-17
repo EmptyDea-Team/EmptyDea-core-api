@@ -166,7 +166,7 @@ const file_py_rpc_mod_event_minecraft_block_info_unlock_init_block_info_unlock_d
 	"\x11InitialUnlockInfo\x12\x18\n" +
 	"\aBlockID\x18\x01 \x01(\tR\aBlockID\x12\"\n" +
 	"\fUnlockReason\x18\x02 \x01(\tR\fUnlockReason\x12\x12\n" +
-	"\x04Time\x18\x03 \x01(\tR\x04TimeB{Zygithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/block_info_unlock;block_info_unlockb\x06proto3"
+	"\x04Time\x18\x03 \x01(\tR\x04TimeB\x81\x01Z\x7fgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/block_info_unlock;block_info_unlockb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_block_info_unlock_init_block_info_unlock_dic_proto_rawDescOnce sync.Once

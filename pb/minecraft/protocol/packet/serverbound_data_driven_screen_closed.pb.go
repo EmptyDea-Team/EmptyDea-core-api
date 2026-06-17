@@ -95,7 +95,7 @@ const file_packet_serverbound_data_driven_screen_closed_proto_rawDesc = "" +
 	"2packet/serverbound_data_driven_screen_closed.proto\x12Kmousetunnel.minecraft.protocol.packet.serverbound_data_driven_screen_closed\x1a\x14packet_options.proto\"d\n" +
 	"!ServerBoundDataDrivenScreenClosed\x12\x16\n" +
 	"\x06FormID\x18\x01 \x01(\x05R\x06FormID\x12 \n" +
-	"\vCloseReason\x18\x02 \x01(\tR\vCloseReason:\x05\xc0\xc8\x05\xd7\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\vCloseReason\x18\x02 \x01(\tR\vCloseReason:\x05\xc0\xc8\x05\xd7\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_serverbound_data_driven_screen_closed_proto_rawDescOnce sync.Once

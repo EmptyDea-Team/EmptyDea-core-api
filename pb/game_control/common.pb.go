@@ -530,7 +530,7 @@ const file_game_control_common_proto_rawDesc = "" +
 	"\tTimeValue\x12\x0e\n" +
 	"\x02Ok\x18\x01 \x01(\bR\x02Ok\x120\n" +
 	"\x05Value\x18\x02 \x01(\v2\x1a.google.protobuf.TimestampR\x05Value\"\a\n" +
-	"\x05EmptyBFZDgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control;game_control_pbb\x06proto3"
+	"\x05EmptyBLZJgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control;game_control_pbb\x06proto3"
 
 var (
 	file_game_control_common_proto_rawDescOnce sync.Once

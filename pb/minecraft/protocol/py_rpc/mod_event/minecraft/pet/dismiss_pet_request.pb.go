@@ -141,7 +141,7 @@ const file_py_rpc_mod_event_minecraft_pet_dismiss_pet_request_proto_rawDesc = ""
 	"\x0eDismissPetData\x18\x02 \x01(\v2a.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.dismiss_pet_request.DismissPetDataR\x0eDismissPetData\"H\n" +
 	"\x0eDismissPetData\x12\x1a\n" +
 	"\bEntityID\x18\x01 \x01(\tR\bEntityID\x12\x1a\n" +
-	"\bPlayerID\x18\x02 \x01(\tR\bPlayerIDB_Z]github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
+	"\bPlayerID\x18\x02 \x01(\tR\bPlayerIDBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_pet_dismiss_pet_request_proto_rawDescOnce sync.Once

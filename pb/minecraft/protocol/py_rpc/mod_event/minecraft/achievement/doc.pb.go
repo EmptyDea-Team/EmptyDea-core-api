@@ -24,7 +24,7 @@ var File_py_rpc_mod_event_minecraft_achievement_doc_proto protoreflect.FileDescr
 
 const file_py_rpc_mod_event_minecraft_achievement_doc_proto_rawDesc = "" +
 	"\n" +
-	"0py_rpc/mod_event/minecraft/achievement/doc.proto\x12Imousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.achievement.docBoZmgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/achievement;achievementb\x06proto3"
+	"0py_rpc/mod_event/minecraft/achievement/doc.proto\x12Imousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.achievement.docBuZsgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/achievement;achievementb\x06proto3"
 
 var file_py_rpc_mod_event_minecraft_achievement_doc_proto_goTypes = []any{}
 var file_py_rpc_mod_event_minecraft_achievement_doc_proto_depIdxs = []int32{

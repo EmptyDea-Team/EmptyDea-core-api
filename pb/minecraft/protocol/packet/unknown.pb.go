@@ -99,7 +99,7 @@ const file_packet_unknown_proto_rawDesc = "" +
 	"\x14packet/unknown.proto\x12-mousetunnel.minecraft.protocol.packet.unknown\"?\n" +
 	"\aUnknown\x12\x1a\n" +
 	"\bPacketID\x18\x01 \x01(\rR\bPacketID\x12\x18\n" +
-	"\aPayload\x18\x02 \x01(\fR\aPayloadBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\aPayload\x18\x02 \x01(\fR\aPayloadBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_unknown_proto_rawDescOnce sync.Once

@@ -95,7 +95,7 @@ const file_block_actors_creaking_heart_proto_rawDesc = "" +
 	"BlockActor\x18\x01 \x01(\v2R.mousetunnel.minecraft.protocol.block_actors.general_actors.block_actor.BlockActorR\n" +
 	"BlockActor\x12\x1a\n" +
 	"\bCooldown\x18\x02 \x01(\x05R\bCooldown\x12,\n" +
-	"\x11SpawnedCreakingID\x18\x03 \x01(\x03R\x11SpawnedCreakingIDBVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	"\x11SpawnedCreakingID\x18\x03 \x01(\x03R\x11SpawnedCreakingIDB\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_creaking_heart_proto_rawDescOnce sync.Once

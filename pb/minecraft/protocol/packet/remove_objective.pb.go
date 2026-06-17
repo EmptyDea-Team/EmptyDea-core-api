@@ -83,7 +83,7 @@ const file_packet_remove_objective_proto_rawDesc = "" +
 	"\n" +
 	"\x1dpacket/remove_objective.proto\x126mousetunnel.minecraft.protocol.packet.remove_objective\x1a\x14packet_options.proto\"=\n" +
 	"\x0fRemoveObjective\x12$\n" +
-	"\rObjectiveName\x18\x01 \x01(\tR\rObjectiveName:\x04\xc0\xc8\x05jBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\rObjectiveName\x18\x01 \x01(\tR\rObjectiveName:\x04\xc0\xc8\x05jBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_remove_objective_proto_rawDescOnce sync.Once

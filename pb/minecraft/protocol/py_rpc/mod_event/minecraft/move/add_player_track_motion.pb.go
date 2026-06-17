@@ -175,7 +175,7 @@ const file_py_rpc_mod_event_minecraft_move_add_player_track_motion_proto_rawDesc
 	"\bStartRot\x18\n" +
 	" \x01(\v2R.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.move.types.MotionVectorR\bStartRot\x12&\n" +
 	"\x0eServerMotionID\x18\v \x01(\x03R\x0eServerMotionID\x12\x12\n" +
-	"\x04Ease\x18\f \x01(\tR\x04EaseBaZ_github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/move;moveb\x06proto3"
+	"\x04Ease\x18\f \x01(\tR\x04EaseBgZegithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/move;moveb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_move_add_player_track_motion_proto_rawDescOnce sync.Once

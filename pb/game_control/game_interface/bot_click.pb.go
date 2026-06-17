@@ -757,7 +757,7 @@ const file_game_control_game_interface_bot_click_proto_rawDesc = "" +
 	"\n" +
 	"PlaceBlock\x127.emptydea.game_control.game_interface.PlaceBlockRequest\x1a6.emptydea.game_control.game_interface.BotClickResponse\x12\x9a\x01\n" +
 	"\x13PlaceBlockHighLevel\x12@.emptydea.game_control.game_interface.PlaceBlockHighLevelRequest\x1aA.emptydea.game_control.game_interface.PlaceBlockHighLevelResponse\x12|\n" +
-	"\tPickBlock\x126.emptydea.game_control.game_interface.PickBlockRequest\x1a7.emptydea.game_control.game_interface.PickBlockResponseBWZUgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pbb\x06proto3"
+	"\tPickBlock\x126.emptydea.game_control.game_interface.PickBlockRequest\x1a7.emptydea.game_control.game_interface.PickBlockResponseB]Z[github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pbb\x06proto3"
 
 var (
 	file_game_control_game_interface_bot_click_proto_rawDescOnce sync.Once

@@ -2563,7 +2563,7 @@ const file_packet_level_sound_event_proto_rawDesc = "" +
 	"\x15SoundEventResetGrowth\x10\xd6\x04\x12\x1d\n" +
 	"\x18SoundEventPushedByPlayer\x10\xd7\x04\x12\x15\n" +
 	"\x10SoundEventBounce\x10\xd8\x04\x12\x18\n" +
-	"\x13SoundEventUndefined\x10\xd9\x04BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x13SoundEventUndefined\x10\xd9\x04BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_level_sound_event_proto_rawDescOnce sync.Once

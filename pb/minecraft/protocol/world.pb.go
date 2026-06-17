@@ -266,7 +266,7 @@ const file_world_proto_rawDesc = "" +
 	"\rGeneratorFlat\x10\x02\x12\x13\n" +
 	"\x0fGeneratorNether\x10\x03\x12\x10\n" +
 	"\fGeneratorEnd\x10\x04\x12\x11\n" +
-	"\rGeneratorVoid\x10\x05BEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\rGeneratorVoid\x10\x05BKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_world_proto_rawDescOnce sync.Once

@@ -3361,7 +3361,7 @@ const file_biome_proto_rawDesc = "" +
 	"*BiomeRandomDistributionTypeInverseGaussian\x10\x03\x12(\n" +
 	"$BiomeRandomDistributionTypeFixedGrid\x10\x04\x12+\n" +
 	"'BiomeRandomDistributionTypeJitteredGrid\x10\x05\x12'\n" +
-	"#BiomeRandomDistributionTypeTriangle\x10\x06BEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"#BiomeRandomDistributionTypeTriangle\x10\x06BKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_biome_proto_rawDescOnce sync.Once

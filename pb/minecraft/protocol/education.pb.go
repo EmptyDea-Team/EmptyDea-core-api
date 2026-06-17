@@ -169,7 +169,7 @@ const file_education_proto_rawDesc = "" +
 	"\aLinkURI\x18\x02 \x01(\tR\aLinkURI\"S\n" +
 	"\x1dEducationExternalLinkSettings\x12\x10\n" +
 	"\x03URL\x18\x01 \x01(\tR\x03URL\x12 \n" +
-	"\vDisplayName\x18\x02 \x01(\tR\vDisplayNameBEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\vDisplayName\x18\x02 \x01(\tR\vDisplayNameBKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_education_proto_rawDescOnce sync.Once

@@ -86,7 +86,7 @@ const file_py_rpc_mod_event_minecraft_safaia_safaia_run_result_proto_rawDesc = "
 	"9py_rpc/mod_event/minecraft/safaia/safaia_run_result.proto\x12Rmousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.safaia.safaia_run_result\x1a-py_rpc/mod_event/minecraft/safaia/basic.proto\"\x8e\x01\n" +
 	"\x0fSafaiaRunResult\x12c\n" +
 	"\x05Basic\x18\x01 \x01(\v2M.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.safaia.basic.BasicR\x05Basic\x12\x16\n" +
-	"\x06Result\x18\x02 \x01(\tR\x06ResultBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/safaia;safaiab\x06proto3"
+	"\x06Result\x18\x02 \x01(\tR\x06ResultBkZigithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/safaia;safaiab\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_safaia_safaia_run_result_proto_rawDescOnce sync.Once

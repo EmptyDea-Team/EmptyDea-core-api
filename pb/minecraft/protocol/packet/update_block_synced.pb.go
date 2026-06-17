@@ -220,7 +220,7 @@ const file_packet_update_block_synced_proto_rawDesc = "" +
 	"\x0eTransitionEnum\x12\x1e\n" +
 	"\x1aTRANSITIONENUM_UNSPECIFIED\x10\x00\x12\x1b\n" +
 	"\x17BlockToEntityTransition\x10\x01\x12\x1b\n" +
-	"\x17EntityToBlockTransition\x10\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x17EntityToBlockTransition\x10\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_update_block_synced_proto_rawDescOnce sync.Once

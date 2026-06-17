@@ -124,7 +124,7 @@ const file_block_actors_brewing_stand_proto_rawDesc = "" +
 	"FuelAmount\x18\x03 \x01(\x05R\n" +
 	"FuelAmount\x12\x1c\n" +
 	"\tFuelTotal\x18\x04 \x01(\x05R\tFuelTotal\x12,\n" +
-	"\x05Items\x18\x05 \x03(\v2\x16.google.protobuf.ValueR\x05ItemsBVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	"\x05Items\x18\x05 \x03(\v2\x16.google.protobuf.ValueR\x05ItemsB\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_brewing_stand_proto_rawDescOnce sync.Once

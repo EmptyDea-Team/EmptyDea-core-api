@@ -24,7 +24,7 @@ var File_block_actors_general_actors_doc_proto protoreflect.FileDescriptor
 
 const file_block_actors_general_actors_doc_proto_rawDesc = "" +
 	"\n" +
-	"%block_actors/general_actors/doc.proto\x12>mousetunnel.minecraft.protocol.block_actors.general_actors.docBgZegithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/general_actors;general_actorsb\x06proto3"
+	"%block_actors/general_actors/doc.proto\x12>mousetunnel.minecraft.protocol.block_actors.general_actors.docBmZkgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/general_actors;general_actorsb\x06proto3"
 
 var file_block_actors_general_actors_doc_proto_goTypes = []any{}
 var file_block_actors_general_actors_doc_proto_depIdxs = []int32{

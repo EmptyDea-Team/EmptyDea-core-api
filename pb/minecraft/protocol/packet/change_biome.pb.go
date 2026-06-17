@@ -125,7 +125,7 @@ const file_packet_change_biome_proto_rawDesc = "" +
 	"\bUnknown3\x18\x03 \x01(\x02R\bUnknown3\x12\x1a\n" +
 	"\bUnknown4\x18\x04 \x01(\x02R\bUnknown4\x12\x1a\n" +
 	"\bUnknown5\x18\x05 \x01(\x02R\bUnknown5\x12\x1a\n" +
-	"\bUnknown6\x18\x06 \x01(\bR\bUnknown6:\x05\xc0\xc8\x05\xea\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\bUnknown6\x18\x06 \x01(\bR\bUnknown6:\x05\xc0\xc8\x05\xea\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_change_biome_proto_rawDescOnce sync.Once

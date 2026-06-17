@@ -22,11 +22,66 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// WindowName 唯一标识一个普通窗口或动态容器窗口。
+type WindowName struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// WindowID 是机器人已打开(或持有)的库存的窗口 ID。
+	WindowID int32 `protobuf:"varint,1,opt,name=WindowID,proto3" json:"WindowID,omitempty"`
+	// DynamicContainerID 是机器人已打开(或持有)的动态库存的容器 ID。
+	DynamicContainerID uint32 `protobuf:"varint,2,opt,name=DynamicContainerID,proto3" json:"DynamicContainerID,omitempty"`
+	unknownFields      protoimpl.UnknownFields
+	sizeCache          protoimpl.SizeCache
+}
+
+func (x *WindowName) Reset() {
+	*x = WindowName{}
+	mi := &file_game_control_resources_control_inventory_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WindowName) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WindowName) ProtoMessage() {}
+
+func (x *WindowName) ProtoReflect() protoreflect.Message {
+	mi := &file_game_control_resources_control_inventory_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WindowName.ProtoReflect.Descriptor instead.
+func (*WindowName) Descriptor() ([]byte, []int) {
+	return file_game_control_resources_control_inventory_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *WindowName) GetWindowID() int32 {
+	if x != nil {
+		return x.WindowID
+	}
+	return 0
+}
+
+func (x *WindowName) GetDynamicContainerID() uint32 {
+	if x != nil {
+		return x.DynamicContainerID
+	}
+	return 0
+}
+
 // SlotLocation 描述一个物品的所在的位置
 type SlotLocation struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// WindowID 指示该物品所在的库存窗口 ID
-	WindowID int32 `protobuf:"varint,1,opt,name=WindowID,proto3" json:"WindowID,omitempty"`
+	// WindowName 指示该物品所在的库存窗口名。
+	WindowName *WindowName `protobuf:"bytes,1,opt,name=WindowName,proto3" json:"WindowName,omitempty"`
 	// SlotID 指示该物品所在库存的槽位索引
 	SlotID        uint32 `protobuf:"varint,2,opt,name=SlotID,proto3" json:"SlotID,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -35,7 +90,7 @@ type SlotLocation struct {
 
 func (x *SlotLocation) Reset() {
 	*x = SlotLocation{}
-	mi := &file_game_control_resources_control_inventory_proto_msgTypes[0]
+	mi := &file_game_control_resources_control_inventory_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -47,7 +102,7 @@ func (x *SlotLocation) String() string {
 func (*SlotLocation) ProtoMessage() {}
 
 func (x *SlotLocation) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_resources_control_inventory_proto_msgTypes[0]
+	mi := &file_game_control_resources_control_inventory_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -60,14 +115,14 @@ func (x *SlotLocation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SlotLocation.ProtoReflect.Descriptor instead.
 func (*SlotLocation) Descriptor() ([]byte, []int) {
-	return file_game_control_resources_control_inventory_proto_rawDescGZIP(), []int{0}
+	return file_game_control_resources_control_inventory_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *SlotLocation) GetWindowID() int32 {
+func (x *SlotLocation) GetWindowName() *WindowName {
 	if x != nil {
-		return x.WindowID
+		return x.WindowName
 	}
-	return 0
+	return nil
 }
 
 func (x *SlotLocation) GetSlotID() uint32 {
@@ -77,18 +132,18 @@ func (x *SlotLocation) GetSlotID() uint32 {
 	return 0
 }
 
-// GetInventoryRequest 是获取窗口 ID 为 windowID 的库存的请求。
+// GetInventoryRequest 是获取窗口名为 WindowName 的库存的请求。
 type GetInventoryRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// WindowID 是机器人已打开(或持有)的库存的窗口 ID
-	WindowID      int32 `protobuf:"varint,1,opt,name=WindowID,proto3" json:"WindowID,omitempty"`
+	// WindowName 是机器人已打开(或持有)的库存窗口名。
+	WindowName    *WindowName `protobuf:"bytes,1,opt,name=WindowName,proto3" json:"WindowName,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GetInventoryRequest) Reset() {
 	*x = GetInventoryRequest{}
-	mi := &file_game_control_resources_control_inventory_proto_msgTypes[1]
+	mi := &file_game_control_resources_control_inventory_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -100,7 +155,7 @@ func (x *GetInventoryRequest) String() string {
 func (*GetInventoryRequest) ProtoMessage() {}
 
 func (x *GetInventoryRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_resources_control_inventory_proto_msgTypes[1]
+	mi := &file_game_control_resources_control_inventory_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -113,17 +168,17 @@ func (x *GetInventoryRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetInventoryRequest.ProtoReflect.Descriptor instead.
 func (*GetInventoryRequest) Descriptor() ([]byte, []int) {
-	return file_game_control_resources_control_inventory_proto_rawDescGZIP(), []int{1}
+	return file_game_control_resources_control_inventory_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *GetInventoryRequest) GetWindowID() int32 {
+func (x *GetInventoryRequest) GetWindowName() *WindowName {
 	if x != nil {
-		return x.WindowID
+		return x.WindowName
 	}
-	return 0
+	return nil
 }
 
-// GetInventoryResponse 是窗口 ID 为 windowID 的库存。
+// GetInventoryResponse 是窗口名为 WindowName 的库存。
 type GetInventoryResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Found 指示目标库存是否存在。
@@ -136,7 +191,7 @@ type GetInventoryResponse struct {
 
 func (x *GetInventoryResponse) Reset() {
 	*x = GetInventoryResponse{}
-	mi := &file_game_control_resources_control_inventory_proto_msgTypes[2]
+	mi := &file_game_control_resources_control_inventory_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -148,7 +203,7 @@ func (x *GetInventoryResponse) String() string {
 func (*GetInventoryResponse) ProtoMessage() {}
 
 func (x *GetInventoryResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_resources_control_inventory_proto_msgTypes[2]
+	mi := &file_game_control_resources_control_inventory_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -161,7 +216,7 @@ func (x *GetInventoryResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetInventoryResponse.ProtoReflect.Descriptor instead.
 func (*GetInventoryResponse) Descriptor() ([]byte, []int) {
-	return file_game_control_resources_control_inventory_proto_rawDescGZIP(), []int{2}
+	return file_game_control_resources_control_inventory_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *GetInventoryResponse) GetFound() bool {
@@ -178,11 +233,11 @@ func (x *GetInventoryResponse) GetItems() []*SlotItem {
 	return nil
 }
 
-// GetItemStackRequest 是加载位于 windowID 的库存中索引为 slotID 的物品的请求。
+// GetItemStackRequest 是加载位于 WindowName 的库存中索引为 slotID 的物品的请求。
 type GetItemStackRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// WindowID 是机器人已打开(或持有)的库存的窗口 ID
-	WindowID int32 `protobuf:"varint,1,opt,name=WindowID,proto3" json:"WindowID,omitempty"`
+	// WindowName 是机器人已打开(或持有)的库存窗口名。
+	WindowName *WindowName `protobuf:"bytes,1,opt,name=WindowName,proto3" json:"WindowName,omitempty"`
 	// SlotID 是单个物品栏槽位的索引，它是从 0 开始索引的
 	SlotID        uint32 `protobuf:"varint,2,opt,name=SlotID,proto3" json:"SlotID,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -191,7 +246,7 @@ type GetItemStackRequest struct {
 
 func (x *GetItemStackRequest) Reset() {
 	*x = GetItemStackRequest{}
-	mi := &file_game_control_resources_control_inventory_proto_msgTypes[3]
+	mi := &file_game_control_resources_control_inventory_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -203,7 +258,7 @@ func (x *GetItemStackRequest) String() string {
 func (*GetItemStackRequest) ProtoMessage() {}
 
 func (x *GetItemStackRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_resources_control_inventory_proto_msgTypes[3]
+	mi := &file_game_control_resources_control_inventory_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -216,14 +271,14 @@ func (x *GetItemStackRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetItemStackRequest.ProtoReflect.Descriptor instead.
 func (*GetItemStackRequest) Descriptor() ([]byte, []int) {
-	return file_game_control_resources_control_inventory_proto_rawDescGZIP(), []int{3}
+	return file_game_control_resources_control_inventory_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *GetItemStackRequest) GetWindowID() int32 {
+func (x *GetItemStackRequest) GetWindowName() *WindowName {
 	if x != nil {
-		return x.WindowID
+		return x.WindowName
 	}
-	return 0
+	return nil
 }
 
 func (x *GetItemStackRequest) GetSlotID() uint32 {
@@ -233,7 +288,7 @@ func (x *GetItemStackRequest) GetSlotID() uint32 {
 	return 0
 }
 
-// GetItemStackResponse 是位于 windowID 的库存中索引为 slotID 的物品。
+// GetItemStackResponse 是位于 WindowName 的库存中索引为 slotID 的物品。
 type GetItemStackResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// InventoryFound 指示目标库存是否存在。
@@ -249,7 +304,7 @@ type GetItemStackResponse struct {
 
 func (x *GetItemStackResponse) Reset() {
 	*x = GetItemStackResponse{}
-	mi := &file_game_control_resources_control_inventory_proto_msgTypes[4]
+	mi := &file_game_control_resources_control_inventory_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -261,7 +316,7 @@ func (x *GetItemStackResponse) String() string {
 func (*GetItemStackResponse) ProtoMessage() {}
 
 func (x *GetItemStackResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_resources_control_inventory_proto_msgTypes[4]
+	mi := &file_game_control_resources_control_inventory_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -274,7 +329,7 @@ func (x *GetItemStackResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetItemStackResponse.ProtoReflect.Descriptor instead.
 func (*GetItemStackResponse) Descriptor() ([]byte, []int) {
-	return file_game_control_resources_control_inventory_proto_rawDescGZIP(), []int{4}
+	return file_game_control_resources_control_inventory_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *GetItemStackResponse) GetInventoryFound() bool {
@@ -298,18 +353,18 @@ func (x *GetItemStackResponse) GetItem() *protocol.ItemInstance {
 	return nil
 }
 
-// GetAllItemStacksRequest 是列出窗口 ID 为 windowID 的库存中的所有物品堆栈实例的请求。
+// GetAllItemStacksRequest 是列出窗口名为 WindowName 的库存中的所有物品堆栈实例的请求。
 type GetAllItemStacksRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// WindowID 是机器人已打开(或持有)的库存的窗口 ID
-	WindowID      int32 `protobuf:"varint,1,opt,name=WindowID,proto3" json:"WindowID,omitempty"`
+	// WindowName 是机器人已打开(或持有)的库存窗口名。
+	WindowName    *WindowName `protobuf:"bytes,1,opt,name=WindowName,proto3" json:"WindowName,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GetAllItemStacksRequest) Reset() {
 	*x = GetAllItemStacksRequest{}
-	mi := &file_game_control_resources_control_inventory_proto_msgTypes[5]
+	mi := &file_game_control_resources_control_inventory_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -321,7 +376,7 @@ func (x *GetAllItemStacksRequest) String() string {
 func (*GetAllItemStacksRequest) ProtoMessage() {}
 
 func (x *GetAllItemStacksRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_resources_control_inventory_proto_msgTypes[5]
+	mi := &file_game_control_resources_control_inventory_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -334,17 +389,17 @@ func (x *GetAllItemStacksRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAllItemStacksRequest.ProtoReflect.Descriptor instead.
 func (*GetAllItemStacksRequest) Descriptor() ([]byte, []int) {
-	return file_game_control_resources_control_inventory_proto_rawDescGZIP(), []int{5}
+	return file_game_control_resources_control_inventory_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *GetAllItemStacksRequest) GetWindowID() int32 {
+func (x *GetAllItemStacksRequest) GetWindowName() *WindowName {
 	if x != nil {
-		return x.WindowID
+		return x.WindowName
 	}
-	return 0
+	return nil
 }
 
-// GetAllItemStacksResponse 是窗口 ID 为 windowID 的库存中的所有物品堆栈实例。
+// GetAllItemStacksResponse 是窗口名为 WindowName 的库存中的所有物品堆栈实例。
 type GetAllItemStacksResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// InventoryFound 指示目标库存是否存在。
@@ -357,7 +412,7 @@ type GetAllItemStacksResponse struct {
 
 func (x *GetAllItemStacksResponse) Reset() {
 	*x = GetAllItemStacksResponse{}
-	mi := &file_game_control_resources_control_inventory_proto_msgTypes[6]
+	mi := &file_game_control_resources_control_inventory_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -369,7 +424,7 @@ func (x *GetAllItemStacksResponse) String() string {
 func (*GetAllItemStacksResponse) ProtoMessage() {}
 
 func (x *GetAllItemStacksResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_resources_control_inventory_proto_msgTypes[6]
+	mi := &file_game_control_resources_control_inventory_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -382,7 +437,7 @@ func (x *GetAllItemStacksResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAllItemStacksResponse.ProtoReflect.Descriptor instead.
 func (*GetAllItemStacksResponse) Descriptor() ([]byte, []int) {
-	return file_game_control_resources_control_inventory_proto_rawDescGZIP(), []int{6}
+	return file_game_control_resources_control_inventory_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *GetAllItemStacksResponse) GetInventoryFound() bool {
@@ -399,28 +454,28 @@ func (x *GetAllItemStacksResponse) GetItems() []*SlotItem {
 	return nil
 }
 
-// ListWindowIDsRequest 是列出当前所有库存的窗口 ID 的空请求。
-type ListWindowIDsRequest struct {
+// ListWindowNamesRequest 是列出当前所有库存的窗口名的空请求。
+type ListWindowNamesRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *ListWindowIDsRequest) Reset() {
-	*x = ListWindowIDsRequest{}
-	mi := &file_game_control_resources_control_inventory_proto_msgTypes[7]
+func (x *ListWindowNamesRequest) Reset() {
+	*x = ListWindowNamesRequest{}
+	mi := &file_game_control_resources_control_inventory_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ListWindowIDsRequest) String() string {
+func (x *ListWindowNamesRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ListWindowIDsRequest) ProtoMessage() {}
+func (*ListWindowNamesRequest) ProtoMessage() {}
 
-func (x *ListWindowIDsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_resources_control_inventory_proto_msgTypes[7]
+func (x *ListWindowNamesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_game_control_resources_control_inventory_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -431,35 +486,35 @@ func (x *ListWindowIDsRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ListWindowIDsRequest.ProtoReflect.Descriptor instead.
-func (*ListWindowIDsRequest) Descriptor() ([]byte, []int) {
-	return file_game_control_resources_control_inventory_proto_rawDescGZIP(), []int{7}
+// Deprecated: Use ListWindowNamesRequest.ProtoReflect.Descriptor instead.
+func (*ListWindowNamesRequest) Descriptor() ([]byte, []int) {
+	return file_game_control_resources_control_inventory_proto_rawDescGZIP(), []int{8}
 }
 
-// ListWindowIDsResponse 是当前所有库存的窗口 ID。
-type ListWindowIDsResponse struct {
+// ListWindowNamesResponse 是当前所有库存的窗口名。
+type ListWindowNamesResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// WindowIDs 是当前所有库存的窗口 ID。
-	WindowIDs     []int32 `protobuf:"varint,1,rep,packed,name=WindowIDs,proto3" json:"WindowIDs,omitempty"`
+	// WindowNames 是当前所有库存的窗口名。
+	WindowNames   []*WindowName `protobuf:"bytes,1,rep,name=WindowNames,proto3" json:"WindowNames,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *ListWindowIDsResponse) Reset() {
-	*x = ListWindowIDsResponse{}
-	mi := &file_game_control_resources_control_inventory_proto_msgTypes[8]
+func (x *ListWindowNamesResponse) Reset() {
+	*x = ListWindowNamesResponse{}
+	mi := &file_game_control_resources_control_inventory_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ListWindowIDsResponse) String() string {
+func (x *ListWindowNamesResponse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ListWindowIDsResponse) ProtoMessage() {}
+func (*ListWindowNamesResponse) ProtoMessage() {}
 
-func (x *ListWindowIDsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_resources_control_inventory_proto_msgTypes[8]
+func (x *ListWindowNamesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_game_control_resources_control_inventory_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -470,14 +525,14 @@ func (x *ListWindowIDsResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ListWindowIDsResponse.ProtoReflect.Descriptor instead.
-func (*ListWindowIDsResponse) Descriptor() ([]byte, []int) {
-	return file_game_control_resources_control_inventory_proto_rawDescGZIP(), []int{8}
+// Deprecated: Use ListWindowNamesResponse.ProtoReflect.Descriptor instead.
+func (*ListWindowNamesResponse) Descriptor() ([]byte, []int) {
+	return file_game_control_resources_control_inventory_proto_rawDescGZIP(), []int{9}
 }
 
-func (x *ListWindowIDsResponse) GetWindowIDs() []int32 {
+func (x *ListWindowNamesResponse) GetWindowNames() []*WindowName {
 	if x != nil {
-		return x.WindowIDs
+		return x.WindowNames
 	}
 	return nil
 }
@@ -495,7 +550,7 @@ type SlotItem struct {
 
 func (x *SlotItem) Reset() {
 	*x = SlotItem{}
-	mi := &file_game_control_resources_control_inventory_proto_msgTypes[9]
+	mi := &file_game_control_resources_control_inventory_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -507,7 +562,7 @@ func (x *SlotItem) String() string {
 func (*SlotItem) ProtoMessage() {}
 
 func (x *SlotItem) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_resources_control_inventory_proto_msgTypes[9]
+	mi := &file_game_control_resources_control_inventory_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -520,7 +575,7 @@ func (x *SlotItem) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SlotItem.ProtoReflect.Descriptor instead.
 func (*SlotItem) Descriptor() ([]byte, []int) {
-	return file_game_control_resources_control_inventory_proto_rawDescGZIP(), []int{9}
+	return file_game_control_resources_control_inventory_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *SlotItem) GetSlotID() uint32 {
@@ -542,38 +597,50 @@ var File_game_control_resources_control_inventory_proto protoreflect.FileDescrip
 const file_game_control_resources_control_inventory_proto_rawDesc = "" +
 	"\n" +
 	".game_control/resources_control/inventory.proto\x12'emptydea.game_control.resources_control\x1a\n" +
-	"item.proto\"B\n" +
-	"\fSlotLocation\x12\x1a\n" +
-	"\bWindowID\x18\x01 \x01(\x05R\bWindowID\x12\x16\n" +
-	"\x06SlotID\x18\x02 \x01(\rR\x06SlotID\"1\n" +
-	"\x13GetInventoryRequest\x12\x1a\n" +
-	"\bWindowID\x18\x01 \x01(\x05R\bWindowID\"u\n" +
+	"item.proto\"X\n" +
+	"\n" +
+	"WindowName\x12\x1a\n" +
+	"\bWindowID\x18\x01 \x01(\x05R\bWindowID\x12.\n" +
+	"\x12DynamicContainerID\x18\x02 \x01(\rR\x12DynamicContainerID\"{\n" +
+	"\fSlotLocation\x12S\n" +
+	"\n" +
+	"WindowName\x18\x01 \x01(\v23.emptydea.game_control.resources_control.WindowNameR\n" +
+	"WindowName\x12\x16\n" +
+	"\x06SlotID\x18\x02 \x01(\rR\x06SlotID\"j\n" +
+	"\x13GetInventoryRequest\x12S\n" +
+	"\n" +
+	"WindowName\x18\x01 \x01(\v23.emptydea.game_control.resources_control.WindowNameR\n" +
+	"WindowName\"u\n" +
 	"\x14GetInventoryResponse\x12\x14\n" +
 	"\x05Found\x18\x01 \x01(\bR\x05Found\x12G\n" +
-	"\x05Items\x18\x02 \x03(\v21.emptydea.game_control.resources_control.SlotItemR\x05Items\"I\n" +
-	"\x13GetItemStackRequest\x12\x1a\n" +
-	"\bWindowID\x18\x01 \x01(\x05R\bWindowID\x12\x16\n" +
+	"\x05Items\x18\x02 \x03(\v21.emptydea.game_control.resources_control.SlotItemR\x05Items\"\x82\x01\n" +
+	"\x13GetItemStackRequest\x12S\n" +
+	"\n" +
+	"WindowName\x18\x01 \x01(\v23.emptydea.game_control.resources_control.WindowNameR\n" +
+	"WindowName\x12\x16\n" +
 	"\x06SlotID\x18\x02 \x01(\rR\x06SlotID\"\xa3\x01\n" +
 	"\x14GetItemStackResponse\x12&\n" +
 	"\x0eInventoryFound\x18\x01 \x01(\bR\x0eInventoryFound\x12\x1c\n" +
 	"\tItemFound\x18\x02 \x01(\bR\tItemFound\x12E\n" +
-	"\x04Item\x18\x03 \x01(\v21.mousetunnel.minecraft.protocol.item.ItemInstanceR\x04Item\"5\n" +
-	"\x17GetAllItemStacksRequest\x12\x1a\n" +
-	"\bWindowID\x18\x01 \x01(\x05R\bWindowID\"\x8b\x01\n" +
+	"\x04Item\x18\x03 \x01(\v21.mousetunnel.minecraft.protocol.item.ItemInstanceR\x04Item\"n\n" +
+	"\x17GetAllItemStacksRequest\x12S\n" +
+	"\n" +
+	"WindowName\x18\x01 \x01(\v23.emptydea.game_control.resources_control.WindowNameR\n" +
+	"WindowName\"\x8b\x01\n" +
 	"\x18GetAllItemStacksResponse\x12&\n" +
 	"\x0eInventoryFound\x18\x01 \x01(\bR\x0eInventoryFound\x12G\n" +
-	"\x05Items\x18\x02 \x03(\v21.emptydea.game_control.resources_control.SlotItemR\x05Items\"\x16\n" +
-	"\x14ListWindowIDsRequest\"5\n" +
-	"\x15ListWindowIDsResponse\x12\x1c\n" +
-	"\tWindowIDs\x18\x01 \x03(\x05R\tWindowIDs\"i\n" +
+	"\x05Items\x18\x02 \x03(\v21.emptydea.game_control.resources_control.SlotItemR\x05Items\"\x18\n" +
+	"\x16ListWindowNamesRequest\"p\n" +
+	"\x17ListWindowNamesResponse\x12U\n" +
+	"\vWindowNames\x18\x01 \x03(\v23.emptydea.game_control.resources_control.WindowNameR\vWindowNames\"i\n" +
 	"\bSlotItem\x12\x16\n" +
 	"\x06SlotID\x18\x01 \x01(\rR\x06SlotID\x12E\n" +
-	"\x04Item\x18\x02 \x01(\v21.mousetunnel.minecraft.protocol.item.ItemInstanceR\x04Item2\xd9\x04\n" +
+	"\x04Item\x18\x02 \x01(\v21.mousetunnel.minecraft.protocol.item.ItemInstanceR\x04Item2\xdf\x04\n" +
 	"\x10InventoryService\x12\x8b\x01\n" +
 	"\fGetInventory\x12<.emptydea.game_control.resources_control.GetInventoryRequest\x1a=.emptydea.game_control.resources_control.GetInventoryResponse\x12\x8b\x01\n" +
 	"\fGetItemStack\x12<.emptydea.game_control.resources_control.GetItemStackRequest\x1a=.emptydea.game_control.resources_control.GetItemStackResponse\x12\x97\x01\n" +
-	"\x10GetAllItemStacks\x12@.emptydea.game_control.resources_control.GetAllItemStacksRequest\x1aA.emptydea.game_control.resources_control.GetAllItemStacksResponse\x12\x8e\x01\n" +
-	"\rListWindowIDs\x12=.emptydea.game_control.resources_control.ListWindowIDsRequest\x1a>.emptydea.game_control.resources_control.ListWindowIDsResponseB]Z[github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/resources_control;resources_control_pbb\x06proto3"
+	"\x10GetAllItemStacks\x12@.emptydea.game_control.resources_control.GetAllItemStacksRequest\x1aA.emptydea.game_control.resources_control.GetAllItemStacksResponse\x12\x94\x01\n" +
+	"\x0fListWindowNames\x12?.emptydea.game_control.resources_control.ListWindowNamesRequest\x1a@.emptydea.game_control.resources_control.ListWindowNamesResponseBcZagithub.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/resources_control;resources_control_pbb\x06proto3"
 
 var (
 	file_game_control_resources_control_inventory_proto_rawDescOnce sync.Once
@@ -587,38 +654,44 @@ func file_game_control_resources_control_inventory_proto_rawDescGZIP() []byte {
 	return file_game_control_resources_control_inventory_proto_rawDescData
 }
 
-var file_game_control_resources_control_inventory_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
+var file_game_control_resources_control_inventory_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
 var file_game_control_resources_control_inventory_proto_goTypes = []any{
-	(*SlotLocation)(nil),             // 0: emptydea.game_control.resources_control.SlotLocation
-	(*GetInventoryRequest)(nil),      // 1: emptydea.game_control.resources_control.GetInventoryRequest
-	(*GetInventoryResponse)(nil),     // 2: emptydea.game_control.resources_control.GetInventoryResponse
-	(*GetItemStackRequest)(nil),      // 3: emptydea.game_control.resources_control.GetItemStackRequest
-	(*GetItemStackResponse)(nil),     // 4: emptydea.game_control.resources_control.GetItemStackResponse
-	(*GetAllItemStacksRequest)(nil),  // 5: emptydea.game_control.resources_control.GetAllItemStacksRequest
-	(*GetAllItemStacksResponse)(nil), // 6: emptydea.game_control.resources_control.GetAllItemStacksResponse
-	(*ListWindowIDsRequest)(nil),     // 7: emptydea.game_control.resources_control.ListWindowIDsRequest
-	(*ListWindowIDsResponse)(nil),    // 8: emptydea.game_control.resources_control.ListWindowIDsResponse
-	(*SlotItem)(nil),                 // 9: emptydea.game_control.resources_control.SlotItem
-	(*protocol.ItemInstance)(nil),    // 10: mousetunnel.minecraft.protocol.item.ItemInstance
+	(*WindowName)(nil),               // 0: emptydea.game_control.resources_control.WindowName
+	(*SlotLocation)(nil),             // 1: emptydea.game_control.resources_control.SlotLocation
+	(*GetInventoryRequest)(nil),      // 2: emptydea.game_control.resources_control.GetInventoryRequest
+	(*GetInventoryResponse)(nil),     // 3: emptydea.game_control.resources_control.GetInventoryResponse
+	(*GetItemStackRequest)(nil),      // 4: emptydea.game_control.resources_control.GetItemStackRequest
+	(*GetItemStackResponse)(nil),     // 5: emptydea.game_control.resources_control.GetItemStackResponse
+	(*GetAllItemStacksRequest)(nil),  // 6: emptydea.game_control.resources_control.GetAllItemStacksRequest
+	(*GetAllItemStacksResponse)(nil), // 7: emptydea.game_control.resources_control.GetAllItemStacksResponse
+	(*ListWindowNamesRequest)(nil),   // 8: emptydea.game_control.resources_control.ListWindowNamesRequest
+	(*ListWindowNamesResponse)(nil),  // 9: emptydea.game_control.resources_control.ListWindowNamesResponse
+	(*SlotItem)(nil),                 // 10: emptydea.game_control.resources_control.SlotItem
+	(*protocol.ItemInstance)(nil),    // 11: mousetunnel.minecraft.protocol.item.ItemInstance
 }
 var file_game_control_resources_control_inventory_proto_depIdxs = []int32{
-	9,  // 0: emptydea.game_control.resources_control.GetInventoryResponse.Items:type_name -> emptydea.game_control.resources_control.SlotItem
-	10, // 1: emptydea.game_control.resources_control.GetItemStackResponse.Item:type_name -> mousetunnel.minecraft.protocol.item.ItemInstance
-	9,  // 2: emptydea.game_control.resources_control.GetAllItemStacksResponse.Items:type_name -> emptydea.game_control.resources_control.SlotItem
-	10, // 3: emptydea.game_control.resources_control.SlotItem.Item:type_name -> mousetunnel.minecraft.protocol.item.ItemInstance
-	1,  // 4: emptydea.game_control.resources_control.InventoryService.GetInventory:input_type -> emptydea.game_control.resources_control.GetInventoryRequest
-	3,  // 5: emptydea.game_control.resources_control.InventoryService.GetItemStack:input_type -> emptydea.game_control.resources_control.GetItemStackRequest
-	5,  // 6: emptydea.game_control.resources_control.InventoryService.GetAllItemStacks:input_type -> emptydea.game_control.resources_control.GetAllItemStacksRequest
-	7,  // 7: emptydea.game_control.resources_control.InventoryService.ListWindowIDs:input_type -> emptydea.game_control.resources_control.ListWindowIDsRequest
-	2,  // 8: emptydea.game_control.resources_control.InventoryService.GetInventory:output_type -> emptydea.game_control.resources_control.GetInventoryResponse
-	4,  // 9: emptydea.game_control.resources_control.InventoryService.GetItemStack:output_type -> emptydea.game_control.resources_control.GetItemStackResponse
-	6,  // 10: emptydea.game_control.resources_control.InventoryService.GetAllItemStacks:output_type -> emptydea.game_control.resources_control.GetAllItemStacksResponse
-	8,  // 11: emptydea.game_control.resources_control.InventoryService.ListWindowIDs:output_type -> emptydea.game_control.resources_control.ListWindowIDsResponse
-	8,  // [8:12] is the sub-list for method output_type
-	4,  // [4:8] is the sub-list for method input_type
-	4,  // [4:4] is the sub-list for extension type_name
-	4,  // [4:4] is the sub-list for extension extendee
-	0,  // [0:4] is the sub-list for field type_name
+	0,  // 0: emptydea.game_control.resources_control.SlotLocation.WindowName:type_name -> emptydea.game_control.resources_control.WindowName
+	0,  // 1: emptydea.game_control.resources_control.GetInventoryRequest.WindowName:type_name -> emptydea.game_control.resources_control.WindowName
+	10, // 2: emptydea.game_control.resources_control.GetInventoryResponse.Items:type_name -> emptydea.game_control.resources_control.SlotItem
+	0,  // 3: emptydea.game_control.resources_control.GetItemStackRequest.WindowName:type_name -> emptydea.game_control.resources_control.WindowName
+	11, // 4: emptydea.game_control.resources_control.GetItemStackResponse.Item:type_name -> mousetunnel.minecraft.protocol.item.ItemInstance
+	0,  // 5: emptydea.game_control.resources_control.GetAllItemStacksRequest.WindowName:type_name -> emptydea.game_control.resources_control.WindowName
+	10, // 6: emptydea.game_control.resources_control.GetAllItemStacksResponse.Items:type_name -> emptydea.game_control.resources_control.SlotItem
+	0,  // 7: emptydea.game_control.resources_control.ListWindowNamesResponse.WindowNames:type_name -> emptydea.game_control.resources_control.WindowName
+	11, // 8: emptydea.game_control.resources_control.SlotItem.Item:type_name -> mousetunnel.minecraft.protocol.item.ItemInstance
+	2,  // 9: emptydea.game_control.resources_control.InventoryService.GetInventory:input_type -> emptydea.game_control.resources_control.GetInventoryRequest
+	4,  // 10: emptydea.game_control.resources_control.InventoryService.GetItemStack:input_type -> emptydea.game_control.resources_control.GetItemStackRequest
+	6,  // 11: emptydea.game_control.resources_control.InventoryService.GetAllItemStacks:input_type -> emptydea.game_control.resources_control.GetAllItemStacksRequest
+	8,  // 12: emptydea.game_control.resources_control.InventoryService.ListWindowNames:input_type -> emptydea.game_control.resources_control.ListWindowNamesRequest
+	3,  // 13: emptydea.game_control.resources_control.InventoryService.GetInventory:output_type -> emptydea.game_control.resources_control.GetInventoryResponse
+	5,  // 14: emptydea.game_control.resources_control.InventoryService.GetItemStack:output_type -> emptydea.game_control.resources_control.GetItemStackResponse
+	7,  // 15: emptydea.game_control.resources_control.InventoryService.GetAllItemStacks:output_type -> emptydea.game_control.resources_control.GetAllItemStacksResponse
+	9,  // 16: emptydea.game_control.resources_control.InventoryService.ListWindowNames:output_type -> emptydea.game_control.resources_control.ListWindowNamesResponse
+	13, // [13:17] is the sub-list for method output_type
+	9,  // [9:13] is the sub-list for method input_type
+	9,  // [9:9] is the sub-list for extension type_name
+	9,  // [9:9] is the sub-list for extension extendee
+	0,  // [0:9] is the sub-list for field type_name
 }
 
 func init() { file_game_control_resources_control_inventory_proto_init() }
@@ -632,7 +705,7 @@ func file_game_control_resources_control_inventory_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_game_control_resources_control_inventory_proto_rawDesc), len(file_game_control_resources_control_inventory_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   10,
+			NumMessages:   11,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

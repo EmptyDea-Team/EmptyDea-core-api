@@ -12,7 +12,7 @@ PB_OUT="${API_ROOT}/pb"
 CONVERTER_OUT="${CORE_ROOT}/frame/EmptyDeaCore/converter"
 
 GO_PACKAGE_ROOT="github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol"
-CONVERTER_PACKAGE_ROOT="github.com/Yeah114/EmptyDea-core/frame/EmptyDeaCore/converter"
+CONVERTER_PACKAGE_ROOT="github.com/EmptyDea-Team/EmptyDea-core/frame/EmptyDeaCore/converter"
 
 if [[ ! -d "${PROTOCOL_SRC}" ]]; then
 	echo "protocol source directory does not exist: ${PROTOCOL_SRC}" >&2

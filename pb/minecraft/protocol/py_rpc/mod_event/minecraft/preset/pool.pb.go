@@ -24,7 +24,7 @@ var File_py_rpc_mod_event_minecraft_preset_pool_proto protoreflect.FileDescripto
 
 const file_py_rpc_mod_event_minecraft_preset_pool_proto_rawDesc = "" +
 	"\n" +
-	",py_rpc/mod_event/minecraft/preset/pool.proto\x12Emousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.preset.poolBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/preset;presetb\x06proto3"
+	",py_rpc/mod_event/minecraft/preset/pool.proto\x12Emousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.preset.poolBkZigithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/preset;presetb\x06proto3"
 
 var file_py_rpc_mod_event_minecraft_preset_pool_proto_goTypes = []any{}
 var file_py_rpc_mod_event_minecraft_preset_pool_proto_depIdxs = []int32{

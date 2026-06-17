@@ -120,7 +120,7 @@ const file_packet_update_attributes_proto_rawDesc = "" +
 	"\n" +
 	"Attributes\x18\x02 \x03(\v23.mousetunnel.minecraft.protocol.attribute.AttributeR\n" +
 	"Attributes\x12\x12\n" +
-	"\x04Tick\x18\x03 \x01(\x04R\x04Tick:\x04\xc0\xc8\x05\x1dBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x04Tick\x18\x03 \x01(\x04R\x04Tick:\x04\xc0\xc8\x05\x1dBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_update_attributes_proto_rawDescOnce sync.Once

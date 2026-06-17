@@ -169,7 +169,7 @@ const file_packet_clientbound_attribute_layer_sync_proto_rawDesc = "" +
 	"\vDimensionID\x18\x04 \x01(\x05R\vDimensionID\x12b\n" +
 	"\bSettings\x18\x05 \x01(\v2F.mousetunnel.minecraft.protocol.attribute_layer.AttributeLayerSettingsR\bSettings\x12~\n" +
 	"\x15EnvironmentAttributes\x18\x06 \x03(\v2H.mousetunnel.minecraft.protocol.attribute_layer.EnvironmentAttributeDataR\x15EnvironmentAttributes\x122\n" +
-	"\x14RemoveAttributeNames\x18\a \x03(\tR\x14RemoveAttributeNames:\x05\xc0\xc8\x05\xd9\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x14RemoveAttributeNames\x18\a \x03(\tR\x14RemoveAttributeNames:\x05\xc0\xc8\x05\xd9\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_clientbound_attribute_layer_sync_proto_rawDescOnce sync.Once

@@ -112,7 +112,7 @@ const file_py_rpc_mod_event_minecraft_ai_command_request_ai_command_event_proto_
 	"\n" +
 	"PromptType\x18\x03 \x01(\x03R\n" +
 	"PromptType\x12\x1a\n" +
-	"\bHasCount\x18\x04 \x01(\bR\bHasCountBmZkgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_commandb\x06proto3"
+	"\bHasCount\x18\x04 \x01(\bR\bHasCountBsZqgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_commandb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_ai_command_request_ai_command_event_proto_rawDescOnce sync.Once

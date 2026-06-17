@@ -24,7 +24,7 @@ var File_packet_pool_netease_test_proto protoreflect.FileDescriptor
 
 const file_packet_pool_netease_test_proto_rawDesc = "" +
 	"\n" +
-	"\x1epacket/pool_netease_test.proto\x127mousetunnel.minecraft.protocol.packet.pool_netease_testBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x1epacket/pool_netease_test.proto\x127mousetunnel.minecraft.protocol.packet.pool_netease_testBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var file_packet_pool_netease_test_proto_goTypes = []any{}
 var file_packet_pool_netease_test_proto_depIdxs = []int32{

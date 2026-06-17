@@ -86,7 +86,7 @@ const file_packet_remove_actor_proto_rawDesc = "" +
 	"\n" +
 	"\x19packet/remove_actor.proto\x122mousetunnel.minecraft.protocol.packet.remove_actor\x1a\x14packet_options.proto\";\n" +
 	"\vRemoveActor\x12&\n" +
-	"\x0eEntityUniqueID\x18\x01 \x01(\x03R\x0eEntityUniqueID:\x04\xc0\xc8\x05\x0eBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x0eEntityUniqueID\x18\x01 \x01(\x03R\x0eEntityUniqueID:\x04\xc0\xc8\x05\x0eBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_remove_actor_proto_rawDescOnce sync.Once

@@ -67,7 +67,7 @@ var File_packet_clientbound_data_driven_ui_reload_proto protoreflect.FileDescrip
 const file_packet_clientbound_data_driven_ui_reload_proto_rawDesc = "" +
 	"\n" +
 	".packet/clientbound_data_driven_ui_reload.proto\x12Gmousetunnel.minecraft.protocol.packet.clientbound_data_driven_ui_reload\x1a\x14packet_options.proto\"&\n" +
-	"\x1dClientBoundDataDrivenUIReload:\x05\xc0\xc8\x05\xcf\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x1dClientBoundDataDrivenUIReload:\x05\xc0\xc8\x05\xcf\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_clientbound_data_driven_ui_reload_proto_rawDescOnce sync.Once

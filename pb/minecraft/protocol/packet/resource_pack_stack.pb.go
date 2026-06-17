@@ -231,7 +231,7 @@ const file_packet_resource_pack_stack_proto_rawDesc = "" +
 	"\x12IncludeEditorPacks\x18\b \x01(\bR\x12IncludeEditorPacks\x12\x83\x01\n" +
 	"\x1cNetEaseUnknownBehaviourPacks\x18\t \x03(\v2?.mousetunnel.minecraft.protocol.resource_pack.StackResourcePackR\x1cNetEaseUnknownBehaviourPacks\x12\x7f\n" +
 	"\x1aNetEaseUnknownTexturePacks\x18\n" +
-	" \x03(\v2?.mousetunnel.minecraft.protocol.resource_pack.StackResourcePackR\x1aNetEaseUnknownTexturePacks:\x04\xc0\xc8\x05\aBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	" \x03(\v2?.mousetunnel.minecraft.protocol.resource_pack.StackResourcePackR\x1aNetEaseUnknownTexturePacks:\x04\xc0\xc8\x05\aBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_resource_pack_stack_proto_rawDescOnce sync.Once

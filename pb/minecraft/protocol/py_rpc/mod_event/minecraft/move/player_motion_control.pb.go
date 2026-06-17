@@ -101,7 +101,7 @@ const file_py_rpc_mod_event_minecraft_move_player_motion_control_proto_rawDesc =
 	"\x05Basic\x18\x01 \x01(\v2K.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.move.basic.BasicR\x05Basic\x12\x1c\n" +
 	"\tNameValue\x18\x02 \x01(\tR\tNameValue\x12\x1a\n" +
 	"\bPlayerID\x18\x03 \x01(\tR\bPlayerID\x12&\n" +
-	"\x0eServerMotionID\x18\x04 \x01(\x03R\x0eServerMotionIDBaZ_github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/move;moveb\x06proto3"
+	"\x0eServerMotionID\x18\x04 \x01(\x03R\x0eServerMotionIDBgZegithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/move;moveb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_move_player_motion_control_proto_rawDescOnce sync.Once

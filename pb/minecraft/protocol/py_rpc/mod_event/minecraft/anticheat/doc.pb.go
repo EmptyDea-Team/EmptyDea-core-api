@@ -24,7 +24,7 @@ var File_py_rpc_mod_event_minecraft_anticheat_doc_proto protoreflect.FileDescrip
 
 const file_py_rpc_mod_event_minecraft_anticheat_doc_proto_rawDesc = "" +
 	"\n" +
-	".py_rpc/mod_event/minecraft/anticheat/doc.proto\x12Gmousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.anticheat.docBkZigithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/anticheat;anticheatb\x06proto3"
+	".py_rpc/mod_event/minecraft/anticheat/doc.proto\x12Gmousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.anticheat.docBqZogithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/anticheat;anticheatb\x06proto3"
 
 var file_py_rpc_mod_event_minecraft_anticheat_doc_proto_goTypes = []any{}
 var file_py_rpc_mod_event_minecraft_anticheat_doc_proto_depIdxs = []int32{

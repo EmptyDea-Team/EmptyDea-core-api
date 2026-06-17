@@ -85,7 +85,7 @@ const file_packet_player_fog_proto_rawDesc = "" +
 	"\n" +
 	"\x17packet/player_fog.proto\x120mousetunnel.minecraft.protocol.packet.player_fog\x1a\x14packet_options.proto\"(\n" +
 	"\tPlayerFog\x12\x14\n" +
-	"\x05Stack\x18\x01 \x03(\tR\x05Stack:\x05\xc0\xc8\x05\xa0\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x05Stack\x18\x01 \x03(\tR\x05Stack:\x05\xc0\xc8\x05\xa0\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_player_fog_proto_rawDescOnce sync.Once

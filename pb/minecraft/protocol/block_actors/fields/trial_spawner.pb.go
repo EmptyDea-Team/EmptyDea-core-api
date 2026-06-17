@@ -245,7 +245,7 @@ const file_block_actors_fields_trial_spawner_proto_rawDesc = "" +
 	"\x11LootTablesToEject\x18\b \x03(\v2\x16.google.protobuf.ValueR\x11LootTablesToEject\x12@\n" +
 	"\x0fSpawnPotentials\x18\t \x03(\v2\x16.google.protobuf.ValueR\x0fSpawnPotentials\x126\n" +
 	"\x16ItemsToDropWhenOminous\x18\n" +
-	" \x01(\tR\x16ItemsToDropWhenOminousBWZUgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/fields;fieldsb\x06proto3"
+	" \x01(\tR\x16ItemsToDropWhenOminousB]Z[github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/fields;fieldsb\x06proto3"
 
 var (
 	file_block_actors_fields_trial_spawner_proto_rawDescOnce sync.Once

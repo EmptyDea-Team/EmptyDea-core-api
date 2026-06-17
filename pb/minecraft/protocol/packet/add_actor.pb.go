@@ -432,7 +432,7 @@ const file_packet_add_actor_proto_rawDesc = "" +
 	"\x0fNetEaseUnknown6\x18\x14 \x01(\bR\x0fNetEaseUnknown6\x12(\n" +
 	"\x0fNetEaseUnknown7\x18\x15 \x01(\bR\x0fNetEaseUnknown7\x12(\n" +
 	"\x0fNetEaseUnknown8\x18\x16 \x01(\bR\x0fNetEaseUnknown8\x12g\n" +
-	"\x11EntityPhysxShapes\x18\x17 \x03(\v29.mousetunnel.minecraft.protocol.netease.EntityPhysxShapesR\x11EntityPhysxShapes:\x04\xc0\xc8\x05\rBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x11EntityPhysxShapes\x18\x17 \x03(\v29.mousetunnel.minecraft.protocol.netease.EntityPhysxShapesR\x11EntityPhysxShapes:\x04\xc0\xc8\x05\rBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_add_actor_proto_rawDescOnce sync.Once

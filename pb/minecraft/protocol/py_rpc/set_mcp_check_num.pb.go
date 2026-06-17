@@ -211,7 +211,7 @@ const file_py_rpc_set_mcp_check_num_proto_rawDesc = "" +
 	"\x04Type\x18\a \x01(\x03R\x04Type\x12\x1a\n" +
 	"\bTempHash\x18\b \x01(\tR\bTempHash\")\n" +
 	"\x11MCPCheckExtraData\x12\x14\n" +
-	"\x05Value\x18\x01 \x03(\tR\x05ValueBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpcb\x06proto3"
+	"\x05Value\x18\x01 \x03(\tR\x05ValueBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpcb\x06proto3"
 
 var (
 	file_py_rpc_set_mcp_check_num_proto_rawDescOnce sync.Once

@@ -208,7 +208,7 @@ const file_packet_network_settings_proto_rawDesc = "" +
 	"\x19CompressionAlgorithmFlate\x10\x00\x12\x1e\n" +
 	"\x1aCompressionAlgorithmSnappy\x10\x01\x12\x1f\n" +
 	"\x1bCompressionAlgorithmNetEase\x10\x02\x12\x1e\n" +
-	"\x18CompressionAlgorithmNone\x10\xff\xff\x03BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x18CompressionAlgorithmNone\x10\xff\xff\x03BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_network_settings_proto_rawDescOnce sync.Once

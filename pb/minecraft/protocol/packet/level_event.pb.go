@@ -686,7 +686,7 @@ const file_packet_level_event_proto_rawDesc = "" +
 	"\x1eLevelEventAnimationSpawnCobweb\x10\xd6L\x12,\n" +
 	"'LevelEventParticleSmashAttackGroundDust\x10\xd7L\x12)\n" +
 	"$LevelEventParticleCreakingHeartTrail\x10\xd8L\x12#\n" +
-	"\x1dLevelEventParticleLegacyEvent\x10\x80\x80\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x1dLevelEventParticleLegacyEvent\x10\x80\x80\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_level_event_proto_rawDescOnce sync.Once

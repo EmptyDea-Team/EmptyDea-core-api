@@ -231,7 +231,7 @@ const file_packet_agent_action_proto_rawDesc = "" +
 	"\x19AgentActionTypePlaceBlock\x10\x0f\x12\x17\n" +
 	"\x13AgentActionTypeTill\x10\x10\x12!\n" +
 	"\x1dAgentActionTypeTransferItemTo\x10\x11\x12\x17\n" +
-	"\x13AgentActionTypeTurn\x10\x12BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x13AgentActionTypeTurn\x10\x12BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_agent_action_proto_rawDescOnce sync.Once

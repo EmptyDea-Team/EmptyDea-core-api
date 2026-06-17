@@ -85,7 +85,7 @@ const file_packet_primitive_shapes_proto_rawDesc = "" +
 	"\n" +
 	"\x1dpacket/primitive_shapes.proto\x126mousetunnel.minecraft.protocol.packet.primitive_shapes\x1a\x14packet_options.proto\x1a\vshape.proto\"f\n" +
 	"\x0fPrimitiveShapes\x12L\n" +
-	"\x06Shapes\x18\x01 \x03(\v24.mousetunnel.minecraft.protocol.shape.PrimitiveShapeR\x06Shapes:\x05\xc0\xc8\x05\xc8\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x06Shapes\x18\x01 \x03(\v24.mousetunnel.minecraft.protocol.shape.PrimitiveShapeR\x06Shapes:\x05\xc0\xc8\x05\xc8\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_primitive_shapes_proto_rawDescOnce sync.Once

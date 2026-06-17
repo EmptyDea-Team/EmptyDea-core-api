@@ -83,7 +83,7 @@ const file_packet_camera_aim_assist_actor_priority_proto_rawDesc = "" +
 	"\n" +
 	"-packet/camera_aim_assist_actor_priority.proto\x12Fmousetunnel.minecraft.protocol.packet.camera_aim_assist_actor_priority\x1a\fcamera.proto\x1a\x14packet_options.proto\"\x92\x01\n" +
 	"\x1cCameraAimAssistActorPriority\x12k\n" +
-	"\fPriorityData\x18\x01 \x03(\v2G.mousetunnel.minecraft.protocol.camera.CameraAimAssistActorPriorityDataR\fPriorityData:\x05\xc0\xc8\x05\xd3\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\fPriorityData\x18\x01 \x03(\v2G.mousetunnel.minecraft.protocol.camera.CameraAimAssistActorPriorityDataR\fPriorityData:\x05\xc0\xc8\x05\xd3\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_camera_aim_assist_actor_priority_proto_rawDescOnce sync.Once

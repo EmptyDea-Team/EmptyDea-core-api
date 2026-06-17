@@ -140,7 +140,7 @@ const file_packet_update_adventure_settings_proto_rawDesc = "" +
 	"\x05NoMvP\x18\x02 \x01(\bR\x05NoMvP\x12&\n" +
 	"\x0eImmutableWorld\x18\x03 \x01(\bR\x0eImmutableWorld\x12\"\n" +
 	"\fShowNameTags\x18\x04 \x01(\bR\fShowNameTags\x12\x1a\n" +
-	"\bAutoJump\x18\x05 \x01(\bR\bAutoJump:\x05\xc0\xc8\x05\xbc\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\bAutoJump\x18\x05 \x01(\bR\bAutoJump:\x05\xc0\xc8\x05\xbc\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_update_adventure_settings_proto_rawDescOnce sync.Once

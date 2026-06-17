@@ -158,7 +158,7 @@ const file_packet_show_store_offer_proto_rawDesc = "" +
 	"\x12StoreOfferTypeEnum\x12\x1d\n" +
 	"\x19StoreOfferTypeMarketplace\x10\x00\x12\x1e\n" +
 	"\x1aStoreOfferTypeDressingRoom\x10\x01\x12\x1c\n" +
-	"\x18StoreOfferTypeServerPage\x10\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x18StoreOfferTypeServerPage\x10\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_show_store_offer_proto_rawDescOnce sync.Once

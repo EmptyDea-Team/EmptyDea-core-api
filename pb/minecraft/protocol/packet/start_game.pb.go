@@ -2145,7 +2145,7 @@ const file_packet_start_game_proto_rawDesc = "" +
 	"\x18EditorWorldTypeNotEditor\x10\x00\x12\x1a\n" +
 	"\x16EditorWorldTypeProject\x10\x01\x12\x1c\n" +
 	"\x18EditorWorldTypeTestLevel\x10\x02\x12\x1f\n" +
-	"\x1bEditorWorldTypeRealmsUpload\x10\x03BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x1bEditorWorldTypeRealmsUpload\x10\x03BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_start_game_proto_rawDescOnce sync.Once

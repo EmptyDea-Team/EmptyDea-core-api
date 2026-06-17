@@ -285,7 +285,7 @@ const file_packet_correct_player_move_prediction_proto_rawDesc = "" +
 	"\x04Tick\x18\a \x01(\x04R\x04Tick:\x05\xc0\xc8\x05\xa1\x01*I\n" +
 	"\x12PredictionTypeEnum\x12\x18\n" +
 	"\x14PredictionTypePlayer\x10\x00\x12\x19\n" +
-	"\x15PredictionTypeVehicle\x10\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x15PredictionTypeVehicle\x10\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_correct_player_move_prediction_proto_rawDescOnce sync.Once

@@ -78,7 +78,7 @@ const file_packet_hunger_attr_proto_rawDesc = "" +
 	"\x18packet/hunger_attr.proto\x121mousetunnel.minecraft.protocol.packet.hunger_attr\x1a\x14packet_options.proto\"'\n" +
 	"\n" +
 	"HungerAttr\x12\x12\n" +
-	"\x04Data\x18\x01 \x01(\fR\x04Data:\x05\xc0\xc8\x05\xcf\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x04Data\x18\x01 \x01(\fR\x04Data:\x05\xc0\xc8\x05\xcf\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_hunger_attr_proto_rawDescOnce sync.Once

@@ -86,7 +86,7 @@ const file_py_rpc_mod_event_minecraft_vip_event_system_player_ui_init_proto_rawD
 	"@py_rpc/mod_event/minecraft/vip_event_system/player_ui_init.proto\x12Ymousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.vip_event_system.player_ui_init\x1a7py_rpc/mod_event/minecraft/vip_event_system/basic.proto\"\x9b\x01\n" +
 	"\fPlayerUiInit\x12m\n" +
 	"\x05Basic\x18\x01 \x01(\v2W.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.vip_event_system.basic.BasicR\x05Basic\x12\x1c\n" +
-	"\tRuntimeID\x18\x02 \x01(\tR\tRuntimeIDByZwgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/vip_event_system;vip_event_systemb\x06proto3"
+	"\tRuntimeID\x18\x02 \x01(\tR\tRuntimeIDB\x7fZ}github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/vip_event_system;vip_event_systemb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_vip_event_system_player_ui_init_proto_rawDescOnce sync.Once

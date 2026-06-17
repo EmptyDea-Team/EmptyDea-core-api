@@ -86,7 +86,7 @@ const file_py_rpc_mod_event_minecraft_chat_extension_sync_show_social_nearby_inf
 	"Lpy_rpc/mod_event/minecraft/chat_extension/sync_show_social_nearby_info.proto\x12emousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_extension.sync_show_social_nearby_info\x1a5py_rpc/mod_event/minecraft/chat_extension/basic.proto\"\xb3\x01\n" +
 	"\x18SyncShowSocialNearbyInfo\x12k\n" +
 	"\x05Basic\x18\x01 \x01(\v2U.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_extension.basic.BasicR\x05Basic\x12*\n" +
-	"\x10ShowSocialNearby\x18\x02 \x01(\bR\x10ShowSocialNearbyBuZsgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_extension;chat_extensionb\x06proto3"
+	"\x10ShowSocialNearby\x18\x02 \x01(\bR\x10ShowSocialNearbyB{Zygithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_extension;chat_extensionb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_chat_extension_sync_show_social_nearby_info_proto_rawDescOnce sync.Once

@@ -143,7 +143,7 @@ const file_packet_simple_event_proto_rawDesc = "" +
 	"\x1bSIMPLEEVENTENUM_UNSPECIFIED\x10\x00\x12\x1e\n" +
 	"\x1aSimpleEventCommandsEnabled\x10\x01\x12\x1f\n" +
 	"\x1bSimpleEventCommandsDisabled\x10\x02\x12*\n" +
-	"&SimpleEventUnlockWorldTemplateSettings\x10\x03BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"&SimpleEventUnlockWorldTemplateSettings\x10\x03BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_simple_event_proto_rawDescOnce sync.Once

@@ -75,7 +75,7 @@ const file_block_actors_smoker_proto_rawDesc = "" +
 	"\n" +
 	"\x19block_actors/smoker.proto\x122mousetunnel.minecraft.protocol.block_actors.smoker\x1a5block_actors/general_actors/furnace_block_actor.proto\"\x9a\x01\n" +
 	"\x06Smoker\x12\x8f\x01\n" +
-	"\x11FurnaceBlockActor\x18\x01 \x01(\v2a.mousetunnel.minecraft.protocol.block_actors.general_actors.furnace_block_actor.FurnaceBlockActorR\x11FurnaceBlockActorBVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	"\x11FurnaceBlockActor\x18\x01 \x01(\v2a.mousetunnel.minecraft.protocol.block_actors.general_actors.furnace_block_actor.FurnaceBlockActorR\x11FurnaceBlockActorB\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_smoker_proto_rawDescOnce sync.Once

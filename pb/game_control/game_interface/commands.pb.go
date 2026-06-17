@@ -409,7 +409,7 @@ const file_game_control_game_interface_commands_proto_rawDesc = "" +
 	"\x19SendWSCommandWithResponse\x12D.emptydea.game_control.game_interface.SendCommandWithResponseRequest\x1aE.emptydea.game_control.game_interface.SendCommandWithResponseResponse\x12\x92\x01\n" +
 	"\x13AwaitChangesGeneral\x12@.emptydea.game_control.game_interface.AwaitChangesGeneralRequest\x1a9.emptydea.game_control.game_interface.SendCommandResponse\x12|\n" +
 	"\bSendChat\x125.emptydea.game_control.game_interface.SendChatRequest\x1a9.emptydea.game_control.game_interface.SendCommandResponse\x12v\n" +
-	"\x05Title\x122.emptydea.game_control.game_interface.TitleRequest\x1a9.emptydea.game_control.game_interface.SendCommandResponseBWZUgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pbb\x06proto3"
+	"\x05Title\x122.emptydea.game_control.game_interface.TitleRequest\x1a9.emptydea.game_control.game_interface.SendCommandResponseB]Z[github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pbb\x06proto3"
 
 var (
 	file_game_control_game_interface_commands_proto_rawDescOnce sync.Once

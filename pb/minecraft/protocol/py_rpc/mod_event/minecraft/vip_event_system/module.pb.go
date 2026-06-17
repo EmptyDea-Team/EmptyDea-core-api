@@ -65,7 +65,7 @@ var File_py_rpc_mod_event_minecraft_vip_event_system_module_proto protoreflect.F
 const file_py_rpc_mod_event_minecraft_vip_event_system_module_proto_rawDesc = "" +
 	"\n" +
 	"8py_rpc/mod_event/minecraft/vip_event_system/module.proto\x12Qmousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.vip_event_system.module\"\b\n" +
-	"\x06ModuleByZwgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/vip_event_system;vip_event_systemb\x06proto3"
+	"\x06ModuleB\x7fZ}github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/vip_event_system;vip_event_systemb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_vip_event_system_module_proto_rawDescOnce sync.Once

@@ -75,7 +75,7 @@ const file_block_actors_chest_proto_rawDesc = "" +
 	"\n" +
 	"\x18block_actors/chest.proto\x121mousetunnel.minecraft.protocol.block_actors.chest\x1a3block_actors/general_actors/chest_block_actor.proto\"\x91\x01\n" +
 	"\x05Chest\x12\x87\x01\n" +
-	"\x0fChestBlockActor\x18\x01 \x01(\v2].mousetunnel.minecraft.protocol.block_actors.general_actors.chest_block_actor.ChestBlockActorR\x0fChestBlockActorBVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	"\x0fChestBlockActor\x18\x01 \x01(\v2].mousetunnel.minecraft.protocol.block_actors.general_actors.chest_block_actor.ChestBlockActorR\x0fChestBlockActorB\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_chest_proto_rawDescOnce sync.Once

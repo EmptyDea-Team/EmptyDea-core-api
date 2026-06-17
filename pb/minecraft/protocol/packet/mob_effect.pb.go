@@ -407,7 +407,7 @@ const file_packet_mob_effect_proto_rawDesc = "" +
 	"\x10EffectLevitation\x10\x18\x12\x15\n" +
 	"\x11EffectFatalPoison\x10\x19\x12\x16\n" +
 	"\x12EffectConduitPower\x10\x1a\x12\x15\n" +
-	"\x11EffectSlowFalling\x10\x1bBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x11EffectSlowFalling\x10\x1bBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_mob_effect_proto_rawDescOnce sync.Once

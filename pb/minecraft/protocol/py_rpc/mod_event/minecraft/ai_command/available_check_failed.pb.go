@@ -86,7 +86,7 @@ const file_py_rpc_mod_event_minecraft_ai_command_available_check_failed_proto_ra
 	"Bpy_rpc/mod_event/minecraft/ai_command/available_check_failed.proto\x12[mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.available_check_failed\x1a1py_rpc/mod_event/minecraft/ai_command/basic.proto\"\x97\x01\n" +
 	"\x14AvailableCheckFailed\x12g\n" +
 	"\x05Basic\x18\x01 \x01(\v2Q.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.basic.BasicR\x05Basic\x12\x16\n" +
-	"\x06Reason\x18\x02 \x01(\tR\x06ReasonBmZkgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_commandb\x06proto3"
+	"\x06Reason\x18\x02 \x01(\tR\x06ReasonBsZqgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_commandb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_ai_command_available_check_failed_proto_rawDescOnce sync.Once

@@ -132,7 +132,7 @@ const file_packet_set_actor_data_proto_rawDesc = "" +
 	"\x0fEntityRuntimeID\x18\x01 \x01(\x04R\x0fEntityRuntimeID\x12f\n" +
 	"\x0eEntityMetadata\x18\x02 \x01(\v2>.mousetunnel.minecraft.protocol.entity_metadata.EntityMetadataR\x0eEntityMetadata\x12n\n" +
 	"\x10EntityProperties\x18\x03 \x01(\v2B.mousetunnel.minecraft.protocol.entity_properties.EntityPropertiesR\x10EntityProperties\x12\x12\n" +
-	"\x04Tick\x18\x04 \x01(\x04R\x04Tick:\x04\xc0\xc8\x05'BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x04Tick\x18\x04 \x01(\x04R\x04Tick:\x04\xc0\xc8\x05'BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_set_actor_data_proto_rawDescOnce sync.Once

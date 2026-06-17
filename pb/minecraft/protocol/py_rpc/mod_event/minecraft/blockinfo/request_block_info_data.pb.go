@@ -86,7 +86,7 @@ const file_py_rpc_mod_event_minecraft_blockinfo_request_block_info_data_proto_ra
 	"Bpy_rpc/mod_event/minecraft/blockinfo/request_block_info_data.proto\x12[mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.blockinfo.request_block_info_data\x1a0py_rpc/mod_event/minecraft/blockinfo/basic.proto\"\x9a\x01\n" +
 	"\x14RequestBlockInfoData\x12f\n" +
 	"\x05Basic\x18\x01 \x01(\v2P.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.blockinfo.basic.BasicR\x05Basic\x12\x1a\n" +
-	"\bPlayerID\x18\x02 \x01(\tR\bPlayerIDBkZigithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/blockinfo;blockinfob\x06proto3"
+	"\bPlayerID\x18\x02 \x01(\tR\bPlayerIDBqZogithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/blockinfo;blockinfob\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_blockinfo_request_block_info_data_proto_rawDescOnce sync.Once

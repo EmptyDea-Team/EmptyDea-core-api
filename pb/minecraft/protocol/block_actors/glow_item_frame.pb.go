@@ -75,7 +75,7 @@ const file_block_actors_glow_item_frame_proto_rawDesc = "" +
 	"\n" +
 	"\"block_actors/glow_item_frame.proto\x12;mousetunnel.minecraft.protocol.block_actors.glow_item_frame\x1a8block_actors/general_actors/item_frame_block_actor.proto\"\xaa\x01\n" +
 	"\rGlowItemFrame\x12\x98\x01\n" +
-	"\x13ItemFrameBlockActor\x18\x01 \x01(\v2f.mousetunnel.minecraft.protocol.block_actors.general_actors.item_frame_block_actor.ItemFrameBlockActorR\x13ItemFrameBlockActorBVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	"\x13ItemFrameBlockActor\x18\x01 \x01(\v2f.mousetunnel.minecraft.protocol.block_actors.general_actors.item_frame_block_actor.ItemFrameBlockActorR\x13ItemFrameBlockActorB\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_glow_item_frame_proto_rawDescOnce sync.Once

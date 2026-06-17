@@ -111,7 +111,7 @@ const file_packet_game_test_results_proto_rawDesc = "" +
 	"\x0fGameTestResults\x12\x12\n" +
 	"\x04Name\x18\x01 \x01(\tR\x04Name\x12\x1c\n" +
 	"\tSucceeded\x18\x02 \x01(\bR\tSucceeded\x12\x14\n" +
-	"\x05Error\x18\x03 \x01(\tR\x05Error:\x05\xc0\xc8\x05\xc3\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x05Error\x18\x03 \x01(\tR\x05Error:\x05\xc0\xc8\x05\xc3\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_game_test_results_proto_rawDescOnce sync.Once

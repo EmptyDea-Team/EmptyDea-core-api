@@ -110,7 +110,7 @@ const file_py_rpc_mod_event_minecraft_blockinfo_cocos_trigger_unlock_proto_rawDe
 	"\bPlayerID\x18\x02 \x01(\tR\bPlayerID\x12\x1c\n" +
 	"\tBlockName\x18\x03 \x01(\tR\tBlockName\x12\x10\n" +
 	"\x03Aux\x18\x04 \x01(\x03R\x03Aux\x12\x18\n" +
-	"\aGroupID\x18\x05 \x01(\tR\aGroupIDBkZigithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/blockinfo;blockinfob\x06proto3"
+	"\aGroupID\x18\x05 \x01(\tR\aGroupIDBqZogithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/blockinfo;blockinfob\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_blockinfo_cocos_trigger_unlock_proto_rawDescOnce sync.Once

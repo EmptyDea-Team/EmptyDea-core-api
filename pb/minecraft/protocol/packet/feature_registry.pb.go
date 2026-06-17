@@ -86,7 +86,7 @@ const file_packet_feature_registry_proto_rawDesc = "" +
 	"\n" +
 	"\x1dpacket/feature_registry.proto\x126mousetunnel.minecraft.protocol.packet.feature_registry\x1a\x14packet_options.proto\x1a\vworld.proto\"m\n" +
 	"\x0fFeatureRegistry\x12S\n" +
-	"\bFeatures\x18\x01 \x03(\v27.mousetunnel.minecraft.protocol.world.GenerationFeatureR\bFeatures:\x05\xc0\xc8\x05\xbf\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\bFeatures\x18\x01 \x03(\v27.mousetunnel.minecraft.protocol.world.GenerationFeatureR\bFeatures:\x05\xc0\xc8\x05\xbf\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_feature_registry_proto_rawDescOnce sync.Once

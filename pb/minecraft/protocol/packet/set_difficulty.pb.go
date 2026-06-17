@@ -85,7 +85,7 @@ const file_packet_set_difficulty_proto_rawDesc = "" +
 	"\rSetDifficulty\x12\x1e\n" +
 	"\n" +
 	"Difficulty\x18\x01 \x01(\rR\n" +
-	"Difficulty:\x04\xc0\xc8\x05<BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"Difficulty:\x04\xc0\xc8\x05<BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_set_difficulty_proto_rawDescOnce sync.Once

@@ -106,7 +106,7 @@ const file_packet_block_actor_data_proto_rawDesc = "" +
 	"\aNBTData\x18\x02 \x03(\v2S.mousetunnel.minecraft.protocol.packet.block_actor_data.BlockActorData.NBTDataEntryR\aNBTData\x1aR\n" +
 	"\fNBTDataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12,\n" +
-	"\x05value\x18\x02 \x01(\v2\x16.google.protobuf.ValueR\x05value:\x028\x01:\x04\xc0\xc8\x058BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x05value\x18\x02 \x01(\v2\x16.google.protobuf.ValueR\x05value:\x028\x01:\x04\xc0\xc8\x058BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_block_actor_data_proto_rawDescOnce sync.Once

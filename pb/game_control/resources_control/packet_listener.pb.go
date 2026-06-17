@@ -285,7 +285,7 @@ const file_game_control_resources_control_packet_listener_proto_rawDesc = "" +
 	"\x15PacketListenerService\x12\xa3\x01\n" +
 	"\x14CreatePacketListener\x12D.emptydea.game_control.resources_control.CreatePacketListenerRequest\x1aE.emptydea.game_control.resources_control.CreatePacketListenerResponse\x12\xa6\x01\n" +
 	"\x15DestroyPacketListener\x12E.emptydea.game_control.resources_control.DestroyPacketListenerRequest\x1aF.emptydea.game_control.resources_control.DestroyPacketListenerResponse\x12d\n" +
-	"\x12ListenPacketEvents\x12\x16.google.protobuf.Empty\x1a4.emptydea.game_control.resources_control.PacketEvent0\x01B]Z[github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/resources_control;resources_control_pbb\x06proto3"
+	"\x12ListenPacketEvents\x12\x16.google.protobuf.Empty\x1a4.emptydea.game_control.resources_control.PacketEvent0\x01BcZagithub.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/resources_control;resources_control_pbb\x06proto3"
 
 var (
 	file_game_control_resources_control_packet_listener_proto_rawDescOnce sync.Once

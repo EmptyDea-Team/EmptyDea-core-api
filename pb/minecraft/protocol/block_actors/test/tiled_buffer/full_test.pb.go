@@ -24,7 +24,7 @@ var File_block_actors_test_tiled_buffer_full_test_proto protoreflect.FileDescrip
 
 const file_block_actors_test_tiled_buffer_full_test_proto_rawDesc = "" +
 	"\n" +
-	".block_actors/test/tiled_buffer/full_test.proto\x12Gmousetunnel.minecraft.protocol.block_actors.test.tiled_buffer.full_testBhZfgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/test/tiled_buffer;tiled_bufferb\x06proto3"
+	".block_actors/test/tiled_buffer/full_test.proto\x12Gmousetunnel.minecraft.protocol.block_actors.test.tiled_buffer.full_testBnZlgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/test/tiled_buffer;tiled_bufferb\x06proto3"
 
 var file_block_actors_test_tiled_buffer_full_test_proto_goTypes = []any{}
 var file_block_actors_test_tiled_buffer_full_test_proto_depIdxs = []int32{

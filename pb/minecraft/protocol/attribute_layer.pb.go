@@ -1121,7 +1121,7 @@ const file_attribute_layer_proto_rawDesc = "" +
 	"\x1dAttributeColourValueTypeArray\x10\x01*e\n" +
 	"\x1cAttributeLayerWeightTypeEnum\x12!\n" +
 	"\x1dAttributeLayerWeightTypeFloat\x10\x00\x12\"\n" +
-	"\x1eAttributeLayerWeightTypeString\x10\x01BEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\x1eAttributeLayerWeightTypeString\x10\x01BKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_attribute_layer_proto_rawDescOnce sync.Once

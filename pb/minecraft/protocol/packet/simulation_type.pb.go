@@ -139,7 +139,7 @@ const file_packet_simulation_type_proto_rawDesc = "" +
 	"\x12SimulationTypeGame\x10\x00\x12\x18\n" +
 	"\x14SimulationTypeEditor\x10\x01\x12\x16\n" +
 	"\x12SimulationTypeTest\x10\x02\x12\x19\n" +
-	"\x15SimulationTypeInvalid\x10\x03BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x15SimulationTypeInvalid\x10\x03BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_simulation_type_proto_rawDescOnce sync.Once

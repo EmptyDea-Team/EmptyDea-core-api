@@ -179,7 +179,7 @@ const file_packet_animate_entity_proto_rawDesc = "" +
 	"Controller\x18\x05 \x01(\tR\n" +
 	"Controller\x12\"\n" +
 	"\fBlendOutTime\x18\x06 \x01(\x02R\fBlendOutTime\x12*\n" +
-	"\x10EntityRuntimeIDs\x18\a \x03(\x04R\x10EntityRuntimeIDs:\x05\xc0\xc8\x05\x9e\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x10EntityRuntimeIDs\x18\a \x03(\x04R\x10EntityRuntimeIDs:\x05\xc0\xc8\x05\x9e\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_animate_entity_proto_rawDescOnce sync.Once

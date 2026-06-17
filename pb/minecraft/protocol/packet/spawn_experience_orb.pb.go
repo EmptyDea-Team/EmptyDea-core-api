@@ -105,7 +105,7 @@ const file_packet_spawn_experience_orb_proto_rawDesc = "" +
 	"!packet/spawn_experience_orb.proto\x12:mousetunnel.minecraft.protocol.packet.spawn_experience_orb\x1a\vmgl32.proto\x1a\x14packet_options.proto\"\x8e\x01\n" +
 	"\x12SpawnExperienceOrb\x12F\n" +
 	"\bPosition\x18\x01 \x01(\v2*.mousetunnel.minecraft.protocol.mgl32.Vec3R\bPosition\x12*\n" +
-	"\x10ExperienceAmount\x18\x02 \x01(\x05R\x10ExperienceAmount:\x04\xc0\xc8\x05BBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x10ExperienceAmount\x18\x02 \x01(\x05R\x10ExperienceAmount:\x04\xc0\xc8\x05BBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_spawn_experience_orb_proto_rawDescOnce sync.Once

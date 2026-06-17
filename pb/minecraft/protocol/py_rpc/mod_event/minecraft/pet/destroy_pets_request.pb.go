@@ -142,7 +142,7 @@ const file_py_rpc_mod_event_minecraft_pet_destroy_pets_request_proto_rawDesc = "
 	"\x0fDestroyPetsData\x18\x02 \x01(\v2c.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.destroy_pets_request.DestroyPetsDataR\x0fDestroyPetsData\"K\n" +
 	"\x0fDestroyPetsData\x12\x1c\n" +
 	"\tEntityIDs\x18\x01 \x03(\tR\tEntityIDs\x12\x1a\n" +
-	"\bPlayerID\x18\x02 \x01(\tR\bPlayerIDB_Z]github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
+	"\bPlayerID\x18\x02 \x01(\tR\bPlayerIDBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_pet_destroy_pets_request_proto_rawDescOnce sync.Once

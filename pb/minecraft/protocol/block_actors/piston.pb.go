@@ -155,7 +155,7 @@ const file_block_actors_piston_proto_rawDesc = "" +
 	"\bNewState\x18\x05 \x01(\rR\bNewState\x12\x1a\n" +
 	"\bProgress\x18\x06 \x01(\x02R\bProgress\x12\x14\n" +
 	"\x05State\x18\a \x01(\rR\x05State\x12\x16\n" +
-	"\x06Sticky\x18\b \x01(\rR\x06StickyBVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	"\x06Sticky\x18\b \x01(\rR\x06StickyB\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_piston_proto_rawDescOnce sync.Once

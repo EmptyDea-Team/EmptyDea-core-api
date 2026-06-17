@@ -457,7 +457,7 @@ const file_structure_proto_rawDesc = "" +
 	"\x11AnimationModeEnum\x12\x15\n" +
 	"\x11AnimationModeNone\x10\x00\x12\x17\n" +
 	"\x13AnimationModeLayers\x10\x01\x12\x17\n" +
-	"\x13AnimationModeBlocks\x10\x02BEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\x13AnimationModeBlocks\x10\x02BKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_structure_proto_rawDescOnce sync.Once

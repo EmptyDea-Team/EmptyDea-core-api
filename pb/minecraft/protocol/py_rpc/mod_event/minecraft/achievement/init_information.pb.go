@@ -679,7 +679,7 @@ const file_py_rpc_mod_event_minecraft_achievement_init_information_proto_rawDesc
 	"\n" +
 	"NodeReward\x12\x1c\n" +
 	"\tNamespace\x18\x01 \x01(\tR\tNamespace\x12\"\n" +
-	"\fFunctionName\x18\x02 \x01(\tR\fFunctionNameBoZmgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/achievement;achievementb\x06proto3"
+	"\fFunctionName\x18\x02 \x01(\tR\fFunctionNameBuZsgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/achievement;achievementb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_achievement_init_information_proto_rawDescOnce sync.Once

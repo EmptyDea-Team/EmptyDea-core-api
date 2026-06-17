@@ -110,7 +110,7 @@ const file_block_actors_general_actors_item_frame_block_actor_proto_rawDesc = ""
 	"BlockActor\x12A\n" +
 	"\x04Item\x18\x02 \x01(\v2-.mousetunnel.minecraft.protocol.nbt_item.ItemR\x04Item\x12&\n" +
 	"\x0eItemDropChance\x18\x03 \x01(\x02R\x0eItemDropChance\x12\"\n" +
-	"\fItemRotation\x18\x04 \x01(\x02R\fItemRotationBgZegithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/general_actors;general_actorsb\x06proto3"
+	"\fItemRotation\x18\x04 \x01(\x02R\fItemRotationBmZkgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/general_actors;general_actorsb\x06proto3"
 
 var (
 	file_block_actors_general_actors_item_frame_block_actor_proto_rawDescOnce sync.Once

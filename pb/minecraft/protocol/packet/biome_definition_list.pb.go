@@ -106,7 +106,7 @@ const file_packet_biome_definition_list_proto_rawDesc = "" +
 	"\x10BiomeDefinitions\x18\x01 \x03(\v25.mousetunnel.minecraft.protocol.biome.BiomeDefinitionR\x10BiomeDefinitions\x12\x1e\n" +
 	"\n" +
 	"StringList\x18\x02 \x03(\tR\n" +
-	"StringList:\x04\xc0\xc8\x05zBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"StringList:\x04\xc0\xc8\x05zBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_biome_definition_list_proto_rawDescOnce sync.Once

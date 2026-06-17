@@ -86,7 +86,7 @@ const file_block_actors_test_tiled_buffer_dump_results_proto_rawDesc = "" +
 	"1block_actors/test/tiled_buffer/dump_results.proto\x12Jmousetunnel.minecraft.protocol.block_actors.test.tiled_buffer.dump_results\"<\n" +
 	"\x12BlockNBTWithBuffer\x12\x0e\n" +
 	"\x02ID\x18\x01 \x01(\tR\x02ID\x12\x16\n" +
-	"\x06Buffer\x18\x02 \x01(\fR\x06BufferBhZfgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/test/tiled_buffer;tiled_bufferb\x06proto3"
+	"\x06Buffer\x18\x02 \x01(\fR\x06BufferBnZlgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/test/tiled_buffer;tiled_bufferb\x06proto3"
 
 var (
 	file_block_actors_test_tiled_buffer_dump_results_proto_rawDescOnce sync.Once

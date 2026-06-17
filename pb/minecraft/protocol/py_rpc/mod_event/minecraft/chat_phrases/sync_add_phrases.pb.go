@@ -140,7 +140,7 @@ const file_py_rpc_mod_event_minecraft_chat_phrases_sync_add_phrases_proto_rawDes
 	"\aPhrases\x18\x02 \x03(\v2t.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_phrases.sync_add_phrases.SyncAddPhrases.PhrasesEntryR\aPhrases\x1a\xb8\x01\n" +
 	"\fPhrasesEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12\x91\x01\n" +
-	"\x05value\x18\x02 \x01(\v2{.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_phrases.sync_add_phrases.SyncAddPhrasesMapUint64PhrasesDataR\x05value:\x028\x01BqZogithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_phrases;chat_phrasesb\x06proto3"
+	"\x05value\x18\x02 \x01(\v2{.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_phrases.sync_add_phrases.SyncAddPhrasesMapUint64PhrasesDataR\x05value:\x028\x01BwZugithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_phrases;chat_phrasesb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_chat_phrases_sync_add_phrases_proto_rawDescOnce sync.Once

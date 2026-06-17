@@ -24,7 +24,7 @@ var File_py_rpc_mod_event_pool_proto protoreflect.FileDescriptor
 
 const file_py_rpc_mod_event_pool_proto_rawDesc = "" +
 	"\n" +
-	"\x1bpy_rpc/mod_event/pool.proto\x124mousetunnel.minecraft.protocol.py_rpc.mod_event.poolBWZUgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event;mod_eventb\x06proto3"
+	"\x1bpy_rpc/mod_event/pool.proto\x124mousetunnel.minecraft.protocol.py_rpc.mod_event.poolB]Z[github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event;mod_eventb\x06proto3"
 
 var file_py_rpc_mod_event_pool_proto_goTypes = []any{}
 var file_py_rpc_mod_event_pool_proto_depIdxs = []int32{

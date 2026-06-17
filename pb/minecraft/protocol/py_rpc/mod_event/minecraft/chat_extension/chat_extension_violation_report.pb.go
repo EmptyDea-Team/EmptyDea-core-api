@@ -359,7 +359,7 @@ const file_py_rpc_mod_event_minecraft_chat_extension_chat_extension_violation_re
 	"SystemName\x18\x10 \x01(\tR\n" +
 	"SystemName\x12$\n" +
 	"\rSystemVersion\x18\x11 \x01(\tR\rSystemVersion\x12$\n" +
-	"\rClientVersion\x18\x12 \x01(\tR\rClientVersionBuZsgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_extension;chat_extensionb\x06proto3"
+	"\rClientVersion\x18\x12 \x01(\tR\rClientVersionB{Zygithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_extension;chat_extensionb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_chat_extension_chat_extension_violation_report_proto_rawDescOnce sync.Once

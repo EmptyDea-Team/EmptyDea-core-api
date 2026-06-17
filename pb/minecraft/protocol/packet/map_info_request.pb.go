@@ -101,7 +101,7 @@ const file_packet_map_info_request_proto_rawDesc = "" +
 	"\x1dpacket/map_info_request.proto\x126mousetunnel.minecraft.protocol.packet.map_info_request\x1a\tmap.proto\x1a\x14packet_options.proto\"\x82\x01\n" +
 	"\x0eMapInfoRequest\x12\x14\n" +
 	"\x05MapID\x18\x01 \x01(\x03R\x05MapID\x12T\n" +
-	"\fClientPixels\x18\x02 \x03(\v20.mousetunnel.minecraft.protocol.map.PixelRequestR\fClientPixels:\x04\xc0\xc8\x05DBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\fClientPixels\x18\x02 \x03(\v20.mousetunnel.minecraft.protocol.map.PixelRequestR\fClientPixels:\x04\xc0\xc8\x05DBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_map_info_request_proto_rawDescOnce sync.Once

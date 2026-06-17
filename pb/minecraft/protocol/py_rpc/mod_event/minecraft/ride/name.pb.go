@@ -24,7 +24,7 @@ var File_py_rpc_mod_event_minecraft_ride_name_proto protoreflect.FileDescriptor
 
 const file_py_rpc_mod_event_minecraft_ride_name_proto_rawDesc = "" +
 	"\n" +
-	"*py_rpc/mod_event/minecraft/ride/name.proto\x12Cmousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ride.nameBaZ_github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ride;rideb\x06proto3"
+	"*py_rpc/mod_event/minecraft/ride/name.proto\x12Cmousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ride.nameBgZegithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ride;rideb\x06proto3"
 
 var file_py_rpc_mod_event_minecraft_ride_name_proto_goTypes = []any{}
 var file_py_rpc_mod_event_minecraft_ride_name_proto_depIdxs = []int32{

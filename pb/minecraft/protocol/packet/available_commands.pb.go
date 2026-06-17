@@ -213,7 +213,7 @@ const file_packet_available_commands_proto_rawDesc = "" +
 	"\x12ChainedSubcommands\x18\x05 \x03(\v29.mousetunnel.minecraft.protocol.command.ChainedSubcommandR\x12ChainedSubcommands\x12K\n" +
 	"\bCommands\x18\x06 \x03(\v2/.mousetunnel.minecraft.protocol.command.CommandR\bCommands\x12W\n" +
 	"\fDynamicEnums\x18\a \x03(\v23.mousetunnel.minecraft.protocol.command.DynamicEnumR\fDynamicEnums\x12_\n" +
-	"\vConstraints\x18\b \x03(\v2=.mousetunnel.minecraft.protocol.command.CommandEnumConstraintR\vConstraints:\x04\xc0\xc8\x05LBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\vConstraints\x18\b \x03(\v2=.mousetunnel.minecraft.protocol.command.CommandEnumConstraintR\vConstraints:\x04\xc0\xc8\x05LBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_available_commands_proto_rawDescOnce sync.Once

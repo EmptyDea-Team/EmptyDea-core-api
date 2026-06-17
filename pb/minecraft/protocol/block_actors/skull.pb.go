@@ -120,7 +120,7 @@ const file_block_actors_skull_proto_rawDesc = "" +
 	"\x0eDoingAnimation\x18\x02 \x01(\rR\x0eDoingAnimation\x12&\n" +
 	"\x0eMouthTickCount\x18\x03 \x01(\x05R\x0eMouthTickCount\x12\x1a\n" +
 	"\bRotation\x18\x04 \x01(\x02R\bRotation\x12\x1c\n" +
-	"\tSkullType\x18\x05 \x01(\rR\tSkullTypeBVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	"\tSkullType\x18\x05 \x01(\rR\tSkullTypeB\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_skull_proto_rawDescOnce sync.Once

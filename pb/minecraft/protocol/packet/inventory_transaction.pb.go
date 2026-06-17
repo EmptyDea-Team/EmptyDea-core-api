@@ -232,7 +232,7 @@ const file_packet_inventory_transaction_proto_rawDesc = "" +
 	" InventoryTransactionTypeMismatch\x10\x01\x12#\n" +
 	"\x1fInventoryTransactionTypeUseItem\x10\x02\x12+\n" +
 	"'InventoryTransactionTypeUseItemOnEntity\x10\x03\x12'\n" +
-	"#InventoryTransactionTypeReleaseItem\x10\x04BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"#InventoryTransactionTypeReleaseItem\x10\x04BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_inventory_transaction_proto_rawDescOnce sync.Once

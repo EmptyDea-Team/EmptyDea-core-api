@@ -156,7 +156,7 @@ const file_packet_set_score_proto_rawDesc = "" +
 	"\aEntries\x18\x02 \x03(\v2:.mousetunnel.minecraft.protocol.scoreboard.ScoreboardEntryR\aEntries:\x04\xc0\xc8\x05l*N\n" +
 	"\x14ScoreboardActionEnum\x12\x1a\n" +
 	"\x16ScoreboardActionModify\x10\x00\x12\x1a\n" +
-	"\x16ScoreboardActionRemove\x10\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x16ScoreboardActionRemove\x10\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_set_score_proto_rawDescOnce sync.Once

@@ -203,7 +203,7 @@ const file_packet_player_update_entity_overrides_proto_rawDesc = "" +
 	"'PlayerUpdateEntityOverridesTypeClearAll\x10\x00\x12)\n" +
 	"%PlayerUpdateEntityOverridesTypeRemove\x10\x01\x12&\n" +
 	"\"PlayerUpdateEntityOverridesTypeInt\x10\x02\x12(\n" +
-	"$PlayerUpdateEntityOverridesTypeFloat\x10\x03BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"$PlayerUpdateEntityOverridesTypeFloat\x10\x03BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_player_update_entity_overrides_proto_rawDescOnce sync.Once

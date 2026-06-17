@@ -530,7 +530,7 @@ const file_packet_actor_event_proto_rawDesc = "" +
 	"\x13ActorEventDrinkMilk\x10N\x12\x19\n" +
 	"\x15ActorEventWetnessStop\x10O\x12 \n" +
 	"\x1cActorEventKineticDamageDealt\x10P\x12(\n" +
-	"$ActorEventHurtWithoutReceivingDamage\x10QBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"$ActorEventHurtWithoutReceivingDamage\x10QBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_actor_event_proto_rawDescOnce sync.Once

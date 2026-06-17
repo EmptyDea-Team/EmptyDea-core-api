@@ -136,7 +136,7 @@ const file_packet_inventory_content_proto_rawDesc = "" +
 	"\bWindowID\x18\x01 \x01(\rR\bWindowID\x12K\n" +
 	"\aContent\x18\x02 \x03(\v21.mousetunnel.minecraft.protocol.item.ItemInstanceR\aContent\x12Y\n" +
 	"\tContainer\x18\x03 \x01(\v2;.mousetunnel.minecraft.protocol.container.FullContainerNameR\tContainer\x12S\n" +
-	"\vStorageItem\x18\x04 \x01(\v21.mousetunnel.minecraft.protocol.item.ItemInstanceR\vStorageItem:\x04\xc0\xc8\x051BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\vStorageItem\x18\x04 \x01(\v21.mousetunnel.minecraft.protocol.item.ItemInstanceR\vStorageItem:\x04\xc0\xc8\x051BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_inventory_content_proto_rawDescOnce sync.Once

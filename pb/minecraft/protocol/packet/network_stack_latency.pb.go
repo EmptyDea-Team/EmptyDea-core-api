@@ -102,7 +102,7 @@ const file_packet_network_stack_latency_proto_rawDesc = "" +
 	"\"packet/network_stack_latency.proto\x12;mousetunnel.minecraft.protocol.packet.network_stack_latency\x1a\x14packet_options.proto\"_\n" +
 	"\x13NetworkStackLatency\x12\x1c\n" +
 	"\tTimestamp\x18\x01 \x01(\x03R\tTimestamp\x12$\n" +
-	"\rNeedsResponse\x18\x02 \x01(\bR\rNeedsResponse:\x04\xc0\xc8\x05sBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\rNeedsResponse\x18\x02 \x01(\bR\rNeedsResponse:\x04\xc0\xc8\x05sBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_network_stack_latency_proto_rawDescOnce sync.Once

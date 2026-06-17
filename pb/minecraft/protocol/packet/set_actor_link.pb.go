@@ -88,7 +88,7 @@ const file_packet_set_actor_link_proto_rawDesc = "" +
 	"\fSetActorLink\x12V\n" +
 	"\n" +
 	"EntityLink\x18\x01 \x01(\v26.mousetunnel.minecraft.protocol.entity_link.EntityLinkR\n" +
-	"EntityLink:\x04\xc0\xc8\x05)BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"EntityLink:\x04\xc0\xc8\x05)BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_set_actor_link_proto_rawDescOnce sync.Once

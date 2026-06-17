@@ -150,7 +150,7 @@ const file_py_rpc_mod_event_minecraft_pet_talk_display_feedback_event_proto_rawD
 	"\x17TalkDisplayFeedbackData\x12\x1a\n" +
 	"\bPlayerID\x18\x01 \x01(\tR\bPlayerID\x12\x16\n" +
 	"\x06Result\x18\x02 \x01(\bR\x06Result\x12\x10\n" +
-	"\x03Key\x18\x03 \x01(\tR\x03KeyB_Z]github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
+	"\x03Key\x18\x03 \x01(\tR\x03KeyBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_pet_talk_display_feedback_event_proto_rawDescOnce sync.Once

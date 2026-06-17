@@ -85,7 +85,7 @@ const file_packet_container_registry_cleanup_proto_rawDesc = "" +
 	"\n" +
 	"'packet/container_registry_cleanup.proto\x12@mousetunnel.minecraft.protocol.packet.container_registry_cleanup\x1a\x0fcontainer.proto\x1a\x14packet_options.proto\"\x8c\x01\n" +
 	"\x18ContainerRegistryCleanup\x12i\n" +
-	"\x11RemovedContainers\x18\x01 \x03(\v2;.mousetunnel.minecraft.protocol.container.FullContainerNameR\x11RemovedContainers:\x05\xc0\xc8\x05\xbd\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x11RemovedContainers\x18\x01 \x03(\v2;.mousetunnel.minecraft.protocol.container.FullContainerNameR\x11RemovedContainers:\x05\xc0\xc8\x05\xbd\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_container_registry_cleanup_proto_rawDescOnce sync.Once

@@ -141,7 +141,7 @@ const file_py_rpc_mod_event_minecraft_pet_notify_play_music_event_proto_rawDesc 
 	"\x13NotifyPlayMusicData\x18\x02 \x01(\v2j.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.notify_play_music_event.NotifyPlayMusicDataR\x13NotifyPlayMusicData\"E\n" +
 	"\x13NotifyPlayMusicData\x12\x14\n" +
 	"\x05PetID\x18\x01 \x01(\tR\x05PetID\x12\x18\n" +
-	"\aMusicID\x18\x02 \x01(\x03R\aMusicIDB_Z]github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
+	"\aMusicID\x18\x02 \x01(\x03R\aMusicIDBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_pet_notify_play_music_event_proto_rawDescOnce sync.Once

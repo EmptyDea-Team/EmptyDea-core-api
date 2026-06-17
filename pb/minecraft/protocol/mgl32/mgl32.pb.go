@@ -208,7 +208,7 @@ const file_mgl32_proto_rawDesc = "" +
 	"\x05Vec3d\x12\f\n" +
 	"\x01x\x18\x01 \x01(\x01R\x01x\x12\f\n" +
 	"\x01y\x18\x02 \x01(\x01R\x01y\x12\f\n" +
-	"\x01z\x18\x03 \x01(\x01R\x01zBHZFgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/mgl32;mgl32b\x06proto3"
+	"\x01z\x18\x03 \x01(\x01R\x01zBNZLgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/mgl32;mgl32b\x06proto3"
 
 var (
 	file_mgl32_proto_rawDescOnce sync.Once

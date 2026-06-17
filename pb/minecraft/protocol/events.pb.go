@@ -2404,7 +2404,7 @@ const file_events_proto_rawDesc = "" +
 	"'EventTypeStriderRiddenInLavaInOverworld\x10\x1c\x12$\n" +
 	" EventTypeSneakCloseToSculkSensor\x10\x1d\x12\x1f\n" +
 	"\x1bEventTypeCarefulRestoration\x10\x1e\x12\x15\n" +
-	"\x11EventTypeItemUsed\x10\x1fBEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\x11EventTypeItemUsed\x10\x1fBKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_events_proto_rawDescOnce sync.Once

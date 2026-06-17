@@ -112,7 +112,7 @@ const file_packet_update_abilities_proto_rawDesc = "" +
 	"\x0fUpdateAbilities\x12U\n" +
 	"\vAbilityData\x18\x01 \x01(\v23.mousetunnel.minecraft.protocol.ability.AbilityDataR\vAbilityData\x12(\n" +
 	"\x0fNetEaseUnknown1\x18\x02 \x01(\rR\x0fNetEaseUnknown1\x12(\n" +
-	"\x0fNetEaseUnknown2\x18\x03 \x01(\x03R\x0fNetEaseUnknown2:\x05\xc0\xc8\x05\xbb\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x0fNetEaseUnknown2\x18\x03 \x01(\x03R\x0fNetEaseUnknown2:\x05\xc0\xc8\x05\xbb\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_update_abilities_proto_rawDescOnce sync.Once

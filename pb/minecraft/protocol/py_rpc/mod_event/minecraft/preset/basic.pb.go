@@ -65,7 +65,7 @@ var File_py_rpc_mod_event_minecraft_preset_basic_proto protoreflect.FileDescript
 const file_py_rpc_mod_event_minecraft_preset_basic_proto_rawDesc = "" +
 	"\n" +
 	"-py_rpc/mod_event/minecraft/preset/basic.proto\x12Fmousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.preset.basic\"\a\n" +
-	"\x05BasicBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/preset;presetb\x06proto3"
+	"\x05BasicBkZigithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/preset;presetb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_preset_basic_proto_rawDescOnce sync.Once

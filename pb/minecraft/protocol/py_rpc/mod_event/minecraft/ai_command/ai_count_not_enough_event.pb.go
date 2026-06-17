@@ -88,7 +88,7 @@ const file_py_rpc_mod_event_minecraft_ai_command_ai_count_not_enough_event_proto
 	"\x05Basic\x18\x01 \x01(\v2Q.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.basic.BasicR\x05Basic\x12\x1e\n" +
 	"\n" +
 	"PromptType\x18\x02 \x01(\x03R\n" +
-	"PromptTypeBmZkgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_commandb\x06proto3"
+	"PromptTypeBsZqgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_commandb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_ai_command_ai_count_not_enough_event_proto_rawDescOnce sync.Once

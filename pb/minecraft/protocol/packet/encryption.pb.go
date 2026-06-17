@@ -24,7 +24,7 @@ var File_packet_encryption_proto protoreflect.FileDescriptor
 
 const file_packet_encryption_proto_rawDesc = "" +
 	"\n" +
-	"\x17packet/encryption.proto\x120mousetunnel.minecraft.protocol.packet.encryptionBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x17packet/encryption.proto\x120mousetunnel.minecraft.protocol.packet.encryptionBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var file_packet_encryption_proto_goTypes = []any{}
 var file_packet_encryption_proto_depIdxs = []int32{

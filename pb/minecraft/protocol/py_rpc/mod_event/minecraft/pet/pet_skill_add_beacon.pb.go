@@ -152,7 +152,7 @@ const file_py_rpc_mod_event_minecraft_pet_pet_skill_add_beacon_proto_rawDesc = "
 	"\rPetBeaconData\x12\x14\n" +
 	"\x05PetID\x18\x01 \x01(\tR\x05PetID\x12\x1a\n" +
 	"\bPosition\x18\x02 \x03(\x01R\bPosition\x12\x1a\n" +
-	"\bMixColor\x18\x03 \x03(\x01R\bMixColorB_Z]github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
+	"\bMixColor\x18\x03 \x03(\x01R\bMixColorBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_pet_pet_skill_add_beacon_proto_rawDescOnce sync.Once

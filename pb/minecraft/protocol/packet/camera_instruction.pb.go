@@ -588,7 +588,7 @@ const file_packet_camera_instruction_proto_rawDesc = "" +
 	"\vFieldOfView\x18\x06 \x01(\v2o.mousetunnel.minecraft.protocol.packet.camera_instruction.CameraInstructionOptionalCameraInstructionFieldOfViewR\vFieldOfView\x12\x82\x01\n" +
 	"\x06Spline\x18\a \x01(\v2j.mousetunnel.minecraft.protocol.packet.camera_instruction.CameraInstructionOptionalCameraSplineInstructionR\x06Spline\x12\x80\x01\n" +
 	"\x0eAttachToEntity\x18\b \x01(\v2X.mousetunnel.minecraft.protocol.packet.camera_instruction.CameraInstructionOptionalInt64R\x0eAttachToEntity\x12\x83\x01\n" +
-	"\x10DetachFromEntity\x18\t \x01(\v2W.mousetunnel.minecraft.protocol.packet.camera_instruction.CameraInstructionOptionalBoolR\x10DetachFromEntity:\x05\xc0\xc8\x05\xac\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x10DetachFromEntity\x18\t \x01(\v2W.mousetunnel.minecraft.protocol.packet.camera_instruction.CameraInstructionOptionalBoolR\x10DetachFromEntity:\x05\xc0\xc8\x05\xac\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_camera_instruction_proto_rawDescOnce sync.Once

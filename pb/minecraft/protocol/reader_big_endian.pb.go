@@ -24,7 +24,7 @@ var File_reader_big_endian_proto protoreflect.FileDescriptor
 
 const file_reader_big_endian_proto_rawDesc = "" +
 	"\n" +
-	"\x17reader_big_endian.proto\x120mousetunnel.minecraft.protocol.reader_big_endianBEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\x17reader_big_endian.proto\x120mousetunnel.minecraft.protocol.reader_big_endianBKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var file_reader_big_endian_proto_goTypes = []any{}
 var file_reader_big_endian_proto_depIdxs = []int32{

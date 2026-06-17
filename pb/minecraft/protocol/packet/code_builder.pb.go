@@ -99,7 +99,7 @@ const file_packet_code_builder_proto_rawDesc = "" +
 	"\x19packet/code_builder.proto\x122mousetunnel.minecraft.protocol.packet.code_builder\x1a\x14packet_options.proto\"\\\n" +
 	"\vCodeBuilder\x12\x10\n" +
 	"\x03URL\x18\x01 \x01(\tR\x03URL\x124\n" +
-	"\x15ShouldOpenCodeBuilder\x18\x02 \x01(\bR\x15ShouldOpenCodeBuilder:\x05\xc0\xc8\x05\x96\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x15ShouldOpenCodeBuilder\x18\x02 \x01(\bR\x15ShouldOpenCodeBuilder:\x05\xc0\xc8\x05\x96\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_code_builder_proto_rawDescOnce sync.Once

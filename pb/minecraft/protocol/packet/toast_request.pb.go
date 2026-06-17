@@ -97,7 +97,7 @@ const file_packet_toast_request_proto_rawDesc = "" +
 	"\x1apacket/toast_request.proto\x123mousetunnel.minecraft.protocol.packet.toast_request\x1a\x14packet_options.proto\"E\n" +
 	"\fToastRequest\x12\x14\n" +
 	"\x05Title\x18\x01 \x01(\tR\x05Title\x12\x18\n" +
-	"\aMessage\x18\x02 \x01(\tR\aMessage:\x05\xc0\xc8\x05\xba\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\aMessage\x18\x02 \x01(\tR\aMessage:\x05\xc0\xc8\x05\xba\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_toast_request_proto_rawDescOnce sync.Once

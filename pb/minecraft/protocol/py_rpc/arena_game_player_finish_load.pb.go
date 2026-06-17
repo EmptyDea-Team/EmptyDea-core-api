@@ -77,7 +77,7 @@ const file_py_rpc_arena_game_player_finish_load_proto_rawDesc = "" +
 	"\n" +
 	"*py_rpc/arena_game_player_finish_load.proto\x12Cmousetunnel.minecraft.protocol.py_rpc.arena_game_player_finish_load\x1a\x1apy_rpc/empty_payload.proto\"\x82\x01\n" +
 	"\x19ArenaGamePlayerFinishLoad\x12e\n" +
-	"\fEmptyPayload\x18\x01 \x01(\v2A.mousetunnel.minecraft.protocol.py_rpc.empty_payload.EmptyPayloadR\fEmptyPayloadBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpcb\x06proto3"
+	"\fEmptyPayload\x18\x01 \x01(\v2A.mousetunnel.minecraft.protocol.py_rpc.empty_payload.EmptyPayloadR\fEmptyPayloadBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpcb\x06proto3"
 
 var (
 	file_py_rpc_arena_game_player_finish_load_proto_rawDescOnce sync.Once

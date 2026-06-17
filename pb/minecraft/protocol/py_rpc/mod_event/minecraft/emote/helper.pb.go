@@ -24,7 +24,7 @@ var File_py_rpc_mod_event_minecraft_emote_helper_proto protoreflect.FileDescript
 
 const file_py_rpc_mod_event_minecraft_emote_helper_proto_rawDesc = "" +
 	"\n" +
-	"-py_rpc/mod_event/minecraft/emote/helper.proto\x12Fmousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.emote.helperBcZagithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/emote;emoteb\x06proto3"
+	"-py_rpc/mod_event/minecraft/emote/helper.proto\x12Fmousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.emote.helperBiZggithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/emote;emoteb\x06proto3"
 
 var file_py_rpc_mod_event_minecraft_emote_helper_proto_goTypes = []any{}
 var file_py_rpc_mod_event_minecraft_emote_helper_proto_depIdxs = []int32{

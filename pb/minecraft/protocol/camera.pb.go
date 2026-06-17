@@ -2604,7 +2604,7 @@ const file_camera_proto_rawDesc = "" +
 	"\x13EasingTypeInElastic\x10\x1d\x12\x18\n" +
 	"\x14EasingTypeOutElastic\x10\x1e\x12\x1a\n" +
 	"\x16EasingTypeInOutElastic\x10\x1f\x12\x19\n" +
-	"\x15EasingTypeInverseLerp\x10 BEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\x15EasingTypeInverseLerp\x10 BKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_camera_proto_rawDescOnce sync.Once

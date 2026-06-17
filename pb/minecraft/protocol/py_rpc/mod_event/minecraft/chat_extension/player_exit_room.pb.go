@@ -99,7 +99,7 @@ const file_py_rpc_mod_event_minecraft_chat_extension_player_exit_room_proto_rawD
 	"\x0ePlayerExitRoom\x12k\n" +
 	"\x05Basic\x18\x01 \x01(\v2U.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_extension.basic.BasicR\x05Basic\x12z\n" +
 	"\x03UID\x18\x02 \x03(\v2h.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_extension.player_add_room.NetEaseUserUIDR\x03UID\x12\x87\x01\n" +
-	"\fExitPlayerID\x18\x03 \x01(\v2c.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_extension.player_add_room.RuntimeIDR\fExitPlayerIDBuZsgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_extension;chat_extensionb\x06proto3"
+	"\fExitPlayerID\x18\x03 \x01(\v2c.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_extension.player_add_room.RuntimeIDR\fExitPlayerIDB{Zygithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_extension;chat_extensionb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_chat_extension_player_exit_room_proto_rawDescOnce sync.Once

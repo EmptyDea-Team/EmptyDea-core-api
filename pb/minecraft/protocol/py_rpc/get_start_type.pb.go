@@ -77,7 +77,7 @@ const file_py_rpc_get_start_type_proto_rawDesc = "" +
 	"\n" +
 	"\x1bpy_rpc/get_start_type.proto\x124mousetunnel.minecraft.protocol.py_rpc.get_start_type\"(\n" +
 	"\fGetStartType\x12\x18\n" +
-	"\aContent\x18\x01 \x01(\tR\aContentBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpcb\x06proto3"
+	"\aContent\x18\x01 \x01(\tR\aContentBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpcb\x06proto3"
 
 var (
 	file_py_rpc_get_start_type_proto_rawDescOnce sync.Once

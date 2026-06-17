@@ -85,7 +85,7 @@ const file_packet_change_model_bind_proto_rawDesc = "" +
 	"\x1epacket/change_model_bind.proto\x127mousetunnel.minecraft.protocol.packet.change_model_bind\x1a\x14packet_options.proto\"P\n" +
 	"\x0fChangeModelBind\x12\x1a\n" +
 	"\bUnknown1\x18\x01 \x01(\x03R\bUnknown1\x12\x1a\n" +
-	"\bUnknown2\x18\x02 \x01(\x03R\bUnknown2:\x05\xc0\xc8\x05\xce\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\bUnknown2\x18\x02 \x01(\x03R\bUnknown2:\x05\xc0\xc8\x05\xce\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_change_model_bind_proto_rawDescOnce sync.Once

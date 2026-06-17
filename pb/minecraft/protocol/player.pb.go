@@ -737,7 +737,7 @@ const file_player_proto_rawDesc = "" +
 	"\x16PlayerMovementModeEnum\x12\x1c\n" +
 	"\x18PlayerMovementModeClient\x10\x00\x12\x1c\n" +
 	"\x18PlayerMovementModeServer\x10\x01\x12&\n" +
-	"\"PlayerMovementModeServerWithRewind\x10\x02BEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\"PlayerMovementModeServerWithRewind\x10\x02BKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_player_proto_rawDescOnce sync.Once

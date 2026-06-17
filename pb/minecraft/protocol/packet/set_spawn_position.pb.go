@@ -185,7 +185,7 @@ const file_packet_set_spawn_position_proto_rawDesc = "" +
 	"\rSpawnPosition\x18\x04 \x01(\v22.mousetunnel.minecraft.protocol.block_pos.BlockPosR\rSpawnPosition:\x04\xc0\xc8\x05+*8\n" +
 	"\rSpawnTypeEnum\x12\x13\n" +
 	"\x0fSpawnTypePlayer\x10\x00\x12\x12\n" +
-	"\x0eSpawnTypeWorld\x10\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x0eSpawnTypeWorld\x10\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_set_spawn_position_proto_rawDescOnce sync.Once

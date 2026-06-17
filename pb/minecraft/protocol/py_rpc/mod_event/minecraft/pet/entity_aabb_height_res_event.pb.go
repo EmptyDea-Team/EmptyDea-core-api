@@ -162,7 +162,7 @@ const file_py_rpc_mod_event_minecraft_pet_entity_aabb_height_res_event_proto_raw
 	"EngineType\x18\x02 \x01(\tR\n" +
 	"EngineType\x12\x1a\n" +
 	"\bPlayerID\x18\x03 \x01(\tR\bPlayerID\x12\x16\n" +
-	"\x06Height\x18\x04 \x01(\x01R\x06HeightB_Z]github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
+	"\x06Height\x18\x04 \x01(\x01R\x06HeightBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_pet_entity_aabb_height_res_event_proto_rawDescOnce sync.Once

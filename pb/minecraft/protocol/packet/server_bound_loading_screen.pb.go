@@ -207,7 +207,7 @@ const file_packet_server_bound_loading_screen_proto_rawDesc = "" +
 	"\x15LoadingScreenTypeEnum\x12\x1c\n" +
 	"\x18LoadingScreenTypeUnknown\x10\x00\x12\x1a\n" +
 	"\x16LoadingScreenTypeStart\x10\x01\x12\x18\n" +
-	"\x14LoadingScreenTypeEnd\x10\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x14LoadingScreenTypeEnd\x10\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_server_bound_loading_screen_proto_rawDescOnce sync.Once

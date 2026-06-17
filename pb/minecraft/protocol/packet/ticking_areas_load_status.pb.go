@@ -81,7 +81,7 @@ const file_packet_ticking_areas_load_status_proto_rawDesc = "" +
 	"\n" +
 	"&packet/ticking_areas_load_status.proto\x12?mousetunnel.minecraft.protocol.packet.ticking_areas_load_status\x1a\x14packet_options.proto\"9\n" +
 	"\x16TickingAreasLoadStatus\x12\x18\n" +
-	"\aPreload\x18\x01 \x01(\bR\aPreload:\x05\xc0\xc8\x05\xb6\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\aPreload\x18\x01 \x01(\bR\aPreload:\x05\xc0\xc8\x05\xb6\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_ticking_areas_load_status_proto_rawDescOnce sync.Once

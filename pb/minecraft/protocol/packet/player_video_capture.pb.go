@@ -169,7 +169,7 @@ const file_packet_player_video_capture_proto_rawDesc = "" +
 	"FilePrefix:\x05\xc0\xc8\x05\xc4\x02*c\n" +
 	"\x1cPlayerVideoCaptureActionEnum\x12 \n" +
 	"\x1cPlayerVideoCaptureActionStop\x10\x00\x12!\n" +
-	"\x1dPlayerVideoCaptureActionStart\x10\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x1dPlayerVideoCaptureActionStart\x10\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_player_video_capture_proto_rawDescOnce sync.Once

@@ -220,7 +220,7 @@ const file_packet_npc_request_proto_rawDesc = "" +
 	"\x17NPCRequestActionSetName\x10\x03\x12\x1b\n" +
 	"\x17NPCRequestActionSetSkin\x10\x04\x12#\n" +
 	"\x1fNPCRequestActionSetInteractText\x10\x05\x12*\n" +
-	"&NPCRequestActionExecuteOpeningCommands\x10\x06BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"&NPCRequestActionExecuteOpeningCommands\x10\x06BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_npc_request_proto_rawDescOnce sync.Once

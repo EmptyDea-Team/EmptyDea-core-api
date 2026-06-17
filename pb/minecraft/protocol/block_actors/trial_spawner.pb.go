@@ -174,7 +174,7 @@ const file_block_actors_trial_spawner_proto_rawDesc = "" +
 	"\x0fNextMobSpawnsAt\x18\b \x01(\x03R\x0fNextMobSpawnsAt\x12$\n" +
 	"\rCooldownEndAt\x18\t \x01(\x03R\rCooldownEndAt\x12,\n" +
 	"\x11SelectedLootTable\x18\n" +
-	" \x01(\tR\x11SelectedLootTableBVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	" \x01(\tR\x11SelectedLootTableB\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_trial_spawner_proto_rawDescOnce sync.Once

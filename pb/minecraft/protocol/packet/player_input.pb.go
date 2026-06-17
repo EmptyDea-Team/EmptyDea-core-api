@@ -125,7 +125,7 @@ const file_packet_player_input_proto_rawDesc = "" +
 	"\aMotionX\x18\x01 \x01(\x02R\aMotionX\x12\x18\n" +
 	"\aMotionY\x18\x02 \x01(\x02R\aMotionY\x12\x18\n" +
 	"\aJumping\x18\x03 \x01(\bR\aJumping\x12\x1a\n" +
-	"\bSneaking\x18\x04 \x01(\bR\bSneaking:\x04\xc0\xc8\x059BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\bSneaking\x18\x04 \x01(\bR\bSneaking:\x04\xc0\xc8\x059BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_player_input_proto_rawDescOnce sync.Once

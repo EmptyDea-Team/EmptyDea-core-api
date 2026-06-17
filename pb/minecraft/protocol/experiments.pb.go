@@ -96,7 +96,7 @@ const file_experiments_proto_rawDesc = "" +
 	"\x11experiments.proto\x12*mousetunnel.minecraft.protocol.experiments\">\n" +
 	"\x0eExperimentData\x12\x12\n" +
 	"\x04Name\x18\x01 \x01(\tR\x04Name\x12\x18\n" +
-	"\aEnabled\x18\x02 \x01(\bR\aEnabledBEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\aEnabled\x18\x02 \x01(\bR\aEnabledBKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_experiments_proto_rawDescOnce sync.Once

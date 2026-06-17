@@ -99,7 +99,7 @@ const file_packet_agent_animation_proto_rawDesc = "" +
 	"\x1cpacket/agent_animation.proto\x125mousetunnel.minecraft.protocol.packet.agent_animation\x1a\x14packet_options.proto\"_\n" +
 	"\x0eAgentAnimation\x12\x1c\n" +
 	"\tAnimation\x18\x01 \x01(\rR\tAnimation\x12(\n" +
-	"\x0fEntityRuntimeID\x18\x02 \x01(\x04R\x0fEntityRuntimeID:\x05\xc0\xc8\x05\xb0\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x0fEntityRuntimeID\x18\x02 \x01(\x04R\x0fEntityRuntimeID:\x05\xc0\xc8\x05\xb0\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_agent_animation_proto_rawDescOnce sync.Once

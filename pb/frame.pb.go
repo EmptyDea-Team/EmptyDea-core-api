@@ -430,7 +430,7 @@ const file_frame_proto_rawDesc = "" +
 	"\x0eStopConnection\x12%.emptydea.frame.StopConnectionRequest\x1a&.emptydea.frame.StopConnectionResponse\x12`\n" +
 	"\x12GetConnectionState\x12).emptydea.frame.GetConnectionStateRequest\x1a\x1f.emptydea.frame.ConnectionState\x12<\n" +
 	"\x04Ping\x12\x16.google.protobuf.Empty\x1a\x1c.emptydea.frame.PingResponse\x12D\n" +
-	"\vWatchClosed\x12\x16.google.protobuf.Empty\x1a\x1b.emptydea.frame.ClosedEvent0\x01B0Z.github.com/EmptyDea-Team/EmptyDea-core-api/pb;api_pbb\x06proto3"
+	"\vWatchClosed\x12\x16.google.protobuf.Empty\x1a\x1b.emptydea.frame.ClosedEvent0\x01B6Z4github.com/EmptyDea-Team/EmptyDea-core-api/pb;api_pbb\x06proto3"
 
 var (
 	file_frame_proto_rawDescOnce sync.Once

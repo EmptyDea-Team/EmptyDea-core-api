@@ -99,7 +99,7 @@ const file_blob_cache_proto_rawDesc = "" +
 	"\x10blob_cache.proto\x12)mousetunnel.minecraft.protocol.blob_cache\"9\n" +
 	"\tCacheBlob\x12\x12\n" +
 	"\x04Hash\x18\x01 \x01(\x04R\x04Hash\x12\x18\n" +
-	"\aPayload\x18\x02 \x01(\fR\aPayloadBEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\aPayload\x18\x02 \x01(\fR\aPayloadBKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_blob_cache_proto_rawDescOnce sync.Once

@@ -142,7 +142,7 @@ const file_py_rpc_mod_event_minecraft_pet_notify_skill_friend_c2s_get_far_friend
 	"\x17FarFriendPosRequestData\x18\x02 \x01(\v2\x81\x01.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.notify_skill_friend_c2s_get_far_friend_pos.FarFriendPosRequestDataR\x17FarFriendPosRequestData\"]\n" +
 	"\x17FarFriendPosRequestData\x12(\n" +
 	"\x0fRequestPlayerID\x18\x01 \x01(\tR\x0fRequestPlayerID\x12\x18\n" +
-	"\aPlayers\x18\x02 \x03(\tR\aPlayersB_Z]github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
+	"\aPlayers\x18\x02 \x03(\tR\aPlayersBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_pet_notify_skill_friend_c2s_get_far_friend_pos_proto_rawDescOnce sync.Once

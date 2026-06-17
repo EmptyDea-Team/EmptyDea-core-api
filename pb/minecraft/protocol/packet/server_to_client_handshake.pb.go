@@ -87,7 +87,7 @@ const file_packet_server_to_client_handshake_proto_rawDesc = "" +
 	"\n" +
 	"'packet/server_to_client_handshake.proto\x12@mousetunnel.minecraft.protocol.packet.server_to_client_handshake\x1a\x14packet_options.proto\"1\n" +
 	"\x17ServerToClientHandshake\x12\x10\n" +
-	"\x03JWT\x18\x01 \x01(\fR\x03JWT:\x04\xc0\xc8\x05\x03BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x03JWT\x18\x01 \x01(\fR\x03JWT:\x04\xc0\xc8\x05\x03BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_server_to_client_handshake_proto_rawDescOnce sync.Once

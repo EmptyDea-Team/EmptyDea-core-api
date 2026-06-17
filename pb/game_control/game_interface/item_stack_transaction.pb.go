@@ -3654,7 +3654,7 @@ const file_game_control_game_interface_item_stack_transaction_proto_rawDesc = ""
 	"\x15TrimmingFromInventory\x125.emptydea.game_control.game_interface.TrimmingRequest\x1a?.emptydea.game_control.game_interface.TransactionActionResponse\x12\x94\x01\n" +
 	"\x11CommitTransaction\x12>.emptydea.game_control.game_interface.CommitTransactionRequest\x1a?.emptydea.game_control.game_interface.CommitTransactionResponse\x12\xa4\x01\n" +
 	"\x19CommitItemStackOperations\x12F.emptydea.game_control.game_interface.CommitItemStackOperationsRequest\x1a?.emptydea.game_control.game_interface.CommitTransactionResponse\x12\x97\x01\n" +
-	"\x12DiscardTransaction\x12?.emptydea.game_control.game_interface.DiscardTransactionRequest\x1a@.emptydea.game_control.game_interface.DiscardTransactionResponseBWZUgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pbb\x06proto3"
+	"\x12DiscardTransaction\x12?.emptydea.game_control.game_interface.DiscardTransactionRequest\x1a@.emptydea.game_control.game_interface.DiscardTransactionResponseB]Z[github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pbb\x06proto3"
 
 var (
 	file_game_control_game_interface_item_stack_transaction_proto_rawDescOnce sync.Once

@@ -208,7 +208,7 @@ const file_py_rpc_mod_event_minecraft_emote_play_emote_event_proto_rawDesc = "" 
 	"\tEmoteType\x18\n" +
 	" \x01(\tR\tEmoteType\x12\x1a\n" +
 	"\bRelation\x18\v \x01(\tR\bRelation\x12\x12\n" +
-	"\x04View\x18\f \x01(\x03R\x04ViewBcZagithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/emote;emoteb\x06proto3"
+	"\x04View\x18\f \x01(\x03R\x04ViewBiZggithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/emote;emoteb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_emote_play_emote_event_proto_rawDescOnce sync.Once

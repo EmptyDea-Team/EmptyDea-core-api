@@ -951,7 +951,7 @@ const file_game_control_resources_control_constant_packet_proto_rawDesc = "" +
 	"\x16GetItemNameByNetworkID\x12F.emptydea.game_control.resources_control.GetItemNameByNetworkIDRequest\x1aG.emptydea.game_control.resources_control.GetItemNameByNetworkIDResponse\x12\x97\x01\n" +
 	"\x10ListCommandItems\x12@.emptydea.game_control.resources_control.ListCommandItemsRequest\x1aA.emptydea.game_control.resources_control.ListCommandItemsResponse\x12\xa0\x01\n" +
 	"\x13ItemCanGetByCommand\x12C.emptydea.game_control.resources_control.ItemCanGetByCommandRequest\x1aD.emptydea.game_control.resources_control.ItemCanGetByCommandResponse\x12\xa9\x01\n" +
-	"\x16GetTrimRecipeNetworkID\x12F.emptydea.game_control.resources_control.GetTrimRecipeNetworkIDRequest\x1aG.emptydea.game_control.resources_control.GetTrimRecipeNetworkIDResponseB]Z[github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/resources_control;resources_control_pbb\x06proto3"
+	"\x16GetTrimRecipeNetworkID\x12F.emptydea.game_control.resources_control.GetTrimRecipeNetworkIDRequest\x1aG.emptydea.game_control.resources_control.GetTrimRecipeNetworkIDResponseBcZagithub.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/resources_control;resources_control_pbb\x06proto3"
 
 var (
 	file_game_control_resources_control_constant_packet_proto_rawDescOnce sync.Once

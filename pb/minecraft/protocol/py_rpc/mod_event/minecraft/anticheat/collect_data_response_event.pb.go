@@ -226,7 +226,7 @@ const file_py_rpc_mod_event_minecraft_anticheat_collect_data_response_event_prot
 	"\tBlockName\x18\x05 \x01(\tR\tBlockName\x12$\n" +
 	"\rBlockAuxValue\x18\x06 \x01(\x03R\rBlockAuxValue\x12&\n" +
 	"\x0eEntityPosition\x18\a \x03(\x01R\x0eEntityPosition\x12$\n" +
-	"\rEntityGravity\x18\b \x01(\x01R\rEntityGravityBkZigithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/anticheat;anticheatb\x06proto3"
+	"\rEntityGravity\x18\b \x01(\x01R\rEntityGravityBqZogithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/anticheat;anticheatb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_anticheat_collect_data_response_event_proto_rawDescOnce sync.Once

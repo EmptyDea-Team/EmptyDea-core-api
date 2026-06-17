@@ -72,7 +72,7 @@ const file_reader_proto_rawDesc = "" +
 	"\n" +
 	"\freader.proto\x12%mousetunnel.minecraft.protocol.reader\x1a\x1cgoogle/protobuf/struct.proto\x1a\n" +
 	"info.proto\"\b\n" +
-	"\x06ReaderBEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\x06ReaderBKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_reader_proto_rawDescOnce sync.Once

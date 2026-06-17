@@ -369,7 +369,7 @@ const file_game_control_resources_control_packet_proto_rawDesc = "" +
 	"\n" +
 	"SendPacket\x12:.emptydea.game_control.resources_control.SendPacketRequest\x1a;.emptydea.game_control.resources_control.SendPacketResponse\x12\x8b\x01\n" +
 	"\fEncodePacket\x12<.emptydea.game_control.resources_control.EncodePacketRequest\x1a=.emptydea.game_control.resources_control.EncodePacketResponse\x12\x8b\x01\n" +
-	"\fDecodePacket\x12<.emptydea.game_control.resources_control.DecodePacketRequest\x1a=.emptydea.game_control.resources_control.DecodePacketResponseB]Z[github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/resources_control;resources_control_pbb\x06proto3"
+	"\fDecodePacket\x12<.emptydea.game_control.resources_control.DecodePacketRequest\x1a=.emptydea.game_control.resources_control.DecodePacketResponseBcZagithub.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/resources_control;resources_control_pbb\x06proto3"
 
 var (
 	file_game_control_resources_control_packet_proto_rawDescOnce sync.Once

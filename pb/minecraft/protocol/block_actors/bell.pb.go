@@ -108,7 +108,7 @@ const file_block_actors_bell_proto_rawDesc = "" +
 	"BlockActor\x12\x1c\n" +
 	"\tDirection\x18\x02 \x01(\x05R\tDirection\x12\x18\n" +
 	"\aRinging\x18\x03 \x01(\rR\aRinging\x12\x14\n" +
-	"\x05Ticks\x18\x04 \x01(\x05R\x05TicksBVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	"\x05Ticks\x18\x04 \x01(\x05R\x05TicksB\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_bell_proto_rawDescOnce sync.Once

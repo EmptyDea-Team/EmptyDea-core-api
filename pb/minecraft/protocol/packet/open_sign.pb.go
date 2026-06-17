@@ -102,7 +102,7 @@ const file_packet_open_sign_proto_rawDesc = "" +
 	"\x16packet/open_sign.proto\x12/mousetunnel.minecraft.protocol.packet.open_sign\x1a\x0fblock_pos.proto\x1a\x14packet_options.proto\"\x7f\n" +
 	"\bOpenSign\x12N\n" +
 	"\bPosition\x18\x01 \x01(\v22.mousetunnel.minecraft.protocol.block_pos.BlockPosR\bPosition\x12\x1c\n" +
-	"\tFrontSide\x18\x02 \x01(\bR\tFrontSide:\x05\xc0\xc8\x05\xaf\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\tFrontSide\x18\x02 \x01(\bR\tFrontSide:\x05\xc0\xc8\x05\xaf\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_open_sign_proto_rawDescOnce sync.Once

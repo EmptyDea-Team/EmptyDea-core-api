@@ -260,7 +260,7 @@ const file_packet_resource_pack_data_info_proto_rawDesc = "" +
 	"\x1cResourcePackTypePersonaPiece\x10\x05\x12\x1d\n" +
 	"\x19ResourcePackTypeResources\x10\x06\x12\x19\n" +
 	"\x15ResourcePackTypeSkins\x10\a\x12!\n" +
-	"\x1dResourcePackTypeWorldTemplate\x10\bBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x1dResourcePackTypeWorldTemplate\x10\bBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_resource_pack_data_info_proto_rawDescOnce sync.Once

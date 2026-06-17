@@ -97,7 +97,7 @@ const file_block_actors_beacon_proto_rawDesc = "" +
 	"BlockActor\x18\x01 \x01(\v2R.mousetunnel.minecraft.protocol.block_actors.general_actors.block_actor.BlockActorR\n" +
 	"BlockActor\x12\x18\n" +
 	"\aPrimary\x18\x02 \x01(\x05R\aPrimary\x12\x1c\n" +
-	"\tSecondary\x18\x03 \x01(\x05R\tSecondaryBVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	"\tSecondary\x18\x03 \x01(\x05R\tSecondaryB\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_beacon_proto_rawDescOnce sync.Once

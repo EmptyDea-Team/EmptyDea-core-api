@@ -135,7 +135,7 @@ const file_packet_resource_pack_chunk_data_proto_rawDesc = "" +
 	"\n" +
 	"DataOffset\x18\x03 \x01(\x04R\n" +
 	"DataOffset\x12\x12\n" +
-	"\x04Data\x18\x04 \x01(\fR\x04Data:\x04\xc0\xc8\x05SBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x04Data\x18\x04 \x01(\fR\x04Data:\x04\xc0\xc8\x05SBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_resource_pack_chunk_data_proto_rawDescOnce sync.Once

@@ -98,7 +98,7 @@ const file_login_request_proto_rawDesc = "" +
 	"\n" +
 	"AuthResult\x12\x1c\n" +
 	"\tPublicKey\x18\x01 \x01(\fR\tPublicKey\x124\n" +
-	"\x15XBOXLiveAuthenticated\x18\x02 \x01(\bR\x15XBOXLiveAuthenticatedBHZFgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/login;loginb\x06proto3"
+	"\x15XBOXLiveAuthenticated\x18\x02 \x01(\bR\x15XBOXLiveAuthenticatedBNZLgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/login;loginb\x06proto3"
 
 var (
 	file_login_request_proto_rawDescOnce sync.Once

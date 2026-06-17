@@ -82,7 +82,7 @@ const file_packet_add_behaviour_tree_proto_rawDesc = "" +
 	"\n" +
 	"\x1fpacket/add_behaviour_tree.proto\x128mousetunnel.minecraft.protocol.packet.add_behaviour_tree\x1a\x14packet_options.proto\">\n" +
 	"\x10AddBehaviourTree\x12$\n" +
-	"\rBehaviourTree\x18\x01 \x01(\tR\rBehaviourTree:\x04\xc0\xc8\x05YBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\rBehaviourTree\x18\x01 \x01(\tR\rBehaviourTree:\x04\xc0\xc8\x05YBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_add_behaviour_tree_proto_rawDescOnce sync.Once

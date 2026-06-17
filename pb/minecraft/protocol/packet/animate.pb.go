@@ -359,7 +359,7 @@ const file_packet_animate_proto_rawDesc = "" +
 	"\x19AnimateSwingSourceUseItem\x10\x05\x12\x1f\n" +
 	"\x1bAnimateSwingSourceThrowItem\x10\x06\x12\x1e\n" +
 	"\x1aAnimateSwingSourceDropItem\x10\a\x12\x1b\n" +
-	"\x17AnimateSwingSourceEvent\x10\bBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x17AnimateSwingSourceEvent\x10\bBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_animate_proto_rawDescOnce sync.Once

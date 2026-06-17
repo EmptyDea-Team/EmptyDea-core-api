@@ -163,7 +163,7 @@ const file_packet_mob_armour_equipment_proto_rawDesc = "" +
 	"Chestplate\x12M\n" +
 	"\bLeggings\x18\x04 \x01(\v21.mousetunnel.minecraft.protocol.item.ItemInstanceR\bLeggings\x12G\n" +
 	"\x05Boots\x18\x05 \x01(\v21.mousetunnel.minecraft.protocol.item.ItemInstanceR\x05Boots\x12E\n" +
-	"\x04Body\x18\x06 \x01(\v21.mousetunnel.minecraft.protocol.item.ItemInstanceR\x04Body:\x04\xc0\xc8\x05 BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x04Body\x18\x06 \x01(\v21.mousetunnel.minecraft.protocol.item.ItemInstanceR\x04Body:\x04\xc0\xc8\x05 BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_mob_armour_equipment_proto_rawDescOnce sync.Once

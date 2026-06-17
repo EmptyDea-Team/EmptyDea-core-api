@@ -99,7 +99,7 @@ const file_py_rpc_mod_event_minecraft_emote_set_trigger_pos_from_server_proto_ra
 	"\x17SetTriggerPosFromServer\x12b\n" +
 	"\x05Basic\x18\x01 \x01(\v2L.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.emote.basic.BasicR\x05Basic\x12\x1a\n" +
 	"\bPlayerID\x18\x02 \x01(\tR\bPlayerID\x12\x1a\n" +
-	"\bPosition\x18\x03 \x03(\x01R\bPositionBcZagithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/emote;emoteb\x06proto3"
+	"\bPosition\x18\x03 \x03(\x01R\bPositionBiZggithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/emote;emoteb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_emote_set_trigger_pos_from_server_proto_rawDescOnce sync.Once

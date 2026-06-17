@@ -65,7 +65,7 @@ var File_py_rpc_mod_event_minecraft_chat_extension_basic_proto protoreflect.File
 const file_py_rpc_mod_event_minecraft_chat_extension_basic_proto_rawDesc = "" +
 	"\n" +
 	"5py_rpc/mod_event/minecraft/chat_extension/basic.proto\x12Nmousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_extension.basic\"\a\n" +
-	"\x05BasicBuZsgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_extension;chat_extensionb\x06proto3"
+	"\x05BasicB{Zygithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_extension;chat_extensionb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_chat_extension_basic_proto_rawDescOnce sync.Once

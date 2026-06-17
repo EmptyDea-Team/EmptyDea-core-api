@@ -90,7 +90,7 @@ const file_packet_game_rules_changed_proto_rawDesc = "" +
 	"\n" +
 	"\x1fpacket/game_rules_changed.proto\x128mousetunnel.minecraft.protocol.packet.game_rules_changed\x1a\x0fgame_rule.proto\x1a\x14packet_options.proto\"j\n" +
 	"\x10GameRulesChanged\x12P\n" +
-	"\tGameRules\x18\x01 \x03(\v22.mousetunnel.minecraft.protocol.game_rule.GameRuleR\tGameRules:\x04\xc0\xc8\x05HBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\tGameRules\x18\x01 \x03(\v22.mousetunnel.minecraft.protocol.game_rule.GameRuleR\tGameRules:\x04\xc0\xc8\x05HBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_game_rules_changed_proto_rawDescOnce sync.Once

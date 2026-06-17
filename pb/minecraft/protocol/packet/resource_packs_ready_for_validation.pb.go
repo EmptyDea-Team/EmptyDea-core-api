@@ -68,7 +68,7 @@ var File_packet_resource_packs_ready_for_validation_proto protoreflect.FileDescr
 const file_packet_resource_packs_ready_for_validation_proto_rawDesc = "" +
 	"\n" +
 	"0packet/resource_packs_ready_for_validation.proto\x12Imousetunnel.minecraft.protocol.packet.resource_packs_ready_for_validation\x1a\x14packet_options.proto\"(\n" +
-	"\x1fResourcePacksReadyForValidation:\x05\xc0\xc8\x05\xd4\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x1fResourcePacksReadyForValidation:\x05\xc0\xc8\x05\xd4\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_resource_packs_ready_for_validation_proto_rawDescOnce sync.Once

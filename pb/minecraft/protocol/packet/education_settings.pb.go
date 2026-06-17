@@ -384,7 +384,7 @@ const file_packet_education_settings_proto_rawDesc = "" +
 	"\vOverrideURI\x18\b \x01(\v2Y.mousetunnel.minecraft.protocol.packet.education_settings.EducationSettingsOptionalStringR\vOverrideURI\x12\x18\n" +
 	"\aHasQuiz\x18\t \x01(\bR\aHasQuiz\x12\xa4\x01\n" +
 	"\x14ExternalLinkSettings\x18\n" +
-	" \x01(\v2p.mousetunnel.minecraft.protocol.packet.education_settings.EducationSettingsOptionalEducationExternalLinkSettingsR\x14ExternalLinkSettings:\x05\xc0\xc8\x05\x89\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	" \x01(\v2p.mousetunnel.minecraft.protocol.packet.education_settings.EducationSettingsOptionalEducationExternalLinkSettingsR\x14ExternalLinkSettings:\x05\xc0\xc8\x05\x89\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_education_settings_proto_rawDescOnce sync.Once

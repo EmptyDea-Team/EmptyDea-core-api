@@ -254,7 +254,7 @@ const file_packet_change_dimension_proto_rawDesc = "" +
 	"\rDimensionEnum\x12\x16\n" +
 	"\x12DimensionOverworld\x10\x00\x12\x13\n" +
 	"\x0fDimensionNether\x10\x01\x12\x10\n" +
-	"\fDimensionEnd\x10\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\fDimensionEnd\x10\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_change_dimension_proto_rawDescOnce sync.Once

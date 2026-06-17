@@ -154,7 +154,7 @@ const file_packet_change_mob_property_proto_rawDesc = "" +
 	"\bIntValue\x18\x05 \x01(\x05R\bIntValue\x12\x1e\n" +
 	"\n" +
 	"FloatValue\x18\x06 \x01(\x02R\n" +
-	"FloatValue:\x05\xc0\xc8\x05\xb4\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"FloatValue:\x05\xc0\xc8\x05\xb4\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_change_mob_property_proto_rawDescOnce sync.Once

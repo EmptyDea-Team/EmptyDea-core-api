@@ -110,7 +110,7 @@ const file_block_actors_nether_reactor_proto_rawDesc = "" +
 	"BlockActor\x12 \n" +
 	"\vHasFinished\x18\x02 \x01(\rR\vHasFinished\x12$\n" +
 	"\rIsInitialized\x18\x03 \x01(\rR\rIsInitialized\x12\x1a\n" +
-	"\bProgress\x18\x04 \x01(\x05R\bProgressBVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	"\bProgress\x18\x04 \x01(\x05R\bProgressB\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_nether_reactor_proto_rawDescOnce sync.Once

@@ -330,7 +330,7 @@ const file_enchant_proto_rawDesc = "" +
 	"\x05Level\x18\x02 \x01(\rR\x05Level\x12\x1e\n" +
 	"\n" +
 	"ModEnchant\x18\x03 \x01(\tR\n" +
-	"ModEnchantBEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"ModEnchantBKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_enchant_proto_rawDescOnce sync.Once

@@ -97,7 +97,7 @@ const file_block_actors_fields_chemistry_table_item_proto_rawDesc = "" +
 	"\x12ChemistryTableItem\x12\x16\n" +
 	"\x06ItemId\x18\x01 \x01(\x05R\x06ItemId\x12\x18\n" +
 	"\aItemAux\x18\x02 \x01(\x05R\aItemAux\x12\x1c\n" +
-	"\tItemStack\x18\x03 \x01(\rR\tItemStackBWZUgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/fields;fieldsb\x06proto3"
+	"\tItemStack\x18\x03 \x01(\rR\tItemStackB]Z[github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/fields;fieldsb\x06proto3"
 
 var (
 	file_block_actors_fields_chemistry_table_item_proto_rawDescOnce sync.Once

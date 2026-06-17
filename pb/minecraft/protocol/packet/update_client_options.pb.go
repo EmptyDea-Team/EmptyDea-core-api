@@ -265,7 +265,7 @@ const file_packet_update_client_options_proto_rawDesc = "" +
 	"\x12GraphicsModeSimple\x10\x00\x12\x15\n" +
 	"\x11GraphicsModeFancy\x10\x01\x12\x18\n" +
 	"\x14GraphicsModeAdvanced\x10\x02\x12\x19\n" +
-	"\x15GraphicsModeRayTraced\x10\x03BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x15GraphicsModeRayTraced\x10\x03BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_update_client_options_proto_rawDescOnce sync.Once

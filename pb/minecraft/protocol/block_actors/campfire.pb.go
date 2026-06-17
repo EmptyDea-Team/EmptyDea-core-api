@@ -162,7 +162,7 @@ const file_block_actors_campfire_proto_rawDesc = "" +
 	"\tItemTime1\x18\x06 \x01(\x05R\tItemTime1\x12\x1c\n" +
 	"\tItemTime2\x18\a \x01(\x05R\tItemTime2\x12\x1c\n" +
 	"\tItemTime3\x18\b \x01(\x05R\tItemTime3\x12\x1c\n" +
-	"\tItemTime4\x18\t \x01(\x05R\tItemTime4BVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	"\tItemTime4\x18\t \x01(\x05R\tItemTime4B\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_campfire_proto_rawDescOnce sync.Once

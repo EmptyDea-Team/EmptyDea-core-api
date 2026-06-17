@@ -102,7 +102,7 @@ const file_packet_script_custom_event_proto_rawDesc = "" +
 	" packet/script_custom_event.proto\x129mousetunnel.minecraft.protocol.packet.script_custom_event\x1a\x14packet_options.proto\"U\n" +
 	"\x11ScriptCustomEvent\x12\x1c\n" +
 	"\tEventName\x18\x01 \x01(\tR\tEventName\x12\x1c\n" +
-	"\tEventData\x18\x02 \x01(\fR\tEventData:\x04\xc0\xc8\x05uBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\tEventData\x18\x02 \x01(\fR\tEventData:\x04\xc0\xc8\x05uBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_script_custom_event_proto_rawDescOnce sync.Once

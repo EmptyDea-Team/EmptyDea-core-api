@@ -652,7 +652,7 @@ const file_item_descriptor_proto_rawDesc = "" +
 	"\x14ItemDescriptorMoLang\x10\x02\x12\x19\n" +
 	"\x15ItemDescriptorItemTag\x10\x03\x12\x1a\n" +
 	"\x16ItemDescriptorDeferred\x10\x04\x12\x1e\n" +
-	"\x1aItemDescriptorComplexAlias\x10\x05BEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\x1aItemDescriptorComplexAlias\x10\x05BKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_item_descriptor_proto_rawDescOnce sync.Once

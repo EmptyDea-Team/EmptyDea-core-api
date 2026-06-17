@@ -178,7 +178,7 @@ const file_packet_add_volume_entity_proto_rawDesc = "" +
 	"\rEngineVersion\x18\a \x01(\tR\rEngineVersion\x1aY\n" +
 	"\x13EntityMetadataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12,\n" +
-	"\x05value\x18\x02 \x01(\v2\x16.google.protobuf.ValueR\x05value:\x028\x01:\x05\xc0\xc8\x05\xa6\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x05value\x18\x02 \x01(\v2\x16.google.protobuf.ValueR\x05value:\x028\x01:\x05\xc0\xc8\x05\xa6\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_add_volume_entity_proto_rawDescOnce sync.Once

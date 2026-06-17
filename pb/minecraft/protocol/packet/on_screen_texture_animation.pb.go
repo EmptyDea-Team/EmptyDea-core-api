@@ -84,7 +84,7 @@ const file_packet_on_screen_texture_animation_proto_rawDesc = "" +
 	"\n" +
 	"(packet/on_screen_texture_animation.proto\x12Amousetunnel.minecraft.protocol.packet.on_screen_texture_animation\x1a\x14packet_options.proto\"G\n" +
 	"\x18OnScreenTextureAnimation\x12$\n" +
-	"\rAnimationType\x18\x01 \x01(\rR\rAnimationType:\x05\xc0\xc8\x05\x82\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\rAnimationType\x18\x01 \x01(\rR\rAnimationType:\x05\xc0\xc8\x05\x82\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_on_screen_texture_animation_proto_rawDescOnce sync.Once

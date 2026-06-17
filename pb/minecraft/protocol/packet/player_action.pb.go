@@ -150,7 +150,7 @@ const file_packet_player_action_proto_rawDesc = "" +
 	"ActionType\x12X\n" +
 	"\rBlockPosition\x18\x03 \x01(\v22.mousetunnel.minecraft.protocol.block_pos.BlockPosR\rBlockPosition\x12Z\n" +
 	"\x0eResultPosition\x18\x04 \x01(\v22.mousetunnel.minecraft.protocol.block_pos.BlockPosR\x0eResultPosition\x12\x1c\n" +
-	"\tBlockFace\x18\x05 \x01(\x05R\tBlockFace:\x04\xc0\xc8\x05$BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\tBlockFace\x18\x05 \x01(\x05R\tBlockFace:\x04\xc0\xc8\x05$BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_player_action_proto_rawDescOnce sync.Once

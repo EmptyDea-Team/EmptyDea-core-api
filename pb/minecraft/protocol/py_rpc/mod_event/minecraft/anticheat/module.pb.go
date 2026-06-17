@@ -65,7 +65,7 @@ var File_py_rpc_mod_event_minecraft_anticheat_module_proto protoreflect.FileDesc
 const file_py_rpc_mod_event_minecraft_anticheat_module_proto_rawDesc = "" +
 	"\n" +
 	"1py_rpc/mod_event/minecraft/anticheat/module.proto\x12Jmousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.anticheat.module\"\b\n" +
-	"\x06ModuleBkZigithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/anticheat;anticheatb\x06proto3"
+	"\x06ModuleBqZogithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/anticheat;anticheatb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_anticheat_module_proto_rawDescOnce sync.Once

@@ -165,7 +165,7 @@ const file_packet_player_location_proto_rawDesc = "" +
 	"\bPosition\x18\x03 \x01(\v2*.mousetunnel.minecraft.protocol.mgl32.Vec3R\bPosition:\x05\xc0\xc8\x05\xc6\x02*W\n" +
 	"\x16PlayerLocationTypeEnum\x12!\n" +
 	"\x1dPlayerLocationTypeCoordinates\x10\x00\x12\x1a\n" +
-	"\x16PlayerLocationTypeHide\x10\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x16PlayerLocationTypeHide\x10\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_player_location_proto_rawDescOnce sync.Once

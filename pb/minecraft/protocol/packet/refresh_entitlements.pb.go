@@ -67,7 +67,7 @@ var File_packet_refresh_entitlements_proto protoreflect.FileDescriptor
 const file_packet_refresh_entitlements_proto_rawDesc = "" +
 	"\n" +
 	"!packet/refresh_entitlements.proto\x12:mousetunnel.minecraft.protocol.packet.refresh_entitlements\x1a\x14packet_options.proto\"\x1c\n" +
-	"\x13RefreshEntitlements:\x05\xc0\xc8\x05\xb1\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x13RefreshEntitlements:\x05\xc0\xc8\x05\xb1\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_refresh_entitlements_proto_rawDescOnce sync.Once

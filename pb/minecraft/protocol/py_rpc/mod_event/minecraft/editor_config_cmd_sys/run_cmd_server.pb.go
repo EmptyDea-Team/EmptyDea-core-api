@@ -100,7 +100,7 @@ const file_py_rpc_mod_event_minecraft_editor_config_cmd_sys_run_cmd_server_proto
 	"\fRunCmdServer\x12r\n" +
 	"\x05Basic\x18\x01 \x01(\v2\\.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.editor_config_cmd_sys.basic.BasicR\x05Basic\x12\x16\n" +
 	"\x06Script\x18\x02 \x01(\tR\x06Script\x12*\n" +
-	"\x04Args\x18\x03 \x03(\v2\x16.google.protobuf.ValueR\x04ArgsB\x84\x01Z\x81\x01github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/editor_config_cmd_sys;editor_config_cmd_sysb\x06proto3"
+	"\x04Args\x18\x03 \x03(\v2\x16.google.protobuf.ValueR\x04ArgsB\x8a\x01Z\x87\x01github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/editor_config_cmd_sys;editor_config_cmd_sysb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_editor_config_cmd_sys_run_cmd_server_proto_rawDescOnce sync.Once

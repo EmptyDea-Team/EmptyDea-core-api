@@ -140,7 +140,7 @@ const file_packet_py_rpc_proto_rawDesc = "" +
 	"\x16PyRpcOperationTypeEnum\x12&\n" +
 	"\"PYRPCOPERATIONTYPEENUM_UNSPECIFIED\x10\x00\x12\x1d\n" +
 	"\x16PyRpcOperationTypeSend\x10\xae\xc7\xec.\x12\x1d\n" +
-	"\x16PyRpcOperationTypeRecv\x10\x88\xa8\xd3\x04BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x16PyRpcOperationTypeRecv\x10\x88\xa8\xd3\x04BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_py_rpc_proto_rawDescOnce sync.Once

@@ -32,8 +32,8 @@ const (
 //
 // ItemTransitionService 是基于 ResourcesWrapper 和 ItemStackOperation 实现的物品状态转移。
 type ItemTransitionServiceClient interface {
-	// Transition 将库存 srcWindowID 处 src 所指示的物品状
-	// 态转移到库存 dstWindowID 中，并且指定最终状态是 dst。
+	// Transition 将库存 SrcWindowName 处 src 所指示的物品状
+	// 态转移到库存 DstWindowName 中，并且指定最终状态是 dst。
 	//
 	// 应当保证 dst 的物品可以完全从 src 中获得，
 	// 并且 src 和 dst 均不包括空气。
@@ -164,8 +164,8 @@ func (c *itemTransitionServiceClient) TransitionToInventory(ctx context.Context,
 //
 // ItemTransitionService 是基于 ResourcesWrapper 和 ItemStackOperation 实现的物品状态转移。
 type ItemTransitionServiceServer interface {
-	// Transition 将库存 srcWindowID 处 src 所指示的物品状
-	// 态转移到库存 dstWindowID 中，并且指定最终状态是 dst。
+	// Transition 将库存 SrcWindowName 处 src 所指示的物品状
+	// 态转移到库存 DstWindowName 中，并且指定最终状态是 dst。
 	//
 	// 应当保证 dst 的物品可以完全从 src 中获得，
 	// 并且 src 和 dst 均不包括空气。

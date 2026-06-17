@@ -99,7 +99,7 @@ const file_packet_camera_proto_rawDesc = "" +
 	"\x13packet/camera.proto\x12,mousetunnel.minecraft.protocol.packet.camera\x1a\x14packet_options.proto\"v\n" +
 	"\x06Camera\x122\n" +
 	"\x14CameraEntityUniqueID\x18\x01 \x01(\x03R\x14CameraEntityUniqueID\x122\n" +
-	"\x14TargetPlayerUniqueID\x18\x02 \x01(\x03R\x14TargetPlayerUniqueID:\x04\xc0\xc8\x05IBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x14TargetPlayerUniqueID\x18\x02 \x01(\x03R\x14TargetPlayerUniqueID:\x04\xc0\xc8\x05IBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_camera_proto_rawDescOnce sync.Once

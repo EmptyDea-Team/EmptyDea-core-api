@@ -150,7 +150,7 @@ const file_py_rpc_mod_event_minecraft_ai_command_types_proto_rawDesc = "" +
 	"\rLocateTPFront\x18\x02 \x01(\tR\rLocateTPFront\x12\"\n" +
 	"\fLocateTPPost\x18\x03 \x01(\tR\fLocateTPPost\"\x1f\n" +
 	"\aAIModel\x12\x14\n" +
-	"\x05Value\x18\x01 \x01(\x03R\x05ValueBmZkgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_commandb\x06proto3"
+	"\x05Value\x18\x01 \x01(\x03R\x05ValueBsZqgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_commandb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_ai_command_types_proto_rawDescOnce sync.Once

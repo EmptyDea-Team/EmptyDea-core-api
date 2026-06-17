@@ -86,7 +86,7 @@ const file_py_rpc_mod_event_minecraft_ride_horse_dismount_event_proto_rawDesc = 
 	":py_rpc/mod_event/minecraft/ride/horse_dismount_event.proto\x12Smousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ride.horse_dismount_event\x1a+py_rpc/mod_event/minecraft/ride/basic.proto\"\x93\x01\n" +
 	"\x12HorseDismountEvent\x12a\n" +
 	"\x05Basic\x18\x01 \x01(\v2K.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ride.basic.BasicR\x05Basic\x12\x1a\n" +
-	"\bPlayerID\x18\x02 \x01(\tR\bPlayerIDBaZ_github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ride;rideb\x06proto3"
+	"\bPlayerID\x18\x02 \x01(\tR\bPlayerIDBgZegithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ride;rideb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_ride_horse_dismount_event_proto_rawDescOnce sync.Once

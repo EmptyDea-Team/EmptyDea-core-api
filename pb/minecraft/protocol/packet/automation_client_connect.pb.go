@@ -85,7 +85,7 @@ const file_packet_automation_client_connect_proto_rawDesc = "" +
 	"\n" +
 	"&packet/automation_client_connect.proto\x12?mousetunnel.minecraft.protocol.packet.automation_client_connect\x1a\x14packet_options.proto\"=\n" +
 	"\x17AutomationClientConnect\x12\x1c\n" +
-	"\tServerURI\x18\x01 \x01(\tR\tServerURI:\x04\xc0\xc8\x05_BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\tServerURI\x18\x01 \x01(\tR\tServerURI:\x04\xc0\xc8\x05_BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_automation_client_connect_proto_rawDescOnce sync.Once

@@ -83,7 +83,7 @@ const file_packet_set_commands_enabled_proto_rawDesc = "" +
 	"\n" +
 	"!packet/set_commands_enabled.proto\x12:mousetunnel.minecraft.protocol.packet.set_commands_enabled\x1a\x14packet_options.proto\"4\n" +
 	"\x12SetCommandsEnabled\x12\x18\n" +
-	"\aEnabled\x18\x01 \x01(\bR\aEnabled:\x04\xc0\xc8\x05;BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\aEnabled\x18\x01 \x01(\bR\aEnabled:\x04\xc0\xc8\x05;BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_set_commands_enabled_proto_rawDescOnce sync.Once

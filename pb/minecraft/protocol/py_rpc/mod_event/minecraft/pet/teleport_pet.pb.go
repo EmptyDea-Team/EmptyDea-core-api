@@ -228,7 +228,7 @@ const file_py_rpc_mod_event_minecraft_pet_teleport_pet_proto_rawDesc = "" +
 	"\aRespawn\x18\t \x01(\bR\aRespawn\x12\x1a\n" +
 	"\bEntityID\x18\n" +
 	" \x01(\tR\bEntityID\x12\x12\n" +
-	"\x04Code\x18\v \x01(\x03R\x04CodeB_Z]github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
+	"\x04Code\x18\v \x01(\x03R\x04CodeBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_pet_teleport_pet_proto_rawDescOnce sync.Once

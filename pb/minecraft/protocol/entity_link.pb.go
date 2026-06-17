@@ -225,7 +225,7 @@ const file_entity_link_proto_rawDesc = "" +
 	"\x0eEntityLinkEnum\x12\x14\n" +
 	"\x10EntityLinkRemove\x10\x00\x12\x13\n" +
 	"\x0fEntityLinkRider\x10\x01\x12\x17\n" +
-	"\x13EntityLinkPassenger\x10\x02BEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\x13EntityLinkPassenger\x10\x02BKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_entity_link_proto_rawDescOnce sync.Once

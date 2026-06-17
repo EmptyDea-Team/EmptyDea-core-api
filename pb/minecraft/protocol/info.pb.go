@@ -93,7 +93,7 @@ const file_info_proto_rawDesc = "" +
 	"\aProfile\x12\x1a\n" +
 	"\bProtocol\x18\x01 \x01(\x05R\bProtocol\x12\x18\n" +
 	"\aVersion\x18\x02 \x01(\tR\aVersion\x12\x18\n" +
-	"\aNetEase\x18\x03 \x01(\bR\aNetEaseBEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\aNetEase\x18\x03 \x01(\bR\aNetEaseBKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_info_proto_rawDescOnce sync.Once

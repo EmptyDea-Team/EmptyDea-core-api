@@ -100,7 +100,7 @@ const file_block_actors_fields_beehive_occupants_proto_rawDesc = "" +
 	"\x0fTicksLeftToStay\x18\x03 \x01(\x05R\x0fTicksLeftToStay\x1aS\n" +
 	"\rSaveDataEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12,\n" +
-	"\x05value\x18\x02 \x01(\v2\x16.google.protobuf.ValueR\x05value:\x028\x01BWZUgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/fields;fieldsb\x06proto3"
+	"\x05value\x18\x02 \x01(\v2\x16.google.protobuf.ValueR\x05value:\x028\x01B]Z[github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/fields;fieldsb\x06proto3"
 
 var (
 	file_block_actors_fields_beehive_occupants_proto_rawDescOnce sync.Once

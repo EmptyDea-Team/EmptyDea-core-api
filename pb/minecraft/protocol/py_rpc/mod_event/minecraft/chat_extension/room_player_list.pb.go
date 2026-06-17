@@ -98,7 +98,7 @@ const file_py_rpc_mod_event_minecraft_chat_extension_room_player_list_proto_rawD
 	"\x0eRoomPlayerList\x12k\n" +
 	"\x05Basic\x18\x01 \x01(\v2U.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_extension.basic.BasicR\x05Basic\x12\x8d\x01\n" +
 	"\rPlayerAddRoom\x18\x02 \x01(\v2g.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_extension.player_add_room.PlayerAddRoomR\rPlayerAddRoom\x12*\n" +
-	"\x10ShowSocialNearby\x18\x03 \x01(\bR\x10ShowSocialNearbyBuZsgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_extension;chat_extensionb\x06proto3"
+	"\x10ShowSocialNearby\x18\x03 \x01(\bR\x10ShowSocialNearbyB{Zygithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_extension;chat_extensionb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_chat_extension_room_player_list_proto_rawDescOnce sync.Once

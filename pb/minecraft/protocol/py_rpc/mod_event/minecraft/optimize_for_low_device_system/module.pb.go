@@ -65,7 +65,7 @@ var File_py_rpc_mod_event_minecraft_optimize_for_low_device_system_module_proto 
 const file_py_rpc_mod_event_minecraft_optimize_for_low_device_system_module_proto_rawDesc = "" +
 	"\n" +
 	"Fpy_rpc/mod_event/minecraft/optimize_for_low_device_system/module.proto\x12_mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.optimize_for_low_device_system.module\"\b\n" +
-	"\x06ModuleB\x96\x01Z\x93\x01github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/optimize_for_low_device_system;optimize_for_low_device_systemb\x06proto3"
+	"\x06ModuleB\x9c\x01Z\x99\x01github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/optimize_for_low_device_system;optimize_for_low_device_systemb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_optimize_for_low_device_system_module_proto_rawDescOnce sync.Once

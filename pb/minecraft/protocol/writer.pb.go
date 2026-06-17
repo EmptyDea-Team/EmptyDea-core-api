@@ -73,7 +73,7 @@ const file_writer_proto_rawDesc = "" +
 	"\n" +
 	"\fwriter.proto\x12%mousetunnel.minecraft.protocol.writer\x1a\x1cgoogle/protobuf/struct.proto\x1a\n" +
 	"info.proto\"\b\n" +
-	"\x06WriterBEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\x06WriterBKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_writer_proto_rawDescOnce sync.Once

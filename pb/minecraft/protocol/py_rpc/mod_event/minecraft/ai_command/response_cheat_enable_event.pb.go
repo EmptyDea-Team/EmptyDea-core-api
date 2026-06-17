@@ -86,7 +86,7 @@ const file_py_rpc_mod_event_minecraft_ai_command_response_cheat_enable_event_pro
 	"Gpy_rpc/mod_event/minecraft/ai_command/response_cheat_enable_event.proto\x12`mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.response_cheat_enable_event\x1a1py_rpc/mod_event/minecraft/ai_command/basic.proto\"\x9b\x01\n" +
 	"\x18ResponseCheatEnableEvent\x12g\n" +
 	"\x05Basic\x18\x01 \x01(\v2Q.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.basic.BasicR\x05Basic\x12\x16\n" +
-	"\x06Enable\x18\x02 \x01(\bR\x06EnableBmZkgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_commandb\x06proto3"
+	"\x06Enable\x18\x02 \x01(\bR\x06EnableBsZqgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_commandb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_ai_command_response_cheat_enable_event_proto_rawDescOnce sync.Once

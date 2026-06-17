@@ -113,7 +113,7 @@ const file_packet_voxel_shapes_proto_rawDesc = "" +
 	"\vVoxelShapes\x12H\n" +
 	"\x06Shapes\x18\x01 \x03(\v20.mousetunnel.minecraft.protocol.voxel.VoxelShapeR\x06Shapes\x12S\n" +
 	"\aNameMap\x18\x02 \x03(\v29.mousetunnel.minecraft.protocol.voxel.VoxelShapeNameEntryR\aNameMap\x12*\n" +
-	"\x10CustomShapeCount\x18\x03 \x01(\rR\x10CustomShapeCount:\x05\xc0\xc8\x05\xd1\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x10CustomShapeCount\x18\x03 \x01(\rR\x10CustomShapeCount:\x05\xc0\xc8\x05\xd1\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_voxel_shapes_proto_rawDescOnce sync.Once

@@ -81,7 +81,7 @@ const file_packet_rider_jump_proto_rawDesc = "" +
 	"\n" +
 	"\x17packet/rider_jump.proto\x120mousetunnel.minecraft.protocol.packet.rider_jump\x1a\x14packet_options.proto\"5\n" +
 	"\tRiderJump\x12\"\n" +
-	"\fJumpStrength\x18\x01 \x01(\x05R\fJumpStrength:\x04\xc0\xc8\x05\x14BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\fJumpStrength\x18\x01 \x01(\x05R\fJumpStrength:\x04\xc0\xc8\x05\x14BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_rider_jump_proto_rawDescOnce sync.Once

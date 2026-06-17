@@ -85,7 +85,7 @@ const file_packet_chunk_radius_updated_proto_rawDesc = "" +
 	"\n" +
 	"!packet/chunk_radius_updated.proto\x12:mousetunnel.minecraft.protocol.packet.chunk_radius_updated\x1a\x14packet_options.proto\"<\n" +
 	"\x12ChunkRadiusUpdated\x12 \n" +
-	"\vChunkRadius\x18\x01 \x01(\x05R\vChunkRadius:\x04\xc0\xc8\x05FBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\vChunkRadius\x18\x01 \x01(\x05R\vChunkRadius:\x04\xc0\xc8\x05FBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_chunk_radius_updated_proto_rawDescOnce sync.Once

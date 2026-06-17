@@ -194,7 +194,7 @@ const file_packet_set_display_objective_proto_rawDesc = "" +
 	"\tSortOrder\x18\x05 \x01(\x05R\tSortOrder:\x04\xc0\xc8\x05k*^\n" +
 	"\x17ScoreboardSortOrderEnum\x12 \n" +
 	"\x1cScoreboardSortOrderAscending\x10\x00\x12!\n" +
-	"\x1dScoreboardSortOrderDescending\x10\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x1dScoreboardSortOrderDescending\x10\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_set_display_objective_proto_rawDescOnce sync.Once

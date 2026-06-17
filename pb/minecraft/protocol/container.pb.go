@@ -612,7 +612,7 @@ const file_container_proto_rawDesc = "" +
 	"\x1aContainerTypeSmithingTable\x10!\x12\x1a\n" +
 	"\x16ContainerTypeChestBoat\x10\"\x12\x1d\n" +
 	"\x19ContainerTypeDecoratedPot\x10#\x12\x18\n" +
-	"\x14ContainerTypeCrafter\x10$\x1a\x02\x10\x01BEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\x14ContainerTypeCrafter\x10$\x1a\x02\x10\x01BKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_container_proto_rawDescOnce sync.Once

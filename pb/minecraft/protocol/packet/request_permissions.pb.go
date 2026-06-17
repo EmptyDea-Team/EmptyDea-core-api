@@ -115,7 +115,7 @@ const file_packet_request_permissions_proto_rawDesc = "" +
 	"\x12RequestPermissions\x12&\n" +
 	"\x0eEntityUniqueID\x18\x01 \x01(\x03R\x0eEntityUniqueID\x12(\n" +
 	"\x0fPermissionLevel\x18\x02 \x01(\x05R\x0fPermissionLevel\x122\n" +
-	"\x14RequestedPermissions\x18\x03 \x01(\rR\x14RequestedPermissions:\x05\xc0\xc8\x05\xb9\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x14RequestedPermissions\x18\x03 \x01(\rR\x14RequestedPermissions:\x05\xc0\xc8\x05\xb9\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_request_permissions_proto_rawDescOnce sync.Once

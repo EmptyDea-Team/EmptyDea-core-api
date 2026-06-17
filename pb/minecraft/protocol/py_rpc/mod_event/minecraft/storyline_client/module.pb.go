@@ -65,7 +65,7 @@ var File_py_rpc_mod_event_minecraft_storyline_client_module_proto protoreflect.F
 const file_py_rpc_mod_event_minecraft_storyline_client_module_proto_rawDesc = "" +
 	"\n" +
 	"8py_rpc/mod_event/minecraft/storyline_client/module.proto\x12Qmousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.storyline_client.module\"\b\n" +
-	"\x06ModuleByZwgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/storyline_client;storyline_clientb\x06proto3"
+	"\x06ModuleB\x7fZ}github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/storyline_client;storyline_clientb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_storyline_client_module_proto_rawDescOnce sync.Once

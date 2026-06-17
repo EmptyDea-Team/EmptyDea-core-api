@@ -229,7 +229,7 @@ const file_game_control_resources_control_container_proto_rawDesc = "" +
 	"\vContainerID\x18\x03 \x01(\rR\vContainerID2\xd1\x02\n" +
 	"\x18ContainerResourceService\x12\x9a\x01\n" +
 	"\x11GetContainerState\x12A.emptydea.game_control.resources_control.GetContainerStateRequest\x1aB.emptydea.game_control.resources_control.GetContainerStateResponse\x12\x97\x01\n" +
-	"\x10GetContainerData\x12@.emptydea.game_control.resources_control.GetContainerDataRequest\x1aA.emptydea.game_control.resources_control.GetContainerDataResponseB]Z[github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/resources_control;resources_control_pbb\x06proto3"
+	"\x10GetContainerData\x12@.emptydea.game_control.resources_control.GetContainerDataRequest\x1aA.emptydea.game_control.resources_control.GetContainerDataResponseBcZagithub.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/resources_control;resources_control_pbb\x06proto3"
 
 var (
 	file_game_control_resources_control_container_proto_rawDescOnce sync.Once

@@ -74,7 +74,7 @@ const file_py_rpc_mod_event_minecraft_pet_player_join_world_finished_proto_rawDe
 	"\n" +
 	"?py_rpc/mod_event/minecraft/pet/player_join_world_finished.proto\x12Xmousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.player_join_world_finished\x1a*py_rpc/mod_event/minecraft/pet/basic.proto\"{\n" +
 	"\x17PlayerJoinWorldFinished\x12`\n" +
-	"\x05Basic\x18\x01 \x01(\v2J.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.BasicR\x05BasicB_Z]github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
+	"\x05Basic\x18\x01 \x01(\v2J.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.BasicR\x05BasicBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_pet_player_join_world_finished_proto_rawDescOnce sync.Once

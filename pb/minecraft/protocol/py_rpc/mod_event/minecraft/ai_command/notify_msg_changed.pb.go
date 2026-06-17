@@ -86,7 +86,7 @@ const file_py_rpc_mod_event_minecraft_ai_command_notify_msg_changed_proto_rawDes
 	">py_rpc/mod_event/minecraft/ai_command/notify_msg_changed.proto\x12Wmousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.notify_msg_changed\x1a1py_rpc/mod_event/minecraft/ai_command/basic.proto\"\x93\x01\n" +
 	"\x10NotifyMsgChanged\x12g\n" +
 	"\x05Basic\x18\x01 \x01(\v2Q.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.basic.BasicR\x05Basic\x12\x16\n" +
-	"\x06Notify\x18\x02 \x01(\bR\x06NotifyBmZkgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_commandb\x06proto3"
+	"\x06Notify\x18\x02 \x01(\bR\x06NotifyBsZqgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_commandb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_ai_command_notify_msg_changed_proto_rawDescOnce sync.Once

@@ -132,7 +132,7 @@ const file_py_rpc_mod_event_minecraft_pet_teleport_pet_response_proto_rawDesc = 
 	"\x05Basic\x18\x01 \x01(\v2J.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.BasicR\x05Basic\x12y\n" +
 	"\bCodeData\x18\x02 \x01(\v2].mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.teleport_pet_response.CodeDataR\bCodeData\"\x1e\n" +
 	"\bCodeData\x12\x12\n" +
-	"\x04Code\x18\x01 \x01(\x03R\x04CodeB_Z]github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
+	"\x04Code\x18\x01 \x01(\x03R\x04CodeBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_pet_teleport_pet_response_proto_rawDescOnce sync.Once

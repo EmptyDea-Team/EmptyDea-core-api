@@ -1711,7 +1711,7 @@ const file_login_data_proto_rawDesc = "" +
 	"\x1cDeviceIDFormatLowerHexString\x10\x01\x12\x18\n" +
 	"\x14DeviceIDFormatBase64\x10\x02\x12\x16\n" +
 	"\x12DeviceIDFormatUUID\x10\x03\x12\x19\n" +
-	"\x15DeviceIDFormatInvalid\x10\x04BHZFgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/login;loginb\x06proto3"
+	"\x15DeviceIDFormatInvalid\x10\x04BNZLgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/login;loginb\x06proto3"
 
 var (
 	file_login_data_proto_rawDescOnce sync.Once

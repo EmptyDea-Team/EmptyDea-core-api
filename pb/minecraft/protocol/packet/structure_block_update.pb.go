@@ -359,7 +359,7 @@ const file_packet_structure_block_update_proto_rawDesc = "" +
 	"\x14StructureBlockExport\x10\x05*g\n" +
 	"\x1dStructureRedstoneSaveModeEnum\x12#\n" +
 	"\x1fStructureRedstoneSaveModeMemory\x10\x00\x12!\n" +
-	"\x1dStructureRedstoneSaveModeDisk\x10\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x1dStructureRedstoneSaveModeDisk\x10\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_structure_block_update_proto_rawDescOnce sync.Once

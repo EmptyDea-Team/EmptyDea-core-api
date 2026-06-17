@@ -181,7 +181,7 @@ const file_packet_packet_violation_warning_proto_rawDesc = "" +
 	"\x15ViolationSeverityEnum\x12\x1c\n" +
 	"\x18ViolationSeverityWarning\x10\x00\x12!\n" +
 	"\x1dViolationSeverityFinalWarning\x10\x01\x12*\n" +
-	"&ViolationSeverityTerminatingConnection\x10\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"&ViolationSeverityTerminatingConnection\x10\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_packet_violation_warning_proto_rawDescOnce sync.Once

@@ -24,7 +24,7 @@ var File_py_rpc_mod_event_minecraft_block_info_unlock_pool_proto protoreflect.Fi
 
 const file_py_rpc_mod_event_minecraft_block_info_unlock_pool_proto_rawDesc = "" +
 	"\n" +
-	"7py_rpc/mod_event/minecraft/block_info_unlock/pool.proto\x12Pmousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.block_info_unlock.poolB{Zygithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/block_info_unlock;block_info_unlockb\x06proto3"
+	"7py_rpc/mod_event/minecraft/block_info_unlock/pool.proto\x12Pmousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.block_info_unlock.poolB\x81\x01Z\x7fgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/block_info_unlock;block_info_unlockb\x06proto3"
 
 var file_py_rpc_mod_event_minecraft_block_info_unlock_pool_proto_goTypes = []any{}
 var file_py_rpc_mod_event_minecraft_block_info_unlock_pool_proto_depIdxs = []int32{

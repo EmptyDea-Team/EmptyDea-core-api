@@ -150,7 +150,7 @@ const file_py_rpc_mod_event_minecraft_pet_add_talk_trigger_event_proto_rawDesc =
 	"\x12AddTalkTriggerData\x12\x18\n" +
 	"\aEventID\x18\x01 \x01(\x03R\aEventID\x12\x10\n" +
 	"\x03Key\x18\x02 \x01(\tR\x03Key\x12&\n" +
-	"\x0eIsStoreCommand\x18\x03 \x01(\bR\x0eIsStoreCommandB_Z]github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
+	"\x0eIsStoreCommand\x18\x03 \x01(\bR\x0eIsStoreCommandBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_pet_add_talk_trigger_event_proto_rawDescOnce sync.Once

@@ -87,7 +87,7 @@ const file_packet_client_cache_miss_response_proto_rawDesc = "" +
 	"\n" +
 	"'packet/client_cache_miss_response.proto\x12@mousetunnel.minecraft.protocol.packet.client_cache_miss_response\x1a\x10blob_cache.proto\x1a\x14packet_options.proto\"l\n" +
 	"\x17ClientCacheMissResponse\x12J\n" +
-	"\x05Blobs\x18\x01 \x03(\v24.mousetunnel.minecraft.protocol.blob_cache.CacheBlobR\x05Blobs:\x05\xc0\xc8\x05\x88\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x05Blobs\x18\x01 \x03(\v24.mousetunnel.minecraft.protocol.blob_cache.CacheBlobR\x05Blobs:\x05\xc0\xc8\x05\x88\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_client_cache_miss_response_proto_rawDescOnce sync.Once

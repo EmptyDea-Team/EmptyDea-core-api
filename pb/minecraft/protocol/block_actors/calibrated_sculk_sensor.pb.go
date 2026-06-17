@@ -77,7 +77,7 @@ const file_block_actors_calibrated_sculk_sensor_proto_rawDesc = "" +
 	"\x15CalibratedSculkSensor\x12r\n" +
 	"\n" +
 	"BlockActor\x18\x01 \x01(\v2R.mousetunnel.minecraft.protocol.block_actors.general_actors.block_actor.BlockActorR\n" +
-	"BlockActorBVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	"BlockActorB\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_calibrated_sculk_sensor_proto_rawDescOnce sync.Once

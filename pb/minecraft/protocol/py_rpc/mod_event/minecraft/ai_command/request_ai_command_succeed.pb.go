@@ -86,7 +86,7 @@ const file_py_rpc_mod_event_minecraft_ai_command_request_ai_command_succeed_prot
 	"Fpy_rpc/mod_event/minecraft/ai_command/request_ai_command_succeed.proto\x12_mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.request_ai_command_succeed\x1a1py_rpc/mod_event/minecraft/ai_command/basic.proto\"\x98\x01\n" +
 	"\x17RequestAICommandSucceed\x12g\n" +
 	"\x05Basic\x18\x01 \x01(\v2Q.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.basic.BasicR\x05Basic\x12\x14\n" +
-	"\x05JobID\x18\x02 \x01(\tR\x05JobIDBmZkgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_commandb\x06proto3"
+	"\x05JobID\x18\x02 \x01(\tR\x05JobIDBsZqgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_commandb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_ai_command_request_ai_command_succeed_proto_rawDescOnce sync.Once

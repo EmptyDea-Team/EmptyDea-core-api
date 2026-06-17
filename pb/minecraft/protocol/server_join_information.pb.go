@@ -453,7 +453,7 @@ const file_server_join_information_proto_rawDesc = "" +
 	"\x15ServerJoinInformation\x12V\n" +
 	"\x11GatheringJoinInfo\x18\x01 \x01(\v2(.mousetunnel.minecraft.protocol.OptionalR\x11GatheringJoinInfo\x12Z\n" +
 	"\x13StoreEntryPointInfo\x18\x02 \x01(\v2(.mousetunnel.minecraft.protocol.OptionalR\x13StoreEntryPointInfo\x12L\n" +
-	"\fPresenceInfo\x18\x03 \x01(\v2(.mousetunnel.minecraft.protocol.OptionalR\fPresenceInfoBEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\fPresenceInfo\x18\x03 \x01(\v2(.mousetunnel.minecraft.protocol.OptionalR\fPresenceInfoBKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_server_join_information_proto_rawDescOnce sync.Once

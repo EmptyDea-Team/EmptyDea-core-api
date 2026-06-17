@@ -800,7 +800,7 @@ const file_data_store_proto_rawDesc = "" +
 	"\x19DataStorePropertyTypeBool\x10\x01\x12\x1e\n" +
 	"\x1aDataStorePropertyTypeInt64\x10\x02\x12\x1f\n" +
 	"\x1bDataStorePropertyTypeString\x10\x04\x12\x1c\n" +
-	"\x18DataStorePropertyTypeMap\x10\x06BEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\x18DataStorePropertyTypeMap\x10\x06BKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_data_store_proto_rawDescOnce sync.Once

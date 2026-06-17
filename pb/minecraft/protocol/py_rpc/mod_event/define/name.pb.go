@@ -24,7 +24,7 @@ var File_py_rpc_mod_event_define_name_proto protoreflect.FileDescriptor
 
 const file_py_rpc_mod_event_define_name_proto_rawDesc = "" +
 	"\n" +
-	"\"py_rpc/mod_event/define/name.proto\x12;mousetunnel.minecraft.protocol.py_rpc.mod_event.define.nameB[ZYgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/define;defineb\x06proto3"
+	"\"py_rpc/mod_event/define/name.proto\x12;mousetunnel.minecraft.protocol.py_rpc.mod_event.define.nameBaZ_github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/define;defineb\x06proto3"
 
 var file_py_rpc_mod_event_define_name_proto_goTypes = []any{}
 var file_py_rpc_mod_event_define_name_proto_depIdxs = []int32{

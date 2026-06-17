@@ -2665,7 +2665,7 @@ const file_item_stack_proto_rawDesc = "" +
 	"!StackRequestActionCraftGrindstone\x10\x10\x12\x1f\n" +
 	"\x1bStackRequestActionCraftLoom\x10\x11\x123\n" +
 	"/StackRequestActionCraftNonImplementedDeprecated\x10\x12\x12,\n" +
-	"(StackRequestActionCraftResultsDeprecated\x10\x13BEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"(StackRequestActionCraftResultsDeprecated\x10\x13BKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_item_stack_proto_rawDescOnce sync.Once

@@ -77,7 +77,7 @@ const file_py_rpc_client_load_addons_finished_from_gac_proto_rawDesc = "" +
 	"\n" +
 	"1py_rpc/client_load_addons_finished_from_gac.proto\x12Jmousetunnel.minecraft.protocol.py_rpc.client_load_addons_finished_from_gac\x1a\x1apy_rpc/empty_payload.proto\"\x88\x01\n" +
 	"\x1fClientLoadAddonsFinishedFromGac\x12e\n" +
-	"\fEmptyPayload\x18\x01 \x01(\v2A.mousetunnel.minecraft.protocol.py_rpc.empty_payload.EmptyPayloadR\fEmptyPayloadBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpcb\x06proto3"
+	"\fEmptyPayload\x18\x01 \x01(\v2A.mousetunnel.minecraft.protocol.py_rpc.empty_payload.EmptyPayloadR\fEmptyPayloadBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpcb\x06proto3"
 
 var (
 	file_py_rpc_client_load_addons_finished_from_gac_proto_rawDescOnce sync.Once

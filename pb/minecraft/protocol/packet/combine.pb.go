@@ -77,7 +77,7 @@ const file_packet_combine_proto_rawDesc = "" +
 	"\n" +
 	"\x14packet/combine.proto\x12-mousetunnel.minecraft.protocol.packet.combine\x1a\x14packet_options.proto\",\n" +
 	"\aCombine\x12\x1a\n" +
-	"\bUnknown1\x18\x01 \x01(\rR\bUnknown1:\x05\xc0\xc8\x05\xe0\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\bUnknown1\x18\x01 \x01(\rR\bUnknown1:\x05\xc0\xc8\x05\xe0\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_combine_proto_rawDescOnce sync.Once

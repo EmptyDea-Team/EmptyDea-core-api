@@ -86,7 +86,7 @@ const file_py_rpc_mod_event_minecraft_game_host_owner_changed_proto_rawDesc = ""
 	"8py_rpc/mod_event/minecraft/game/host_owner_changed.proto\x12Qmousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.game.host_owner_changed\x1a+py_rpc/mod_event/minecraft/game/basic.proto\"\x89\x01\n" +
 	"\x10HostOwnerChanged\x12a\n" +
 	"\x05Basic\x18\x01 \x01(\v2K.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.game.basic.BasicR\x05Basic\x12\x12\n" +
-	"\x04Host\x18\x02 \x01(\tR\x04HostBaZ_github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/game;gameb\x06proto3"
+	"\x04Host\x18\x02 \x01(\tR\x04HostBgZegithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/game;gameb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_game_host_owner_changed_proto_rawDescOnce sync.Once

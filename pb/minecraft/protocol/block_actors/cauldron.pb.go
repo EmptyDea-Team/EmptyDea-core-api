@@ -124,7 +124,7 @@ const file_block_actors_cauldron_proto_rawDesc = "" +
 	"\n" +
 	"PotionType\x18\x04 \x01(\x05R\n" +
 	"PotionType\x12 \n" +
-	"\vCustomColor\x18\x05 \x01(\x05R\vCustomColorBVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	"\vCustomColor\x18\x05 \x01(\x05R\vCustomColorB\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_cauldron_proto_rawDescOnce sync.Once

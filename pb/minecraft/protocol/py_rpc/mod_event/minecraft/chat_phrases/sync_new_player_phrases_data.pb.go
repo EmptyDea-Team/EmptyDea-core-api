@@ -228,7 +228,7 @@ const file_py_rpc_mod_event_minecraft_chat_phrases_sync_new_player_phrases_data_
 	"\vPhrasesData\x12\x16\n" +
 	"\x06Source\x18\x01 \x01(\tR\x06Source\x12\x0e\n" +
 	"\x02ID\x18\x02 \x01(\x04R\x02ID\x12\x18\n" +
-	"\aContent\x18\x03 \x01(\tR\aContentBqZogithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_phrases;chat_phrasesb\x06proto3"
+	"\aContent\x18\x03 \x01(\tR\aContentBwZugithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_phrases;chat_phrasesb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_chat_phrases_sync_new_player_phrases_data_proto_rawDescOnce sync.Once

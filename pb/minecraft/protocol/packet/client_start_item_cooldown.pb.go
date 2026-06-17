@@ -95,7 +95,7 @@ const file_packet_client_start_item_cooldown_proto_rawDesc = "" +
 	"'packet/client_start_item_cooldown.proto\x12@mousetunnel.minecraft.protocol.packet.client_start_item_cooldown\x1a\x14packet_options.proto\"X\n" +
 	"\x17ClientStartItemCooldown\x12\x1a\n" +
 	"\bCategory\x18\x01 \x01(\tR\bCategory\x12\x1a\n" +
-	"\bDuration\x18\x02 \x01(\x05R\bDuration:\x05\xc0\xc8\x05\xb0\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\bDuration\x18\x02 \x01(\x05R\bDuration:\x05\xc0\xc8\x05\xb0\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_client_start_item_cooldown_proto_rawDescOnce sync.Once

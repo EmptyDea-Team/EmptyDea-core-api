@@ -146,7 +146,7 @@ const file_py_rpc_mod_event_minecraft_ai_command_receive_ai_command_result_auto_
 	"\fGenerateType\x18\x04 \x01(\x03R\fGenerateType\x12m\n" +
 	"\aAIModel\x18\x05 \x01(\v2S.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.types.AIModelR\aAIModel\x12\x16\n" +
 	"\x06IsLast\x18\x06 \x01(\bR\x06IsLast\x12\x18\n" +
-	"\aIsFirst\x18\a \x01(\bR\aIsFirstBmZkgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_commandb\x06proto3"
+	"\aIsFirst\x18\a \x01(\bR\aIsFirstBsZqgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_commandb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_ai_command_receive_ai_command_result_auto_execute_proto_rawDescOnce sync.Once

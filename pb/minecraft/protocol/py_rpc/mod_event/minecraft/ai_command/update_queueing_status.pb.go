@@ -148,7 +148,7 @@ const file_py_rpc_mod_event_minecraft_ai_command_update_queueing_status_proto_ra
 	"\x04IsOK\x18\x04 \x01(\bR\x04IsOK\x12\"\n" +
 	"\fFailedReason\x18\x05 \x01(\tR\fFailedReason\x12\"\n" +
 	"\fGenerateType\x18\x06 \x01(\x03R\fGenerateType\x12m\n" +
-	"\aAIModel\x18\a \x01(\v2S.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.types.AIModelR\aAIModelBmZkgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_commandb\x06proto3"
+	"\aAIModel\x18\a \x01(\v2S.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.types.AIModelR\aAIModelBsZqgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_commandb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_ai_command_update_queueing_status_proto_rawDescOnce sync.Once

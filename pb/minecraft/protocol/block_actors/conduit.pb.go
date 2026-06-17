@@ -98,7 +98,7 @@ const file_block_actors_conduit_proto_rawDesc = "" +
 	"BlockActor\x18\x01 \x01(\v2R.mousetunnel.minecraft.protocol.block_actors.general_actors.block_actor.BlockActorR\n" +
 	"BlockActor\x12\x16\n" +
 	"\x06Active\x18\x02 \x01(\rR\x06Active\x12\x16\n" +
-	"\x06Target\x18\x03 \x01(\x03R\x06TargetBVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	"\x06Target\x18\x03 \x01(\x03R\x06TargetB\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_conduit_proto_rawDescOnce sync.Once

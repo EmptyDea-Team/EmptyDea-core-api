@@ -110,7 +110,7 @@ const file_packet_position_tracking_db_client_request_proto_rawDesc = "" +
 	"\rRequestAction\x18\x01 \x01(\rR\rRequestAction\x12\x1e\n" +
 	"\n" +
 	"TrackingID\x18\x02 \x01(\x05R\n" +
-	"TrackingID:\x05\xc0\xc8\x05\x9a\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"TrackingID:\x05\xc0\xc8\x05\x9a\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_position_tracking_db_client_request_proto_rawDescOnce sync.Once

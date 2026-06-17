@@ -118,7 +118,7 @@ const file_packet_block_pick_request_proto_rawDesc = "" +
 	"\vAddBlockNBT\x18\x02 \x01(\bR\vAddBlockNBT\x12\x1e\n" +
 	"\n" +
 	"HotBarSlot\x18\x03 \x01(\rR\n" +
-	"HotBarSlot:\x04\xc0\xc8\x05\"BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"HotBarSlot:\x04\xc0\xc8\x05\"BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_block_pick_request_proto_rawDescOnce sync.Once

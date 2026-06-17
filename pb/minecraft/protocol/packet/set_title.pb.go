@@ -272,7 +272,7 @@ const file_packet_set_title_proto_rawDesc = "" +
 	"\x17TitleActionSetDurations\x10\x05\x12\x1e\n" +
 	"\x1aTitleActionTitleTextObject\x10\x06\x12!\n" +
 	"\x1dTitleActionSubtitleTextObject\x10\a\x12\"\n" +
-	"\x1eTitleActionActionbarTextObject\x10\bBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x1eTitleActionActionbarTextObject\x10\bBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_set_title_proto_rawDescOnce sync.Once

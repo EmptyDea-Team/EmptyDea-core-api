@@ -110,7 +110,7 @@ const file_block_actors_hopper_proto_rawDesc = "" +
 	"BlockActor\x12,\n" +
 	"\x05Items\x18\x02 \x03(\v2\x16.google.protobuf.ValueR\x05Items\x12*\n" +
 	"\x10TransferCooldown\x18\x03 \x01(\x05R\x10TransferCooldown\x12$\n" +
-	"\rMoveItemSpeed\x18\x04 \x01(\x05R\rMoveItemSpeedBVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	"\rMoveItemSpeed\x18\x04 \x01(\x05R\rMoveItemSpeedB\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_hopper_proto_rawDescOnce sync.Once

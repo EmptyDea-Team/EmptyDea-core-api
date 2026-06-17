@@ -247,7 +247,7 @@ const file_py_rpc_mod_event_define_define_proto_rawDesc = "" +
 	"\x05Value\x18\x01 \x01(\v2\x16.google.protobuf.ValueR\x05Value*:\n" +
 	"\bTypeEnum\x12\x16\n" +
 	"\x12TypeClientToServer\x10\x00\x12\x16\n" +
-	"\x12TypeServerToClient\x10\x01B[ZYgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/define;defineb\x06proto3"
+	"\x12TypeServerToClient\x10\x01BaZ_github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/define;defineb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_define_define_proto_rawDescOnce sync.Once

@@ -222,7 +222,7 @@ const file_block_proto_rawDesc = "" +
 	"\x0eBlockRuntimeID\x18\x02 \x01(\rR\x0eBlockRuntimeID\x12\x14\n" +
 	"\x05Flags\x18\x03 \x01(\rR\x05Flags\x12>\n" +
 	"\x1aSyncedUpdateEntityUniqueID\x18\x04 \x01(\x04R\x1aSyncedUpdateEntityUniqueID\x12*\n" +
-	"\x10SyncedUpdateType\x18\x05 \x01(\rR\x10SyncedUpdateTypeBEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\x10SyncedUpdateType\x18\x05 \x01(\rR\x10SyncedUpdateTypeBKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_block_proto_rawDescOnce sync.Once

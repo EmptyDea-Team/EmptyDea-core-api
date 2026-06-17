@@ -84,7 +84,7 @@ const file_packet_compressed_biome_definition_list_proto_rawDesc = "" +
 	"\n" +
 	"-packet/compressed_biome_definition_list.proto\x12Fmousetunnel.minecraft.protocol.packet.compressed_biome_definition_list\x1a\x14packet_options.proto\"@\n" +
 	"\x1dCompressedBiomeDefinitionList\x12\x18\n" +
-	"\aPayload\x18\x01 \x01(\fR\aPayload:\x05\xc0\xc8\x05\xad\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\aPayload\x18\x01 \x01(\fR\aPayload:\x05\xc0\xc8\x05\xad\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_compressed_biome_definition_list_proto_rawDescOnce sync.Once

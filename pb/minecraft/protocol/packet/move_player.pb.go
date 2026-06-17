@@ -364,7 +364,7 @@ const file_packet_move_player_proto_rawDesc = "" +
 	"\x17TeleportCauseProjectile\x10\x01\x12\x1c\n" +
 	"\x18TeleportCauseChorusFruit\x10\x02\x12\x18\n" +
 	"\x14TeleportCauseCommand\x10\x03\x12\x1a\n" +
-	"\x16TeleportCauseBehaviour\x10\x04BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x16TeleportCauseBehaviour\x10\x04BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_move_player_proto_rawDescOnce sync.Once

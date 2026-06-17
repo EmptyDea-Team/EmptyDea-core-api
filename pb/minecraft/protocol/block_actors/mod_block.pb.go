@@ -142,7 +142,7 @@ const file_block_actors_mod_block_proto_rawDesc = "" +
 	"\bUniqueId\x18\x06 \x01(\x03R\bUniqueId\x12\x1e\n" +
 	"\n" +
 	"TickClient\x18\a \x01(\rR\n" +
-	"TickClientBVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	"TickClientB\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_mod_block_proto_rawDescOnce sync.Once

@@ -24,7 +24,7 @@ var File_py_rpc_mod_event_minecraft_ai_command_pool_proto protoreflect.FileDescr
 
 const file_py_rpc_mod_event_minecraft_ai_command_pool_proto_rawDesc = "" +
 	"\n" +
-	"0py_rpc/mod_event/minecraft/ai_command/pool.proto\x12Imousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.poolBmZkgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_commandb\x06proto3"
+	"0py_rpc/mod_event/minecraft/ai_command/pool.proto\x12Imousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.poolBsZqgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_commandb\x06proto3"
 
 var file_py_rpc_mod_event_minecraft_ai_command_pool_proto_goTypes = []any{}
 var file_py_rpc_mod_event_minecraft_ai_command_pool_proto_depIdxs = []int32{

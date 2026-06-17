@@ -108,7 +108,7 @@ const file_block_actors_decorated_pot_proto_rawDesc = "" +
 	"\x16RandomizableBlockActor\x18\x01 \x01(\v2k.mousetunnel.minecraft.protocol.block_actors.general_actors.randomizable_block_actor.RandomizableBlockActorR\x16RandomizableBlockActor\x12.\n" +
 	"\x06Sherds\x18\x02 \x03(\v2\x16.google.protobuf.ValueR\x06Sherds\x12\x1c\n" +
 	"\tAnimation\x18\x03 \x01(\rR\tAnimation\x12A\n" +
-	"\x04Item\x18\x04 \x01(\v2-.mousetunnel.minecraft.protocol.nbt_item.ItemR\x04ItemBVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	"\x04Item\x18\x04 \x01(\v2-.mousetunnel.minecraft.protocol.nbt_item.ItemR\x04ItemB\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_decorated_pot_proto_rawDescOnce sync.Once

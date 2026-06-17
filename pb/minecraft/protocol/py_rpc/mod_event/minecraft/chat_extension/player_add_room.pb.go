@@ -301,7 +301,7 @@ const file_py_rpc_mod_event_minecraft_chat_extension_player_add_room_proto_rawDe
 	"\tRuntimeID\x12\x14\n" +
 	"\x05Value\x18\x01 \x01(\tR\x05Value\"&\n" +
 	"\x0eNetEaseUserUID\x12\x14\n" +
-	"\x05Value\x18\x01 \x01(\tR\x05ValueBuZsgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_extension;chat_extensionb\x06proto3"
+	"\x05Value\x18\x01 \x01(\tR\x05ValueB{Zygithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_extension;chat_extensionb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_chat_extension_player_add_room_proto_rawDescOnce sync.Once

@@ -65,7 +65,7 @@ var File_packet_update_block_properties_proto protoreflect.FileDescriptor
 const file_packet_update_block_properties_proto_rawDesc = "" +
 	"\n" +
 	"$packet/update_block_properties.proto\x12=mousetunnel.minecraft.protocol.packet.update_block_properties\x1a\x14packet_options.proto\"\x1e\n" +
-	"\x15UpdateBlockProperties:\x05\xc0\xc8\x05\x86\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x15UpdateBlockProperties:\x05\xc0\xc8\x05\x86\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_update_block_properties_proto_rawDescOnce sync.Once

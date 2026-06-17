@@ -24,7 +24,7 @@ var File_login_netease_test_proto protoreflect.FileDescriptor
 
 const file_login_netease_test_proto_rawDesc = "" +
 	"\n" +
-	"\x18login/netease_test.proto\x121mousetunnel.minecraft.protocol.login.netease_testBHZFgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/login;loginb\x06proto3"
+	"\x18login/netease_test.proto\x121mousetunnel.minecraft.protocol.login.netease_testBNZLgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/login;loginb\x06proto3"
 
 var file_login_netease_test_proto_goTypes = []any{}
 var file_login_netease_test_proto_depIdxs = []int32{

@@ -271,7 +271,7 @@ const file_packet_graphics_override_parameter_proto_rawDesc = "" +
 	"\tVec3Value\x18\x03 \x01(\v2h.mousetunnel.minecraft.protocol.packet.graphics_override_parameter.GraphicsOverrideParameterOptionalVec3R\tVec3Value\x12(\n" +
 	"\x0fBiomeIdentifier\x18\x04 \x01(\tR\x0fBiomeIdentifier\x12$\n" +
 	"\rParameterType\x18\x05 \x01(\rR\rParameterType\x12\x14\n" +
-	"\x05Reset\x18\x06 \x01(\bR\x05Reset:\x05\xc0\xc8\x05\xcb\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x05Reset\x18\x06 \x01(\bR\x05Reset:\x05\xc0\xc8\x05\xcb\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_graphics_override_parameter_proto_rawDescOnce sync.Once

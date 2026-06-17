@@ -180,7 +180,7 @@ const file_py_rpc_py_rpc_value_proto_rawDesc = "" +
 	"\x03Map\x18\t \x03(\v2B.mousetunnel.minecraft.protocol.py_rpc.py_rpc.value.Value.MapEntryR\x03Map\x1aq\n" +
 	"\bMapEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12O\n" +
-	"\x05value\x18\x02 \x01(\v29.mousetunnel.minecraft.protocol.py_rpc.py_rpc.value.ValueR\x05value:\x028\x01BQZOgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/py_rpc;py_rpcb\x06proto3"
+	"\x05value\x18\x02 \x01(\v29.mousetunnel.minecraft.protocol.py_rpc.py_rpc.value.ValueR\x05value:\x028\x01BWZUgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/py_rpc;py_rpcb\x06proto3"
 
 var (
 	file_py_rpc_py_rpc_value_proto_rawDescOnce sync.Once

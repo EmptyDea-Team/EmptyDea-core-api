@@ -75,7 +75,7 @@ const file_py_rpc_mod_event_minecraft_move_types_proto_rawDesc = "" +
 	"\n" +
 	"+py_rpc/mod_event/minecraft/move/types.proto\x12Dmousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.move.types\"$\n" +
 	"\fMotionVector\x12\x14\n" +
-	"\x05Value\x18\x01 \x03(\x01R\x05ValueBaZ_github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/move;moveb\x06proto3"
+	"\x05Value\x18\x01 \x03(\x01R\x05ValueBgZegithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/move;moveb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_move_types_proto_rawDescOnce sync.Once

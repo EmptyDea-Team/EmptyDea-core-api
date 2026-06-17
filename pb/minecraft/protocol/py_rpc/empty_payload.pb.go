@@ -65,7 +65,7 @@ var File_py_rpc_empty_payload_proto protoreflect.FileDescriptor
 const file_py_rpc_empty_payload_proto_rawDesc = "" +
 	"\n" +
 	"\x1apy_rpc/empty_payload.proto\x123mousetunnel.minecraft.protocol.py_rpc.empty_payload\"\x0e\n" +
-	"\fEmptyPayloadBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpcb\x06proto3"
+	"\fEmptyPayloadBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpcb\x06proto3"
 
 var (
 	file_py_rpc_empty_payload_proto_rawDescOnce sync.Once

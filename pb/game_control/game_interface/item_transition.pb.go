@@ -7,6 +7,7 @@
 package game_interface_pb
 
 import (
+	resources_control "github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/resources_control"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -21,18 +22,18 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// TransitionRequest 是将库存 srcWindowID 处 src 所指示的物品状
-// 态转移到库存 dstWindowID 中，并且指定最终状态是 dst 的请求。
+// TransitionRequest 是将库存 SrcWindowName 处 src 所指示的物品状
+// 态转移到库存 DstWindowName 中，并且指定最终状态是 dst 的请求。
 type TransitionRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Src 是来源槽位和物品需求列表。
 	Src []*ItemInfoWithSlot `protobuf:"bytes,1,rep,name=Src,proto3" json:"Src,omitempty"`
 	// Dst 是目标槽位和物品需求列表。
 	Dst []*ItemInfoWithSlot `protobuf:"bytes,2,rep,name=Dst,proto3" json:"Dst,omitempty"`
-	// SrcWindowID 是来源窗口 ID。
-	SrcWindowID int32 `protobuf:"varint,3,opt,name=SrcWindowID,proto3" json:"SrcWindowID,omitempty"`
-	// DstWindowID 是目标窗口 ID。
-	DstWindowID   int32 `protobuf:"varint,4,opt,name=DstWindowID,proto3" json:"DstWindowID,omitempty"`
+	// SrcWindowName 是来源窗口名。
+	SrcWindowName *resources_control.WindowName `protobuf:"bytes,3,opt,name=SrcWindowName,proto3" json:"SrcWindowName,omitempty"`
+	// DstWindowName 是目标窗口名。
+	DstWindowName *resources_control.WindowName `protobuf:"bytes,4,opt,name=DstWindowName,proto3" json:"DstWindowName,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -81,18 +82,18 @@ func (x *TransitionRequest) GetDst() []*ItemInfoWithSlot {
 	return nil
 }
 
-func (x *TransitionRequest) GetSrcWindowID() int32 {
+func (x *TransitionRequest) GetSrcWindowName() *resources_control.WindowName {
 	if x != nil {
-		return x.SrcWindowID
+		return x.SrcWindowName
 	}
-	return 0
+	return nil
 }
 
-func (x *TransitionRequest) GetDstWindowID() int32 {
+func (x *TransitionRequest) GetDstWindowName() *resources_control.WindowName {
 	if x != nil {
-		return x.DstWindowID
+		return x.DstWindowName
 	}
-	return 0
+	return nil
 }
 
 // SimpleTransitionRequest 是使用预设窗口语义执行物品状态转移的请求。
@@ -200,12 +201,12 @@ var File_game_control_game_interface_item_transition_proto protoreflect.FileDesc
 
 const file_game_control_game_interface_item_transition_proto_rawDesc = "" +
 	"\n" +
-	"1game_control/game_interface/item_transition.proto\x12$emptydea.game_control.game_interface\x1a+game_control/game_interface/item_copy.proto\"\xeb\x01\n" +
+	"1game_control/game_interface/item_transition.proto\x12$emptydea.game_control.game_interface\x1a+game_control/game_interface/item_copy.proto\x1a.game_control/resources_control/inventory.proto\"\xdd\x02\n" +
 	"\x11TransitionRequest\x12H\n" +
 	"\x03Src\x18\x01 \x03(\v26.emptydea.game_control.game_interface.ItemInfoWithSlotR\x03Src\x12H\n" +
-	"\x03Dst\x18\x02 \x03(\v26.emptydea.game_control.game_interface.ItemInfoWithSlotR\x03Dst\x12 \n" +
-	"\vSrcWindowID\x18\x03 \x01(\x05R\vSrcWindowID\x12 \n" +
-	"\vDstWindowID\x18\x04 \x01(\x05R\vDstWindowID\"\xad\x01\n" +
+	"\x03Dst\x18\x02 \x03(\v26.emptydea.game_control.game_interface.ItemInfoWithSlotR\x03Dst\x12Y\n" +
+	"\rSrcWindowName\x18\x03 \x01(\v23.emptydea.game_control.resources_control.WindowNameR\rSrcWindowName\x12Y\n" +
+	"\rDstWindowName\x18\x04 \x01(\v23.emptydea.game_control.resources_control.WindowNameR\rDstWindowName\"\xad\x01\n" +
 	"\x17SimpleTransitionRequest\x12H\n" +
 	"\x03Src\x18\x01 \x03(\v26.emptydea.game_control.game_interface.ItemInfoWithSlotR\x03Src\x12H\n" +
 	"\x03Dst\x18\x02 \x03(\v26.emptydea.game_control.game_interface.ItemInfoWithSlotR\x03Dst\".\n" +
@@ -217,7 +218,7 @@ const file_game_control_game_interface_item_transition_proto_rawDesc = "" +
 	"\x1aTransitionBetweenInventory\x12=.emptydea.game_control.game_interface.SimpleTransitionRequest\x1a8.emptydea.game_control.game_interface.TransitionResponse\x12\x95\x01\n" +
 	"\x1aTransitionBetweenContainer\x12=.emptydea.game_control.game_interface.SimpleTransitionRequest\x1a8.emptydea.game_control.game_interface.TransitionResponse\x12\x90\x01\n" +
 	"\x15TransitionToContainer\x12=.emptydea.game_control.game_interface.SimpleTransitionRequest\x1a8.emptydea.game_control.game_interface.TransitionResponse\x12\x90\x01\n" +
-	"\x15TransitionToInventory\x12=.emptydea.game_control.game_interface.SimpleTransitionRequest\x1a8.emptydea.game_control.game_interface.TransitionResponseBWZUgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pbb\x06proto3"
+	"\x15TransitionToInventory\x12=.emptydea.game_control.game_interface.SimpleTransitionRequest\x1a8.emptydea.game_control.game_interface.TransitionResponseB]Z[github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pbb\x06proto3"
 
 var (
 	file_game_control_game_interface_item_transition_proto_rawDescOnce sync.Once
@@ -233,31 +234,34 @@ func file_game_control_game_interface_item_transition_proto_rawDescGZIP() []byte
 
 var file_game_control_game_interface_item_transition_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_game_control_game_interface_item_transition_proto_goTypes = []any{
-	(*TransitionRequest)(nil),       // 0: emptydea.game_control.game_interface.TransitionRequest
-	(*SimpleTransitionRequest)(nil), // 1: emptydea.game_control.game_interface.SimpleTransitionRequest
-	(*TransitionResponse)(nil),      // 2: emptydea.game_control.game_interface.TransitionResponse
-	(*ItemInfoWithSlot)(nil),        // 3: emptydea.game_control.game_interface.ItemInfoWithSlot
+	(*TransitionRequest)(nil),            // 0: emptydea.game_control.game_interface.TransitionRequest
+	(*SimpleTransitionRequest)(nil),      // 1: emptydea.game_control.game_interface.SimpleTransitionRequest
+	(*TransitionResponse)(nil),           // 2: emptydea.game_control.game_interface.TransitionResponse
+	(*ItemInfoWithSlot)(nil),             // 3: emptydea.game_control.game_interface.ItemInfoWithSlot
+	(*resources_control.WindowName)(nil), // 4: emptydea.game_control.resources_control.WindowName
 }
 var file_game_control_game_interface_item_transition_proto_depIdxs = []int32{
-	3, // 0: emptydea.game_control.game_interface.TransitionRequest.Src:type_name -> emptydea.game_control.game_interface.ItemInfoWithSlot
-	3, // 1: emptydea.game_control.game_interface.TransitionRequest.Dst:type_name -> emptydea.game_control.game_interface.ItemInfoWithSlot
-	3, // 2: emptydea.game_control.game_interface.SimpleTransitionRequest.Src:type_name -> emptydea.game_control.game_interface.ItemInfoWithSlot
-	3, // 3: emptydea.game_control.game_interface.SimpleTransitionRequest.Dst:type_name -> emptydea.game_control.game_interface.ItemInfoWithSlot
-	0, // 4: emptydea.game_control.game_interface.ItemTransitionService.Transition:input_type -> emptydea.game_control.game_interface.TransitionRequest
-	1, // 5: emptydea.game_control.game_interface.ItemTransitionService.TransitionBetweenInventory:input_type -> emptydea.game_control.game_interface.SimpleTransitionRequest
-	1, // 6: emptydea.game_control.game_interface.ItemTransitionService.TransitionBetweenContainer:input_type -> emptydea.game_control.game_interface.SimpleTransitionRequest
-	1, // 7: emptydea.game_control.game_interface.ItemTransitionService.TransitionToContainer:input_type -> emptydea.game_control.game_interface.SimpleTransitionRequest
-	1, // 8: emptydea.game_control.game_interface.ItemTransitionService.TransitionToInventory:input_type -> emptydea.game_control.game_interface.SimpleTransitionRequest
-	2, // 9: emptydea.game_control.game_interface.ItemTransitionService.Transition:output_type -> emptydea.game_control.game_interface.TransitionResponse
-	2, // 10: emptydea.game_control.game_interface.ItemTransitionService.TransitionBetweenInventory:output_type -> emptydea.game_control.game_interface.TransitionResponse
-	2, // 11: emptydea.game_control.game_interface.ItemTransitionService.TransitionBetweenContainer:output_type -> emptydea.game_control.game_interface.TransitionResponse
-	2, // 12: emptydea.game_control.game_interface.ItemTransitionService.TransitionToContainer:output_type -> emptydea.game_control.game_interface.TransitionResponse
-	2, // 13: emptydea.game_control.game_interface.ItemTransitionService.TransitionToInventory:output_type -> emptydea.game_control.game_interface.TransitionResponse
-	9, // [9:14] is the sub-list for method output_type
-	4, // [4:9] is the sub-list for method input_type
-	4, // [4:4] is the sub-list for extension type_name
-	4, // [4:4] is the sub-list for extension extendee
-	0, // [0:4] is the sub-list for field type_name
+	3,  // 0: emptydea.game_control.game_interface.TransitionRequest.Src:type_name -> emptydea.game_control.game_interface.ItemInfoWithSlot
+	3,  // 1: emptydea.game_control.game_interface.TransitionRequest.Dst:type_name -> emptydea.game_control.game_interface.ItemInfoWithSlot
+	4,  // 2: emptydea.game_control.game_interface.TransitionRequest.SrcWindowName:type_name -> emptydea.game_control.resources_control.WindowName
+	4,  // 3: emptydea.game_control.game_interface.TransitionRequest.DstWindowName:type_name -> emptydea.game_control.resources_control.WindowName
+	3,  // 4: emptydea.game_control.game_interface.SimpleTransitionRequest.Src:type_name -> emptydea.game_control.game_interface.ItemInfoWithSlot
+	3,  // 5: emptydea.game_control.game_interface.SimpleTransitionRequest.Dst:type_name -> emptydea.game_control.game_interface.ItemInfoWithSlot
+	0,  // 6: emptydea.game_control.game_interface.ItemTransitionService.Transition:input_type -> emptydea.game_control.game_interface.TransitionRequest
+	1,  // 7: emptydea.game_control.game_interface.ItemTransitionService.TransitionBetweenInventory:input_type -> emptydea.game_control.game_interface.SimpleTransitionRequest
+	1,  // 8: emptydea.game_control.game_interface.ItemTransitionService.TransitionBetweenContainer:input_type -> emptydea.game_control.game_interface.SimpleTransitionRequest
+	1,  // 9: emptydea.game_control.game_interface.ItemTransitionService.TransitionToContainer:input_type -> emptydea.game_control.game_interface.SimpleTransitionRequest
+	1,  // 10: emptydea.game_control.game_interface.ItemTransitionService.TransitionToInventory:input_type -> emptydea.game_control.game_interface.SimpleTransitionRequest
+	2,  // 11: emptydea.game_control.game_interface.ItemTransitionService.Transition:output_type -> emptydea.game_control.game_interface.TransitionResponse
+	2,  // 12: emptydea.game_control.game_interface.ItemTransitionService.TransitionBetweenInventory:output_type -> emptydea.game_control.game_interface.TransitionResponse
+	2,  // 13: emptydea.game_control.game_interface.ItemTransitionService.TransitionBetweenContainer:output_type -> emptydea.game_control.game_interface.TransitionResponse
+	2,  // 14: emptydea.game_control.game_interface.ItemTransitionService.TransitionToContainer:output_type -> emptydea.game_control.game_interface.TransitionResponse
+	2,  // 15: emptydea.game_control.game_interface.ItemTransitionService.TransitionToInventory:output_type -> emptydea.game_control.game_interface.TransitionResponse
+	11, // [11:16] is the sub-list for method output_type
+	6,  // [6:11] is the sub-list for method input_type
+	6,  // [6:6] is the sub-list for extension type_name
+	6,  // [6:6] is the sub-list for extension extendee
+	0,  // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_game_control_game_interface_item_transition_proto_init() }

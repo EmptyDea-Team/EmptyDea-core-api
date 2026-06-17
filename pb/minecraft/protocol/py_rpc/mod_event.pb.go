@@ -186,7 +186,7 @@ const file_py_rpc_mod_event_proto_rawDesc = "" +
 	"\x05Event\x18\x05 \x01(\v2D.mousetunnel.minecraft.protocol.py_rpc.mod_event.define.define.EventR\x05Event*<\n" +
 	"\x10ModEventTypeEnum\x12\x13\n" +
 	"\x0fModEventTypeC2S\x10\x00\x12\x13\n" +
-	"\x0fModEventTypeS2C\x10\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpcb\x06proto3"
+	"\x0fModEventTypeS2C\x10\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpcb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_proto_rawDescOnce sync.Once

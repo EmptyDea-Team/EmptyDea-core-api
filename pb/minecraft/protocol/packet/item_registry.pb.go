@@ -92,7 +92,7 @@ const file_packet_item_registry_proto_rawDesc = "" +
 	"\x1apacket/item_registry.proto\x123mousetunnel.minecraft.protocol.packet.item_registry\x1a\n" +
 	"item.proto\x1a\x14packet_options.proto\"[\n" +
 	"\fItemRegistry\x12D\n" +
-	"\x05Items\x18\x01 \x03(\v2..mousetunnel.minecraft.protocol.item.ItemEntryR\x05Items:\x05\xc0\xc8\x05\xa2\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x05Items\x18\x01 \x03(\v2..mousetunnel.minecraft.protocol.item.ItemEntryR\x05Items:\x05\xc0\xc8\x05\xa2\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_item_registry_proto_rawDescOnce sync.Once

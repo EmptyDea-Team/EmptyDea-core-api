@@ -168,7 +168,7 @@ const file_py_rpc_mod_event_minecraft_pet_sc_pet_play_animation_proto_rawDesc = 
 	"\bPlayerID\x18\x02 \x01(\tR\bPlayerID\x12\x12\n" +
 	"\x04Anim\x18\x03 \x01(\tR\x04Anim\x12\x16\n" +
 	"\x06Looped\x18\x04 \x01(\bR\x06Looped\x12\x1a\n" +
-	"\bActionID\x18\x05 \x01(\x03R\bActionIDB_Z]github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
+	"\bActionID\x18\x05 \x01(\x03R\bActionIDBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_pet_sc_pet_play_animation_proto_rawDescOnce sync.Once

@@ -236,7 +236,7 @@ const file_packet_photo_transfer_proto_rawDesc = "" +
 	"\rPhotoTypeEnum\x12\x16\n" +
 	"\x12PhotoTypePortfolio\x10\x00\x12\x16\n" +
 	"\x12PhotoTypePhotoItem\x10\x01\x12\x11\n" +
-	"\rPhotoTypeBook\x10\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\rPhotoTypeBook\x10\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_photo_transfer_proto_rawDescOnce sync.Once

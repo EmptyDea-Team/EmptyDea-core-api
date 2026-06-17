@@ -132,7 +132,7 @@ const file_py_rpc_mod_event_minecraft_pet_mount_name_response_proto_rawDesc = ""
 	"\x05Basic\x18\x01 \x01(\v2J.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.BasicR\x05Basic\x12\x86\x01\n" +
 	"\rMountNameData\x18\x02 \x01(\v2`.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.mount_name_response.MountNameDataR\rMountNameData\"#\n" +
 	"\rMountNameData\x12\x12\n" +
-	"\x04Name\x18\x01 \x01(\tR\x04NameB_Z]github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
+	"\x04Name\x18\x01 \x01(\tR\x04NameBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_pet_mount_name_response_proto_rawDescOnce sync.Once

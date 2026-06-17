@@ -86,7 +86,7 @@ const file_py_rpc_mod_event_minecraft_preset_get_loaded_instances_proto_rawDesc 
 	"<py_rpc/mod_event/minecraft/preset/get_loaded_instances.proto\x12Umousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.preset.get_loaded_instances\x1a-py_rpc/mod_event/minecraft/preset/basic.proto\"\xa3\x01\n" +
 	"\x12GetLoadedInstances\x12c\n" +
 	"\x05Basic\x18\x01 \x01(\v2M.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.preset.basic.BasicR\x05Basic\x12(\n" +
-	"\x0fPlayerRuntimeID\x18\x02 \x01(\tR\x0fPlayerRuntimeIDBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/preset;presetb\x06proto3"
+	"\x0fPlayerRuntimeID\x18\x02 \x01(\tR\x0fPlayerRuntimeIDBkZigithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/preset;presetb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_preset_get_loaded_instances_proto_rawDescOnce sync.Once

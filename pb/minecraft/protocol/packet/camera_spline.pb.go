@@ -83,7 +83,7 @@ const file_packet_camera_spline_proto_rawDesc = "" +
 	"\n" +
 	"\x1apacket/camera_spline.proto\x123mousetunnel.minecraft.protocol.packet.camera_spline\x1a\fcamera.proto\x1a\x14packet_options.proto\"n\n" +
 	"\fCameraSpline\x12W\n" +
-	"\aSplines\x18\x01 \x03(\v2=.mousetunnel.minecraft.protocol.camera.CameraSplineDefinitionR\aSplines:\x05\xc0\xc8\x05\xd2\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\aSplines\x18\x01 \x03(\v2=.mousetunnel.minecraft.protocol.camera.CameraSplineDefinitionR\aSplines:\x05\xc0\xc8\x05\xd2\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_camera_spline_proto_rawDescOnce sync.Once

@@ -163,7 +163,7 @@ const file_packet_unlocked_recipes_proto_rawDesc = "" +
 	"$UnlockedRecipesTypeInitiallyUnlocked\x10\x01\x12$\n" +
 	" UnlockedRecipesTypeNewlyUnlocked\x10\x02\x12%\n" +
 	"!UnlockedRecipesTypeRemoveUnlocked\x10\x03\x12(\n" +
-	"$UnlockedRecipesTypeRemoveAllUnlocked\x10\x04BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"$UnlockedRecipesTypeRemoveAllUnlocked\x10\x04BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_unlocked_recipes_proto_rawDescOnce sync.Once

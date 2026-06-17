@@ -445,7 +445,7 @@ const file_py_rpc_mod_event_minecraft_pet_swap_pet_bag_item_proto_rawDesc = "" +
 	"\x04Mode\x18\x01 \x01(\tR\x04Mode\"=\n" +
 	"\x15SwapPetBagItemEnchant\x12\x0e\n" +
 	"\x02ID\x18\x01 \x01(\x03R\x02ID\x12\x14\n" +
-	"\x05Level\x18\x02 \x01(\x03R\x05LevelB_Z]github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
+	"\x05Level\x18\x02 \x01(\x03R\x05LevelBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_pet_swap_pet_bag_item_proto_rawDescOnce sync.Once

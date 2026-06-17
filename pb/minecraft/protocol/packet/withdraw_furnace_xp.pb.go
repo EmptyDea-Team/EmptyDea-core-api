@@ -77,7 +77,7 @@ const file_packet_withdraw_furnace_xp_proto_rawDesc = "" +
 	"\n" +
 	" packet/withdraw_furnace_xp.proto\x129mousetunnel.minecraft.protocol.packet.withdraw_furnace_xp\x1a\x0fblock_pos.proto\x1a\x14packet_options.proto\"j\n" +
 	"\x11WithdrawFurnaceXp\x12N\n" +
-	"\bPosition\x18\x01 \x01(\v22.mousetunnel.minecraft.protocol.block_pos.BlockPosR\bPosition:\x05\xc0\xc8\x05\xd1\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\bPosition\x18\x01 \x01(\v22.mousetunnel.minecraft.protocol.block_pos.BlockPosR\bPosition:\x05\xc0\xc8\x05\xd1\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_withdraw_furnace_xp_proto_rawDescOnce sync.Once

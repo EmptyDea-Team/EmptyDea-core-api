@@ -70,7 +70,7 @@ var File_packet_client_to_server_handshake_proto protoreflect.FileDescriptor
 const file_packet_client_to_server_handshake_proto_rawDesc = "" +
 	"\n" +
 	"'packet/client_to_server_handshake.proto\x12@mousetunnel.minecraft.protocol.packet.client_to_server_handshake\x1a\x14packet_options.proto\"\x1f\n" +
-	"\x17ClientToServerHandshake:\x04\xc0\xc8\x05\x04BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x17ClientToServerHandshake:\x04\xc0\xc8\x05\x04BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_client_to_server_handshake_proto_rawDescOnce sync.Once

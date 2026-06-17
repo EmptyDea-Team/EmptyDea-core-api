@@ -298,7 +298,7 @@ const file_packet_client_movement_prediction_sync_proto_rawDesc = "" +
 	"Bounciness\x12(\n" +
 	"\x0fAirDragModifier\x18\r \x01(\x02R\x0fAirDragModifier\x12(\n" +
 	"\x0fEntityRuntimeID\x18\x0e \x01(\x04R\x0fEntityRuntimeID\x12\x16\n" +
-	"\x06Flying\x18\x0f \x01(\bR\x06Flying:\x05\xc0\xc8\x05\xc2\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x06Flying\x18\x0f \x01(\bR\x06Flying:\x05\xc0\xc8\x05\xc2\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_client_movement_prediction_sync_proto_rawDescOnce sync.Once

@@ -348,7 +348,7 @@ const file_graphics_proto_rawDesc = "" +
 	"/GraphicsOverrideParameterTypeAmbientIlluminance\x100\x125\n" +
 	"1GraphicsOverrideParameterTypeEmissiveDesaturation\x101\x12-\n" +
 	")GraphicsOverrideParameterTypeSkyIntensity\x102\x125\n" +
-	"1GraphicsOverrideParameterTypeOrbitalOffsetDegrees\x103BEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"1GraphicsOverrideParameterTypeOrbitalOffsetDegrees\x103BKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_graphics_proto_rawDescOnce sync.Once

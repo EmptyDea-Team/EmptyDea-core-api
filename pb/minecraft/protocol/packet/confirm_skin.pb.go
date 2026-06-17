@@ -100,7 +100,7 @@ const file_packet_confirm_skin_proto_rawDesc = "" +
 	"PlayerData\x18\x01 \x03(\v29.mousetunnel.minecraft.protocol.netease.NetEasePlayerDataR\n" +
 	"PlayerData\x12\x12\n" +
 	"\x04Uids\x18\x02 \x03(\tR\x04Uids\x12\x1a\n" +
-	"\bUnknown3\x18\x03 \x03(\tR\bUnknown3:\x05\xc0\xc8\x05\xe4\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\bUnknown3\x18\x03 \x03(\tR\bUnknown3:\x05\xc0\xc8\x05\xe4\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_confirm_skin_proto_rawDescOnce sync.Once

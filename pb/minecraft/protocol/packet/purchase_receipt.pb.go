@@ -85,7 +85,7 @@ const file_packet_purchase_receipt_proto_rawDesc = "" +
 	"\n" +
 	"\x1dpacket/purchase_receipt.proto\x126mousetunnel.minecraft.protocol.packet.purchase_receipt\x1a\x14packet_options.proto\"3\n" +
 	"\x0fPurchaseReceipt\x12\x1a\n" +
-	"\bReceipts\x18\x01 \x03(\tR\bReceipts:\x04\xc0\xc8\x05\\BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\bReceipts\x18\x01 \x03(\tR\bReceipts:\x04\xc0\xc8\x05\\BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_purchase_receipt_proto_rawDescOnce sync.Once

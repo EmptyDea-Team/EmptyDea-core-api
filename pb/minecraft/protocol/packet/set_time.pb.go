@@ -86,7 +86,7 @@ const file_packet_set_time_proto_rawDesc = "" +
 	"\x15packet/set_time.proto\x12.mousetunnel.minecraft.protocol.packet.set_time\x1a\x14packet_options.proto\"#\n" +
 	"\aSetTime\x12\x12\n" +
 	"\x04Time\x18\x01 \x01(\x05R\x04Time:\x04\xc0\xc8\x05\n" +
-	"BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_set_time_proto_rawDescOnce sync.Once

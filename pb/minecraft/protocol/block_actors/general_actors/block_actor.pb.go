@@ -99,7 +99,7 @@ const file_block_actors_general_actors_block_actor_proto_rawDesc = "" +
 	"\n" +
 	"CustomName\x18\x02 \x01(\tR\n" +
 	"CustomName\x12&\n" +
-	"\x0eUserCustomData\x18\x03 \x01(\tR\x0eUserCustomDataBgZegithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/general_actors;general_actorsb\x06proto3"
+	"\x0eUserCustomData\x18\x03 \x01(\tR\x0eUserCustomDataBmZkgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/general_actors;general_actorsb\x06proto3"
 
 var (
 	file_block_actors_general_actors_block_actor_proto_rawDescOnce sync.Once

@@ -123,7 +123,7 @@ const file_py_rpc_mod_event_minecraft_ai_command_execute_command_event_proto_raw
 	"\vCommandLine\x18\x02 \x01(\tR\vCommandLine\x12*\n" +
 	"\x10CommandRequestID\x18\x03 \x01(\tR\x10CommandRequestID\x12\x18\n" +
 	"\aAIModel\x18\x04 \x01(\tR\aAIModel\x12 \n" +
-	"\vIsReExecute\x18\x05 \x01(\bR\vIsReExecuteBmZkgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_commandb\x06proto3"
+	"\vIsReExecute\x18\x05 \x01(\bR\vIsReExecuteBsZqgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_commandb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_ai_command_execute_command_event_proto_rawDescOnce sync.Once

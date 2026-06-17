@@ -86,7 +86,7 @@ const file_packet_client_cache_status_proto_rawDesc = "" +
 	"\n" +
 	" packet/client_cache_status.proto\x129mousetunnel.minecraft.protocol.packet.client_cache_status\x1a\x14packet_options.proto\"4\n" +
 	"\x11ClientCacheStatus\x12\x18\n" +
-	"\aEnabled\x18\x01 \x01(\bR\aEnabled:\x05\xc0\xc8\x05\x81\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\aEnabled\x18\x01 \x01(\bR\aEnabled:\x05\xc0\xc8\x05\x81\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_client_cache_status_proto_rawDescOnce sync.Once

@@ -86,7 +86,7 @@ const file_block_actors_general_actors_dispenser_block_actor_proto_rawDesc = "" 
 	"7block_actors/general_actors/dispenser_block_actor.proto\x12Pmousetunnel.minecraft.protocol.block_actors.general_actors.dispenser_block_actor\x1a:block_actors/general_actors/randomizable_block_actor.proto\x1a\x1cgoogle/protobuf/struct.proto\"\xe9\x01\n" +
 	"\x13DispenserBlockActor\x12\xa3\x01\n" +
 	"\x16RandomizableBlockActor\x18\x01 \x01(\v2k.mousetunnel.minecraft.protocol.block_actors.general_actors.randomizable_block_actor.RandomizableBlockActorR\x16RandomizableBlockActor\x12,\n" +
-	"\x05Items\x18\x02 \x03(\v2\x16.google.protobuf.ValueR\x05ItemsBgZegithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/general_actors;general_actorsb\x06proto3"
+	"\x05Items\x18\x02 \x03(\v2\x16.google.protobuf.ValueR\x05ItemsBmZkgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/general_actors;general_actorsb\x06proto3"
 
 var (
 	file_block_actors_general_actors_dispenser_block_actor_proto_rawDescOnce sync.Once

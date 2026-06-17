@@ -140,7 +140,7 @@ const file_packet_clientbound_data_driven_ui_close_all_screens_proto_rawDesc = "
 	"\aPresent\x18\x01 \x01(\bR\aPresent\x12\x14\n" +
 	"\x05Value\x18\x02 \x01(\rR\x05Value\"\xcf\x01\n" +
 	"\"ClientBoundDataDrivenUICloseScreen\x12\xa1\x01\n" +
-	"\x06FormID\x18\x01 \x01(\v2\x88\x01.mousetunnel.minecraft.protocol.packet.clientbound_data_driven_ui_close_all_screens.ClientboundDataDrivenUiCloseAllScreensOptionalUint32R\x06FormID:\x05\xc0\xc8\x05\xce\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x06FormID\x18\x01 \x01(\v2\x88\x01.mousetunnel.minecraft.protocol.packet.clientbound_data_driven_ui_close_all_screens.ClientboundDataDrivenUiCloseAllScreensOptionalUint32R\x06FormID:\x05\xc0\xc8\x05\xce\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_clientbound_data_driven_ui_close_all_screens_proto_rawDescOnce sync.Once

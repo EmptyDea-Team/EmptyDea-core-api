@@ -165,7 +165,7 @@ const file_packet_clientbound_data_driven_ui_show_screen_proto_rawDesc = "" +
 	"!ClientBoundDataDrivenUIShowScreen\x12\x1a\n" +
 	"\bScreenID\x18\x01 \x01(\tR\bScreenID\x12\x16\n" +
 	"\x06FormID\x18\x02 \x01(\rR\x06FormID\x12\xa5\x01\n" +
-	"\x0eDataInstanceID\x18\x03 \x01(\v2}.mousetunnel.minecraft.protocol.packet.clientbound_data_driven_ui_show_screen.ClientboundDataDrivenUiShowScreenOptionalUint32R\x0eDataInstanceID:\x05\xc0\xc8\x05\xcd\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x0eDataInstanceID\x18\x03 \x01(\v2}.mousetunnel.minecraft.protocol.packet.clientbound_data_driven_ui_show_screen.ClientboundDataDrivenUiShowScreenOptionalUint32R\x0eDataInstanceID:\x05\xc0\xc8\x05\xcd\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_clientbound_data_driven_ui_show_screen_proto_rawDescOnce sync.Once

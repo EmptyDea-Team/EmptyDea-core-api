@@ -269,7 +269,7 @@ const file_game_control_game_interface_querytarget_proto_rawDesc = "" +
 	"\x15DoQuerytargetResponse\x12R\n" +
 	"\aResults\x18\x01 \x03(\v28.emptydea.game_control.game_interface.TargetQueryingInfoR\aResults2\x9f\x01\n" +
 	"\x12QuerytargetService\x12\x88\x01\n" +
-	"\rDoQuerytarget\x12:.emptydea.game_control.game_interface.DoQuerytargetRequest\x1a;.emptydea.game_control.game_interface.DoQuerytargetResponseBWZUgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pbb\x06proto3"
+	"\rDoQuerytarget\x12:.emptydea.game_control.game_interface.DoQuerytargetRequest\x1a;.emptydea.game_control.game_interface.DoQuerytargetResponseB]Z[github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pbb\x06proto3"
 
 var (
 	file_game_control_game_interface_querytarget_proto_rawDescOnce sync.Once

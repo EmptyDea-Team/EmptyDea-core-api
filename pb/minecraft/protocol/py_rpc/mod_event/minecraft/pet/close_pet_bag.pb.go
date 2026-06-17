@@ -142,7 +142,7 @@ const file_py_rpc_mod_event_minecraft_pet_close_pet_bag_proto_rawDesc = "" +
 	"\tEventType\x18\x02 \x01(\rR\tEventType\x12\x86\x01\n" +
 	"\x0fClosePetBagData\x18\x03 \x01(\v2\\.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.close_pet_bag.ClosePetBagDataR\x0fClosePetBagData\"-\n" +
 	"\x0fClosePetBagData\x12\x1a\n" +
-	"\bPlayerID\x18\x01 \x01(\tR\bPlayerIDB_Z]github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
+	"\bPlayerID\x18\x01 \x01(\tR\bPlayerIDBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_pet_close_pet_bag_proto_rawDescOnce sync.Once

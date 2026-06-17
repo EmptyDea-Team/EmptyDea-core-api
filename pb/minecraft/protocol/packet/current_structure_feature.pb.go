@@ -83,7 +83,7 @@ const file_packet_current_structure_feature_proto_rawDesc = "" +
 	"\n" +
 	"&packet/current_structure_feature.proto\x12?mousetunnel.minecraft.protocol.packet.current_structure_feature\x1a\x14packet_options.proto\"H\n" +
 	"\x17CurrentStructureFeature\x12&\n" +
-	"\x0eCurrentFeature\x18\x01 \x01(\tR\x0eCurrentFeature:\x05\xc0\xc8\x05\xba\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x0eCurrentFeature\x18\x01 \x01(\tR\x0eCurrentFeature:\x05\xc0\xc8\x05\xba\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_current_structure_feature_proto_rawDescOnce sync.Once

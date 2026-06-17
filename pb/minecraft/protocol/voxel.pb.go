@@ -316,7 +316,7 @@ const file_voxel_proto_rawDesc = "" +
 	"\tCellsList\x18\x02 \x03(\v20.mousetunnel.minecraft.protocol.voxel.VoxelCellsR\tCellsList\x12\"\n" +
 	"\fXCoordinates\x18\x03 \x03(\x02R\fXCoordinates\x12\"\n" +
 	"\fYCoordinates\x18\x04 \x03(\x02R\fYCoordinates\x12\"\n" +
-	"\fZCoordinates\x18\x05 \x03(\x02R\fZCoordinatesBEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\fZCoordinates\x18\x05 \x03(\x02R\fZCoordinatesBKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_voxel_proto_rawDescOnce sync.Once

@@ -159,7 +159,7 @@ const file_py_rpc_mod_event_minecraft_pet_summon_mount_response_proto_rawDesc = 
 	"\bPlayerID\x18\x01 \x01(\tR\bPlayerID\x12\x1a\n" +
 	"\bEntityID\x18\x02 \x01(\tR\bEntityID\x12\x12\n" +
 	"\x04Code\x18\x03 \x01(\x03R\x04Code\x12\x16\n" +
-	"\x06Silent\x18\x04 \x01(\bR\x06SilentB_Z]github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
+	"\x06Silent\x18\x04 \x01(\bR\x06SilentBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_pet_summon_mount_response_proto_rawDescOnce sync.Once

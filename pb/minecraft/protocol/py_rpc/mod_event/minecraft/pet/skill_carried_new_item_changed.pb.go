@@ -132,7 +132,7 @@ const file_py_rpc_mod_event_minecraft_pet_skill_carried_new_item_changed_proto_r
 	"\x05Basic\x18\x01 \x01(\v2J.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.BasicR\x05Basic\x12\xaf\x01\n" +
 	"\x17SkillCarriedNewItemData\x18\x02 \x01(\v2u.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.skill_carried_new_item_changed.SkillCarriedNewItemDataR\x17SkillCarriedNewItemData\"3\n" +
 	"\x17SkillCarriedNewItemData\x12\x18\n" +
-	"\aIsBlock\x18\x01 \x01(\bR\aIsBlockB_Z]github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
+	"\aIsBlock\x18\x01 \x01(\bR\aIsBlockBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_pet_skill_carried_new_item_changed_proto_rawDescOnce sync.Once

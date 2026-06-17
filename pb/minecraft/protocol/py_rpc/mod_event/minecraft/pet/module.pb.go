@@ -65,7 +65,7 @@ var File_py_rpc_mod_event_minecraft_pet_module_proto protoreflect.FileDescriptor
 const file_py_rpc_mod_event_minecraft_pet_module_proto_rawDesc = "" +
 	"\n" +
 	"+py_rpc/mod_event/minecraft/pet/module.proto\x12Dmousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.module\"\b\n" +
-	"\x06ModuleB_Z]github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
+	"\x06ModuleBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_pet_module_proto_rawDescOnce sync.Once

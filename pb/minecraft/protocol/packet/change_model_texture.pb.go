@@ -104,7 +104,7 @@ const file_packet_change_model_texture_proto_rawDesc = "" +
 	"\bUnknown1\x18\x01 \x01(\x03R\bUnknown1\x12\x1a\n" +
 	"\bUnknown2\x18\x02 \x01(\tR\bUnknown2\x12\x1a\n" +
 	"\bUnknown3\x18\x03 \x01(\x03R\bUnknown3\x12\x1a\n" +
-	"\bUnknown4\x18\x04 \x01(\rR\bUnknown4:\x05\xc0\xc8\x05\xcc\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\bUnknown4\x18\x04 \x01(\rR\bUnknown4:\x05\xc0\xc8\x05\xcc\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_change_model_texture_proto_rawDescOnce sync.Once

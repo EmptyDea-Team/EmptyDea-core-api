@@ -153,7 +153,7 @@ const file_packet_update_equip_proto_rawDesc = "" +
 	"WindowType\x12\x12\n" +
 	"\x04Size\x18\x03 \x01(\x05R\x04Size\x12&\n" +
 	"\x0eEntityUniqueID\x18\x04 \x01(\x03R\x0eEntityUniqueID\x128\n" +
-	"\x17SerialisedInventoryData\x18\x05 \x01(\fR\x17SerialisedInventoryData:\x04\xc0\xc8\x05QBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x17SerialisedInventoryData\x18\x05 \x01(\fR\x17SerialisedInventoryData:\x04\xc0\xc8\x05QBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_update_equip_proto_rawDescOnce sync.Once

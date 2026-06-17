@@ -124,7 +124,7 @@ const file_block_actors_lectern_proto_rawDesc = "" +
 	"\x04Page\x18\x04 \x01(\x05R\x04Page\x12\x1e\n" +
 	"\n" +
 	"TotalPages\x18\x05 \x01(\x05R\n" +
-	"TotalPagesBVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	"TotalPagesB\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_lectern_proto_rawDescOnce sync.Once

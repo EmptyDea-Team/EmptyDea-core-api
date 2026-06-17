@@ -1205,7 +1205,7 @@ const file_packet_id_proto_rawDesc = "" +
 	"\x11IDSyncWorldClocks\x10\xd8\x02\x12$\n" +
 	"\x1fIDClientBoundAttributeLayerSync\x10\xd9\x02\x12\x16\n" +
 	"\x11IDServerStoreInfo\x10\xda\x02\x12\x19\n" +
-	"\x14IDServerPresenceInfo\x10\xdb\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x14IDServerPresenceInfo\x10\xdb\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_id_proto_rawDescOnce sync.Once

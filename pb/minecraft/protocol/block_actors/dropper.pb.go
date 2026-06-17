@@ -75,7 +75,7 @@ const file_block_actors_dropper_proto_rawDesc = "" +
 	"\n" +
 	"\x1ablock_actors/dropper.proto\x123mousetunnel.minecraft.protocol.block_actors.dropper\x1a7block_actors/general_actors/dispenser_block_actor.proto\"\xa3\x01\n" +
 	"\aDropper\x12\x97\x01\n" +
-	"\x13DispenserBlockActor\x18\x01 \x01(\v2e.mousetunnel.minecraft.protocol.block_actors.general_actors.dispenser_block_actor.DispenserBlockActorR\x13DispenserBlockActorBVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	"\x13DispenserBlockActor\x18\x01 \x01(\v2e.mousetunnel.minecraft.protocol.block_actors.general_actors.dispenser_block_actor.DispenserBlockActorR\x13DispenserBlockActorB\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_dropper_proto_rawDescOnce sync.Once

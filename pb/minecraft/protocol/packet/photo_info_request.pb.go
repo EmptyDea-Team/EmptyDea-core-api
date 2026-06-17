@@ -85,7 +85,7 @@ const file_packet_photo_info_request_proto_rawDesc = "" +
 	"\n" +
 	"\x1fpacket/photo_info_request.proto\x128mousetunnel.minecraft.protocol.packet.photo_info_request\x1a\x14packet_options.proto\"3\n" +
 	"\x10PhotoInfoRequest\x12\x18\n" +
-	"\aPhotoID\x18\x01 \x01(\x03R\aPhotoID:\x05\xc0\xc8\x05\xad\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\aPhotoID\x18\x01 \x01(\x03R\aPhotoID:\x05\xc0\xc8\x05\xad\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_photo_info_request_proto_rawDescOnce sync.Once

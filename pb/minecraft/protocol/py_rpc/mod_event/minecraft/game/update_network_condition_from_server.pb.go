@@ -74,7 +74,7 @@ const file_py_rpc_mod_event_minecraft_game_update_network_condition_from_server_
 	"\n" +
 	"Jpy_rpc/mod_event/minecraft/game/update_network_condition_from_server.proto\x12cmousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.game.update_network_condition_from_server\x1a>py_rpc/mod_event/minecraft/game/update_network_condition.proto\"\xcc\x01\n" +
 	" UpdateNetworkConditionFromServer\x12\xa7\x01\n" +
-	"\x16UpdateNetworkCondition\x18\x01 \x01(\v2o.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.game.update_network_condition.UpdateNetworkConditionR\x16UpdateNetworkConditionBaZ_github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/game;gameb\x06proto3"
+	"\x16UpdateNetworkCondition\x18\x01 \x01(\v2o.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.game.update_network_condition.UpdateNetworkConditionR\x16UpdateNetworkConditionBgZegithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/game;gameb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_game_update_network_condition_from_server_proto_rawDescOnce sync.Once

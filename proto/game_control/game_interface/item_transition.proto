@@ -5,18 +5,19 @@ package emptydea.game_control.game_interface;
 option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pb";
 
 import "game_control/game_interface/item_copy.proto";
+import "game_control/resources_control/inventory.proto";
 
-// TransitionRequest 是将库存 srcWindowID 处 src 所指示的物品状
-// 态转移到库存 dstWindowID 中，并且指定最终状态是 dst 的请求。
+// TransitionRequest 是将库存 SrcWindowName 处 src 所指示的物品状
+// 态转移到库存 DstWindowName 中，并且指定最终状态是 dst 的请求。
 message TransitionRequest {
   // Src 是来源槽位和物品需求列表。
   repeated ItemInfoWithSlot Src = 1;
   // Dst 是目标槽位和物品需求列表。
   repeated ItemInfoWithSlot Dst = 2;
-  // SrcWindowID 是来源窗口 ID。
-  int32 SrcWindowID = 3;
-  // DstWindowID 是目标窗口 ID。
-  int32 DstWindowID = 4;
+  // SrcWindowName 是来源窗口名。
+  emptydea.game_control.resources_control.WindowName SrcWindowName = 3;
+  // DstWindowName 是目标窗口名。
+  emptydea.game_control.resources_control.WindowName DstWindowName = 4;
 }
 
 // SimpleTransitionRequest 是使用预设窗口语义执行物品状态转移的请求。
@@ -35,8 +36,8 @@ message TransitionResponse {
 
 // ItemTransitionService 是基于 ResourcesWrapper 和 ItemStackOperation 实现的物品状态转移。
 service ItemTransitionService {
-  // Transition 将库存 srcWindowID 处 src 所指示的物品状
-  // 态转移到库存 dstWindowID 中，并且指定最终状态是 dst。
+  // Transition 将库存 SrcWindowName 处 src 所指示的物品状
+  // 态转移到库存 DstWindowName 中，并且指定最终状态是 dst。
   //
   // 应当保证 dst 的物品可以完全从 src 中获得，
   // 并且 src 和 dst 均不包括空气。

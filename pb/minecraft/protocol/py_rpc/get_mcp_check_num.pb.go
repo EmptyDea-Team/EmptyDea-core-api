@@ -216,7 +216,7 @@ const file_py_rpc_get_mcp_check_num_proto_rawDesc = "" +
 	"\x0eFirstExtraData\x18\x02 \x01(\v2S.mousetunnel.minecraft.protocol.py_rpc.get_mcp_check_num.MCPCheckChallengeExtraDataR\x0eFirstExtraData\x12}\n" +
 	"\x0fSecondExtraData\x18\x03 \x01(\v2S.mousetunnel.minecraft.protocol.py_rpc.get_mcp_check_num.MCPCheckChallengeExtraDataR\x0fSecondExtraData\"2\n" +
 	"\x1aMCPCheckChallengeExtraData\x12\x14\n" +
-	"\x05Value\x18\x01 \x03(\tR\x05ValueBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpcb\x06proto3"
+	"\x05Value\x18\x01 \x03(\tR\x05ValueBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpcb\x06proto3"
 
 var (
 	file_py_rpc_get_mcp_check_num_proto_rawDescOnce sync.Once

@@ -102,7 +102,7 @@ const file_packet_modal_form_request_proto_rawDesc = "" +
 	"\x1fpacket/modal_form_request.proto\x128mousetunnel.minecraft.protocol.packet.modal_form_request\x1a\x14packet_options.proto\"L\n" +
 	"\x10ModalFormRequest\x12\x16\n" +
 	"\x06FormID\x18\x01 \x01(\rR\x06FormID\x12\x1a\n" +
-	"\bFormData\x18\x02 \x01(\fR\bFormData:\x04\xc0\xc8\x05dBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\bFormData\x18\x02 \x01(\fR\bFormData:\x04\xc0\xc8\x05dBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_modal_form_request_proto_rawDescOnce sync.Once

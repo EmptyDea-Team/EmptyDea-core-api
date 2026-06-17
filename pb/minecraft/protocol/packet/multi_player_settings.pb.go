@@ -141,7 +141,7 @@ const file_packet_multi_player_settings_proto_rawDesc = "" +
 	"\x17MultiPlayerSettingsEnum\x12\x15\n" +
 	"\x11EnableMultiPlayer\x10\x00\x12\x16\n" +
 	"\x12DisableMultiPlayer\x10\x01\x12\x13\n" +
-	"\x0fRefreshJoinCode\x10\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x0fRefreshJoinCode\x10\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_multi_player_settings_proto_rawDescOnce sync.Once

@@ -1511,7 +1511,7 @@ const file_inventory_proto_rawDesc = "" +
 	"\x1bUseItemOnEntityActionAttack\x10\x01*S\n" +
 	"\x15ReleaseItemActionEnum\x12\x1c\n" +
 	"\x18ReleaseItemActionRelease\x10\x00\x12\x1c\n" +
-	"\x18ReleaseItemActionConsume\x10\x01BEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\x18ReleaseItemActionConsume\x10\x01BKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_inventory_proto_rawDescOnce sync.Once

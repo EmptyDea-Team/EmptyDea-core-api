@@ -77,7 +77,7 @@ const file_packet_mod_block_actor_changed_proto_rawDesc = "" +
 	"\n" +
 	"$packet/mod_block_actor_changed.proto\x12=mousetunnel.minecraft.protocol.packet.mod_block_actor_changed\x1a\x0fblock_pos.proto\x1a\x14packet_options.proto\"m\n" +
 	"\x14ModBlockActorChanged\x12N\n" +
-	"\bPosition\x18\x01 \x01(\v22.mousetunnel.minecraft.protocol.block_pos.BlockPosR\bPosition:\x05\xc0\xc8\x05\xe7\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\bPosition\x18\x01 \x01(\v22.mousetunnel.minecraft.protocol.block_pos.BlockPosR\bPosition:\x05\xc0\xc8\x05\xe7\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_mod_block_actor_changed_proto_rawDescOnce sync.Once

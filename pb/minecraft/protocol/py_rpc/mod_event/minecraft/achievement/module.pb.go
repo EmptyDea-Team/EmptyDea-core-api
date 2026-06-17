@@ -65,7 +65,7 @@ var File_py_rpc_mod_event_minecraft_achievement_module_proto protoreflect.FileDe
 const file_py_rpc_mod_event_minecraft_achievement_module_proto_rawDesc = "" +
 	"\n" +
 	"3py_rpc/mod_event/minecraft/achievement/module.proto\x12Lmousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.achievement.module\"\b\n" +
-	"\x06ModuleBoZmgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/achievement;achievementb\x06proto3"
+	"\x06ModuleBuZsgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/achievement;achievementb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_achievement_module_proto_rawDescOnce sync.Once

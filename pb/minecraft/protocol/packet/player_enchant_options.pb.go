@@ -92,7 +92,7 @@ const file_packet_player_enchant_options_proto_rawDesc = "" +
 	"\n" +
 	"#packet/player_enchant_options.proto\x12<mousetunnel.minecraft.protocol.packet.player_enchant_options\x1a\renchant.proto\x1a\x14packet_options.proto\"r\n" +
 	"\x14PlayerEnchantOptions\x12S\n" +
-	"\aOptions\x18\x01 \x03(\v29.mousetunnel.minecraft.protocol.enchant.EnchantmentOptionR\aOptions:\x05\xc0\xc8\x05\x92\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\aOptions\x18\x01 \x03(\v29.mousetunnel.minecraft.protocol.enchant.EnchantmentOptionR\aOptions:\x05\xc0\xc8\x05\x92\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_player_enchant_options_proto_rawDescOnce sync.Once

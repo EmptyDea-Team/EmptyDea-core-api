@@ -142,7 +142,7 @@ const file_packet_client_input_record_proto_rawDesc = "" +
 	"\bUnknown5\x18\x05 \x01(\rR\bUnknown5\x12\x1a\n" +
 	"\bUnknown6\x18\x06 \x01(\rR\bUnknown6\x12\x1a\n" +
 	"\bUnknown7\x18\a \x01(\tR\bUnknown7\x12`\n" +
-	"\bUnknown8\x18\b \x01(\v2D.mousetunnel.minecraft.protocol.netease.NetEaseClientInputRecordDataR\bUnknown8:\x05\xc0\xc8\x05\xd4\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\bUnknown8\x18\b \x01(\v2D.mousetunnel.minecraft.protocol.netease.NetEaseClientInputRecordDataR\bUnknown8:\x05\xc0\xc8\x05\xd4\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_client_input_record_proto_rawDescOnce sync.Once

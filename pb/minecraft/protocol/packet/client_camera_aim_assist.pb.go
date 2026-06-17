@@ -161,7 +161,7 @@ const file_packet_client_camera_aim_assist_proto_rawDesc = "" +
 	"\x0eAllowAimAssist\x18\x03 \x01(\bR\x0eAllowAimAssist:\x05\xc0\xc8\x05\xc1\x02*k\n" +
 	"\x1fClientCameraAimAssistActionEnum\x12\"\n" +
 	"\x1eClientCameraAimAssistActionSet\x10\x00\x12$\n" +
-	" ClientCameraAimAssistActionClear\x10\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	" ClientCameraAimAssistActionClear\x10\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_client_camera_aim_assist_proto_rawDescOnce sync.Once

@@ -203,7 +203,7 @@ const file_packet_position_tracking_db_server_broadcast_proto_rawDesc = "" +
 	"%PositionTrackingDBBroadcastActionEnum\x12+\n" +
 	"'PositionTrackingDBBroadcastActionUpdate\x10\x00\x12,\n" +
 	"(PositionTrackingDBBroadcastActionDestroy\x10\x01\x12-\n" +
-	")PositionTrackingDBBroadcastActionNotFound\x10\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	")PositionTrackingDBBroadcastActionNotFound\x10\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_position_tracking_db_server_broadcast_proto_rawDescOnce sync.Once

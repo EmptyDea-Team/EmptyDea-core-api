@@ -155,7 +155,7 @@ const file_packet_mob_equipment_proto_rawDesc = "" +
 	"\n" +
 	"HotBarSlot\x18\x04 \x01(\rR\n" +
 	"HotBarSlot\x12\x1a\n" +
-	"\bWindowID\x18\x05 \x01(\rR\bWindowID:\x04\xc0\xc8\x05\x1fBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\bWindowID\x18\x05 \x01(\rR\bWindowID:\x04\xc0\xc8\x05\x1fBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_mob_equipment_proto_rawDescOnce sync.Once

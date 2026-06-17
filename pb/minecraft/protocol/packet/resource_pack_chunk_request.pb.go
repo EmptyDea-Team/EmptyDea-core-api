@@ -100,7 +100,7 @@ const file_packet_resource_pack_chunk_request_proto_rawDesc = "" +
 	"\x04UUID\x18\x01 \x01(\tR\x04UUID\x12\x1e\n" +
 	"\n" +
 	"ChunkIndex\x18\x02 \x01(\rR\n" +
-	"ChunkIndex:\x04\xc0\xc8\x05TBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"ChunkIndex:\x04\xc0\xc8\x05TBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_resource_pack_chunk_request_proto_rawDescOnce sync.Once

@@ -82,7 +82,7 @@ const file_packet_education_resource_uri_proto_rawDesc = "" +
 	"\n" +
 	"#packet/education_resource_uri.proto\x12<mousetunnel.minecraft.protocol.packet.education_resource_uri\x1a\x0feducation.proto\x1a\x14packet_options.proto\"\x7f\n" +
 	"\x14EducationResourceURI\x12`\n" +
-	"\bResource\x18\x01 \x01(\v2D.mousetunnel.minecraft.protocol.education.EducationSharedResourceURIR\bResource:\x05\xc0\xc8\x05\xaa\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\bResource\x18\x01 \x01(\v2D.mousetunnel.minecraft.protocol.education.EducationSharedResourceURIR\bResource:\x05\xc0\xc8\x05\xaa\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_education_resource_uri_proto_rawDescOnce sync.Once

@@ -103,7 +103,7 @@ const file_packet_login_proto_rawDesc = "" +
 	"\x12packet/login.proto\x12+mousetunnel.minecraft.protocol.packet.login\x1a\x14packet_options.proto\"c\n" +
 	"\x05Login\x12&\n" +
 	"\x0eClientProtocol\x18\x01 \x01(\x05R\x0eClientProtocol\x12,\n" +
-	"\x11ConnectionRequest\x18\x02 \x01(\fR\x11ConnectionRequest:\x04\xc0\xc8\x05\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x11ConnectionRequest\x18\x02 \x01(\fR\x11ConnectionRequest:\x04\xc0\xc8\x05\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_login_proto_rawDescOnce sync.Once

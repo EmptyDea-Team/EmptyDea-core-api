@@ -154,7 +154,7 @@ const file_py_rpc_mod_event_minecraft_pet_sync_config_event_proto_rawDesc = "" +
 	"\x10AllowStepOnBlock\x18\x02 \x01(\bR\x10AllowStepOnBlock\x12\x1e\n" +
 	"\n" +
 	"AvoidOwner\x18\x03 \x01(\bR\n" +
-	"AvoidOwnerB_Z]github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
+	"AvoidOwnerBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_pet_sync_config_event_proto_rawDescOnce sync.Once

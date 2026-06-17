@@ -159,7 +159,7 @@ const file_packet_set_scoreboard_identity_proto_rawDesc = "" +
 	"\aEntries\x18\x02 \x03(\v2B.mousetunnel.minecraft.protocol.scoreboard.ScoreboardIdentityEntryR\aEntries:\x04\xc0\xc8\x05p*g\n" +
 	"\x1cScoreboardIdentityActionEnum\x12$\n" +
 	" ScoreboardIdentityActionRegister\x10\x00\x12!\n" +
-	"\x1dScoreboardIdentityActionClear\x10\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x1dScoreboardIdentityActionClear\x10\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_set_scoreboard_identity_proto_rawDescOnce sync.Once

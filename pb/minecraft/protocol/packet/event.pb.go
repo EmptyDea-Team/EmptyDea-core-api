@@ -120,7 +120,7 @@ const file_packet_event_proto_rawDesc = "" +
 	"\x05Event\x12(\n" +
 	"\x0fEntityRuntimeID\x18\x01 \x01(\x03R\x0fEntityRuntimeID\x12 \n" +
 	"\vUsePlayerID\x18\x02 \x01(\bR\vUsePlayerID\x12B\n" +
-	"\x05Event\x18\x03 \x01(\v2,.mousetunnel.minecraft.protocol.events.EventR\x05Event:\x04\xc0\xc8\x05ABJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x05Event\x18\x03 \x01(\v2,.mousetunnel.minecraft.protocol.events.EventR\x05Event:\x04\xc0\xc8\x05ABPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_event_proto_rawDescOnce sync.Once

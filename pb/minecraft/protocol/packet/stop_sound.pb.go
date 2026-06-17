@@ -114,7 +114,7 @@ const file_packet_stop_sound_proto_rawDesc = "" +
 	"\tStopSound\x12\x1c\n" +
 	"\tSoundName\x18\x01 \x01(\tR\tSoundName\x12\x18\n" +
 	"\aStopAll\x18\x02 \x01(\bR\aStopAll\x12(\n" +
-	"\x0fStopMusicLegacy\x18\x03 \x01(\bR\x0fStopMusicLegacy:\x04\xc0\xc8\x05WBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x0fStopMusicLegacy\x18\x03 \x01(\bR\x0fStopMusicLegacy:\x04\xc0\xc8\x05WBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_stop_sound_proto_rawDescOnce sync.Once

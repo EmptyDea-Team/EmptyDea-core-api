@@ -186,7 +186,7 @@ const file_packet_add_item_actor_proto_rawDesc = "" +
 	"\bPosition\x18\x04 \x01(\v2*.mousetunnel.minecraft.protocol.mgl32.Vec3R\bPosition\x12F\n" +
 	"\bVelocity\x18\x05 \x01(\v2*.mousetunnel.minecraft.protocol.mgl32.Vec3R\bVelocity\x12f\n" +
 	"\x0eEntityMetadata\x18\x06 \x01(\v2>.mousetunnel.minecraft.protocol.entity_metadata.EntityMetadataR\x0eEntityMetadata\x12 \n" +
-	"\vFromFishing\x18\a \x01(\bR\vFromFishing:\x04\xc0\xc8\x05\x0fBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\vFromFishing\x18\a \x01(\bR\vFromFishing:\x04\xc0\xc8\x05\x0fBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_add_item_actor_proto_rawDescOnce sync.Once

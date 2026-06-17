@@ -178,7 +178,7 @@ const file_packet_update_soft_enum_proto_rawDesc = "" +
 	"\x12SoftEnumActionEnum\x12\x15\n" +
 	"\x11SoftEnumActionAdd\x10\x00\x12\x18\n" +
 	"\x14SoftEnumActionRemove\x10\x01\x12\x15\n" +
-	"\x11SoftEnumActionSet\x10\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x11SoftEnumActionSet\x10\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_update_soft_enum_proto_rawDescOnce sync.Once

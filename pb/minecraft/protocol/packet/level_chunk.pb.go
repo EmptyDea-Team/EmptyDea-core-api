@@ -208,7 +208,7 @@ const file_packet_level_chunk_proto_rawDesc = "" +
 	"BlobHashes\x12\x1e\n" +
 	"\n" +
 	"RawPayload\x18\a \x01(\fR\n" +
-	"RawPayload:\x04\xc0\xc8\x05:BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"RawPayload:\x04\xc0\xc8\x05:BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_level_chunk_proto_rawDescOnce sync.Once

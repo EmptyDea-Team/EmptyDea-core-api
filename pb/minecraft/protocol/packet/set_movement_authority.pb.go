@@ -78,7 +78,7 @@ const file_packet_set_movement_authority_proto_rawDesc = "" +
 	"\n" +
 	"#packet/set_movement_authority.proto\x12<mousetunnel.minecraft.protocol.packet.set_movement_authority\x1a\x14packet_options.proto\"A\n" +
 	"\x14SetMovementAuthority\x12\"\n" +
-	"\fMovementMode\x18\x01 \x01(\rR\fMovementMode:\x05\xc0\xc8\x05\xbf\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\fMovementMode\x18\x01 \x01(\rR\fMovementMode:\x05\xc0\xc8\x05\xbf\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_set_movement_authority_proto_rawDescOnce sync.Once

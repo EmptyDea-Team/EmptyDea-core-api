@@ -104,7 +104,7 @@ const file_packet_trim_data_proto_rawDesc = "" +
 	"trim.proto\"\xb0\x01\n" +
 	"\bTrimData\x12L\n" +
 	"\bPatterns\x18\x01 \x03(\v20.mousetunnel.minecraft.protocol.trim.TrimPatternR\bPatterns\x12O\n" +
-	"\tMaterials\x18\x02 \x03(\v21.mousetunnel.minecraft.protocol.trim.TrimMaterialR\tMaterials:\x05\xc0\xc8\x05\xae\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\tMaterials\x18\x02 \x03(\v21.mousetunnel.minecraft.protocol.trim.TrimMaterialR\tMaterials:\x05\xc0\xc8\x05\xae\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_trim_data_proto_rawDescOnce sync.Once

@@ -128,7 +128,7 @@ const file_packet_movement_effect_proto_rawDesc = "" +
 	"\x0fEntityRuntimeID\x18\x01 \x01(\x04R\x0fEntityRuntimeID\x12\x12\n" +
 	"\x04Type\x18\x02 \x01(\x05R\x04Type\x12\x1a\n" +
 	"\bDuration\x18\x03 \x01(\x05R\bDuration\x12\x12\n" +
-	"\x04Tick\x18\x04 \x01(\x04R\x04Tick:\x05\xc0\xc8\x05\xbe\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x04Tick\x18\x04 \x01(\x04R\x04Tick:\x05\xc0\xc8\x05\xbe\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_movement_effect_proto_rawDescOnce sync.Once

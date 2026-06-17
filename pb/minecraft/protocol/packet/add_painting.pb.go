@@ -149,7 +149,7 @@ const file_packet_add_painting_proto_rawDesc = "" +
 	"\x0fEntityRuntimeID\x18\x02 \x01(\x04R\x0fEntityRuntimeID\x12F\n" +
 	"\bPosition\x18\x03 \x01(\v2*.mousetunnel.minecraft.protocol.mgl32.Vec3R\bPosition\x12\x1c\n" +
 	"\tDirection\x18\x04 \x01(\x05R\tDirection\x12\x14\n" +
-	"\x05Title\x18\x05 \x01(\tR\x05Title:\x04\xc0\xc8\x05\x16BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x05Title\x18\x05 \x01(\tR\x05Title:\x04\xc0\xc8\x05\x16BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_add_painting_proto_rawDescOnce sync.Once

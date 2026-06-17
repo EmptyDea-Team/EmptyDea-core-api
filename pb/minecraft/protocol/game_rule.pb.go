@@ -111,7 +111,7 @@ const file_game_rule_proto_rawDesc = "" +
 	"\bGameRule\x12\x12\n" +
 	"\x04Name\x18\x01 \x01(\tR\x04Name\x124\n" +
 	"\x15CanBeModifiedByPlayer\x18\x02 \x01(\bR\x15CanBeModifiedByPlayer\x12,\n" +
-	"\x05Value\x18\x03 \x01(\v2\x16.google.protobuf.ValueR\x05ValueBEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\x05Value\x18\x03 \x01(\v2\x16.google.protobuf.ValueR\x05ValueBKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_game_rule_proto_rawDescOnce sync.Once

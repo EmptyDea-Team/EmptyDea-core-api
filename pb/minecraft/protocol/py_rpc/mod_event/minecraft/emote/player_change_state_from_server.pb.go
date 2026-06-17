@@ -222,7 +222,7 @@ const file_py_rpc_mod_event_minecraft_emote_player_change_state_from_server_prot
 	"\tEmoteType\x18\x03 \x01(\tR\tEmoteType\x12\x1a\n" +
 	"\bRelation\x18\x04 \x01(\tR\bRelation\x12\x18\n" +
 	"\aInviter\x18\x05 \x01(\tR\aInviter\x12\x18\n" +
-	"\aInvitee\x18\x06 \x01(\tR\aInviteeBcZagithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/emote;emoteb\x06proto3"
+	"\aInvitee\x18\x06 \x01(\tR\aInviteeBiZggithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/emote;emoteb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_emote_player_change_state_from_server_proto_rawDescOnce sync.Once

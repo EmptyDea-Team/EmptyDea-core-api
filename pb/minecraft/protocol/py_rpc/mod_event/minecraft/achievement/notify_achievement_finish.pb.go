@@ -86,7 +86,7 @@ const file_py_rpc_mod_event_minecraft_achievement_notify_achievement_finish_prot
 	"Fpy_rpc/mod_event/minecraft/achievement/notify_achievement_finish.proto\x12_mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.achievement.notify_achievement_finish\x1a2py_rpc/mod_event/minecraft/achievement/basic.proto\"\x9b\x01\n" +
 	"\x17NotifyAchievementFinish\x12h\n" +
 	"\x05Basic\x18\x01 \x01(\v2R.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.achievement.basic.BasicR\x05Basic\x12\x16\n" +
-	"\x06NodeID\x18\x02 \x01(\tR\x06NodeIDBoZmgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/achievement;achievementb\x06proto3"
+	"\x06NodeID\x18\x02 \x01(\tR\x06NodeIDBuZsgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/achievement;achievementb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_achievement_notify_achievement_finish_proto_rawDescOnce sync.Once

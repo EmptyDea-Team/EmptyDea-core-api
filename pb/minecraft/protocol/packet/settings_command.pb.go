@@ -101,7 +101,7 @@ const file_packet_settings_command_proto_rawDesc = "" +
 	"\x1dpacket/settings_command.proto\x126mousetunnel.minecraft.protocol.packet.settings_command\x1a\x14packet_options.proto\"b\n" +
 	"\x0fSettingsCommand\x12 \n" +
 	"\vCommandLine\x18\x01 \x01(\tR\vCommandLine\x12&\n" +
-	"\x0eSuppressOutput\x18\x02 \x01(\bR\x0eSuppressOutput:\x05\xc0\xc8\x05\x8c\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x0eSuppressOutput\x18\x02 \x01(\bR\x0eSuppressOutput:\x05\xc0\xc8\x05\x8c\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_settings_command_proto_rawDescOnce sync.Once

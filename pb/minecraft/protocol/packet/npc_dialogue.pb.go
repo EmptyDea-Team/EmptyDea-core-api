@@ -205,7 +205,7 @@ const file_packet_npc_dialogue_proto_rawDesc = "" +
 	"ActionJSON:\x05\xc0\xc8\x05\xa9\x01*N\n" +
 	"\x15NPCDialogueActionEnum\x12\x19\n" +
 	"\x15NPCDialogueActionOpen\x10\x00\x12\x1a\n" +
-	"\x16NPCDialogueActionClose\x10\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x16NPCDialogueActionClose\x10\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_npc_dialogue_proto_rawDescOnce sync.Once

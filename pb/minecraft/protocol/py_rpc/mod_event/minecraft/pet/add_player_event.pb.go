@@ -74,7 +74,7 @@ const file_py_rpc_mod_event_minecraft_pet_add_player_event_proto_rawDesc = "" +
 	"\n" +
 	"5py_rpc/mod_event/minecraft/pet/add_player_event.proto\x12Nmousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.add_player_event\x1a*py_rpc/mod_event/minecraft/pet/basic.proto\"r\n" +
 	"\x0eAddPlayerEvent\x12`\n" +
-	"\x05Basic\x18\x01 \x01(\v2J.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.BasicR\x05BasicB_Z]github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
+	"\x05Basic\x18\x01 \x01(\v2J.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.BasicR\x05BasicBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_pet_add_player_event_proto_rawDescOnce sync.Once

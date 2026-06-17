@@ -290,7 +290,7 @@ const file_py_rpc_mod_event_minecraft_storyline_client_carried_item_changed_serv
 	"\x0eModEnchantData\x18\a \x03(\v2y.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.storyline_client.carried_item_changed_server_event.ItemEnchantR\x0eModEnchantData\"3\n" +
 	"\vItemEnchant\x12\x0e\n" +
 	"\x02ID\x18\x01 \x01(\x03R\x02ID\x12\x14\n" +
-	"\x05Level\x18\x02 \x01(\x03R\x05LevelByZwgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/storyline_client;storyline_clientb\x06proto3"
+	"\x05Level\x18\x02 \x01(\x03R\x05LevelB\x7fZ}github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/storyline_client;storyline_clientb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_storyline_client_carried_item_changed_server_event_proto_rawDescOnce sync.Once

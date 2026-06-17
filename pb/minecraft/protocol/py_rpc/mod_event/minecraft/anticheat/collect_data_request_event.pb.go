@@ -124,7 +124,7 @@ const file_py_rpc_mod_event_minecraft_anticheat_collect_data_request_event_proto
 	"\bUniqueID\x18\x02 \x01(\x03R\bUniqueID\x12\x14\n" +
 	"\x05Types\x18\x03 \x03(\tR\x05Types\x12\x1a\n" +
 	"\bPosition\x18\x04 \x03(\x03R\bPosition\x12\x1a\n" +
-	"\bEntityID\x18\x05 \x01(\tR\bEntityIDBkZigithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/anticheat;anticheatb\x06proto3"
+	"\bEntityID\x18\x05 \x01(\tR\bEntityIDBqZogithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/anticheat;anticheatb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_anticheat_collect_data_request_event_proto_rawDescOnce sync.Once

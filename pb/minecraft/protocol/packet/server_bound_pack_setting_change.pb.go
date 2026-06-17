@@ -99,7 +99,7 @@ const file_packet_server_bound_pack_setting_change_proto_rawDesc = "" +
 	"-packet/server_bound_pack_setting_change.proto\x12Fmousetunnel.minecraft.protocol.packet.server_bound_pack_setting_change\x1a\x14packet_options.proto\x1a\x13resource_pack.proto\"\x9a\x01\n" +
 	"\x1cServerBoundPackSettingChange\x12\x16\n" +
 	"\x06PackID\x18\x01 \x01(\tR\x06PackID\x12[\n" +
-	"\vPackSetting\x18\x02 \x01(\v29.mousetunnel.minecraft.protocol.resource_pack.PackSettingR\vPackSetting:\x05\xc0\xc8\x05\xc9\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\vPackSetting\x18\x02 \x01(\v29.mousetunnel.minecraft.protocol.resource_pack.PackSettingR\vPackSetting:\x05\xc0\xc8\x05\xc9\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_server_bound_pack_setting_change_proto_rawDescOnce sync.Once

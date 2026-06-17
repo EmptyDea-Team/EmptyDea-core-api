@@ -101,7 +101,7 @@ const file_packet_script_message_proto_rawDesc = "" +
 	"\n" +
 	"Identifier\x18\x01 \x01(\tR\n" +
 	"Identifier\x12\x12\n" +
-	"\x04Data\x18\x02 \x01(\fR\x04Data:\x05\xc0\xc8\x05\xb1\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x04Data\x18\x02 \x01(\fR\x04Data:\x05\xc0\xc8\x05\xb1\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_script_message_proto_rawDescOnce sync.Once

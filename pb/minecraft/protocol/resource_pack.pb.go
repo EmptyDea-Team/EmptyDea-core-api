@@ -523,7 +523,7 @@ const file_resource_pack_proto_rawDesc = "" +
 	"\x13PackSettingTypeEnum\x12\x18\n" +
 	"\x14PackSettingTypeFloat\x10\x00\x12\x17\n" +
 	"\x13PackSettingTypeBool\x10\x01\x12\x19\n" +
-	"\x15PackSettingTypeString\x10\x02BEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\x15PackSettingTypeString\x10\x02BKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_resource_pack_proto_rawDescOnce sync.Once

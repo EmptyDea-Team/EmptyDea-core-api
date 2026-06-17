@@ -110,7 +110,7 @@ const file_packet_actor_fall_proto_rawDesc = "" +
 	"\tActorFall\x12(\n" +
 	"\x0fEntityRuntimeID\x18\x01 \x01(\x04R\x0fEntityRuntimeID\x12\"\n" +
 	"\fFallDistance\x18\x02 \x01(\x02R\fFallDistance\x12\x18\n" +
-	"\aUnknown\x18\x03 \x01(\bR\aUnknown:\x04\xc0\xc8\x05%BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\aUnknown\x18\x03 \x01(\bR\aUnknown:\x04\xc0\xc8\x05%BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_actor_fall_proto_rawDescOnce sync.Once

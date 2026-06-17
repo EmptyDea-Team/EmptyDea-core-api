@@ -88,7 +88,7 @@ const file_block_actors_bed_proto_rawDesc = "" +
 	"\n" +
 	"BlockActor\x18\x01 \x01(\v2R.mousetunnel.minecraft.protocol.block_actors.general_actors.block_actor.BlockActorR\n" +
 	"BlockActor\x12\x14\n" +
-	"\x05Color\x18\x02 \x01(\rR\x05ColorBVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	"\x05Color\x18\x02 \x01(\rR\x05ColorB\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_bed_proto_rawDescOnce sync.Once

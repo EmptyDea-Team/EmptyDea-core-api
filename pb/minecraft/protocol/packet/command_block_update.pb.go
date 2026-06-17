@@ -334,7 +334,7 @@ const file_packet_command_block_update_proto_rawDesc = "" +
 	"\x10CommandBlockEnum\x12\x17\n" +
 	"\x13CommandBlockImpulse\x10\x00\x12\x19\n" +
 	"\x15CommandBlockRepeating\x10\x01\x12\x15\n" +
-	"\x11CommandBlockChain\x10\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x11CommandBlockChain\x10\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_command_block_update_proto_rawDescOnce sync.Once

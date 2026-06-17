@@ -82,7 +82,7 @@ const file_packet_show_profile_proto_rawDesc = "" +
 	"\n" +
 	"\x19packet/show_profile.proto\x122mousetunnel.minecraft.protocol.packet.show_profile\x1a\x14packet_options.proto\"'\n" +
 	"\vShowProfile\x12\x12\n" +
-	"\x04XUID\x18\x01 \x01(\tR\x04XUID:\x04\xc0\xc8\x05hBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x04XUID\x18\x01 \x01(\tR\x04XUID:\x04\xc0\xc8\x05hBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_show_profile_proto_rawDescOnce sync.Once

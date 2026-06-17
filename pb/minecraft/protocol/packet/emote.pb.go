@@ -215,7 +215,7 @@ const file_packet_emote_proto_rawDesc = "" +
 	"\rEmoteFlagEnum\x12\x1d\n" +
 	"\x19EMOTEFLAGENUM_UNSPECIFIED\x10\x00\x12\x17\n" +
 	"\x13EmoteFlagServerSide\x10\x01\x12\x15\n" +
-	"\x11EmoteFlagMuteChat\x10\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x11EmoteFlagMuteChat\x10\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_emote_proto_rawDescOnce sync.Once

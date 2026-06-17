@@ -174,7 +174,7 @@ const file_packet_respawn_proto_rawDesc = "" +
 	"\x10RespawnStateEnum\x12!\n" +
 	"\x1dRespawnStateSearchingForSpawn\x10\x00\x12\x1c\n" +
 	"\x18RespawnStateReadyToSpawn\x10\x01\x12\"\n" +
-	"\x1eRespawnStateClientReadyToSpawn\x10\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x1eRespawnStateClientReadyToSpawn\x10\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_respawn_proto_rawDescOnce sync.Once

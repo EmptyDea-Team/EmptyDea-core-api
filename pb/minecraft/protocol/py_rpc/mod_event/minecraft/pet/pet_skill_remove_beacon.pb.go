@@ -86,7 +86,7 @@ const file_py_rpc_mod_event_minecraft_pet_pet_skill_remove_beacon_proto_rawDesc 
 	"<py_rpc/mod_event/minecraft/pet/pet_skill_remove_beacon.proto\x12Umousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.pet_skill_remove_beacon\x1a*py_rpc/mod_event/minecraft/pet/basic.proto\"\x8e\x01\n" +
 	"\x14PetSkillRemoveBeacon\x12`\n" +
 	"\x05Basic\x18\x01 \x01(\v2J.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.BasicR\x05Basic\x12\x14\n" +
-	"\x05PetID\x18\x02 \x01(\tR\x05PetIDB_Z]github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
+	"\x05PetID\x18\x02 \x01(\tR\x05PetIDBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_pet_pet_skill_remove_beacon_proto_rawDescOnce sync.Once

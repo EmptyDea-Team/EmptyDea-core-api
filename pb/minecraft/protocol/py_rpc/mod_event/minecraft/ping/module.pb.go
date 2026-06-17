@@ -65,7 +65,7 @@ var File_py_rpc_mod_event_minecraft_ping_module_proto protoreflect.FileDescripto
 const file_py_rpc_mod_event_minecraft_ping_module_proto_rawDesc = "" +
 	"\n" +
 	",py_rpc/mod_event/minecraft/ping/module.proto\x12Emousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ping.module\"\b\n" +
-	"\x06ModuleBaZ_github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ping;pingb\x06proto3"
+	"\x06ModuleBgZegithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ping;pingb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_ping_module_proto_rawDescOnce sync.Once

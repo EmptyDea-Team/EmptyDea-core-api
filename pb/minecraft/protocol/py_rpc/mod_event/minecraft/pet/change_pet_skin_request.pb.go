@@ -168,7 +168,7 @@ const file_py_rpc_mod_event_minecraft_pet_change_pet_skin_request_proto_rawDesc 
 	"\fCurrentint64\x18\x02 \x01(\tR\fCurrentint64\x12\x16\n" +
 	"\x06SkinID\x18\x03 \x01(\x03R\x06SkinID\x12\x1c\n" +
 	"\tModelName\x18\x04 \x01(\tR\tModelName\x12\x18\n" +
-	"\aPetName\x18\x05 \x01(\tR\aPetNameB_Z]github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
+	"\aPetName\x18\x05 \x01(\tR\aPetNameBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_pet_change_pet_skin_request_proto_rawDescOnce sync.Once

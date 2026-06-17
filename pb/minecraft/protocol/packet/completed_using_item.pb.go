@@ -212,7 +212,7 @@ const file_packet_completed_using_item_proto_rawDesc = "" +
 	"\vUseItemDyed\x10\r\x12\x11\n" +
 	"\rUseItemTraded\x10\x0e\x12\x1c\n" +
 	"\x18UseItemBrushingCompleted\x10\x0f\x12\x16\n" +
-	"\x12UseItemOpenedVault\x10\x10BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x12UseItemOpenedVault\x10\x10BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_completed_using_item_proto_rawDescOnce sync.Once

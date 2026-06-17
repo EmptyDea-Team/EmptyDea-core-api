@@ -74,7 +74,7 @@ const file_py_rpc_mod_event_minecraft_ai_command_init_ai_ui_visible_event_proto_
 	"\n" +
 	"Dpy_rpc/mod_event/minecraft/ai_command/init_ai_ui_visible_event.proto\x12]mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.init_ai_ui_visible_event\x1aGpy_rpc/mod_event/minecraft/ai_command/ai_ui_visible_state_changed.proto\"\xcc\x01\n" +
 	"\x14InitAiUiVisibleEvent\x12\xb3\x01\n" +
-	"\x17AiUiVisibleStateChanged\x18\x01 \x01(\v2y.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.ai_ui_visible_state_changed.AiUiVisibleStateChangedR\x17AiUiVisibleStateChangedBmZkgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_commandb\x06proto3"
+	"\x17AiUiVisibleStateChanged\x18\x01 \x01(\v2y.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.ai_ui_visible_state_changed.AiUiVisibleStateChangedR\x17AiUiVisibleStateChangedBsZqgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_commandb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_ai_command_init_ai_ui_visible_event_proto_rawDescOnce sync.Once

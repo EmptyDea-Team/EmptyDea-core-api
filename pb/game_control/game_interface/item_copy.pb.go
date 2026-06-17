@@ -252,7 +252,7 @@ const file_game_control_game_interface_item_copy_proto_rawDesc = "" +
 	"\vTargetItems\x18\x03 \x03(\v2..emptydea.game_control.game_interface.ItemInfoR\vTargetItems\"\x12\n" +
 	"\x10CopyItemResponse2\x8c\x01\n" +
 	"\x0fItemCopyService\x12y\n" +
-	"\bCopyItem\x125.emptydea.game_control.game_interface.CopyItemRequest\x1a6.emptydea.game_control.game_interface.CopyItemResponseBWZUgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pbb\x06proto3"
+	"\bCopyItem\x125.emptydea.game_control.game_interface.CopyItemRequest\x1a6.emptydea.game_control.game_interface.CopyItemResponseB]Z[github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pbb\x06proto3"
 
 var (
 	file_game_control_game_interface_item_copy_proto_rawDescOnce sync.Once

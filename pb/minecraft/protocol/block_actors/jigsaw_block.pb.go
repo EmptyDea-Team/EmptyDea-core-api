@@ -151,7 +151,7 @@ const file_block_actors_jigsaw_block_proto_rawDesc = "" +
 	"\x06Target\x18\a \x01(\tR\x06Target\x12\x1e\n" +
 	"\n" +
 	"TargetPool\x18\b \x01(\tR\n" +
-	"TargetPoolBVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	"TargetPoolB\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_jigsaw_block_proto_rawDescOnce sync.Once

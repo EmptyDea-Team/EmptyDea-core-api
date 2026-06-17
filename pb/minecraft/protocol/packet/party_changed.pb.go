@@ -207,7 +207,7 @@ const file_packet_party_changed_proto_rawDesc = "" +
 	"\tPartyInfo\x18\x01 \x01(\v2R.mousetunnel.minecraft.protocol.packet.party_changed.PartyChangedOptionalPartyInfoR\tPartyInfo:\x05\xc0\xc8\x05\xd6\x02\"G\n" +
 	"\tPartyInfo\x12\x18\n" +
 	"\aPartyID\x18\x01 \x01(\tR\aPartyID\x12 \n" +
-	"\vPartyLeader\x18\x02 \x01(\bR\vPartyLeaderBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\vPartyLeader\x18\x02 \x01(\bR\vPartyLeaderBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_party_changed_proto_rawDescOnce sync.Once

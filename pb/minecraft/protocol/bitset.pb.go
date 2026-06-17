@@ -87,7 +87,7 @@ const file_bitset_proto_rawDesc = "" +
 	"\fbitset.proto\x12%mousetunnel.minecraft.protocol.bitset\"2\n" +
 	"\x06Bitset\x12\x12\n" +
 	"\x04Size\x18\x01 \x01(\rR\x04Size\x12\x14\n" +
-	"\x05Words\x18\x02 \x03(\x04R\x05WordsBEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\x05Words\x18\x02 \x03(\x04R\x05WordsBKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_bitset_proto_rawDescOnce sync.Once

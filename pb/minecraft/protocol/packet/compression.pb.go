@@ -89,7 +89,7 @@ const file_packet_compression_proto_rawDesc = "" +
 	"\n" +
 	"\x18packet/compression.proto\x121mousetunnel.minecraft.protocol.packet.compression\x1a\x1cgoogle/protobuf/struct.proto\";\n" +
 	"\vCompression\x12,\n" +
-	"\x05Value\x18\x01 \x01(\v2\x16.google.protobuf.ValueR\x05ValueBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x05Value\x18\x01 \x01(\v2\x16.google.protobuf.ValueR\x05ValueBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_compression_proto_rawDescOnce sync.Once

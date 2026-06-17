@@ -82,7 +82,7 @@ const file_packet_request_network_settings_proto_rawDesc = "" +
 	"\n" +
 	"%packet/request_network_settings.proto\x12>mousetunnel.minecraft.protocol.packet.request_network_settings\x1a\x14packet_options.proto\"G\n" +
 	"\x16RequestNetworkSettings\x12&\n" +
-	"\x0eClientProtocol\x18\x01 \x01(\x05R\x0eClientProtocol:\x05\xc0\xc8\x05\xc1\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x0eClientProtocol\x18\x01 \x01(\x05R\x0eClientProtocol:\x05\xc0\xc8\x05\xc1\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_request_network_settings_proto_rawDescOnce sync.Once

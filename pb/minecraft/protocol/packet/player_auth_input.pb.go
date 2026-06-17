@@ -985,7 +985,7 @@ const file_packet_player_auth_input_proto_rawDesc = "" +
 	"\x14InteractionModelEnum\x12\x19\n" +
 	"\x15InteractionModelTouch\x10\x00\x12\x1d\n" +
 	"\x19InteractionModelCrosshair\x10\x01\x12\x1b\n" +
-	"\x17InteractionModelClassic\x10\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x17InteractionModelClassic\x10\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_player_auth_input_proto_rawDescOnce sync.Once

@@ -148,7 +148,7 @@ const file_packet_command_request_proto_rawDesc = "" +
 	"\rCommandOrigin\x18\x02 \x01(\v25.mousetunnel.minecraft.protocol.command.CommandOriginR\rCommandOrigin\x12\x1a\n" +
 	"\bInternal\x18\x03 \x01(\bR\bInternal\x12\x18\n" +
 	"\aVersion\x18\x04 \x01(\tR\aVersion\x12\x1c\n" +
-	"\tUnLimited\x18\x05 \x01(\bR\tUnLimited:\x04\xc0\xc8\x05MBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\tUnLimited\x18\x05 \x01(\bR\tUnLimited:\x04\xc0\xc8\x05MBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_command_request_proto_rawDescOnce sync.Once

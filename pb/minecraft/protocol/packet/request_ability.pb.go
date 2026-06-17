@@ -219,7 +219,7 @@ const file_packet_request_ability_proto_rawDesc = "" +
 	"\fAbilityMuted\x10\x0f\x12\x17\n" +
 	"\x13AbilityWorldBuilder\x10\x10\x12\x11\n" +
 	"\rAbilityNoClip\x10\x11\x12\x10\n" +
-	"\fAbilityCount\x10\x12BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\fAbilityCount\x10\x12BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_request_ability_proto_rawDescOnce sync.Once

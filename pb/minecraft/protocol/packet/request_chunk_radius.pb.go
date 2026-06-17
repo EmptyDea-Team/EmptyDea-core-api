@@ -101,7 +101,7 @@ const file_packet_request_chunk_radius_proto_rawDesc = "" +
 	"!packet/request_chunk_radius.proto\x12:mousetunnel.minecraft.protocol.packet.request_chunk_radius\x1a\x14packet_options.proto\"d\n" +
 	"\x12RequestChunkRadius\x12 \n" +
 	"\vChunkRadius\x18\x01 \x01(\x05R\vChunkRadius\x12&\n" +
-	"\x0eMaxChunkRadius\x18\x02 \x01(\rR\x0eMaxChunkRadius:\x04\xc0\xc8\x05EBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x0eMaxChunkRadius\x18\x02 \x01(\rR\x0eMaxChunkRadius:\x04\xc0\xc8\x05EBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_request_chunk_radius_proto_rawDescOnce sync.Once

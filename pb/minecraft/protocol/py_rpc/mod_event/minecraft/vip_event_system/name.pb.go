@@ -24,7 +24,7 @@ var File_py_rpc_mod_event_minecraft_vip_event_system_name_proto protoreflect.Fil
 
 const file_py_rpc_mod_event_minecraft_vip_event_system_name_proto_rawDesc = "" +
 	"\n" +
-	"6py_rpc/mod_event/minecraft/vip_event_system/name.proto\x12Omousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.vip_event_system.nameByZwgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/vip_event_system;vip_event_systemb\x06proto3"
+	"6py_rpc/mod_event/minecraft/vip_event_system/name.proto\x12Omousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.vip_event_system.nameB\x7fZ}github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/vip_event_system;vip_event_systemb\x06proto3"
 
 var file_py_rpc_mod_event_minecraft_vip_event_system_name_proto_goTypes = []any{}
 var file_py_rpc_mod_event_minecraft_vip_event_system_name_proto_depIdxs = []int32{

@@ -130,7 +130,7 @@ const file_packet_network_chunk_publisher_update_proto_rawDesc = "" +
 	"\x1bNetworkChunkPublisherUpdate\x12N\n" +
 	"\bPosition\x18\x01 \x01(\v22.mousetunnel.minecraft.protocol.block_pos.BlockPosR\bPosition\x12\x16\n" +
 	"\x06Radius\x18\x02 \x01(\rR\x06Radius\x12T\n" +
-	"\vSavedChunks\x18\x03 \x03(\v22.mousetunnel.minecraft.protocol.chunk_pos.ChunkPosR\vSavedChunks:\x04\xc0\xc8\x05yBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\vSavedChunks\x18\x03 \x03(\v22.mousetunnel.minecraft.protocol.chunk_pos.ChunkPosR\vSavedChunks:\x04\xc0\xc8\x05yBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_network_chunk_publisher_update_proto_rawDescOnce sync.Once

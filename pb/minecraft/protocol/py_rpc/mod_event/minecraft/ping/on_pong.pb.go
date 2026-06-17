@@ -74,7 +74,7 @@ const file_py_rpc_mod_event_minecraft_ping_on_pong_proto_rawDesc = "" +
 	"\n" +
 	"-py_rpc/mod_event/minecraft/ping/on_pong.proto\x12Fmousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ping.on_pong\x1a-py_rpc/mod_event/minecraft/ping/on_ping.proto\"p\n" +
 	"\x06OnPong\x12f\n" +
-	"\x06OnPing\x18\x01 \x01(\v2N.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ping.on_ping.OnPingR\x06OnPingBaZ_github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ping;pingb\x06proto3"
+	"\x06OnPing\x18\x01 \x01(\v2N.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ping.on_ping.OnPingR\x06OnPingBgZegithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ping;pingb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_ping_on_pong_proto_rawDescOnce sync.Once

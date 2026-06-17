@@ -88,7 +88,7 @@ const file_block_actors_enchant_table_proto_rawDesc = "" +
 	"\n" +
 	"BlockActor\x18\x01 \x01(\v2R.mousetunnel.minecraft.protocol.block_actors.general_actors.block_actor.BlockActorR\n" +
 	"BlockActor\x12\x1a\n" +
-	"\bRotation\x18\x02 \x01(\x02R\bRotationBVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	"\bRotation\x18\x02 \x01(\x02R\bRotationB\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_enchant_table_proto_rawDescOnce sync.Once

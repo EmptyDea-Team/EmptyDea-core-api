@@ -97,7 +97,7 @@ const file_packet_debug_info_proto_rawDesc = "" +
 	"\x17packet/debug_info.proto\x120mousetunnel.minecraft.protocol.packet.debug_info\x1a\x14packet_options.proto\"N\n" +
 	"\tDebugInfo\x12&\n" +
 	"\x0ePlayerUniqueID\x18\x01 \x01(\x03R\x0ePlayerUniqueID\x12\x12\n" +
-	"\x04Data\x18\x02 \x01(\fR\x04Data:\x05\xc0\xc8\x05\x9b\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x04Data\x18\x02 \x01(\fR\x04Data:\x05\xc0\xc8\x05\x9b\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_debug_info_proto_rawDescOnce sync.Once

@@ -156,7 +156,7 @@ const file_packet_client_bound_control_scheme_set_proto_rawDesc = "" +
 	"\x1bControlSchemeCameraRelative\x10\x01\x12%\n" +
 	"!ControlSchemeCameraRelativeStrafe\x10\x02\x12\x1f\n" +
 	"\x1bControlSchemePlayerRelative\x10\x03\x12%\n" +
-	"!ControlSchemePlayerRelativeStrafe\x10\x04BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"!ControlSchemePlayerRelativeStrafe\x10\x04BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_client_bound_control_scheme_set_proto_rawDescOnce sync.Once

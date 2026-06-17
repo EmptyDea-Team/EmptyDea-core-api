@@ -264,7 +264,7 @@ const file_block_actors_command_block_proto_rawDesc = "" +
 	"\x04Auto\x18\x0f \x01(\rR\x04Auto\x12\"\n" +
 	"\fConditionMet\x18\x10 \x01(\rR\fConditionMet\x12\x18\n" +
 	"\aPowered\x18\x11 \x01(\rR\aPowered\x12(\n" +
-	"\x0fConditionalMode\x18\x12 \x01(\rR\x0fConditionalModeBVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	"\x0fConditionalMode\x18\x12 \x01(\rR\x0fConditionalModeB\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_command_block_proto_rawDescOnce sync.Once

@@ -83,7 +83,7 @@ const file_packet_server_post_move_position_proto_rawDesc = "" +
 	"\n" +
 	"&packet/server_post_move_position.proto\x12?mousetunnel.minecraft.protocol.packet.server_post_move_position\x1a\vmgl32.proto\x1a\x14packet_options.proto\"f\n" +
 	"\x16ServerPostMovePosition\x12F\n" +
-	"\bPosition\x18\x01 \x01(\v2*.mousetunnel.minecraft.protocol.mgl32.Vec3R\bPosition:\x04\xc0\xc8\x05\x10BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\bPosition\x18\x01 \x01(\v2*.mousetunnel.minecraft.protocol.mgl32.Vec3R\bPosition:\x04\xc0\xc8\x05\x10BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_server_post_move_position_proto_rawDescOnce sync.Once

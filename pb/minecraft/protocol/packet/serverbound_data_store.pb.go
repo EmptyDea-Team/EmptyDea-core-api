@@ -82,7 +82,7 @@ const file_packet_serverbound_data_store_proto_rawDesc = "" +
 	"\n" +
 	"#packet/serverbound_data_store.proto\x12<mousetunnel.minecraft.protocol.packet.serverbound_data_store\x1a\x10data_store.proto\x1a\x14packet_options.proto\"q\n" +
 	"\x14ServerBoundDataStore\x12R\n" +
-	"\x06Update\x18\x01 \x01(\v2:.mousetunnel.minecraft.protocol.data_store.DataStoreUpdateR\x06Update:\x05\xc0\xc8\x05\xcc\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x06Update\x18\x01 \x01(\v2:.mousetunnel.minecraft.protocol.data_store.DataStoreUpdateR\x06Update:\x05\xc0\xc8\x05\xcc\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_serverbound_data_store_proto_rawDescOnce sync.Once

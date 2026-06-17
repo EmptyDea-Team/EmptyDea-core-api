@@ -187,7 +187,7 @@ const file_py_rpc_mod_event_minecraft_pet_change_pet_model_proto_rawDesc = "" +
 	"\bPlayerID\x18\x03 \x01(\tR\bPlayerID\x12\x14\n" +
 	"\x05State\x18\x04 \x01(\x03R\x05State\x12\x14\n" +
 	"\x05PetID\x18\x05 \x01(\x03R\x05PetID\x12\x16\n" +
-	"\x06SkinID\x18\x06 \x01(\x03R\x06SkinIDB_Z]github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
+	"\x06SkinID\x18\x06 \x01(\x03R\x06SkinIDBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_pet_change_pet_model_proto_rawDescOnce sync.Once

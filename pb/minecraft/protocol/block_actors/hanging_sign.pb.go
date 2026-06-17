@@ -75,7 +75,7 @@ const file_block_actors_hanging_sign_proto_rawDesc = "" +
 	"\n" +
 	"\x1fblock_actors/hanging_sign.proto\x128mousetunnel.minecraft.protocol.block_actors.hanging_sign\x1a2block_actors/general_actors/sign_block_actor.proto\"\x93\x01\n" +
 	"\vHangingSign\x12\x83\x01\n" +
-	"\x0eSignBlockActor\x18\x01 \x01(\v2[.mousetunnel.minecraft.protocol.block_actors.general_actors.sign_block_actor.SignBlockActorR\x0eSignBlockActorBVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	"\x0eSignBlockActor\x18\x01 \x01(\v2[.mousetunnel.minecraft.protocol.block_actors.general_actors.sign_block_actor.SignBlockActorR\x0eSignBlockActorB\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_hanging_sign_proto_rawDescOnce sync.Once

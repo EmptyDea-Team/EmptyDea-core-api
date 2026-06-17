@@ -24,7 +24,7 @@ var File_py_rpc_mod_event_minecraft_storyline_client_name_proto protoreflect.Fil
 
 const file_py_rpc_mod_event_minecraft_storyline_client_name_proto_rawDesc = "" +
 	"\n" +
-	"6py_rpc/mod_event/minecraft/storyline_client/name.proto\x12Omousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.storyline_client.nameByZwgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/storyline_client;storyline_clientb\x06proto3"
+	"6py_rpc/mod_event/minecraft/storyline_client/name.proto\x12Omousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.storyline_client.nameB\x7fZ}github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/storyline_client;storyline_clientb\x06proto3"
 
 var file_py_rpc_mod_event_minecraft_storyline_client_name_proto_goTypes = []any{}
 var file_py_rpc_mod_event_minecraft_storyline_client_name_proto_depIdxs = []int32{

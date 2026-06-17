@@ -163,7 +163,7 @@ const file_packet_resource_pack_client_response_proto_rawDesc = "" +
 	"\x13PackResponseRefused\x10\x01\x12\x19\n" +
 	"\x15PackResponseSendPacks\x10\x02\x12\"\n" +
 	"\x1ePackResponseAllPacksDownloaded\x10\x03\x12\x19\n" +
-	"\x15PackResponseCompleted\x10\x04BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x15PackResponseCompleted\x10\x04BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_resource_pack_client_response_proto_rawDescOnce sync.Once

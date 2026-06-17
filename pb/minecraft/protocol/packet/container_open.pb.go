@@ -194,7 +194,7 @@ const file_packet_container_open_proto_rawDesc = "" +
 	"\x0fNetEaseUnknown1\x18\x05 \x01(\bR\x0fNetEaseUnknown1\x12(\n" +
 	"\x0fNetEaseUnknown2\x18\x06 \x01(\tR\x0fNetEaseUnknown2\x12(\n" +
 	"\x0fNetEaseUnknown3\x18\a \x01(\tR\x0fNetEaseUnknown3\x12(\n" +
-	"\x0fNetEaseUnknown4\x18\b \x01(\bR\x0fNetEaseUnknown4:\x04\xc0\xc8\x05.BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x0fNetEaseUnknown4\x18\b \x01(\bR\x0fNetEaseUnknown4:\x04\xc0\xc8\x05.BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_container_open_proto_rawDescOnce sync.Once

@@ -100,7 +100,7 @@ const file_py_rpc_mod_event_minecraft_chat_extension_update_player_prefix_info_p
 	"\bPlayerID\x18\x02 \x01(\v2c.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_extension.player_add_room.RuntimeIDR\bPlayerID\x12\x84\x01\n" +
 	"\n" +
 	"PrefixInfo\x18\x03 \x01(\v2d.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_extension.player_add_room.PrefixInfoR\n" +
-	"PrefixInfoBuZsgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_extension;chat_extensionb\x06proto3"
+	"PrefixInfoB{Zygithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_extension;chat_extensionb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_chat_extension_update_player_prefix_info_proto_rawDescOnce sync.Once

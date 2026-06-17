@@ -115,7 +115,7 @@ const file_packet_player_hot_bar_proto_rawDesc = "" +
 	"\fPlayerHotBar\x12.\n" +
 	"\x12SelectedHotBarSlot\x18\x01 \x01(\rR\x12SelectedHotBarSlot\x12\x1a\n" +
 	"\bWindowID\x18\x02 \x01(\rR\bWindowID\x12*\n" +
-	"\x10SelectHotBarSlot\x18\x03 \x01(\bR\x10SelectHotBarSlot:\x04\xc0\xc8\x050BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x10SelectHotBarSlot\x18\x03 \x01(\bR\x10SelectHotBarSlot:\x04\xc0\xc8\x050BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_player_hot_bar_proto_rawDescOnce sync.Once

@@ -86,7 +86,7 @@ const file_packet_v_connection_proto_rawDesc = "" +
 	"\x19packet/v_connection.proto\x122mousetunnel.minecraft.protocol.packet.v_connection\x1a\x14packet_options.proto\"L\n" +
 	"\vVConnection\x12\x1a\n" +
 	"\bUnknown1\x18\x01 \x01(\x05R\bUnknown1\x12\x1a\n" +
-	"\bUnknown2\x18\x02 \x01(\fR\bUnknown2:\x05\xc0\xc8\x05\xe1\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\bUnknown2\x18\x02 \x01(\fR\bUnknown2:\x05\xc0\xc8\x05\xe1\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_v_connection_proto_rawDescOnce sync.Once

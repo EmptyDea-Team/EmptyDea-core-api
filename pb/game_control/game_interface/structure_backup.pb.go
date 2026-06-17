@@ -329,7 +329,7 @@ const file_game_control_game_interface_structure_backup_proto_rawDesc = "" +
 	"\x0fBackupStructure\x12<.emptydea.game_control.game_interface.BackupStructureRequest\x1a=.emptydea.game_control.game_interface.BackupStructureResponse\x12\x88\x01\n" +
 	"\fBackupOffset\x129.emptydea.game_control.game_interface.BackupOffsetRequest\x1a=.emptydea.game_control.game_interface.BackupStructureResponse\x12\x8e\x01\n" +
 	"\x0fRevertStructure\x12<.emptydea.game_control.game_interface.RevertStructureRequest\x1a=.emptydea.game_control.game_interface.StructureActionResponse\x12\x8e\x01\n" +
-	"\x0fDeleteStructure\x12<.emptydea.game_control.game_interface.DeleteStructureRequest\x1a=.emptydea.game_control.game_interface.StructureActionResponseBWZUgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pbb\x06proto3"
+	"\x0fDeleteStructure\x12<.emptydea.game_control.game_interface.DeleteStructureRequest\x1a=.emptydea.game_control.game_interface.StructureActionResponseB]Z[github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pbb\x06proto3"
 
 var (
 	file_game_control_game_interface_structure_backup_proto_rawDescOnce sync.Once

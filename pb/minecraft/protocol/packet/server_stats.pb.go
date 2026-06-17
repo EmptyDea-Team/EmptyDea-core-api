@@ -101,7 +101,7 @@ const file_packet_server_stats_proto_rawDesc = "" +
 	"\n" +
 	"ServerTime\x18\x01 \x01(\x02R\n" +
 	"ServerTime\x12 \n" +
-	"\vNetworkTime\x18\x02 \x01(\x02R\vNetworkTime:\x05\xc0\xc8\x05\xc0\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\vNetworkTime\x18\x02 \x01(\x02R\vNetworkTime:\x05\xc0\xc8\x05\xc0\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_server_stats_proto_rawDescOnce sync.Once

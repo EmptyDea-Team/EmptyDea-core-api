@@ -101,7 +101,7 @@ const file_packet_take_item_actor_proto_rawDesc = "" +
 	"\x1cpacket/take_item_actor.proto\x125mousetunnel.minecraft.protocol.packet.take_item_actor\x1a\x14packet_options.proto\"{\n" +
 	"\rTakeItemActor\x120\n" +
 	"\x13ItemEntityRuntimeID\x18\x01 \x01(\x04R\x13ItemEntityRuntimeID\x122\n" +
-	"\x14TakerEntityRuntimeID\x18\x02 \x01(\x04R\x14TakerEntityRuntimeID:\x04\xc0\xc8\x05\x11BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x14TakerEntityRuntimeID\x18\x02 \x01(\x04R\x14TakerEntityRuntimeID:\x04\xc0\xc8\x05\x11BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_take_item_actor_proto_rawDescOnce sync.Once

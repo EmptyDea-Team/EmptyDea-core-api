@@ -116,7 +116,7 @@ const file_packet_update_player_game_type_proto_rawDesc = "" +
 	"\x14UpdatePlayerGameType\x12\x1a\n" +
 	"\bGameType\x18\x01 \x01(\x05R\bGameType\x12&\n" +
 	"\x0ePlayerUniqueID\x18\x02 \x01(\x03R\x0ePlayerUniqueID\x12\x12\n" +
-	"\x04Tick\x18\x03 \x01(\x04R\x04Tick:\x05\xc0\xc8\x05\x97\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x04Tick\x18\x03 \x01(\x04R\x04Tick:\x05\xc0\xc8\x05\x97\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_update_player_game_type_proto_rawDescOnce sync.Once

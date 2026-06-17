@@ -117,7 +117,7 @@ const file_packet_hurt_armour_proto_rawDesc = "" +
 	"HurtArmour\x12\x14\n" +
 	"\x05Cause\x18\x01 \x01(\x05R\x05Cause\x12\x16\n" +
 	"\x06Damage\x18\x02 \x01(\x05R\x06Damage\x12 \n" +
-	"\vArmourSlots\x18\x03 \x01(\x04R\vArmourSlots:\x04\xc0\xc8\x05&BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\vArmourSlots\x18\x03 \x01(\x04R\vArmourSlots:\x04\xc0\xc8\x05&BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_hurt_armour_proto_rawDescOnce sync.Once

@@ -242,7 +242,7 @@ const file_packet_clientbound_texture_shift_proto_rawDesc = "" +
 	"\x1cTextureShiftActionInitialize\x10\x01\x12\x1b\n" +
 	"\x17TextureShiftActionStart\x10\x02\x12 \n" +
 	"\x1cTextureShiftActionSetEnabled\x10\x03\x12\x1a\n" +
-	"\x16TextureShiftActionSync\x10\x04BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x16TextureShiftActionSync\x10\x04BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_clientbound_texture_shift_proto_rawDescOnce sync.Once

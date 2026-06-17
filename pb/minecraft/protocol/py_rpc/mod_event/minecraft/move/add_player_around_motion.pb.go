@@ -149,7 +149,7 @@ const file_py_rpc_mod_event_minecraft_move_add_player_around_motion_proto_rawDes
 	"\aLockDir\x18\x06 \x01(\bR\aLockDir\x12\x18\n" +
 	"\aStopRad\x18\a \x01(\x01R\aStopRad\x12&\n" +
 	"\x0eServerMotionID\x18\b \x01(\x03R\x0eServerMotionID\x12\x16\n" +
-	"\x06Radius\x18\t \x01(\x01R\x06RadiusBaZ_github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/move;moveb\x06proto3"
+	"\x06Radius\x18\t \x01(\x01R\x06RadiusBgZegithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/move;moveb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_move_add_player_around_motion_proto_rawDescOnce sync.Once

@@ -375,7 +375,7 @@ const file_packet_boss_event_proto_rawDesc = "" +
 	"\x14BossEventColourGreen\x10\x03\x12\x19\n" +
 	"\x15BossEventColourYellow\x10\x04\x12\x19\n" +
 	"\x15BossEventColourPurple\x10\x05\x12\x18\n" +
-	"\x14BossEventColourWhite\x10\x06BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x14BossEventColourWhite\x10\x06BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_boss_event_proto_rawDescOnce sync.Once

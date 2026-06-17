@@ -1750,7 +1750,7 @@ const file_recipe_proto_rawDesc = "" +
 	"\x18RecipeShapelessChemistry\x10\x06\x12\x19\n" +
 	"\x15RecipeShapedChemistry\x10\a\x12\x1b\n" +
 	"\x17RecipeSmithingTransform\x10\b\x12\x16\n" +
-	"\x12RecipeSmithingTrim\x10\tBEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\x12RecipeSmithingTrim\x10\tBKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_recipe_proto_rawDescOnce sync.Once

@@ -191,7 +191,7 @@ const file_packet_update_client_input_locks_proto_rawDesc = "" +
 	"\x1aClientInputLockMoveForward\x10\x80\x04\x12 \n" +
 	"\x1bClientInputLockMoveBackward\x10\x80\b\x12\x1c\n" +
 	"\x17ClientInputLockMoveLeft\x10\x80\x10\x12\x1d\n" +
-	"\x18ClientInputLockMoveRight\x10\x80 BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x18ClientInputLockMoveRight\x10\x80 BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_update_client_input_locks_proto_rawDescOnce sync.Once

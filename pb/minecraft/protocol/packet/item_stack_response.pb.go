@@ -91,7 +91,7 @@ const file_packet_item_stack_response_proto_rawDesc = "" +
 	"\n" +
 	" packet/item_stack_response.proto\x129mousetunnel.minecraft.protocol.packet.item_stack_response\x1a\x10item_stack.proto\x1a\x14packet_options.proto\"v\n" +
 	"\x11ItemStackResponse\x12Z\n" +
-	"\tResponses\x18\x01 \x03(\v2<.mousetunnel.minecraft.protocol.item_stack.ItemStackResponseR\tResponses:\x05\xc0\xc8\x05\x94\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\tResponses\x18\x01 \x03(\v2<.mousetunnel.minecraft.protocol.item_stack.ItemStackResponseR\tResponses:\x05\xc0\xc8\x05\x94\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_item_stack_response_proto_rawDescOnce sync.Once

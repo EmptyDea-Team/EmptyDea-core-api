@@ -116,7 +116,7 @@ const file_packet_motion_prediction_hints_proto_rawDesc = "" +
 	"\x15MotionPredictionHints\x12(\n" +
 	"\x0fEntityRuntimeID\x18\x01 \x01(\x04R\x0fEntityRuntimeID\x12F\n" +
 	"\bVelocity\x18\x02 \x01(\v2*.mousetunnel.minecraft.protocol.mgl32.Vec3R\bVelocity\x12\x1a\n" +
-	"\bOnGround\x18\x03 \x01(\bR\bOnGround:\x05\xc0\xc8\x05\x9d\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\bOnGround\x18\x03 \x01(\bR\bOnGround:\x05\xc0\xc8\x05\x9d\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_motion_prediction_hints_proto_rawDescOnce sync.Once

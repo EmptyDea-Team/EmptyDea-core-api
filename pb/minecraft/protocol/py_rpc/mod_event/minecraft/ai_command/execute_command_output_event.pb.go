@@ -159,7 +159,7 @@ const file_py_rpc_mod_event_minecraft_ai_command_execute_command_output_event_pr
 	"\vIsReExecute\x18\x05 \x01(\bR\vIsReExecute\x12\x16\n" +
 	"\x06IsLast\x18\x06 \x01(\bR\x06IsLast\x12$\n" +
 	"\rCommandOutput\x18\a \x01(\tR\rCommandOutput\x12*\n" +
-	"\x10CommandRequestID\x18\b \x01(\tR\x10CommandRequestIDBmZkgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_commandb\x06proto3"
+	"\x10CommandRequestID\x18\b \x01(\tR\x10CommandRequestIDBsZqgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_commandb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_ai_command_execute_command_output_event_proto_rawDescOnce sync.Once

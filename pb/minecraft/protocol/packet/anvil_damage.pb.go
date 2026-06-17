@@ -99,7 +99,7 @@ const file_packet_anvil_damage_proto_rawDesc = "" +
 	"\x19packet/anvil_damage.proto\x122mousetunnel.minecraft.protocol.packet.anvil_damage\x1a\x0fblock_pos.proto\x1a\x14packet_options.proto\"\x86\x01\n" +
 	"\vAnvilDamage\x12\x16\n" +
 	"\x06Damage\x18\x01 \x01(\rR\x06Damage\x12X\n" +
-	"\rAnvilPosition\x18\x02 \x01(\v22.mousetunnel.minecraft.protocol.block_pos.BlockPosR\rAnvilPosition:\x05\xc0\xc8\x05\x8d\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\rAnvilPosition\x18\x02 \x01(\v22.mousetunnel.minecraft.protocol.block_pos.BlockPosR\rAnvilPosition:\x05\xc0\xc8\x05\x8d\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_anvil_damage_proto_rawDescOnce sync.Once

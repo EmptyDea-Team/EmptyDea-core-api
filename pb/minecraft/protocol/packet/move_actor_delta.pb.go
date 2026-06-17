@@ -282,7 +282,7 @@ const file_packet_move_actor_delta_proto_rawDesc = "" +
 	" MoveActorDeltaFlagHasFloatDeltaZ\x10\x80\b\x12%\n" +
 	" MoveActorDeltaFlagHasUintDeltaXY\x10\x80\x10\x12$\n" +
 	"\x1fMoveActorDeltaFlagHasUintDeltaZ\x10\x80 \x12\x1e\n" +
-	"\x19MoveActorDeltaFlagHasQuat\x10\x80@BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x19MoveActorDeltaFlagHasQuat\x10\x80@BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_move_actor_delta_proto_rawDescOnce sync.Once

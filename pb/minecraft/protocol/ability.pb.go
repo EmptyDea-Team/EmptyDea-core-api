@@ -456,7 +456,7 @@ const file_ability_proto_rawDesc = "" +
 	"\x19AbilityLayerTypeSpectator\x10\x02\x12\x1c\n" +
 	"\x18AbilityLayerTypeCommands\x10\x03\x12\x1a\n" +
 	"\x16AbilityLayerTypeEditor\x10\x04\x12!\n" +
-	"\x1dAbilityLayerTypeLoadingScreen\x10\x05BEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\x1dAbilityLayerTypeLoadingScreen\x10\x05BKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_ability_proto_rawDescOnce sync.Once

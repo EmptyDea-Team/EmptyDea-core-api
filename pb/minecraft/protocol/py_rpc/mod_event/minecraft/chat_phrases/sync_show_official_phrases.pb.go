@@ -86,7 +86,7 @@ const file_py_rpc_mod_event_minecraft_chat_phrases_sync_show_official_phrases_pr
 	"Hpy_rpc/mod_event/minecraft/chat_phrases/sync_show_official_phrases.proto\x12amousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_phrases.sync_show_official_phrases\x1a3py_rpc/mod_event/minecraft/chat_phrases/basic.proto\"\x98\x01\n" +
 	"\x17SyncShowOfficialPhrases\x12i\n" +
 	"\x05Basic\x18\x01 \x01(\v2S.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_phrases.basic.BasicR\x05Basic\x12\x12\n" +
-	"\x04Show\x18\x02 \x01(\bR\x04ShowBqZogithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_phrases;chat_phrasesb\x06proto3"
+	"\x04Show\x18\x02 \x01(\bR\x04ShowBwZugithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_phrases;chat_phrasesb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_chat_phrases_sync_show_official_phrases_proto_rawDescOnce sync.Once

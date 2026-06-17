@@ -86,7 +86,7 @@ const file_packet_client_cheat_ability_proto_rawDesc = "" +
 	"\n" +
 	"!packet/client_cheat_ability.proto\x12:mousetunnel.minecraft.protocol.packet.client_cheat_ability\x1a\rability.proto\x1a\x14packet_options.proto\"r\n" +
 	"\x12ClientCheatAbility\x12U\n" +
-	"\vAbilityData\x18\x01 \x01(\v23.mousetunnel.minecraft.protocol.ability.AbilityDataR\vAbilityData:\x05\xc0\xc8\x05\xc5\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\vAbilityData\x18\x01 \x01(\v23.mousetunnel.minecraft.protocol.ability.AbilityDataR\vAbilityData:\x05\xc0\xc8\x05\xc5\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_client_cheat_ability_proto_rawDescOnce sync.Once

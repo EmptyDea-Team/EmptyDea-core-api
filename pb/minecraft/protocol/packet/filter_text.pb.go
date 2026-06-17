@@ -105,7 +105,7 @@ const file_packet_filter_text_proto_rawDesc = "" +
 	"\x04Text\x18\x01 \x01(\tR\x04Text\x12\x1e\n" +
 	"\n" +
 	"FromServer\x18\x02 \x01(\bR\n" +
-	"FromServer:\x05\xc0\xc8\x05\xa3\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"FromServer:\x05\xc0\xc8\x05\xa3\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_filter_text_proto_rawDescOnce sync.Once

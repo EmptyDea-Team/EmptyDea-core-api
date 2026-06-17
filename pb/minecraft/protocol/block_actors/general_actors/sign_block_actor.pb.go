@@ -108,7 +108,7 @@ const file_block_actors_general_actors_sign_block_actor_proto_rawDesc = "" +
 	"BlockActor\x12b\n" +
 	"\bBackText\x18\x02 \x01(\v2F.mousetunnel.minecraft.protocol.block_actors.fields.sign_text.SignTextR\bBackText\x12d\n" +
 	"\tFrontText\x18\x03 \x01(\v2F.mousetunnel.minecraft.protocol.block_actors.fields.sign_text.SignTextR\tFrontText\x12\x18\n" +
-	"\aIsWaxed\x18\x04 \x01(\rR\aIsWaxedBgZegithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/general_actors;general_actorsb\x06proto3"
+	"\aIsWaxed\x18\x04 \x01(\rR\aIsWaxedBmZkgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/general_actors;general_actorsb\x06proto3"
 
 var (
 	file_block_actors_general_actors_sign_block_actor_proto_rawDescOnce sync.Once

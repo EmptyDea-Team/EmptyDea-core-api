@@ -141,7 +141,7 @@ const file_py_rpc_mod_event_minecraft_pet_response_get_current_gamemode_event_pr
 	"\x1bCurrentGamemodeResponseData\x18\x02 \x01(\v2~.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.response_get_current_gamemode_event.CurrentGamemodeResponseDataR\x1bCurrentGamemodeResponseData\"c\n" +
 	"\x1bCurrentGamemodeResponseData\x12\x1a\n" +
 	"\bPlayerID\x18\x01 \x01(\tR\bPlayerID\x12(\n" +
-	"\x0fCurrentGameMode\x18\x02 \x01(\x03R\x0fCurrentGameModeB_Z]github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
+	"\x0fCurrentGameMode\x18\x02 \x01(\x03R\x0fCurrentGameModeBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_pet_response_get_current_gamemode_event_proto_rawDescOnce sync.Once

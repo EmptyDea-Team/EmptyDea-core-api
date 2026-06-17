@@ -278,7 +278,7 @@ const file_packet_inventory_slot_proto_rawDesc = "" +
 	"\tContainer\x18\x03 \x01(\v2\\.mousetunnel.minecraft.protocol.packet.inventory_slot.InventorySlotOptionalFullContainerNameR\tContainer\x12\x1c\n" +
 	"\tNetworkID\x18\x04 \x01(\x05R\tNetworkID\x12y\n" +
 	"\vStorageItem\x18\x05 \x01(\v2W.mousetunnel.minecraft.protocol.packet.inventory_slot.InventorySlotOptionalItemInstanceR\vStorageItem\x12K\n" +
-	"\aNewItem\x18\x06 \x01(\v21.mousetunnel.minecraft.protocol.item.ItemInstanceR\aNewItem:\x04\xc0\xc8\x052BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\aNewItem\x18\x06 \x01(\v21.mousetunnel.minecraft.protocol.item.ItemInstanceR\aNewItem:\x04\xc0\xc8\x052BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_inventory_slot_proto_rawDescOnce sync.Once

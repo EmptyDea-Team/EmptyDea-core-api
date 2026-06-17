@@ -378,7 +378,7 @@ const file_clock_proto_rawDesc = "" +
 	"\x19ClockPayloadTypeSyncState\x10\x00\x12&\n" +
 	"\"ClockPayloadTypeInitializeRegistry\x10\x01\x12!\n" +
 	"\x1dClockPayloadTypeAddTimeMarker\x10\x02\x12$\n" +
-	" ClockPayloadTypeRemoveTimeMarker\x10\x03BEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	" ClockPayloadTypeRemoveTimeMarker\x10\x03BKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_clock_proto_rawDescOnce sync.Once

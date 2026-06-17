@@ -704,7 +704,7 @@ const file_memory_category_proto_rawDesc = "" +
 	"\x1aMemoryCategoryGamefaceDump\x10X\x12\x1f\n" +
 	"\x1bMemoryCategoryGamefaceMedia\x10Y\x12\x1e\n" +
 	"\x1aMemoryCategoryGamefaceJSON\x10Z\x12&\n" +
-	"\"MemoryCategoryGamefaceScriptEngine\x10[BEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\"MemoryCategoryGamefaceScriptEngine\x10[BKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_memory_category_proto_rawDescOnce sync.Once

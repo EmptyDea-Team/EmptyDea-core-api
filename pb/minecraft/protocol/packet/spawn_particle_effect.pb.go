@@ -211,7 +211,7 @@ const file_packet_spawn_particle_effect_proto_rawDesc = "" +
 	"\x0eEntityUniqueID\x18\x02 \x01(\x03R\x0eEntityUniqueID\x12F\n" +
 	"\bPosition\x18\x03 \x01(\v2*.mousetunnel.minecraft.protocol.mgl32.Vec3R\bPosition\x12\"\n" +
 	"\fParticleName\x18\x04 \x01(\tR\fParticleName\x12\x87\x01\n" +
-	"\x0fMoLangVariables\x18\x05 \x01(\v2].mousetunnel.minecraft.protocol.packet.spawn_particle_effect.SpawnParticleEffectOptionalBytesR\x0fMoLangVariables:\x04\xc0\xc8\x05vBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x0fMoLangVariables\x18\x05 \x01(\v2].mousetunnel.minecraft.protocol.packet.spawn_particle_effect.SpawnParticleEffectOptionalBytesR\x0fMoLangVariables:\x04\xc0\xc8\x05vBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_spawn_particle_effect_proto_rawDescOnce sync.Once

@@ -84,7 +84,7 @@ const file_packet_locator_bar_proto_rawDesc = "" +
 	"\x18packet/locator_bar.proto\x121mousetunnel.minecraft.protocol.packet.locator_bar\x1a\x14packet_options.proto\x1a\x0ewaypoint.proto\"n\n" +
 	"\n" +
 	"LocatorBar\x12Y\n" +
-	"\tWaypoints\x18\x01 \x03(\v2;.mousetunnel.minecraft.protocol.waypoint.LocatorBarWaypointR\tWaypoints:\x05\xc0\xc8\x05\xd5\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\tWaypoints\x18\x01 \x03(\v2;.mousetunnel.minecraft.protocol.waypoint.LocatorBarWaypointR\tWaypoints:\x05\xc0\xc8\x05\xd5\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_locator_bar_proto_rawDescOnce sync.Once

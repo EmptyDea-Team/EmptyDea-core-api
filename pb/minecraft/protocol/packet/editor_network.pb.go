@@ -102,7 +102,7 @@ const file_packet_editor_network_proto_rawDesc = "" +
 	"\aPayload\x18\x02 \x03(\v2P.mousetunnel.minecraft.protocol.packet.editor_network.EditorNetwork.PayloadEntryR\aPayload\x1aR\n" +
 	"\fPayloadEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12,\n" +
-	"\x05value\x18\x02 \x01(\v2\x16.google.protobuf.ValueR\x05value:\x028\x01:\x05\xc0\xc8\x05\xbe\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x05value\x18\x02 \x01(\v2\x16.google.protobuf.ValueR\x05value:\x028\x01:\x05\xc0\xc8\x05\xbe\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_editor_network_proto_rawDescOnce sync.Once

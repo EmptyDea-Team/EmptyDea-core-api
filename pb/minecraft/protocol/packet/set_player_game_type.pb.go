@@ -154,7 +154,7 @@ const file_packet_set_player_game_type_proto_rawDesc = "" +
 	"\x19GameTypeSurvivalSpectator\x10\x03\x12\x1d\n" +
 	"\x19GameTypeCreativeSpectator\x10\x04\x12\x13\n" +
 	"\x0fGameTypeDefault\x10\x05\x12\x15\n" +
-	"\x11GameTypeSpectator\x10\x06BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x11GameTypeSpectator\x10\x06BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_set_player_game_type_proto_rawDescOnce sync.Once

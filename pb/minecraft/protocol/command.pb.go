@@ -1883,7 +1883,7 @@ const file_command_proto_rawDesc = "" +
 	"\x18CommandOriginPrecompiled\x10\f\x12)\n" +
 	"%CommandOriginGameDirectorEntityServer\x10\r\x12\x17\n" +
 	"\x13CommandOriginScript\x10\x0e\x12\x19\n" +
-	"\x15CommandOriginExecutor\x10\x0fBEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\x15CommandOriginExecutor\x10\x0fBKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_command_proto_rawDescOnce sync.Once

@@ -141,7 +141,7 @@ const file_block_actors_general_actors_furnace_block_actor_proto_rawDesc = "" +
 	"\bBurnTime\x18\x04 \x01(\x05R\bBurnTime\x12\x1a\n" +
 	"\bCookTime\x18\x05 \x01(\x05R\bCookTime\x12,\n" +
 	"\x05Items\x18\x06 \x03(\v2\x16.google.protobuf.ValueR\x05Items\x12 \n" +
-	"\vStoredXPInt\x18\a \x01(\x05R\vStoredXPIntBgZegithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/general_actors;general_actorsb\x06proto3"
+	"\vStoredXPInt\x18\a \x01(\x05R\vStoredXPIntBmZkgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/general_actors;general_actorsb\x06proto3"
 
 var (
 	file_block_actors_general_actors_furnace_block_actor_proto_rawDescOnce sync.Once

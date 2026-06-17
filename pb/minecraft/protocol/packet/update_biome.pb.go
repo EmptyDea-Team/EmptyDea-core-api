@@ -87,7 +87,7 @@ const file_packet_update_biome_proto_rawDesc = "" +
 	"\x19packet/update_biome.proto\x122mousetunnel.minecraft.protocol.packet.update_biome\x1a\x0fblock_pos.proto\x1a\rnetease.proto\x1a\x14packet_options.proto\"\xb2\x01\n" +
 	"\vUpdateBiome\x12D\n" +
 	"\x03Pos\x18\x01 \x01(\v22.mousetunnel.minecraft.protocol.block_pos.BlockPosR\x03Pos\x12V\n" +
-	"\tBiomeData\x18\x02 \x03(\v28.mousetunnel.minecraft.protocol.netease.NetEaseBiomeDataR\tBiomeData:\x05\xc0\xc8\x05\xeb\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\tBiomeData\x18\x02 \x03(\v28.mousetunnel.minecraft.protocol.netease.NetEaseBiomeDataR\tBiomeData:\x05\xc0\xc8\x05\xeb\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_update_biome_proto_rawDescOnce sync.Once

@@ -111,7 +111,7 @@ const file_packet_create_photo_proto_rawDesc = "" +
 	"\vCreatePhoto\x12&\n" +
 	"\x0eEntityUniqueID\x18\x01 \x01(\x03R\x0eEntityUniqueID\x12\x1c\n" +
 	"\tPhotoName\x18\x02 \x01(\tR\tPhotoName\x12\x1a\n" +
-	"\bItemName\x18\x03 \x01(\tR\bItemName:\x05\xc0\xc8\x05\xab\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\bItemName\x18\x03 \x01(\tR\bItemName:\x05\xc0\xc8\x05\xab\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_create_photo_proto_rawDescOnce sync.Once

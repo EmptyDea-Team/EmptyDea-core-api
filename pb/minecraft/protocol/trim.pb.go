@@ -183,7 +183,7 @@ const file_trim_proto_rawDesc = "" +
 	"MaterialID\x18\x01 \x01(\tR\n" +
 	"MaterialID\x12\x16\n" +
 	"\x06Colour\x18\x02 \x01(\tR\x06Colour\x12\x1a\n" +
-	"\bItemName\x18\x03 \x01(\tR\bItemNameBEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\bItemName\x18\x03 \x01(\tR\bItemNameBKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_trim_proto_rawDescOnce sync.Once

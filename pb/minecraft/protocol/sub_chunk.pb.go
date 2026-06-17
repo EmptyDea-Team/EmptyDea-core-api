@@ -371,7 +371,7 @@ const file_sub_chunk_proto_rawDesc = "" +
 	"\x1eSubChunkResultInvalidDimension\x10\x03\x12 \n" +
 	"\x1cSubChunkResultPlayerNotFound\x10\x04\x12\"\n" +
 	"\x1eSubChunkResultIndexOutOfBounds\x10\x05\x12\x1f\n" +
-	"\x1bSubChunkResultSuccessAllAir\x10\x06BEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\x1bSubChunkResultSuccessAllAir\x10\x06BKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_sub_chunk_proto_rawDescOnce sync.Once

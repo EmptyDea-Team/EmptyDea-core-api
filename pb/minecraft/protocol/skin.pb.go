@@ -884,7 +884,7 @@ const file_skin_proto_rawDesc = "" +
 	"\x16SkinAnimationBody32x32\x10\x02\x12\x1c\n" +
 	"\x18SkinAnimationBody128x128\x10\x03\x12\x18\n" +
 	"\x14ExpressionTypeLinear\x10\x03\x12\x1a\n" +
-	"\x16ExpressionTypeBlinking\x10\x04\x1a\x02\x10\x01BEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\x16ExpressionTypeBlinking\x10\x04\x1a\x02\x10\x01BKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_skin_proto_rawDescOnce sync.Once

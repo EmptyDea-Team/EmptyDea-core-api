@@ -186,7 +186,7 @@ const file_packet_structure_template_data_request_proto_rawDesc = "" +
 	"(STRUCTURETEMPLATEREQUESTENUM_UNSPECIFIED\x10\x00\x12*\n" +
 	"&StructureTemplateRequestExportFromSave\x10\x01\x12*\n" +
 	"&StructureTemplateRequestExportFromLoad\x10\x02\x12/\n" +
-	"+StructureTemplateRequestQuerySavedStructure\x10\x03BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"+StructureTemplateRequestQuerySavedStructure\x10\x03BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_structure_template_data_request_proto_rawDescOnce sync.Once

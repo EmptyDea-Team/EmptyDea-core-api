@@ -269,7 +269,7 @@ const file_creative_proto_rawDesc = "" +
 	"\x19CreativeCategoryEquipment\x10\x03\x12\x19\n" +
 	"\x15CreativeCategoryItems\x10\x04\x12#\n" +
 	"\x1fCreativeCategoryItemCommandOnly\x10\x05\x12\x1d\n" +
-	"\x19CreativeCategoryUndefined\x10\x06BEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\x19CreativeCategoryUndefined\x10\x06BKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_creative_proto_rawDescOnce sync.Once

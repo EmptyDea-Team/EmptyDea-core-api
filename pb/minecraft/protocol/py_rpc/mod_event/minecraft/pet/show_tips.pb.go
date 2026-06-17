@@ -132,7 +132,7 @@ const file_py_rpc_mod_event_minecraft_pet_show_tips_proto_rawDesc = "" +
 	"\x05Basic\x18\x01 \x01(\v2J.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.BasicR\x05Basic\x12y\n" +
 	"\fShowTipsData\x18\x02 \x01(\v2U.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.show_tips.ShowTipsDataR\fShowTipsData\"(\n" +
 	"\fShowTipsData\x12\x18\n" +
-	"\aMessage\x18\x01 \x01(\tR\aMessageB_Z]github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
+	"\aMessage\x18\x01 \x01(\tR\aMessageBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_pet_show_tips_proto_rawDescOnce sync.Once

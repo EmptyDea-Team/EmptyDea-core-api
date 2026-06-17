@@ -302,7 +302,7 @@ const file_game_control_game_interface_replaceitem_proto_rawDesc = "" +
 	"\x13ReplaceitemResponse2\xd4\x02\n" +
 	"\x12ReplaceitemService\x12\x98\x01\n" +
 	"\x16ReplaceitemInInventory\x12C.emptydea.game_control.game_interface.ReplaceitemInInventoryRequest\x1a9.emptydea.game_control.game_interface.ReplaceitemResponse\x12\xa2\x01\n" +
-	"\x1bReplaceitemInContainerAsync\x12H.emptydea.game_control.game_interface.ReplaceitemInContainerAsyncRequest\x1a9.emptydea.game_control.game_interface.ReplaceitemResponseBWZUgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pbb\x06proto3"
+	"\x1bReplaceitemInContainerAsync\x12H.emptydea.game_control.game_interface.ReplaceitemInContainerAsyncRequest\x1a9.emptydea.game_control.game_interface.ReplaceitemResponseB]Z[github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pbb\x06proto3"
 
 var (
 	file_game_control_game_interface_replaceitem_proto_rawDescOnce sync.Once

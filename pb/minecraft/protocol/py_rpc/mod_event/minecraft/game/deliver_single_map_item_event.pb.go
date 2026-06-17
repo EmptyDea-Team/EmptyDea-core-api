@@ -111,7 +111,7 @@ const file_py_rpc_mod_event_minecraft_game_deliver_single_map_item_event_proto_r
 	"\x05Basic\x18\x01 \x01(\v2K.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.game.basic.BasicR\x05Basic\x12$\n" +
 	"\rHanmingString\x18\x02 \x01(\tR\rHanmingString\x12 \n" +
 	"\vImageString\x18\x03 \x01(\tR\vImageString\x12\"\n" +
-	"\fPlayerIDList\x18\x04 \x03(\tR\fPlayerIDListBaZ_github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/game;gameb\x06proto3"
+	"\fPlayerIDList\x18\x04 \x03(\tR\fPlayerIDListBgZegithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/game;gameb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_game_deliver_single_map_item_event_proto_rawDescOnce sync.Once

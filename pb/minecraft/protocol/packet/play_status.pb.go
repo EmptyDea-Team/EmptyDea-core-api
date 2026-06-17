@@ -164,7 +164,7 @@ const file_packet_play_status_proto_rawDesc = "" +
 	"\x1fPlayStatusLoginFailedEduVanilla\x10\x06\x12#\n" +
 	"\x1fPlayStatusLoginFailedServerFull\x10\a\x12&\n" +
 	"\"PlayStatusLoginFailedEditorVanilla\x10\b\x12&\n" +
-	"\"PlayStatusLoginFailedVanillaEditor\x10\tBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\"PlayStatusLoginFailedVanillaEditor\x10\tBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_play_status_proto_rawDescOnce sync.Once

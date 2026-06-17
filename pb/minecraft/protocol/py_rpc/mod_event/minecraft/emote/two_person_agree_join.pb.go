@@ -98,7 +98,7 @@ const file_py_rpc_mod_event_minecraft_emote_two_person_agree_join_proto_rawDesc 
 	"\x12TwoPersonAgreeJoin\x12b\n" +
 	"\x05Basic\x18\x01 \x01(\v2L.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.emote.basic.BasicR\x05Basic\x12\x18\n" +
 	"\aInviter\x18\x02 \x01(\tR\aInviter\x12\x18\n" +
-	"\aEmoteID\x18\x03 \x01(\tR\aEmoteIDBcZagithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/emote;emoteb\x06proto3"
+	"\aEmoteID\x18\x03 \x01(\tR\aEmoteIDBiZggithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/emote;emoteb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_emote_two_person_agree_join_proto_rawDescOnce sync.Once

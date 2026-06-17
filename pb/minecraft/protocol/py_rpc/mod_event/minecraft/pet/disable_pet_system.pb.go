@@ -132,7 +132,7 @@ const file_py_rpc_mod_event_minecraft_pet_disable_pet_system_proto_rawDesc = "" 
 	"\x05Basic\x18\x01 \x01(\v2J.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.BasicR\x05Basic\x12\x9a\x01\n" +
 	"\x14DisablePetSystemData\x18\x02 \x01(\v2f.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.disable_pet_system.DisablePetSystemDataR\x14DisablePetSystemData\".\n" +
 	"\x14DisablePetSystemData\x12\x16\n" +
-	"\x06Enable\x18\x01 \x01(\bR\x06EnableB_Z]github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
+	"\x06Enable\x18\x01 \x01(\bR\x06EnableBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_pet_disable_pet_system_proto_rawDescOnce sync.Once

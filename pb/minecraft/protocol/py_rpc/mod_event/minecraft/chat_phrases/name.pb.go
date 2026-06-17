@@ -24,7 +24,7 @@ var File_py_rpc_mod_event_minecraft_chat_phrases_name_proto protoreflect.FileDes
 
 const file_py_rpc_mod_event_minecraft_chat_phrases_name_proto_rawDesc = "" +
 	"\n" +
-	"2py_rpc/mod_event/minecraft/chat_phrases/name.proto\x12Kmousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_phrases.nameBqZogithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_phrases;chat_phrasesb\x06proto3"
+	"2py_rpc/mod_event/minecraft/chat_phrases/name.proto\x12Kmousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_phrases.nameBwZugithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_phrases;chat_phrasesb\x06proto3"
 
 var file_py_rpc_mod_event_minecraft_chat_phrases_name_proto_goTypes = []any{}
 var file_py_rpc_mod_event_minecraft_chat_phrases_name_proto_depIdxs = []int32{

@@ -506,7 +506,7 @@ const file_attribute_proto_rawDesc = "" +
 	"\x1cAttributeModifierOperandEnum\x12\x1f\n" +
 	"\x1bAttributeModifierOperandMin\x10\x00\x12\x1f\n" +
 	"\x1bAttributeModifierOperandMax\x10\x01\x12#\n" +
-	"\x1fAttributeModifierOperandCurrent\x10\x02BEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\x1fAttributeModifierOperandCurrent\x10\x02BKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_attribute_proto_rawDescOnce sync.Once

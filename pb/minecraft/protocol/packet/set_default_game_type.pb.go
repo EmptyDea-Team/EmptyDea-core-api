@@ -85,7 +85,7 @@ const file_packet_set_default_game_type_proto_rawDesc = "" +
 	"\n" +
 	"\"packet/set_default_game_type.proto\x12;mousetunnel.minecraft.protocol.packet.set_default_game_type\x1a\x14packet_options.proto\"6\n" +
 	"\x12SetDefaultGameType\x12\x1a\n" +
-	"\bGameType\x18\x01 \x01(\x05R\bGameType:\x04\xc0\xc8\x05iBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\bGameType\x18\x01 \x01(\x05R\bGameType:\x04\xc0\xc8\x05iBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_set_default_game_type_proto_rawDescOnce sync.Once

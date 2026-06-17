@@ -91,7 +91,7 @@ const file_block_actors_jukebox_proto_rawDesc = "" +
 	"BlockActor\x12M\n" +
 	"\n" +
 	"RecordItem\x18\x02 \x01(\v2-.mousetunnel.minecraft.protocol.nbt_item.ItemR\n" +
-	"RecordItemBVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	"RecordItemB\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_jukebox_proto_rawDescOnce sync.Once

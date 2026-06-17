@@ -98,7 +98,7 @@ const file_block_actors_brushable_block_proto_rawDesc = "" +
 	"\n" +
 	"BrushCount\x18\x02 \x01(\x05R\n" +
 	"BrushCount\x12&\n" +
-	"\x0eBrushDirection\x18\x03 \x01(\rR\x0eBrushDirectionBVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	"\x0eBrushDirection\x18\x03 \x01(\rR\x0eBrushDirectionB\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_brushable_block_proto_rawDescOnce sync.Once

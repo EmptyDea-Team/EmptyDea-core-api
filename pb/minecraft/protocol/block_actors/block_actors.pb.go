@@ -81,7 +81,7 @@ const file_block_actors_block_actors_proto_rawDesc = "" +
 	"\n" +
 	"\x1fblock_actors/block_actors.proto\x128mousetunnel.minecraft.protocol.block_actors.block_actors\x1a\x1cgoogle/protobuf/struct.proto\";\n" +
 	"\vBlockActors\x12,\n" +
-	"\x05Value\x18\x01 \x01(\v2\x16.google.protobuf.ValueR\x05ValueBVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	"\x05Value\x18\x01 \x01(\v2\x16.google.protobuf.ValueR\x05ValueB\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_block_actors_proto_rawDescOnce sync.Once

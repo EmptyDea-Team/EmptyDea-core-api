@@ -206,7 +206,7 @@ const file_packet_play_sound_proto_rawDesc = "" +
 	"\bPosition\x18\x02 \x01(\v2*.mousetunnel.minecraft.protocol.mgl32.Vec3R\bPosition\x12\x16\n" +
 	"\x06Volume\x18\x03 \x01(\x02R\x06Volume\x12\x14\n" +
 	"\x05Pitch\x18\x04 \x01(\x02R\x05Pitch\x12a\n" +
-	"\x06Handle\x18\x05 \x01(\v2I.mousetunnel.minecraft.protocol.packet.play_sound.PlaySoundOptionalUint64R\x06Handle:\x04\xc0\xc8\x05VBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x06Handle\x18\x05 \x01(\v2I.mousetunnel.minecraft.protocol.packet.play_sound.PlaySoundOptionalUint64R\x06Handle:\x04\xc0\xc8\x05VBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_play_sound_proto_rawDescOnce sync.Once

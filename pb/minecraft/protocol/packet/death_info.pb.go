@@ -98,7 +98,7 @@ const file_packet_death_info_proto_rawDesc = "" +
 	"\x17packet/death_info.proto\x120mousetunnel.minecraft.protocol.packet.death_info\x1a\x14packet_options.proto\"D\n" +
 	"\tDeathInfo\x12\x14\n" +
 	"\x05Cause\x18\x01 \x01(\tR\x05Cause\x12\x1a\n" +
-	"\bMessages\x18\x02 \x03(\tR\bMessages:\x05\xc0\xc8\x05\xbd\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\bMessages\x18\x02 \x03(\tR\bMessages:\x05\xc0\xc8\x05\xbd\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_death_info_proto_rawDescOnce sync.Once

@@ -86,7 +86,7 @@ const file_packet_transport_no_compress_proto_rawDesc = "" +
 	"\"packet/transport_no_compress.proto\x12;mousetunnel.minecraft.protocol.packet.transport_no_compress\x1a\x14packet_options.proto\"T\n" +
 	"\x13TransportNoCompress\x12\x1a\n" +
 	"\bUnknown1\x18\x01 \x01(\x05R\bUnknown1\x12\x1a\n" +
-	"\bUnknown2\x18\x02 \x01(\fR\bUnknown2:\x05\xc0\xc8\x05\xe5\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\bUnknown2\x18\x02 \x01(\fR\bUnknown2:\x05\xc0\xc8\x05\xe5\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_transport_no_compress_proto_rawDescOnce sync.Once

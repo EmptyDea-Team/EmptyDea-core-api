@@ -100,7 +100,7 @@ const file_packet_map_create_locked_copy_proto_rawDesc = "" +
 	"#packet/map_create_locked_copy.proto\x12<mousetunnel.minecraft.protocol.packet.map_create_locked_copy\x1a\x14packet_options.proto\"^\n" +
 	"\x13MapCreateLockedCopy\x12$\n" +
 	"\rOriginalMapID\x18\x01 \x01(\x03R\rOriginalMapID\x12\x1a\n" +
-	"\bNewMapID\x18\x02 \x01(\x03R\bNewMapID:\x05\xc0\xc8\x05\x83\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\bNewMapID\x18\x02 \x01(\x03R\bNewMapID:\x05\xc0\xc8\x05\x83\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_map_create_locked_copy_proto_rawDescOnce sync.Once

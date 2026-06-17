@@ -65,7 +65,7 @@ var File_py_rpc_mod_event_minecraft_ride_basic_proto protoreflect.FileDescriptor
 const file_py_rpc_mod_event_minecraft_ride_basic_proto_rawDesc = "" +
 	"\n" +
 	"+py_rpc/mod_event/minecraft/ride/basic.proto\x12Dmousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ride.basic\"\a\n" +
-	"\x05BasicBaZ_github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ride;rideb\x06proto3"
+	"\x05BasicBgZegithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ride;rideb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_ride_basic_proto_rawDescOnce sync.Once

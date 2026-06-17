@@ -254,7 +254,7 @@ const file_game_control_game_interface_container_proto_rawDesc = "" +
 	"\x1cContainerOpenAndCloseService\x12\x88\x01\n" +
 	"\rOpenContainer\x12:.emptydea.game_control.game_interface.OpenContainerRequest\x1a;.emptydea.game_control.game_interface.OpenContainerResponse\x12\x88\x01\n" +
 	"\rOpenInventory\x12:.emptydea.game_control.game_interface.OpenInventoryRequest\x1a;.emptydea.game_control.game_interface.OpenContainerResponse\x12\x8b\x01\n" +
-	"\x0eCloseContainer\x12;.emptydea.game_control.game_interface.CloseContainerRequest\x1a<.emptydea.game_control.game_interface.CloseContainerResponseBWZUgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pbb\x06proto3"
+	"\x0eCloseContainer\x12;.emptydea.game_control.game_interface.CloseContainerRequest\x1a<.emptydea.game_control.game_interface.CloseContainerResponseB]Z[github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pbb\x06proto3"
 
 var (
 	file_game_control_game_interface_container_proto_rawDescOnce sync.Once

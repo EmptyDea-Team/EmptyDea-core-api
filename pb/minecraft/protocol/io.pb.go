@@ -399,7 +399,7 @@ const file_io_proto_rawDesc = "" +
 	"\tTAGNumber\x12,\n" +
 	"\x05Value\x18\x01 \x01(\v2\x16.google.protobuf.ValueR\x05Value\"<\n" +
 	"\fPtrMarshaler\x12,\n" +
-	"\x05Value\x18\x01 \x01(\v2\x16.google.protobuf.ValueR\x05ValueBEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\x05Value\x18\x01 \x01(\v2\x16.google.protobuf.ValueR\x05ValueBKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_io_proto_rawDescOnce sync.Once

@@ -150,7 +150,7 @@ const file_packet_show_credits_proto_rawDesc = "" +
 	"StatusType:\x04\xc0\xc8\x05K*M\n" +
 	"\x15ShowCreditsStatusEnum\x12\x1a\n" +
 	"\x16ShowCreditsStatusStart\x10\x00\x12\x18\n" +
-	"\x14ShowCreditsStatusEnd\x10\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x14ShowCreditsStatusEnd\x10\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_show_credits_proto_rawDescOnce sync.Once

@@ -86,7 +86,7 @@ const file_py_rpc_mod_event_minecraft_game_piston_max_interaction_count_changed_
 	"Jpy_rpc/mod_event/minecraft/game/piston_max_interaction_count_changed.proto\x12cmousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.game.piston_max_interaction_count_changed\x1a+py_rpc/mod_event/minecraft/game/basic.proto\"\x9b\x01\n" +
 	" PistonMaxInteractionCountChanged\x12a\n" +
 	"\x05Basic\x18\x01 \x01(\v2K.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.game.basic.BasicR\x05Basic\x12\x14\n" +
-	"\x05Count\x18\x02 \x01(\x03R\x05CountBaZ_github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/game;gameb\x06proto3"
+	"\x05Count\x18\x02 \x01(\x03R\x05CountBgZegithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/game;gameb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_game_piston_max_interaction_count_changed_proto_rawDescOnce sync.Once

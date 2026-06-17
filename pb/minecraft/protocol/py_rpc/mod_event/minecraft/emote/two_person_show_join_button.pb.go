@@ -110,7 +110,7 @@ const file_py_rpc_mod_event_minecraft_emote_two_person_show_join_button_proto_ra
 	"\x05Basic\x18\x01 \x01(\v2L.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.emote.basic.BasicR\x05Basic\x12\x18\n" +
 	"\aInviter\x18\x02 \x01(\tR\aInviter\x12\x18\n" +
 	"\aEmoteID\x18\x03 \x01(\tR\aEmoteID\x12\x12\n" +
-	"\x04Show\x18\x04 \x01(\bR\x04ShowBcZagithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/emote;emoteb\x06proto3"
+	"\x04Show\x18\x04 \x01(\bR\x04ShowBiZggithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/emote;emoteb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_emote_two_person_show_join_button_proto_rawDescOnce sync.Once

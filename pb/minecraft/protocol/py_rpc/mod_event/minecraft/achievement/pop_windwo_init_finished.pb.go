@@ -86,7 +86,7 @@ const file_py_rpc_mod_event_minecraft_achievement_pop_windwo_init_finished_proto
 	"Epy_rpc/mod_event/minecraft/achievement/pop_windwo_init_finished.proto\x12^mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.achievement.pop_windwo_init_finished\x1a2py_rpc/mod_event/minecraft/achievement/basic.proto\"\x9d\x01\n" +
 	"\x15PopWindwoInitFinished\x12h\n" +
 	"\x05Basic\x18\x01 \x01(\v2R.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.achievement.basic.BasicR\x05Basic\x12\x1a\n" +
-	"\bPlayerID\x18\x02 \x01(\tR\bPlayerIDBoZmgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/achievement;achievementb\x06proto3"
+	"\bPlayerID\x18\x02 \x01(\tR\bPlayerIDBuZsgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/achievement;achievementb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_achievement_pop_windwo_init_finished_proto_rawDescOnce sync.Once

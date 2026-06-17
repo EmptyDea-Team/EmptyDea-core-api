@@ -65,7 +65,7 @@ var File_py_rpc_mod_event_minecraft_editor_config_cmd_sys_basic_proto protorefle
 const file_py_rpc_mod_event_minecraft_editor_config_cmd_sys_basic_proto_rawDesc = "" +
 	"\n" +
 	"<py_rpc/mod_event/minecraft/editor_config_cmd_sys/basic.proto\x12Umousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.editor_config_cmd_sys.basic\"\a\n" +
-	"\x05BasicB\x84\x01Z\x81\x01github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/editor_config_cmd_sys;editor_config_cmd_sysb\x06proto3"
+	"\x05BasicB\x8a\x01Z\x87\x01github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/editor_config_cmd_sys;editor_config_cmd_sysb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_editor_config_cmd_sys_basic_proto_rawDescOnce sync.Once

@@ -140,7 +140,7 @@ const file_packet_server_store_info_proto_rawDesc = "" +
 	"\aPresent\x18\x01 \x01(\bR\aPresent\x12a\n" +
 	"\x05Value\x18\x02 \x01(\v2K.mousetunnel.minecraft.protocol.server_join_information.StoreEntryPointInfoR\x05Value\"\x9c\x01\n" +
 	"\x0fServerStoreInfo\x12\x81\x01\n" +
-	"\tStoreInfo\x18\x01 \x01(\v2c.mousetunnel.minecraft.protocol.packet.server_store_info.ServerStoreInfoOptionalStoreEntryPointInfoR\tStoreInfo:\x05\xc0\xc8\x05\xda\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\tStoreInfo\x18\x01 \x01(\v2c.mousetunnel.minecraft.protocol.packet.server_store_info.ServerStoreInfoOptionalStoreEntryPointInfoR\tStoreInfo:\x05\xc0\xc8\x05\xda\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_server_store_info_proto_rawDescOnce sync.Once

@@ -84,7 +84,7 @@ const file_packet_set_health_proto_rawDesc = "" +
 	"\n" +
 	"\x17packet/set_health.proto\x120mousetunnel.minecraft.protocol.packet.set_health\x1a\x14packet_options.proto\")\n" +
 	"\tSetHealth\x12\x16\n" +
-	"\x06Health\x18\x01 \x01(\x05R\x06Health:\x04\xc0\xc8\x05*BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x06Health\x18\x01 \x01(\x05R\x06Health:\x04\xc0\xc8\x05*BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_set_health_proto_rawDescOnce sync.Once

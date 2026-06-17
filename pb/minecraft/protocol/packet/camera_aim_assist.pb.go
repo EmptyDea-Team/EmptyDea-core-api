@@ -213,7 +213,7 @@ const file_packet_camera_aim_assist_proto_rawDesc = "" +
 	"\x0fShowDebugRender\x18\x06 \x01(\bR\x0fShowDebugRender:\x05\xc0\xc8\x05\xbc\x02*Y\n" +
 	"\x19CameraAimAssistActionEnum\x12\x1c\n" +
 	"\x18CameraAimAssistActionSet\x10\x00\x12\x1e\n" +
-	"\x1aCameraAimAssistActionClear\x10\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x1aCameraAimAssistActionClear\x10\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_camera_aim_assist_proto_rawDescOnce sync.Once

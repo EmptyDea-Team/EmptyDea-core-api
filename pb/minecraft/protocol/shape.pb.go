@@ -906,7 +906,7 @@ const file_shape_proto_rawDesc = "" +
 	"\x14PrimitiveShapeSphere\x10\x02\x12\x18\n" +
 	"\x14PrimitiveShapeCircle\x10\x03\x12\x16\n" +
 	"\x12PrimitiveShapeText\x10\x04\x12\x17\n" +
-	"\x13PrimitiveShapeArrow\x10\x05BEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\x13PrimitiveShapeArrow\x10\x05BKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_shape_proto_rawDescOnce sync.Once

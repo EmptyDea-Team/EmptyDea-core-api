@@ -520,7 +520,7 @@ const file_map_pixels_proto_rawDesc = "" +
 	"\x1dMAPPIXELSTYPEENUM_UNSPECIFIED\x10\x00\x12\x1d\n" +
 	"\x19MapPixelsTypeNetEaseUint8\x10\x01\x12\x1e\n" +
 	"\x1aMapPixelsTypeNetEaseUint16\x10\x02\x12\x19\n" +
-	"\x15MapPixelsTypeStandard\x10\x03BEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\x15MapPixelsTypeStandard\x10\x03BKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_map_pixels_proto_rawDescOnce sync.Once

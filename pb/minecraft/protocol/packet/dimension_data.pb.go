@@ -86,7 +86,7 @@ const file_packet_dimension_data_proto_rawDesc = "" +
 	"\n" +
 	"\x1bpacket/dimension_data.proto\x124mousetunnel.minecraft.protocol.packet.dimension_data\x1a\x14packet_options.proto\x1a\vworld.proto\"s\n" +
 	"\rDimensionData\x12[\n" +
-	"\vDefinitions\x18\x01 \x03(\v29.mousetunnel.minecraft.protocol.world.DimensionDefinitionR\vDefinitions:\x05\xc0\xc8\x05\xb5\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\vDefinitions\x18\x01 \x03(\v29.mousetunnel.minecraft.protocol.world.DimensionDefinitionR\vDefinitions:\x05\xc0\xc8\x05\xb5\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_dimension_data_proto_rawDescOnce sync.Once

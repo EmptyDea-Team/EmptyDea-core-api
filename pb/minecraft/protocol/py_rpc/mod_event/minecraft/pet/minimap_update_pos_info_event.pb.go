@@ -132,7 +132,7 @@ const file_py_rpc_mod_event_minecraft_pet_minimap_update_pos_info_event_proto_ra
 	"\x05Basic\x18\x01 \x01(\v2J.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.BasicR\x05Basic\x12\x9c\x01\n" +
 	"\x11MinimapUpdateData\x18\x02 \x01(\v2n.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.minimap_update_pos_info_event.MinimapUpdateDataR\x11MinimapUpdateData\"1\n" +
 	"\x11MinimapUpdateData\x12\x1c\n" +
-	"\tBiomeName\x18\x01 \x01(\tR\tBiomeNameB_Z]github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
+	"\tBiomeName\x18\x01 \x01(\tR\tBiomeNameBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_pet_minimap_update_pos_info_event_proto_rawDescOnce sync.Once

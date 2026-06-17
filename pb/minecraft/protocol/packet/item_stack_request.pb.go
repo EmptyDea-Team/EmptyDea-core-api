@@ -89,7 +89,7 @@ const file_packet_item_stack_request_proto_rawDesc = "" +
 	"\n" +
 	"\x1fpacket/item_stack_request.proto\x128mousetunnel.minecraft.protocol.packet.item_stack_request\x1a\x10item_stack.proto\x1a\x14packet_options.proto\"r\n" +
 	"\x10ItemStackRequest\x12W\n" +
-	"\bRequests\x18\x01 \x03(\v2;.mousetunnel.minecraft.protocol.item_stack.ItemStackRequestR\bRequests:\x05\xc0\xc8\x05\x93\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\bRequests\x18\x01 \x03(\v2;.mousetunnel.minecraft.protocol.item_stack.ItemStackRequestR\bRequests:\x05\xc0\xc8\x05\x93\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_item_stack_request_proto_rawDescOnce sync.Once

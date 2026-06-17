@@ -150,7 +150,7 @@ const file_py_rpc_mod_event_minecraft_chat_phrases_handle_official_phrase_event_
 	"\x02ID\x18\x02 \x01(\x04R\x02ID\x12\x8e\x01\n" +
 	"\x04Data\x18\x03 \x01(\v2z.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_phrases.handle_official_phrase_event.OfficialPhraseContextR\x04Data\"=\n" +
 	"\x15OfficialPhraseContext\x12$\n" +
-	"\rIsPrivateChat\x18\x01 \x01(\bR\rIsPrivateChatBqZogithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_phrases;chat_phrasesb\x06proto3"
+	"\rIsPrivateChat\x18\x01 \x01(\bR\rIsPrivateChatBwZugithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_phrases;chat_phrasesb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_chat_phrases_handle_official_phrase_event_proto_rawDescOnce sync.Once

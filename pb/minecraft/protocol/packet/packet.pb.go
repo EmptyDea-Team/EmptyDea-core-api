@@ -165,7 +165,7 @@ const file_packet_packet_proto_rawDesc = "" +
 	"\x0fSenderSubClient\x18\x02 \x01(\rR\x0fSenderSubClient\x12(\n" +
 	"\x0fTargetSubClient\x18\x03 \x01(\rR\x0fTargetSubClient\"4\n" +
 	"\x06Packet\x12*\n" +
-	"\x05Value\x18\x01 \x01(\v2\x14.google.protobuf.AnyR\x05ValueBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x05Value\x18\x01 \x01(\v2\x14.google.protobuf.AnyR\x05ValueBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_packet_proto_rawDescOnce sync.Once

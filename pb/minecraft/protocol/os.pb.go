@@ -197,7 +197,7 @@ const file_os_proto_rawDesc = "" +
 	"\n" +
 	"DeviceXBOX\x10\r\x12\f\n" +
 	"\bDeviceWP\x10\x0e\x12\x0f\n" +
-	"\vDeviceLinux\x10\x0fBEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\vDeviceLinux\x10\x0fBKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_os_proto_rawDescOnce sync.Once

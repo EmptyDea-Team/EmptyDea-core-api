@@ -292,7 +292,7 @@ const file_packet_code_builder_source_proto_rawDesc = "" +
 	"\x1bCodeBuilderStatusInProgress\x10\x02\x12\x1b\n" +
 	"\x17CodeBuilderStatusPaused\x10\x03\x12\x1a\n" +
 	"\x16CodeBuilderStatusError\x10\x04\x12\x1e\n" +
-	"\x1aCodeBuilderStatusSucceeded\x10\x05BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x1aCodeBuilderStatusSucceeded\x10\x05BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_code_builder_source_proto_rawDescOnce sync.Once

@@ -24,7 +24,7 @@ var File_py_rpc_mod_event_minecraft_safaia_pool_proto protoreflect.FileDescripto
 
 const file_py_rpc_mod_event_minecraft_safaia_pool_proto_rawDesc = "" +
 	"\n" +
-	",py_rpc/mod_event/minecraft/safaia/pool.proto\x12Emousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.safaia.poolBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/safaia;safaiab\x06proto3"
+	",py_rpc/mod_event/minecraft/safaia/pool.proto\x12Emousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.safaia.poolBkZigithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/safaia;safaiab\x06proto3"
 
 var file_py_rpc_mod_event_minecraft_safaia_pool_proto_goTypes = []any{}
 var file_py_rpc_mod_event_minecraft_safaia_pool_proto_depIdxs = []int32{

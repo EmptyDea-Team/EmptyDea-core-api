@@ -243,7 +243,7 @@ const file_packet_set_hud_proto_rawDesc = "" +
 	"\x12HudElementItemText\x10\f*B\n" +
 	"\x11HudVisibilityEnum\x12\x15\n" +
 	"\x11HudVisibilityHide\x10\x00\x12\x16\n" +
-	"\x12HudVisibilityReset\x10\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x12HudVisibilityReset\x10\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_set_hud_proto_rawDescOnce sync.Once

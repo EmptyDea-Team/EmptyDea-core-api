@@ -104,7 +104,7 @@ const file_packet_client_cache_blob_status_proto_rawDesc = "" +
 	"\n" +
 	"MissHashes\x18\x01 \x03(\x04R\n" +
 	"MissHashes\x12\x1c\n" +
-	"\tHitHashes\x18\x02 \x03(\x04R\tHitHashes:\x05\xc0\xc8\x05\x87\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\tHitHashes\x18\x02 \x03(\x04R\tHitHashes:\x05\xc0\xc8\x05\x87\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_client_cache_blob_status_proto_rawDescOnce sync.Once

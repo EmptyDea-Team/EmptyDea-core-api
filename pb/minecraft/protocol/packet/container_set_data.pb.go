@@ -227,7 +227,7 @@ const file_packet_container_set_data_proto_rawDesc = "" +
 	"\x1dContainerDataBrewingStandEnum\x12%\n" +
 	"!ContainerDataBrewingStandBrewTime\x10\x00\x12'\n" +
 	"#ContainerDataBrewingStandFuelAmount\x10\x01\x12&\n" +
-	"\"ContainerDataBrewingStandFuelTotal\x10\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\"ContainerDataBrewingStandFuelTotal\x10\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_container_set_data_proto_rawDescOnce sync.Once

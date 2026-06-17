@@ -174,7 +174,7 @@ const file_packet_level_event_generic_proto_rawDesc = "" +
 	" packet/level_event_generic.proto\x129mousetunnel.minecraft.protocol.packet.level_event_generic\x1a\x14packet_options.proto\"e\n" +
 	"\x11LevelEventGeneric\x12\x18\n" +
 	"\aEventID\x18\x01 \x01(\x05R\aEventID\x120\n" +
-	"\x13SerialisedEventData\x18\x02 \x01(\fR\x13SerialisedEventData:\x04\xc0\xc8\x05|BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x13SerialisedEventData\x18\x02 \x01(\fR\x13SerialisedEventData:\x04\xc0\xc8\x05|BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_level_event_generic_proto_rawDescOnce sync.Once

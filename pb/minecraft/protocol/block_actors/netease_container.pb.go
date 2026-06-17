@@ -97,7 +97,7 @@ const file_block_actors_netease_container_proto_rawDesc = "" +
 	"BlockActor\x18\x01 \x01(\v2R.mousetunnel.minecraft.protocol.block_actors.general_actors.block_actor.BlockActorR\n" +
 	"BlockActor\x12\x12\n" +
 	"\x04Size\x18\x02 \x01(\x05R\x04Size\x12,\n" +
-	"\x05Items\x18\x03 \x03(\v2\x16.google.protobuf.ValueR\x05ItemsBVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	"\x05Items\x18\x03 \x03(\v2\x16.google.protobuf.ValueR\x05ItemsB\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_netease_container_proto_rawDescOnce sync.Once

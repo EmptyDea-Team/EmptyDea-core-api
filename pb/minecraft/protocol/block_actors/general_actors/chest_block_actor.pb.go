@@ -154,7 +154,7 @@ const file_block_actors_general_actors_chest_block_actor_proto_rawDesc = "" +
 	"\vForceUnpair\x18\a \x01(\rR\vForceUnpair\x12\x1e\n" +
 	"\n" +
 	"CustomSize\x18\b \x01(\x05R\n" +
-	"CustomSizeBgZegithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/general_actors;general_actorsb\x06proto3"
+	"CustomSizeBmZkgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/general_actors;general_actorsb\x06proto3"
 
 var (
 	file_block_actors_general_actors_chest_block_actor_proto_rawDescOnce sync.Once

@@ -304,7 +304,7 @@ const file_scoreboard_proto_rawDesc = "" +
 	"\"SCOREBOARDIDENTITYENUM_UNSPECIFIED\x10\x00\x12\x1c\n" +
 	"\x18ScoreboardIdentityPlayer\x10\x01\x12\x1c\n" +
 	"\x18ScoreboardIdentityEntity\x10\x02\x12 \n" +
-	"\x1cScoreboardIdentityFakePlayer\x10\x03BEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\x1cScoreboardIdentityFakePlayer\x10\x03BKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_scoreboard_proto_rawDescOnce sync.Once

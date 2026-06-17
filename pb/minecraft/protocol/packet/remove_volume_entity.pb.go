@@ -95,7 +95,7 @@ const file_packet_remove_volume_entity_proto_rawDesc = "" +
 	"!packet/remove_volume_entity.proto\x12:mousetunnel.minecraft.protocol.packet.remove_volume_entity\x1a\x14packet_options.proto\"c\n" +
 	"\x12RemoveVolumeEntity\x12(\n" +
 	"\x0fEntityRuntimeID\x18\x01 \x01(\rR\x0fEntityRuntimeID\x12\x1c\n" +
-	"\tDimension\x18\x02 \x01(\x05R\tDimension:\x05\xc0\xc8\x05\xa7\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\tDimension\x18\x02 \x01(\x05R\tDimension:\x05\xc0\xc8\x05\xa7\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_remove_volume_entity_proto_rawDescOnce sync.Once

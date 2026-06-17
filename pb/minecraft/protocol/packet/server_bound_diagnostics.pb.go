@@ -259,7 +259,7 @@ const file_packet_server_bound_diagnostics_proto_rawDesc = "" +
 	"\x14MemoryCategoryValues\x18\n" +
 	" \x03(\v2E.mousetunnel.minecraft.protocol.memory_category.MemoryCategoryCounterR\x14MemoryCategoryValues\x12x\n" +
 	"\x11EntityDiagnostics\x18\v \x03(\v2J.mousetunnel.minecraft.protocol.memory_category.EntityDiagnosticTimingInfoR\x11EntityDiagnostics\x12x\n" +
-	"\x11SystemDiagnostics\x18\f \x03(\v2J.mousetunnel.minecraft.protocol.memory_category.SystemDiagnosticTimingInfoR\x11SystemDiagnostics:\x05\xc0\xc8\x05\xbb\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x11SystemDiagnostics\x18\f \x03(\v2J.mousetunnel.minecraft.protocol.memory_category.SystemDiagnosticTimingInfoR\x11SystemDiagnostics:\x05\xc0\xc8\x05\xbb\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_server_bound_diagnostics_proto_rawDescOnce sync.Once

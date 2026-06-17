@@ -227,7 +227,7 @@ const file_block_actors_mob_spawner_proto_rawDesc = "" +
 	"SpawnRange\x18\f \x01(\x05R\n" +
 	"SpawnRange\x12f\n" +
 	"\tSpawnData\x18\r \x01(\v2H.mousetunnel.minecraft.protocol.block_actors.fields.spawn_data.SpawnDataR\tSpawnData\x12@\n" +
-	"\x0fSpawnPotentials\x18\x0e \x03(\v2\x16.google.protobuf.ValueR\x0fSpawnPotentialsBVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	"\x0fSpawnPotentials\x18\x0e \x03(\v2\x16.google.protobuf.ValueR\x0fSpawnPotentialsB\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_mob_spawner_proto_rawDescOnce sync.Once

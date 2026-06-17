@@ -174,7 +174,7 @@ const file_packet_sync_world_clocks_proto_rawDesc = "" +
 	"AddClockID\x12\\\n" +
 	"\x0eAddTimeMarkers\x18\x05 \x03(\v24.mousetunnel.minecraft.protocol.clock.TimeMarkerDataR\x0eAddTimeMarkers\x12$\n" +
 	"\rRemoveClockID\x18\x06 \x01(\x03R\rRemoveClockID\x120\n" +
-	"\x13RemoveTimeMarkerIDs\x18\a \x03(\x04R\x13RemoveTimeMarkerIDs:\x05\xc0\xc8\x05\xd8\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x13RemoveTimeMarkerIDs\x18\a \x03(\x04R\x13RemoveTimeMarkerIDs:\x05\xc0\xc8\x05\xd8\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_sync_world_clocks_proto_rawDescOnce sync.Once

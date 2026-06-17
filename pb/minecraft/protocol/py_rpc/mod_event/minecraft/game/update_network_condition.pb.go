@@ -110,7 +110,7 @@ const file_py_rpc_mod_event_minecraft_game_update_network_condition_proto_rawDes
 	"\x05Basic\x18\x01 \x01(\v2K.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.game.basic.BasicR\x05Basic\x12\x14\n" +
 	"\x05Start\x18\x02 \x01(\x03R\x05Start\x12(\n" +
 	"\x0fServerTimestamp\x18\x03 \x01(\x03R\x0fServerTimestamp\x12\x10\n" +
-	"\x03End\x18\x04 \x01(\x03R\x03EndBaZ_github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/game;gameb\x06proto3"
+	"\x03End\x18\x04 \x01(\x03R\x03EndBgZegithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/game;gameb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_game_update_network_condition_proto_rawDescOnce sync.Once

@@ -298,7 +298,7 @@ const file_block_actors_structure_block_proto_rawDesc = "" +
 	"\x10YStructureOffset\x18\x13 \x01(\x05R\x10YStructureOffset\x12&\n" +
 	"\x0eYStructureSize\x18\x14 \x01(\x05R\x0eYStructureSize\x12*\n" +
 	"\x10ZStructureOffset\x18\x15 \x01(\x05R\x10ZStructureOffset\x12&\n" +
-	"\x0eZStructureSize\x18\x16 \x01(\x05R\x0eZStructureSizeBVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	"\x0eZStructureSize\x18\x16 \x01(\x05R\x0eZStructureSizeB\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_structure_block_proto_rawDescOnce sync.Once

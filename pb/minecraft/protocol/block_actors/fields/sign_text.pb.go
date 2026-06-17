@@ -128,7 +128,7 @@ const file_block_actors_fields_sign_text_proto_rawDesc = "" +
 	"\x11PersistFormatting\x18\x03 \x01(\rR\x11PersistFormatting\x12$\n" +
 	"\rSignTextColor\x18\x04 \x01(\x05R\rSignTextColor\x12\x12\n" +
 	"\x04Text\x18\x05 \x01(\tR\x04Text\x12\x1c\n" +
-	"\tTextOwner\x18\x06 \x01(\tR\tTextOwnerBWZUgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/fields;fieldsb\x06proto3"
+	"\tTextOwner\x18\x06 \x01(\tR\tTextOwnerB]Z[github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors/fields;fieldsb\x06proto3"
 
 var (
 	file_block_actors_fields_sign_text_proto_rawDescOnce sync.Once

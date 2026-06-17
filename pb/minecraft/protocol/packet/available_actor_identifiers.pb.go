@@ -84,7 +84,7 @@ const file_packet_available_actor_identifiers_proto_rawDesc = "" +
 	"\n" +
 	"(packet/available_actor_identifiers.proto\x12Amousetunnel.minecraft.protocol.packet.available_actor_identifiers\x1a\x14packet_options.proto\"c\n" +
 	"\x19AvailableActorIdentifiers\x12@\n" +
-	"\x1bSerialisedEntityIdentifiers\x18\x01 \x01(\fR\x1bSerialisedEntityIdentifiers:\x04\xc0\xc8\x05wBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x1bSerialisedEntityIdentifiers\x18\x01 \x01(\fR\x1bSerialisedEntityIdentifiers:\x04\xc0\xc8\x05wBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_available_actor_identifiers_proto_rawDescOnce sync.Once

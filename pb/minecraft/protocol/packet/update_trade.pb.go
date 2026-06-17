@@ -231,7 +231,7 @@ const file_packet_update_trade_proto_rawDesc = "" +
 	"NewTradeUI\x12,\n" +
 	"\x11DemandBasedPrices\x18\t \x01(\bR\x11DemandBasedPrices\x12*\n" +
 	"\x10SerialisedOffers\x18\n" +
-	" \x01(\fR\x10SerialisedOffers:\x04\xc0\xc8\x05PBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	" \x01(\fR\x10SerialisedOffers:\x04\xc0\xc8\x05PBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_update_trade_proto_rawDescOnce sync.Once

@@ -77,7 +77,7 @@ const file_block_pos_proto_rawDesc = "" +
 	"\n" +
 	"\x0fblock_pos.proto\x12(mousetunnel.minecraft.protocol.block_pos\" \n" +
 	"\bBlockPos\x12\x14\n" +
-	"\x05Value\x18\x01 \x03(\x05R\x05ValueBEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\x05Value\x18\x01 \x03(\x05R\x05ValueBKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_block_pos_proto_rawDescOnce sync.Once

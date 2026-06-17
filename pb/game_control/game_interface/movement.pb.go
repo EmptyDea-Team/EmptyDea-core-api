@@ -143,7 +143,7 @@ const file_game_control_game_interface_movement_proto_rawDesc = "" +
 	"\x0fMovementService\x12\x7f\n" +
 	"\vStartFlying\x128.emptydea.game_control.game_interface.StartFlyingRequest\x1a6.emptydea.game_control.game_interface.MovementResponse\x12}\n" +
 	"\n" +
-	"StopFlying\x127.emptydea.game_control.game_interface.StopFlyingRequest\x1a6.emptydea.game_control.game_interface.MovementResponseBWZUgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pbb\x06proto3"
+	"StopFlying\x127.emptydea.game_control.game_interface.StopFlyingRequest\x1a6.emptydea.game_control.game_interface.MovementResponseB]Z[github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pbb\x06proto3"
 
 var (
 	file_game_control_game_interface_movement_proto_rawDescOnce sync.Once

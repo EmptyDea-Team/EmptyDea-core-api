@@ -116,7 +116,7 @@ const file_packet_block_event_proto_rawDesc = "" +
 	"BlockEvent\x12N\n" +
 	"\bPosition\x18\x01 \x01(\v22.mousetunnel.minecraft.protocol.block_pos.BlockPosR\bPosition\x12\x1c\n" +
 	"\tEventType\x18\x02 \x01(\x05R\tEventType\x12\x1c\n" +
-	"\tEventData\x18\x03 \x01(\x05R\tEventData:\x04\xc0\xc8\x05\x1aBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\tEventData\x18\x03 \x01(\x05R\tEventData:\x04\xc0\xc8\x05\x1aBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_block_event_proto_rawDescOnce sync.Once

@@ -78,7 +78,7 @@ const file_py_rpc_set_owner_id_proto_rawDesc = "" +
 	"\x19py_rpc/set_owner_id.proto\x122mousetunnel.minecraft.protocol.py_rpc.set_owner_id\"&\n" +
 	"\n" +
 	"SetOwnerID\x12\x18\n" +
-	"\aOwnerID\x18\x01 \x01(\x04R\aOwnerIDBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpcb\x06proto3"
+	"\aOwnerID\x18\x01 \x01(\x04R\aOwnerIDBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpcb\x06proto3"
 
 var (
 	file_py_rpc_set_owner_id_proto_rawDescOnce sync.Once

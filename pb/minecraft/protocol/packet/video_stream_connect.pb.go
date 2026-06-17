@@ -176,7 +176,7 @@ const file_packet_video_stream_connect_proto_rawDesc = "" +
 	"\x06Height\x18\x05 \x01(\x05R\x06Height:\x04\xc0\xc8\x05~*N\n" +
 	"\x15VideoStreamActionEnum\x12\x19\n" +
 	"\x15VideoStreamActionOpen\x10\x00\x12\x1a\n" +
-	"\x16VideoStreamActionClose\x10\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x16VideoStreamActionClose\x10\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_video_stream_connect_proto_rawDescOnce sync.Once

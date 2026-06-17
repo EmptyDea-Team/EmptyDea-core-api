@@ -86,7 +86,7 @@ const file_py_rpc_mod_event_minecraft_chat_extension_chat_extension_open_state_c
 	"Wpy_rpc/mod_event/minecraft/chat_extension/chat_extension_open_state_changed_event.proto\x12pmousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_extension.chat_extension_open_state_changed_event\x1a5py_rpc/mod_event/minecraft/chat_extension/basic.proto\"\xa5\x01\n" +
 	"\"ChatExtensionOpenStateChangedEvent\x12k\n" +
 	"\x05Basic\x18\x01 \x01(\v2U.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.chat_extension.basic.BasicR\x05Basic\x12\x12\n" +
-	"\x04Open\x18\x02 \x01(\bR\x04OpenBuZsgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_extension;chat_extensionb\x06proto3"
+	"\x04Open\x18\x02 \x01(\bR\x04OpenB{Zygithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/chat_extension;chat_extensionb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_chat_extension_chat_extension_open_state_changed_event_proto_rawDescOnce sync.Once

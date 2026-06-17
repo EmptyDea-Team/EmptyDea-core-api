@@ -144,7 +144,7 @@ const file_game_control_resources_control_resources_proto_rawDesc = "" +
 	"\x11GetBotInfoRequest2\x8e\x01\n" +
 	"\x10ResourcesService\x12z\n" +
 	"\n" +
-	"GetBotInfo\x12:.emptydea.game_control.resources_control.GetBotInfoRequest\x1a0.emptydea.game_control.resources_control.BotInfoB]Z[github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/resources_control;resources_control_pbb\x06proto3"
+	"GetBotInfo\x12:.emptydea.game_control.resources_control.GetBotInfoRequest\x1a0.emptydea.game_control.resources_control.BotInfoBcZagithub.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/resources_control;resources_control_pbb\x06proto3"
 
 var (
 	file_game_control_resources_control_resources_proto_rawDescOnce sync.Once

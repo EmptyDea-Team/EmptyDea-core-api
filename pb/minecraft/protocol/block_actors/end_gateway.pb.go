@@ -101,7 +101,7 @@ const file_block_actors_end_gateway_proto_rawDesc = "" +
 	"\x03Age\x18\x02 \x01(\x05R\x03Age\x12\x1e\n" +
 	"\n" +
 	"ExitPortal\x18\x03 \x03(\x05R\n" +
-	"ExitPortalBVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	"ExitPortalB\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_end_gateway_proto_rawDescOnce sync.Once

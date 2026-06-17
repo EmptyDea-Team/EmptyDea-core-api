@@ -87,7 +87,7 @@ const file_block_actors_shulker_box_proto_rawDesc = "" +
 	"\n" +
 	"ShulkerBox\x12\x87\x01\n" +
 	"\x0fChestBlockActor\x18\x01 \x01(\v2].mousetunnel.minecraft.protocol.block_actors.general_actors.chest_block_actor.ChestBlockActorR\x0fChestBlockActor\x12\x16\n" +
-	"\x06Facing\x18\x02 \x01(\rR\x06FacingBVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	"\x06Facing\x18\x02 \x01(\rR\x06FacingB\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_shulker_box_proto_rawDescOnce sync.Once

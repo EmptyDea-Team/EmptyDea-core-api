@@ -77,7 +77,7 @@ const file_packet_custom_v2_proto_rawDesc = "" +
 	"\n" +
 	"\x16packet/custom_v2.proto\x12/mousetunnel.minecraft.protocol.packet.custom_v2\x1a\x14packet_options.proto\"%\n" +
 	"\bCustomV2\x12\x12\n" +
-	"\x04Data\x18\x01 \x01(\fR\x04Data:\x05\xc0\xc8\x05\xe3\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x04Data\x18\x01 \x01(\fR\x04Data:\x05\xc0\xc8\x05\xe3\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_custom_v2_proto_rawDescOnce sync.Once

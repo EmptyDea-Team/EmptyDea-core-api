@@ -22,7 +22,7 @@ const (
 	InventoryService_GetInventory_FullMethodName     = "/emptydea.game_control.resources_control.InventoryService/GetInventory"
 	InventoryService_GetItemStack_FullMethodName     = "/emptydea.game_control.resources_control.InventoryService/GetItemStack"
 	InventoryService_GetAllItemStacks_FullMethodName = "/emptydea.game_control.resources_control.InventoryService/GetAllItemStacks"
-	InventoryService_ListWindowIDs_FullMethodName    = "/emptydea.game_control.resources_control.InventoryService/ListWindowIDs"
+	InventoryService_ListWindowNames_FullMethodName  = "/emptydea.game_control.resources_control.InventoryService/ListWindowNames"
 )
 
 // InventoryServiceClient is the client API for InventoryService service.
@@ -30,18 +30,18 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 //
 // InventoryService 描述机器人已打开(或持有)的所有库存，
-// 例如背包、副手和胸甲。
+// 例如背包、副手、胸甲和动态容器。
 type InventoryServiceClient interface {
-	// GetInventory 返回窗口 ID 为 windowID 的库存。
+	// GetInventory 返回窗口名为 WindowName 的库存。
 	// 如果目标库存不存在，则返回的 existed 为假
 	GetInventory(ctx context.Context, in *GetInventoryRequest, opts ...grpc.CallOption) (*GetInventoryResponse, error)
-	// GetItemStack 加载位于 windowID 的库存中索引为 slotID 的物品。
+	// GetItemStack 加载位于 WindowName 的库存中索引为 slotID 的物品。
 	// 如果目标库存不存在，则返回的 inventoryExisted 为假
 	GetItemStack(ctx context.Context, in *GetItemStackRequest, opts ...grpc.CallOption) (*GetItemStackResponse, error)
-	// GetAllItemStacks 列出窗口 ID 为 windowID 的库存中的所有物品堆栈实例
+	// GetAllItemStacks 列出窗口名为 WindowName 的库存中的所有物品堆栈实例
 	GetAllItemStacks(ctx context.Context, in *GetAllItemStacksRequest, opts ...grpc.CallOption) (*GetAllItemStacksResponse, error)
-	// ListWindowIDs 列出当前所有库存的窗口 ID
-	ListWindowIDs(ctx context.Context, in *ListWindowIDsRequest, opts ...grpc.CallOption) (*ListWindowIDsResponse, error)
+	// ListWindowNames 列出当前所有库存的窗口名。
+	ListWindowNames(ctx context.Context, in *ListWindowNamesRequest, opts ...grpc.CallOption) (*ListWindowNamesResponse, error)
 }
 
 type inventoryServiceClient struct {
@@ -82,10 +82,10 @@ func (c *inventoryServiceClient) GetAllItemStacks(ctx context.Context, in *GetAl
 	return out, nil
 }
 
-func (c *inventoryServiceClient) ListWindowIDs(ctx context.Context, in *ListWindowIDsRequest, opts ...grpc.CallOption) (*ListWindowIDsResponse, error) {
+func (c *inventoryServiceClient) ListWindowNames(ctx context.Context, in *ListWindowNamesRequest, opts ...grpc.CallOption) (*ListWindowNamesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(ListWindowIDsResponse)
-	err := c.cc.Invoke(ctx, InventoryService_ListWindowIDs_FullMethodName, in, out, cOpts...)
+	out := new(ListWindowNamesResponse)
+	err := c.cc.Invoke(ctx, InventoryService_ListWindowNames_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -97,18 +97,18 @@ func (c *inventoryServiceClient) ListWindowIDs(ctx context.Context, in *ListWind
 // for forward compatibility.
 //
 // InventoryService 描述机器人已打开(或持有)的所有库存，
-// 例如背包、副手和胸甲。
+// 例如背包、副手、胸甲和动态容器。
 type InventoryServiceServer interface {
-	// GetInventory 返回窗口 ID 为 windowID 的库存。
+	// GetInventory 返回窗口名为 WindowName 的库存。
 	// 如果目标库存不存在，则返回的 existed 为假
 	GetInventory(context.Context, *GetInventoryRequest) (*GetInventoryResponse, error)
-	// GetItemStack 加载位于 windowID 的库存中索引为 slotID 的物品。
+	// GetItemStack 加载位于 WindowName 的库存中索引为 slotID 的物品。
 	// 如果目标库存不存在，则返回的 inventoryExisted 为假
 	GetItemStack(context.Context, *GetItemStackRequest) (*GetItemStackResponse, error)
-	// GetAllItemStacks 列出窗口 ID 为 windowID 的库存中的所有物品堆栈实例
+	// GetAllItemStacks 列出窗口名为 WindowName 的库存中的所有物品堆栈实例
 	GetAllItemStacks(context.Context, *GetAllItemStacksRequest) (*GetAllItemStacksResponse, error)
-	// ListWindowIDs 列出当前所有库存的窗口 ID
-	ListWindowIDs(context.Context, *ListWindowIDsRequest) (*ListWindowIDsResponse, error)
+	// ListWindowNames 列出当前所有库存的窗口名。
+	ListWindowNames(context.Context, *ListWindowNamesRequest) (*ListWindowNamesResponse, error)
 	mustEmbedUnimplementedInventoryServiceServer()
 }
 
@@ -128,8 +128,8 @@ func (UnimplementedInventoryServiceServer) GetItemStack(context.Context, *GetIte
 func (UnimplementedInventoryServiceServer) GetAllItemStacks(context.Context, *GetAllItemStacksRequest) (*GetAllItemStacksResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllItemStacks not implemented")
 }
-func (UnimplementedInventoryServiceServer) ListWindowIDs(context.Context, *ListWindowIDsRequest) (*ListWindowIDsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ListWindowIDs not implemented")
+func (UnimplementedInventoryServiceServer) ListWindowNames(context.Context, *ListWindowNamesRequest) (*ListWindowNamesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListWindowNames not implemented")
 }
 func (UnimplementedInventoryServiceServer) mustEmbedUnimplementedInventoryServiceServer() {}
 func (UnimplementedInventoryServiceServer) testEmbeddedByValue()                          {}
@@ -206,20 +206,20 @@ func _InventoryService_GetAllItemStacks_Handler(srv interface{}, ctx context.Con
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InventoryService_ListWindowIDs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ListWindowIDsRequest)
+func _InventoryService_ListWindowNames_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListWindowNamesRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InventoryServiceServer).ListWindowIDs(ctx, in)
+		return srv.(InventoryServiceServer).ListWindowNames(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: InventoryService_ListWindowIDs_FullMethodName,
+		FullMethod: InventoryService_ListWindowNames_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InventoryServiceServer).ListWindowIDs(ctx, req.(*ListWindowIDsRequest))
+		return srv.(InventoryServiceServer).ListWindowNames(ctx, req.(*ListWindowNamesRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -244,8 +244,8 @@ var InventoryService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _InventoryService_GetAllItemStacks_Handler,
 		},
 		{
-			MethodName: "ListWindowIDs",
-			Handler:    _InventoryService_ListWindowIDs_Handler,
+			MethodName: "ListWindowNames",
+			Handler:    _InventoryService_ListWindowNames_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

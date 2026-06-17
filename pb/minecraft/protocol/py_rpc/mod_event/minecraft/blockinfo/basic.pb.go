@@ -65,7 +65,7 @@ var File_py_rpc_mod_event_minecraft_blockinfo_basic_proto protoreflect.FileDescr
 const file_py_rpc_mod_event_minecraft_blockinfo_basic_proto_rawDesc = "" +
 	"\n" +
 	"0py_rpc/mod_event/minecraft/blockinfo/basic.proto\x12Imousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.blockinfo.basic\"\a\n" +
-	"\x05BasicBkZigithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/blockinfo;blockinfob\x06proto3"
+	"\x05BasicBqZogithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/blockinfo;blockinfob\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_blockinfo_basic_proto_rawDescOnce sync.Once

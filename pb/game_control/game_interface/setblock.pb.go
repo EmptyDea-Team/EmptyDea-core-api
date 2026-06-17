@@ -247,7 +247,7 @@ const file_game_control_game_interface_setblock_proto_rawDesc = "" +
 	"\x0fSetBlockService\x12y\n" +
 	"\bSetBlock\x125.emptydea.game_control.game_interface.SetBlockRequest\x1a6.emptydea.game_control.game_interface.SetBlockResponse\x12~\n" +
 	"\rSetBlockAsync\x125.emptydea.game_control.game_interface.SetBlockRequest\x1a6.emptydea.game_control.game_interface.SetBlockResponse\x12y\n" +
-	"\bSetAnvil\x125.emptydea.game_control.game_interface.SetAnvilRequest\x1a6.emptydea.game_control.game_interface.SetAnvilResponseBWZUgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pbb\x06proto3"
+	"\bSetAnvil\x125.emptydea.game_control.game_interface.SetAnvilRequest\x1a6.emptydea.game_control.game_interface.SetAnvilResponseB]Z[github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pbb\x06proto3"
 
 var (
 	file_game_control_game_interface_setblock_proto_rawDescOnce sync.Once

@@ -72,7 +72,7 @@ var File_packet_client_bound_close_form_proto protoreflect.FileDescriptor
 const file_packet_client_bound_close_form_proto_rawDesc = "" +
 	"\n" +
 	"$packet/client_bound_close_form.proto\x12=mousetunnel.minecraft.protocol.packet.client_bound_close_form\x1a\x14packet_options.proto\"\x1d\n" +
-	"\x14ClientBoundCloseForm:\x05\xc0\xc8\x05\xb6\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x14ClientBoundCloseForm:\x05\xc0\xc8\x05\xb6\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_client_bound_close_form_proto_rawDescOnce sync.Once

@@ -109,7 +109,7 @@ const file_block_actors_banner_proto_rawDesc = "" +
 	"BlockActor\x12\x12\n" +
 	"\x04Base\x18\x02 \x01(\x05R\x04Base\x122\n" +
 	"\bPatterns\x18\x03 \x03(\v2\x16.google.protobuf.ValueR\bPatterns\x12\x12\n" +
-	"\x04Type\x18\x04 \x01(\x05R\x04TypeBVZTgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
+	"\x04Type\x18\x04 \x01(\x05R\x04TypeB\\ZZgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/block_actors;block_actorsb\x06proto3"
 
 var (
 	file_block_actors_banner_proto_rawDescOnce sync.Once

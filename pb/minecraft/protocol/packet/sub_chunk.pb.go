@@ -125,7 +125,7 @@ const file_packet_sub_chunk_proto_rawDesc = "" +
 	"\fCacheEnabled\x18\x01 \x01(\bR\fCacheEnabled\x12\x1c\n" +
 	"\tDimension\x18\x02 \x01(\x05R\tDimension\x12Q\n" +
 	"\bPosition\x18\x03 \x01(\v25.mousetunnel.minecraft.protocol.chunk_pos.SubChunkPosR\bPosition\x12a\n" +
-	"\x0fSubChunkEntries\x18\x04 \x03(\v27.mousetunnel.minecraft.protocol.sub_chunk.SubChunkEntryR\x0fSubChunkEntries:\x05\xc0\xc8\x05\xae\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x0fSubChunkEntries\x18\x04 \x03(\v27.mousetunnel.minecraft.protocol.sub_chunk.SubChunkEntryR\x0fSubChunkEntries:\x05\xc0\xc8\x05\xae\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_sub_chunk_proto_rawDescOnce sync.Once

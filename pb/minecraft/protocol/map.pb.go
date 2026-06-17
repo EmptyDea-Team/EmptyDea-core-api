@@ -511,7 +511,7 @@ const file_map_proto_rawDesc = "" +
 	"\x19MapDecorationTypeWitchHut\x10\x17*D\n" +
 	"\x11MapObjectTypeEnum\x12\x17\n" +
 	"\x13MapObjectTypeEntity\x10\x00\x12\x16\n" +
-	"\x12MapObjectTypeBlock\x10\x01BEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\x12MapObjectTypeBlock\x10\x01BKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_map_proto_rawDescOnce sync.Once

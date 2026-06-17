@@ -77,7 +77,7 @@ const file_packet_set_dimension_local_time_proto_rawDesc = "" +
 	"\n" +
 	"%packet/set_dimension_local_time.proto\x12>mousetunnel.minecraft.protocol.packet.set_dimension_local_time\x1a\x14packet_options.proto\":\n" +
 	"\x15SetDimensionLocalTime\x12\x1a\n" +
-	"\bUnknown3\x18\x01 \x01(\fR\bUnknown3:\x05\xc0\xc8\x05\xd0\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\bUnknown3\x18\x01 \x01(\fR\bUnknown3:\x05\xc0\xc8\x05\xd0\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_set_dimension_local_time_proto_rawDescOnce sync.Once

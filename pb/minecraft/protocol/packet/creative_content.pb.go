@@ -131,7 +131,7 @@ const file_packet_creative_content_proto_rawDesc = "" +
 	"\x1dpacket/creative_content.proto\x126mousetunnel.minecraft.protocol.packet.creative_content\x1a\x0ecreative.proto\x1a\x14packet_options.proto\"\xb5\x01\n" +
 	"\x0fCreativeContent\x12N\n" +
 	"\x06Groups\x18\x01 \x03(\v26.mousetunnel.minecraft.protocol.creative.CreativeGroupR\x06Groups\x12K\n" +
-	"\x05Items\x18\x02 \x03(\v25.mousetunnel.minecraft.protocol.creative.CreativeItemR\x05Items:\x05\xc0\xc8\x05\x91\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x05Items\x18\x02 \x03(\v25.mousetunnel.minecraft.protocol.creative.CreativeItemR\x05Items:\x05\xc0\xc8\x05\x91\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_creative_content_proto_rawDescOnce sync.Once

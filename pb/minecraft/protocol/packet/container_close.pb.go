@@ -122,7 +122,7 @@ const file_packet_container_close_proto_rawDesc = "" +
 	"\rContainerType\x18\x02 \x01(\rR\rContainerType\x12\x1e\n" +
 	"\n" +
 	"ServerSide\x18\x03 \x01(\bR\n" +
-	"ServerSide:\x04\xc0\xc8\x05/BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"ServerSide:\x04\xc0\xc8\x05/BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_container_close_proto_rawDescOnce sync.Once

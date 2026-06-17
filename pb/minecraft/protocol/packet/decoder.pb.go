@@ -69,7 +69,7 @@ var File_packet_decoder_proto protoreflect.FileDescriptor
 const file_packet_decoder_proto_rawDesc = "" +
 	"\n" +
 	"\x14packet/decoder.proto\x12-mousetunnel.minecraft.protocol.packet.decoder\x1a\x18packet/compression.proto\"\t\n" +
-	"\aDecoderBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\aDecoderBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_decoder_proto_rawDescOnce sync.Once

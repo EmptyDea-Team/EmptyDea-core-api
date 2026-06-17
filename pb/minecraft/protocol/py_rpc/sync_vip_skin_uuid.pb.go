@@ -77,7 +77,7 @@ const file_py_rpc_sync_vip_skin_uuid_proto_rawDesc = "" +
 	"\n" +
 	"\x1fpy_rpc/sync_vip_skin_uuid.proto\x128mousetunnel.minecraft.protocol.py_rpc.sync_vip_skin_uuid\"%\n" +
 	"\x0fSyncVipSkinUUID\x12\x12\n" +
-	"\x04UUID\x18\x01 \x01(\tR\x04UUIDBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpcb\x06proto3"
+	"\x04UUID\x18\x01 \x01(\tR\x04UUIDBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc;py_rpcb\x06proto3"
 
 var (
 	file_py_rpc_sync_vip_skin_uuid_proto_rawDescOnce sync.Once

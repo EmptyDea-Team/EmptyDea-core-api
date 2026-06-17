@@ -240,7 +240,7 @@ const file_packet_interact_proto_rawDesc = "" +
 	"\x1aInteractActionLeaveVehicle\x10\x03\x12!\n" +
 	"\x1dInteractActionMouseOverEntity\x10\x04\x12\x19\n" +
 	"\x15InteractActionNPCOpen\x10\x05\x12\x1f\n" +
-	"\x1bInteractActionOpenInventory\x10\x06BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x1bInteractActionOpenInventory\x10\x06BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_interact_proto_rawDescOnce sync.Once

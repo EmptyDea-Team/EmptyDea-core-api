@@ -65,7 +65,7 @@ var File_py_rpc_mod_event_minecraft_ai_command_module_proto protoreflect.FileDes
 const file_py_rpc_mod_event_minecraft_ai_command_module_proto_rawDesc = "" +
 	"\n" +
 	"2py_rpc/mod_event/minecraft/ai_command/module.proto\x12Kmousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.ai_command.module\"\b\n" +
-	"\x06ModuleBmZkgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_commandb\x06proto3"
+	"\x06ModuleBsZqgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/ai_command;ai_commandb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_ai_command_module_proto_rawDescOnce sync.Once

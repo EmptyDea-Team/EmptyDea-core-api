@@ -24,7 +24,7 @@ var File_py_rpc_py_rpc_field_test_proto protoreflect.FileDescriptor
 
 const file_py_rpc_py_rpc_field_test_proto_rawDesc = "" +
 	"\n" +
-	"\x1epy_rpc/py_rpc/field_test.proto\x127mousetunnel.minecraft.protocol.py_rpc.py_rpc.field_testBQZOgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/py_rpc;py_rpcb\x06proto3"
+	"\x1epy_rpc/py_rpc/field_test.proto\x127mousetunnel.minecraft.protocol.py_rpc.py_rpc.field_testBWZUgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/py_rpc;py_rpcb\x06proto3"
 
 var file_py_rpc_py_rpc_field_test_proto_goTypes = []any{}
 var file_py_rpc_py_rpc_field_test_proto_depIdxs = []int32{

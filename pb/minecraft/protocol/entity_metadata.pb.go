@@ -1343,7 +1343,7 @@ const file_entity_metadata_proto_rawDesc = "" +
 	"\x19EntityDataTypeCompoundTag\x10\x05\x12\x1a\n" +
 	"\x16EntityDataTypeBlockPos\x10\x06\x12\x17\n" +
 	"\x13EntityDataTypeInt64\x10\a\x12\x16\n" +
-	"\x12EntityDataTypeVec3\x10\bBEZCgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
+	"\x12EntityDataTypeVec3\x10\bBKZIgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol;protocolb\x06proto3"
 
 var (
 	file_entity_metadata_proto_rawDescOnce sync.Once

@@ -141,7 +141,7 @@ const file_py_rpc_mod_event_minecraft_pet_reset_minimap_visible_event_proto_rawD
 	"\x17ResetMinimapVisibleData\x18\x02 \x01(\v2r.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.reset_minimap_visible_event.ResetMinimapVisibleDataR\x17ResetMinimapVisibleData\"K\n" +
 	"\x17ResetMinimapVisibleData\x12\x1a\n" +
 	"\bPlayerID\x18\x01 \x01(\tR\bPlayerID\x12\x14\n" +
-	"\x05State\x18\x02 \x01(\bR\x05StateB_Z]github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
+	"\x05State\x18\x02 \x01(\bR\x05StateBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_pet_reset_minimap_visible_event_proto_rawDescOnce sync.Once

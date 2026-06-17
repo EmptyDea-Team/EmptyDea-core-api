@@ -78,7 +78,7 @@ const file_packet_mod_effect_proto_rawDesc = "" +
 	"\n" +
 	"\x17packet/mod_effect.proto\x120mousetunnel.minecraft.protocol.packet.mod_effect\x1a\rnetease.proto\x1a\x14packet_options.proto\"i\n" +
 	"\tModEffect\x12U\n" +
-	"\x05Items\x18\x01 \x03(\v2?.mousetunnel.minecraft.protocol.netease.MobEffectV2UnknownEntryR\x05Items:\x05\xc0\xc8\x05\xe6\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x05Items\x18\x01 \x03(\v2?.mousetunnel.minecraft.protocol.netease.MobEffectV2UnknownEntryR\x05Items:\x05\xc0\xc8\x05\xe6\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_mod_effect_proto_rawDescOnce sync.Once

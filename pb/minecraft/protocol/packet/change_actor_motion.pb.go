@@ -86,7 +86,7 @@ const file_packet_change_actor_motion_proto_rawDesc = "" +
 	" packet/change_actor_motion.proto\x129mousetunnel.minecraft.protocol.packet.change_actor_motion\x1a\x14packet_options.proto\"R\n" +
 	"\x11ChangeActorMotion\x12\x1a\n" +
 	"\bUnknown1\x18\x01 \x01(\x03R\bUnknown1\x12\x1a\n" +
-	"\bUnknown2\x18\x02 \x01(\rR\bUnknown2:\x05\xc0\xc8\x05\xe8\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\bUnknown2\x18\x02 \x01(\rR\bUnknown2:\x05\xc0\xc8\x05\xe8\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_change_actor_motion_proto_rawDescOnce sync.Once

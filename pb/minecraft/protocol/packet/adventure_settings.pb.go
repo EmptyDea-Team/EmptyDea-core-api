@@ -397,7 +397,7 @@ const file_packet_adventure_settings_proto_rawDesc = "" +
 	"\x16PermissionLevelVisitor\x10\x00\x12\x19\n" +
 	"\x15PermissionLevelMember\x10\x01\x12\x1b\n" +
 	"\x17PermissionLevelOperator\x10\x02\x12\x19\n" +
-	"\x15PermissionLevelCustom\x10\x03BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x15PermissionLevelCustom\x10\x03BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_adventure_settings_proto_rawDescOnce sync.Once

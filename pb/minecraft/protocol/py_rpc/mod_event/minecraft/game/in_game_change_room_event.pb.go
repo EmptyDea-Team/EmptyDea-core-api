@@ -74,7 +74,7 @@ const file_py_rpc_mod_event_minecraft_game_in_game_change_room_event_proto_rawDe
 	"\n" +
 	"?py_rpc/mod_event/minecraft/game/in_game_change_room_event.proto\x12Xmousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.game.in_game_change_room_event\x1a+py_rpc/mod_event/minecraft/game/basic.proto\"z\n" +
 	"\x15InGameChangeRoomEvent\x12a\n" +
-	"\x05Basic\x18\x01 \x01(\v2K.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.game.basic.BasicR\x05BasicBaZ_github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/game;gameb\x06proto3"
+	"\x05Basic\x18\x01 \x01(\v2K.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.game.basic.BasicR\x05BasicBgZegithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/game;gameb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_game_in_game_change_room_event_proto_rawDescOnce sync.Once

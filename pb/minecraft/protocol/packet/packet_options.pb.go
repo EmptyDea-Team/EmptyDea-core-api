@@ -43,7 +43,7 @@ var File_packet_options_proto protoreflect.FileDescriptor
 const file_packet_options_proto_rawDesc = "" +
 	"\n" +
 	"\x14packet_options.proto\x12-mousetunnel.minecraft.protocol.packet_options\x1a google/protobuf/descriptor.proto\x1a\x0fpacket/id.proto:o\n" +
-	"\tpacket_id\x12\x1f.google.protobuf.MessageOptions\x18\x88Y \x01(\x0e20.mousetunnel.minecraft.protocol.packet.id.IDEnumR\bpacketIdBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\tpacket_id\x12\x1f.google.protobuf.MessageOptions\x18\x88Y \x01(\x0e20.mousetunnel.minecraft.protocol.packet.id.IDEnumR\bpacketIdBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var file_packet_options_proto_goTypes = []any{
 	(*descriptorpb.MessageOptions)(nil), // 0: google.protobuf.MessageOptions

@@ -85,7 +85,7 @@ const file_packet_set_local_player_as_initialised_proto_rawDesc = "" +
 	"\n" +
 	",packet/set_local_player_as_initialised.proto\x12Emousetunnel.minecraft.protocol.packet.set_local_player_as_initialised\x1a\x14packet_options.proto\"M\n" +
 	"\x1bSetLocalPlayerAsInitialised\x12(\n" +
-	"\x0fEntityRuntimeID\x18\x01 \x01(\x04R\x0fEntityRuntimeID:\x04\xc0\xc8\x05qBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x0fEntityRuntimeID\x18\x01 \x01(\x04R\x0fEntityRuntimeID:\x04\xc0\xc8\x05qBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_set_local_player_as_initialised_proto_rawDescOnce sync.Once

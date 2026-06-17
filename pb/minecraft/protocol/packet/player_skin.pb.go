@@ -134,7 +134,7 @@ const file_packet_player_skin_proto_rawDesc = "" +
 	"\x04UUID\x18\x01 \x01(\tR\x04UUID\x12=\n" +
 	"\x04Skin\x18\x02 \x01(\v2).mousetunnel.minecraft.protocol.skin.SkinR\x04Skin\x12 \n" +
 	"\vNewSkinName\x18\x03 \x01(\tR\vNewSkinName\x12 \n" +
-	"\vOldSkinName\x18\x04 \x01(\tR\vOldSkinName:\x04\xc0\xc8\x05]BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\vOldSkinName\x18\x04 \x01(\tR\vOldSkinName:\x04\xc0\xc8\x05]BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_player_skin_proto_rawDescOnce sync.Once

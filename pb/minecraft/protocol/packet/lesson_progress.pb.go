@@ -166,7 +166,7 @@ const file_packet_lesson_progress_proto_rawDesc = "" +
 	"\x10LessonActionEnum\x12\x15\n" +
 	"\x11LessonActionStart\x10\x00\x12\x18\n" +
 	"\x14LessonActionComplete\x10\x01\x12\x17\n" +
-	"\x13LessonActionRestart\x10\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x13LessonActionRestart\x10\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_lesson_progress_proto_rawDescOnce sync.Once

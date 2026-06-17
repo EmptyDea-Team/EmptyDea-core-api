@@ -132,7 +132,7 @@ const file_py_rpc_mod_event_minecraft_pet_item_arrange_request_event_proto_rawDe
 	"\x05Basic\x18\x01 \x01(\v2J.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.basic.BasicR\x05Basic\x12\xa8\x01\n" +
 	"\x16ItemArrangeRequestData\x18\x02 \x01(\v2p.mousetunnel.minecraft.protocol.py_rpc.mod_event.minecraft.pet.item_arrange_request_event.ItemArrangeRequestDataR\x16ItemArrangeRequestData\"4\n" +
 	"\x16ItemArrangeRequestData\x12\x1a\n" +
-	"\bPlayerID\x18\x01 \x01(\tR\bPlayerIDB_Z]github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
+	"\bPlayerID\x18\x01 \x01(\tR\bPlayerIDBeZcgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/py_rpc/mod_event/minecraft/pet;petb\x06proto3"
 
 var (
 	file_py_rpc_mod_event_minecraft_pet_item_arrange_request_event_proto_rawDescOnce sync.Once

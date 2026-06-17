@@ -239,7 +239,7 @@ const file_packet_resource_packs_info_proto_rawDesc = "" +
 	"\n" +
 	"CDNEntries\x18\n" +
 	" \x03(\v25.mousetunnel.minecraft.protocol.resource_pack.PackURLR\n" +
-	"CDNEntries:\x04\xc0\xc8\x05\x06BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"CDNEntries:\x04\xc0\xc8\x05\x06BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_resource_packs_info_proto_rawDescOnce sync.Once

@@ -841,7 +841,7 @@ const file_game_control_game_interface_player_kit_proto_rawDesc = "" +
 	"\fSendSubTitle\x12;.emptydea.game_control.game_interface.PlayerSubTitleRequest\x1a:.emptydea.game_control.game_interface.PlayerActionResponse\x12\x8d\x01\n" +
 	"\x0fSendRawSubTitle\x12>.emptydea.game_control.game_interface.PlayerRawSubTitleRequest\x1a:.emptydea.game_control.game_interface.PlayerActionResponse\x12\x89\x01\n" +
 	"\rSendActionBar\x12<.emptydea.game_control.game_interface.PlayerActionBarRequest\x1a:.emptydea.game_control.game_interface.PlayerActionResponse\x12\x8f\x01\n" +
-	"\x10SendRawActionBar\x12?.emptydea.game_control.game_interface.PlayerRawActionBarRequest\x1a:.emptydea.game_control.game_interface.PlayerActionResponseBWZUgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pbb\x06proto3"
+	"\x10SendRawActionBar\x12?.emptydea.game_control.game_interface.PlayerRawActionBarRequest\x1a:.emptydea.game_control.game_interface.PlayerActionResponseB]Z[github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pbb\x06proto3"
 
 var (
 	file_game_control_game_interface_player_kit_proto_rawDescOnce sync.Once

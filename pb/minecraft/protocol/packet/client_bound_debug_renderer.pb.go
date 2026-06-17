@@ -234,7 +234,7 @@ const file_packet_client_bound_debug_renderer_proto_rawDesc = "" +
 	"\bDuration\x18\b \x01(\x04R\bDuration:\x05\xc0\xc8\x05\xa4\x01*f\n" +
 	"\x1cClientBoundDebugRendererEnum\x12!\n" +
 	"\x1dClientBoundDebugRendererClear\x10\x00\x12#\n" +
-	"\x1fClientBoundDebugRendererAddCube\x10\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x1fClientBoundDebugRendererAddCube\x10\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_client_bound_debug_renderer_proto_rawDescOnce sync.Once

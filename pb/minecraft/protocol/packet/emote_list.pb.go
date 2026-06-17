@@ -104,7 +104,7 @@ const file_packet_emote_list_proto_rawDesc = "" +
 	"\x17packet/emote_list.proto\x120mousetunnel.minecraft.protocol.packet.emote_list\x1a\x14packet_options.proto\"^\n" +
 	"\tEmoteList\x12(\n" +
 	"\x0fPlayerRuntimeID\x18\x01 \x01(\x04R\x0fPlayerRuntimeID\x12 \n" +
-	"\vEmotePieces\x18\x02 \x03(\tR\vEmotePieces:\x05\xc0\xc8\x05\x98\x01BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\vEmotePieces\x18\x02 \x03(\tR\vEmotePieces:\x05\xc0\xc8\x05\x98\x01BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_emote_list_proto_rawDescOnce sync.Once

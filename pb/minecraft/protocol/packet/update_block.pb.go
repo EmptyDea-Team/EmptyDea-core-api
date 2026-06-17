@@ -220,7 +220,7 @@ const file_packet_update_block_proto_rawDesc = "" +
 	"\x15BlockUpdateNeighbours\x10\x01\x12\x16\n" +
 	"\x12BlockUpdateNetwork\x10\x02\x12\x19\n" +
 	"\x15BlockUpdateNoGraphics\x10\x04\x12\x17\n" +
-	"\x13BlockUpdatePriority\x10\bBJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\x13BlockUpdatePriority\x10\bBPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_update_block_proto_rawDescOnce sync.Once

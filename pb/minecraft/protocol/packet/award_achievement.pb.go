@@ -82,7 +82,7 @@ const file_packet_award_achievement_proto_rawDesc = "" +
 	"\n" +
 	"\x1epacket/award_achievement.proto\x127mousetunnel.minecraft.protocol.packet.award_achievement\x1a\x14packet_options.proto\"?\n" +
 	"\x10AwardAchievement\x12$\n" +
-	"\rAchievementID\x18\x01 \x01(\x05R\rAchievementID:\x05\xc0\xc8\x05\xb5\x02BJZHgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
+	"\rAchievementID\x18\x01 \x01(\x05R\rAchievementID:\x05\xc0\xc8\x05\xb5\x02BPZNgithub.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet;packetb\x06proto3"
 
 var (
 	file_packet_award_achievement_proto_rawDescOnce sync.Once
