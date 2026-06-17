@@ -42,6 +42,8 @@ const (
 	ItemStackTransactionService_Crafting_FullMethodName                      = "/emptydea.game_control.game_interface.ItemStackTransactionService/Crafting"
 	ItemStackTransactionService_Trimming_FullMethodName                      = "/emptydea.game_control.game_interface.ItemStackTransactionService/Trimming"
 	ItemStackTransactionService_TrimmingFromInventory_FullMethodName         = "/emptydea.game_control.game_interface.ItemStackTransactionService/TrimmingFromInventory"
+	ItemStackTransactionService_BeaconPayment_FullMethodName                 = "/emptydea.game_control.game_interface.ItemStackTransactionService/BeaconPayment"
+	ItemStackTransactionService_BeaconPaymentFromInventory_FullMethodName    = "/emptydea.game_control.game_interface.ItemStackTransactionService/BeaconPaymentFromInventory"
 	ItemStackTransactionService_CommitTransaction_FullMethodName             = "/emptydea.game_control.game_interface.ItemStackTransactionService/CommitTransaction"
 	ItemStackTransactionService_CommitItemStackOperations_FullMethodName     = "/emptydea.game_control.game_interface.ItemStackTransactionService/CommitItemStackOperations"
 	ItemStackTransactionService_DiscardTransaction_FullMethodName            = "/emptydea.game_control.game_interface.ItemStackTransactionService/DiscardTransaction"
@@ -260,6 +262,20 @@ type ItemStackTransactionServiceClient interface {
 	// 该操作不支持内联，但它仍然可以被紧缩在单个
 	// 的物品堆栈操作请求的数据包中
 	TrimmingFromInventory(ctx context.Context, in *TrimmingRequest, opts ...grpc.CallOption) (*TransactionActionResponse, error)
+	// BeaconPayment 将 paymentPath 处的 1 个物品作为信标支付物品，
+	// 并提交信标主/副效果的选择。
+	//
+	// - primaryEffect 是主效果 ID
+	// - secondaryEffect 是副效果 ID
+	//
+	// 该操作不支持内联，但它仍然可以被紧缩在单个
+	// 的物品堆栈操作请求的数据包中
+	BeaconPayment(ctx context.Context, in *BeaconPaymentRequest, opts ...grpc.CallOption) (*TransactionActionResponse, error)
+	// BeaconPaymentFromInventory 将背包中 paymentSlot 处的 1 个物品
+	// 作为信标支付物品，并提交信标主/副效果的选择。
+	//
+	// 该操作要求当前已打开信标容器，否则事务提交将失败。
+	BeaconPaymentFromInventory(ctx context.Context, in *BeaconPaymentSlotRequest, opts ...grpc.CallOption) (*TransactionActionResponse, error)
 	// CommitTransaction 将底层操作序列内联到单个物品堆栈操作请求数据包中执行物品堆栈操作事务。
 	// 如果没有返回错误，Commit 在完成后将使用 Discord 清空底层操作序列。
 	// 应当说明的是，如果事务没有全部成功，则若没有返回错误，则 Discord 仍然会执行。
@@ -520,6 +536,26 @@ func (c *itemStackTransactionServiceClient) TrimmingFromInventory(ctx context.Co
 	return out, nil
 }
 
+func (c *itemStackTransactionServiceClient) BeaconPayment(ctx context.Context, in *BeaconPaymentRequest, opts ...grpc.CallOption) (*TransactionActionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(TransactionActionResponse)
+	err := c.cc.Invoke(ctx, ItemStackTransactionService_BeaconPayment_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *itemStackTransactionServiceClient) BeaconPaymentFromInventory(ctx context.Context, in *BeaconPaymentSlotRequest, opts ...grpc.CallOption) (*TransactionActionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(TransactionActionResponse)
+	err := c.cc.Invoke(ctx, ItemStackTransactionService_BeaconPaymentFromInventory_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *itemStackTransactionServiceClient) CommitTransaction(ctx context.Context, in *CommitTransactionRequest, opts ...grpc.CallOption) (*CommitTransactionResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(CommitTransactionResponse)
@@ -763,6 +799,20 @@ type ItemStackTransactionServiceServer interface {
 	// 该操作不支持内联，但它仍然可以被紧缩在单个
 	// 的物品堆栈操作请求的数据包中
 	TrimmingFromInventory(context.Context, *TrimmingRequest) (*TransactionActionResponse, error)
+	// BeaconPayment 将 paymentPath 处的 1 个物品作为信标支付物品，
+	// 并提交信标主/副效果的选择。
+	//
+	// - primaryEffect 是主效果 ID
+	// - secondaryEffect 是副效果 ID
+	//
+	// 该操作不支持内联，但它仍然可以被紧缩在单个
+	// 的物品堆栈操作请求的数据包中
+	BeaconPayment(context.Context, *BeaconPaymentRequest) (*TransactionActionResponse, error)
+	// BeaconPaymentFromInventory 将背包中 paymentSlot 处的 1 个物品
+	// 作为信标支付物品，并提交信标主/副效果的选择。
+	//
+	// 该操作要求当前已打开信标容器，否则事务提交将失败。
+	BeaconPaymentFromInventory(context.Context, *BeaconPaymentSlotRequest) (*TransactionActionResponse, error)
 	// CommitTransaction 将底层操作序列内联到单个物品堆栈操作请求数据包中执行物品堆栈操作事务。
 	// 如果没有返回错误，Commit 在完成后将使用 Discord 清空底层操作序列。
 	// 应当说明的是，如果事务没有全部成功，则若没有返回错误，则 Discord 仍然会执行。
@@ -861,6 +911,12 @@ func (UnimplementedItemStackTransactionServiceServer) Trimming(context.Context, 
 }
 func (UnimplementedItemStackTransactionServiceServer) TrimmingFromInventory(context.Context, *TrimmingRequest) (*TransactionActionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method TrimmingFromInventory not implemented")
+}
+func (UnimplementedItemStackTransactionServiceServer) BeaconPayment(context.Context, *BeaconPaymentRequest) (*TransactionActionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BeaconPayment not implemented")
+}
+func (UnimplementedItemStackTransactionServiceServer) BeaconPaymentFromInventory(context.Context, *BeaconPaymentSlotRequest) (*TransactionActionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BeaconPaymentFromInventory not implemented")
 }
 func (UnimplementedItemStackTransactionServiceServer) CommitTransaction(context.Context, *CommitTransactionRequest) (*CommitTransactionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CommitTransaction not implemented")
@@ -1307,6 +1363,42 @@ func _ItemStackTransactionService_TrimmingFromInventory_Handler(srv interface{},
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ItemStackTransactionService_BeaconPayment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BeaconPaymentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ItemStackTransactionServiceServer).BeaconPayment(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ItemStackTransactionService_BeaconPayment_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ItemStackTransactionServiceServer).BeaconPayment(ctx, req.(*BeaconPaymentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _ItemStackTransactionService_BeaconPaymentFromInventory_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BeaconPaymentSlotRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ItemStackTransactionServiceServer).BeaconPaymentFromInventory(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ItemStackTransactionService_BeaconPaymentFromInventory_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ItemStackTransactionServiceServer).BeaconPaymentFromInventory(ctx, req.(*BeaconPaymentSlotRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _ItemStackTransactionService_CommitTransaction_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CommitTransactionRequest)
 	if err := dec(in); err != nil {
@@ -1459,6 +1551,14 @@ var ItemStackTransactionService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "TrimmingFromInventory",
 			Handler:    _ItemStackTransactionService_TrimmingFromInventory_Handler,
+		},
+		{
+			MethodName: "BeaconPayment",
+			Handler:    _ItemStackTransactionService_BeaconPayment_Handler,
+		},
+		{
+			MethodName: "BeaconPaymentFromInventory",
+			Handler:    _ItemStackTransactionService_BeaconPaymentFromInventory_Handler,
 		},
 		{
 			MethodName: "CommitTransaction",

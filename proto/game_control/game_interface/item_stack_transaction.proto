@@ -216,6 +216,30 @@ message TrimmingRequest {
   ExpectedNewItem ResultItem = 5;
 }
 
+// BeaconPaymentRequest 是追加信标支付操作的请求。
+message BeaconPaymentRequest {
+  // TransactionID 是目标事务 ID。
+  string TransactionID = 1;
+  // Payment 是支付物品槽位。
+  emptydea.game_control.resources_control.SlotLocation Payment = 2;
+  // PrimaryEffect 是信标主效果 ID。
+  int32 PrimaryEffect = 3;
+  // SecondaryEffect 是信标副效果 ID。
+  int32 SecondaryEffect = 4;
+}
+
+// BeaconPaymentSlotRequest 是按背包槽位追加信标支付操作的请求。
+message BeaconPaymentSlotRequest {
+  // TransactionID 是目标事务 ID。
+  string TransactionID = 1;
+  // PaymentSlot 是支付物品所在背包槽位 ID。
+  uint32 PaymentSlot = 2;
+  // PrimaryEffect 是信标主效果 ID。
+  int32 PrimaryEffect = 3;
+  // SecondaryEffect 是信标副效果 ID。
+  int32 SecondaryEffect = 4;
+}
+
 // MoveItemOperation 是在两个显式槽位之间移动物品的操作。
 message MoveItemOperation {
   // Source 是来源槽位。
@@ -434,6 +458,26 @@ message TrimmingFromInventoryOperation {
   ExpectedNewItem ResultItem = 4;
 }
 
+// BeaconPaymentOperation 是信标支付操作。
+message BeaconPaymentOperation {
+  // Payment 是支付物品槽位。
+  emptydea.game_control.resources_control.SlotLocation Payment = 1;
+  // PrimaryEffect 是信标主效果 ID。
+  int32 PrimaryEffect = 2;
+  // SecondaryEffect 是信标副效果 ID。
+  int32 SecondaryEffect = 3;
+}
+
+// BeaconPaymentFromInventoryOperation 是从背包槽位执行信标支付的操作。
+message BeaconPaymentFromInventoryOperation {
+  // PaymentSlot 是支付物品所在背包槽位 ID。
+  uint32 PaymentSlot = 1;
+  // PrimaryEffect 是信标主效果 ID。
+  int32 PrimaryEffect = 2;
+  // SecondaryEffect 是信标副效果 ID。
+  int32 SecondaryEffect = 3;
+}
+
 // ItemStackOperation 是可批量提交的单个物品堆栈操作。
 message ItemStackOperation {
   // Operation 是实际执行的操作类型。
@@ -482,6 +526,10 @@ message ItemStackOperation {
     TrimmingOperation Trimming = 21;
     // TrimmingFromInventory 从背包槽位执行锻造台纹饰操作。
     TrimmingFromInventoryOperation TrimmingFromInventory = 22;
+    // BeaconPayment 执行信标支付操作。
+    BeaconPaymentOperation BeaconPayment = 23;
+    // BeaconPaymentFromInventory 从背包槽位执行信标支付操作。
+    BeaconPaymentFromInventoryOperation BeaconPaymentFromInventory = 24;
   }
 }
 
@@ -727,6 +775,20 @@ service ItemStackTransactionService {
   // 该操作不支持内联，但它仍然可以被紧缩在单个
   // 的物品堆栈操作请求的数据包中
   rpc TrimmingFromInventory(TrimmingRequest) returns (TransactionActionResponse);
+  // BeaconPayment 将 paymentPath 处的 1 个物品作为信标支付物品，
+  // 并提交信标主/副效果的选择。
+  //
+  // - primaryEffect 是主效果 ID
+  // - secondaryEffect 是副效果 ID
+  //
+  // 该操作不支持内联，但它仍然可以被紧缩在单个
+  // 的物品堆栈操作请求的数据包中
+  rpc BeaconPayment(BeaconPaymentRequest) returns (TransactionActionResponse);
+  // BeaconPaymentFromInventory 将背包中 paymentSlot 处的 1 个物品
+  // 作为信标支付物品，并提交信标主/副效果的选择。
+  //
+  // 该操作要求当前已打开信标容器，否则事务提交将失败。
+  rpc BeaconPaymentFromInventory(BeaconPaymentSlotRequest) returns (TransactionActionResponse);
   // CommitTransaction 将底层操作序列内联到单个物品堆栈操作请求数据包中执行物品堆栈操作事务。
   // 如果没有返回错误，Commit 在完成后将使用 Discord 清空底层操作序列。
   // 应当说明的是，如果事务没有全部成功，则若没有返回错误，则 Discord 仍然会执行。

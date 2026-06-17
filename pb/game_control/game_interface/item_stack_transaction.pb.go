@@ -1307,6 +1307,152 @@ func (x *TrimmingRequest) GetResultItem() *ExpectedNewItem {
 	return nil
 }
 
+// BeaconPaymentRequest 是追加信标支付操作的请求。
+type BeaconPaymentRequest struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// TransactionID 是目标事务 ID。
+	TransactionID string `protobuf:"bytes,1,opt,name=TransactionID,proto3" json:"TransactionID,omitempty"`
+	// Payment 是支付物品槽位。
+	Payment *resources_control.SlotLocation `protobuf:"bytes,2,opt,name=Payment,proto3" json:"Payment,omitempty"`
+	// PrimaryEffect 是信标主效果 ID。
+	PrimaryEffect int32 `protobuf:"varint,3,opt,name=PrimaryEffect,proto3" json:"PrimaryEffect,omitempty"`
+	// SecondaryEffect 是信标副效果 ID。
+	SecondaryEffect int32 `protobuf:"varint,4,opt,name=SecondaryEffect,proto3" json:"SecondaryEffect,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *BeaconPaymentRequest) Reset() {
+	*x = BeaconPaymentRequest{}
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BeaconPaymentRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BeaconPaymentRequest) ProtoMessage() {}
+
+func (x *BeaconPaymentRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BeaconPaymentRequest.ProtoReflect.Descriptor instead.
+func (*BeaconPaymentRequest) Descriptor() ([]byte, []int) {
+	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *BeaconPaymentRequest) GetTransactionID() string {
+	if x != nil {
+		return x.TransactionID
+	}
+	return ""
+}
+
+func (x *BeaconPaymentRequest) GetPayment() *resources_control.SlotLocation {
+	if x != nil {
+		return x.Payment
+	}
+	return nil
+}
+
+func (x *BeaconPaymentRequest) GetPrimaryEffect() int32 {
+	if x != nil {
+		return x.PrimaryEffect
+	}
+	return 0
+}
+
+func (x *BeaconPaymentRequest) GetSecondaryEffect() int32 {
+	if x != nil {
+		return x.SecondaryEffect
+	}
+	return 0
+}
+
+// BeaconPaymentSlotRequest 是按背包槽位追加信标支付操作的请求。
+type BeaconPaymentSlotRequest struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// TransactionID 是目标事务 ID。
+	TransactionID string `protobuf:"bytes,1,opt,name=TransactionID,proto3" json:"TransactionID,omitempty"`
+	// PaymentSlot 是支付物品所在背包槽位 ID。
+	PaymentSlot uint32 `protobuf:"varint,2,opt,name=PaymentSlot,proto3" json:"PaymentSlot,omitempty"`
+	// PrimaryEffect 是信标主效果 ID。
+	PrimaryEffect int32 `protobuf:"varint,3,opt,name=PrimaryEffect,proto3" json:"PrimaryEffect,omitempty"`
+	// SecondaryEffect 是信标副效果 ID。
+	SecondaryEffect int32 `protobuf:"varint,4,opt,name=SecondaryEffect,proto3" json:"SecondaryEffect,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *BeaconPaymentSlotRequest) Reset() {
+	*x = BeaconPaymentSlotRequest{}
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BeaconPaymentSlotRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BeaconPaymentSlotRequest) ProtoMessage() {}
+
+func (x *BeaconPaymentSlotRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BeaconPaymentSlotRequest.ProtoReflect.Descriptor instead.
+func (*BeaconPaymentSlotRequest) Descriptor() ([]byte, []int) {
+	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *BeaconPaymentSlotRequest) GetTransactionID() string {
+	if x != nil {
+		return x.TransactionID
+	}
+	return ""
+}
+
+func (x *BeaconPaymentSlotRequest) GetPaymentSlot() uint32 {
+	if x != nil {
+		return x.PaymentSlot
+	}
+	return 0
+}
+
+func (x *BeaconPaymentSlotRequest) GetPrimaryEffect() int32 {
+	if x != nil {
+		return x.PrimaryEffect
+	}
+	return 0
+}
+
+func (x *BeaconPaymentSlotRequest) GetSecondaryEffect() int32 {
+	if x != nil {
+		return x.SecondaryEffect
+	}
+	return 0
+}
+
 // MoveItemOperation 是在两个显式槽位之间移动物品的操作。
 type MoveItemOperation struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -1322,7 +1468,7 @@ type MoveItemOperation struct {
 
 func (x *MoveItemOperation) Reset() {
 	*x = MoveItemOperation{}
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[19]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1334,7 +1480,7 @@ func (x *MoveItemOperation) String() string {
 func (*MoveItemOperation) ProtoMessage() {}
 
 func (x *MoveItemOperation) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[19]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1347,7 +1493,7 @@ func (x *MoveItemOperation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MoveItemOperation.ProtoReflect.Descriptor instead.
 func (*MoveItemOperation) Descriptor() ([]byte, []int) {
-	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{19}
+	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *MoveItemOperation) GetSource() *resources_control.SlotLocation {
@@ -1386,7 +1532,7 @@ type MoveBetweenInventoryOperation struct {
 
 func (x *MoveBetweenInventoryOperation) Reset() {
 	*x = MoveBetweenInventoryOperation{}
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[20]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1398,7 +1544,7 @@ func (x *MoveBetweenInventoryOperation) String() string {
 func (*MoveBetweenInventoryOperation) ProtoMessage() {}
 
 func (x *MoveBetweenInventoryOperation) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[20]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1411,7 +1557,7 @@ func (x *MoveBetweenInventoryOperation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MoveBetweenInventoryOperation.ProtoReflect.Descriptor instead.
 func (*MoveBetweenInventoryOperation) Descriptor() ([]byte, []int) {
-	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{20}
+	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *MoveBetweenInventoryOperation) GetSrcSlot() uint32 {
@@ -1450,7 +1596,7 @@ type MoveBetweenContainerOperation struct {
 
 func (x *MoveBetweenContainerOperation) Reset() {
 	*x = MoveBetweenContainerOperation{}
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[21]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1462,7 +1608,7 @@ func (x *MoveBetweenContainerOperation) String() string {
 func (*MoveBetweenContainerOperation) ProtoMessage() {}
 
 func (x *MoveBetweenContainerOperation) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[21]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1475,7 +1621,7 @@ func (x *MoveBetweenContainerOperation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MoveBetweenContainerOperation.ProtoReflect.Descriptor instead.
 func (*MoveBetweenContainerOperation) Descriptor() ([]byte, []int) {
-	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{21}
+	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *MoveBetweenContainerOperation) GetSrcSlot() uint32 {
@@ -1514,7 +1660,7 @@ type MoveToContainerOperation struct {
 
 func (x *MoveToContainerOperation) Reset() {
 	*x = MoveToContainerOperation{}
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[22]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1526,7 +1672,7 @@ func (x *MoveToContainerOperation) String() string {
 func (*MoveToContainerOperation) ProtoMessage() {}
 
 func (x *MoveToContainerOperation) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[22]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1539,7 +1685,7 @@ func (x *MoveToContainerOperation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MoveToContainerOperation.ProtoReflect.Descriptor instead.
 func (*MoveToContainerOperation) Descriptor() ([]byte, []int) {
-	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{22}
+	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *MoveToContainerOperation) GetSrcSlot() uint32 {
@@ -1578,7 +1724,7 @@ type MoveToInventoryOperation struct {
 
 func (x *MoveToInventoryOperation) Reset() {
 	*x = MoveToInventoryOperation{}
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[23]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1590,7 +1736,7 @@ func (x *MoveToInventoryOperation) String() string {
 func (*MoveToInventoryOperation) ProtoMessage() {}
 
 func (x *MoveToInventoryOperation) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[23]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1603,7 +1749,7 @@ func (x *MoveToInventoryOperation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MoveToInventoryOperation.ProtoReflect.Descriptor instead.
 func (*MoveToInventoryOperation) Descriptor() ([]byte, []int) {
-	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{23}
+	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *MoveToInventoryOperation) GetSrcSlot() uint32 {
@@ -1642,7 +1788,7 @@ type MoveToCraftingTableOperation struct {
 
 func (x *MoveToCraftingTableOperation) Reset() {
 	*x = MoveToCraftingTableOperation{}
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[24]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1654,7 +1800,7 @@ func (x *MoveToCraftingTableOperation) String() string {
 func (*MoveToCraftingTableOperation) ProtoMessage() {}
 
 func (x *MoveToCraftingTableOperation) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[24]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1667,7 +1813,7 @@ func (x *MoveToCraftingTableOperation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MoveToCraftingTableOperation.ProtoReflect.Descriptor instead.
 func (*MoveToCraftingTableOperation) Descriptor() ([]byte, []int) {
-	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{24}
+	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *MoveToCraftingTableOperation) GetSrcSlot() uint32 {
@@ -1706,7 +1852,7 @@ type MoveFromCraftingTableOperation struct {
 
 func (x *MoveFromCraftingTableOperation) Reset() {
 	*x = MoveFromCraftingTableOperation{}
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[25]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1718,7 +1864,7 @@ func (x *MoveFromCraftingTableOperation) String() string {
 func (*MoveFromCraftingTableOperation) ProtoMessage() {}
 
 func (x *MoveFromCraftingTableOperation) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[25]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1731,7 +1877,7 @@ func (x *MoveFromCraftingTableOperation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MoveFromCraftingTableOperation.ProtoReflect.Descriptor instead.
 func (*MoveFromCraftingTableOperation) Descriptor() ([]byte, []int) {
-	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{25}
+	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *MoveFromCraftingTableOperation) GetSrcSlot() uint32 {
@@ -1768,7 +1914,7 @@ type SwapItemOperation struct {
 
 func (x *SwapItemOperation) Reset() {
 	*x = SwapItemOperation{}
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[26]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1780,7 +1926,7 @@ func (x *SwapItemOperation) String() string {
 func (*SwapItemOperation) ProtoMessage() {}
 
 func (x *SwapItemOperation) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[26]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1793,7 +1939,7 @@ func (x *SwapItemOperation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SwapItemOperation.ProtoReflect.Descriptor instead.
 func (*SwapItemOperation) Descriptor() ([]byte, []int) {
-	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{26}
+	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *SwapItemOperation) GetSource() *resources_control.SlotLocation {
@@ -1823,7 +1969,7 @@ type SwapBetweenInventoryOperation struct {
 
 func (x *SwapBetweenInventoryOperation) Reset() {
 	*x = SwapBetweenInventoryOperation{}
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[27]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1835,7 +1981,7 @@ func (x *SwapBetweenInventoryOperation) String() string {
 func (*SwapBetweenInventoryOperation) ProtoMessage() {}
 
 func (x *SwapBetweenInventoryOperation) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[27]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1848,7 +1994,7 @@ func (x *SwapBetweenInventoryOperation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SwapBetweenInventoryOperation.ProtoReflect.Descriptor instead.
 func (*SwapBetweenInventoryOperation) Descriptor() ([]byte, []int) {
-	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{27}
+	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *SwapBetweenInventoryOperation) GetSrcSlot() uint32 {
@@ -1878,7 +2024,7 @@ type SwapInventoryBetweenContainerOperation struct {
 
 func (x *SwapInventoryBetweenContainerOperation) Reset() {
 	*x = SwapInventoryBetweenContainerOperation{}
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[28]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1890,7 +2036,7 @@ func (x *SwapInventoryBetweenContainerOperation) String() string {
 func (*SwapInventoryBetweenContainerOperation) ProtoMessage() {}
 
 func (x *SwapInventoryBetweenContainerOperation) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[28]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1903,7 +2049,7 @@ func (x *SwapInventoryBetweenContainerOperation) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use SwapInventoryBetweenContainerOperation.ProtoReflect.Descriptor instead.
 func (*SwapInventoryBetweenContainerOperation) Descriptor() ([]byte, []int) {
-	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{28}
+	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *SwapInventoryBetweenContainerOperation) GetSrcSlot() uint32 {
@@ -1933,7 +2079,7 @@ type DropItemOperation struct {
 
 func (x *DropItemOperation) Reset() {
 	*x = DropItemOperation{}
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[29]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1945,7 +2091,7 @@ func (x *DropItemOperation) String() string {
 func (*DropItemOperation) ProtoMessage() {}
 
 func (x *DropItemOperation) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[29]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1958,7 +2104,7 @@ func (x *DropItemOperation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DropItemOperation.ProtoReflect.Descriptor instead.
 func (*DropItemOperation) Descriptor() ([]byte, []int) {
-	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{29}
+	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *DropItemOperation) GetSlot() *resources_control.SlotLocation {
@@ -1988,7 +2134,7 @@ type DropInventoryItemOperation struct {
 
 func (x *DropInventoryItemOperation) Reset() {
 	*x = DropInventoryItemOperation{}
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[30]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2000,7 +2146,7 @@ func (x *DropInventoryItemOperation) String() string {
 func (*DropInventoryItemOperation) ProtoMessage() {}
 
 func (x *DropInventoryItemOperation) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[30]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2013,7 +2159,7 @@ func (x *DropInventoryItemOperation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DropInventoryItemOperation.ProtoReflect.Descriptor instead.
 func (*DropInventoryItemOperation) Descriptor() ([]byte, []int) {
-	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{30}
+	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *DropInventoryItemOperation) GetSlot() uint32 {
@@ -2043,7 +2189,7 @@ type DropContainerItemOperation struct {
 
 func (x *DropContainerItemOperation) Reset() {
 	*x = DropContainerItemOperation{}
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[31]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2055,7 +2201,7 @@ func (x *DropContainerItemOperation) String() string {
 func (*DropContainerItemOperation) ProtoMessage() {}
 
 func (x *DropContainerItemOperation) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[31]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2068,7 +2214,7 @@ func (x *DropContainerItemOperation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DropContainerItemOperation.ProtoReflect.Descriptor instead.
 func (*DropContainerItemOperation) Descriptor() ([]byte, []int) {
-	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{31}
+	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *DropContainerItemOperation) GetSlot() uint32 {
@@ -2100,7 +2246,7 @@ type GetCreativeItemOperation struct {
 
 func (x *GetCreativeItemOperation) Reset() {
 	*x = GetCreativeItemOperation{}
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[32]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2112,7 +2258,7 @@ func (x *GetCreativeItemOperation) String() string {
 func (*GetCreativeItemOperation) ProtoMessage() {}
 
 func (x *GetCreativeItemOperation) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[32]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2125,7 +2271,7 @@ func (x *GetCreativeItemOperation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetCreativeItemOperation.ProtoReflect.Descriptor instead.
 func (*GetCreativeItemOperation) Descriptor() ([]byte, []int) {
-	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{32}
+	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *GetCreativeItemOperation) GetCreativeItemNetworkID() uint32 {
@@ -2164,7 +2310,7 @@ type GetCreativeItemToInventoryOperation struct {
 
 func (x *GetCreativeItemToInventoryOperation) Reset() {
 	*x = GetCreativeItemToInventoryOperation{}
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[33]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2176,7 +2322,7 @@ func (x *GetCreativeItemToInventoryOperation) String() string {
 func (*GetCreativeItemToInventoryOperation) ProtoMessage() {}
 
 func (x *GetCreativeItemToInventoryOperation) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[33]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2189,7 +2335,7 @@ func (x *GetCreativeItemToInventoryOperation) ProtoReflect() protoreflect.Messag
 
 // Deprecated: Use GetCreativeItemToInventoryOperation.ProtoReflect.Descriptor instead.
 func (*GetCreativeItemToInventoryOperation) Descriptor() ([]byte, []int) {
-	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{33}
+	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *GetCreativeItemToInventoryOperation) GetCreativeItemNetworkID() uint32 {
@@ -2226,7 +2372,7 @@ type RenameItemOperation struct {
 
 func (x *RenameItemOperation) Reset() {
 	*x = RenameItemOperation{}
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[34]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2238,7 +2384,7 @@ func (x *RenameItemOperation) String() string {
 func (*RenameItemOperation) ProtoMessage() {}
 
 func (x *RenameItemOperation) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[34]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2251,7 +2397,7 @@ func (x *RenameItemOperation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RenameItemOperation.ProtoReflect.Descriptor instead.
 func (*RenameItemOperation) Descriptor() ([]byte, []int) {
-	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{34}
+	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *RenameItemOperation) GetSlot() *resources_control.SlotLocation {
@@ -2281,7 +2427,7 @@ type RenameInventoryItemOperation struct {
 
 func (x *RenameInventoryItemOperation) Reset() {
 	*x = RenameInventoryItemOperation{}
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[35]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2293,7 +2439,7 @@ func (x *RenameInventoryItemOperation) String() string {
 func (*RenameInventoryItemOperation) ProtoMessage() {}
 
 func (x *RenameInventoryItemOperation) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[35]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2306,7 +2452,7 @@ func (x *RenameInventoryItemOperation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RenameInventoryItemOperation.ProtoReflect.Descriptor instead.
 func (*RenameInventoryItemOperation) Descriptor() ([]byte, []int) {
-	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{35}
+	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *RenameInventoryItemOperation) GetSlot() uint32 {
@@ -2342,7 +2488,7 @@ type LoomingOperation struct {
 
 func (x *LoomingOperation) Reset() {
 	*x = LoomingOperation{}
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[36]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2354,7 +2500,7 @@ func (x *LoomingOperation) String() string {
 func (*LoomingOperation) ProtoMessage() {}
 
 func (x *LoomingOperation) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[36]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2367,7 +2513,7 @@ func (x *LoomingOperation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LoomingOperation.ProtoReflect.Descriptor instead.
 func (*LoomingOperation) Descriptor() ([]byte, []int) {
-	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{36}
+	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *LoomingOperation) GetPatternName() string {
@@ -2424,7 +2570,7 @@ type LoomingFromInventoryOperation struct {
 
 func (x *LoomingFromInventoryOperation) Reset() {
 	*x = LoomingFromInventoryOperation{}
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[37]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2436,7 +2582,7 @@ func (x *LoomingFromInventoryOperation) String() string {
 func (*LoomingFromInventoryOperation) ProtoMessage() {}
 
 func (x *LoomingFromInventoryOperation) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[37]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2449,7 +2595,7 @@ func (x *LoomingFromInventoryOperation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LoomingFromInventoryOperation.ProtoReflect.Descriptor instead.
 func (*LoomingFromInventoryOperation) Descriptor() ([]byte, []int) {
-	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{37}
+	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *LoomingFromInventoryOperation) GetPatternName() string {
@@ -2504,7 +2650,7 @@ type CraftingOperation struct {
 
 func (x *CraftingOperation) Reset() {
 	*x = CraftingOperation{}
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[38]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[40]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2516,7 +2662,7 @@ func (x *CraftingOperation) String() string {
 func (*CraftingOperation) ProtoMessage() {}
 
 func (x *CraftingOperation) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[38]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[40]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2529,7 +2675,7 @@ func (x *CraftingOperation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CraftingOperation.ProtoReflect.Descriptor instead.
 func (*CraftingOperation) Descriptor() ([]byte, []int) {
-	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{38}
+	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{40}
 }
 
 func (x *CraftingOperation) GetRecipeNetworkID() uint32 {
@@ -2577,7 +2723,7 @@ type TrimmingOperation struct {
 
 func (x *TrimmingOperation) Reset() {
 	*x = TrimmingOperation{}
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[39]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[41]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2589,7 +2735,7 @@ func (x *TrimmingOperation) String() string {
 func (*TrimmingOperation) ProtoMessage() {}
 
 func (x *TrimmingOperation) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[39]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[41]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2602,7 +2748,7 @@ func (x *TrimmingOperation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TrimmingOperation.ProtoReflect.Descriptor instead.
 func (*TrimmingOperation) Descriptor() ([]byte, []int) {
-	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{39}
+	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{41}
 }
 
 func (x *TrimmingOperation) GetInput() *resources_control.SlotLocation {
@@ -2650,7 +2796,7 @@ type TrimmingFromInventoryOperation struct {
 
 func (x *TrimmingFromInventoryOperation) Reset() {
 	*x = TrimmingFromInventoryOperation{}
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[40]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[42]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2662,7 +2808,7 @@ func (x *TrimmingFromInventoryOperation) String() string {
 func (*TrimmingFromInventoryOperation) ProtoMessage() {}
 
 func (x *TrimmingFromInventoryOperation) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[40]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[42]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2675,7 +2821,7 @@ func (x *TrimmingFromInventoryOperation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TrimmingFromInventoryOperation.ProtoReflect.Descriptor instead.
 func (*TrimmingFromInventoryOperation) Descriptor() ([]byte, []int) {
-	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{40}
+	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{42}
 }
 
 func (x *TrimmingFromInventoryOperation) GetInputSlot() uint32 {
@@ -2704,6 +2850,134 @@ func (x *TrimmingFromInventoryOperation) GetResultItem() *ExpectedNewItem {
 		return x.ResultItem
 	}
 	return nil
+}
+
+// BeaconPaymentOperation 是信标支付操作。
+type BeaconPaymentOperation struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Payment 是支付物品槽位。
+	Payment *resources_control.SlotLocation `protobuf:"bytes,1,opt,name=Payment,proto3" json:"Payment,omitempty"`
+	// PrimaryEffect 是信标主效果 ID。
+	PrimaryEffect int32 `protobuf:"varint,2,opt,name=PrimaryEffect,proto3" json:"PrimaryEffect,omitempty"`
+	// SecondaryEffect 是信标副效果 ID。
+	SecondaryEffect int32 `protobuf:"varint,3,opt,name=SecondaryEffect,proto3" json:"SecondaryEffect,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *BeaconPaymentOperation) Reset() {
+	*x = BeaconPaymentOperation{}
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BeaconPaymentOperation) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BeaconPaymentOperation) ProtoMessage() {}
+
+func (x *BeaconPaymentOperation) ProtoReflect() protoreflect.Message {
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BeaconPaymentOperation.ProtoReflect.Descriptor instead.
+func (*BeaconPaymentOperation) Descriptor() ([]byte, []int) {
+	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *BeaconPaymentOperation) GetPayment() *resources_control.SlotLocation {
+	if x != nil {
+		return x.Payment
+	}
+	return nil
+}
+
+func (x *BeaconPaymentOperation) GetPrimaryEffect() int32 {
+	if x != nil {
+		return x.PrimaryEffect
+	}
+	return 0
+}
+
+func (x *BeaconPaymentOperation) GetSecondaryEffect() int32 {
+	if x != nil {
+		return x.SecondaryEffect
+	}
+	return 0
+}
+
+// BeaconPaymentFromInventoryOperation 是从背包槽位执行信标支付的操作。
+type BeaconPaymentFromInventoryOperation struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// PaymentSlot 是支付物品所在背包槽位 ID。
+	PaymentSlot uint32 `protobuf:"varint,1,opt,name=PaymentSlot,proto3" json:"PaymentSlot,omitempty"`
+	// PrimaryEffect 是信标主效果 ID。
+	PrimaryEffect int32 `protobuf:"varint,2,opt,name=PrimaryEffect,proto3" json:"PrimaryEffect,omitempty"`
+	// SecondaryEffect 是信标副效果 ID。
+	SecondaryEffect int32 `protobuf:"varint,3,opt,name=SecondaryEffect,proto3" json:"SecondaryEffect,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *BeaconPaymentFromInventoryOperation) Reset() {
+	*x = BeaconPaymentFromInventoryOperation{}
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BeaconPaymentFromInventoryOperation) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BeaconPaymentFromInventoryOperation) ProtoMessage() {}
+
+func (x *BeaconPaymentFromInventoryOperation) ProtoReflect() protoreflect.Message {
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BeaconPaymentFromInventoryOperation.ProtoReflect.Descriptor instead.
+func (*BeaconPaymentFromInventoryOperation) Descriptor() ([]byte, []int) {
+	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *BeaconPaymentFromInventoryOperation) GetPaymentSlot() uint32 {
+	if x != nil {
+		return x.PaymentSlot
+	}
+	return 0
+}
+
+func (x *BeaconPaymentFromInventoryOperation) GetPrimaryEffect() int32 {
+	if x != nil {
+		return x.PrimaryEffect
+	}
+	return 0
+}
+
+func (x *BeaconPaymentFromInventoryOperation) GetSecondaryEffect() int32 {
+	if x != nil {
+		return x.SecondaryEffect
+	}
+	return 0
 }
 
 // ItemStackOperation 是可批量提交的单个物品堆栈操作。
@@ -2735,6 +3009,8 @@ type ItemStackOperation struct {
 	//	*ItemStackOperation_Crafting
 	//	*ItemStackOperation_Trimming
 	//	*ItemStackOperation_TrimmingFromInventory
+	//	*ItemStackOperation_BeaconPayment
+	//	*ItemStackOperation_BeaconPaymentFromInventory
 	Operation     isItemStackOperation_Operation `protobuf_oneof:"Operation"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -2742,7 +3018,7 @@ type ItemStackOperation struct {
 
 func (x *ItemStackOperation) Reset() {
 	*x = ItemStackOperation{}
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[41]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[45]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2754,7 +3030,7 @@ func (x *ItemStackOperation) String() string {
 func (*ItemStackOperation) ProtoMessage() {}
 
 func (x *ItemStackOperation) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[41]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[45]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2767,7 +3043,7 @@ func (x *ItemStackOperation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ItemStackOperation.ProtoReflect.Descriptor instead.
 func (*ItemStackOperation) Descriptor() ([]byte, []int) {
-	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{41}
+	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{45}
 }
 
 func (x *ItemStackOperation) GetOperation() isItemStackOperation_Operation {
@@ -2975,6 +3251,24 @@ func (x *ItemStackOperation) GetTrimmingFromInventory() *TrimmingFromInventoryOp
 	return nil
 }
 
+func (x *ItemStackOperation) GetBeaconPayment() *BeaconPaymentOperation {
+	if x != nil {
+		if x, ok := x.Operation.(*ItemStackOperation_BeaconPayment); ok {
+			return x.BeaconPayment
+		}
+	}
+	return nil
+}
+
+func (x *ItemStackOperation) GetBeaconPaymentFromInventory() *BeaconPaymentFromInventoryOperation {
+	if x != nil {
+		if x, ok := x.Operation.(*ItemStackOperation_BeaconPaymentFromInventory); ok {
+			return x.BeaconPaymentFromInventory
+		}
+	}
+	return nil
+}
+
 type isItemStackOperation_Operation interface {
 	isItemStackOperation_Operation()
 }
@@ -3089,6 +3383,16 @@ type ItemStackOperation_TrimmingFromInventory struct {
 	TrimmingFromInventory *TrimmingFromInventoryOperation `protobuf:"bytes,22,opt,name=TrimmingFromInventory,proto3,oneof"`
 }
 
+type ItemStackOperation_BeaconPayment struct {
+	// BeaconPayment 执行信标支付操作。
+	BeaconPayment *BeaconPaymentOperation `protobuf:"bytes,23,opt,name=BeaconPayment,proto3,oneof"`
+}
+
+type ItemStackOperation_BeaconPaymentFromInventory struct {
+	// BeaconPaymentFromInventory 从背包槽位执行信标支付操作。
+	BeaconPaymentFromInventory *BeaconPaymentFromInventoryOperation `protobuf:"bytes,24,opt,name=BeaconPaymentFromInventory,proto3,oneof"`
+}
+
 func (*ItemStackOperation_MoveItem) isItemStackOperation_Operation() {}
 
 func (*ItemStackOperation_MoveBetweenInventory) isItemStackOperation_Operation() {}
@@ -3133,6 +3437,10 @@ func (*ItemStackOperation_Trimming) isItemStackOperation_Operation() {}
 
 func (*ItemStackOperation_TrimmingFromInventory) isItemStackOperation_Operation() {}
 
+func (*ItemStackOperation_BeaconPayment) isItemStackOperation_Operation() {}
+
+func (*ItemStackOperation_BeaconPaymentFromInventory) isItemStackOperation_Operation() {}
+
 // CommitItemStackOperationsRequest 是一次性提交物品堆栈操作列表的请求。
 type CommitItemStackOperationsRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
@@ -3144,7 +3452,7 @@ type CommitItemStackOperationsRequest struct {
 
 func (x *CommitItemStackOperationsRequest) Reset() {
 	*x = CommitItemStackOperationsRequest{}
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[42]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[46]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3156,7 +3464,7 @@ func (x *CommitItemStackOperationsRequest) String() string {
 func (*CommitItemStackOperationsRequest) ProtoMessage() {}
 
 func (x *CommitItemStackOperationsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[42]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[46]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3169,7 +3477,7 @@ func (x *CommitItemStackOperationsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CommitItemStackOperationsRequest.ProtoReflect.Descriptor instead.
 func (*CommitItemStackOperationsRequest) Descriptor() ([]byte, []int) {
-	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{42}
+	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{46}
 }
 
 func (x *CommitItemStackOperationsRequest) GetOperations() []*ItemStackOperation {
@@ -3190,7 +3498,7 @@ type CommitTransactionRequest struct {
 
 func (x *CommitTransactionRequest) Reset() {
 	*x = CommitTransactionRequest{}
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[43]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[47]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3202,7 +3510,7 @@ func (x *CommitTransactionRequest) String() string {
 func (*CommitTransactionRequest) ProtoMessage() {}
 
 func (x *CommitTransactionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[43]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[47]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3215,7 +3523,7 @@ func (x *CommitTransactionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CommitTransactionRequest.ProtoReflect.Descriptor instead.
 func (*CommitTransactionRequest) Descriptor() ([]byte, []int) {
-	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{43}
+	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{47}
 }
 
 func (x *CommitTransactionRequest) GetTransactionID() string {
@@ -3242,7 +3550,7 @@ type CommitTransactionResponse struct {
 
 func (x *CommitTransactionResponse) Reset() {
 	*x = CommitTransactionResponse{}
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[44]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[48]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3254,7 +3562,7 @@ func (x *CommitTransactionResponse) String() string {
 func (*CommitTransactionResponse) ProtoMessage() {}
 
 func (x *CommitTransactionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[44]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[48]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3267,7 +3575,7 @@ func (x *CommitTransactionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CommitTransactionResponse.ProtoReflect.Descriptor instead.
 func (*CommitTransactionResponse) Descriptor() ([]byte, []int) {
-	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{44}
+	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{48}
 }
 
 func (x *CommitTransactionResponse) GetSuccess() bool {
@@ -3309,7 +3617,7 @@ type DiscardTransactionRequest struct {
 
 func (x *DiscardTransactionRequest) Reset() {
 	*x = DiscardTransactionRequest{}
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[45]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[49]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3321,7 +3629,7 @@ func (x *DiscardTransactionRequest) String() string {
 func (*DiscardTransactionRequest) ProtoMessage() {}
 
 func (x *DiscardTransactionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[45]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[49]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3334,7 +3642,7 @@ func (x *DiscardTransactionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DiscardTransactionRequest.ProtoReflect.Descriptor instead.
 func (*DiscardTransactionRequest) Descriptor() ([]byte, []int) {
-	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{45}
+	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{49}
 }
 
 func (x *DiscardTransactionRequest) GetTransactionID() string {
@@ -3353,7 +3661,7 @@ type DiscardTransactionResponse struct {
 
 func (x *DiscardTransactionResponse) Reset() {
 	*x = DiscardTransactionResponse{}
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[46]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[50]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3365,7 +3673,7 @@ func (x *DiscardTransactionResponse) String() string {
 func (*DiscardTransactionResponse) ProtoMessage() {}
 
 func (x *DiscardTransactionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[46]
+	mi := &file_game_control_game_interface_item_stack_transaction_proto_msgTypes[50]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3378,7 +3686,7 @@ func (x *DiscardTransactionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DiscardTransactionResponse.ProtoReflect.Descriptor instead.
 func (*DiscardTransactionResponse) Descriptor() ([]byte, []int) {
-	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{46}
+	return file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP(), []int{50}
 }
 
 var File_game_control_game_interface_item_stack_transaction_proto protoreflect.FileDescriptor
@@ -3484,7 +3792,17 @@ const file_game_control_game_interface_item_stack_transaction_proto_rawDesc = ""
 	"\bTemplate\x18\x04 \x01(\v25.emptydea.game_control.resources_control.SlotLocationR\bTemplate\x12U\n" +
 	"\n" +
 	"ResultItem\x18\x05 \x01(\v25.emptydea.game_control.game_interface.ExpectedNewItemR\n" +
-	"ResultItem\"\xd1\x01\n" +
+	"ResultItem\"\xdd\x01\n" +
+	"\x14BeaconPaymentRequest\x12$\n" +
+	"\rTransactionID\x18\x01 \x01(\tR\rTransactionID\x12O\n" +
+	"\aPayment\x18\x02 \x01(\v25.emptydea.game_control.resources_control.SlotLocationR\aPayment\x12$\n" +
+	"\rPrimaryEffect\x18\x03 \x01(\x05R\rPrimaryEffect\x12(\n" +
+	"\x0fSecondaryEffect\x18\x04 \x01(\x05R\x0fSecondaryEffect\"\xb2\x01\n" +
+	"\x18BeaconPaymentSlotRequest\x12$\n" +
+	"\rTransactionID\x18\x01 \x01(\tR\rTransactionID\x12 \n" +
+	"\vPaymentSlot\x18\x02 \x01(\rR\vPaymentSlot\x12$\n" +
+	"\rPrimaryEffect\x18\x03 \x01(\x05R\rPrimaryEffect\x12(\n" +
+	"\x0fSecondaryEffect\x18\x04 \x01(\x05R\x0fSecondaryEffect\"\xd1\x01\n" +
 	"\x11MoveItemOperation\x12M\n" +
 	"\x06Source\x18\x01 \x01(\v25.emptydea.game_control.resources_control.SlotLocationR\x06Source\x12W\n" +
 	"\vDestination\x18\x02 \x01(\v25.emptydea.game_control.resources_control.SlotLocationR\vDestination\x12\x14\n" +
@@ -3583,7 +3901,15 @@ const file_game_control_game_interface_item_stack_transaction_proto_rawDesc = ""
 	"\fTemplateSlot\x18\x03 \x01(\rR\fTemplateSlot\x12U\n" +
 	"\n" +
 	"ResultItem\x18\x04 \x01(\v25.emptydea.game_control.game_interface.ExpectedNewItemR\n" +
-	"ResultItem\"\xaa\x13\n" +
+	"ResultItem\"\xb9\x01\n" +
+	"\x16BeaconPaymentOperation\x12O\n" +
+	"\aPayment\x18\x01 \x01(\v25.emptydea.game_control.resources_control.SlotLocationR\aPayment\x12$\n" +
+	"\rPrimaryEffect\x18\x02 \x01(\x05R\rPrimaryEffect\x12(\n" +
+	"\x0fSecondaryEffect\x18\x03 \x01(\x05R\x0fSecondaryEffect\"\x97\x01\n" +
+	"#BeaconPaymentFromInventoryOperation\x12 \n" +
+	"\vPaymentSlot\x18\x01 \x01(\rR\vPaymentSlot\x12$\n" +
+	"\rPrimaryEffect\x18\x02 \x01(\x05R\rPrimaryEffect\x12(\n" +
+	"\x0fSecondaryEffect\x18\x03 \x01(\x05R\x0fSecondaryEffect\"\x9e\x15\n" +
 	"\x12ItemStackOperation\x12U\n" +
 	"\bMoveItem\x18\x01 \x01(\v27.emptydea.game_control.game_interface.MoveItemOperationH\x00R\bMoveItem\x12y\n" +
 	"\x14MoveBetweenInventory\x18\x02 \x01(\v2C.emptydea.game_control.game_interface.MoveBetweenInventoryOperationH\x00R\x14MoveBetweenInventory\x12y\n" +
@@ -3609,7 +3935,9 @@ const file_game_control_game_interface_item_stack_transaction_proto_rawDesc = ""
 	"\x14LoomingFromInventory\x18\x13 \x01(\v2C.emptydea.game_control.game_interface.LoomingFromInventoryOperationH\x00R\x14LoomingFromInventory\x12U\n" +
 	"\bCrafting\x18\x14 \x01(\v27.emptydea.game_control.game_interface.CraftingOperationH\x00R\bCrafting\x12U\n" +
 	"\bTrimming\x18\x15 \x01(\v27.emptydea.game_control.game_interface.TrimmingOperationH\x00R\bTrimming\x12|\n" +
-	"\x15TrimmingFromInventory\x18\x16 \x01(\v2D.emptydea.game_control.game_interface.TrimmingFromInventoryOperationH\x00R\x15TrimmingFromInventoryB\v\n" +
+	"\x15TrimmingFromInventory\x18\x16 \x01(\v2D.emptydea.game_control.game_interface.TrimmingFromInventoryOperationH\x00R\x15TrimmingFromInventory\x12d\n" +
+	"\rBeaconPayment\x18\x17 \x01(\v2<.emptydea.game_control.game_interface.BeaconPaymentOperationH\x00R\rBeaconPayment\x12\x8b\x01\n" +
+	"\x1aBeaconPaymentFromInventory\x18\x18 \x01(\v2I.emptydea.game_control.game_interface.BeaconPaymentFromInventoryOperationH\x00R\x1aBeaconPaymentFromInventoryB\v\n" +
 	"\tOperation\"|\n" +
 	" CommitItemStackOperationsRequest\x12X\n" +
 	"\n" +
@@ -3626,7 +3954,7 @@ const file_game_control_game_interface_item_stack_transaction_proto_rawDesc = ""
 	"\x06Packet\x18\x04 \x01(\v2J.mousetunnel.minecraft.protocol.packet.item_stack_request.ItemStackRequestR\x06Packet\"A\n" +
 	"\x19DiscardTransactionRequest\x12$\n" +
 	"\rTransactionID\x18\x01 \x01(\tR\rTransactionID\"\x1c\n" +
-	"\x1aDiscardTransactionResponse2\xbd\x1d\n" +
+	"\x1aDiscardTransactionResponse2\xec\x1f\n" +
 	"\x1bItemStackTransactionService\x12\x8e\x01\n" +
 	"\x0fOpenTransaction\x12<.emptydea.game_control.game_interface.OpenTransactionRequest\x1a=.emptydea.game_control.game_interface.OpenTransactionResponse\x12\x82\x01\n" +
 	"\bMoveItem\x125.emptydea.game_control.game_interface.MoveItemRequest\x1a?.emptydea.game_control.game_interface.TransactionActionResponse\x12\x90\x01\n" +
@@ -3651,7 +3979,9 @@ const file_game_control_game_interface_item_stack_transaction_proto_rawDesc = ""
 	"\x14LoomingFromInventory\x124.emptydea.game_control.game_interface.LoomingRequest\x1a?.emptydea.game_control.game_interface.TransactionActionResponse\x12\x82\x01\n" +
 	"\bCrafting\x125.emptydea.game_control.game_interface.CraftingRequest\x1a?.emptydea.game_control.game_interface.TransactionActionResponse\x12\x82\x01\n" +
 	"\bTrimming\x125.emptydea.game_control.game_interface.TrimmingRequest\x1a?.emptydea.game_control.game_interface.TransactionActionResponse\x12\x8f\x01\n" +
-	"\x15TrimmingFromInventory\x125.emptydea.game_control.game_interface.TrimmingRequest\x1a?.emptydea.game_control.game_interface.TransactionActionResponse\x12\x94\x01\n" +
+	"\x15TrimmingFromInventory\x125.emptydea.game_control.game_interface.TrimmingRequest\x1a?.emptydea.game_control.game_interface.TransactionActionResponse\x12\x8c\x01\n" +
+	"\rBeaconPayment\x12:.emptydea.game_control.game_interface.BeaconPaymentRequest\x1a?.emptydea.game_control.game_interface.TransactionActionResponse\x12\x9d\x01\n" +
+	"\x1aBeaconPaymentFromInventory\x12>.emptydea.game_control.game_interface.BeaconPaymentSlotRequest\x1a?.emptydea.game_control.game_interface.TransactionActionResponse\x12\x94\x01\n" +
 	"\x11CommitTransaction\x12>.emptydea.game_control.game_interface.CommitTransactionRequest\x1a?.emptydea.game_control.game_interface.CommitTransactionResponse\x12\xa4\x01\n" +
 	"\x19CommitItemStackOperations\x12F.emptydea.game_control.game_interface.CommitItemStackOperationsRequest\x1a?.emptydea.game_control.game_interface.CommitTransactionResponse\x12\x97\x01\n" +
 	"\x12DiscardTransaction\x12?.emptydea.game_control.game_interface.DiscardTransactionRequest\x1a@.emptydea.game_control.game_interface.DiscardTransactionResponseB]Z[github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pbb\x06proto3"
@@ -3668,7 +3998,7 @@ func file_game_control_game_interface_item_stack_transaction_proto_rawDescGZIP()
 	return file_game_control_game_interface_item_stack_transaction_proto_rawDescData
 }
 
-var file_game_control_game_interface_item_stack_transaction_proto_msgTypes = make([]protoimpl.MessageInfo, 48)
+var file_game_control_game_interface_item_stack_transaction_proto_msgTypes = make([]protoimpl.MessageInfo, 52)
 var file_game_control_game_interface_item_stack_transaction_proto_goTypes = []any{
 	(*ExpectedNewItem)(nil),                        // 0: emptydea.game_control.game_interface.ExpectedNewItem
 	(*ItemNewType)(nil),                            // 1: emptydea.game_control.game_interface.ItemNewType
@@ -3689,163 +4019,175 @@ var file_game_control_game_interface_item_stack_transaction_proto_goTypes = []an
 	(*LoomingRequest)(nil),                         // 16: emptydea.game_control.game_interface.LoomingRequest
 	(*CraftingRequest)(nil),                        // 17: emptydea.game_control.game_interface.CraftingRequest
 	(*TrimmingRequest)(nil),                        // 18: emptydea.game_control.game_interface.TrimmingRequest
-	(*MoveItemOperation)(nil),                      // 19: emptydea.game_control.game_interface.MoveItemOperation
-	(*MoveBetweenInventoryOperation)(nil),          // 20: emptydea.game_control.game_interface.MoveBetweenInventoryOperation
-	(*MoveBetweenContainerOperation)(nil),          // 21: emptydea.game_control.game_interface.MoveBetweenContainerOperation
-	(*MoveToContainerOperation)(nil),               // 22: emptydea.game_control.game_interface.MoveToContainerOperation
-	(*MoveToInventoryOperation)(nil),               // 23: emptydea.game_control.game_interface.MoveToInventoryOperation
-	(*MoveToCraftingTableOperation)(nil),           // 24: emptydea.game_control.game_interface.MoveToCraftingTableOperation
-	(*MoveFromCraftingTableOperation)(nil),         // 25: emptydea.game_control.game_interface.MoveFromCraftingTableOperation
-	(*SwapItemOperation)(nil),                      // 26: emptydea.game_control.game_interface.SwapItemOperation
-	(*SwapBetweenInventoryOperation)(nil),          // 27: emptydea.game_control.game_interface.SwapBetweenInventoryOperation
-	(*SwapInventoryBetweenContainerOperation)(nil), // 28: emptydea.game_control.game_interface.SwapInventoryBetweenContainerOperation
-	(*DropItemOperation)(nil),                      // 29: emptydea.game_control.game_interface.DropItemOperation
-	(*DropInventoryItemOperation)(nil),             // 30: emptydea.game_control.game_interface.DropInventoryItemOperation
-	(*DropContainerItemOperation)(nil),             // 31: emptydea.game_control.game_interface.DropContainerItemOperation
-	(*GetCreativeItemOperation)(nil),               // 32: emptydea.game_control.game_interface.GetCreativeItemOperation
-	(*GetCreativeItemToInventoryOperation)(nil),    // 33: emptydea.game_control.game_interface.GetCreativeItemToInventoryOperation
-	(*RenameItemOperation)(nil),                    // 34: emptydea.game_control.game_interface.RenameItemOperation
-	(*RenameInventoryItemOperation)(nil),           // 35: emptydea.game_control.game_interface.RenameInventoryItemOperation
-	(*LoomingOperation)(nil),                       // 36: emptydea.game_control.game_interface.LoomingOperation
-	(*LoomingFromInventoryOperation)(nil),          // 37: emptydea.game_control.game_interface.LoomingFromInventoryOperation
-	(*CraftingOperation)(nil),                      // 38: emptydea.game_control.game_interface.CraftingOperation
-	(*TrimmingOperation)(nil),                      // 39: emptydea.game_control.game_interface.TrimmingOperation
-	(*TrimmingFromInventoryOperation)(nil),         // 40: emptydea.game_control.game_interface.TrimmingFromInventoryOperation
-	(*ItemStackOperation)(nil),                     // 41: emptydea.game_control.game_interface.ItemStackOperation
-	(*CommitItemStackOperationsRequest)(nil),       // 42: emptydea.game_control.game_interface.CommitItemStackOperationsRequest
-	(*CommitTransactionRequest)(nil),               // 43: emptydea.game_control.game_interface.CommitTransactionRequest
-	(*CommitTransactionResponse)(nil),              // 44: emptydea.game_control.game_interface.CommitTransactionResponse
-	(*DiscardTransactionRequest)(nil),              // 45: emptydea.game_control.game_interface.DiscardTransactionRequest
-	(*DiscardTransactionResponse)(nil),             // 46: emptydea.game_control.game_interface.DiscardTransactionResponse
-	nil,                                            // 47: emptydea.game_control.game_interface.ItemNewNBTData.NBTDataEntry
-	(*resources_control.SlotLocation)(nil),         // 48: emptydea.game_control.resources_control.SlotLocation
-	(*protocol.ItemStackResponse)(nil),             // 49: mousetunnel.minecraft.protocol.item_stack.ItemStackResponse
-	(*protocol.ItemInstance)(nil),                  // 50: mousetunnel.minecraft.protocol.item.ItemInstance
-	(*packet.ItemStackRequest)(nil),                // 51: mousetunnel.minecraft.protocol.packet.item_stack_request.ItemStackRequest
-	(*structpb.Value)(nil),                         // 52: google.protobuf.Value
+	(*BeaconPaymentRequest)(nil),                   // 19: emptydea.game_control.game_interface.BeaconPaymentRequest
+	(*BeaconPaymentSlotRequest)(nil),               // 20: emptydea.game_control.game_interface.BeaconPaymentSlotRequest
+	(*MoveItemOperation)(nil),                      // 21: emptydea.game_control.game_interface.MoveItemOperation
+	(*MoveBetweenInventoryOperation)(nil),          // 22: emptydea.game_control.game_interface.MoveBetweenInventoryOperation
+	(*MoveBetweenContainerOperation)(nil),          // 23: emptydea.game_control.game_interface.MoveBetweenContainerOperation
+	(*MoveToContainerOperation)(nil),               // 24: emptydea.game_control.game_interface.MoveToContainerOperation
+	(*MoveToInventoryOperation)(nil),               // 25: emptydea.game_control.game_interface.MoveToInventoryOperation
+	(*MoveToCraftingTableOperation)(nil),           // 26: emptydea.game_control.game_interface.MoveToCraftingTableOperation
+	(*MoveFromCraftingTableOperation)(nil),         // 27: emptydea.game_control.game_interface.MoveFromCraftingTableOperation
+	(*SwapItemOperation)(nil),                      // 28: emptydea.game_control.game_interface.SwapItemOperation
+	(*SwapBetweenInventoryOperation)(nil),          // 29: emptydea.game_control.game_interface.SwapBetweenInventoryOperation
+	(*SwapInventoryBetweenContainerOperation)(nil), // 30: emptydea.game_control.game_interface.SwapInventoryBetweenContainerOperation
+	(*DropItemOperation)(nil),                      // 31: emptydea.game_control.game_interface.DropItemOperation
+	(*DropInventoryItemOperation)(nil),             // 32: emptydea.game_control.game_interface.DropInventoryItemOperation
+	(*DropContainerItemOperation)(nil),             // 33: emptydea.game_control.game_interface.DropContainerItemOperation
+	(*GetCreativeItemOperation)(nil),               // 34: emptydea.game_control.game_interface.GetCreativeItemOperation
+	(*GetCreativeItemToInventoryOperation)(nil),    // 35: emptydea.game_control.game_interface.GetCreativeItemToInventoryOperation
+	(*RenameItemOperation)(nil),                    // 36: emptydea.game_control.game_interface.RenameItemOperation
+	(*RenameInventoryItemOperation)(nil),           // 37: emptydea.game_control.game_interface.RenameInventoryItemOperation
+	(*LoomingOperation)(nil),                       // 38: emptydea.game_control.game_interface.LoomingOperation
+	(*LoomingFromInventoryOperation)(nil),          // 39: emptydea.game_control.game_interface.LoomingFromInventoryOperation
+	(*CraftingOperation)(nil),                      // 40: emptydea.game_control.game_interface.CraftingOperation
+	(*TrimmingOperation)(nil),                      // 41: emptydea.game_control.game_interface.TrimmingOperation
+	(*TrimmingFromInventoryOperation)(nil),         // 42: emptydea.game_control.game_interface.TrimmingFromInventoryOperation
+	(*BeaconPaymentOperation)(nil),                 // 43: emptydea.game_control.game_interface.BeaconPaymentOperation
+	(*BeaconPaymentFromInventoryOperation)(nil),    // 44: emptydea.game_control.game_interface.BeaconPaymentFromInventoryOperation
+	(*ItemStackOperation)(nil),                     // 45: emptydea.game_control.game_interface.ItemStackOperation
+	(*CommitItemStackOperationsRequest)(nil),       // 46: emptydea.game_control.game_interface.CommitItemStackOperationsRequest
+	(*CommitTransactionRequest)(nil),               // 47: emptydea.game_control.game_interface.CommitTransactionRequest
+	(*CommitTransactionResponse)(nil),              // 48: emptydea.game_control.game_interface.CommitTransactionResponse
+	(*DiscardTransactionRequest)(nil),              // 49: emptydea.game_control.game_interface.DiscardTransactionRequest
+	(*DiscardTransactionResponse)(nil),             // 50: emptydea.game_control.game_interface.DiscardTransactionResponse
+	nil,                                            // 51: emptydea.game_control.game_interface.ItemNewNBTData.NBTDataEntry
+	(*resources_control.SlotLocation)(nil),         // 52: emptydea.game_control.resources_control.SlotLocation
+	(*protocol.ItemStackResponse)(nil),             // 53: mousetunnel.minecraft.protocol.item_stack.ItemStackResponse
+	(*protocol.ItemInstance)(nil),                  // 54: mousetunnel.minecraft.protocol.item.ItemInstance
+	(*packet.ItemStackRequest)(nil),                // 55: mousetunnel.minecraft.protocol.packet.item_stack_request.ItemStackRequest
+	(*structpb.Value)(nil),                         // 56: google.protobuf.Value
 }
 var file_game_control_game_interface_item_stack_transaction_proto_depIdxs = []int32{
 	1,  // 0: emptydea.game_control.game_interface.ExpectedNewItem.ItemType:type_name -> emptydea.game_control.game_interface.ItemNewType
 	2,  // 1: emptydea.game_control.game_interface.ExpectedNewItem.BlockRuntimeID:type_name -> emptydea.game_control.game_interface.ItemNewBlockRuntimeID
 	3,  // 2: emptydea.game_control.game_interface.ExpectedNewItem.NBT:type_name -> emptydea.game_control.game_interface.ItemNewNBTData
 	4,  // 3: emptydea.game_control.game_interface.ExpectedNewItem.Component:type_name -> emptydea.game_control.game_interface.ItemNewComponent
-	47, // 4: emptydea.game_control.game_interface.ItemNewNBTData.NBTData:type_name -> emptydea.game_control.game_interface.ItemNewNBTData.NBTDataEntry
-	48, // 5: emptydea.game_control.game_interface.MoveItemRequest.Source:type_name -> emptydea.game_control.resources_control.SlotLocation
-	48, // 6: emptydea.game_control.game_interface.MoveItemRequest.Destination:type_name -> emptydea.game_control.resources_control.SlotLocation
-	48, // 7: emptydea.game_control.game_interface.DropItemRequest.Slot:type_name -> emptydea.game_control.resources_control.SlotLocation
-	48, // 8: emptydea.game_control.game_interface.CreativeItemRequest.Destination:type_name -> emptydea.game_control.resources_control.SlotLocation
-	48, // 9: emptydea.game_control.game_interface.RenameItemRequest.Slot:type_name -> emptydea.game_control.resources_control.SlotLocation
-	48, // 10: emptydea.game_control.game_interface.LoomingRequest.Pattern:type_name -> emptydea.game_control.resources_control.SlotLocation
-	48, // 11: emptydea.game_control.game_interface.LoomingRequest.Banner:type_name -> emptydea.game_control.resources_control.SlotLocation
-	48, // 12: emptydea.game_control.game_interface.LoomingRequest.Dye:type_name -> emptydea.game_control.resources_control.SlotLocation
+	51, // 4: emptydea.game_control.game_interface.ItemNewNBTData.NBTData:type_name -> emptydea.game_control.game_interface.ItemNewNBTData.NBTDataEntry
+	52, // 5: emptydea.game_control.game_interface.MoveItemRequest.Source:type_name -> emptydea.game_control.resources_control.SlotLocation
+	52, // 6: emptydea.game_control.game_interface.MoveItemRequest.Destination:type_name -> emptydea.game_control.resources_control.SlotLocation
+	52, // 7: emptydea.game_control.game_interface.DropItemRequest.Slot:type_name -> emptydea.game_control.resources_control.SlotLocation
+	52, // 8: emptydea.game_control.game_interface.CreativeItemRequest.Destination:type_name -> emptydea.game_control.resources_control.SlotLocation
+	52, // 9: emptydea.game_control.game_interface.RenameItemRequest.Slot:type_name -> emptydea.game_control.resources_control.SlotLocation
+	52, // 10: emptydea.game_control.game_interface.LoomingRequest.Pattern:type_name -> emptydea.game_control.resources_control.SlotLocation
+	52, // 11: emptydea.game_control.game_interface.LoomingRequest.Banner:type_name -> emptydea.game_control.resources_control.SlotLocation
+	52, // 12: emptydea.game_control.game_interface.LoomingRequest.Dye:type_name -> emptydea.game_control.resources_control.SlotLocation
 	0,  // 13: emptydea.game_control.game_interface.LoomingRequest.ResultItem:type_name -> emptydea.game_control.game_interface.ExpectedNewItem
 	0,  // 14: emptydea.game_control.game_interface.CraftingRequest.ResultItem:type_name -> emptydea.game_control.game_interface.ExpectedNewItem
-	48, // 15: emptydea.game_control.game_interface.TrimmingRequest.Input:type_name -> emptydea.game_control.resources_control.SlotLocation
-	48, // 16: emptydea.game_control.game_interface.TrimmingRequest.Material:type_name -> emptydea.game_control.resources_control.SlotLocation
-	48, // 17: emptydea.game_control.game_interface.TrimmingRequest.Template:type_name -> emptydea.game_control.resources_control.SlotLocation
+	52, // 15: emptydea.game_control.game_interface.TrimmingRequest.Input:type_name -> emptydea.game_control.resources_control.SlotLocation
+	52, // 16: emptydea.game_control.game_interface.TrimmingRequest.Material:type_name -> emptydea.game_control.resources_control.SlotLocation
+	52, // 17: emptydea.game_control.game_interface.TrimmingRequest.Template:type_name -> emptydea.game_control.resources_control.SlotLocation
 	0,  // 18: emptydea.game_control.game_interface.TrimmingRequest.ResultItem:type_name -> emptydea.game_control.game_interface.ExpectedNewItem
-	48, // 19: emptydea.game_control.game_interface.MoveItemOperation.Source:type_name -> emptydea.game_control.resources_control.SlotLocation
-	48, // 20: emptydea.game_control.game_interface.MoveItemOperation.Destination:type_name -> emptydea.game_control.resources_control.SlotLocation
-	48, // 21: emptydea.game_control.game_interface.SwapItemOperation.Source:type_name -> emptydea.game_control.resources_control.SlotLocation
-	48, // 22: emptydea.game_control.game_interface.SwapItemOperation.Destination:type_name -> emptydea.game_control.resources_control.SlotLocation
-	48, // 23: emptydea.game_control.game_interface.DropItemOperation.Slot:type_name -> emptydea.game_control.resources_control.SlotLocation
-	48, // 24: emptydea.game_control.game_interface.GetCreativeItemOperation.Destination:type_name -> emptydea.game_control.resources_control.SlotLocation
-	48, // 25: emptydea.game_control.game_interface.RenameItemOperation.Slot:type_name -> emptydea.game_control.resources_control.SlotLocation
-	48, // 26: emptydea.game_control.game_interface.LoomingOperation.Pattern:type_name -> emptydea.game_control.resources_control.SlotLocation
-	48, // 27: emptydea.game_control.game_interface.LoomingOperation.Banner:type_name -> emptydea.game_control.resources_control.SlotLocation
-	48, // 28: emptydea.game_control.game_interface.LoomingOperation.Dye:type_name -> emptydea.game_control.resources_control.SlotLocation
-	0,  // 29: emptydea.game_control.game_interface.LoomingOperation.ResultItem:type_name -> emptydea.game_control.game_interface.ExpectedNewItem
-	0,  // 30: emptydea.game_control.game_interface.LoomingFromInventoryOperation.ResultItem:type_name -> emptydea.game_control.game_interface.ExpectedNewItem
-	0,  // 31: emptydea.game_control.game_interface.CraftingOperation.ResultItem:type_name -> emptydea.game_control.game_interface.ExpectedNewItem
-	48, // 32: emptydea.game_control.game_interface.TrimmingOperation.Input:type_name -> emptydea.game_control.resources_control.SlotLocation
-	48, // 33: emptydea.game_control.game_interface.TrimmingOperation.Material:type_name -> emptydea.game_control.resources_control.SlotLocation
-	48, // 34: emptydea.game_control.game_interface.TrimmingOperation.Template:type_name -> emptydea.game_control.resources_control.SlotLocation
-	0,  // 35: emptydea.game_control.game_interface.TrimmingOperation.ResultItem:type_name -> emptydea.game_control.game_interface.ExpectedNewItem
-	0,  // 36: emptydea.game_control.game_interface.TrimmingFromInventoryOperation.ResultItem:type_name -> emptydea.game_control.game_interface.ExpectedNewItem
-	19, // 37: emptydea.game_control.game_interface.ItemStackOperation.MoveItem:type_name -> emptydea.game_control.game_interface.MoveItemOperation
-	20, // 38: emptydea.game_control.game_interface.ItemStackOperation.MoveBetweenInventory:type_name -> emptydea.game_control.game_interface.MoveBetweenInventoryOperation
-	21, // 39: emptydea.game_control.game_interface.ItemStackOperation.MoveBetweenContainer:type_name -> emptydea.game_control.game_interface.MoveBetweenContainerOperation
-	22, // 40: emptydea.game_control.game_interface.ItemStackOperation.MoveToContainer:type_name -> emptydea.game_control.game_interface.MoveToContainerOperation
-	23, // 41: emptydea.game_control.game_interface.ItemStackOperation.MoveToInventory:type_name -> emptydea.game_control.game_interface.MoveToInventoryOperation
-	24, // 42: emptydea.game_control.game_interface.ItemStackOperation.MoveToCraftingTable:type_name -> emptydea.game_control.game_interface.MoveToCraftingTableOperation
-	25, // 43: emptydea.game_control.game_interface.ItemStackOperation.MoveFromCraftingTable:type_name -> emptydea.game_control.game_interface.MoveFromCraftingTableOperation
-	26, // 44: emptydea.game_control.game_interface.ItemStackOperation.SwapItem:type_name -> emptydea.game_control.game_interface.SwapItemOperation
-	27, // 45: emptydea.game_control.game_interface.ItemStackOperation.SwapBetweenInventory:type_name -> emptydea.game_control.game_interface.SwapBetweenInventoryOperation
-	28, // 46: emptydea.game_control.game_interface.ItemStackOperation.SwapInventoryBetweenContainer:type_name -> emptydea.game_control.game_interface.SwapInventoryBetweenContainerOperation
-	29, // 47: emptydea.game_control.game_interface.ItemStackOperation.DropItem:type_name -> emptydea.game_control.game_interface.DropItemOperation
-	30, // 48: emptydea.game_control.game_interface.ItemStackOperation.DropInventoryItem:type_name -> emptydea.game_control.game_interface.DropInventoryItemOperation
-	31, // 49: emptydea.game_control.game_interface.ItemStackOperation.DropContainerItem:type_name -> emptydea.game_control.game_interface.DropContainerItemOperation
-	32, // 50: emptydea.game_control.game_interface.ItemStackOperation.GetCreativeItem:type_name -> emptydea.game_control.game_interface.GetCreativeItemOperation
-	33, // 51: emptydea.game_control.game_interface.ItemStackOperation.GetCreativeItemToInventory:type_name -> emptydea.game_control.game_interface.GetCreativeItemToInventoryOperation
-	34, // 52: emptydea.game_control.game_interface.ItemStackOperation.RenameItem:type_name -> emptydea.game_control.game_interface.RenameItemOperation
-	35, // 53: emptydea.game_control.game_interface.ItemStackOperation.RenameInventoryItem:type_name -> emptydea.game_control.game_interface.RenameInventoryItemOperation
-	36, // 54: emptydea.game_control.game_interface.ItemStackOperation.Looming:type_name -> emptydea.game_control.game_interface.LoomingOperation
-	37, // 55: emptydea.game_control.game_interface.ItemStackOperation.LoomingFromInventory:type_name -> emptydea.game_control.game_interface.LoomingFromInventoryOperation
-	38, // 56: emptydea.game_control.game_interface.ItemStackOperation.Crafting:type_name -> emptydea.game_control.game_interface.CraftingOperation
-	39, // 57: emptydea.game_control.game_interface.ItemStackOperation.Trimming:type_name -> emptydea.game_control.game_interface.TrimmingOperation
-	40, // 58: emptydea.game_control.game_interface.ItemStackOperation.TrimmingFromInventory:type_name -> emptydea.game_control.game_interface.TrimmingFromInventoryOperation
-	41, // 59: emptydea.game_control.game_interface.CommitItemStackOperationsRequest.Operations:type_name -> emptydea.game_control.game_interface.ItemStackOperation
-	49, // 60: emptydea.game_control.game_interface.CommitTransactionResponse.Responses:type_name -> mousetunnel.minecraft.protocol.item_stack.ItemStackResponse
-	50, // 61: emptydea.game_control.game_interface.CommitTransactionResponse.Operations:type_name -> mousetunnel.minecraft.protocol.item.ItemInstance
-	51, // 62: emptydea.game_control.game_interface.CommitTransactionResponse.Packet:type_name -> mousetunnel.minecraft.protocol.packet.item_stack_request.ItemStackRequest
-	52, // 63: emptydea.game_control.game_interface.ItemNewNBTData.NBTDataEntry.value:type_name -> google.protobuf.Value
-	5,  // 64: emptydea.game_control.game_interface.ItemStackTransactionService.OpenTransaction:input_type -> emptydea.game_control.game_interface.OpenTransactionRequest
-	9,  // 65: emptydea.game_control.game_interface.ItemStackTransactionService.MoveItem:input_type -> emptydea.game_control.game_interface.MoveItemRequest
-	10, // 66: emptydea.game_control.game_interface.ItemStackTransactionService.MoveBetweenInventory:input_type -> emptydea.game_control.game_interface.MoveBySlotRequest
-	10, // 67: emptydea.game_control.game_interface.ItemStackTransactionService.MoveBetweenContainer:input_type -> emptydea.game_control.game_interface.MoveBySlotRequest
-	10, // 68: emptydea.game_control.game_interface.ItemStackTransactionService.MoveToContainer:input_type -> emptydea.game_control.game_interface.MoveBySlotRequest
-	10, // 69: emptydea.game_control.game_interface.ItemStackTransactionService.MoveToInventory:input_type -> emptydea.game_control.game_interface.MoveBySlotRequest
-	10, // 70: emptydea.game_control.game_interface.ItemStackTransactionService.MoveToCraftingTable:input_type -> emptydea.game_control.game_interface.MoveBySlotRequest
-	10, // 71: emptydea.game_control.game_interface.ItemStackTransactionService.MoveFromCraftingTable:input_type -> emptydea.game_control.game_interface.MoveBySlotRequest
-	9,  // 72: emptydea.game_control.game_interface.ItemStackTransactionService.SwapItem:input_type -> emptydea.game_control.game_interface.MoveItemRequest
-	10, // 73: emptydea.game_control.game_interface.ItemStackTransactionService.SwapBetweenInventory:input_type -> emptydea.game_control.game_interface.MoveBySlotRequest
-	10, // 74: emptydea.game_control.game_interface.ItemStackTransactionService.SwapInventoryBetweenContainer:input_type -> emptydea.game_control.game_interface.MoveBySlotRequest
-	11, // 75: emptydea.game_control.game_interface.ItemStackTransactionService.DropItem:input_type -> emptydea.game_control.game_interface.DropItemRequest
-	12, // 76: emptydea.game_control.game_interface.ItemStackTransactionService.DropInventoryItem:input_type -> emptydea.game_control.game_interface.DropSlotRequest
-	12, // 77: emptydea.game_control.game_interface.ItemStackTransactionService.DropContainerItem:input_type -> emptydea.game_control.game_interface.DropSlotRequest
-	13, // 78: emptydea.game_control.game_interface.ItemStackTransactionService.GetCreativeItem:input_type -> emptydea.game_control.game_interface.CreativeItemRequest
-	13, // 79: emptydea.game_control.game_interface.ItemStackTransactionService.GetCreativeItemToInventory:input_type -> emptydea.game_control.game_interface.CreativeItemRequest
-	14, // 80: emptydea.game_control.game_interface.ItemStackTransactionService.RenameItem:input_type -> emptydea.game_control.game_interface.RenameItemRequest
-	15, // 81: emptydea.game_control.game_interface.ItemStackTransactionService.RenameInventoryItem:input_type -> emptydea.game_control.game_interface.RenameSlotRequest
-	16, // 82: emptydea.game_control.game_interface.ItemStackTransactionService.Looming:input_type -> emptydea.game_control.game_interface.LoomingRequest
-	16, // 83: emptydea.game_control.game_interface.ItemStackTransactionService.LoomingFromInventory:input_type -> emptydea.game_control.game_interface.LoomingRequest
-	17, // 84: emptydea.game_control.game_interface.ItemStackTransactionService.Crafting:input_type -> emptydea.game_control.game_interface.CraftingRequest
-	18, // 85: emptydea.game_control.game_interface.ItemStackTransactionService.Trimming:input_type -> emptydea.game_control.game_interface.TrimmingRequest
-	18, // 86: emptydea.game_control.game_interface.ItemStackTransactionService.TrimmingFromInventory:input_type -> emptydea.game_control.game_interface.TrimmingRequest
-	43, // 87: emptydea.game_control.game_interface.ItemStackTransactionService.CommitTransaction:input_type -> emptydea.game_control.game_interface.CommitTransactionRequest
-	42, // 88: emptydea.game_control.game_interface.ItemStackTransactionService.CommitItemStackOperations:input_type -> emptydea.game_control.game_interface.CommitItemStackOperationsRequest
-	45, // 89: emptydea.game_control.game_interface.ItemStackTransactionService.DiscardTransaction:input_type -> emptydea.game_control.game_interface.DiscardTransactionRequest
-	6,  // 90: emptydea.game_control.game_interface.ItemStackTransactionService.OpenTransaction:output_type -> emptydea.game_control.game_interface.OpenTransactionResponse
-	8,  // 91: emptydea.game_control.game_interface.ItemStackTransactionService.MoveItem:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
-	8,  // 92: emptydea.game_control.game_interface.ItemStackTransactionService.MoveBetweenInventory:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
-	8,  // 93: emptydea.game_control.game_interface.ItemStackTransactionService.MoveBetweenContainer:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
-	8,  // 94: emptydea.game_control.game_interface.ItemStackTransactionService.MoveToContainer:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
-	8,  // 95: emptydea.game_control.game_interface.ItemStackTransactionService.MoveToInventory:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
-	8,  // 96: emptydea.game_control.game_interface.ItemStackTransactionService.MoveToCraftingTable:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
-	8,  // 97: emptydea.game_control.game_interface.ItemStackTransactionService.MoveFromCraftingTable:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
-	8,  // 98: emptydea.game_control.game_interface.ItemStackTransactionService.SwapItem:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
-	8,  // 99: emptydea.game_control.game_interface.ItemStackTransactionService.SwapBetweenInventory:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
-	8,  // 100: emptydea.game_control.game_interface.ItemStackTransactionService.SwapInventoryBetweenContainer:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
-	8,  // 101: emptydea.game_control.game_interface.ItemStackTransactionService.DropItem:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
-	8,  // 102: emptydea.game_control.game_interface.ItemStackTransactionService.DropInventoryItem:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
-	8,  // 103: emptydea.game_control.game_interface.ItemStackTransactionService.DropContainerItem:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
-	8,  // 104: emptydea.game_control.game_interface.ItemStackTransactionService.GetCreativeItem:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
-	8,  // 105: emptydea.game_control.game_interface.ItemStackTransactionService.GetCreativeItemToInventory:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
-	8,  // 106: emptydea.game_control.game_interface.ItemStackTransactionService.RenameItem:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
-	8,  // 107: emptydea.game_control.game_interface.ItemStackTransactionService.RenameInventoryItem:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
-	8,  // 108: emptydea.game_control.game_interface.ItemStackTransactionService.Looming:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
-	8,  // 109: emptydea.game_control.game_interface.ItemStackTransactionService.LoomingFromInventory:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
-	8,  // 110: emptydea.game_control.game_interface.ItemStackTransactionService.Crafting:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
-	8,  // 111: emptydea.game_control.game_interface.ItemStackTransactionService.Trimming:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
-	8,  // 112: emptydea.game_control.game_interface.ItemStackTransactionService.TrimmingFromInventory:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
-	44, // 113: emptydea.game_control.game_interface.ItemStackTransactionService.CommitTransaction:output_type -> emptydea.game_control.game_interface.CommitTransactionResponse
-	44, // 114: emptydea.game_control.game_interface.ItemStackTransactionService.CommitItemStackOperations:output_type -> emptydea.game_control.game_interface.CommitTransactionResponse
-	46, // 115: emptydea.game_control.game_interface.ItemStackTransactionService.DiscardTransaction:output_type -> emptydea.game_control.game_interface.DiscardTransactionResponse
-	90, // [90:116] is the sub-list for method output_type
-	64, // [64:90] is the sub-list for method input_type
-	64, // [64:64] is the sub-list for extension type_name
-	64, // [64:64] is the sub-list for extension extendee
-	0,  // [0:64] is the sub-list for field type_name
+	52, // 19: emptydea.game_control.game_interface.BeaconPaymentRequest.Payment:type_name -> emptydea.game_control.resources_control.SlotLocation
+	52, // 20: emptydea.game_control.game_interface.MoveItemOperation.Source:type_name -> emptydea.game_control.resources_control.SlotLocation
+	52, // 21: emptydea.game_control.game_interface.MoveItemOperation.Destination:type_name -> emptydea.game_control.resources_control.SlotLocation
+	52, // 22: emptydea.game_control.game_interface.SwapItemOperation.Source:type_name -> emptydea.game_control.resources_control.SlotLocation
+	52, // 23: emptydea.game_control.game_interface.SwapItemOperation.Destination:type_name -> emptydea.game_control.resources_control.SlotLocation
+	52, // 24: emptydea.game_control.game_interface.DropItemOperation.Slot:type_name -> emptydea.game_control.resources_control.SlotLocation
+	52, // 25: emptydea.game_control.game_interface.GetCreativeItemOperation.Destination:type_name -> emptydea.game_control.resources_control.SlotLocation
+	52, // 26: emptydea.game_control.game_interface.RenameItemOperation.Slot:type_name -> emptydea.game_control.resources_control.SlotLocation
+	52, // 27: emptydea.game_control.game_interface.LoomingOperation.Pattern:type_name -> emptydea.game_control.resources_control.SlotLocation
+	52, // 28: emptydea.game_control.game_interface.LoomingOperation.Banner:type_name -> emptydea.game_control.resources_control.SlotLocation
+	52, // 29: emptydea.game_control.game_interface.LoomingOperation.Dye:type_name -> emptydea.game_control.resources_control.SlotLocation
+	0,  // 30: emptydea.game_control.game_interface.LoomingOperation.ResultItem:type_name -> emptydea.game_control.game_interface.ExpectedNewItem
+	0,  // 31: emptydea.game_control.game_interface.LoomingFromInventoryOperation.ResultItem:type_name -> emptydea.game_control.game_interface.ExpectedNewItem
+	0,  // 32: emptydea.game_control.game_interface.CraftingOperation.ResultItem:type_name -> emptydea.game_control.game_interface.ExpectedNewItem
+	52, // 33: emptydea.game_control.game_interface.TrimmingOperation.Input:type_name -> emptydea.game_control.resources_control.SlotLocation
+	52, // 34: emptydea.game_control.game_interface.TrimmingOperation.Material:type_name -> emptydea.game_control.resources_control.SlotLocation
+	52, // 35: emptydea.game_control.game_interface.TrimmingOperation.Template:type_name -> emptydea.game_control.resources_control.SlotLocation
+	0,  // 36: emptydea.game_control.game_interface.TrimmingOperation.ResultItem:type_name -> emptydea.game_control.game_interface.ExpectedNewItem
+	0,  // 37: emptydea.game_control.game_interface.TrimmingFromInventoryOperation.ResultItem:type_name -> emptydea.game_control.game_interface.ExpectedNewItem
+	52, // 38: emptydea.game_control.game_interface.BeaconPaymentOperation.Payment:type_name -> emptydea.game_control.resources_control.SlotLocation
+	21, // 39: emptydea.game_control.game_interface.ItemStackOperation.MoveItem:type_name -> emptydea.game_control.game_interface.MoveItemOperation
+	22, // 40: emptydea.game_control.game_interface.ItemStackOperation.MoveBetweenInventory:type_name -> emptydea.game_control.game_interface.MoveBetweenInventoryOperation
+	23, // 41: emptydea.game_control.game_interface.ItemStackOperation.MoveBetweenContainer:type_name -> emptydea.game_control.game_interface.MoveBetweenContainerOperation
+	24, // 42: emptydea.game_control.game_interface.ItemStackOperation.MoveToContainer:type_name -> emptydea.game_control.game_interface.MoveToContainerOperation
+	25, // 43: emptydea.game_control.game_interface.ItemStackOperation.MoveToInventory:type_name -> emptydea.game_control.game_interface.MoveToInventoryOperation
+	26, // 44: emptydea.game_control.game_interface.ItemStackOperation.MoveToCraftingTable:type_name -> emptydea.game_control.game_interface.MoveToCraftingTableOperation
+	27, // 45: emptydea.game_control.game_interface.ItemStackOperation.MoveFromCraftingTable:type_name -> emptydea.game_control.game_interface.MoveFromCraftingTableOperation
+	28, // 46: emptydea.game_control.game_interface.ItemStackOperation.SwapItem:type_name -> emptydea.game_control.game_interface.SwapItemOperation
+	29, // 47: emptydea.game_control.game_interface.ItemStackOperation.SwapBetweenInventory:type_name -> emptydea.game_control.game_interface.SwapBetweenInventoryOperation
+	30, // 48: emptydea.game_control.game_interface.ItemStackOperation.SwapInventoryBetweenContainer:type_name -> emptydea.game_control.game_interface.SwapInventoryBetweenContainerOperation
+	31, // 49: emptydea.game_control.game_interface.ItemStackOperation.DropItem:type_name -> emptydea.game_control.game_interface.DropItemOperation
+	32, // 50: emptydea.game_control.game_interface.ItemStackOperation.DropInventoryItem:type_name -> emptydea.game_control.game_interface.DropInventoryItemOperation
+	33, // 51: emptydea.game_control.game_interface.ItemStackOperation.DropContainerItem:type_name -> emptydea.game_control.game_interface.DropContainerItemOperation
+	34, // 52: emptydea.game_control.game_interface.ItemStackOperation.GetCreativeItem:type_name -> emptydea.game_control.game_interface.GetCreativeItemOperation
+	35, // 53: emptydea.game_control.game_interface.ItemStackOperation.GetCreativeItemToInventory:type_name -> emptydea.game_control.game_interface.GetCreativeItemToInventoryOperation
+	36, // 54: emptydea.game_control.game_interface.ItemStackOperation.RenameItem:type_name -> emptydea.game_control.game_interface.RenameItemOperation
+	37, // 55: emptydea.game_control.game_interface.ItemStackOperation.RenameInventoryItem:type_name -> emptydea.game_control.game_interface.RenameInventoryItemOperation
+	38, // 56: emptydea.game_control.game_interface.ItemStackOperation.Looming:type_name -> emptydea.game_control.game_interface.LoomingOperation
+	39, // 57: emptydea.game_control.game_interface.ItemStackOperation.LoomingFromInventory:type_name -> emptydea.game_control.game_interface.LoomingFromInventoryOperation
+	40, // 58: emptydea.game_control.game_interface.ItemStackOperation.Crafting:type_name -> emptydea.game_control.game_interface.CraftingOperation
+	41, // 59: emptydea.game_control.game_interface.ItemStackOperation.Trimming:type_name -> emptydea.game_control.game_interface.TrimmingOperation
+	42, // 60: emptydea.game_control.game_interface.ItemStackOperation.TrimmingFromInventory:type_name -> emptydea.game_control.game_interface.TrimmingFromInventoryOperation
+	43, // 61: emptydea.game_control.game_interface.ItemStackOperation.BeaconPayment:type_name -> emptydea.game_control.game_interface.BeaconPaymentOperation
+	44, // 62: emptydea.game_control.game_interface.ItemStackOperation.BeaconPaymentFromInventory:type_name -> emptydea.game_control.game_interface.BeaconPaymentFromInventoryOperation
+	45, // 63: emptydea.game_control.game_interface.CommitItemStackOperationsRequest.Operations:type_name -> emptydea.game_control.game_interface.ItemStackOperation
+	53, // 64: emptydea.game_control.game_interface.CommitTransactionResponse.Responses:type_name -> mousetunnel.minecraft.protocol.item_stack.ItemStackResponse
+	54, // 65: emptydea.game_control.game_interface.CommitTransactionResponse.Operations:type_name -> mousetunnel.minecraft.protocol.item.ItemInstance
+	55, // 66: emptydea.game_control.game_interface.CommitTransactionResponse.Packet:type_name -> mousetunnel.minecraft.protocol.packet.item_stack_request.ItemStackRequest
+	56, // 67: emptydea.game_control.game_interface.ItemNewNBTData.NBTDataEntry.value:type_name -> google.protobuf.Value
+	5,  // 68: emptydea.game_control.game_interface.ItemStackTransactionService.OpenTransaction:input_type -> emptydea.game_control.game_interface.OpenTransactionRequest
+	9,  // 69: emptydea.game_control.game_interface.ItemStackTransactionService.MoveItem:input_type -> emptydea.game_control.game_interface.MoveItemRequest
+	10, // 70: emptydea.game_control.game_interface.ItemStackTransactionService.MoveBetweenInventory:input_type -> emptydea.game_control.game_interface.MoveBySlotRequest
+	10, // 71: emptydea.game_control.game_interface.ItemStackTransactionService.MoveBetweenContainer:input_type -> emptydea.game_control.game_interface.MoveBySlotRequest
+	10, // 72: emptydea.game_control.game_interface.ItemStackTransactionService.MoveToContainer:input_type -> emptydea.game_control.game_interface.MoveBySlotRequest
+	10, // 73: emptydea.game_control.game_interface.ItemStackTransactionService.MoveToInventory:input_type -> emptydea.game_control.game_interface.MoveBySlotRequest
+	10, // 74: emptydea.game_control.game_interface.ItemStackTransactionService.MoveToCraftingTable:input_type -> emptydea.game_control.game_interface.MoveBySlotRequest
+	10, // 75: emptydea.game_control.game_interface.ItemStackTransactionService.MoveFromCraftingTable:input_type -> emptydea.game_control.game_interface.MoveBySlotRequest
+	9,  // 76: emptydea.game_control.game_interface.ItemStackTransactionService.SwapItem:input_type -> emptydea.game_control.game_interface.MoveItemRequest
+	10, // 77: emptydea.game_control.game_interface.ItemStackTransactionService.SwapBetweenInventory:input_type -> emptydea.game_control.game_interface.MoveBySlotRequest
+	10, // 78: emptydea.game_control.game_interface.ItemStackTransactionService.SwapInventoryBetweenContainer:input_type -> emptydea.game_control.game_interface.MoveBySlotRequest
+	11, // 79: emptydea.game_control.game_interface.ItemStackTransactionService.DropItem:input_type -> emptydea.game_control.game_interface.DropItemRequest
+	12, // 80: emptydea.game_control.game_interface.ItemStackTransactionService.DropInventoryItem:input_type -> emptydea.game_control.game_interface.DropSlotRequest
+	12, // 81: emptydea.game_control.game_interface.ItemStackTransactionService.DropContainerItem:input_type -> emptydea.game_control.game_interface.DropSlotRequest
+	13, // 82: emptydea.game_control.game_interface.ItemStackTransactionService.GetCreativeItem:input_type -> emptydea.game_control.game_interface.CreativeItemRequest
+	13, // 83: emptydea.game_control.game_interface.ItemStackTransactionService.GetCreativeItemToInventory:input_type -> emptydea.game_control.game_interface.CreativeItemRequest
+	14, // 84: emptydea.game_control.game_interface.ItemStackTransactionService.RenameItem:input_type -> emptydea.game_control.game_interface.RenameItemRequest
+	15, // 85: emptydea.game_control.game_interface.ItemStackTransactionService.RenameInventoryItem:input_type -> emptydea.game_control.game_interface.RenameSlotRequest
+	16, // 86: emptydea.game_control.game_interface.ItemStackTransactionService.Looming:input_type -> emptydea.game_control.game_interface.LoomingRequest
+	16, // 87: emptydea.game_control.game_interface.ItemStackTransactionService.LoomingFromInventory:input_type -> emptydea.game_control.game_interface.LoomingRequest
+	17, // 88: emptydea.game_control.game_interface.ItemStackTransactionService.Crafting:input_type -> emptydea.game_control.game_interface.CraftingRequest
+	18, // 89: emptydea.game_control.game_interface.ItemStackTransactionService.Trimming:input_type -> emptydea.game_control.game_interface.TrimmingRequest
+	18, // 90: emptydea.game_control.game_interface.ItemStackTransactionService.TrimmingFromInventory:input_type -> emptydea.game_control.game_interface.TrimmingRequest
+	19, // 91: emptydea.game_control.game_interface.ItemStackTransactionService.BeaconPayment:input_type -> emptydea.game_control.game_interface.BeaconPaymentRequest
+	20, // 92: emptydea.game_control.game_interface.ItemStackTransactionService.BeaconPaymentFromInventory:input_type -> emptydea.game_control.game_interface.BeaconPaymentSlotRequest
+	47, // 93: emptydea.game_control.game_interface.ItemStackTransactionService.CommitTransaction:input_type -> emptydea.game_control.game_interface.CommitTransactionRequest
+	46, // 94: emptydea.game_control.game_interface.ItemStackTransactionService.CommitItemStackOperations:input_type -> emptydea.game_control.game_interface.CommitItemStackOperationsRequest
+	49, // 95: emptydea.game_control.game_interface.ItemStackTransactionService.DiscardTransaction:input_type -> emptydea.game_control.game_interface.DiscardTransactionRequest
+	6,  // 96: emptydea.game_control.game_interface.ItemStackTransactionService.OpenTransaction:output_type -> emptydea.game_control.game_interface.OpenTransactionResponse
+	8,  // 97: emptydea.game_control.game_interface.ItemStackTransactionService.MoveItem:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
+	8,  // 98: emptydea.game_control.game_interface.ItemStackTransactionService.MoveBetweenInventory:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
+	8,  // 99: emptydea.game_control.game_interface.ItemStackTransactionService.MoveBetweenContainer:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
+	8,  // 100: emptydea.game_control.game_interface.ItemStackTransactionService.MoveToContainer:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
+	8,  // 101: emptydea.game_control.game_interface.ItemStackTransactionService.MoveToInventory:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
+	8,  // 102: emptydea.game_control.game_interface.ItemStackTransactionService.MoveToCraftingTable:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
+	8,  // 103: emptydea.game_control.game_interface.ItemStackTransactionService.MoveFromCraftingTable:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
+	8,  // 104: emptydea.game_control.game_interface.ItemStackTransactionService.SwapItem:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
+	8,  // 105: emptydea.game_control.game_interface.ItemStackTransactionService.SwapBetweenInventory:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
+	8,  // 106: emptydea.game_control.game_interface.ItemStackTransactionService.SwapInventoryBetweenContainer:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
+	8,  // 107: emptydea.game_control.game_interface.ItemStackTransactionService.DropItem:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
+	8,  // 108: emptydea.game_control.game_interface.ItemStackTransactionService.DropInventoryItem:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
+	8,  // 109: emptydea.game_control.game_interface.ItemStackTransactionService.DropContainerItem:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
+	8,  // 110: emptydea.game_control.game_interface.ItemStackTransactionService.GetCreativeItem:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
+	8,  // 111: emptydea.game_control.game_interface.ItemStackTransactionService.GetCreativeItemToInventory:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
+	8,  // 112: emptydea.game_control.game_interface.ItemStackTransactionService.RenameItem:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
+	8,  // 113: emptydea.game_control.game_interface.ItemStackTransactionService.RenameInventoryItem:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
+	8,  // 114: emptydea.game_control.game_interface.ItemStackTransactionService.Looming:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
+	8,  // 115: emptydea.game_control.game_interface.ItemStackTransactionService.LoomingFromInventory:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
+	8,  // 116: emptydea.game_control.game_interface.ItemStackTransactionService.Crafting:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
+	8,  // 117: emptydea.game_control.game_interface.ItemStackTransactionService.Trimming:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
+	8,  // 118: emptydea.game_control.game_interface.ItemStackTransactionService.TrimmingFromInventory:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
+	8,  // 119: emptydea.game_control.game_interface.ItemStackTransactionService.BeaconPayment:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
+	8,  // 120: emptydea.game_control.game_interface.ItemStackTransactionService.BeaconPaymentFromInventory:output_type -> emptydea.game_control.game_interface.TransactionActionResponse
+	48, // 121: emptydea.game_control.game_interface.ItemStackTransactionService.CommitTransaction:output_type -> emptydea.game_control.game_interface.CommitTransactionResponse
+	48, // 122: emptydea.game_control.game_interface.ItemStackTransactionService.CommitItemStackOperations:output_type -> emptydea.game_control.game_interface.CommitTransactionResponse
+	50, // 123: emptydea.game_control.game_interface.ItemStackTransactionService.DiscardTransaction:output_type -> emptydea.game_control.game_interface.DiscardTransactionResponse
+	96, // [96:124] is the sub-list for method output_type
+	68, // [68:96] is the sub-list for method input_type
+	68, // [68:68] is the sub-list for extension type_name
+	68, // [68:68] is the sub-list for extension extendee
+	0,  // [0:68] is the sub-list for field type_name
 }
 
 func init() { file_game_control_game_interface_item_stack_transaction_proto_init() }
@@ -3853,7 +4195,7 @@ func file_game_control_game_interface_item_stack_transaction_proto_init() {
 	if File_game_control_game_interface_item_stack_transaction_proto != nil {
 		return
 	}
-	file_game_control_game_interface_item_stack_transaction_proto_msgTypes[41].OneofWrappers = []any{
+	file_game_control_game_interface_item_stack_transaction_proto_msgTypes[45].OneofWrappers = []any{
 		(*ItemStackOperation_MoveItem)(nil),
 		(*ItemStackOperation_MoveBetweenInventory)(nil),
 		(*ItemStackOperation_MoveBetweenContainer)(nil),
@@ -3876,6 +4218,8 @@ func file_game_control_game_interface_item_stack_transaction_proto_init() {
 		(*ItemStackOperation_Crafting)(nil),
 		(*ItemStackOperation_Trimming)(nil),
 		(*ItemStackOperation_TrimmingFromInventory)(nil),
+		(*ItemStackOperation_BeaconPayment)(nil),
+		(*ItemStackOperation_BeaconPaymentFromInventory)(nil),
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -3883,7 +4227,7 @@ func file_game_control_game_interface_item_stack_transaction_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_game_control_game_interface_item_stack_transaction_proto_rawDesc), len(file_game_control_game_interface_item_stack_transaction_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   48,
+			NumMessages:   52,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
