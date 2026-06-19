@@ -20,19 +20,28 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	PlayerKitService_ListOnlinePlayers_FullMethodName     = "/emptydea.game_control.game_interface.PlayerKitService/ListOnlinePlayers"
-	PlayerKitService_GetPlayerByName_FullMethodName       = "/emptydea.game_control.game_interface.PlayerKitService/GetPlayerByName"
-	PlayerKitService_GetPlayerByUUIDString_FullMethodName = "/emptydea.game_control.game_interface.PlayerKitService/GetPlayerByUUIDString"
-	PlayerKitService_GetPlayerByUniqueID_FullMethodName   = "/emptydea.game_control.game_interface.PlayerKitService/GetPlayerByUniqueID"
-	PlayerKitService_GetPlayerByRuntimeID_FullMethodName  = "/emptydea.game_control.game_interface.PlayerKitService/GetPlayerByRuntimeID"
-	PlayerKitService_SendChat_FullMethodName              = "/emptydea.game_control.game_interface.PlayerKitService/SendChat"
-	PlayerKitService_SendRawChat_FullMethodName           = "/emptydea.game_control.game_interface.PlayerKitService/SendRawChat"
-	PlayerKitService_SendTitle_FullMethodName             = "/emptydea.game_control.game_interface.PlayerKitService/SendTitle"
-	PlayerKitService_SendRawTitle_FullMethodName          = "/emptydea.game_control.game_interface.PlayerKitService/SendRawTitle"
-	PlayerKitService_SendSubTitle_FullMethodName          = "/emptydea.game_control.game_interface.PlayerKitService/SendSubTitle"
-	PlayerKitService_SendRawSubTitle_FullMethodName       = "/emptydea.game_control.game_interface.PlayerKitService/SendRawSubTitle"
-	PlayerKitService_SendActionBar_FullMethodName         = "/emptydea.game_control.game_interface.PlayerKitService/SendActionBar"
-	PlayerKitService_SendRawActionBar_FullMethodName      = "/emptydea.game_control.game_interface.PlayerKitService/SendRawActionBar"
+	PlayerKitService_ListOnlinePlayers_FullMethodName          = "/emptydea.game_control.game_interface.PlayerKitService/ListOnlinePlayers"
+	PlayerKitService_GetPlayerByName_FullMethodName            = "/emptydea.game_control.game_interface.PlayerKitService/GetPlayerByName"
+	PlayerKitService_GetPlayerByUUIDString_FullMethodName      = "/emptydea.game_control.game_interface.PlayerKitService/GetPlayerByUUIDString"
+	PlayerKitService_GetPlayerByUniqueID_FullMethodName        = "/emptydea.game_control.game_interface.PlayerKitService/GetPlayerByUniqueID"
+	PlayerKitService_GetPlayerByRuntimeID_FullMethodName       = "/emptydea.game_control.game_interface.PlayerKitService/GetPlayerByRuntimeID"
+	PlayerKitService_SendChat_FullMethodName                   = "/emptydea.game_control.game_interface.PlayerKitService/SendChat"
+	PlayerKitService_SendRawChat_FullMethodName                = "/emptydea.game_control.game_interface.PlayerKitService/SendRawChat"
+	PlayerKitService_SendTitle_FullMethodName                  = "/emptydea.game_control.game_interface.PlayerKitService/SendTitle"
+	PlayerKitService_SendRawTitle_FullMethodName               = "/emptydea.game_control.game_interface.PlayerKitService/SendRawTitle"
+	PlayerKitService_SendSubTitle_FullMethodName               = "/emptydea.game_control.game_interface.PlayerKitService/SendSubTitle"
+	PlayerKitService_SendRawSubTitle_FullMethodName            = "/emptydea.game_control.game_interface.PlayerKitService/SendRawSubTitle"
+	PlayerKitService_SendActionBar_FullMethodName              = "/emptydea.game_control.game_interface.PlayerKitService/SendActionBar"
+	PlayerKitService_SendRawActionBar_FullMethodName           = "/emptydea.game_control.game_interface.PlayerKitService/SendRawActionBar"
+	PlayerKitService_SetBuildAbility_FullMethodName            = "/emptydea.game_control.game_interface.PlayerKitService/SetBuildAbility"
+	PlayerKitService_SetMineAbility_FullMethodName             = "/emptydea.game_control.game_interface.PlayerKitService/SetMineAbility"
+	PlayerKitService_SetDoorsAndSwitchesAbility_FullMethodName = "/emptydea.game_control.game_interface.PlayerKitService/SetDoorsAndSwitchesAbility"
+	PlayerKitService_SetOpenContainersAbility_FullMethodName   = "/emptydea.game_control.game_interface.PlayerKitService/SetOpenContainersAbility"
+	PlayerKitService_SetAttackPlayersAbility_FullMethodName    = "/emptydea.game_control.game_interface.PlayerKitService/SetAttackPlayersAbility"
+	PlayerKitService_SetAttackMobsAbility_FullMethodName       = "/emptydea.game_control.game_interface.PlayerKitService/SetAttackMobsAbility"
+	PlayerKitService_SetOperatorCommandsAbility_FullMethodName = "/emptydea.game_control.game_interface.PlayerKitService/SetOperatorCommandsAbility"
+	PlayerKitService_SetTeleportAbility_FullMethodName         = "/emptydea.game_control.game_interface.PlayerKitService/SetTeleportAbility"
+	PlayerKitService_CommitAbility_FullMethodName              = "/emptydea.game_control.game_interface.PlayerKitService/CommitAbility"
 )
 
 // PlayerKitServiceClient is the client API for PlayerKitService service.
@@ -67,6 +76,24 @@ type PlayerKitServiceClient interface {
 	SendActionBar(ctx context.Context, in *PlayerActionBarRequest, opts ...grpc.CallOption) (*PlayerActionResponse, error)
 	// SendRawActionBar 向指定玩家发送原始 rawtext actionbar 消息。
 	SendRawActionBar(ctx context.Context, in *PlayerRawActionBarRequest, opts ...grpc.CallOption) (*PlayerActionResponse, error)
+	// SetBuildAbility 暂存玩家是否可以放置方块。
+	SetBuildAbility(ctx context.Context, in *PlayerAbilityRequest, opts ...grpc.CallOption) (*PlayerActionResponse, error)
+	// SetMineAbility 暂存玩家是否可以挖掘方块。
+	SetMineAbility(ctx context.Context, in *PlayerAbilityRequest, opts ...grpc.CallOption) (*PlayerActionResponse, error)
+	// SetDoorsAndSwitchesAbility 暂存玩家是否可以使用门和开关。
+	SetDoorsAndSwitchesAbility(ctx context.Context, in *PlayerAbilityRequest, opts ...grpc.CallOption) (*PlayerActionResponse, error)
+	// SetOpenContainersAbility 暂存玩家是否可以打开容器。
+	SetOpenContainersAbility(ctx context.Context, in *PlayerAbilityRequest, opts ...grpc.CallOption) (*PlayerActionResponse, error)
+	// SetAttackPlayersAbility 暂存玩家是否可以攻击玩家。
+	SetAttackPlayersAbility(ctx context.Context, in *PlayerAbilityRequest, opts ...grpc.CallOption) (*PlayerActionResponse, error)
+	// SetAttackMobsAbility 暂存玩家是否可以攻击生物。
+	SetAttackMobsAbility(ctx context.Context, in *PlayerAbilityRequest, opts ...grpc.CallOption) (*PlayerActionResponse, error)
+	// SetOperatorCommandsAbility 暂存玩家是否可以使用操作员命令。
+	SetOperatorCommandsAbility(ctx context.Context, in *PlayerAbilityRequest, opts ...grpc.CallOption) (*PlayerActionResponse, error)
+	// SetTeleportAbility 暂存玩家是否可以传送。
+	SetTeleportAbility(ctx context.Context, in *PlayerAbilityRequest, opts ...grpc.CallOption) (*PlayerActionResponse, error)
+	// CommitAbility 提交玩家能力变更。
+	CommitAbility(ctx context.Context, in *PlayerCommitAbilityRequest, opts ...grpc.CallOption) (*PlayerActionResponse, error)
 }
 
 type playerKitServiceClient struct {
@@ -207,6 +234,96 @@ func (c *playerKitServiceClient) SendRawActionBar(ctx context.Context, in *Playe
 	return out, nil
 }
 
+func (c *playerKitServiceClient) SetBuildAbility(ctx context.Context, in *PlayerAbilityRequest, opts ...grpc.CallOption) (*PlayerActionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PlayerActionResponse)
+	err := c.cc.Invoke(ctx, PlayerKitService_SetBuildAbility_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playerKitServiceClient) SetMineAbility(ctx context.Context, in *PlayerAbilityRequest, opts ...grpc.CallOption) (*PlayerActionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PlayerActionResponse)
+	err := c.cc.Invoke(ctx, PlayerKitService_SetMineAbility_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playerKitServiceClient) SetDoorsAndSwitchesAbility(ctx context.Context, in *PlayerAbilityRequest, opts ...grpc.CallOption) (*PlayerActionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PlayerActionResponse)
+	err := c.cc.Invoke(ctx, PlayerKitService_SetDoorsAndSwitchesAbility_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playerKitServiceClient) SetOpenContainersAbility(ctx context.Context, in *PlayerAbilityRequest, opts ...grpc.CallOption) (*PlayerActionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PlayerActionResponse)
+	err := c.cc.Invoke(ctx, PlayerKitService_SetOpenContainersAbility_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playerKitServiceClient) SetAttackPlayersAbility(ctx context.Context, in *PlayerAbilityRequest, opts ...grpc.CallOption) (*PlayerActionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PlayerActionResponse)
+	err := c.cc.Invoke(ctx, PlayerKitService_SetAttackPlayersAbility_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playerKitServiceClient) SetAttackMobsAbility(ctx context.Context, in *PlayerAbilityRequest, opts ...grpc.CallOption) (*PlayerActionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PlayerActionResponse)
+	err := c.cc.Invoke(ctx, PlayerKitService_SetAttackMobsAbility_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playerKitServiceClient) SetOperatorCommandsAbility(ctx context.Context, in *PlayerAbilityRequest, opts ...grpc.CallOption) (*PlayerActionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PlayerActionResponse)
+	err := c.cc.Invoke(ctx, PlayerKitService_SetOperatorCommandsAbility_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playerKitServiceClient) SetTeleportAbility(ctx context.Context, in *PlayerAbilityRequest, opts ...grpc.CallOption) (*PlayerActionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PlayerActionResponse)
+	err := c.cc.Invoke(ctx, PlayerKitService_SetTeleportAbility_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *playerKitServiceClient) CommitAbility(ctx context.Context, in *PlayerCommitAbilityRequest, opts ...grpc.CallOption) (*PlayerActionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PlayerActionResponse)
+	err := c.cc.Invoke(ctx, PlayerKitService_CommitAbility_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // PlayerKitServiceServer is the server API for PlayerKitService service.
 // All implementations must embed UnimplementedPlayerKitServiceServer
 // for forward compatibility.
@@ -239,6 +356,24 @@ type PlayerKitServiceServer interface {
 	SendActionBar(context.Context, *PlayerActionBarRequest) (*PlayerActionResponse, error)
 	// SendRawActionBar 向指定玩家发送原始 rawtext actionbar 消息。
 	SendRawActionBar(context.Context, *PlayerRawActionBarRequest) (*PlayerActionResponse, error)
+	// SetBuildAbility 暂存玩家是否可以放置方块。
+	SetBuildAbility(context.Context, *PlayerAbilityRequest) (*PlayerActionResponse, error)
+	// SetMineAbility 暂存玩家是否可以挖掘方块。
+	SetMineAbility(context.Context, *PlayerAbilityRequest) (*PlayerActionResponse, error)
+	// SetDoorsAndSwitchesAbility 暂存玩家是否可以使用门和开关。
+	SetDoorsAndSwitchesAbility(context.Context, *PlayerAbilityRequest) (*PlayerActionResponse, error)
+	// SetOpenContainersAbility 暂存玩家是否可以打开容器。
+	SetOpenContainersAbility(context.Context, *PlayerAbilityRequest) (*PlayerActionResponse, error)
+	// SetAttackPlayersAbility 暂存玩家是否可以攻击玩家。
+	SetAttackPlayersAbility(context.Context, *PlayerAbilityRequest) (*PlayerActionResponse, error)
+	// SetAttackMobsAbility 暂存玩家是否可以攻击生物。
+	SetAttackMobsAbility(context.Context, *PlayerAbilityRequest) (*PlayerActionResponse, error)
+	// SetOperatorCommandsAbility 暂存玩家是否可以使用操作员命令。
+	SetOperatorCommandsAbility(context.Context, *PlayerAbilityRequest) (*PlayerActionResponse, error)
+	// SetTeleportAbility 暂存玩家是否可以传送。
+	SetTeleportAbility(context.Context, *PlayerAbilityRequest) (*PlayerActionResponse, error)
+	// CommitAbility 提交玩家能力变更。
+	CommitAbility(context.Context, *PlayerCommitAbilityRequest) (*PlayerActionResponse, error)
 	mustEmbedUnimplementedPlayerKitServiceServer()
 }
 
@@ -287,6 +422,33 @@ func (UnimplementedPlayerKitServiceServer) SendActionBar(context.Context, *Playe
 }
 func (UnimplementedPlayerKitServiceServer) SendRawActionBar(context.Context, *PlayerRawActionBarRequest) (*PlayerActionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SendRawActionBar not implemented")
+}
+func (UnimplementedPlayerKitServiceServer) SetBuildAbility(context.Context, *PlayerAbilityRequest) (*PlayerActionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SetBuildAbility not implemented")
+}
+func (UnimplementedPlayerKitServiceServer) SetMineAbility(context.Context, *PlayerAbilityRequest) (*PlayerActionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SetMineAbility not implemented")
+}
+func (UnimplementedPlayerKitServiceServer) SetDoorsAndSwitchesAbility(context.Context, *PlayerAbilityRequest) (*PlayerActionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SetDoorsAndSwitchesAbility not implemented")
+}
+func (UnimplementedPlayerKitServiceServer) SetOpenContainersAbility(context.Context, *PlayerAbilityRequest) (*PlayerActionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SetOpenContainersAbility not implemented")
+}
+func (UnimplementedPlayerKitServiceServer) SetAttackPlayersAbility(context.Context, *PlayerAbilityRequest) (*PlayerActionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SetAttackPlayersAbility not implemented")
+}
+func (UnimplementedPlayerKitServiceServer) SetAttackMobsAbility(context.Context, *PlayerAbilityRequest) (*PlayerActionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SetAttackMobsAbility not implemented")
+}
+func (UnimplementedPlayerKitServiceServer) SetOperatorCommandsAbility(context.Context, *PlayerAbilityRequest) (*PlayerActionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SetOperatorCommandsAbility not implemented")
+}
+func (UnimplementedPlayerKitServiceServer) SetTeleportAbility(context.Context, *PlayerAbilityRequest) (*PlayerActionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SetTeleportAbility not implemented")
+}
+func (UnimplementedPlayerKitServiceServer) CommitAbility(context.Context, *PlayerCommitAbilityRequest) (*PlayerActionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CommitAbility not implemented")
 }
 func (UnimplementedPlayerKitServiceServer) mustEmbedUnimplementedPlayerKitServiceServer() {}
 func (UnimplementedPlayerKitServiceServer) testEmbeddedByValue()                          {}
@@ -543,6 +705,168 @@ func _PlayerKitService_SendRawActionBar_Handler(srv interface{}, ctx context.Con
 	return interceptor(ctx, in, info, handler)
 }
 
+func _PlayerKitService_SetBuildAbility_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PlayerAbilityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlayerKitServiceServer).SetBuildAbility(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlayerKitService_SetBuildAbility_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlayerKitServiceServer).SetBuildAbility(ctx, req.(*PlayerAbilityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlayerKitService_SetMineAbility_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PlayerAbilityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlayerKitServiceServer).SetMineAbility(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlayerKitService_SetMineAbility_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlayerKitServiceServer).SetMineAbility(ctx, req.(*PlayerAbilityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlayerKitService_SetDoorsAndSwitchesAbility_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PlayerAbilityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlayerKitServiceServer).SetDoorsAndSwitchesAbility(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlayerKitService_SetDoorsAndSwitchesAbility_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlayerKitServiceServer).SetDoorsAndSwitchesAbility(ctx, req.(*PlayerAbilityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlayerKitService_SetOpenContainersAbility_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PlayerAbilityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlayerKitServiceServer).SetOpenContainersAbility(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlayerKitService_SetOpenContainersAbility_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlayerKitServiceServer).SetOpenContainersAbility(ctx, req.(*PlayerAbilityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlayerKitService_SetAttackPlayersAbility_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PlayerAbilityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlayerKitServiceServer).SetAttackPlayersAbility(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlayerKitService_SetAttackPlayersAbility_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlayerKitServiceServer).SetAttackPlayersAbility(ctx, req.(*PlayerAbilityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlayerKitService_SetAttackMobsAbility_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PlayerAbilityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlayerKitServiceServer).SetAttackMobsAbility(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlayerKitService_SetAttackMobsAbility_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlayerKitServiceServer).SetAttackMobsAbility(ctx, req.(*PlayerAbilityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlayerKitService_SetOperatorCommandsAbility_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PlayerAbilityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlayerKitServiceServer).SetOperatorCommandsAbility(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlayerKitService_SetOperatorCommandsAbility_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlayerKitServiceServer).SetOperatorCommandsAbility(ctx, req.(*PlayerAbilityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlayerKitService_SetTeleportAbility_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PlayerAbilityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlayerKitServiceServer).SetTeleportAbility(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlayerKitService_SetTeleportAbility_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlayerKitServiceServer).SetTeleportAbility(ctx, req.(*PlayerAbilityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _PlayerKitService_CommitAbility_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PlayerCommitAbilityRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PlayerKitServiceServer).CommitAbility(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PlayerKitService_CommitAbility_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PlayerKitServiceServer).CommitAbility(ctx, req.(*PlayerCommitAbilityRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // PlayerKitService_ServiceDesc is the grpc.ServiceDesc for PlayerKitService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -601,6 +925,42 @@ var PlayerKitService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SendRawActionBar",
 			Handler:    _PlayerKitService_SendRawActionBar_Handler,
+		},
+		{
+			MethodName: "SetBuildAbility",
+			Handler:    _PlayerKitService_SetBuildAbility_Handler,
+		},
+		{
+			MethodName: "SetMineAbility",
+			Handler:    _PlayerKitService_SetMineAbility_Handler,
+		},
+		{
+			MethodName: "SetDoorsAndSwitchesAbility",
+			Handler:    _PlayerKitService_SetDoorsAndSwitchesAbility_Handler,
+		},
+		{
+			MethodName: "SetOpenContainersAbility",
+			Handler:    _PlayerKitService_SetOpenContainersAbility_Handler,
+		},
+		{
+			MethodName: "SetAttackPlayersAbility",
+			Handler:    _PlayerKitService_SetAttackPlayersAbility_Handler,
+		},
+		{
+			MethodName: "SetAttackMobsAbility",
+			Handler:    _PlayerKitService_SetAttackMobsAbility_Handler,
+		},
+		{
+			MethodName: "SetOperatorCommandsAbility",
+			Handler:    _PlayerKitService_SetOperatorCommandsAbility_Handler,
+		},
+		{
+			MethodName: "SetTeleportAbility",
+			Handler:    _PlayerKitService_SetTeleportAbility_Handler,
+		},
+		{
+			MethodName: "CommitAbility",
+			Handler:    _PlayerKitService_CommitAbility_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

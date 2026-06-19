@@ -4,6 +4,8 @@ package emptydea.game_control.resources_control;
 
 option go_package = "github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/resources_control;resources_control_pb";
 
+import "packet/packet.proto";
+
 // BotInfo 是当前机器人基础登录信息。
 message BotInfo {
   // BotName 是机器人玩家名。
@@ -19,8 +21,19 @@ message BotInfo {
 // GetBotInfoRequest 是查询机器人基础信息的空请求。
 message GetBotInfoRequest {}
 
+// WritePacketRequest 是写入结构化 Minecraft 数据包的请求。
+message WritePacketRequest {
+  // Packet 是要写入到租赁服连接的数据包。
+  mousetunnel.minecraft.protocol.packet.packet.Packet Packet = 1;
+}
+
+// WritePacketResponse 是写入数据包后的空响应。
+message WritePacketResponse {}
+
 // ResourcesService 查询资源层维护的基础连接信息。
 service ResourcesService {
   // GetBotInfo 返回当前机器人的基础登录信息。
   rpc GetBotInfo(GetBotInfoRequest) returns (BotInfo);
+  // WritePacket 向租赁服连接写入一个结构化数据包。
+  rpc WritePacket(WritePacketRequest) returns (WritePacketResponse);
 }

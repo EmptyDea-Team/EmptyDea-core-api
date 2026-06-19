@@ -19,7 +19,8 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	ResourcesService_GetBotInfo_FullMethodName = "/emptydea.game_control.resources_control.ResourcesService/GetBotInfo"
+	ResourcesService_GetBotInfo_FullMethodName  = "/emptydea.game_control.resources_control.ResourcesService/GetBotInfo"
+	ResourcesService_WritePacket_FullMethodName = "/emptydea.game_control.resources_control.ResourcesService/WritePacket"
 )
 
 // ResourcesServiceClient is the client API for ResourcesService service.
@@ -30,6 +31,8 @@ const (
 type ResourcesServiceClient interface {
 	// GetBotInfo 返回当前机器人的基础登录信息。
 	GetBotInfo(ctx context.Context, in *GetBotInfoRequest, opts ...grpc.CallOption) (*BotInfo, error)
+	// WritePacket 向租赁服连接写入一个结构化数据包。
+	WritePacket(ctx context.Context, in *WritePacketRequest, opts ...grpc.CallOption) (*WritePacketResponse, error)
 }
 
 type resourcesServiceClient struct {
@@ -50,6 +53,16 @@ func (c *resourcesServiceClient) GetBotInfo(ctx context.Context, in *GetBotInfoR
 	return out, nil
 }
 
+func (c *resourcesServiceClient) WritePacket(ctx context.Context, in *WritePacketRequest, opts ...grpc.CallOption) (*WritePacketResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(WritePacketResponse)
+	err := c.cc.Invoke(ctx, ResourcesService_WritePacket_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ResourcesServiceServer is the server API for ResourcesService service.
 // All implementations must embed UnimplementedResourcesServiceServer
 // for forward compatibility.
@@ -58,6 +71,8 @@ func (c *resourcesServiceClient) GetBotInfo(ctx context.Context, in *GetBotInfoR
 type ResourcesServiceServer interface {
 	// GetBotInfo 返回当前机器人的基础登录信息。
 	GetBotInfo(context.Context, *GetBotInfoRequest) (*BotInfo, error)
+	// WritePacket 向租赁服连接写入一个结构化数据包。
+	WritePacket(context.Context, *WritePacketRequest) (*WritePacketResponse, error)
 	mustEmbedUnimplementedResourcesServiceServer()
 }
 
@@ -70,6 +85,9 @@ type UnimplementedResourcesServiceServer struct{}
 
 func (UnimplementedResourcesServiceServer) GetBotInfo(context.Context, *GetBotInfoRequest) (*BotInfo, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetBotInfo not implemented")
+}
+func (UnimplementedResourcesServiceServer) WritePacket(context.Context, *WritePacketRequest) (*WritePacketResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method WritePacket not implemented")
 }
 func (UnimplementedResourcesServiceServer) mustEmbedUnimplementedResourcesServiceServer() {}
 func (UnimplementedResourcesServiceServer) testEmbeddedByValue()                          {}
@@ -110,6 +128,24 @@ func _ResourcesService_GetBotInfo_Handler(srv interface{}, ctx context.Context, 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ResourcesService_WritePacket_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(WritePacketRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ResourcesServiceServer).WritePacket(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: ResourcesService_WritePacket_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ResourcesServiceServer).WritePacket(ctx, req.(*WritePacketRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // ResourcesService_ServiceDesc is the grpc.ServiceDesc for ResourcesService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -120,6 +156,10 @@ var ResourcesService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetBotInfo",
 			Handler:    _ResourcesService_GetBotInfo_Handler,
+		},
+		{
+			MethodName: "WritePacket",
+			Handler:    _ResourcesService_WritePacket_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

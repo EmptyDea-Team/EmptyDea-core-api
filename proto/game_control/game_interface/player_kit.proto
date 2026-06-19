@@ -109,6 +109,20 @@ message PlayerRawActionBarRequest {
   string RawText = 2;
 }
 
+// PlayerAbilityRequest 是设置玩家能力开关的请求。
+message PlayerAbilityRequest {
+  // Player 是目标玩家引用。
+  emptydea.game_control.resources_control.PlayerRef Player = 1;
+  // Allow 表示是否允许对应能力。
+  bool Allow = 2;
+}
+
+// PlayerCommitAbilityRequest 是提交玩家能力变更的请求。
+message PlayerCommitAbilityRequest {
+  // Player 是目标玩家引用。
+  emptydea.game_control.resources_control.PlayerRef Player = 1;
+}
+
 // PlayerActionResponse 是玩家交互后的空响应。
 message PlayerActionResponse {}
 
@@ -141,4 +155,23 @@ service PlayerKitService {
   rpc SendActionBar(PlayerActionBarRequest) returns (PlayerActionResponse);
   // SendRawActionBar 向指定玩家发送原始 rawtext actionbar 消息。
   rpc SendRawActionBar(PlayerRawActionBarRequest) returns (PlayerActionResponse);
+
+  // SetBuildAbility 暂存玩家是否可以放置方块。
+  rpc SetBuildAbility(PlayerAbilityRequest) returns (PlayerActionResponse);
+  // SetMineAbility 暂存玩家是否可以挖掘方块。
+  rpc SetMineAbility(PlayerAbilityRequest) returns (PlayerActionResponse);
+  // SetDoorsAndSwitchesAbility 暂存玩家是否可以使用门和开关。
+  rpc SetDoorsAndSwitchesAbility(PlayerAbilityRequest) returns (PlayerActionResponse);
+  // SetOpenContainersAbility 暂存玩家是否可以打开容器。
+  rpc SetOpenContainersAbility(PlayerAbilityRequest) returns (PlayerActionResponse);
+  // SetAttackPlayersAbility 暂存玩家是否可以攻击玩家。
+  rpc SetAttackPlayersAbility(PlayerAbilityRequest) returns (PlayerActionResponse);
+  // SetAttackMobsAbility 暂存玩家是否可以攻击生物。
+  rpc SetAttackMobsAbility(PlayerAbilityRequest) returns (PlayerActionResponse);
+  // SetOperatorCommandsAbility 暂存玩家是否可以使用操作员命令。
+  rpc SetOperatorCommandsAbility(PlayerAbilityRequest) returns (PlayerActionResponse);
+  // SetTeleportAbility 暂存玩家是否可以传送。
+  rpc SetTeleportAbility(PlayerAbilityRequest) returns (PlayerActionResponse);
+  // CommitAbility 提交玩家能力变更。
+  rpc CommitAbility(PlayerCommitAbilityRequest) returns (PlayerActionResponse);
 }

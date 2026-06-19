@@ -748,6 +748,107 @@ func (x *PlayerRawActionBarRequest) GetRawText() string {
 	return ""
 }
 
+// PlayerAbilityRequest 是设置玩家能力开关的请求。
+type PlayerAbilityRequest struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Player 是目标玩家引用。
+	Player *resources_control.PlayerRef `protobuf:"bytes,1,opt,name=Player,proto3" json:"Player,omitempty"`
+	// Allow 表示是否允许对应能力。
+	Allow         bool `protobuf:"varint,2,opt,name=Allow,proto3" json:"Allow,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PlayerAbilityRequest) Reset() {
+	*x = PlayerAbilityRequest{}
+	mi := &file_game_control_game_interface_player_kit_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PlayerAbilityRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PlayerAbilityRequest) ProtoMessage() {}
+
+func (x *PlayerAbilityRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_game_control_game_interface_player_kit_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PlayerAbilityRequest.ProtoReflect.Descriptor instead.
+func (*PlayerAbilityRequest) Descriptor() ([]byte, []int) {
+	return file_game_control_game_interface_player_kit_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *PlayerAbilityRequest) GetPlayer() *resources_control.PlayerRef {
+	if x != nil {
+		return x.Player
+	}
+	return nil
+}
+
+func (x *PlayerAbilityRequest) GetAllow() bool {
+	if x != nil {
+		return x.Allow
+	}
+	return false
+}
+
+// PlayerCommitAbilityRequest 是提交玩家能力变更的请求。
+type PlayerCommitAbilityRequest struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Player 是目标玩家引用。
+	Player        *resources_control.PlayerRef `protobuf:"bytes,1,opt,name=Player,proto3" json:"Player,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PlayerCommitAbilityRequest) Reset() {
+	*x = PlayerCommitAbilityRequest{}
+	mi := &file_game_control_game_interface_player_kit_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PlayerCommitAbilityRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PlayerCommitAbilityRequest) ProtoMessage() {}
+
+func (x *PlayerCommitAbilityRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_game_control_game_interface_player_kit_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PlayerCommitAbilityRequest.ProtoReflect.Descriptor instead.
+func (*PlayerCommitAbilityRequest) Descriptor() ([]byte, []int) {
+	return file_game_control_game_interface_player_kit_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *PlayerCommitAbilityRequest) GetPlayer() *resources_control.PlayerRef {
+	if x != nil {
+		return x.Player
+	}
+	return nil
+}
+
 // PlayerActionResponse 是玩家交互后的空响应。
 type PlayerActionResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
@@ -757,7 +858,7 @@ type PlayerActionResponse struct {
 
 func (x *PlayerActionResponse) Reset() {
 	*x = PlayerActionResponse{}
-	mi := &file_game_control_game_interface_player_kit_proto_msgTypes[14]
+	mi := &file_game_control_game_interface_player_kit_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -769,7 +870,7 @@ func (x *PlayerActionResponse) String() string {
 func (*PlayerActionResponse) ProtoMessage() {}
 
 func (x *PlayerActionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_game_control_game_interface_player_kit_proto_msgTypes[14]
+	mi := &file_game_control_game_interface_player_kit_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -782,7 +883,7 @@ func (x *PlayerActionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PlayerActionResponse.ProtoReflect.Descriptor instead.
 func (*PlayerActionResponse) Descriptor() ([]byte, []int) {
-	return file_game_control_game_interface_player_kit_proto_rawDescGZIP(), []int{14}
+	return file_game_control_game_interface_player_kit_proto_rawDescGZIP(), []int{16}
 }
 
 var File_game_control_game_interface_player_kit_proto protoreflect.FileDescriptor
@@ -826,8 +927,13 @@ const file_game_control_game_interface_player_kit_proto_rawDesc = "" +
 	"\tActionBar\x18\x02 \x01(\tR\tActionBar\"\x81\x01\n" +
 	"\x19PlayerRawActionBarRequest\x12J\n" +
 	"\x06Player\x18\x01 \x01(\v22.emptydea.game_control.resources_control.PlayerRefR\x06Player\x12\x18\n" +
-	"\aRawText\x18\x02 \x01(\tR\aRawText\"\x16\n" +
-	"\x14PlayerActionResponse2\x9e\x0e\n" +
+	"\aRawText\x18\x02 \x01(\tR\aRawText\"x\n" +
+	"\x14PlayerAbilityRequest\x12J\n" +
+	"\x06Player\x18\x01 \x01(\v22.emptydea.game_control.resources_control.PlayerRefR\x06Player\x12\x14\n" +
+	"\x05Allow\x18\x02 \x01(\bR\x05Allow\"h\n" +
+	"\x1aPlayerCommitAbilityRequest\x12J\n" +
+	"\x06Player\x18\x01 \x01(\v22.emptydea.game_control.resources_control.PlayerRefR\x06Player\"\x16\n" +
+	"\x14PlayerActionResponse2\xbc\x18\n" +
 	"\x10PlayerKitService\x12k\n" +
 	"\x11ListOnlinePlayers\x12\x1c.emptydea.game_control.Empty\x1a8.emptydea.game_control.game_interface.PlayerRefsResponse\x12\x8b\x01\n" +
 	"\x0fGetPlayerByName\x12<.emptydea.game_control.game_interface.GetPlayerByNameRequest\x1a:.emptydea.game_control.game_interface.PlayerLookupResponse\x12\x91\x01\n" +
@@ -841,7 +947,16 @@ const file_game_control_game_interface_player_kit_proto_rawDesc = "" +
 	"\fSendSubTitle\x12;.emptydea.game_control.game_interface.PlayerSubTitleRequest\x1a:.emptydea.game_control.game_interface.PlayerActionResponse\x12\x8d\x01\n" +
 	"\x0fSendRawSubTitle\x12>.emptydea.game_control.game_interface.PlayerRawSubTitleRequest\x1a:.emptydea.game_control.game_interface.PlayerActionResponse\x12\x89\x01\n" +
 	"\rSendActionBar\x12<.emptydea.game_control.game_interface.PlayerActionBarRequest\x1a:.emptydea.game_control.game_interface.PlayerActionResponse\x12\x8f\x01\n" +
-	"\x10SendRawActionBar\x12?.emptydea.game_control.game_interface.PlayerRawActionBarRequest\x1a:.emptydea.game_control.game_interface.PlayerActionResponseB]Z[github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pbb\x06proto3"
+	"\x10SendRawActionBar\x12?.emptydea.game_control.game_interface.PlayerRawActionBarRequest\x1a:.emptydea.game_control.game_interface.PlayerActionResponse\x12\x89\x01\n" +
+	"\x0fSetBuildAbility\x12:.emptydea.game_control.game_interface.PlayerAbilityRequest\x1a:.emptydea.game_control.game_interface.PlayerActionResponse\x12\x88\x01\n" +
+	"\x0eSetMineAbility\x12:.emptydea.game_control.game_interface.PlayerAbilityRequest\x1a:.emptydea.game_control.game_interface.PlayerActionResponse\x12\x94\x01\n" +
+	"\x1aSetDoorsAndSwitchesAbility\x12:.emptydea.game_control.game_interface.PlayerAbilityRequest\x1a:.emptydea.game_control.game_interface.PlayerActionResponse\x12\x92\x01\n" +
+	"\x18SetOpenContainersAbility\x12:.emptydea.game_control.game_interface.PlayerAbilityRequest\x1a:.emptydea.game_control.game_interface.PlayerActionResponse\x12\x91\x01\n" +
+	"\x17SetAttackPlayersAbility\x12:.emptydea.game_control.game_interface.PlayerAbilityRequest\x1a:.emptydea.game_control.game_interface.PlayerActionResponse\x12\x8e\x01\n" +
+	"\x14SetAttackMobsAbility\x12:.emptydea.game_control.game_interface.PlayerAbilityRequest\x1a:.emptydea.game_control.game_interface.PlayerActionResponse\x12\x94\x01\n" +
+	"\x1aSetOperatorCommandsAbility\x12:.emptydea.game_control.game_interface.PlayerAbilityRequest\x1a:.emptydea.game_control.game_interface.PlayerActionResponse\x12\x8c\x01\n" +
+	"\x12SetTeleportAbility\x12:.emptydea.game_control.game_interface.PlayerAbilityRequest\x1a:.emptydea.game_control.game_interface.PlayerActionResponse\x12\x8d\x01\n" +
+	"\rCommitAbility\x12@.emptydea.game_control.game_interface.PlayerCommitAbilityRequest\x1a:.emptydea.game_control.game_interface.PlayerActionResponseB]Z[github.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/game_interface;game_interface_pbb\x06proto3"
 
 var (
 	file_game_control_game_interface_player_kit_proto_rawDescOnce sync.Once
@@ -855,7 +970,7 @@ func file_game_control_game_interface_player_kit_proto_rawDescGZIP() []byte {
 	return file_game_control_game_interface_player_kit_proto_rawDescData
 }
 
-var file_game_control_game_interface_player_kit_proto_msgTypes = make([]protoimpl.MessageInfo, 15)
+var file_game_control_game_interface_player_kit_proto_msgTypes = make([]protoimpl.MessageInfo, 17)
 var file_game_control_game_interface_player_kit_proto_goTypes = []any{
 	(*GetPlayerByNameRequest)(nil),      // 0: emptydea.game_control.game_interface.GetPlayerByNameRequest
 	(*GetPlayerByUUIDRequest)(nil),      // 1: emptydea.game_control.game_interface.GetPlayerByUUIDRequest
@@ -871,52 +986,74 @@ var file_game_control_game_interface_player_kit_proto_goTypes = []any{
 	(*PlayerRawSubTitleRequest)(nil),    // 11: emptydea.game_control.game_interface.PlayerRawSubTitleRequest
 	(*PlayerActionBarRequest)(nil),      // 12: emptydea.game_control.game_interface.PlayerActionBarRequest
 	(*PlayerRawActionBarRequest)(nil),   // 13: emptydea.game_control.game_interface.PlayerRawActionBarRequest
-	(*PlayerActionResponse)(nil),        // 14: emptydea.game_control.game_interface.PlayerActionResponse
-	(*resources_control.PlayerRef)(nil), // 15: emptydea.game_control.resources_control.PlayerRef
-	(*game_control.Empty)(nil),          // 16: emptydea.game_control.Empty
+	(*PlayerAbilityRequest)(nil),        // 14: emptydea.game_control.game_interface.PlayerAbilityRequest
+	(*PlayerCommitAbilityRequest)(nil),  // 15: emptydea.game_control.game_interface.PlayerCommitAbilityRequest
+	(*PlayerActionResponse)(nil),        // 16: emptydea.game_control.game_interface.PlayerActionResponse
+	(*resources_control.PlayerRef)(nil), // 17: emptydea.game_control.resources_control.PlayerRef
+	(*game_control.Empty)(nil),          // 18: emptydea.game_control.Empty
 }
 var file_game_control_game_interface_player_kit_proto_depIdxs = []int32{
-	15, // 0: emptydea.game_control.game_interface.PlayerLookupResponse.Player:type_name -> emptydea.game_control.resources_control.PlayerRef
-	15, // 1: emptydea.game_control.game_interface.PlayerRefsResponse.Players:type_name -> emptydea.game_control.resources_control.PlayerRef
-	15, // 2: emptydea.game_control.game_interface.PlayerChatRequest.Player:type_name -> emptydea.game_control.resources_control.PlayerRef
-	15, // 3: emptydea.game_control.game_interface.PlayerRawChatRequest.Player:type_name -> emptydea.game_control.resources_control.PlayerRef
-	15, // 4: emptydea.game_control.game_interface.PlayerTitleRequest.Player:type_name -> emptydea.game_control.resources_control.PlayerRef
-	15, // 5: emptydea.game_control.game_interface.PlayerRawTitleRequest.Player:type_name -> emptydea.game_control.resources_control.PlayerRef
-	15, // 6: emptydea.game_control.game_interface.PlayerSubTitleRequest.Player:type_name -> emptydea.game_control.resources_control.PlayerRef
-	15, // 7: emptydea.game_control.game_interface.PlayerRawSubTitleRequest.Player:type_name -> emptydea.game_control.resources_control.PlayerRef
-	15, // 8: emptydea.game_control.game_interface.PlayerActionBarRequest.Player:type_name -> emptydea.game_control.resources_control.PlayerRef
-	15, // 9: emptydea.game_control.game_interface.PlayerRawActionBarRequest.Player:type_name -> emptydea.game_control.resources_control.PlayerRef
-	16, // 10: emptydea.game_control.game_interface.PlayerKitService.ListOnlinePlayers:input_type -> emptydea.game_control.Empty
-	0,  // 11: emptydea.game_control.game_interface.PlayerKitService.GetPlayerByName:input_type -> emptydea.game_control.game_interface.GetPlayerByNameRequest
-	1,  // 12: emptydea.game_control.game_interface.PlayerKitService.GetPlayerByUUIDString:input_type -> emptydea.game_control.game_interface.GetPlayerByUUIDRequest
-	2,  // 13: emptydea.game_control.game_interface.PlayerKitService.GetPlayerByUniqueID:input_type -> emptydea.game_control.game_interface.GetPlayerByUniqueIDRequest
-	3,  // 14: emptydea.game_control.game_interface.PlayerKitService.GetPlayerByRuntimeID:input_type -> emptydea.game_control.game_interface.GetPlayerByRuntimeIDRequest
-	6,  // 15: emptydea.game_control.game_interface.PlayerKitService.SendChat:input_type -> emptydea.game_control.game_interface.PlayerChatRequest
-	7,  // 16: emptydea.game_control.game_interface.PlayerKitService.SendRawChat:input_type -> emptydea.game_control.game_interface.PlayerRawChatRequest
-	8,  // 17: emptydea.game_control.game_interface.PlayerKitService.SendTitle:input_type -> emptydea.game_control.game_interface.PlayerTitleRequest
-	9,  // 18: emptydea.game_control.game_interface.PlayerKitService.SendRawTitle:input_type -> emptydea.game_control.game_interface.PlayerRawTitleRequest
-	10, // 19: emptydea.game_control.game_interface.PlayerKitService.SendSubTitle:input_type -> emptydea.game_control.game_interface.PlayerSubTitleRequest
-	11, // 20: emptydea.game_control.game_interface.PlayerKitService.SendRawSubTitle:input_type -> emptydea.game_control.game_interface.PlayerRawSubTitleRequest
-	12, // 21: emptydea.game_control.game_interface.PlayerKitService.SendActionBar:input_type -> emptydea.game_control.game_interface.PlayerActionBarRequest
-	13, // 22: emptydea.game_control.game_interface.PlayerKitService.SendRawActionBar:input_type -> emptydea.game_control.game_interface.PlayerRawActionBarRequest
-	5,  // 23: emptydea.game_control.game_interface.PlayerKitService.ListOnlinePlayers:output_type -> emptydea.game_control.game_interface.PlayerRefsResponse
-	4,  // 24: emptydea.game_control.game_interface.PlayerKitService.GetPlayerByName:output_type -> emptydea.game_control.game_interface.PlayerLookupResponse
-	4,  // 25: emptydea.game_control.game_interface.PlayerKitService.GetPlayerByUUIDString:output_type -> emptydea.game_control.game_interface.PlayerLookupResponse
-	4,  // 26: emptydea.game_control.game_interface.PlayerKitService.GetPlayerByUniqueID:output_type -> emptydea.game_control.game_interface.PlayerLookupResponse
-	4,  // 27: emptydea.game_control.game_interface.PlayerKitService.GetPlayerByRuntimeID:output_type -> emptydea.game_control.game_interface.PlayerLookupResponse
-	14, // 28: emptydea.game_control.game_interface.PlayerKitService.SendChat:output_type -> emptydea.game_control.game_interface.PlayerActionResponse
-	14, // 29: emptydea.game_control.game_interface.PlayerKitService.SendRawChat:output_type -> emptydea.game_control.game_interface.PlayerActionResponse
-	14, // 30: emptydea.game_control.game_interface.PlayerKitService.SendTitle:output_type -> emptydea.game_control.game_interface.PlayerActionResponse
-	14, // 31: emptydea.game_control.game_interface.PlayerKitService.SendRawTitle:output_type -> emptydea.game_control.game_interface.PlayerActionResponse
-	14, // 32: emptydea.game_control.game_interface.PlayerKitService.SendSubTitle:output_type -> emptydea.game_control.game_interface.PlayerActionResponse
-	14, // 33: emptydea.game_control.game_interface.PlayerKitService.SendRawSubTitle:output_type -> emptydea.game_control.game_interface.PlayerActionResponse
-	14, // 34: emptydea.game_control.game_interface.PlayerKitService.SendActionBar:output_type -> emptydea.game_control.game_interface.PlayerActionResponse
-	14, // 35: emptydea.game_control.game_interface.PlayerKitService.SendRawActionBar:output_type -> emptydea.game_control.game_interface.PlayerActionResponse
-	23, // [23:36] is the sub-list for method output_type
-	10, // [10:23] is the sub-list for method input_type
-	10, // [10:10] is the sub-list for extension type_name
-	10, // [10:10] is the sub-list for extension extendee
-	0,  // [0:10] is the sub-list for field type_name
+	17, // 0: emptydea.game_control.game_interface.PlayerLookupResponse.Player:type_name -> emptydea.game_control.resources_control.PlayerRef
+	17, // 1: emptydea.game_control.game_interface.PlayerRefsResponse.Players:type_name -> emptydea.game_control.resources_control.PlayerRef
+	17, // 2: emptydea.game_control.game_interface.PlayerChatRequest.Player:type_name -> emptydea.game_control.resources_control.PlayerRef
+	17, // 3: emptydea.game_control.game_interface.PlayerRawChatRequest.Player:type_name -> emptydea.game_control.resources_control.PlayerRef
+	17, // 4: emptydea.game_control.game_interface.PlayerTitleRequest.Player:type_name -> emptydea.game_control.resources_control.PlayerRef
+	17, // 5: emptydea.game_control.game_interface.PlayerRawTitleRequest.Player:type_name -> emptydea.game_control.resources_control.PlayerRef
+	17, // 6: emptydea.game_control.game_interface.PlayerSubTitleRequest.Player:type_name -> emptydea.game_control.resources_control.PlayerRef
+	17, // 7: emptydea.game_control.game_interface.PlayerRawSubTitleRequest.Player:type_name -> emptydea.game_control.resources_control.PlayerRef
+	17, // 8: emptydea.game_control.game_interface.PlayerActionBarRequest.Player:type_name -> emptydea.game_control.resources_control.PlayerRef
+	17, // 9: emptydea.game_control.game_interface.PlayerRawActionBarRequest.Player:type_name -> emptydea.game_control.resources_control.PlayerRef
+	17, // 10: emptydea.game_control.game_interface.PlayerAbilityRequest.Player:type_name -> emptydea.game_control.resources_control.PlayerRef
+	17, // 11: emptydea.game_control.game_interface.PlayerCommitAbilityRequest.Player:type_name -> emptydea.game_control.resources_control.PlayerRef
+	18, // 12: emptydea.game_control.game_interface.PlayerKitService.ListOnlinePlayers:input_type -> emptydea.game_control.Empty
+	0,  // 13: emptydea.game_control.game_interface.PlayerKitService.GetPlayerByName:input_type -> emptydea.game_control.game_interface.GetPlayerByNameRequest
+	1,  // 14: emptydea.game_control.game_interface.PlayerKitService.GetPlayerByUUIDString:input_type -> emptydea.game_control.game_interface.GetPlayerByUUIDRequest
+	2,  // 15: emptydea.game_control.game_interface.PlayerKitService.GetPlayerByUniqueID:input_type -> emptydea.game_control.game_interface.GetPlayerByUniqueIDRequest
+	3,  // 16: emptydea.game_control.game_interface.PlayerKitService.GetPlayerByRuntimeID:input_type -> emptydea.game_control.game_interface.GetPlayerByRuntimeIDRequest
+	6,  // 17: emptydea.game_control.game_interface.PlayerKitService.SendChat:input_type -> emptydea.game_control.game_interface.PlayerChatRequest
+	7,  // 18: emptydea.game_control.game_interface.PlayerKitService.SendRawChat:input_type -> emptydea.game_control.game_interface.PlayerRawChatRequest
+	8,  // 19: emptydea.game_control.game_interface.PlayerKitService.SendTitle:input_type -> emptydea.game_control.game_interface.PlayerTitleRequest
+	9,  // 20: emptydea.game_control.game_interface.PlayerKitService.SendRawTitle:input_type -> emptydea.game_control.game_interface.PlayerRawTitleRequest
+	10, // 21: emptydea.game_control.game_interface.PlayerKitService.SendSubTitle:input_type -> emptydea.game_control.game_interface.PlayerSubTitleRequest
+	11, // 22: emptydea.game_control.game_interface.PlayerKitService.SendRawSubTitle:input_type -> emptydea.game_control.game_interface.PlayerRawSubTitleRequest
+	12, // 23: emptydea.game_control.game_interface.PlayerKitService.SendActionBar:input_type -> emptydea.game_control.game_interface.PlayerActionBarRequest
+	13, // 24: emptydea.game_control.game_interface.PlayerKitService.SendRawActionBar:input_type -> emptydea.game_control.game_interface.PlayerRawActionBarRequest
+	14, // 25: emptydea.game_control.game_interface.PlayerKitService.SetBuildAbility:input_type -> emptydea.game_control.game_interface.PlayerAbilityRequest
+	14, // 26: emptydea.game_control.game_interface.PlayerKitService.SetMineAbility:input_type -> emptydea.game_control.game_interface.PlayerAbilityRequest
+	14, // 27: emptydea.game_control.game_interface.PlayerKitService.SetDoorsAndSwitchesAbility:input_type -> emptydea.game_control.game_interface.PlayerAbilityRequest
+	14, // 28: emptydea.game_control.game_interface.PlayerKitService.SetOpenContainersAbility:input_type -> emptydea.game_control.game_interface.PlayerAbilityRequest
+	14, // 29: emptydea.game_control.game_interface.PlayerKitService.SetAttackPlayersAbility:input_type -> emptydea.game_control.game_interface.PlayerAbilityRequest
+	14, // 30: emptydea.game_control.game_interface.PlayerKitService.SetAttackMobsAbility:input_type -> emptydea.game_control.game_interface.PlayerAbilityRequest
+	14, // 31: emptydea.game_control.game_interface.PlayerKitService.SetOperatorCommandsAbility:input_type -> emptydea.game_control.game_interface.PlayerAbilityRequest
+	14, // 32: emptydea.game_control.game_interface.PlayerKitService.SetTeleportAbility:input_type -> emptydea.game_control.game_interface.PlayerAbilityRequest
+	15, // 33: emptydea.game_control.game_interface.PlayerKitService.CommitAbility:input_type -> emptydea.game_control.game_interface.PlayerCommitAbilityRequest
+	5,  // 34: emptydea.game_control.game_interface.PlayerKitService.ListOnlinePlayers:output_type -> emptydea.game_control.game_interface.PlayerRefsResponse
+	4,  // 35: emptydea.game_control.game_interface.PlayerKitService.GetPlayerByName:output_type -> emptydea.game_control.game_interface.PlayerLookupResponse
+	4,  // 36: emptydea.game_control.game_interface.PlayerKitService.GetPlayerByUUIDString:output_type -> emptydea.game_control.game_interface.PlayerLookupResponse
+	4,  // 37: emptydea.game_control.game_interface.PlayerKitService.GetPlayerByUniqueID:output_type -> emptydea.game_control.game_interface.PlayerLookupResponse
+	4,  // 38: emptydea.game_control.game_interface.PlayerKitService.GetPlayerByRuntimeID:output_type -> emptydea.game_control.game_interface.PlayerLookupResponse
+	16, // 39: emptydea.game_control.game_interface.PlayerKitService.SendChat:output_type -> emptydea.game_control.game_interface.PlayerActionResponse
+	16, // 40: emptydea.game_control.game_interface.PlayerKitService.SendRawChat:output_type -> emptydea.game_control.game_interface.PlayerActionResponse
+	16, // 41: emptydea.game_control.game_interface.PlayerKitService.SendTitle:output_type -> emptydea.game_control.game_interface.PlayerActionResponse
+	16, // 42: emptydea.game_control.game_interface.PlayerKitService.SendRawTitle:output_type -> emptydea.game_control.game_interface.PlayerActionResponse
+	16, // 43: emptydea.game_control.game_interface.PlayerKitService.SendSubTitle:output_type -> emptydea.game_control.game_interface.PlayerActionResponse
+	16, // 44: emptydea.game_control.game_interface.PlayerKitService.SendRawSubTitle:output_type -> emptydea.game_control.game_interface.PlayerActionResponse
+	16, // 45: emptydea.game_control.game_interface.PlayerKitService.SendActionBar:output_type -> emptydea.game_control.game_interface.PlayerActionResponse
+	16, // 46: emptydea.game_control.game_interface.PlayerKitService.SendRawActionBar:output_type -> emptydea.game_control.game_interface.PlayerActionResponse
+	16, // 47: emptydea.game_control.game_interface.PlayerKitService.SetBuildAbility:output_type -> emptydea.game_control.game_interface.PlayerActionResponse
+	16, // 48: emptydea.game_control.game_interface.PlayerKitService.SetMineAbility:output_type -> emptydea.game_control.game_interface.PlayerActionResponse
+	16, // 49: emptydea.game_control.game_interface.PlayerKitService.SetDoorsAndSwitchesAbility:output_type -> emptydea.game_control.game_interface.PlayerActionResponse
+	16, // 50: emptydea.game_control.game_interface.PlayerKitService.SetOpenContainersAbility:output_type -> emptydea.game_control.game_interface.PlayerActionResponse
+	16, // 51: emptydea.game_control.game_interface.PlayerKitService.SetAttackPlayersAbility:output_type -> emptydea.game_control.game_interface.PlayerActionResponse
+	16, // 52: emptydea.game_control.game_interface.PlayerKitService.SetAttackMobsAbility:output_type -> emptydea.game_control.game_interface.PlayerActionResponse
+	16, // 53: emptydea.game_control.game_interface.PlayerKitService.SetOperatorCommandsAbility:output_type -> emptydea.game_control.game_interface.PlayerActionResponse
+	16, // 54: emptydea.game_control.game_interface.PlayerKitService.SetTeleportAbility:output_type -> emptydea.game_control.game_interface.PlayerActionResponse
+	16, // 55: emptydea.game_control.game_interface.PlayerKitService.CommitAbility:output_type -> emptydea.game_control.game_interface.PlayerActionResponse
+	34, // [34:56] is the sub-list for method output_type
+	12, // [12:34] is the sub-list for method input_type
+	12, // [12:12] is the sub-list for extension type_name
+	12, // [12:12] is the sub-list for extension extendee
+	0,  // [0:12] is the sub-list for field type_name
 }
 
 func init() { file_game_control_game_interface_player_kit_proto_init() }
@@ -930,7 +1067,7 @@ func file_game_control_game_interface_player_kit_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_game_control_game_interface_player_kit_proto_rawDesc), len(file_game_control_game_interface_player_kit_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   15,
+			NumMessages:   17,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

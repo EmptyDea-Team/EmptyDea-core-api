@@ -80,22 +80,28 @@ const (
 	WindowIDEnum_WindowIDInventory WindowIDEnum = 0
 	WindowIDEnum_WindowIDOffHand   WindowIDEnum = 119
 	WindowIDEnum_WindowIDArmour    WindowIDEnum = 120
+	WindowIDEnum_WindowIDDynamic   WindowIDEnum = 125
 	WindowIDEnum_WindowIDUI        WindowIDEnum = 124
+	WindowIDEnum_WindowIDCrafting  WindowIDEnum = 2147483647
 )
 
 // Enum value maps for WindowIDEnum.
 var (
 	WindowIDEnum_name = map[int32]string{
-		0:   "WindowIDInventory",
-		119: "WindowIDOffHand",
-		120: "WindowIDArmour",
-		124: "WindowIDUI",
+		0:          "WindowIDInventory",
+		119:        "WindowIDOffHand",
+		120:        "WindowIDArmour",
+		125:        "WindowIDDynamic",
+		124:        "WindowIDUI",
+		2147483647: "WindowIDCrafting",
 	}
 	WindowIDEnum_value = map[string]int32{
 		"WindowIDInventory": 0,
 		"WindowIDOffHand":   119,
 		"WindowIDArmour":    120,
+		"WindowIDDynamic":   125,
 		"WindowIDUI":        124,
+		"WindowIDCrafting":  2147483647,
 	}
 )
 
@@ -1478,13 +1484,15 @@ const file_inventory_proto_rawDesc = "" +
 	"\x1eInventoryActionSourceContainer\x10\x00\x12\x1e\n" +
 	"\x1aInventoryActionSourceWorld\x10\x02\x12!\n" +
 	"\x1dInventoryActionSourceCreative\x10\x03\x12\x1f\n" +
-	"\x19InventoryActionSourceTODO\x10\x9f\x8d\x06*^\n" +
+	"\x19InventoryActionSourceTODO\x10\x9f\x8d\x06*\x8d\x01\n" +
 	"\fWindowIDEnum\x12\x15\n" +
 	"\x11WindowIDInventory\x10\x00\x12\x13\n" +
 	"\x0fWindowIDOffHand\x10w\x12\x12\n" +
-	"\x0eWindowIDArmour\x10x\x12\x0e\n" +
+	"\x0eWindowIDArmour\x10x\x12\x13\n" +
+	"\x0fWindowIDDynamic\x10}\x12\x0e\n" +
 	"\n" +
-	"WindowIDUI\x10|*\xe3\x01\n" +
+	"WindowIDUI\x10|\x12\x18\n" +
+	"\x10WindowIDCrafting\x10\xff\xff\xff\xff\a*\xe3\x01\n" +
 	"\x1cInventoryTransactionTypeEnum\x12\"\n" +
 	"\x1eInventoryTransactionTypeNormal\x10\x00\x12$\n" +
 	" InventoryTransactionTypeMismatch\x10\x01\x12#\n" +

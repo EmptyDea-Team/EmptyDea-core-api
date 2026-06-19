@@ -7,6 +7,7 @@
 package resources_control_pb
 
 import (
+	packet "github.com/EmptyDea-Team/EmptyDea-core-api/pb/minecraft/protocol/packet"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -131,20 +132,107 @@ func (*GetBotInfoRequest) Descriptor() ([]byte, []int) {
 	return file_game_control_resources_control_resources_proto_rawDescGZIP(), []int{1}
 }
 
+// WritePacketRequest 是写入结构化 Minecraft 数据包的请求。
+type WritePacketRequest struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Packet 是要写入到租赁服连接的数据包。
+	Packet        *packet.Packet `protobuf:"bytes,1,opt,name=Packet,proto3" json:"Packet,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WritePacketRequest) Reset() {
+	*x = WritePacketRequest{}
+	mi := &file_game_control_resources_control_resources_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WritePacketRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WritePacketRequest) ProtoMessage() {}
+
+func (x *WritePacketRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_game_control_resources_control_resources_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WritePacketRequest.ProtoReflect.Descriptor instead.
+func (*WritePacketRequest) Descriptor() ([]byte, []int) {
+	return file_game_control_resources_control_resources_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *WritePacketRequest) GetPacket() *packet.Packet {
+	if x != nil {
+		return x.Packet
+	}
+	return nil
+}
+
+// WritePacketResponse 是写入数据包后的空响应。
+type WritePacketResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WritePacketResponse) Reset() {
+	*x = WritePacketResponse{}
+	mi := &file_game_control_resources_control_resources_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WritePacketResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WritePacketResponse) ProtoMessage() {}
+
+func (x *WritePacketResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_game_control_resources_control_resources_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WritePacketResponse.ProtoReflect.Descriptor instead.
+func (*WritePacketResponse) Descriptor() ([]byte, []int) {
+	return file_game_control_resources_control_resources_proto_rawDescGZIP(), []int{3}
+}
+
 var File_game_control_resources_control_resources_proto protoreflect.FileDescriptor
 
 const file_game_control_resources_control_resources_proto_rawDesc = "" +
 	"\n" +
-	".game_control/resources_control/resources.proto\x12'emptydea.game_control.resources_control\"\x89\x01\n" +
+	".game_control/resources_control/resources.proto\x12'emptydea.game_control.resources_control\x1a\x13packet/packet.proto\"\x89\x01\n" +
 	"\aBotInfo\x12\x18\n" +
 	"\aBotName\x18\x01 \x01(\tR\aBotName\x12\x12\n" +
 	"\x04XUID\x18\x02 \x01(\tR\x04XUID\x12&\n" +
 	"\x0eEntityUniqueID\x18\x03 \x01(\x03R\x0eEntityUniqueID\x12(\n" +
 	"\x0fEntityRuntimeID\x18\x04 \x01(\x04R\x0fEntityRuntimeID\"\x13\n" +
-	"\x11GetBotInfoRequest2\x8e\x01\n" +
+	"\x11GetBotInfoRequest\"b\n" +
+	"\x12WritePacketRequest\x12L\n" +
+	"\x06Packet\x18\x01 \x01(\v24.mousetunnel.minecraft.protocol.packet.packet.PacketR\x06Packet\"\x15\n" +
+	"\x13WritePacketResponse2\x99\x02\n" +
 	"\x10ResourcesService\x12z\n" +
 	"\n" +
-	"GetBotInfo\x12:.emptydea.game_control.resources_control.GetBotInfoRequest\x1a0.emptydea.game_control.resources_control.BotInfoBcZagithub.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/resources_control;resources_control_pbb\x06proto3"
+	"GetBotInfo\x12:.emptydea.game_control.resources_control.GetBotInfoRequest\x1a0.emptydea.game_control.resources_control.BotInfo\x12\x88\x01\n" +
+	"\vWritePacket\x12;.emptydea.game_control.resources_control.WritePacketRequest\x1a<.emptydea.game_control.resources_control.WritePacketResponseBcZagithub.com/EmptyDea-Team/EmptyDea-core-api/pb/game_control/resources_control;resources_control_pbb\x06proto3"
 
 var (
 	file_game_control_resources_control_resources_proto_rawDescOnce sync.Once
@@ -158,19 +246,25 @@ func file_game_control_resources_control_resources_proto_rawDescGZIP() []byte {
 	return file_game_control_resources_control_resources_proto_rawDescData
 }
 
-var file_game_control_resources_control_resources_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_game_control_resources_control_resources_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_game_control_resources_control_resources_proto_goTypes = []any{
-	(*BotInfo)(nil),           // 0: emptydea.game_control.resources_control.BotInfo
-	(*GetBotInfoRequest)(nil), // 1: emptydea.game_control.resources_control.GetBotInfoRequest
+	(*BotInfo)(nil),             // 0: emptydea.game_control.resources_control.BotInfo
+	(*GetBotInfoRequest)(nil),   // 1: emptydea.game_control.resources_control.GetBotInfoRequest
+	(*WritePacketRequest)(nil),  // 2: emptydea.game_control.resources_control.WritePacketRequest
+	(*WritePacketResponse)(nil), // 3: emptydea.game_control.resources_control.WritePacketResponse
+	(*packet.Packet)(nil),       // 4: mousetunnel.minecraft.protocol.packet.packet.Packet
 }
 var file_game_control_resources_control_resources_proto_depIdxs = []int32{
-	1, // 0: emptydea.game_control.resources_control.ResourcesService.GetBotInfo:input_type -> emptydea.game_control.resources_control.GetBotInfoRequest
-	0, // 1: emptydea.game_control.resources_control.ResourcesService.GetBotInfo:output_type -> emptydea.game_control.resources_control.BotInfo
-	1, // [1:2] is the sub-list for method output_type
-	0, // [0:1] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	4, // 0: emptydea.game_control.resources_control.WritePacketRequest.Packet:type_name -> mousetunnel.minecraft.protocol.packet.packet.Packet
+	1, // 1: emptydea.game_control.resources_control.ResourcesService.GetBotInfo:input_type -> emptydea.game_control.resources_control.GetBotInfoRequest
+	2, // 2: emptydea.game_control.resources_control.ResourcesService.WritePacket:input_type -> emptydea.game_control.resources_control.WritePacketRequest
+	0, // 3: emptydea.game_control.resources_control.ResourcesService.GetBotInfo:output_type -> emptydea.game_control.resources_control.BotInfo
+	3, // 4: emptydea.game_control.resources_control.ResourcesService.WritePacket:output_type -> emptydea.game_control.resources_control.WritePacketResponse
+	3, // [3:5] is the sub-list for method output_type
+	1, // [1:3] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_game_control_resources_control_resources_proto_init() }
@@ -184,7 +278,7 @@ func file_game_control_resources_control_resources_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_game_control_resources_control_resources_proto_rawDesc), len(file_game_control_resources_control_resources_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

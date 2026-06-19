@@ -18,7 +18,9 @@ enum WindowIDEnum {
   WindowIDInventory = 0;
   WindowIDOffHand = 119;
   WindowIDArmour = 120;
+  WindowIDDynamic = 125;
   WindowIDUI = 124;
+  WindowIDCrafting = 2147483647;
 }
 
 enum InventoryTransactionTypeEnum {
@@ -422,4 +424,3 @@ message InventoryTransactionData {
   UseItemOnEntityTransactionData UseItemOnEntity = 5;
   ReleaseItemTransactionData ReleaseItem = 6;
 }
-
