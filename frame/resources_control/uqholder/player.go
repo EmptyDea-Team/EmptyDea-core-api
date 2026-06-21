@@ -8,7 +8,7 @@ import (
 )
 
 // Player 规定玩家状态只读视图能力。
-type Player[PA PlayerAbilities] interface {
+type Player interface {
 	// GetUUIDString 返回玩家 UUID 字符串。
 	GetUUIDString(ctx context.Context) (uuid string, ok bool, err error)
 	// GetName 返回玩家名称。
@@ -50,7 +50,7 @@ type Player[PA PlayerAbilities] interface {
 	// GetTick 返回玩家状态最后更新时间刻。
 	GetTick(ctx context.Context) (tick uint64, ok bool, err error)
 	// GetAbilities 返回玩家权限和能力查询接口。
-	GetAbilities() PA
+	GetAbilities() PlayerAbilities
 	// GetOnline 返回玩家是否在线。
 	GetOnline(ctx context.Context) (online bool, ok bool, err error)
 }

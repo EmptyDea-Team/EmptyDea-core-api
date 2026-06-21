@@ -3,7 +3,7 @@ package uqholder
 import "context"
 
 // World 规定世界状态查询能力。
-type World[GR GameRule] interface {
+type World interface {
 	// GetCurrentTick 返回当前 tick。
 	GetCurrentTick(ctx context.Context) (currentTick int64, ok bool, err error)
 	// GetSyncRatio 返回同步比例。
@@ -21,7 +21,7 @@ type World[GR GameRule] interface {
 	// GetGameRuleNames 返回全部游戏规则名。
 	GetGameRuleNames(ctx context.Context) (names []string, err error)
 	// GetGameRule 按名称返回游戏规则。
-	GetGameRule(ctx context.Context, name string) (gameRule GR, existed bool, err error)
+	GetGameRule(ctx context.Context, name string) (gameRule GameRule, existed bool, err error)
 }
 
 // GameRule 规定游戏规则只读能力。

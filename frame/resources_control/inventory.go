@@ -6,9 +6,9 @@ import (
 )
 
 // Inventories 规定库存集合客户端的标准能力。
-type Inventories[IV Inventory] interface {
+type Inventories interface {
 	// GetInventory 返回指定窗口名对应的库存。
-	GetInventory(ctx context.Context, windowName WindowName) (inventory IV, existed bool, err error)
+	GetInventory(ctx context.Context, windowName WindowName) (inventory Inventory, existed bool, err error)
 	// GetItemStack 返回指定窗口和槽位上的物品堆栈。
 	GetItemStack(ctx context.Context, windowName WindowName, slotID SlotID) (item *protocol_pb.ItemInstance, inventoryExisted bool, err error)
 	// GetAllItemStack 返回指定窗口内的所有物品堆栈。

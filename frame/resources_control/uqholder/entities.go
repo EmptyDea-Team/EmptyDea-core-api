@@ -3,9 +3,9 @@ package uqholder
 import "context"
 
 // Entities 规定实体状态索引查询能力。
-type Entities[E Entity[ME], ME MobEffect] interface {
+type Entities interface {
 	// GetByRuntimeID 按运行时 ID 查询实体。
-	GetByRuntimeID(ctx context.Context, runtimeID uint64) (entity E, existed bool, err error)
+	GetByRuntimeID(ctx context.Context, runtimeID uint64) (entity Entity, existed bool, err error)
 	// GetHealth 按运行时 ID 查询实体生命值。
 	GetHealth(ctx context.Context, runtimeID uint64) (health float32, ok bool, err error)
 	// GetEffectTypes 按运行时 ID 查询实体效果类型。
@@ -13,7 +13,7 @@ type Entities[E Entity[ME], ME MobEffect] interface {
 }
 
 // Entity 规定单个实体状态查询能力。
-type Entity[ME MobEffect] interface {
+type Entity interface {
 	// GetRuntimeID 返回实体运行时 ID。
 	GetRuntimeID(ctx context.Context) (runtimeID uint64, ok bool, err error)
 	// GetUniqueID 返回实体唯一 ID。
@@ -23,7 +23,7 @@ type Entity[ME MobEffect] interface {
 	// GetEffectTypes 返回实体效果类型。
 	GetEffectTypes(ctx context.Context) (effectTypes []int32, existed bool, err error)
 	// GetEffect 返回指定效果类型的药水效果。
-	GetEffect(ctx context.Context, effectType int32) (mobEffect ME, existed bool, err error)
+	GetEffect(ctx context.Context, effectType int32) (mobEffect MobEffect, existed bool, err error)
 }
 
 // MobEffect 规定单个药水效果状态查询能力。
